@@ -1,0 +1,495 @@
+{
+    "entities": [
+        {
+            "name": "surface",
+            "type": "Supporting Structure",
+            "description": "A physical object or location where silk can attach",
+            "attributes": {}
+        },
+        {
+            "name": "RADIAL LINES",
+            "type": "StructuralLines",
+            "description": "The framework lines of a spider's web, spaced at regular intervals to form the basic shape of the web",
+            "attributes": {}
+        },
+        {
+            "name": "Prey",
+            "type": "Organism",
+            "description": "Animals that are caught in the spider\"s web, serving as a food source.",
+            "attributes": {}
+        },
+        {
+            "name": "spiral",
+            "type": "web structure",
+            "description": "Circular silk lines forming part of a spider's web.",
+            "attributes": {}
+        },
+        {
+            "name": "tension",
+            "type": "Mechanical",
+            "description": "The force exerted by the spider on its silk strands to ensure structural integrity and stability.",
+            "attributes": {}
+        },
+        {
+            "name": "strength",
+            "type": "PhysicalProperty",
+            "description": "The capacity of a material to withstand forces without breaking.",
+            "attributes": {}
+        },
+        {
+            "name": "branch",
+            "type": "Natural Object",
+            "description": "A branch is a woody part of a tree or shrub, often used by spiders as an anchor point for their webs.",
+            "attributes": {
+                "Material": "Woody",
+                "Function in Web-Building": "Anchor Point"
+            }
+        },
+        {
+            "name": "line",
+            "type": "Web Component",
+            "description": "A structural element in spider webs used by spiders to build and maintain their web.",
+            "attributes": {}
+        },
+        {
+            "name": "TRAP LINE",
+            "type": "sensory signal",
+            "description": "A thick strand of silk in a spider's web that serves as a signal line, alerting the spider to the presence of prey",
+            "attributes": {}
+        },
+        {
+            "name": "substance",
+            "type": "adhesive substance",
+            "description": "A sticky secretion produced by spiders to help trap prey on their webs.",
+            "attributes": {}
+        },
+        {
+            "name": "molecule",
+            "type": "Protein",
+            "description": "A biomolecule consisting of amino acids.",
+            "attributes": {}
+        },
+        {
+            "name": "location",
+            "type": "habitat",
+            "description": "A chosen area suitable for web-building by spiders.",
+            "attributes": {}
+        },
+        {
+            "name": "mating rituals",
+            "type": "Activity",
+            "description": "Mating rituals are behaviors performed by spiders during the mating process.",
+            "attributes": {}
+        },
+        {
+            "name": "interval",
+            "type": "spacing",
+            "description": "Regularly measured and defined distance",
+            "attributes": {}
+        },
+        {
+            "name": "wall",
+            "type": "Structure",
+            "description": "A wall is a vertical structure, usually solid, that defines and sometimes protects an area. In the context of spider web-building, it can serve as a surface for anchoring silk strands.",
+            "attributes": {
+                "Orientation": "Vertical",
+                "Function": "Defines and Protects Area"
+            }
+        },
+        {
+            "name": "anchor",
+            "type": "Support Structure",
+            "description": "An anchor serves as a point of support from which silk strands are extended to construct a web.",
+            "attributes": {}
+        },
+        {
+            "name": "framework",
+            "type": "Structural Support",
+            "description": "The foundational layout providing support and organization within the web.",
+            "attributes": {}
+        },
+        {
+            "name": "abdomen",
+            "type": "Anatomical Structure",
+            "description": "The abdomen is the posterior part of a spider\"s body, containing specialized glands called spinnerets that produce silk.",
+            "attributes": {
+                "Location in Spider Body": "Posterior",
+                "Function": "Houses Spinnerets for Silk Production"
+            }
+        },
+        {
+            "name": "shape",
+            "type": "Geometric",
+            "description": "The basic form created by evenly spaced radial lines.",
+            "attributes": {}
+        },
+        {
+            "name": "adhesive",
+            "type": "substance",
+            "description": "A sticky adhesive produced by spiders to help trap prey on their webs.",
+            "attributes": {}
+        },
+        {
+            "name": "protein",
+            "type": "Molecule",
+            "description": "A structural and functional component of living organisms.",
+            "attributes": {}
+        },
+        {
+            "name": "web",
+            "type": "Intricate",
+            "description": "A complex and detailed structure built by spiders.",
+            "attributes": {}
+        },
+        {
+            "name": "pattern",
+            "type": "spiral",
+            "description": "Circular movement with silk laying",
+            "attributes": {}
+        },
+        {
+            "name": "structure",
+            "type": "Web",
+            "description": "An intricate network created by spiders as their homes and hunting grounds.",
+            "attributes": {}
+        },
+        {
+            "name": "radial",
+            "type": "Spider Web Component",
+            "description": "The foundational structure providing support and layout for the entire web.",
+            "attributes": {}
+        },
+        {
+            "name": "SPIDERS",
+            "type": "Invertebrates",
+            "description": "Remarkably adaptive creatures known for their intricate web-building skills.",
+            "attributes": {}
+        },
+        {
+            "name": "egg sac creation",
+            "type": "Activity",
+            "description": "Egg sac creation is the process by which spiders create protective structures for their eggs using silk.",
+            "attributes": {}
+        }
+    ],
+    "relations": [
+        [
+            "Spiders",
+            "Create",
+            "Egg Sacs",
+            "Spiders create egg sacs using their silk."
+        ],
+        [
+            "builds",
+            "spider",
+            "undefine",
+            "web"
+        ],
+        [
+            "abdomen",
+            "is_part_of",
+            "abdomen",
+            "The abdomen is part of the abdomen."
+        ],
+        [
+            "prey",
+            "Caught By",
+            "radial lines",
+            "Prey gets caught in the sticky spiral lines of the spider web, which helps immobilize it."
+        ],
+        [
+            "location",
+            "selects",
+            "radial lines",
+            "The location selects radial lines as its method of orientation or navigation."
+        ],
+        [
+            "is_trapped_by",
+            "prey",
+            "undefine",
+            "web"
+        ],
+        [
+            "is_part_of",
+            "radial",
+            "undefine",
+            "web"
+        ],
+        [
+            "framework",
+            "is_supported_by",
+            "structure",
+            "The framework is supported by the structure."
+        ],
+        [
+            "is_followed_by",
+            "pattern",
+            "radial lines",
+            "The pattern of radial lines follows another entity."
+        ],
+        [
+            "is_tested_by",
+            "spider",
+            "strength",
+            "The process of testing strength using a spider-based method or tool."
+        ],
+        [
+            "RADIAL LINES",
+            "defines",
+            "SPIRAL LINES",
+            "Radial lines form the framework on which spiral lines are laid"
+        ],
+        [
+            "is_formed_by",
+            "molecule",
+            "protein",
+            "The process by which protein molecules are formed."
+        ],
+        [
+            "abdomen",
+            "Produced By",
+            "radial lines",
+            "Silk is produced by spiders using specialized glands called spinnerets."
+        ],
+        [
+            "produces",
+            "silk",
+            "radial lines",
+            "The process of producing silk involves creating radial lines on the body of an insect, typically the silk moth, which then uses these lines as a guide to spin its cocoon or web."
+        ],
+        [
+            "WEB-BUILDING",
+            "process-involvement",
+            "TRAP LINE",
+            "The process of web-building includes the placement of a trap line to signal the presence of prey"
+        ],
+        [
+            "is_produced_by",
+            "silk",
+            "radial lines",
+            "The process of producing radial lines involves silk."
+        ],
+        [
+            "Spiders",
+            "Trap",
+            "Prey",
+            "Spiders trap prey using their webs and immobilize it with a bite before wrapping it in silk for later consumption."
+        ],
+        [
+            "WEB-BUILDING",
+            "construction-includes",
+            "SPIRAL LINES",
+            "The process of web-building includes the construction of spiral lines to trap prey"
+        ],
+        [
+            "abdomen",
+            "Used For",
+            "radial lines",
+            "Silk is used by spiders for web building, where they anchor strands of silk to surfaces and test the tension and strength."
+        ],
+        [
+            "WEB-BUILDING",
+            "involvement",
+            "RADIAL LINES",
+            "The process of web-building includes the construction of radial lines as the framework of the web"
+        ],
+        [
+            "WEB-BUILDING",
+            "production",
+            "SILK",
+            "The process of web-building involves the production and use of silk"
+        ],
+        [
+            "SPIRAL LINES",
+            "function",
+            "TRAP LINE",
+            "Spiral lines and the trap line work together to alert the spider to the presence of prey"
+        ],
+        [
+            "Spiders",
+            "Build",
+            "Webs",
+            "Spiders build webs to catch prey and create their living spaces."
+        ],
+        [
+            "is_determined_by",
+            "radial",
+            "shape",
+            "The shape of an object is determined radially."
+        ],
+        [
+            "Spiders",
+            "Produce",
+            "Silk",
+            "Spiders produce silk, a versatile and strong material."
+        ],
+        [
+            "Spiders",
+            "Use",
+            "Web",
+            "Spiders use their webs to detect vibrations, test tension, and make adjustments during the web-building process."
+        ],
+        [
+            "abdomen",
+            "Contains",
+            "abdomen",
+            "The abdomen contains spinnerets, which are specialized glands that produce silk."
+        ],
+        [
+            "abdomen",
+            "Used For",
+            "egg sac creation",
+            "Silk is used by spiders to create egg sacs, providing a safe environment for their eggs."
+        ],
+        [
+            "is_anchored_to",
+            "line",
+            "surface",
+            "The term 'is_anchored_to' describes the relationship where a line ('line') connects or binds to a surface ('surface'), establishing a spatial connection or orientation."
+        ],
+        [
+            "is_composed_of",
+            "protein",
+            "abdomen",
+            "The protein is composed of components within the abdomen."
+        ],
+        [
+            "abdomen",
+            "Part Of",
+            "radial lines",
+            "Spinnerets are a part of the spider\"s anatomy, specifically located at the rear of its abdomen."
+        ],
+        [
+            "abdomen",
+            "Used For",
+            "mating rituals",
+            "Silk is used by spiders in various mating rituals."
+        ],
+        [
+            "framework",
+            "is_formed_by",
+            "radial",
+            "The framework is formed by radial components."
+        ],
+        [
+            "WEB-BUILDING",
+            "process",
+            "SPIDERS",
+            "Spiders are the organisms that engage in the process of web-building"
+        ],
+        [
+            "SPINNERETS",
+            "produce",
+            "SPIDERS",
+            "Spiders use spinnerets to produce silk"
+        ],
+        [
+            "SILK",
+            "production",
+            "SPIDERS",
+            "Spiders produce silk from their spinnerets"
+        ],
+        [
+            "TRAP LINE",
+            "alerts",
+            "SPIDERS",
+            "The trap line alerts spiders to the presence of prey"
+        ],
+        [
+            "anchor",
+            "is_made_of",
+            "abdomen",
+            "The anchor is made of abdomen material."
+        ],
+        [
+            "prey",
+            "Consumed By",
+            "radial lines",
+            "The spider immobilizes and wraps the prey in silk before consuming it."
+        ],
+        [
+            "trap line",
+            "Transmits Vibrations To",
+            "Spider",
+            "The trap line transmits vibrations to the spider, alerting it to the presence of prey."
+        ],
+        [
+            "abdomen",
+            "Produce",
+            "abdomen",
+            "Spinnerets produce silk, which spiders use to construct their webs."
+        ],
+        [
+            "makes_spiral_sticky",
+            "spiral",
+            "substance",
+            "The makes_spiral_sticky process involves manipulating a substance to create a spiral structure that adheres effectively."
+        ],
+        [
+            "trap line",
+            "Part Of",
+            "Spider Web",
+            "The trap line is a component of the spider web, specifically placed during the final step of web-building."
+        ],
+        [
+            "is_constructed_by",
+            "spider",
+            "undefine",
+            "web"
+        ],
+        [
+            "is_part_of",
+            "spiral",
+            "undefine",
+            "web"
+        ],
+        [
+            "is_tested_by",
+            "spider",
+            "tension",
+            "The process of tension being tested by spiders refers to the evaluation or assessment conducted on the strength or durability of tension through experimental methods, often involving spider-related activities or analogies."
+        ],
+        [
+            "prey",
+            "Alerts",
+            "radial lines",
+            "When prey is caught, it causes vibrations in the spider web, alerting the spider to its presence."
+        ],
+        [
+            "wall",
+            "Serves As Surface For",
+            "radial lines",
+            "The wall serves as a surface for spiders to anchor their silk strands when building webs."
+        ],
+        [
+            "branch",
+            "Serves As Anchor For",
+            "Spider\"s Web",
+            "The branch serves as an anchor point for the spider to attach its initial strand of silk when building a web."
+        ],
+        [
+            "abdomen",
+            "Part Of",
+            "radial lines",
+            "The abdomen is a part of the spider\"s body."
+        ],
+        [
+            "defines_spacing_of",
+            "interval",
+            "radial",
+            "undefine"
+        ],
+        [
+            "adhesive",
+            "is_produced_by",
+            "radial lines",
+            "The adhesive is used to produce radial lines."
+        ],
+        [
+            "Spiders",
+            "Use In",
+            "Mating Rituals",
+            "Spiders use their silk in various mating rituals."
+        ]
+    ]
+}

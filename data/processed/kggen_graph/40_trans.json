@@ -1,0 +1,324 @@
+{
+  "entities": [
+    {
+      "name": "science"
+    },
+    {
+      "name": "Maillard reaction"
+    },
+    {
+      "name": "art"
+    },
+    {
+      "name": "fermentation"
+    },
+    {
+      "name": "bakes"
+    },
+    {
+      "name": "chemical process"
+    },
+    {
+      "name": "lower"
+    },
+    {
+      "name": "temperature and humidity"
+    },
+    {
+      "name": "elasticity"
+    },
+    {
+      "name": "quickly"
+    },
+    {
+      "name": "crumb structure"
+    },
+    {
+      "name": "heat"
+    },
+    {
+      "name": "gluten strands"
+    },
+    {
+      "name": "reactions"
+    },
+    {
+      "name": "development"
+    },
+    {
+      "name": "shaped into loaves"
+    },
+    {
+      "name": "flavor"
+    },
+    {
+      "name": "artisanal breads"
+    },
+    {
+      "name": "burn"
+    },
+    {
+      "name": "crisp"
+    },
+    {
+      "name": "blend"
+    },
+    {
+      "name": "knowledge"
+    },
+    {
+      "name": "complex"
+    },
+    {
+      "name": "carbon dioxide gas"
+    },
+    {
+      "name": "gelatinize"
+    },
+    {
+      "name": "new flavor compounds"
+    },
+    {
+      "name": "generations"
+    },
+    {
+      "name": "starches in the flour"
+    },
+    {
+      "name": "temperature"
+    },
+    {
+      "name": "Baking bread"
+    },
+    {
+      "name": "appreciate"
+    },
+    {
+      "name": "ensures"
+    },
+    {
+      "name": "humidity"
+    },
+    {
+      "name": "structure of the bread"
+    },
+    {
+      "name": "conclusion"
+    },
+    {
+      "name": "flour"
+    },
+    {
+      "name": "initial"
+    },
+    {
+      "name": "chemical"
+    },
+    {
+      "name": "salt"
+    },
+    {
+      "name": "firm crust"
+    },
+    {
+      "name": "complex flavors"
+    },
+    {
+      "name": "water"
+    },
+    {
+      "name": "kneading"
+    },
+    {
+      "name": "browning of the crust"
+    },
+    {
+      "name": "causes"
+    },
+    {
+      "name": "gluten"
+    },
+    {
+      "name": "rise further"
+    },
+    {
+      "name": "creates"
+    },
+    {
+      "name": "creating"
+    },
+    {
+      "name": "enjoyed"
+    },
+    {
+      "name": "yeast"
+    },
+    {
+      "name": "necessary"
+    },
+    {
+      "name": "interior"
+    },
+    {
+      "name": "structure"
+    },
+    {
+      "name": "characteristic taste"
+    },
+    {
+      "name": "proteins"
+    },
+    {
+      "name": "simple"
+    },
+    {
+      "name": "understanding"
+    },
+    {
+      "name": "occurs"
+    },
+    {
+      "name": "fascinating"
+    },
+    {
+      "name": "proteins and sugars"
+    }
+  ],
+  "relations": [
+    [
+      "fermentation",
+      "affects",
+      "flavor"
+    ],
+    [
+      "creating",
+      "enjoyed",
+      "generations"
+    ],
+    [
+      "lower",
+      "ensures",
+      "bakes"
+    ],
+    [
+      "carbon dioxide gas",
+      "causes",
+      "rise further"
+    ],
+    [
+      "conclusion",
+      "blend",
+      "fascinating"
+    ],
+    [
+      "flour",
+      "contains",
+      "proteins"
+    ],
+    [
+      "water",
+      "mixes with",
+      "flour"
+    ],
+    [
+      "flour",
+      "combined_with",
+      "water"
+    ],
+    [
+      "reactions",
+      "occurs",
+      "chemical"
+    ],
+    [
+      "understanding",
+      "appreciate",
+      "knowledge"
+    ],
+    [
+      "humidity",
+      "creates",
+      "crisp"
+    ],
+    [
+      "fermentation",
+      "development",
+      "structure"
+    ],
+    [
+      "Maillard reaction",
+      "develops",
+      "complex flavors"
+    ],
+    [
+      "kneading",
+      "develops",
+      "gluten strands"
+    ],
+    [
+      "Maillard reaction",
+      "is responsible for",
+      "browning of the crust"
+    ],
+    [
+      "necessary",
+      "causes",
+      "initial"
+    ],
+    [
+      "gelatinize",
+      "gives",
+      "firm crust"
+    ],
+    [
+      "yeast",
+      "produces",
+      "carbon dioxide gas"
+    ],
+    [
+      "initial",
+      "causes",
+      "quickly"
+    ],
+    [
+      "proteins",
+      "form",
+      "gluten"
+    ],
+    [
+      "new flavor compounds",
+      "give",
+      "characteristic taste"
+    ],
+    [
+      "humidity",
+      "creates",
+      "interior"
+    ],
+    [
+      "gluten strands",
+      "contribute to",
+      "structure"
+    ],
+    [
+      "proteins and sugars",
+      "react at high temperatures",
+      "new flavor compounds"
+    ],
+    [
+      "gluten strands",
+      "contribute to",
+      "elasticity"
+    ],
+    [
+      "gelatinize",
+      "sets",
+      "structure of the bread"
+    ],
+    [
+      "Baking bread",
+      "involves",
+      "chemical process"
+    ]
+  ]
+}

@@ -1,0 +1,309 @@
+{
+  "entities": [
+    {
+      "name": "BROCA'S AREA",
+      "type": "GEO",
+      "description": "A region in the left frontal lobe of the brain crucial for language production and grammatical processing. Damage to this area can result in expressive aphasia, where individuals have difficulty producing coherent speech."
+    },
+    {
+      "name": "WERNICKE'S AREA",
+      "type": "GEO",
+      "description": "A region in the left temporal lobe of the brain responsible for language comprehension and semantic processing. Damage to this area can lead to receptive aphasia, where individuals have difficulty understanding spoken or written language."
+    },
+    {
+      "name": "ANGULAR GYRUS",
+      "type": "GEO",
+      "description": "A brain region that integrates visual and auditory information to support reading and writing, located in the parietal lobe."
+    },
+    {
+      "name": "ARCUATE FASCICULUS",
+      "type": "GEO",
+      "description": "A bundle of nerve fibers connecting the Broca's and Wernicke's areas, facilitating communication between them and supporting language processing."
+    },
+    {
+      "name": "AUDITORY CORTEX",
+      "type": "GEO",
+      "description": "A region in the brain responsible for processing auditory information, including speech sounds, located in the temporal lobe."
+    },
+    {
+      "name": "VISUAL CORTEX",
+      "type": "GEO",
+      "description": "A region in the brain responsible for processing visual information, including written symbols, located in the occipital lobe."
+    },
+    {
+      "name": "FRONTAL LOBE",
+      "type": "GEO",
+      "description": "A major part of the brain involved in motor functions, problem-solving, memory, language, judgment, and impulse control, including the Broca's area and premotor cortex."
+    },
+    {
+      "name": "TEMPORAL LOBE",
+      "type": "GEO",
+      "description": "A region of the brain involved in processing sensory input, including auditory information, and is home to the Wernicke's area."
+    },
+    {
+      "name": "PARIENTAL LOBE",
+      "type": "GEO",
+      "description": "A region of the brain involved in integrating sensory information from various parts of the body, including the angular gyrus which supports reading and writing."
+    },
+    {
+      "name": "PREMOTOR CORTEX",
+      "type": "GEO",
+      "description": "A part of the frontal lobe involved in the planning and execution of movements, including those necessary for speech production."
+    },
+    {
+      "name": "MENTAL LEXICON",
+      "type": "GEO",
+      "description": "A theoretical construct representing the brain's storage of words and their meanings, which is accessed during language production and comprehension."
+    },
+    {
+      "name": "LANGUAGE PROCESSING",
+      "type": "EVENT",
+      "description": "The complex and multifaceted process by which the brain perceives, comprehends, produces, and acquires language, involving multiple brain regions and stages."
+    },
+    {
+      "name": "PERCEPTION",
+      "type": "EVENT",
+      "description": "The first stage of language processing, involving the recognition and decoding of speech sounds or written symbols, primarily in the auditory and visual cortices."
+    },
+    {
+      "name": "COMPREHENSION",
+      "type": "EVENT",
+      "description": "The stage of language processing where the brain makes sense of linguistic input and extracts meaning, involving the integration of phonological, syntactic, and semantic information, primarily in the left hemisphere, including the Broca's area and angular gyrus."
+    },
+    {
+      "name": "PRODUCTION",
+      "type": "EVENT",
+      "description": "The stage of language processing where the brain generates a response in the form of spoken or written language, involving the activation of motor areas in the frontal lobe, such as the Broca's area and premotor cortex."
+    },
+    {
+      "name": "ACQUISITION",
+      "type": "EVENT",
+      "description": "The lifelong process of learning new words, grammatical rules, and language structures, supported by the brain's plasticity, particularly in children."
+    },
+    {
+      "name": "RESEARCHERS",
+      "type": "PERSON",
+      "description": "Researchers are individuals who conduct studies and make significant strides in understanding how the brain processes language."
+    },
+    {
+      "name": "EXPRESSIVE APHASIA",
+      "type": "EVENT",
+      "description": "A condition resulting from damage to the Broca's area, characterized by difficulty in producing coherent speech."
+    },
+    {
+      "name": "RECEPTIVE APHASIA",
+      "type": "EVENT",
+      "description": "A condition resulting from damage to the Wernicke's area, characterized by difficulty in understanding spoken or written language."
+    },
+    {
+      "name": "NEURAL NETWORKS",
+      "type": "GEO",
+      "description": "Complex systems of interconnected neurons that work together to process information in the brain, including those involved in language processing."
+    },
+    {
+      "name": "PHONEMES",
+      "type": "GEO",
+      "description": "The smallest units of sound in a language, which are recognized and decoded during the perception stage of language processing."
+    },
+    {
+      "name": "GRAPHEMES",
+      "type": "GEO",
+      "description": "The smallest units of written symbols in a language, which are recognized and decoded during the perception stage of language processing."
+    },
+    {
+      "name": "LINGUISTIC INPUT",
+      "type": "GEO",
+      "description": "The information that the brain processes during language comprehension, including spoken and written language."
+    },
+    {
+      "name": "GRAMMATICAL RULES",
+      "type": "GEO",
+      "description": "The rules governing the structure of sentences in a language, which are processed by the Broca's area and angular gyrus during comprehension and production."
+    },
+    {
+      "name": "COMMUNICATION DISORDERS",
+      "type": "EVENT",
+      "description": "Conditions that affect the ability to communicate effectively, often related to impairments in language processing."
+    },
+    {
+      "name": "NEUROREHABILITATION",
+      "type": "EVENT",
+      "description": "The process of helping individuals recover from neurological conditions, including those affecting language processing."
+    },
+    {
+      "name": "HUMAN BRAIN",
+      "type": "",
+      "description": ""
+    }
+  ],
+  "relations": [
+    [
+      "BROCA'S AREA",
+      ":has_relation_with",
+      "PRODUCTION",
+      "The Broca's area is crucial for the production stage of language processing, where it helps in generating grammatically correct sentences and controlling the movements of the speech muscles."
+    ],
+    [
+      "BROCA'S AREA",
+      ":has_relation_with",
+      "ARCUATE FASCICULUS",
+      "The arcuate fasciculus connects the Broca's area to the Wernicke's area, facilitating communication between these two regions during language processing."
+    ],
+    [
+      "BROCA'S AREA",
+      ":has_relation_with",
+      "EXPRESSIVE APHASIA",
+      "Damage to the Broca's area can result in expressive aphasia, a condition characterized by difficulty in producing coherent speech."
+    ],
+    [
+      "WERNICKE'S AREA",
+      ":has_relation_with",
+      "COMPREHENSION",
+      "The Wernicke's area is essential for the comprehension stage of language processing, where it helps in understanding the structure and content of a sentence by integrating phonological, syntactic, and semantic information."
+    ],
+    [
+      "WERNICKE'S AREA",
+      ":has_relation_with",
+      "ARCUATE FASCICULUS",
+      "The arcuate fasciculus connects the Wernicke's area to the Broca's area, facilitating communication between these two regions during language processing."
+    ],
+    [
+      "WERNICKE'S AREA",
+      ":has_relation_with",
+      "RECEPTIVE APHASIA",
+      "Damage to the Wernicke's area can lead to receptive aphasia, a condition characterized by difficulty in understanding spoken or written language."
+    ],
+    [
+      "ANGULAR GYRUS",
+      ":has_relation_with",
+      "COMPREHENSION",
+      "The angular gyrus supports the comprehension stage by integrating visual and auditory information, which is crucial for reading and writing."
+    ],
+    [
+      "AUDITORY CORTEX",
+      ":has_relation_with",
+      "PERCEPTION",
+      "The auditory cortex is involved in the perception stage of language processing, where it processes speech sounds and helps in distinguishing between different phonemes."
+    ],
+    [
+      "VISUAL CORTEX",
+      ":has_relation_with",
+      "PERCEPTION",
+      "The visual cortex is involved in the perception stage of language processing, where it processes written symbols and helps in distinguishing between different graphemes."
+    ],
+    [
+      "FRONTAL LOBE",
+      ":has_relation_with",
+      "PRODUCTION",
+      "The frontal lobe, including the Broca's area and premotor cortex, is involved in the production stage of language processing, where it helps in generating spoken or written language."
+    ],
+    [
+      "TEMPORAL LOBE",
+      ":has_relation_with",
+      "COMPREHENSION",
+      "The temporal lobe, including the Wernicke's area, is involved in the comprehension stage of language processing, where it helps in understanding the structure and content of a sentence."
+    ],
+    [
+      "PARIENTAL LOBE",
+      ":has_relation_with",
+      "COMPREHENSION",
+      "The parietal lobe, including the angular gyrus, is involved in the comprehension stage of language processing, where it helps in integrating visual and auditory information for reading and writing."
+    ],
+    [
+      "PREMOTOR CORTEX",
+      ":has_relation_with",
+      "PRODUCTION",
+      "The premotor cortex, located in the frontal lobe, is involved in the production stage of language processing, where it helps in planning and executing the movements necessary for speech production."
+    ],
+    [
+      "MENTAL LEXICON",
+      ":has_relation_with",
+      "PRODUCTION",
+      "The mental lexicon is accessed during the production stage to retrieve words and organize them into grammatically correct sentences.\nThe mental lexicon is accessed during the production stage of language processing to retrieve words and organize them into grammatically correct sentences."
+    ],
+    [
+      "MENTAL LEXICON",
+      ":has_relation_with",
+      "COMPREHENSION",
+      "The mental lexicon is accessed during the comprehension stage of language processing to link words to their meanings and understand the content of a sentence.\nThe mental lexicon is accessed during the comprehension stage to link words to their meanings and understand the content of a sentence."
+    ],
+    [
+      "LANGUAGE PROCESSING",
+      ":has_relation_with",
+      "PERCEPTION",
+      "Language processing involves the perception stage, where the brain recognizes and decodes speech sounds or written symbols."
+    ],
+    [
+      "LANGUAGE PROCESSING",
+      ":has_relation_with",
+      "COMPREHENSION",
+      "Language processing involves the comprehension stage, where the brain makes sense of linguistic input and extracts meaning."
+    ],
+    [
+      "LANGUAGE PROCESSING",
+      ":has_relation_with",
+      "PRODUCTION",
+      "Language processing involves the production stage, where the brain generates a response in the form of spoken or written language."
+    ],
+    [
+      "LANGUAGE PROCESSING",
+      ":has_relation_with",
+      "ACQUISITION",
+      "Language processing involves the acquisition stage, where the brain learns new words, grammatical rules, and language structures throughout life."
+    ],
+    [
+      "LANGUAGE PROCESSING",
+      ":has_relation_with",
+      "HUMAN BRAIN",
+      "The human brain is the central organ responsible for the complex and multifaceted process of language processing, involving multiple stages and regions."
+    ],
+    [
+      "LANGUAGE PROCESSING",
+      ":has_relation_with",
+      "RESEARCHERS",
+      "Researchers have made significant strides in understanding how the brain processes language, contributing to our knowledge of the different stages and regions involved."
+    ],
+    [
+      "LANGUAGE PROCESSING",
+      ":has_relation_with",
+      "NEURAL NETWORKS",
+      "Neural networks in the brain, including those in the Broca's area and Wernicke's area, work together to process language through multiple stages."
+    ],
+    [
+      "LANGUAGE PROCESSING",
+      ":has_relation_with",
+      "COMMUNICATION DISORDERS",
+      "Communication disorders can result from impairments in language processing, affecting the ability to understand or produce language."
+    ],
+    [
+      "LANGUAGE PROCESSING",
+      ":has_relation_with",
+      "NEUROREHABILITATION",
+      "Neurorehabilitation is a process that helps individuals recover from neurological conditions affecting language processing, such as aphasia."
+    ],
+    [
+      "PERCEPTION",
+      ":has_relation_with",
+      "PHONEMES",
+      "Phonemes are the smallest units of sound in a language, which are recognized and decoded during the perception stage of language processing."
+    ],
+    [
+      "PERCEPTION",
+      ":has_relation_with",
+      "GRAPHEMES",
+      "Graphemes are the smallest units of written symbols in a language, which are recognized and decoded during the perception stage of language processing."
+    ],
+    [
+      "COMPREHENSION",
+      ":has_relation_with",
+      "LINGUISTIC INPUT",
+      "Linguistic input, including spoken and written language, is processed during the comprehension stage to extract meaning."
+    ],
+    [
+      "COMPREHENSION",
+      ":has_relation_with",
+      "GRAMMATICAL RULES",
+      "Grammatical rules are processed by the Broca's area and angular gyrus during the comprehension stage to understand the structure of sentences."
+    ]
+  ]
+}

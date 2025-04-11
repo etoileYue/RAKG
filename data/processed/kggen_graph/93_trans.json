@@ -1,0 +1,109 @@
+{
+  "entities": [
+    {
+      "name": "outer space"
+    },
+    {
+      "name": "innovative space habitats"
+    },
+    {
+      "name": "Virgin Galactic"
+    },
+    {
+      "name": "Blue Origin"
+    },
+    {
+      "name": "scientific research"
+    },
+    {
+      "name": "affordable space travel"
+    },
+    {
+      "name": "exploration and adventure"
+    },
+    {
+      "name": "environmental conservation"
+    },
+    {
+      "name": "carbon footprint"
+    },
+    {
+      "name": "Mars"
+    },
+    {
+      "name": "SpaceX"
+    },
+    {
+      "name": "eco-friendly technologies"
+    },
+    {
+      "name": "space tourism"
+    },
+    {
+      "name": "sustainable practices"
+    },
+    {
+      "name": "space tourism industry"
+    },
+    {
+      "name": "technology advances"
+    }
+  ],
+  "relations": [
+    [
+      "eco-friendly technologies",
+      "aim to preserve",
+      "outer space"
+    ],
+    [
+      "space tourism industry",
+      "offers",
+      "exploration and adventure"
+    ],
+    [
+      "space tourism",
+      "requires",
+      "sustainable practices"
+    ],
+    [
+      "space tourism industry",
+      "focuses on",
+      "eco-friendly technologies"
+    ],
+    [
+      "SpaceX",
+      "creating habitats on",
+      "Mars"
+    ],
+    [
+      "eco-friendly technologies",
+      "aim to minimize",
+      "carbon footprint"
+    ],
+    [
+      "sustainable practices",
+      "contributes to",
+      "environmental conservation"
+    ],
+    [
+      "technology advances",
+      "enables",
+      "affordable space travel"
+    ],
+    [
+      "space tourism",
+      "enables",
+      "scientific research"
+    ],
+    [
+      "Blue Origin",
+      "working on reusable rockets and spacecraft with",
+      "SpaceX"
+    ],
+    [
+      "technology advances",
+      "enables",
+      "innovative space habitats"
+    ]
+  ]
+}

@@ -1,0 +1,344 @@
+{
+    "entity1": {
+        "name": "walking",
+        "type": "Transportation Method",
+        "description": "A basic form of human locomotion that involves moving on foot.",
+        "chunkid": "The Development of Transportation Systems3"
+    },
+    "entity2": {
+        "name": "animal-drawn carts",
+        "type": "Transportation Method",
+        "description": "Vehicles pulled by animals, used for transporting goods or people.",
+        "chunkid": "The Development of Transportation Systems3"
+    },
+    "entity3": {
+        "name": "high-speed trains",
+        "type": "Transportation Method",
+        "description": "Modern rail vehicles designed to travel at much higher speeds than conventional trains.",
+        "chunkid": "The Development of Transportation Systems3"
+    },
+    "entity4": {
+        "name": "airplanes",
+        "type": "Transportation Method",
+        "description": "Aircraft capable of sustained flight, used for long-distance and rapid transportation of passengers and cargo.",
+        "chunkid": "The Development of Transportation Systems3"
+    },
+    "entity5": {
+        "name": "walking",
+        "type": "Activity",
+        "description": "The act of moving on foot, one of the earliest forms of transportation used by early humans for travel and survival.",
+        "chunkid": "The Development of Transportation Systems4"
+    },
+    "entity6": {
+        "name": "early humans",
+        "type": "Group",
+        "description": "A term referring to the ancestors of modern humans who lived in prehistoric times, characterized by their use of simple tools and basic forms of social organization.",
+        "chunkid": "The Development of Transportation Systems4"
+    },
+    "entity7": {
+        "name": "horses",
+        "type": "Animal",
+        "description": "A domesticated ungulate mammal used for riding, racing, and carrying goods.",
+        "chunkid": "The Development of Transportation Systems5"
+    },
+    "entity8": {
+        "name": "camels",
+        "type": "Animal",
+        "description": "A large even-toed ungulate mammal with long legs, a long neck, and a humped back, used for transport in desert regions.",
+        "chunkid": "The Development of Transportation Systems5"
+    },
+    "entity9": {
+        "name": "oxen",
+        "type": "Animal",
+        "description": "Castrated male cattle, often used as draft animals to pull heavy loads or plow fields.",
+        "chunkid": "The Development of Transportation Systems5"
+    },
+    "entity10": {
+        "name": "wheel",
+        "type": "Invention",
+        "description": "A circular device that revolves on an axle and is used for transportation.",
+        "chunkid": "The Development of Transportation Systems6"
+    },
+    "entity11": {
+        "name": "wheeled carts",
+        "type": "Transportation Device",
+        "description": "Vehicles with wheels designed to carry goods or people, often pulled by animals or humans.",
+        "chunkid": "The Development of Transportation Systems6"
+    },
+    "entity12": {
+        "name": "chariots",
+        "type": "Ancient Vehicle",
+        "description": "Two-wheeled vehicles used in ancient times for warfare and racing, typically drawn by horses.",
+        "chunkid": "The Development of Transportation Systems6"
+    },
+    "entity13": {
+        "name": "sailing ships",
+        "type": "Invention",
+        "description": "A type of vessel that uses wind power to navigate across water, enabling long-distance travel and exploration.",
+        "chunkid": "The Development of Transportation Systems7"
+    },
+    "entity14": {
+        "name": "oceans",
+        "type": "Geographical Feature",
+        "description": "Large bodies of saltwater that cover most of the Earth's surface, connecting different continents and regions.",
+        "chunkid": "The Development of Transportation Systems7"
+    },
+    "entity15": {
+        "name": "Phoenicians",
+        "type": "Ancient Civilization",
+        "description": "An ancient Semitic-speaking people that originated in the Levant and were known for their seafaring and trading skills.",
+        "chunkid": "The Development of Transportation Systems8"
+    },
+    "entity16": {
+        "name": "Greeks",
+        "type": "Ancient Civilization",
+        "description": "The collective term for several ancient ethnic groups of Greece, known for their significant contributions to philosophy, science, and democracy.",
+        "chunkid": "The Development of Transportation Systems8"
+    },
+    "entity17": {
+        "name": "Romans",
+        "type": "Ancient Civilization",
+        "description": "An ancient civilization that originated in the city of Rome and is noted for its vast empire, legal system, and architectural achievements.",
+        "chunkid": "The Development of Transportation Systems8"
+    },
+    "entity18": {
+        "name": "steam engine",
+        "type": "Invention",
+        "description": "A machine that uses steam power to perform mechanical work, invented in the 18th century.",
+        "chunkid": "The Development of Transportation Systems9"
+    },
+    "entity19": {
+        "name": "18th century",
+        "type": "Time Period",
+        "description": "The period from 1701 to 1800, during which significant technological advancements were made.",
+        "chunkid": "The Development of Transportation Systems9"
+    },
+    "entity20": {
+        "name": "Steam-powered locomotives",
+        "type": "Technology",
+        "description": "A type of train that uses steam power for propulsion, revolutionizing land travel in the 19th century.",
+        "chunkid": "The Development of Transportation Systems10"
+    },
+    "entity21": {
+        "name": "steamships",
+        "type": "Technology",
+        "description": "Large ships powered by steam engines, which significantly improved maritime transportation and trade during the Industrial Revolution.",
+        "chunkid": "The Development of Transportation Systems10"
+    },
+    "entity22": {
+        "name": "railway networks",
+        "type": "Infrastructure",
+        "description": "A system of interconnected rail lines used for the transportation of goods and passengers.",
+        "chunkid": "The Development of Transportation Systems11"
+    },
+    "entity23": {
+        "name": "canals",
+        "type": "Infrastructure",
+        "description": "Waterways constructed to facilitate the movement of boats carrying goods or people.",
+        "chunkid": "The Development of Transportation Systems11"
+    },
+    "entity24": {
+        "name": "industries",
+        "type": "Economic Sector",
+        "description": "Sectors of economic activity involved in the production of goods and services.",
+        "chunkid": "The Development of Transportation Systems11"
+    },
+    "entity25": {
+        "name": "urban centers",
+        "type": "Geographic Location",
+        "description": "Densely populated areas characterized by a high concentration of people, buildings, and businesses.",
+        "chunkid": "The Development of Transportation Systems11"
+    },
+    "entity26": {
+        "name": "20th century",
+        "type": "Time Period",
+        "description": "A period of 100 years from the year 1901 to 2000.",
+        "chunkid": "The Development of Transportation Systems12"
+    },
+    "entity27": {
+        "name": "automobiles",
+        "type": "Transportation Mode",
+        "description": "Vehicles designed for transporting passengers or goods on roads, typically powered by an internal combustion engine.",
+        "chunkid": "The Development of Transportation Systems12"
+    },
+    "entity28": {
+        "name": "airplanes",
+        "type": "Transportation Mode",
+        "description": "Aircraft with fixed wings and a powered propulsion system, used for air travel.",
+        "chunkid": "The Development of Transportation Systems12"
+    },
+    "entity29": {
+        "name": "Ford",
+        "type": "Organization",
+        "description": "An American multinational corporation that is one of the leading automakers in the world.",
+        "chunkid": "The Development of Transportation Systems13"
+    },
+    "entity30": {
+        "name": "General Motors",
+        "type": "Organization",
+        "description": "An American multinational corporation and one of the largest automakers globally, known for brands such as Chevrolet, Buick, GMC, and Cadillac.",
+        "chunkid": "The Development of Transportation Systems13"
+    },
+    "entity31": {
+        "name": "commercial aviation",
+        "type": "Industry",
+        "description": "The sector of the aviation industry that involves the transportation of passengers and cargo for profit.",
+        "chunkid": "The Development of Transportation Systems14"
+    },
+    "entity32": {
+        "name": "cities and countries",
+        "type": "Geographical Locations",
+        "description": "Urban centers and nations connected by commercial aviation, facilitating travel and communication over long distances.",
+        "chunkid": "The Development of Transportation Systems14"
+    },
+    "entity33": {
+        "name": "technology",
+        "type": "Concept",
+        "description": "The application of scientific knowledge for practical purposes, especially in industry.",
+        "chunkid": "The Development of Transportation Systems15"
+    },
+    "entity34": {
+        "name": "transportation industry",
+        "type": "Industry",
+        "description": "A sector that deals with the movement of people and goods from one place to another.",
+        "chunkid": "The Development of Transportation Systems15"
+    },
+    "entity35": {
+        "name": "Internet",
+        "type": "Technology",
+        "description": "A global network connecting millions of private, public, academic, business, and government networks.",
+        "chunkid": "The Development of Transportation Systems16"
+    },
+    "entity36": {
+        "name": "Mobile Technology",
+        "type": "Technology",
+        "description": "Technological advancements that enable the use of portable devices such as smartphones and tablets for communication and information access.",
+        "chunkid": "The Development of Transportation Systems16"
+    },
+    "entity37": {
+        "name": "Ride-sharing Services",
+        "type": "Service",
+        "description": "Platforms that connect passengers with drivers who are willing to provide rides, often using personal vehicles.",
+        "chunkid": "The Development of Transportation Systems16"
+    },
+    "entity38": {
+        "name": "Navigation Apps",
+        "type": "Software",
+        "description": "Applications designed to help users find routes and directions for travel by car, foot, or public transport.",
+        "chunkid": "The Development of Transportation Systems16"
+    },
+    "entity39": {
+        "name": "Electric Vehicles",
+        "type": "Product",
+        "description": "Vehicles that run on electric power instead of traditional gasoline engines, contributing to reduced emissions.",
+        "chunkid": "The Development of Transportation Systems16"
+    },
+    "entity40": {
+        "name": "smart cities",
+        "type": "Concept",
+        "description": "A concept referring to urban areas that incorporate information and communication technology (ICT) to enhance the quality and performance of urban services such as energy, transportation, water, and waste management.",
+        "chunkid": "The Development of Transportation Systems17"
+    },
+    "entity41": {
+        "name": "autonomous vehicles",
+        "type": "Technology",
+        "description": "Vehicles that can operate without human input, using sensors and software to navigate and drive safely on roads.",
+        "chunkid": "The Development of Transportation Systems17"
+    },
+    "entity42": {
+        "name": "hyperloop trains",
+        "type": "Technology",
+        "description": "A high-speed transportation system that uses pods traveling through low-pressure tubes.",
+        "chunkid": "The Development of Transportation Systems18"
+    },
+    "entity43": {
+        "name": "drones",
+        "type": "Technology",
+        "description": "Unmanned aerial vehicles used for various purposes including delivery, surveillance, and recreation.",
+        "chunkid": "The Development of Transportation Systems18"
+    },
+    "entity44": {
+        "name": "space travel",
+        "type": "Technology",
+        "description": "The use of spacecraft to travel in outer space, often associated with exploration or commercial activities.",
+        "chunkid": "The Development of Transportation Systems18"
+    },
+    "entity45": {
+        "name": "Hyperloop technology",
+        "type": "Invention",
+        "description": "A high-speed transportation system proposed for moving passengers in pods through vacuum tubes.",
+        "chunkid": "The Development of Transportation Systems19"
+    },
+    "entity46": {
+        "name": "Elon Musk",
+        "type": "Person",
+        "description": "An entrepreneur and business magnate known for founding SpaceX, Tesla, and proposing the Hyperloop concept.",
+        "chunkid": "The Development of Transportation Systems19"
+    },
+    "entity47": {
+        "name": "Drones",
+        "type": "Technology",
+        "description": "Unmanned aerial vehicles used for various applications including delivery and surveying.",
+        "chunkid": "The Development of Transportation Systems20"
+    },
+    "entity48": {
+        "name": "Delivery services",
+        "type": "Service",
+        "description": "A service that involves transporting goods from one place to another, often using specialized vehicles or technology.",
+        "chunkid": "The Development of Transportation Systems20"
+    },
+    "entity49": {
+        "name": "Aerial surveys",
+        "type": "Activity",
+        "description": "The process of collecting data about the earth's surface and features from an aerial perspective, typically using aircraft or drones.",
+        "chunkid": "The Development of Transportation Systems20"
+    },
+    "entity50": {
+        "name": "Infrastructure",
+        "type": "Facility",
+        "description": "The basic physical and organizational structures and facilities needed for the operation of a society or enterprise, such as roads, buildings, and utilities.",
+        "chunkid": "The Development of Transportation Systems20"
+    },
+    "entity51": {
+        "name": "SpaceX",
+        "type": "Organization",
+        "description": "A private American aerospace manufacturer and space transportation services company founded by Elon Musk.",
+        "chunkid": "The Development of Transportation Systems21"
+    },
+    "entity52": {
+        "name": "Blue Origin",
+        "type": "Organization",
+        "description": "An American privately funded aerospace manufacturer and spaceflight services company founded by Jeff Bezos.",
+        "chunkid": "The Development of Transportation Systems21"
+    },
+    "entity53": {
+        "name": "space tourism",
+        "type": "Concept",
+        "description": "The activity of traveling to space for recreational or leisure purposes.",
+        "chunkid": "The Development of Transportation Systems22"
+    },
+    "entity54": {
+        "name": "interplanetary travel",
+        "type": "Concept",
+        "description": "Travel between different planets within a solar system.",
+        "chunkid": "The Development of Transportation Systems22"
+    },
+    "entity55": {
+        "name": "human exploration",
+        "type": "Activity",
+        "description": "The act of humans exploring new or unknown territories, including space and other planets.",
+        "chunkid": "The Development of Transportation Systems22"
+    },
+    "entity56": {
+        "name": "colonization beyond Earth",
+        "type": "Concept",
+        "description": "The process of establishing human settlements on celestial bodies outside the planet Earth.",
+        "chunkid": "The Development of Transportation Systems22"
+    },
+    "entity57": {
+        "name": "transportation systems",
+        "type": "Infrastructure",
+        "description": "A network of facilities and vehicles for the transport of people or goods.",
+        "chunkid": "The Development of Transportation Systems24"
+    }
+}

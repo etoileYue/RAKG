@@ -1,0 +1,128 @@
+{
+  "entities": [
+    {
+      "name": "pollination"
+    },
+    {
+      "name": "habitat loss"
+    },
+    {
+      "name": "pollution"
+    },
+    {
+      "name": "guano"
+    },
+    {
+      "name": "nectar"
+    },
+    {
+      "name": "habitats"
+    },
+    {
+      "name": "maintaining"
+    },
+    {
+      "name": "fruits"
+    },
+    {
+      "name": "seed dispersal"
+    },
+    {
+      "name": "chemical pesticides"
+    },
+    {
+      "name": "resilience"
+    },
+    {
+      "name": "bird populations"
+    },
+    {
+      "name": "health"
+    },
+    {
+      "name": "ecosystem quality"
+    },
+    {
+      "name": "flowers"
+    },
+    {
+      "name": "populations"
+    },
+    {
+      "name": "plants"
+    },
+    {
+      "name": "environmental health"
+    },
+    {
+      "name": "conservation efforts"
+    },
+    {
+      "name": "pollen"
+    },
+    {
+      "name": "ensuring"
+    },
+    {
+      "name": "seeds"
+    },
+    {
+      "name": "ecosystem function"
+    },
+    {
+      "name": "Protecting"
+    },
+    {
+      "name": "soil enrichment"
+    },
+    {
+      "name": "pest control"
+    },
+    {
+      "name": "bird pollinators"
+    },
+    {
+      "name": "nutrient cycling"
+    },
+    {
+      "name": "biodiversity"
+    },
+    {
+      "name": "ecosystem"
+    },
+    {
+      "name": "services"
+    },
+    {
+      "name": "climate change"
+    },
+    {
+      "name": "generations"
+    },
+    {
+      "name": "supporting"
+    }
+  ],
+  "relations": [
+    [
+      "ensuring",
+      "health",
+      "resilience"
+    ],
+    [
+      "resilience",
+      "of",
+      "generations"
+    ],
+    [
+      "supporting",
+      "ecosystem",
+      "services"
+    ],
+    [
+      "Protecting",
+      "populations",
+      "habitats"
+    ]
+  ]
+}

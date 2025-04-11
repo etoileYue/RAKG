@@ -1,0 +1,110 @@
+{
+  "entities": [
+    "cancer",
+    "technology",
+    "Louis Pasteur",
+    "diseases",
+    "Robert Koch",
+    "William Morton",
+    "scientific discoveries",
+    "pharmaceutical industry",
+    "genetic makeup",
+    "advanced medical technologies",
+    "healthcare",
+    "Alexander Fleming",
+    "diabetes",
+    "personalized medicine",
+    "Andreas Vesalius",
+    "surgical techniques",
+    "ancient civilizations",
+    "vaccines",
+    "supernatural causes",
+    "germs",
+    "hypertension",
+    "human anatomy",
+    "antibiotics",
+    "physiology",
+    "X-ray",
+    "germ theory",
+    "CT scans",
+    "penicillin",
+    "antibiotic era",
+    "laparoscopy",
+    "technological innovations",
+    "Wilhelm Roentgen",
+    "artificial intelligence",
+    "bacterial infections",
+    "equity and inclusivity in healthcare delivery",
+    "Renaissance period",
+    "wearable devices",
+    "illnesses",
+    "electronic health records",
+    "19th century",
+    "MRI",
+    "Modern medicine",
+    "Telemedicine",
+    "anesthesia"
+  ],
+  "relations": [
+    [
+      "Wilhelm Roentgen",
+      "invented",
+      "X-ray"
+    ],
+    [
+      "germ theory",
+      "paved the way for",
+      "antibiotics"
+    ],
+    [
+      "Robert Koch",
+      "developed",
+      "germ theory"
+    ],
+    [
+      "Louis Pasteur",
+      "developed",
+      "germ theory"
+    ],
+    [
+      "surgical techniques",
+      "refinement_of",
+      "laparoscopy"
+    ],
+    [
+      "germ theory",
+      "paved the way for",
+      "vaccines"
+    ],
+    [
+      "antibiotic era",
+      "revolutionized",
+      "bacterial infections"
+    ],
+    [
+      "William Morton",
+      "introduced",
+      "anesthesia"
+    ],
+    [
+      "Alexander Fleming",
+      "discoverer_of",
+      "penicillin"
+    ],
+    [
+      "penicillin",
+      "beginning_of",
+      "antibiotic era"
+    ],
+    [
+      "technology",
+      "integrated_into",
+      "healthcare"
+    ],
+    [
+      "pharmaceutical industry",
+      "discovery_of",
+      "penicillin"
+    ]
+  ]
+}

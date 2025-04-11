@@ -1,0 +1,177 @@
+{
+  "entities": [
+    {
+      "name": "emotional depth"
+    },
+    {
+      "name": "Sistine Chapel"
+    },
+    {
+      "name": "Masterpieces"
+    },
+    {
+      "name": "Vincent van Gogh"
+    },
+    {
+      "name": "Baroque period"
+    },
+    {
+      "name": "The Calling of Saint Matthew"
+    },
+    {
+      "name": "Michelangelo"
+    },
+    {
+      "name": "Renaissance man"
+    },
+    {
+      "name": "Vatican"
+    },
+    {
+      "name": "Les Demoiselles d'Avignon"
+    },
+    {
+      "name": "Cubism"
+    },
+    {
+      "name": "Giverny"
+    },
+    {
+      "name": "light and shadow"
+    },
+    {
+      "name": "da Vinci"
+    },
+    {
+      "name": "Claude Monet"
+    },
+    {
+      "name": "Caravaggio"
+    },
+    {
+      "name": "Frida Kahlo"
+    },
+    {
+      "name": "Famous Artists"
+    },
+    {
+      "name": "Pablo Picasso"
+    },
+    {
+      "name": "realism"
+    },
+    {
+      "name": "Impressionists"
+    },
+    {
+      "name": "Leonardo da Vinci"
+    },
+    {
+      "name": "water lilies"
+    },
+    {
+      "name": "Picasso"
+    },
+    {
+      "name": "Modern Art"
+    },
+    {
+      "name": "Renaissance"
+    },
+    {
+      "name": "Mona Lisa"
+    }
+  ],
+  "relations": [
+    [
+      "The Calling of Saint Matthew",
+      "painted_by",
+      "Caravaggio"
+    ],
+    [
+      "Sistine Chapel",
+      "located_in",
+      "Vatican"
+    ],
+    [
+      "da Vinci",
+      "embodies_ideal_of",
+      "Renaissance man"
+    ],
+    [
+      "Caravaggio",
+      "known_for",
+      "light and shadow"
+    ],
+    [
+      "Sistine Chapel",
+      "includes",
+      "Sistine Chapel"
+    ],
+    [
+      "Caravaggio",
+      "characterized_by",
+      "emotional depth"
+    ],
+    [
+      "Caravaggio",
+      "characterized_by",
+      "realism"
+    ],
+    [
+      "Impressionists",
+      "include",
+      "Claude Monet"
+    ],
+    [
+      "Caravaggio",
+      "active_during",
+      "Baroque period"
+    ],
+    [
+      "Famous Artists",
+      "created",
+      "Masterpieces"
+    ],
+    [
+      "Picasso",
+      "pioneer_of",
+      "Cubism"
+    ],
+    [
+      "Michelangelo",
+      "painted_frescoes_on",
+      "Sistine Chapel"
+    ],
+    [
+      "Claude Monet",
+      "lived_in",
+      "Giverny"
+    ],
+    [
+      "Renaissance",
+      "influenced",
+      "Modern Art"
+    ],
+    [
+      "Leonardo da Vinci",
+      "painted",
+      "Mona Lisa"
+    ],
+    [
+      "Claude Monet",
+      "painted",
+      "water lilies"
+    ],
+    [
+      "Picasso",
+      "created",
+      "Les Demoiselles d'Avignon"
+    ],
+    [
+      "Mona Lisa",
+      "painted_by",
+      "da Vinci"
+    ]
+  ]
+}

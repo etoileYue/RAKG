@@ -1,0 +1,176 @@
+{
+  "entities": [
+    {
+      "name": "ALEXANDER FLEMING",
+      "type": "PERSON",
+      "description": "Sir Alexander Fleming, a Scottish bacteriologist, discovered penicillin in 1928 at St. Mary's Hospital in London"
+    },
+    {
+      "name": "ST. MARY'S HOSPITAL",
+      "type": "ORGANIZATION",
+      "description": "St. Mary's Hospital in London, where Alexander Fleming worked and discovered penicillin"
+    },
+    {
+      "name": "LONDON",
+      "type": "GEO",
+      "description": "City in the United Kingdom where St. Mary's Hospital is located"
+    },
+    {
+      "name": "PENICILLIN",
+      "type": "EVENT",
+      "description": "The discovery of penicillin, a significant milestone in the history of medicine, which revolutionized the treatment of bacterial infections"
+    },
+    {
+      "name": "HOWARD FLOREY",
+      "type": "PERSON",
+      "description": "Howard Florey, a scientist who, along with Ernst Chain, successfully purified penicillin in the early 1940s"
+    },
+    {
+      "name": "ERNST CHAIN",
+      "type": "PERSON",
+      "description": "Ernst Chain, a scientist who, along with Howard Florey, successfully purified penicillin in the early 1940s"
+    },
+    {
+      "name": "UNIVERSITY OF OXFORD",
+      "type": "ORGANIZATION",
+      "description": "The University of Oxford, where Howard Florey and Ernst Chain conducted their research on penicillin"
+    },
+    {
+      "name": "WORLD WAR II",
+      "type": "EVENT",
+      "description": "A global war that lasted from 1939 to 1945, during which penicillin played a crucial role in saving lives"
+    },
+    {
+      "name": "STAPHYLOCOCCUS BACTERIA",
+      "type": "ORGANIZATION",
+      "description": "The bacteria that Fleming was researching when he discovered penicillin"
+    },
+    {
+      "name": "PENICILLIUM GENUS",
+      "type": "ORGANIZATION",
+      "description": "The genus of mold that produced the antibacterial substance Fleming discovered"
+    },
+    {
+      "name": "ANTIBACTERIAL PROPERTIES",
+      "type": "EVENT",
+      "description": "The properties of penicillin that were observed to destroy bacteria"
+    },
+    {
+      "name": "PNEUMONIA",
+      "type": "EVENT",
+      "description": "A bacterial infection that was a major cause of mortality before the discovery of penicillin"
+    },
+    {
+      "name": "SEPSIS",
+      "type": "EVENT",
+      "description": "A bacterial infection that was a major cause of mortality before the discovery of penicillin"
+    },
+    {
+      "name": "STREPTOCOCCAL INFECTIONS",
+      "type": "EVENT",
+      "description": "A bacterial infection that was a major cause of mortality before the discovery of penicillin"
+    },
+    {
+      "name": "ANTIBIOTIC RESISTANCE",
+      "type": "EVENT",
+      "description": "The emergence of bacteria resistant to antibiotics, posing a challenge to global public health"
+    },
+    {
+      "name": "SCOTTISH BACTERIOLOGIST",
+      "type": "",
+      "description": ""
+    }
+  ],
+  "relations": [
+    [
+      "ALEXANDER FLEMING",
+      ":has_relation_with",
+      "ST. MARY'S HOSPITAL",
+      "Alexander Fleming worked at St. Mary's Hospital where he discovered penicillin"
+    ],
+    [
+      "ALEXANDER FLEMING",
+      ":has_relation_with",
+      "PENICILLIN",
+      "Alexander Fleming discovered penicillin, a significant milestone in medical history"
+    ],
+    [
+      "ALEXANDER FLEMING",
+      ":has_relation_with",
+      "SCOTTISH BACTERIOLOGIST",
+      "Alexander Fleming was a Scottish bacteriologist, which was his profession"
+    ],
+    [
+      "ALEXANDER FLEMING",
+      ":has_relation_with",
+      "STAPHYLOCOCCUS BACTERIA",
+      "Alexander Fleming was researching Staphylococcus bacteria when he discovered penicillin"
+    ],
+    [
+      "ALEXANDER FLEMING",
+      ":has_relation_with",
+      "PENICILLIUM GENUS",
+      "Alexander Fleming identified the mold that produced penicillin as belonging to the Penicillium genus"
+    ],
+    [
+      "PENICILLIN",
+      ":has_relation_with",
+      "WORLD WAR II",
+      "The discovery and use of penicillin during World War II played a crucial role in saving lives"
+    ],
+    [
+      "PENICILLIN",
+      ":has_relation_with",
+      "UNIVERSITY OF OXFORD",
+      "The purification and demonstration of penicillin's efficacy were conducted at the University of Oxford"
+    ],
+    [
+      "PENICILLIN",
+      ":has_relation_with",
+      "ANTIBACTERIAL PROPERTIES",
+      "Penicillin was discovered to have antibacterial properties that destroy bacteria"
+    ],
+    [
+      "PENICILLIN",
+      ":has_relation_with",
+      "PNEUMONIA",
+      "Penicillin revolutionized the treatment of pneumonia, a major cause of mortality before its discovery"
+    ],
+    [
+      "PENICILLIN",
+      ":has_relation_with",
+      "SEPSIS",
+      "Penicillin revolutionized the treatment of sepsis, a major cause of mortality before its discovery"
+    ],
+    [
+      "PENICILLIN",
+      ":has_relation_with",
+      "STREPTOCOCCAL INFECTIONS",
+      "Penicillin revolutionized the treatment of streptococcal infections, a major cause of mortality before its discovery"
+    ],
+    [
+      "PENICILLIN",
+      ":has_relation_with",
+      "ANTIBIOTIC RESISTANCE",
+      "The overuse and misuse of penicillin and other antibiotics have led to the emergence of antibiotic-resistant bacteria"
+    ],
+    [
+      "HOWARD FLOREY",
+      ":has_relation_with",
+      "ERNST CHAIN",
+      "Howard Florey and Ernst Chain worked together to purify penicillin"
+    ],
+    [
+      "HOWARD FLOREY",
+      ":has_relation_with",
+      "UNIVERSITY OF OXFORD",
+      "Howard Florey conducted his research on penicillin at the University of Oxford"
+    ],
+    [
+      "ERNST CHAIN",
+      ":has_relation_with",
+      "UNIVERSITY OF OXFORD",
+      "Ernst Chain conducted his research on penicillin at the University of Oxford"
+    ]
+  ]
+}

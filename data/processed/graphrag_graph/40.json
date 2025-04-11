@@ -1,0 +1,223 @@
+{
+  "entities": [
+    {
+      "name": "YEAST",
+      "type": "ORGANIZATION",
+      "description": "Yeast is a type of fungus that plays a key role in the fermentation process of bread baking, producing carbon dioxide and alcohol, which contribute to the bread's texture and flavor"
+    },
+    {
+      "name": "FLOUR",
+      "type": "ORGANIZATION",
+      "description": "Flour is a key ingredient in bread baking, made up of proteins called gluten, which give bread its structure and elasticity"
+    },
+    {
+      "name": "GLUTEN",
+      "type": "ORGANIZATION",
+      "description": "Gluten is a protein found in flour that forms a network when mixed with water, trapping carbon dioxide and giving bread its structure and elasticity"
+    },
+    {
+      "name": "DOUGH",
+      "type": "ORGANIZATION",
+      "description": "Dough is the mixture of flour, water, yeast, and salt that undergoes fermentation and baking to become bread"
+    },
+    {
+      "name": "BREAD",
+      "type": "ORGANIZATION",
+      "description": "Bread is a staple food made from a mixture of flour, water, yeast, and salt, which is baked to create a complex and delicious product"
+    },
+    {
+      "name": "FERMENTATION",
+      "type": "EVENT",
+      "description": "Fermentation is the process where yeast feeds on sugars in flour, producing carbon dioxide and alcohol, which contribute to the bread's texture and flavor"
+    },
+    {
+      "name": "KNEADING",
+      "type": "EVENT",
+      "description": "Kneading is the process of stretching and strengthening gluten strands in dough, which is crucial for the bread's structure and texture"
+    },
+    {
+      "name": "BAKING",
+      "type": "EVENT",
+      "description": "Baking is the process of cooking bread in an oven, involving the interaction of heat with the ingredients to set the structure, create a crust, and develop flavors"
+    },
+    {
+      "name": "MAILLARD REACTION",
+      "type": "EVENT",
+      "description": "The Maillard reaction is a chemical process that occurs during baking, where proteins and sugars react at high temperatures to create a brown crust and complex flavors"
+    },
+    {
+      "name": "SALT",
+      "type": "ORGANIZATION",
+      "description": "Salt is a key ingredient in bread baking, enhancing flavor and controlling yeast activity"
+    },
+    {
+      "name": "CARBON DIOXIDE",
+      "type": "ORGANIZATION",
+      "description": "Carbon dioxide is a gas produced by yeast during fermentation, causing the dough to rise and creating the bread's airy texture"
+    },
+    {
+      "name": "ALCOHOL",
+      "type": "ORGANIZATION",
+      "description": "Alcohol is a byproduct of yeast fermentation, contributing to the flavor development of the bread"
+    },
+    {
+      "name": "STARCHES",
+      "type": "ORGANIZATION",
+      "description": "Starches in flour gelatinize during baking, setting the structure of the bread and contributing to its texture"
+    },
+    {
+      "name": "HEAT",
+      "type": "ORGANIZATION",
+      "description": "Heat is a critical factor in the baking process, activating yeast, setting the structure of the bread, and causing the Maillard reaction"
+    },
+    {
+      "name": "TEMPERATURE",
+      "type": "ORGANIZATION",
+      "description": "Temperature is an important factor in the baking process, affecting the rise and even baking of the bread"
+    },
+    {
+      "name": "HUMIDITY",
+      "type": "ORGANIZATION",
+      "description": "Humidity in the oven helps create a crisp crust and a moist interior in the bread"
+    },
+    {
+      "name": "WATER",
+      "type": "",
+      "description": ""
+    }
+  ],
+  "relations": [
+    [
+      "YEAST",
+      ":has_relation_with",
+      "FERMENTATION",
+      "Yeast is essential for the fermentation process, producing carbon dioxide and alcohol that contribute to the bread's texture and flavor"
+    ],
+    [
+      "FLOUR",
+      ":has_relation_with",
+      "GLUTEN",
+      "Flour contains gluten, which is crucial for the structure and elasticity of the bread"
+    ],
+    [
+      "FLOUR",
+      ":has_relation_with",
+      "DOUGH",
+      "Flour is a primary component of dough, which is the mixture that becomes bread"
+    ],
+    [
+      "GLUTEN",
+      ":has_relation_with",
+      "KNEADING",
+      "Kneading is necessary to develop the gluten in the dough, which is crucial for the bread's structure and texture"
+    ],
+    [
+      "GLUTEN",
+      ":has_relation_with",
+      "DOUGH",
+      "Gluten forms a network in the dough, trapping gases and giving the bread its structure and elasticity"
+    ],
+    [
+      "DOUGH",
+      ":has_relation_with",
+      "FERMENTATION",
+      "Fermentation is a critical process that occurs in the dough, producing gases that cause the dough to rise and develop flavor\nDough undergoes fermentation, a process where yeast produces gases that cause the dough to rise"
+    ],
+    [
+      "DOUGH",
+      ":has_relation_with",
+      "KNEADING",
+      "Kneading is a process that develops the gluten in dough, giving the bread its structure and texture"
+    ],
+    [
+      "DOUGH",
+      ":has_relation_with",
+      "BAKING",
+      "Dough is transformed into bread through the baking process, which sets the structure and develops the crust and flavor"
+    ],
+    [
+      "DOUGH",
+      ":has_relation_with",
+      "WATER",
+      "Water is a key ingredient in dough, essential for activating yeast and developing gluten"
+    ],
+    [
+      "DOUGH",
+      ":has_relation_with",
+      "SALT",
+      "Salt is a key ingredient in dough, enhancing flavor and controlling yeast activity"
+    ],
+    [
+      "FERMENTATION",
+      ":has_relation_with",
+      "BAKING",
+      "Fermentation contributes to the initial rise of the bread during baking, enhancing the bread's texture and flavor"
+    ],
+    [
+      "FERMENTATION",
+      ":has_relation_with",
+      "CARBON DIOXIDE",
+      "Carbon dioxide is produced by yeast during fermentation, causing the dough to rise"
+    ],
+    [
+      "FERMENTATION",
+      ":has_relation_with",
+      "ALCOHOL",
+      "Alcohol is a byproduct of yeast fermentation, contributing to the flavor development of the bread"
+    ],
+    [
+      "FERMENTATION",
+      ":has_relation_with",
+      "HEAT",
+      "Heat activates yeast during fermentation, enhancing the rise and flavor development of the bread"
+    ],
+    [
+      "BAKING",
+      ":has_relation_with",
+      "MAILLARD REACTION",
+      "The Maillard reaction is a key chemical process that occurs during baking, contributing to the browning of the crust and the development of complex flavors\nThe Maillard reaction is a chemical process that occurs during baking, contributing to the browning of the crust and the development of complex flavors"
+    ],
+    [
+      "BAKING",
+      ":has_relation_with",
+      "STARCHES",
+      "Starches in flour gelatinize during baking, setting the structure of the bread"
+    ],
+    [
+      "BAKING",
+      ":has_relation_with",
+      "HEAT",
+      "Heat is a critical factor in the baking process, activating yeast, setting the structure of the bread, and causing the Maillard reaction"
+    ],
+    [
+      "BAKING",
+      ":has_relation_with",
+      "TEMPERATURE",
+      "Temperature is an important factor in the baking process, affecting the rise and even baking of the bread"
+    ],
+    [
+      "BAKING",
+      ":has_relation_with",
+      "HUMIDITY",
+      "Humidity in the oven helps create a crisp crust and a moist interior in the bread"
+    ],
+    [
+      "MAILLARD REACTION",
+      ":has_relation_with",
+      "HEAT",
+      "Heat is necessary for the Maillard reaction, which contributes to the browning of the crust and the development of complex flavors"
+    ],
+    [
+      "HEAT",
+      ":has_relation_with",
+      "TEMPERATURE",
+      "Temperature affects the heat in the oven, influencing the baking process"
+    ],
+    [
+      "HEAT",
+      ":has_relation_with",
+      "HUMIDITY",
+      "Humidity in the oven works with heat to create a crisp crust and a moist interior"
+    ]
+  ]
+}

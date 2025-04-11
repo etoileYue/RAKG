@@ -1,0 +1,300 @@
+{
+  "entities": [
+    {
+      "name": "ZOMBIE APOCALYPSE",
+      "type": "EVENT",
+      "description": "A hypothetical scenario where the dead come back to life and seek to consume the living, often explored in media and used as a metaphor for various real-world fears and disasters"
+    },
+    {
+      "name": "SURVIVAL KIT",
+      "type": "ORGANIZATION",
+      "description": "A collection of essential items necessary for survival in a zombie apocalypse, including food, water, medical supplies, and weapons"
+    },
+    {
+      "name": "SAFE LOCATION",
+      "type": "GEO",
+      "description": "A fortified place chosen for its strategic advantages such as access to resources, visibility, and ease of defense, used as a base during a zombie outbreak"
+    },
+    {
+      "name": "GROUP",
+      "type": "ORGANIZATION",
+      "description": "A team of individuals working together to survive a zombie apocalypse, relying on each other's skills and support"
+    },
+    {
+      "name": "ZOMBIES",
+      "type": "ORGANIZATION",
+      "description": "Reanimated corpses that seek to consume the living, typically slow-moving and vulnerable to attacks on the brain"
+    },
+    {
+      "name": "TEAMWORK",
+      "type": "ORGANIZATION",
+      "description": "The collaborative effort of a group of people to achieve a common goal, in this case, survival during a zombie apocalypse"
+    },
+    {
+      "name": "COMMUNICATION SYSTEM",
+      "type": "ORGANIZATION",
+      "description": "A method or set of methods used by a group to stay in touch and coordinate movements during a zombie outbreak"
+    },
+    {
+      "name": "ESCAPE PLAN",
+      "type": "EVENT",
+      "description": "A pre-planned strategy for leaving a safe location if it becomes compromised, ensuring the group can find a new place to hide from zombies"
+    },
+    {
+      "name": "FOOD",
+      "type": "ORGANIZATION",
+      "description": "Non-perishable food items are essential for survival during a zombie apocalypse, providing necessary nutrition and energy"
+    },
+    {
+      "name": "WATER",
+      "type": "ORGANIZATION",
+      "description": "A reliable source of clean water is crucial for survival, as it is necessary for hydration and maintaining health"
+    },
+    {
+      "name": "MEDICAL SUPPLIES",
+      "type": "ORGANIZATION",
+      "description": "Medical supplies, including a first aid kit, are vital for treating injuries and illnesses during a zombie apocalypse"
+    },
+    {
+      "name": "WEAPONS",
+      "type": "ORGANIZATION",
+      "description": "Weapons are necessary for defending against zombies and other threats, with a focus on those that can effectively target the brain"
+    },
+    {
+      "name": "FLASHLIGHT",
+      "type": "ORGANIZATION",
+      "description": "A flashlight is an essential tool for navigating dark environments and signaling for help during a zombie apocalypse"
+    },
+    {
+      "name": "BATTERIES",
+      "type": "ORGANIZATION",
+      "description": "Batteries are needed to power flashlights and other electronic devices, ensuring they remain functional in a crisis"
+    },
+    {
+      "name": "MULTI-TOOL",
+      "type": "ORGANIZATION",
+      "description": "A multi-tool is a versatile item that can be used for various tasks, from repairing equipment to self-defense"
+    },
+    {
+      "name": "PHYSICAL FITNESS",
+      "type": "ORGANIZATION",
+      "description": "Maintaining physical fitness is crucial for survival, as it helps individuals stay strong, agile, and resilient in challenging conditions"
+    },
+    {
+      "name": "MENTAL RESILIENCE",
+      "type": "ORGANIZATION",
+      "description": "Mental resilience is important for maintaining a positive mindset and coping with the stress and fear of a zombie apocalypse"
+    },
+    {
+      "name": "ADAPTABILITY",
+      "type": "ORGANIZATION",
+      "description": "Adaptability is key to survival, allowing individuals to make quick decisions and adjust to changing circumstances"
+    }
+  ],
+  "relations": [
+    [
+      "ZOMBIE APOCALYPSE",
+      ":has_relation_with",
+      "SURVIVAL KIT",
+      "A survival kit is essential for preparing for and surviving a zombie apocalypse, providing necessary supplies and tools"
+    ],
+    [
+      "ZOMBIE APOCALYPSE",
+      ":has_relation_with",
+      "SAFE LOCATION",
+      "A safe location is crucial for surviving a zombie apocalypse, offering a fortified base to protect against zombie attacks"
+    ],
+    [
+      "ZOMBIE APOCALYPSE",
+      ":has_relation_with",
+      "GROUP",
+      "A group is essential for survival during a zombie apocalypse, providing support, skills, and strength in numbers"
+    ],
+    [
+      "ZOMBIE APOCALYPSE",
+      ":has_relation_with",
+      "ZOMBIES",
+      "Zombies are the primary threat in a zombie apocalypse, requiring specific strategies and knowledge to avoid and combat them"
+    ],
+    [
+      "ZOMBIE APOCALYPSE",
+      ":has_relation_with",
+      "TEAMWORK",
+      "Teamwork is vital for survival during a zombie apocalypse, enhancing the group's ability to face challenges and stay safe"
+    ],
+    [
+      "ZOMBIE APOCALYPSE",
+      ":has_relation_with",
+      "COMMUNICATION SYSTEM",
+      "A communication system is necessary for a group to stay connected and coordinate effectively during a zombie apocalypse"
+    ],
+    [
+      "ZOMBIE APOCALYPSE",
+      ":has_relation_with",
+      "ESCAPE PLAN",
+      "An escape plan is a critical component of survival during a zombie apocalypse, ensuring the group can quickly and safely relocate if needed"
+    ],
+    [
+      "ZOMBIE APOCALYPSE",
+      ":has_relation_with",
+      "PHYSICAL FITNESS",
+      "Physical fitness is crucial for survival during a zombie apocalypse, helping individuals stay strong and agile"
+    ],
+    [
+      "ZOMBIE APOCALYPSE",
+      ":has_relation_with",
+      "MENTAL RESILIENCE",
+      "Mental resilience is important for maintaining a positive mindset and coping with the stress of a zombie apocalypse"
+    ],
+    [
+      "ZOMBIE APOCALYPSE",
+      ":has_relation_with",
+      "ADAPTABILITY",
+      "Adaptability is key to survival, allowing individuals to make quick decisions and adjust to changing circumstances"
+    ],
+    [
+      "SURVIVAL KIT",
+      ":has_relation_with",
+      "FOOD",
+      "A survival kit includes non-perishable food items to ensure the group has a reliable source of nutrition"
+    ],
+    [
+      "SURVIVAL KIT",
+      ":has_relation_with",
+      "WATER",
+      "A survival kit includes a reliable source of clean water to keep the group hydrated and healthy"
+    ],
+    [
+      "SURVIVAL KIT",
+      ":has_relation_with",
+      "MEDICAL SUPPLIES",
+      "A survival kit includes medical supplies to treat injuries and illnesses, ensuring the group can stay healthy"
+    ],
+    [
+      "SURVIVAL KIT",
+      ":has_relation_with",
+      "WEAPONS",
+      "A survival kit includes weapons for defending against zombies and other threats, with a focus on effectiveness"
+    ],
+    [
+      "SURVIVAL KIT",
+      ":has_relation_with",
+      "FLASHLIGHT",
+      "A survival kit includes a flashlight for navigating dark environments and signaling for help"
+    ],
+    [
+      "SURVIVAL KIT",
+      ":has_relation_with",
+      "BATTERIES",
+      "A survival kit includes batteries to power electronic devices, ensuring they remain functional"
+    ],
+    [
+      "SURVIVAL KIT",
+      ":has_relation_with",
+      "MULTI-TOOL",
+      "A survival kit includes a multi-tool for various tasks, from repairs to self-defense"
+    ],
+    [
+      "SAFE LOCATION",
+      ":has_relation_with",
+      "ESCAPE PLAN",
+      "A safe location and an escape plan are interconnected, with the escape plan providing a backup in case the safe location is no longer secure"
+    ],
+    [
+      "SAFE LOCATION",
+      ":has_relation_with",
+      "ZOMBIES",
+      "A safe location is designed to protect against zombies, with fortifications and strategic positioning to keep the group secure"
+    ],
+    [
+      "GROUP",
+      ":has_relation_with",
+      "TEAMWORK",
+      "The group relies on teamwork to function effectively, with each member contributing their skills and support"
+    ],
+    [
+      "GROUP",
+      ":has_relation_with",
+      "COMMUNICATION SYSTEM",
+      "The group uses a communication system to stay in touch and coordinate movements, enhancing their ability to survive"
+    ],
+    [
+      "GROUP",
+      ":has_relation_with",
+      "ESCAPE PLAN",
+      "The group develops an escape plan to ensure they can quickly and safely leave a compromised safe location"
+    ],
+    [
+      "GROUP",
+      ":has_relation_with",
+      "PHYSICAL FITNESS",
+      "The group emphasizes physical fitness to stay strong and resilient, enhancing their ability to survive"
+    ],
+    [
+      "GROUP",
+      ":has_relation_with",
+      "MENTAL RESILIENCE",
+      "The group focuses on mental resilience to maintain a positive mindset and cope with the stress of a zombie apocalypse"
+    ],
+    [
+      "GROUP",
+      ":has_relation_with",
+      "ADAPTABILITY",
+      "The group values adaptability, allowing them to make quick decisions and adjust to changing circumstances"
+    ],
+    [
+      "ZOMBIES",
+      ":has_relation_with",
+      "TEAMWORK",
+      "Understanding and combating zombies requires teamwork, with each member of the group contributing to the effort"
+    ],
+    [
+      "ZOMBIES",
+      ":has_relation_with",
+      "ESCAPE PLAN",
+      "Zombies are a constant threat, making an escape plan essential for the group to have a way to quickly leave a compromised area"
+    ],
+    [
+      "ZOMBIES",
+      ":has_relation_with",
+      "COMMUNICATION SYSTEM",
+      "A communication system helps the group stay informed about zombie movements and coordinate defensive strategies"
+    ],
+    [
+      "TEAMWORK",
+      ":has_relation_with",
+      "COMMUNICATION SYSTEM",
+      "Effective teamwork is supported by a reliable communication system, allowing the group to work together seamlessly"
+    ],
+    [
+      "TEAMWORK",
+      ":has_relation_with",
+      "ESCAPE PLAN",
+      "Teamwork is crucial for executing an escape plan, with each member playing a role in the group's safe relocation"
+    ],
+    [
+      "COMMUNICATION SYSTEM",
+      ":has_relation_with",
+      "ESCAPE PLAN",
+      "A communication system is essential for coordinating an escape plan, ensuring all group members are informed and can act together"
+    ],
+    [
+      "PHYSICAL FITNESS",
+      ":has_relation_with",
+      "MENTAL RESILIENCE",
+      "Physical fitness and mental resilience are interconnected, with both contributing to overall well-being and survival"
+    ],
+    [
+      "PHYSICAL FITNESS",
+      ":has_relation_with",
+      "ADAPTABILITY",
+      "Physical fitness enhances adaptability, allowing individuals to perform better in various challenging situations"
+    ],
+    [
+      "MENTAL RESILIENCE",
+      ":has_relation_with",
+      "ADAPTABILITY",
+      "Mental resilience supports adaptability, helping individuals stay calm and rational in dangerous situations"
+    ]
+  ]
+}

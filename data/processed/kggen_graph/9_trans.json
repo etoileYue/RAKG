@@ -1,0 +1,180 @@
+{
+  "entities": [
+    {
+      "name": "Tranquility"
+    },
+    {
+      "name": "Emotions"
+    },
+    {
+      "name": "Orange"
+    },
+    {
+      "name": "Excitement"
+    },
+    {
+      "name": "sadness"
+    },
+    {
+      "name": "mystery"
+    },
+    {
+      "name": "Warmth"
+    },
+    {
+      "name": "Energy"
+    },
+    {
+      "name": "Green"
+    },
+    {
+      "name": "mourning"
+    },
+    {
+      "name": "Creating a sense of urgency"
+    },
+    {
+      "name": "purity"
+    },
+    {
+      "name": "Relaxation"
+    },
+    {
+      "name": "black"
+    },
+    {
+      "name": "Calmness"
+    },
+    {
+      "name": "Color psychology"
+    },
+    {
+      "name": "Passion"
+    },
+    {
+      "name": "death"
+    },
+    {
+      "name": "sophistication"
+    },
+    {
+      "name": "Yellow"
+    },
+    {
+      "name": "Warm colors"
+    },
+    {
+      "name": "Blue"
+    },
+    {
+      "name": "Stimulating appetite"
+    },
+    {
+      "name": "Colors"
+    },
+    {
+      "name": "red"
+    },
+    {
+      "name": "Red"
+    },
+    {
+      "name": "Mood"
+    },
+    {
+      "name": "white"
+    },
+    {
+      "name": "Cool colors"
+    },
+    {
+      "name": "Psychological well-being"
+    },
+    {
+      "name": "authority"
+    },
+    {
+      "name": "Behavior"
+    },
+    {
+      "name": "blue"
+    },
+    {
+      "name": "innocence"
+    },
+    {
+      "name": "Purple"
+    },
+    {
+      "name": "power"
+    },
+    {
+      "name": "Physical reactions"
+    },
+    {
+      "name": "yellow"
+    }
+  ],
+  "relations": [
+    [
+      "white",
+      "associated_with",
+      "purity"
+    ],
+    [
+      "Colors",
+      "impact on",
+      "Psychological well-being"
+    ],
+    [
+      "black",
+      "associated_with",
+      "sophistication"
+    ],
+    [
+      "white",
+      "associated_with",
+      "death"
+    ],
+    [
+      "black",
+      "evokes",
+      "mystery"
+    ],
+    [
+      "black",
+      "associated_with",
+      "authority"
+    ],
+    [
+      "black",
+      "associated_with",
+      "power"
+    ],
+    [
+      "white",
+      "associated_with",
+      "mourning"
+    ],
+    [
+      "black",
+      "evokes",
+      "sadness"
+    ],
+    [
+      "white",
+      "associated_with",
+      "innocence"
+    ],
+    [
+      "Warm colors",
+      "evokes",
+      "Excitement"
+    ],
+    [
+      "Colors",
+      "evokes",
+      "Emotions"
+    ]
+  ]
+}

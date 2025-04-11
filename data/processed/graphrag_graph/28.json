@@ -1,0 +1,252 @@
+{
+  "entities": [
+    {
+      "name": "ANGLO-SAXONS",
+      "type": "PERSON",
+      "description": "Germanic tribes that arrived in Britain in the 5th century, bringing their language which developed into Old English"
+    },
+    {
+      "name": "BRITAIN",
+      "type": "GEO",
+      "description": "The geographical area where the Anglo-Saxons arrived and where Old English began to develop"
+    },
+    {
+      "name": "OLD ENGLISH",
+      "type": "ORGANIZATION",
+      "description": "The language spoken in England from the 5th to the 11th century, heavily influenced by Germanic languages"
+    },
+    {
+      "name": "NORMAN CONQUEST",
+      "type": "EVENT",
+      "description": "The invasion of England by the Normans in the late 11th century, leading to significant changes in the English language"
+    },
+    {
+      "name": "NORMANS",
+      "type": "PERSON",
+      "description": "The ruling class in England after the Norman Conquest, who spoke Old Norman, a dialect of Old French"
+    },
+    {
+      "name": "MIDDLE ENGLISH",
+      "type": "ORGANIZATION",
+      "description": "The language spoken from the 11th to the 15th century, characterized by the introduction of many French words and significant transformations in vocabulary, pronunciation, and grammar"
+    },
+    {
+      "name": "GEOFFREY CHAUCER",
+      "type": "PERSON",
+      "description": "A prominent writer in Middle English, known for works such as \"The Canterbury Tales\""
+    },
+    {
+      "name": "WILLIAM CAXTON",
+      "type": "PERSON",
+      "description": "The inventor of the printing press in England, whose work contributed to the standardization of the English language"
+    },
+    {
+      "name": "EARLY MODERN ENGLISH",
+      "type": "ORGANIZATION",
+      "description": "The language spoken from the late 15th century to the mid-17th century, marked by the Great Vowel Shift and the works of William Shakespeare"
+    },
+    {
+      "name": "WILLIAM SHAKESPEARE",
+      "type": "PERSON",
+      "description": "One of the greatest writers in the English language, whose works exemplify Early Modern English"
+    },
+    {
+      "name": "BRITISH EMPIRE",
+      "type": "ORGANIZATION",
+      "description": "The global empire that spread English to various parts of the world during the 18th and 19th centuries"
+    },
+    {
+      "name": "20TH CENTURY",
+      "type": "EVENT",
+      "description": "The period during which English solidified its status as a global language, becoming the lingua franca of international communication, business, and diplomacy"
+    },
+    {
+      "name": "TECHNOLOGY",
+      "type": "ORGANIZATION",
+      "description": "A field that has significantly influenced the spread and evolution of the English language in the 20th and 21st centuries"
+    },
+    {
+      "name": "SCIENCE",
+      "type": "ORGANIZATION",
+      "description": "A field that has contributed to the widespread use of English in the 20th and 21st centuries"
+    },
+    {
+      "name": "ENTERTAINMENT",
+      "type": "ORGANIZATION",
+      "description": "An industry that has played a role in the global spread of the English language"
+    },
+    {
+      "name": "GLOBALIZATION",
+      "type": "ORGANIZATION",
+      "description": "A process that has influenced the spread and evolution of the English language, contributing to its status as a global language"
+    },
+    {
+      "name": "THE CANTEBURY TALES",
+      "type": "ORGANIZATION",
+      "description": "A collection of 24 stories that run to over 17,000 lines written in Middle English by Geoffrey Chaucer"
+    },
+    {
+      "name": "GREAT VOWEL SHIFT",
+      "type": "EVENT",
+      "description": "A major change in the pronunciation of the English language that occurred between the 15th and 18th centuries, affecting the pronunciation of many words"
+    },
+    {
+      "name": "AMERICAN ENGLISH",
+      "type": "ORGANIZATION",
+      "description": "A variety of English spoken in the United States, which developed from the English brought by British colonists"
+    },
+    {
+      "name": "AUSTRALIAN ENGLISH",
+      "type": "ORGANIZATION",
+      "description": "A variety of English spoken in Australia, which developed from the English brought by British colonists"
+    },
+    {
+      "name": "INDIAN ENGLISH",
+      "type": "ORGANIZATION",
+      "description": "A variety of English spoken in India, which developed from the English brought by British colonists"
+    },
+    {
+      "name": "GLOBAL LANGUAGE",
+      "type": "ORGANIZATION",
+      "description": "A language that is used for communication between people from different linguistic backgrounds, with English being a prime example"
+    },
+    {
+      "name": "LINGUA FRANCA",
+      "type": "ORGANIZATION",
+      "description": "A language used as a common language between speakers whose native languages are different, with English serving this role in many contexts"
+    },
+    {
+      "name": "OLD NORMAN",
+      "type": "",
+      "description": ""
+    }
+  ],
+  "relations": [
+    [
+      "ANGLO-SAXONS",
+      ":has_relation_with",
+      "BRITAIN",
+      "The Anglo-Saxons arrived in Britain, bringing their language which developed into Old English"
+    ],
+    [
+      "ANGLO-SAXONS",
+      ":has_relation_with",
+      "OLD ENGLISH",
+      "The Anglo-Saxons' language evolved into Old English"
+    ],
+    [
+      "OLD ENGLISH",
+      ":has_relation_with",
+      "NORMAN CONQUEST",
+      "The Norman Conquest led to significant changes in Old English, leading to the development of Middle English"
+    ],
+    [
+      "NORMAN CONQUEST",
+      ":has_relation_with",
+      "NORMANS",
+      "The Norman Conquest led to the Normans becoming the ruling class in England"
+    ],
+    [
+      "NORMANS",
+      ":has_relation_with",
+      "MIDDLE ENGLISH",
+      "The Normans' language, Old Norman, influenced the development of Middle English"
+    ],
+    [
+      "MIDDLE ENGLISH",
+      ":has_relation_with",
+      "GEOFFREY CHAUCER",
+      "Geoffrey Chaucer wrote in Middle English, contributing to its literary legacy"
+    ],
+    [
+      "MIDDLE ENGLISH",
+      ":has_relation_with",
+      "OLD NORMAN",
+      "Old Norman, spoken by the Normans, influenced the development of Middle English"
+    ],
+    [
+      "GEOFFREY CHAUCER",
+      ":has_relation_with",
+      "THE CANTEBURY TALES",
+      "The Canterbury Tales is a collection of stories written by Geoffrey Chaucer in Middle English"
+    ],
+    [
+      "WILLIAM CAXTON",
+      ":has_relation_with",
+      "EARLY MODERN ENGLISH",
+      "William Caxton's printing press helped standardize and spread Early Modern English"
+    ],
+    [
+      "EARLY MODERN ENGLISH",
+      ":has_relation_with",
+      "WILLIAM SHAKESPEARE",
+      "William Shakespeare's works exemplify Early Modern English"
+    ],
+    [
+      "EARLY MODERN ENGLISH",
+      ":has_relation_with",
+      "GREAT VOWEL SHIFT",
+      "The Great Vowel Shift altered the pronunciation of many words in Early Modern English"
+    ],
+    [
+      "BRITISH EMPIRE",
+      ":has_relation_with",
+      "20TH CENTURY",
+      "The British Empire's global influence contributed to the spread of English in the 20th century"
+    ],
+    [
+      "BRITISH EMPIRE",
+      ":has_relation_with",
+      "AMERICAN ENGLISH",
+      "The British Empire's influence led to the development of American English"
+    ],
+    [
+      "BRITISH EMPIRE",
+      ":has_relation_with",
+      "AUSTRALIAN ENGLISH",
+      "The British Empire's influence led to the development of Australian English"
+    ],
+    [
+      "BRITISH EMPIRE",
+      ":has_relation_with",
+      "INDIAN ENGLISH",
+      "The British Empire's influence led to the development of Indian English"
+    ],
+    [
+      "20TH CENTURY",
+      ":has_relation_with",
+      "TECHNOLOGY",
+      "The 20th century saw the widespread use of English in technology, further cementing its global status"
+    ],
+    [
+      "20TH CENTURY",
+      ":has_relation_with",
+      "SCIENCE",
+      "The 20th century saw the widespread use of English in science, contributing to its importance as a global language"
+    ],
+    [
+      "20TH CENTURY",
+      ":has_relation_with",
+      "ENTERTAINMENT",
+      "The 20th century saw the widespread use of English in entertainment, further spreading the language globally"
+    ],
+    [
+      "20TH CENTURY",
+      ":has_relation_with",
+      "GLOBALIZATION",
+      "The 20th century saw the influence of globalization on the spread and evolution of the English language"
+    ],
+    [
+      "20TH CENTURY",
+      ":has_relation_with",
+      "GLOBAL LANGUAGE",
+      "The 20th century saw English solidify its status as a global language"
+    ],
+    [
+      "20TH CENTURY",
+      ":has_relation_with",
+      "LINGUA FRANCA",
+      "The 20th century saw English become the lingua franca of international communication, business, and diplomacy"
+    ]
+  ]
+}

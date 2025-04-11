@@ -1,0 +1,253 @@
+{
+  "entities": [
+    {
+      "name": "water scarcity"
+    },
+    {
+      "name": "conscious consumer behavior"
+    },
+    {
+      "name": "fertilizers"
+    },
+    {
+      "name": "circular economy principles"
+    },
+    {
+      "name": "efficient production processes"
+    },
+    {
+      "name": "Environmental Protection Agency"
+    },
+    {
+      "name": "nylon"
+    },
+    {
+      "name": "carbon footprint"
+    },
+    {
+      "name": "cheap labor"
+    },
+    {
+      "name": "polyester"
+    },
+    {
+      "name": "designing clothing for longevity"
+    },
+    {
+      "name": "resource depletion"
+    },
+    {
+      "name": "synthetic fibers"
+    },
+    {
+      "name": "mindful consumption"
+    },
+    {
+      "name": "petrochemicals"
+    },
+    {
+      "name": "cotton"
+    },
+    {
+      "name": "deforestation"
+    },
+    {
+      "name": "garment production"
+    },
+    {
+      "name": "global carbon emissions"
+    },
+    {
+      "name": "environmental impact of fast fashion"
+    },
+    {
+      "name": "Fast fashion"
+    },
+    {
+      "name": "United Nations Environment Programme"
+    },
+    {
+      "name": "greenhouse gas emissions"
+    },
+    {
+      "name": "landfills"
+    },
+    {
+      "name": "ethical and sustainable fashion brands"
+    },
+    {
+      "name": "repairs and alterations"
+    },
+    {
+      "name": "pesticides"
+    },
+    {
+      "name": "reducing waste"
+    },
+    {
+      "name": "sustainable future"
+    },
+    {
+      "name": "carbon emissions"
+    },
+    {
+      "name": "fashion industry"
+    },
+    {
+      "name": "fast fashion"
+    },
+    {
+      "name": "developing countries"
+    },
+    {
+      "name": "unsafe working conditions"
+    },
+    {
+      "name": "textile waste"
+    },
+    {
+      "name": "organic and recycled materials"
+    },
+    {
+      "name": "reuse and recycling of clothing"
+    },
+    {
+      "name": "eco-friendly practices"
+    },
+    {
+      "name": "sustainable fashion practices"
+    }
+  ],
+  "relations": [
+    [
+      "textile waste",
+      "produced_by",
+      "fast fashion"
+    ],
+    [
+      "Fast fashion",
+      "part_of",
+      "fashion industry"
+    ],
+    [
+      "sustainable fashion practices",
+      "promotes",
+      "efficient production processes"
+    ],
+    [
+      "garment production",
+      "results in",
+      "unsafe working conditions"
+    ],
+    [
+      "cheap labor",
+      "is part of",
+      "garment production"
+    ],
+    [
+      "nylon",
+      "derived_from",
+      "petrochemicals"
+    ],
+    [
+      "environmental impact of fast fashion",
+      "includes",
+      "carbon emissions"
+    ],
+    [
+      "landfills",
+      "filled_with",
+      "textile waste"
+    ],
+    [
+      "eco-friendly practices",
+      "contributes to",
+      "sustainable future"
+    ],
+    [
+      "polyester",
+      "derived_from",
+      "petrochemicals"
+    ],
+    [
+      "cotton",
+      "material_of",
+      "fast fashion"
+    ],
+    [
+      "conscious consumer behavior",
+      "promotes",
+      "sustainable future"
+    ],
+    [
+      "ethical and sustainable fashion brands",
+      "supports",
+      "mindful consumption"
+    ],
+    [
+      "sustainable fashion practices",
+      "includes",
+      "organic and recycled materials"
+    ],
+    [
+      "fashion industry",
+      "causes",
+      "greenhouse gas emissions"
+    ],
+    [
+      "sustainable fashion practices",
+      "involves",
+      "reducing waste"
+    ],
+    [
+      "fast fashion",
+      "contributes to",
+      "global carbon emissions"
+    ],
+    [
+      "environmental impact of fast fashion",
+      "includes",
+      "resource depletion"
+    ],
+    [
+      "circular economy principles",
+      "reduces reliance on",
+      "resource depletion"
+    ],
+    [
+      "sustainable fashion practices",
+      "encourages",
+      "designing clothing for longevity"
+    ],
+    [
+      "United Nations Environment Programme",
+      "reports_on",
+      "global carbon emissions"
+    ],
+    [
+      "Environmental Protection Agency",
+      "reports_on",
+      "textile waste"
+    ],
+    [
+      "environmental impact of fast fashion",
+      "includes",
+      "textile waste"
+    ],
+    [
+      "developing countries",
+      "hosts",
+      "garment production"
+    ],
+    [
+      "mindful consumption",
+      "reduces",
+      "environmental impact of fast fashion"
+    ],
+    [
+      "circular economy principles",
+      "prioritizes",
+      "reuse and recycling of clothing"
+    ]
+  ]
+}

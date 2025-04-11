@@ -1,0 +1,184 @@
+{
+  "entities": [
+    {
+      "name": "BICYCLE",
+      "type": "ORGANIZATION",
+      "description": "A two-wheeled vehicle propelled by human power, with a rich history of evolution and innovation spanning centuries"
+    },
+    {
+      "name": "BARON KARL VON DRAIS",
+      "type": "PERSON",
+      "description": "A German inventor who created the earliest known prototype of the bicycle, the draisine, in the early 19th century"
+    },
+    {
+      "name": "DRAISINE",
+      "type": "ORGANIZATION",
+      "description": "The earliest known prototype of the bicycle, a two-wheeled vehicle without pedals, propelled by the rider pushing off the ground with their feet"
+    },
+    {
+      "name": "VELOCIPED",
+      "type": "ORGANIZATION",
+      "description": "An early bicycle featuring pedals attached directly to the front wheel, offering a smoother ride and greater speed than the draisine"
+    },
+    {
+      "name": "PENNY-FARTHING",
+      "type": "ORGANIZATION",
+      "description": "A high-wheel bicycle with a large front wheel and a smaller rear wheel, popular among wealthy gentlemen for its speed and elegance but also dangerous due to its design"
+    },
+    {
+      "name": "SAFETY BICYCLE",
+      "type": "ORGANIZATION",
+      "description": "A bicycle with two wheels of equal size, a chain drive system, and pneumatic tires, making it more stable, comfortable, and efficient than its predecessors"
+    },
+    {
+      "name": "STEEL",
+      "type": "ORGANIZATION",
+      "description": "The primary material used in bicycle frames in the early 1900s, offering strength and durability at a reasonable cost"
+    },
+    {
+      "name": "ALUMINUM",
+      "type": "ORGANIZATION",
+      "description": "A material that emerged as a popular alternative to steel in the mid-20th century, providing lighter weight and increased stiffness for improved performance"
+    },
+    {
+      "name": "TITANIUM",
+      "type": "ORGANIZATION",
+      "description": "A material that emerged as a popular alternative to steel in the mid-20th century, providing lighter weight and increased stiffness for improved performance"
+    },
+    {
+      "name": "CARBON FIBER",
+      "type": "ORGANIZATION",
+      "description": "A revolutionary material introduced in the late 20th century, used in bicycle construction for its lightweight, strong, and aerodynamic properties"
+    },
+    {
+      "name": "ELECTRIC BIKES",
+      "type": "ORGANIZATION",
+      "description": "Bicycles with motorized assistance, offering easier riding and longer distances, introduced in recent years"
+    },
+    {
+      "name": "TOUR DE FRANCE",
+      "type": "EVENT",
+      "description": "A major professional cycling race that showcases the speed, skill, and endurance of elite cyclists\nA professional cycling race that showcases the speed, skill, and endurance of elite cyclists"
+    },
+    {
+      "name": "FRANCE",
+      "type": "GEO",
+      "description": "Country where the Tour de France, a major professional cycling race, takes place"
+    },
+    {
+      "name": "GERMANY",
+      "type": "",
+      "description": ""
+    }
+  ],
+  "relations": [
+    [
+      "BICYCLE",
+      ":has_relation_with",
+      "TOUR DE FRANCE",
+      "The Tour de France is a professional cycling race that highlights the evolution and performance of bicycles"
+    ],
+    [
+      "BICYCLE",
+      ":has_relation_with",
+      "GERMANY",
+      "The bicycle's early development, including the draisine, took place in Germany"
+    ],
+    [
+      "BICYCLE",
+      ":has_relation_with",
+      "FRANCE",
+      "France has been a significant location for the evolution of the bicycle, including hosting the Tour de France"
+    ],
+    [
+      "BICYCLE",
+      ":has_relation_with",
+      "SAFETY BICYCLE",
+      "The safety bicycle was a significant milestone in the evolution of the bicycle, making it more stable and accessible"
+    ],
+    [
+      "BICYCLE",
+      ":has_relation_with",
+      "CARBON FIBER",
+      "Carbon fiber has been a revolutionary material in the construction of modern bicycles, enhancing their performance"
+    ],
+    [
+      "BICYCLE",
+      ":has_relation_with",
+      "ELECTRIC BIKES",
+      "Electric bikes are a modern evolution of the bicycle, offering motorized assistance for easier riding and longer distances"
+    ],
+    [
+      "BARON KARL VON DRAIS",
+      ":has_relation_with",
+      "DRAISINE",
+      "Baron Karl von Drais invented the draisine, the earliest known prototype of the bicycle"
+    ],
+    [
+      "BARON KARL VON DRAIS",
+      ":has_relation_with",
+      "GERMANY",
+      "Baron Karl von Drais was a German inventor who created the draisine"
+    ],
+    [
+      "DRAISINE",
+      ":has_relation_with",
+      "VELOCIPED",
+      "The draisine was a predecessor to the velocipede, which introduced pedals for propulsion"
+    ],
+    [
+      "VELOCIPED",
+      ":has_relation_with",
+      "PENNY-FARTHING",
+      "The velocipede was a predecessor to the penny-farthing, which featured a large front wheel and a smaller rear wheel"
+    ],
+    [
+      "PENNY-FARTHING",
+      ":has_relation_with",
+      "SAFETY BICYCLE",
+      "The penny-farthing was succeeded by the safety bicycle, which was more stable and comfortable"
+    ],
+    [
+      "SAFETY BICYCLE",
+      ":has_relation_with",
+      "STEEL",
+      "The safety bicycle was primarily made of steel, which provided strength and durability"
+    ],
+    [
+      "STEEL",
+      ":has_relation_with",
+      "ALUMINUM",
+      "Steel was succeeded by aluminum as a popular material for bicycle frames, offering lighter weight and increased stiffness"
+    ],
+    [
+      "STEEL",
+      ":has_relation_with",
+      "TITANIUM",
+      "Steel was succeeded by titanium as a popular material for bicycle frames, offering lighter weight and increased stiffness"
+    ],
+    [
+      "ALUMINUM",
+      ":has_relation_with",
+      "CARBON FIBER",
+      "Aluminum was succeeded by carbon fiber, which provided even lighter weight and improved aerodynamics"
+    ],
+    [
+      "TITANIUM",
+      ":has_relation_with",
+      "CARBON FIBER",
+      "Titanium was succeeded by carbon fiber, which provided even lighter weight and improved aerodynamics"
+    ],
+    [
+      "CARBON FIBER",
+      ":has_relation_with",
+      "ELECTRIC BIKES",
+      "Carbon fiber frames have been used in the development of advanced electric bikes, enhancing their performance"
+    ],
+    [
+      "TOUR DE FRANCE",
+      ":has_relation_with",
+      "FRANCE",
+      "The Tour de France is a major professional cycling race that takes place in France"
+    ]
+  ]
+}

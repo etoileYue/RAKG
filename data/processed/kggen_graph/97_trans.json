@@ -1,0 +1,146 @@
+{
+  "entities": [
+    {
+      "name": "sponsorships"
+    },
+    {
+      "name": "esports"
+    },
+    {
+      "name": "YouTube Gaming"
+    },
+    {
+      "name": "endorsements"
+    },
+    {
+      "name": "Overwatch"
+    },
+    {
+      "name": "Augmented reality"
+    },
+    {
+      "name": "League of Legends"
+    },
+    {
+      "name": "teams"
+    },
+    {
+      "name": "Dota 2"
+    },
+    {
+      "name": "Esports"
+    },
+    {
+      "name": "ESPN"
+    },
+    {
+      "name": "Virtual reality"
+    },
+    {
+      "name": "Twitch"
+    },
+    {
+      "name": "companies"
+    },
+    {
+      "name": "gaming industry"
+    },
+    {
+      "name": "players"
+    },
+    {
+      "name": "Fortnite"
+    },
+    {
+      "name": "content creation"
+    },
+    {
+      "name": "TBS"
+    },
+    {
+      "name": "competitive gaming"
+    }
+  ],
+  "relations": [
+    [
+      "esports",
+      "includes",
+      "League of Legends"
+    ],
+    [
+      "teams",
+      "participate_in",
+      "esports"
+    ],
+    [
+      "esports",
+      "includes",
+      "Dota 2"
+    ],
+    [
+      "esports",
+      "affects",
+      "companies"
+    ],
+    [
+      "companies",
+      "involved_in",
+      "esports"
+    ],
+    [
+      "esports",
+      "monetization_method",
+      "sponsorships"
+    ],
+    [
+      "esports",
+      "affects",
+      "teams"
+    ],
+    [
+      "players",
+      "participate_in",
+      "esports"
+    ],
+    [
+      "esports",
+      "includes",
+      "Overwatch"
+    ],
+    [
+      "Virtual reality",
+      "promises to revolutionize",
+      "esports"
+    ],
+    [
+      "Esports",
+      "platform",
+      "Twitch"
+    ],
+    [
+      "esports",
+      "affects",
+      "players"
+    ],
+    [
+      "esports",
+      "monetization_method",
+      "endorsements"
+    ],
+    [
+      "Fortnite",
+      "is example of",
+      "esports"
+    ],
+    [
+      "Esports",
+      "platform",
+      "YouTube Gaming"
+    ],
+    [
+      "Augmented reality",
+      "promises to revolutionize",
+      "esports"
+    ]
+  ]
+}

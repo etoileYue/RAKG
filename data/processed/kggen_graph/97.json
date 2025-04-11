@@ -1,0 +1,106 @@
+{
+  "entities": [
+    "sponsorships",
+    "esports",
+    "YouTube Gaming",
+    "endorsements",
+    "Overwatch",
+    "Augmented reality",
+    "League of Legends",
+    "teams",
+    "Dota 2",
+    "Esports",
+    "ESPN",
+    "Virtual reality",
+    "Twitch",
+    "companies",
+    "gaming industry",
+    "players",
+    "Fortnite",
+    "content creation",
+    "TBS",
+    "competitive gaming"
+  ],
+  "relations": [
+    [
+      "esports",
+      "includes",
+      "League of Legends"
+    ],
+    [
+      "teams",
+      "participate_in",
+      "esports"
+    ],
+    [
+      "esports",
+      "includes",
+      "Dota 2"
+    ],
+    [
+      "esports",
+      "affects",
+      "companies"
+    ],
+    [
+      "companies",
+      "involved_in",
+      "esports"
+    ],
+    [
+      "esports",
+      "monetization_method",
+      "sponsorships"
+    ],
+    [
+      "esports",
+      "affects",
+      "teams"
+    ],
+    [
+      "players",
+      "participate_in",
+      "esports"
+    ],
+    [
+      "esports",
+      "includes",
+      "Overwatch"
+    ],
+    [
+      "Virtual reality",
+      "promises to revolutionize",
+      "esports"
+    ],
+    [
+      "Esports",
+      "platform",
+      "Twitch"
+    ],
+    [
+      "esports",
+      "affects",
+      "players"
+    ],
+    [
+      "esports",
+      "monetization_method",
+      "endorsements"
+    ],
+    [
+      "Fortnite",
+      "is example of",
+      "esports"
+    ],
+    [
+      "Esports",
+      "platform",
+      "YouTube Gaming"
+    ],
+    [
+      "Augmented reality",
+      "promises to revolutionize",
+      "esports"
+    ]
+  ]
+}

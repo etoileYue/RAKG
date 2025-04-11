@@ -1,0 +1,915 @@
+{
+    "entities": [
+        {
+            "name": "King of Egypt",
+            "type": "Person",
+            "description": "The King of Egypt is a historical and mythological figure who ruled over ancient Egypt.",
+            "attributes": {}
+        },
+        {
+            "name": "German",
+            "type": "Culture/Nationality",
+            "description": "German refers to the culture and nationality associated with Germany, known for its rich history, folklore, and contributions to literature and science.",
+            "attributes": {
+                "Language": "German",
+                "Folklore Traditions": "Rich in oral traditions and fairytales"
+            }
+        },
+        {
+            "name": "fairy godmother",
+            "type": "Character",
+            "description": "A magical character who appears in various fairy tales, often to help the protagonist with their challenges.",
+            "attributes": {
+                "Role": "Helper",
+                "Magical Abilities": "Transform objects and people, grant wishes, provide magical items"
+            }
+        },
+        {
+            "name": "early 19th century",
+            "type": "Historical Era",
+            "description": "A period of time that spans from approximately 1801 to 1825",
+            "attributes": {}
+        },
+        {
+            "name": "Cinderella\"s Magical Elements",
+            "type": "Magical Objects",
+            "description": "In Perrault\"s version of Cinderella, these elements include the fairy godmother\"s transformations such as the glass slipper and the carriage.",
+            "attributes": {}
+        },
+        {
+            "name": "a handsome prince",
+            "type": "Character",
+            "description": "A character in fairy tales, often depicted as charming and heroic, who rescues the princess and lives happily ever after.",
+            "attributes": {
+                "Appearance": "Handsome",
+                "Role": "Heroic Character"
+            }
+        },
+        {
+            "name": "ITALIAN FOLKLORE",
+            "type": "Culture",
+            "description": "A body of traditional stories and legends from Italy, including variations of Snow White",
+            "attributes": {}
+        },
+        {
+            "name": "Beauty",
+            "type": "Character",
+            "description": "Beauty is a kind-hearted young woman who sees beyond the beastly exterior of the cursed prince and discovers his true nature.",
+            "attributes": {}
+        },
+        {
+            "name": "German countryside",
+            "type": "Geographical",
+            "description": "The rural areas and landscapes of Germany.",
+            "attributes": {}
+        },
+        {
+            "name": "1697",
+            "type": "Year",
+            "description": "The year 1697 was significant in the history of literature, particularly for the publication of fairy tales.",
+            "attributes": {
+                "Type": "Historical Year"
+            }
+        },
+        {
+            "name": "OVID",
+            "type": "Roman",
+            "description": "Roman poet who wrote about the myth of Pygmalion and Galatea, one of the earliest known versions of the Beauty and the Beast story",
+            "attributes": {}
+        },
+        {
+            "name": "EUROPEAN FOLKLORE",
+            "type": "Mythology",
+            "description": "A body of traditional stories and legends from Europe, including tales similar to Hansel and Gretel",
+            "attributes": {}
+        },
+        {
+            "name": "sculptor",
+            "type": "Person",
+            "description": "A person who creates sculptures, often from materials such as stone, metal, or wood.",
+            "attributes": {
+                "Occupation": "Sculptor",
+                "Gender": "Male",
+                "Emotion": "In love with creation"
+            }
+        },
+        {
+            "name": "Snow White\"s Beauty",
+            "type": "Attribute",
+            "description": "Snow White is described as a beautiful princess.",
+            "attributes": {}
+        },
+        {
+            "name": "ANCIENT MYTHS",
+            "type": "Mythological Tales",
+            "description": "A category of stories that have been retold in different forms throughout history, including the myth of Pygmalion and Galatea",
+            "attributes": {}
+        },
+        {
+            "name": "cannibalistic witch",
+            "type": "Character",
+            "description": "A malevolent character in fairy tales who lures children into her house made of sweets and intends to eat them.",
+            "attributes": {
+                "Habitat": "House made of sweets",
+                "Intent": "To eat the children"
+            }
+        },
+        {
+            "name": "SLAVIC FOLKLORE",
+            "type": "CulturalTradition",
+            "description": "A body of traditional stories and legends from Slavic cultures, including variations of Snow White",
+            "attributes": {}
+        },
+        {
+            "name": "Curse",
+            "type": "Magical Event",
+            "description": "A curse is a magical spell that causes harm or misfortune to the person it is cast upon. In this case, the curse transformed the prince into a beast.",
+            "attributes": {}
+        },
+        {
+            "name": "Home",
+            "type": "Location",
+            "description": "The place where Hansel and Gretel live with their family.",
+            "attributes": {}
+        },
+        {
+            "name": "Evil Queen",
+            "type": "Character",
+            "description": "The Evil Queen is the antagonist of the fairy tale \"Snow White.\" She is jealous of Snow White\"s beauty and tries to kill her.",
+            "attributes": {}
+        },
+        {
+            "name": "ANCIENT GREECE",
+            "type": "Civilization",
+            "description": "Ancient Greece was a civilization characterized by its advanced intellectual achievements, including in philosophy, science, and art.",
+            "attributes": {}
+        },
+        {
+            "name": "stroke of midnight",
+            "type": "Event",
+            "description": "The stroke of midnight refers to the exact moment when the clock strikes twelve, marking the transition from one day to the next. In Perrault\"s version of Cinderella, this event is significant as it triggers the transformation of the magical elements back to their original forms.",
+            "attributes": {
+                "Time": "12:00 AM",
+                "Significance in Literature": "Marking the end of a magical period and the return to reality"
+            }
+        },
+        {
+            "name": "RHODOPIS",
+            "type": "mythological_figure",
+            "description": "A character from an ancient Greek story, considered one of the earliest versions of Cinderella",
+            "attributes": {}
+        }
+    ],
+    "relations": [
+        [
+            "CINDERELLA",
+            "origin",
+            "ORAL TRADITIONS",
+            "Cinderella was passed down through oral traditions before being recorded"
+        ],
+        [
+            "ancient myths",
+            "Opposes",
+            "Evil Queen",
+            "The seven dwarfs oppose the evil queen by protecting Snow White from her attempts to harm her."
+        ],
+        [
+            "cannibalistic witch",
+            "Is Outsmarted By",
+            "Hansel and Gretel",
+            "The cannibalistic witch is outsmarted by Hansel and Gretel, who find their way back home."
+        ],
+        [
+            "Cinderella",
+            "Included In",
+            "Grimm\"s Fairy Tales",
+            "Cinderella is included in the famous collection of fairy tales known as Grimm\"s Fairy Tales."
+        ],
+        [
+            "1697",
+            "Publication Year Of",
+            "Cinderella (by Charles Perrault)",
+            "The year 1697 is when Charles Perrault published his version of Cinderella."
+        ],
+        [
+            "ancient myths",
+            "Helps",
+            "Snow White",
+            "The seven dwarfs help Snow White by providing shelter and protection."
+        ],
+        [
+            "RHODOPIS",
+            "originated_from",
+            "ANCIENT GREECE",
+            "The story of Rhodopis, one of the earliest known versions of Cinderella, originated in ancient Greece"
+        ],
+        [
+            "Brothers Grimm",
+            "Collected",
+            "Hansel and Gretel",
+            "The Brothers Grimm collected the story of \"Hansel and Gretel\" as part of their collection."
+        ],
+        [
+            "Beauty and the Beast",
+            "Related To",
+            "Cinderella",
+            "\"Beauty and the Beast\" is often mentioned alongside other classic fairytales like \"Cinderella.\""
+        ],
+        [
+            "Fairytales",
+            "oral traditions",
+            "preserve",
+            "Fairytales are part of oral traditions, which involve the transmission of stories, beliefs, and values through spoken word, passed down from one generation to another, with the purpose of preserving cultural heritage and knowledge."
+        ],
+        [
+            "stroke of midnight",
+            "Triggers Transformation",
+            "Cinderella\"s Magical Elements",
+            "The stroke of midnight causes all magical transformations to revert back to their original forms."
+        ],
+        [
+            "beauty",
+            "Seen By",
+            "Beauty",
+            "Beauty, a kind-hearted young woman, sees beyond the cursed prince\"s beastly appearance and recognizes his true nature."
+        ],
+        [
+            "sculptor",
+            "Created",
+            "ovid",
+            "The sculptor created a statue that later came to life."
+        ],
+        [
+            "Hansel and Gretel",
+            "Returned To",
+            "Home",
+            "After escaping from the witch, Hansel and Gretel find their way back home."
+        ],
+        [
+            "Brothers Grimm",
+            "Collected and Published",
+            "Grimm\"s Fairy Tales",
+            "The Brothers Grimm collected and published a wide range of fairy tales in their collection known as \"Grimm\"s Fairy Tales.\""
+        ],
+        [
+            "cinderella\"s magical elements",
+            "Introduced By",
+            "Charles Perrault",
+            "Charles Perrault introduced the glass slipper as an iconic element in his version of the Cinderella story."
+        ],
+        [
+            "Beauty and the Beast",
+            "Included In",
+            "Brothers Grimm Collection",
+            "\"Beauty and the Beast\" is one of the enduring and popular fairytales included in the Brothers Grimm\"s collection."
+        ],
+        [
+            "BROTHERS GRIMM",
+            "origin",
+            "EARLY 19TH CENTURY",
+            "The Brothers Grimm began collecting and publishing fairy tales in the early 19th century"
+        ],
+        [
+            "German",
+            "Origin of",
+            "Grimm\"s Fairy Tales",
+            "Grimm\"s Fairy Tales is a well-known collection that preserves German folklore."
+        ],
+        [
+            "BEAUTY AND THE BEAST",
+            "inspired",
+            "OVID",
+            "Ovid's myth of Pygmalion and Galatea is one of the earliest known versions of the Beauty and the Beast story"
+        ],
+        [
+            "Slavic traditions",
+            "Includes Variation Of",
+            "Snow White",
+            "Slavic traditions include a variation of the Snow White story."
+        ],
+        [
+            "Fairytales",
+            "Includes Tale",
+            "Beauty and the Beast",
+            "Fairytales include the tale of \"Beauty and the Beast.\""
+        ],
+        [
+            "Ovid",
+            "Wrote About",
+            "Pygmalion and Galatea",
+            "Ovid wrote about the myth of Pygmalion and Galatea in his works."
+        ],
+        [
+            "AUTHOR_OF",
+            "Beauty and the Beast",
+            "Brothers Grimm",
+            "The author of 'Beauty and the Beast' as related to Brothers Grimm might imply an influence or adaptation, considering the Brothers Grimm are known for collecting and publishing various fairy tales, including 'Beauty and the Beast'. However, traditionally, 'Beauty and the Beast' is attributed to French writer Gabrielle-Suzanne de Villeneuve and her daughter Jeanne-Marie Leprince de Beaumont."
+        ],
+        [
+            "evil queen",
+            "Forces to Flee",
+            "Snow White",
+            "The wicked stepmother forces Snow White to flee into the forest."
+        ],
+        [
+            "Hansel",
+            "Character In",
+            "Hansel and Gretel",
+            "Hansel is one of the main characters in the fairy tale \"Hansel and Gretel.\""
+        ],
+        [
+            "Brothers Grimm's 'Grimm's Fairy Tales'",
+            "Hansel and Gretel",
+            "are",
+            "'Brothers Grimm's 'Grimm's Fairy Tales' contains the story 'Hansel and Gretel'"
+        ],
+        [
+            "Fairytales",
+            "Includes Tale",
+            "Hansel and Gretel",
+            "Fairytales include the tale of \"Hansel and Gretel.\""
+        ],
+        [
+            "HANSEL AND GRETEL",
+            "origin",
+            "ORAL TRADITIONS",
+            "Hansel and Gretel was passed down through oral traditions before being recorded"
+        ],
+        [
+            "Grimm\"s Fairy Tales",
+            "Includes",
+            "Snow White",
+            "\"Grimm\"s Fairy Tales\" includes the story \"Snow White.\""
+        ],
+        [
+            "Hansel and Gretel",
+            "Featured In",
+            "Grimm\"s Fairy Tales",
+            "\"Hansel and Gretel\" is one of the stories featured in the Brothers Grimm\"s collection."
+        ],
+        [
+            "evil queen",
+            "Opposes",
+            "Snow White",
+            "The queen opposes Snow White due to her jealousy and attempts to harm her."
+        ],
+        [
+            "German",
+            "Origin of",
+            "Hansel and Gretel",
+            "The story of Hansel and Gretel is a significant part of German folklore."
+        ],
+        [
+            "German",
+            "Origin of",
+            "Snow White",
+            "The story of Snow White is part of the rich folklore tradition of Germany."
+        ],
+        [
+            "Jacob and Wilhelm Grimm",
+            "gathered stories from",
+            "ancient myths",
+            "Jacob and Wilhelm Grimm gathered stories from ancient myths."
+        ],
+        [
+            "BROTHERS GRIMM",
+            "originated_from",
+            "ORAL TRADITIONS",
+            "The Brothers Grimm collected fairy tales from oral traditions, preserving them in written form"
+        ],
+        [
+            "CINDERELLA",
+            "inspired-by",
+            "RHODOPIS",
+            "Rhodopis is a character from an ancient Greek story, considered one of the earliest versions of Cinderella"
+        ],
+        [
+            "Hansel",
+            "Sibling Of",
+            "Gretel",
+            "Hansel and Gretel are siblings who work together to survive and return home."
+        ],
+        [
+            "cinderella\"s magical elements",
+            "Appears In",
+            "Cinderella",
+            "The glass slipper is a key element in the story of Cinderella, used by the prince to identify Cinderella as the owner."
+        ],
+        [
+            "Pygmalion and Galatea",
+            "Featured In Works Of",
+            "Ovid",
+            "The story of Pygmalion and Galatea is featured in Ovid\"s works."
+        ],
+        [
+            "Brothers Grimm's 'Grimm's Fairy Tales'",
+            "Snow White",
+            "are",
+            "The Brothers Grimm's 'Grimm's Fairy Tales' contain the story of Snow White."
+        ],
+        [
+            "CHARLES PERRAULT",
+            "published_in_year",
+            "1697",
+            "Charles Perrault published his version of Cinderella in 1697, introducing iconic elements such as the fairy godmother and the glass slipper"
+        ],
+        [
+            "German brothers and scholars",
+            "Jacob and Wilhelm Grimm",
+            "are",
+            "undefine"
+        ],
+        [
+            "Beauty and the Beast",
+            "Pygmalion and Galatea",
+            "gathered stories from",
+            "In the context of Pygmalion and Galatea, Beauty and the Beast might symbolically represent the source or inspiration for gathered stories, illustrating themes of transformation and love overcoming physical differences."
+        ],
+        [
+            "Fairytales",
+            "Includes Tale",
+            "Snow White",
+            "Fairytales include the tale of \"Snow White.\""
+        ],
+        [
+            "a handsome prince",
+            "Marries",
+            "Snow White",
+            "The handsome prince marries Snow White, leading to their happily ever after."
+        ],
+        [
+            "sculptor",
+            "Falls in Love With",
+            "ovid",
+            "The sculptor falls in love with his creation, a living statue."
+        ],
+        [
+            "Grimm\"s Fairy Tales",
+            "Collected By",
+            "Brothers Grimm",
+            "The Brothers Grimm collected and published the stories included in \"Grimm\"s Fairy Tales.\""
+        ],
+        [
+            "ancient myths",
+            "Manifests In",
+            "Snow White",
+            "The story of Snow White has been adapted into various forms, including different cultural versions and written records."
+        ],
+        [
+            "Gretel",
+            "Character In",
+            "Hansel and Gretel",
+            "Gretel is one of the main characters in the story \"Hansel and Gretel.\""
+        ],
+        [
+            "ancient myths",
+            "Manifests In",
+            "Cinderella",
+            "The story of Cinderella has been adapted into various forms, including different cultural versions and written records."
+        ],
+        [
+            "evil queen",
+            "Is",
+            "evil queen",
+            "The wicked stepmother is also known as the evil queen."
+        ],
+        [
+            "fairy godmother",
+            "Appears In",
+            "Cinderella",
+            "The fairy godmother appears in Perrault\"s version of \"Cinderella\" and helps Cinderella with magical transformations."
+        ],
+        [
+            "BROTHERS GRIMM",
+            "included",
+            "CINDERELLA",
+            "The Brothers Grimm included Cinderella in their collection of fairy tales"
+        ],
+        [
+            "Grimm\"s Fairy Tales",
+            "Includes",
+            "Beauty and the Beast",
+            "\"Grimm\"s Fairy Tales\" includes the story \"Beauty and the Beast.\""
+        ],
+        [
+            "cannibalistic witch",
+            "Have Children",
+            "Hansel and Gretel",
+            "The parents have two children, Hansel and Gretel."
+        ],
+        [
+            "BROTHERS GRIMM",
+            "included",
+            "HANSEL AND GRETEL",
+            "The Brothers Grimm included Hansel and Gretel in their collection of fairy tales"
+        ],
+        [
+            "Hansel",
+            "Outsmarts",
+            "Witch",
+            "Hansel, along with his sister Gretel, uses his wit and bravery to outsmart the witch."
+        ],
+        [
+            "Gretel",
+            "Outsmarted",
+            "Witch",
+            "Gretel, along with her brother Hansel, uses their wit and bravery to outsmart the witch and escape."
+        ],
+        [
+            "BEAUTY AND THE BEAST",
+            "origin",
+            "ANCIENT MYTHS",
+            "Beauty and the Beast has roots in ancient myths, including the story of Pygmalion and Galatea"
+        ],
+        [
+            "SNOW WHITE",
+            "origin",
+            "SLAVIC FOLKLORE",
+            "The story of Snow White has variations in Slavic folklore"
+        ],
+        [
+            "Beauty and the Beast",
+            "Related To",
+            "Hansel and Gretel",
+            "\"Beauty and the Beast\" is often mentioned alongside other classic fairytales like \"Hansel and Gretel.\""
+        ],
+        [
+            "Brothers Grimm",
+            "Collected",
+            "Snow White",
+            "The Brothers Grimm collected the story of \"Snow White\" as part of their collection."
+        ],
+        [
+            "cannibalistic witch",
+            "Lures",
+            "Hansel and Gretel",
+            "The cannibalistic witch lures Hansel and Gretel into her house made of sweets."
+        ],
+        [
+            "Brothers Grimm's 'Grimm's Fairy Tales'",
+            "Fairytales",
+            "are collected in",
+            "Brothers Grimm's 'Grimm's Fairy Tales' are collected in various literary compilations."
+        ],
+        [
+            "Snow White",
+            "Flees From",
+            "Wicked Stepmother (Evil Queen)",
+            "Snow White flees into the forest to escape her wicked stepmother."
+        ],
+        [
+            "evil queen",
+            "Threatened By",
+            "Snow White\"s Beauty",
+            "The queen feels threatened by Snow White\"s beauty, which fuels her jealousy and malevolent actions."
+        ],
+        [
+            "Hansel and Gretel",
+            "Outsmarted",
+            "Witch",
+            "Hansel and Gretel use their wit and bravery to outsmart the witch."
+        ],
+        [
+            "PYGMALION AND GALATEA",
+            "inspired_by",
+            "ANCIENT MYTHS",
+            "The myth of Pygmalion and Galatea is an ancient myth that influenced the story of Beauty and the Beast"
+        ],
+        [
+            "AUTHOR_OF",
+            "Brothers Grimm",
+            "Snow White",
+            "The author of 'Snow White' refers to the Brothers Grimm, who compiled and published various fairy tales including this one."
+        ],
+        [
+            "Charles Perrault",
+            "Cinderella",
+            "published_version_of",
+            "Charles Perrault's version of Cinderella was published."
+        ],
+        [
+            "Brothers Grimm",
+            "Snow White",
+            "collected_by",
+            "The Brothers Grimm collected the story of Snow White."
+        ],
+        [
+            "ancient Greece",
+            "Origin of Story",
+            "Cinderella",
+            "Ancient Greece is the origin of an early version of the Cinderella story, where a young girl named Rhodopis marries the king after he finds her lost slipper."
+        ],
+        [
+            "Cinderella",
+            "Rhodopis",
+            "earlier_version_of",
+            "In the context of storytelling, Cinderella and Rhodopis are related as earlier versions of the same tale, with Rhodopis being an ancient Greek version that influenced the more well-known European story of Cinderella."
+        ],
+        [
+            "SNOW WHITE",
+            "origin",
+            "ITALIAN FOLKLORE",
+            "The story of Snow White has variations in Italian folklore"
+        ],
+        [
+            "Rhodopis",
+            "Married To",
+            "King of Egypt",
+            "Rhodopis married the King of Egypt after he found her lost slipper."
+        ],
+        [
+            "ovid",
+            "Created By",
+            "sculptor",
+            "The statue was created by the sculptor."
+        ],
+        [
+            "ancient myths",
+            "Inhabited",
+            "German Countryside",
+            "Peasants and villagers lived in the German countryside, where they maintained their way of life and cultural practices."
+        ],
+        [
+            "Brothers Grimm",
+            "Hansel and Gretel",
+            "collected by",
+            "The Brothers Grimm collected the story of Hansel and Gretel."
+        ],
+        [
+            "Snow White",
+            "Marries",
+            "Handsome Prince",
+            "Snow White ultimately finds her happily ever after with the handsome prince."
+        ],
+        [
+            "Rhodopis",
+            "Lost Slipper Found By",
+            "King of Egypt",
+            "Rhodopis lost her slipper, which was found by the King of Egypt."
+        ],
+        [
+            "Snow White",
+            "flees from",
+            "undefine",
+            "wicked stepmother"
+        ],
+        [
+            "cannibalistic witch",
+            "Lures",
+            "Hansel and Gretel",
+            "The witch lures Hansel and Gretel with her house made of sweets."
+        ],
+        [
+            "Ovid",
+            "Pygmalion and Galatea",
+            "undefine",
+            "wrote_about"
+        ],
+        [
+            "Beauty and the Beast",
+            "Related To",
+            "Snow White",
+            "\"Beauty and the Beast\" is often mentioned alongside other classic fairytales like \"Snow White.\""
+        ],
+        [
+            "evil queen",
+            "Stepmother Of",
+            "Snow White",
+            "The queen is the stepmother of Snow White and is driven by jealousy to pursue her."
+        ],
+        [
+            "Snow White",
+            "helped by",
+            "ancient myths",
+            "The story of Snow White, as an adaptation from ancient myths, was helped by various cultural and literary influences originating from traditional tales."
+        ],
+        [
+            "beauty",
+            "Transformed By",
+            "Curse",
+            "The cursed prince was transformed into a beast by a curse."
+        ],
+        [
+            "BROTHERS GRIMM",
+            "included",
+            "SNOW WHITE",
+            "The Brothers Grimm included Snow White in their collection of fairy tales"
+        ],
+        [
+            "German countryside",
+            "Jacob and Wilhelm Grimm",
+            "traveled throughout",
+            "undefine"
+        ],
+        [
+            "BEAUTY AND THE BEAST",
+            "inspired_by",
+            "PYGMALION AND GALATEA",
+            "The myth of Pygmalion and Galatea, written by Ovid, is one of the earliest known versions of the Beauty and the Beast story"
+        ],
+        [
+            "Charles Perrault",
+            "Published",
+            "Cinderella",
+            "Perrault published his version of Cinderella in 1697, which is the most familiar version to many people today."
+        ],
+        [
+            "BEAUTY AND THE BEAST",
+            "origin",
+            "ORAL TRADITIONS",
+            "Beauty and the Beast was passed down through oral traditions before being recorded"
+        ],
+        [
+            "Snow White",
+            "handsome prince",
+            "marries",
+            "In the story of Snow White, she marries the handsome prince."
+        ],
+        [
+            "AUTHOR_OF",
+            "Brothers Grimm",
+            "Cinderella",
+            "The author of 'Cinderella' as referenced in the Brothers Grimm collection."
+        ],
+        [
+            "Brothers Grimm",
+            "Collected",
+            "Cinderella",
+            "The Brothers Grimm collected the story of \"Cinderella\" as part of their collection."
+        ],
+        [
+            "ancient myths",
+            "Provided Stories To",
+            "Brothers Grimm",
+            "Peasants and villagers provided oral traditions and stories to the Brothers Grimm, which they later compiled into their famous collections."
+        ],
+        [
+            "ancient myths",
+            "Preserved Oral Traditions",
+            "Oral Traditions",
+            "Peasants and villagers played a crucial role in preserving the oral traditions of their culture by sharing them with the Brothers Grimm."
+        ],
+        [
+            "BROTHERS GRIMM",
+            "origin",
+            "GERMANY",
+            "The Brothers Grimm collected and published fairy tales in Germany, preserving the oral traditions of the German countryside"
+        ],
+        [
+            "SNOW WHITE",
+            "origin",
+            "ORAL TRADITIONS",
+            "Snow White was passed down through oral traditions before being recorded"
+        ],
+        [
+            "evil queen",
+            "Defeated By",
+            "Seven Dwarfs",
+            "The queen is defeated by the combined efforts of the seven dwarfs who protect Snow White."
+        ],
+        [
+            "Beauty and the Beast",
+            "Inspired By",
+            "Pygmalion and Galatea",
+            "The earliest known version of \"Beauty and the Beast\" can be found in Ovid\"s works on the myth of Pygmalion and Galatea."
+        ],
+        [
+            "Brothers Grimm's 'Grimm's Fairy Tales'",
+            "Cinderella",
+            "are",
+            "'Brothers Grimm's 'Grimm's Fairy Tales' contains the story of Cinderella"
+        ],
+        [
+            "BROTHERS GRIMM",
+            "origin",
+            "GERMAN FOLKLORE",
+            "The Brothers Grimm collected and published fairy tales from German folklore"
+        ],
+        [
+            "Fairytales",
+            "Jacob and Wilhelm Grimm",
+            "collected and published",
+            "The Jacob and Wilhelm Grimm collected and published fairytales."
+        ],
+        [
+            "Brothers Grimm",
+            "Collected",
+            "Beauty and the Beast",
+            "The Brothers Grimm collected the story of \"Beauty and the Beast\" as part of their collection."
+        ],
+        [
+            "Snow White",
+            "Is Featured In",
+            "Grimm\"s Fairy Tales",
+            "Snow White is one of the most well-known stories featured in Grimm\"s Fairy Tales."
+        ],
+        [
+            "Gretel",
+            "Sister Of",
+            "Hansel",
+            "Gretel and Hansel are siblings who work together to survive their encounter with the witch."
+        ],
+        [
+            "stroke of midnight",
+            "Occurs In",
+            "Cinderella (Perrault\"s Version)",
+            "The stroke of midnight is a pivotal moment in Perrault\"s version of Cinderella."
+        ],
+        [
+            "CINDERELLA",
+            "authorship",
+            "CHARLES PERRAULT",
+            "Charles Perrault published a version of Cinderella in 1697, introducing iconic elements such as the fairy godmother and the glass slipper"
+        ],
+        [
+            "SNOW WHITE",
+            "origin",
+            "GERMAN FOLKLORE",
+            "The story of Snow White is part of German folklore"
+        ],
+        [
+            "Snow White",
+            "Finds Refuge With",
+            "Seven Dwarfs",
+            "Snow White finds refuge with the seven dwarfs in their cottage."
+        ],
+        [
+            "cannibalistic witch",
+            "Is Outsmarted By",
+            "Hansel and Gretel",
+            "The witch is outsmarted by Hansel and Gretel, who find their way back home."
+        ],
+        [
+            "AUTHOR_OF",
+            "Brothers Grimm",
+            "Hansel and Gretel",
+            "The author of 'Hansel and Gretel' is part of the Brothers Grimm."
+        ],
+        [
+            "Grimm\"s Fairy Tales",
+            "Includes",
+            "Cinderella",
+            "\"Grimm\"s Fairy Tales\" includes the story \"Cinderella.\""
+        ],
+        [
+            "Hansel and Gretel",
+            "cannibalistic witch",
+            "outsmart",
+            "In the story of 'Hansel and Gretel', the titular siblings outsmart a cannibalistic witch who tries to eat them."
+        ],
+        [
+            "Jacob and Wilhelm Grimm",
+            "began collecting and publishing",
+            "early 19th century",
+            "undefine"
+        ],
+        [
+            "German",
+            "Origin of",
+            "Brothers Grimm",
+            "The Brothers Grimm are a significant part of German cultural heritage."
+        ],
+        [
+            "Beauty and the Beast",
+            "Ovid",
+            "is_influenced_by",
+            "undefine"
+        ],
+        [
+            "Grimm\"s Fairy Tales",
+            "Includes",
+            "Hansel and Gretel",
+            "\"Grimm\"s Fairy Tales\" includes the story \"Hansel and Gretel.\""
+        ],
+        [
+            "Cinderella",
+            "Published By",
+            "Charles Perrault",
+            "The most well-known version of Cinderella today was published by Charles Perrault."
+        ],
+        [
+            "evil queen",
+            "Defeated By",
+            "Snow White",
+            "The queen is ultimately defeated by Snow White, who triumphs over her jealousy and malevolent actions."
+        ],
+        [
+            "HANSEL AND GRETEL",
+            "part_of",
+            "EUROPEAN FOLKLORE",
+            "The story of Hansel and Gretel is part of European folklore"
+        ],
+        [
+            "ovid",
+            "Loved By",
+            "sculptor",
+            "The sculptor falls in love with the statue."
+        ],
+        [
+            "cannibalistic witch",
+            "Attempts to Cook",
+            "Hansel and Gretel",
+            "The witch attempts to cook Hansel and Gretel after luring them into her house."
+        ]
+    ]
+}

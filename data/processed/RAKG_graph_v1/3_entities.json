@@ -1,0 +1,134 @@
+{
+    "entity1": {
+        "name": "Artificial Intelligence (AI)",
+        "type": "Technology",
+        "description": "Artificial Intelligence technologies that can improve efficiency and productivity but also raise concerns about job displacement, inequality, and power concentration.;;;Artificial intelligence technologies and platforms that process and analyze data.;;;An artificial intelligence application designed to perform tasks that typically require human intelligence.;;;Artificial Intelligence, a branch of computer science dealing with the simulation of intelligent behavior in computers.;;;Artificial Intelligence systems and applications that can perform tasks requiring human intelligence, such as learning, reasoning, and self-correction.;;;Artificial Intelligence systems that are designed to perform tasks requiring human intelligence.;;;Artificial Intelligence systems and applications designed to perform tasks that typically require human intelligence.;;;Refers to artificial intelligence systems and applications that are developed and deployed in various fields.;;;Artificial Intelligence systems that are designed to perform tasks requiring human intelligence, such as learning, reasoning, and self-correction.;;;A computer system designed to perform tasks that typically require human intelligence, such as learning, reasoning, and self-correction.;;;The process of creating, designing, and implementing artificial intelligence systems and technologies.;;;A branch of computer science that aims to create software or machines that exhibit human-like intelligence.;;;The process and field concerned with the creation and advancement of artificial intelligence technologies.;;;The process of creating artificial intelligence systems, including research, design, and implementation phases.",
+        "chunkid": "Ethical Dilemmas in AI Development18;;;Ethical Dilemmas in AI Development15;;;Ethical Dilemmas in AI Development10;;;Ethical Dilemmas in AI Development13;;;Ethical Dilemmas in AI Development14;;;Ethical Dilemmas in AI Development20;;;Ethical Dilemmas in AI Development4;;;Ethical Dilemmas in AI Development24;;;Ethical Dilemmas in AI Development16;;;Ethical Dilemmas in AI Development5;;;Ethical Dilemmas in AI Development7;;;Ethical Dilemmas in AI Development25;;;Ethical Dilemmas in AI Development1;;;Ethical Dilemmas in AI Development22;;;Ethical Dilemmas in AI Development21;;;Ethical Dilemmas in AI Development3;;;Ethical Dilemmas in AI Development11"
+    },
+    "entity4": {
+        "name": "privacy",
+        "type": "Concept",
+        "description": "A fundamental human right that protects individuals from intrusion into their personal lives and affairs by the government or other entities.;;;A fundamental right that involves the ability of individuals to keep their personal matters and relationships secret from others.;;;The legal entitlements of individuals to control or limit the use and dissemination of their personal data.",
+        "chunkid": "Ethical Dilemmas in AI Development4;;;Ethical Dilemmas in AI Development5;;;Ethical Dilemmas in AI Development6"
+    },
+    "entity6": {
+        "name": "data",
+        "type": "Information",
+        "description": "Digital information collected and analyzed by AI systems.",
+        "chunkid": "Ethical Dilemmas in AI Development5"
+    },
+    "entity8": {
+        "name": "facial recognition technology",
+        "type": "Technology",
+        "description": "A type of biometric software that maps facial features from a photograph or video and compares it to a database to verify identity.",
+        "chunkid": "Ethical Dilemmas in AI Development6"
+    },
+    "entity9": {
+        "name": "surveillance purposes",
+        "type": "Purpose",
+        "description": "The act of closely observing an individual, group, or organization, often for security or law enforcement reasons.",
+        "chunkid": "Ethical Dilemmas in AI Development6"
+    },
+    "entity11": {
+        "name": "governments",
+        "type": "Organization",
+        "description": "Organized systems of political administration, typically at a national level, responsible for governing a country or region.",
+        "chunkid": "Ethical Dilemmas in AI Development6"
+    },
+    "entity12": {
+        "name": "corporations",
+        "type": "Organization",
+        "description": "Large business organizations that may benefit disproportionately from AI technologies and contribute to power concentration.;;;Large business entities that are legally recognized as separate from their owners and operate to generate profit.",
+        "chunkid": "Ethical Dilemmas in AI Development6;;;Ethical Dilemmas in AI Development21"
+    },
+    "entity14": {
+        "name": "bias",
+        "type": "Concept",
+        "description": "A prejudice or inclination, often unconscious, that can affect decision-making processes in AI systems, leading to unfair outcomes.",
+        "chunkid": "Ethical Dilemmas in AI Development7"
+    },
+    "entity15": {
+        "name": "biased algorithms",
+        "type": "Technology/Process",
+        "description": "Algorithms that have inherent biases, often due to the data they are trained on or the design choices made by their creators.",
+        "chunkid": "Ethical Dilemmas in AI Development9"
+    },
+    "entity16": {
+        "name": "hiring processes",
+        "type": "Business Process",
+        "description": "The procedures and steps taken by organizations to recruit and select candidates for employment.",
+        "chunkid": "Ethical Dilemmas in AI Development9"
+    },
+    "entity17": {
+        "name": "discrimination",
+        "type": "Social Issue",
+        "description": "Unfair or unequal treatment of individuals based on certain characteristics such as race, gender, etc.",
+        "chunkid": "Ethical Dilemmas in AI Development9"
+    },
+    "entity18": {
+        "name": "race",
+        "type": "Demographic Factor",
+        "description": "A social construct that divides people into groups based on physical and genetic traits.",
+        "chunkid": "Ethical Dilemmas in AI Development9"
+    },
+    "entity19": {
+        "name": "gender",
+        "type": "Demographic Factor",
+        "description": "The range of characteristics pertaining to, and differentiating between, masculinity and femininity.",
+        "chunkid": "Ethical Dilemmas in AI Development9"
+    },
+    "entity21": {
+        "name": "Accountability",
+        "type": "Concept",
+        "description": "A principle or moral obligation to be responsible for one's actions and decisions, especially in the context of ethical dilemmas in AI development.",
+        "chunkid": "Ethical Dilemmas in AI Development11"
+    },
+    "entity24": {
+        "name": "developers",
+        "type": "Role",
+        "description": "Individuals who create and maintain software applications.",
+        "chunkid": "Ethical Dilemmas in AI Development14"
+    },
+    "entity25": {
+        "name": "users",
+        "type": "Role",
+        "description": "People who use or interact with a product, service, or system.",
+        "chunkid": "Ethical Dilemmas in AI Development14"
+    },
+    "entity28": {
+        "name": "Transparency",
+        "type": "Concept",
+        "description": "A principle in AI development that emphasizes the openness and clarity of how an AI system operates.",
+        "chunkid": "Ethical Dilemmas in AI Development16"
+    },
+    "entity32": {
+        "name": "society",
+        "type": "Social Group",
+        "description": "The aggregate of people living together in a more or less ordered community.",
+        "chunkid": "Ethical Dilemmas in AI Development20"
+    },
+    "entity34": {
+        "name": "job displacement",
+        "type": "Social Issue",
+        "description": "The phenomenon where jobs are lost due to the adoption of new technologies, particularly in the context of AI.",
+        "chunkid": "Ethical Dilemmas in AI Development21"
+    },
+    "entity35": {
+        "name": "inequality",
+        "type": "Social Issue",
+        "description": "Disparities in wealth, income, or opportunities that can be exacerbated by technological advancements and their uneven distribution.",
+        "chunkid": "Ethical Dilemmas in AI Development21"
+    },
+    "entity36": {
+        "name": "concentration of power",
+        "type": "Political/Economic Issue",
+        "description": "The accumulation of significant control over resources, markets, or decision-making processes in the hands of a few entities, often due to technological advancements.",
+        "chunkid": "Ethical Dilemmas in AI Development21"
+    },
+    "entity39": {
+        "name": "ethical principles",
+        "type": "Concept",
+        "description": "Guidelines or standards of behavior that are considered morally right and just, often used to ensure fair treatment and respect for individuals and communities.",
+        "chunkid": "Ethical Dilemmas in AI Development22"
+    }
+}

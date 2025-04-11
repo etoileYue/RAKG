@@ -1,0 +1,275 @@
+{
+  "entities": [
+    {
+      "name": "EARTH",
+      "type": "GEO",
+      "description": "The planet around which satellites orbit to perform various functions such as communication, weather monitoring, and scientific research"
+    },
+    {
+      "name": "COMMUNICATION SATELLITE",
+      "type": "ORGANIZATION",
+      "description": "A type of satellite used to relay signals for television, internet, phone calls, and other forms of communication"
+    },
+    {
+      "name": "WEATHER SATELLITE",
+      "type": "ORGANIZATION",
+      "description": "A type of satellite equipped with sensors and cameras to monitor Earth's weather patterns and provide data for meteorologists"
+    },
+    {
+      "name": "GEOSTATIONARY ORBIT (GEO)",
+      "type": "GEO",
+      "description": "An orbit where satellites remain fixed over a specific point on the equator, commonly used for telecommunications and broadcasting"
+    },
+    {
+      "name": "LOW EARTH ORBIT (LEO)",
+      "type": "GEO",
+      "description": "An orbit closer to Earth, used for tasks like Earth observation, remote sensing, and satellite internet"
+    },
+    {
+      "name": "POLAR ORBIT",
+      "type": "GEO",
+      "description": "An orbit that passes over the Earth's poles, used for Earth observation and weather monitoring"
+    },
+    {
+      "name": "EARTH STATION",
+      "type": "ORGANIZATION",
+      "description": "A ground station that communicates with satellites through radio signals"
+    },
+    {
+      "name": "CUBESAT",
+      "type": "ORGANIZATION",
+      "description": "A small satellite that is revolutionizing the satellite industry by reducing costs and increasing accessibility for educational institutions, startups, and developing countries"
+    },
+    {
+      "name": "ELECTRIC PROPULSION SYSTEM",
+      "type": "ORGANIZATION",
+      "description": "A system enabling satellites to maneuver more efficiently in space and extend their operational lifetimes"
+    },
+    {
+      "name": "LASER COMMUNICATION TECHNOLOGY",
+      "type": "ORGANIZATION",
+      "description": "A technology being developed to increase the data transmission rates between satellites and ground stations, enabling faster and more reliable communication"
+    },
+    {
+      "name": "SATELLITE",
+      "type": "",
+      "description": ""
+    },
+    {
+      "name": "PAYLOAD",
+      "type": "ORGANIZATION",
+      "description": "The equipment or instruments on a satellite that perform its primary function"
+    },
+    {
+      "name": "BUS",
+      "type": "ORGANIZATION",
+      "description": "The structure of a satellite that houses the payload and provides power, communication, and control systems"
+    },
+    {
+      "name": "SOLAR PANELS",
+      "type": "ORGANIZATION",
+      "description": "Components of a satellite that convert sunlight into electricity to operate its systems and charge its batteries"
+    },
+    {
+      "name": "RADIO SIGNALS",
+      "type": "ORGANIZATION",
+      "description": "Signals used to communicate with satellites from Earth stations"
+    },
+    {
+      "name": "TELECOMMUNICATIONS",
+      "type": "ORGANIZATION",
+      "description": "Industry that uses satellites to provide global connectivity, especially in remote and rural areas"
+    },
+    {
+      "name": "METEOROLOGY",
+      "type": "ORGANIZATION",
+      "description": "Field that uses weather satellites to track storms, monitor climate patterns, and issue timely warnings for natural disasters"
+    },
+    {
+      "name": "SCIENTIFIC RESEARCH",
+      "type": "ORGANIZATION",
+      "description": "Field that uses satellites to study the Earth's climate, oceans, atmosphere, and land cover"
+    },
+    {
+      "name": "MINIATURIZATION",
+      "type": "ORGANIZATION",
+      "description": "Advancement in technology that is making satellites more capable and affordable"
+    },
+    {
+      "name": "PROPULSION",
+      "type": "ORGANIZATION",
+      "description": "Technology that enables satellites to maneuver in space"
+    },
+    {
+      "name": "ENVIRONMENTAL MONITORING",
+      "type": "ORGANIZATION",
+      "description": "Field that uses satellites to monitor the Earth's health and support conservation efforts"
+    },
+    {
+      "name": "EDUCATIONAL INSTITUTIONS",
+      "type": "ORGANIZATION",
+      "description": "Organizations that benefit from the reduced costs and increased accessibility of CubeSats"
+    },
+    {
+      "name": "STARTUPS",
+      "type": "ORGANIZATION",
+      "description": "Companies that benefit from the reduced costs and increased accessibility of CubeSats"
+    },
+    {
+      "name": "DEVELOPING COUNTRIES",
+      "type": "ORGANIZATION",
+      "description": "Nations that benefit from the reduced costs and increased accessibility of CubeSats"
+    },
+    {
+      "name": "SCIENTIFIC RESEARCH SATELLITE",
+      "type": "",
+      "description": ""
+    }
+  ],
+  "relations": [
+    [
+      "EARTH",
+      ":has_relation_with",
+      "COMMUNICATION SATELLITE",
+      "Communication satellites orbit the Earth to relay signals for various forms of communication"
+    ],
+    [
+      "EARTH",
+      ":has_relation_with",
+      "WEATHER SATELLITE",
+      "Weather satellites orbit the Earth to monitor weather patterns and provide data for meteorologists"
+    ],
+    [
+      "EARTH",
+      ":has_relation_with",
+      "GEOSTATIONARY ORBIT (GEO)",
+      "Geostationary satellites orbit the Earth at the same speed as Earth's rotation, remaining fixed over a specific point on the equator"
+    ],
+    [
+      "EARTH",
+      ":has_relation_with",
+      "LOW EARTH ORBIT (LEO)",
+      "Low Earth orbit satellites orbit closer to Earth and are used for tasks like Earth observation and satellite internet"
+    ],
+    [
+      "EARTH",
+      ":has_relation_with",
+      "POLAR ORBIT",
+      "Polar orbit satellites pass over the Earth's poles, used for Earth observation and weather monitoring"
+    ],
+    [
+      "EARTH",
+      ":has_relation_with",
+      "CUBESAT",
+      "CubeSats orbit the Earth and are used for various tasks, reducing costs and increasing accessibility"
+    ],
+    [
+      "EARTH",
+      ":has_relation_with",
+      "SATELLITE",
+      "Satellites orbit the Earth to perform various functions"
+    ],
+    [
+      "COMMUNICATION SATELLITE",
+      ":has_relation_with",
+      "EARTH STATION",
+      "Earth stations communicate with communication satellites through radio signals"
+    ],
+    [
+      "COMMUNICATION SATELLITE",
+      ":has_relation_with",
+      "TELECOMMUNICATIONS",
+      "The telecommunications industry uses communication satellites to provide global connectivity"
+    ],
+    [
+      "WEATHER SATELLITE",
+      ":has_relation_with",
+      "EARTH STATION",
+      "Earth stations communicate with weather satellites through radio signals"
+    ],
+    [
+      "WEATHER SATELLITE",
+      ":has_relation_with",
+      "METEOROLOGY",
+      "Meteorologists use weather satellites to track storms, monitor climate patterns, and issue timely warnings"
+    ],
+    [
+      "EARTH STATION",
+      ":has_relation_with",
+      "LASER COMMUNICATION TECHNOLOGY",
+      "Laser communication technology is being developed to increase the data transmission rates between satellites and Earth stations"
+    ],
+    [
+      "EARTH STATION",
+      ":has_relation_with",
+      "RADIO SIGNALS",
+      "Radio signals are used to communicate with satellites from Earth stations"
+    ],
+    [
+      "CUBESAT",
+      ":has_relation_with",
+      "MINIATURIZATION",
+      "Advancements in miniaturization are making CubeSats more capable and affordable"
+    ],
+    [
+      "CUBESAT",
+      ":has_relation_with",
+      "EDUCATIONAL INSTITUTIONS",
+      "Educational institutions benefit from the reduced costs and increased accessibility of CubeSats"
+    ],
+    [
+      "CUBESAT",
+      ":has_relation_with",
+      "STARTUPS",
+      "Startups benefit from the reduced costs and increased accessibility of CubeSats"
+    ],
+    [
+      "CUBESAT",
+      ":has_relation_with",
+      "DEVELOPING COUNTRIES",
+      "Developing countries benefit from the reduced costs and increased accessibility of CubeSats"
+    ],
+    [
+      "ELECTRIC PROPULSION SYSTEM",
+      ":has_relation_with",
+      "SATELLITE",
+      "Electric propulsion systems enable satellites to maneuver more efficiently in space and extend their operational lifetimes"
+    ],
+    [
+      "ELECTRIC PROPULSION SYSTEM",
+      ":has_relation_with",
+      "PROPULSION",
+      "Propulsion technology, such as electric propulsion systems, enables satellites to maneuver more efficiently in space"
+    ],
+    [
+      "SATELLITE",
+      ":has_relation_with",
+      "PAYLOAD",
+      "The payload is the equipment or instruments on a satellite that perform its primary function"
+    ],
+    [
+      "SATELLITE",
+      ":has_relation_with",
+      "BUS",
+      "The bus is the structure of a satellite that houses the payload and provides power, communication, and control systems"
+    ],
+    [
+      "SATELLITE",
+      ":has_relation_with",
+      "SOLAR PANELS",
+      "Solar panels on satellites convert sunlight into electricity to operate their systems and charge their batteries"
+    ],
+    [
+      "SCIENTIFIC RESEARCH",
+      ":has_relation_with",
+      "SCIENTIFIC RESEARCH SATELLITE",
+      "Scientists use research satellites to study the Earth's climate, oceans, atmosphere, and land cover"
+    ],
+    [
+      "SCIENTIFIC RESEARCH",
+      ":has_relation_with",
+      "ENVIRONMENTAL MONITORING",
+      "Environmental monitoring is a key application of scientific research satellites"
+    ]
+  ]
+}

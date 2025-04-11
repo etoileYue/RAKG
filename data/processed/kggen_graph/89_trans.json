@@ -1,0 +1,256 @@
+{
+  "entities": [
+    {
+      "name": "human history"
+    },
+    {
+      "name": "shared customs"
+    },
+    {
+      "name": "fraternity"
+    },
+    {
+      "name": "totalitarian regimes"
+    },
+    {
+      "name": "tribal system"
+    },
+    {
+      "name": "Montesquieu"
+    },
+    {
+      "name": "societies"
+    },
+    {
+      "name": "governance"
+    },
+    {
+      "name": "French Revolution"
+    },
+    {
+      "name": "1789"
+    },
+    {
+      "name": "human rights"
+    },
+    {
+      "name": "wisdom"
+    },
+    {
+      "name": "constitutional monarchies"
+    },
+    {
+      "name": "kinship"
+    },
+    {
+      "name": "modern democracies"
+    },
+    {
+      "name": "republican forms of government"
+    },
+    {
+      "name": "monarchies"
+    },
+    {
+      "name": "rule of law"
+    },
+    {
+      "name": "centralized authority"
+    },
+    {
+      "name": "World War II"
+    },
+    {
+      "name": "strength"
+    },
+    {
+      "name": "community members"
+    },
+    {
+      "name": "separation of powers"
+    },
+    {
+      "name": "communism"
+    },
+    {
+      "name": "decision-making"
+    },
+    {
+      "name": "modern democratic systems"
+    },
+    {
+      "name": "corruption"
+    },
+    {
+      "name": "inequality"
+    },
+    {
+      "name": "liberty"
+    },
+    {
+      "name": "John Locke"
+    },
+    {
+      "name": "self-determination"
+    },
+    {
+      "name": "Political Systems"
+    },
+    {
+      "name": "social contract"
+    },
+    {
+      "name": "fascism"
+    },
+    {
+      "name": "democracy"
+    },
+    {
+      "name": "leadership"
+    },
+    {
+      "name": "equality"
+    },
+    {
+      "name": "polarization"
+    },
+    {
+      "name": "Enlightenment era"
+    },
+    {
+      "name": "Cold War"
+    }
+  ],
+  "relations": [
+    [
+      "totalitarian regimes",
+      "include",
+      "communism"
+    ],
+    [
+      "democracy",
+      "is founded on",
+      "human rights"
+    ],
+    [
+      "decision-making",
+      "in tribal system",
+      "community members"
+    ],
+    [
+      "monarchies",
+      "evolved to include",
+      "constitutional monarchies"
+    ],
+    [
+      "republican forms of government",
+      "based_on",
+      "equality"
+    ],
+    [
+      "monarchies",
+      "provided",
+      "centralized authority"
+    ],
+    [
+      "democracy",
+      "faces challenges from",
+      "polarization"
+    ],
+    [
+      "Political Systems",
+      "evolved over",
+      "human history"
+    ],
+    [
+      "democracy",
+      "faces challenges from",
+      "inequality"
+    ],
+    [
+      "modern democracies",
+      "are part of",
+      "Political Systems"
+    ],
+    [
+      "totalitarian regimes",
+      "include",
+      "fascism"
+    ],
+    [
+      "tribal system",
+      "is an early form of",
+      "Political Systems"
+    ],
+    [
+      "French Revolution",
+      "inspired",
+      "self-determination"
+    ],
+    [
+      "leadership",
+      "in tribal system",
+      "wisdom"
+    ],
+    [
+      "societies",
+      "require more sophisticated forms of",
+      "governance"
+    ],
+    [
+      "democracy",
+      "is founded on",
+      "separation of powers"
+    ],
+    [
+      "French Revolution",
+      "led_to",
+      "republican forms of government"
+    ],
+    [
+      "democracy",
+      "is founded on",
+      "rule of law"
+    ],
+    [
+      "tribal system",
+      "based on",
+      "shared customs"
+    ],
+    [
+      "democracy",
+      "faces challenges from",
+      "corruption"
+    ],
+    [
+      "tribal system",
+      "based on",
+      "kinship"
+    ],
+    [
+      "leadership",
+      "in tribal system",
+      "strength"
+    ],
+    [
+      "French Revolution",
+      "occurred_in",
+      "1789"
+    ],
+    [
+      "republican forms of government",
+      "based_on",
+      "liberty"
+    ],
+    [
+      "French Revolution",
+      "inspired",
+      "democracy"
+    ],
+    [
+      "republican forms of government",
+      "based_on",
+      "fraternity"
+    ]
+  ]
+}

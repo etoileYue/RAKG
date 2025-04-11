@@ -1,0 +1,187 @@
+{
+  "entities": [
+    {
+      "name": "fears"
+    },
+    {
+      "name": "stress"
+    },
+    {
+      "name": "creativity"
+    },
+    {
+      "name": "dreaming"
+    },
+    {
+      "name": "memory consolidation"
+    },
+    {
+      "name": "sleep"
+    },
+    {
+      "name": "unconscious desires"
+    },
+    {
+      "name": "psychologists"
+    },
+    {
+      "name": "lucid dreaming"
+    },
+    {
+      "name": "dreams"
+    },
+    {
+      "name": "learning process"
+    },
+    {
+      "name": "happy"
+    },
+    {
+      "name": "pleasant dreams"
+    },
+    {
+      "name": "psychoanalysis"
+    },
+    {
+      "name": "personal growth"
+    },
+    {
+      "name": "brain"
+    },
+    {
+      "name": "emotional experiences"
+    },
+    {
+      "name": "information processing"
+    },
+    {
+      "name": "emotions"
+    },
+    {
+      "name": "psychological understanding"
+    },
+    {
+      "name": "anxiety"
+    },
+    {
+      "name": "cognition"
+    },
+    {
+      "name": "repressed desires"
+    },
+    {
+      "name": "content"
+    },
+    {
+      "name": "Sigmund Freud"
+    },
+    {
+      "name": "unconscious mind"
+    },
+    {
+      "name": "Dreams"
+    },
+    {
+      "name": "nightmares"
+    },
+    {
+      "name": "conflicts"
+    },
+    {
+      "name": "problem-solving"
+    },
+    {
+      "name": "self-reflection"
+    },
+    {
+      "name": "memory"
+    }
+  ],
+  "relations": [
+    [
+      "sleep",
+      "enables",
+      "brain"
+    ],
+    [
+      "content",
+      "lead to",
+      "pleasant dreams"
+    ],
+    [
+      "dreams",
+      "reveal",
+      "unconscious desires"
+    ],
+    [
+      "dreams",
+      "play a role in",
+      "memory consolidation"
+    ],
+    [
+      "dreams",
+      "enhance",
+      "memory"
+    ],
+    [
+      "psychologists",
+      "gain_insights_from",
+      "dreams"
+    ],
+    [
+      "Dreams",
+      "are_interpreted_by",
+      "Sigmund Freud"
+    ],
+    [
+      "dreams",
+      "contribute_to",
+      "personal growth"
+    ],
+    [
+      "brain",
+      "performs",
+      "information processing"
+    ],
+    [
+      "Sigmund Freud",
+      "founded",
+      "psychoanalysis"
+    ],
+    [
+      "dreams",
+      "uncover",
+      "unconscious desires"
+    ],
+    [
+      "dreams",
+      "process",
+      "emotions"
+    ],
+    [
+      "happy",
+      "lead to",
+      "pleasant dreams"
+    ],
+    [
+      "dreams",
+      "serve_as",
+      "self-reflection"
+    ],
+    [
+      "dreams",
+      "foster",
+      "creativity"
+    ],
+    [
+      "dreams",
+      "provide",
+      "psychological understanding"
+    ],
+    [
+      "information processing",
+      "strengthens",
+      "memory"
+    ]
+  ]
+}

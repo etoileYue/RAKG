@@ -1,0 +1,151 @@
+{
+  "entities": [
+    {
+      "name": "H.G. WELLS",
+      "type": "PERSON",
+      "description": "Author of \"The Time Machine,\" a novel that features a time machine as a central plot device"
+    },
+    {
+      "name": "THE TIME MACHINE",
+      "type": "ORGANIZATION",
+      "description": "A fictional time machine from H.G. Wells' novel \"The Time Machine\""
+    },
+    {
+      "name": "DELOREAN",
+      "type": "ORGANIZATION",
+      "description": "A fictional time machine from the \"Back to the Future\" film series"
+    },
+    {
+      "name": "TARDIS",
+      "type": "ORGANIZATION",
+      "description": "A fictional time machine from the British science fiction series \"Doctor Who\""
+    },
+    {
+      "name": "J.K. ROWLING",
+      "type": "PERSON",
+      "description": "Author of the \"Harry Potter\" series, which includes a magical time travel device called the Time-Turner"
+    },
+    {
+      "name": "TIME-TURNER",
+      "type": "ORGANIZATION",
+      "description": "A magical device in the \"Harry Potter\" series that allows the user to travel back in time for a short period"
+    },
+    {
+      "name": "GROUNDHOG DAY",
+      "type": "EVENT",
+      "description": "A film where the protagonist is trapped in a time loop, repeating the same day until he learns a valuable lesson"
+    },
+    {
+      "name": "FRINGE",
+      "type": "ORGANIZATION",
+      "description": "A television series that explores the concept of parallel universes and alternate timelines"
+    },
+    {
+      "name": "THE FLASH",
+      "type": "ORGANIZATION",
+      "description": "A television series where characters navigate multiple timelines and try to prevent catastrophic events"
+    },
+    {
+      "name": "LOOPER",
+      "type": "EVENT",
+      "description": "A film where the protagonist must confront his younger self to prevent a future catastrophe"
+    },
+    {
+      "name": "THE BUTTERFLY EFFECT",
+      "type": "EVENT",
+      "description": "A film where the main character struggles with the unintended consequences of his attempts to change the past"
+    },
+    {
+      "name": "BACK TO THE FUTURE",
+      "type": "",
+      "description": ""
+    },
+    {
+      "name": "DOCTOR WHO",
+      "type": "ORGANIZATION",
+      "description": "\nA British science fiction series featuring the TARDIS as a time machine"
+    },
+    {
+      "name": "TIME LOOP",
+      "type": "EVENT",
+      "description": "\nA concept in \"Groundhog Day\" where the protagonist repeats the same day until he learns a valuable lesson"
+    },
+    {
+      "name": "PARALLEL UNIVERSES",
+      "type": "EVENT",
+      "description": "\nA concept explored in \"Fringe\" and \"The Flash\" where characters navigate multiple timelines"
+    },
+    {
+      "name": "TIME TRAVEL",
+      "type": "EVENT",
+      "description": "\nA central theme in various works of fiction, including \"Looper\" and \"The Butterfly Effect\""
+    },
+    {
+      "name": "HARRY POTTER",
+      "type": "",
+      "description": ""
+    }
+  ],
+  "relations": [
+    [
+      "H.G. WELLS",
+      ":has_relation_with",
+      "THE TIME MACHINE",
+      "H.G. Wells is the author of \"The Time Machine,\" which features a time machine as a central plot device"
+    ],
+    [
+      "DELOREAN",
+      ":has_relation_with",
+      "BACK TO THE FUTURE",
+      "The DeLorean is the time machine used in the \"Back to the Future\" film series\nThe DeLorean is a fictional time machine from the \"Back to the Future\" film series"
+    ],
+    [
+      "TARDIS",
+      ":has_relation_with",
+      "DOCTOR WHO",
+      "The TARDIS is a fictional time machine from the British science fiction series \"Doctor Who\"\nThe TARDIS is the time machine used in the \"Doctor Who\" series"
+    ],
+    [
+      "J.K. ROWLING",
+      ":has_relation_with",
+      "TIME-TURNER",
+      "J.K. Rowling is the author of the \"Harry Potter\" series, which includes a magical time travel device called the Time-Turner"
+    ],
+    [
+      "TIME-TURNER",
+      ":has_relation_with",
+      "HARRY POTTER",
+      "The Time-Turner is a magical device used for time travel in the \"Harry Potter\" series"
+    ],
+    [
+      "GROUNDHOG DAY",
+      ":has_relation_with",
+      "TIME LOOP",
+      "The film \"Groundhog Day\" features a protagonist trapped in a time loop\nIn \"Groundhog Day,\" the protagonist is trapped in a time loop, repeating the same day until he learns a valuable lesson"
+    ],
+    [
+      "FRINGE",
+      ":has_relation_with",
+      "PARALLEL UNIVERSES",
+      "The series \"Fringe\" explores the concept of parallel universes and alternate timelines"
+    ],
+    [
+      "THE FLASH",
+      ":has_relation_with",
+      "PARALLEL UNIVERSES",
+      "The series \"The Flash\" features characters navigating multiple timelines and trying to prevent catastrophic events\nThe series \"The Flash\" features characters navigating multiple timelines"
+    ],
+    [
+      "LOOPER",
+      ":has_relation_with",
+      "TIME TRAVEL",
+      "The film \"Looper\" involves time travel and the protagonist confronting his younger self\nIn \"Looper,\" the protagonist must confront his younger self to prevent a future catastrophe"
+    ],
+    [
+      "THE BUTTERFLY EFFECT",
+      ":has_relation_with",
+      "TIME TRAVEL",
+      "In \"The Butterfly Effect,\" the main character struggles with the unintended consequences of his attempts to change the past\nThe film \"The Butterfly Effect\" explores the consequences of altering the past"
+    ]
+  ]
+}

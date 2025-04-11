@@ -1,0 +1,157 @@
+{
+  "entities": [
+    {
+      "name": "CLOUDS",
+      "type": "ORGANIZATION",
+      "description": "Clouds are a natural phenomenon formed through the interaction of temperature, humidity, and air currents, resulting in various types such as cumulus, stratus, and cirrus clouds"
+    },
+    {
+      "name": "EARTH'S SURFACE",
+      "type": "GEO",
+      "description": "The Earth's surface is heated by the sun, which initiates the process of cloud formation"
+    },
+    {
+      "name": "SUN",
+      "type": "GEO",
+      "description": "The sun heats the Earth's surface, causing the air near the surface to warm and rise, leading to cloud formation"
+    },
+    {
+      "name": "CUMULUS CLOUDS",
+      "type": "ORGANIZATION",
+      "description": "Cumulus clouds are fluffy, white clouds that form when warm air rises rapidly and cools quickly, often seen on sunny days and associated with fair weather"
+    },
+    {
+      "name": "CUMULONIMBUS CLOUDS",
+      "type": "ORGANIZATION",
+      "description": "Cumulonimbus clouds are larger, more vertically developed clouds that can form from cumulus clouds and bring thunderstorms and heavy rain"
+    },
+    {
+      "name": "STRATUS CLOUDS",
+      "type": "ORGANIZATION",
+      "description": "Stratus clouds are low-lying, gray clouds that form in a uniform layer across the sky, often bringing overcast skies and light rain"
+    },
+    {
+      "name": "CIRRUS CLOUDS",
+      "type": "ORGANIZATION",
+      "description": "Cirrus clouds are high, wispy, and thin clouds composed of ice crystals, often seen on clear days and sometimes referred to as \"mare's tails\""
+    },
+    {
+      "name": "WATER VAPOR",
+      "type": "ORGANIZATION",
+      "description": "Water vapor is a key component in cloud formation, condensing into tiny water droplets or ice crystals as the air cools"
+    },
+    {
+      "name": "DEW POINT",
+      "type": "ORGANIZATION",
+      "description": "Dew point is the temperature at which air becomes saturated with water vapor, leading to the condensation process that forms clouds"
+    },
+    {
+      "name": "CONDENSATION",
+      "type": "ORGANIZATION",
+      "description": "Condensation is the process by which water vapor in the air transforms into tiny water droplets or ice crystals, crucial for cloud formation"
+    },
+    {
+      "name": "AIR CURRENTS",
+      "type": "",
+      "description": ""
+    }
+  ],
+  "relations": [
+    [
+      "CLOUDS",
+      ":has_relation_with",
+      "EARTH'S SURFACE",
+      "The Earth's surface, when heated by the sun, initiates the process of cloud formation through the warming and rising of air"
+    ],
+    [
+      "CLOUDS",
+      ":has_relation_with",
+      "SUN",
+      "The sun's rays heat the Earth's surface, which is a crucial step in the formation of clouds"
+    ],
+    [
+      "CLOUDS",
+      ":has_relation_with",
+      "CUMULUS CLOUDS",
+      "Cumulus clouds are a type of cloud that forms when warm air rises rapidly and cools quickly"
+    ],
+    [
+      "CLOUDS",
+      ":has_relation_with",
+      "STRATUS CLOUDS",
+      "Stratus clouds are a type of cloud that forms when warm, moist air is lifted gently and cools slowly"
+    ],
+    [
+      "CLOUDS",
+      ":has_relation_with",
+      "CIRRUS CLOUDS",
+      "Cirrus clouds are a type of cloud that forms at high altitudes where the air is very cold and dry, composed of ice crystals"
+    ],
+    [
+      "CLOUDS",
+      ":has_relation_with",
+      "AIR CURRENTS",
+      "Air currents influence the movement and cooling of warm, moist air, which is essential for cloud formation"
+    ],
+    [
+      "CLOUDS",
+      ":has_relation_with",
+      "WATER VAPOR",
+      "Water vapor is a key component in cloud formation, condensing into tiny water droplets or ice crystals to form clouds"
+    ],
+    [
+      "CLOUDS",
+      ":has_relation_with",
+      "DEW POINT",
+      "The dew point is the temperature at which air becomes saturated with water vapor, triggering the condensation process that forms clouds"
+    ],
+    [
+      "CLOUDS",
+      ":has_relation_with",
+      "CONDENSATION",
+      "Condensation is the mechanism by which water vapor in the air transforms into tiny water droplets or ice crystals, forming clouds"
+    ],
+    [
+      "CUMULUS CLOUDS",
+      ":has_relation_with",
+      "CUMULONIMBUS CLOUDS",
+      "Cumulonimbus clouds can develop from cumulus clouds, becoming larger and more vertically developed"
+    ],
+    [
+      "WATER VAPOR",
+      ":has_relation_with",
+      "AIR CURRENTS",
+      "Air currents influence the distribution and movement of water vapor in the atmosphere, affecting cloud formation"
+    ],
+    [
+      "WATER VAPOR",
+      ":has_relation_with",
+      "DEW POINT",
+      "Water vapor in the air reaches its dew point when the air cools to a specific temperature, leading to condensation"
+    ],
+    [
+      "WATER VAPOR",
+      ":has_relation_with",
+      "CONDENSATION",
+      "Water vapor condenses into tiny water droplets or ice crystals, which is a key step in cloud formation"
+    ],
+    [
+      "DEW POINT",
+      ":has_relation_with",
+      "AIR CURRENTS",
+      "Air currents can affect the temperature and humidity of the air, influencing the dew point and the onset of condensation"
+    ],
+    [
+      "DEW POINT",
+      ":has_relation_with",
+      "CONDENSATION",
+      "The dew point is the temperature at which condensation begins, leading to the formation of clouds"
+    ],
+    [
+      "CONDENSATION",
+      ":has_relation_with",
+      "AIR CURRENTS",
+      "Air currents play a role in the cooling of air, which is necessary for the condensation process that forms clouds"
+    ]
+  ]
+}

@@ -1,0 +1,80 @@
+[
+  {
+    "correct_answer": "Forensic science is the application of scientific methods and techniques to solve crimes and legal issues.",
+    "retrieved_context": "relation: Forensic Science --[Contributes to]-> Court Proceedings  Court Proceedings\nLegal Process  Crime Scene Investigation\nInvestigative Technique  Advanced Technology and Instrumentation\nTechnology  Forensic Science\nScientific Discipline  Criminal Investigations\nLegal Process relation: Forensic Science --[Involves]-> Crime Scene Investigation relation: Forensic Science --[Uses]-> Advanced Technology and Instrumentation relation: Forensic Science --[Aids in]-> Criminal Investigations  forensic science\nScientific Discipline  Forensic Science Techniques\nTechniques  The Art of Forensic Science\nConcept  Forensic Scientists\nProfession  forensic scientists\nProfession  Forensic Scientist\nProfession  Forensic Analysis\nProcess",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Forensic science plays a crucial role in the criminal justice system.",
+    "retrieved_context": "relation: Forensic Science --[Contributes to]-> Court Proceedings  Court Proceedings\nLegal Process  Crime Scene Investigation\nInvestigative Technique  Advanced Technology and Instrumentation\nTechnology  Forensic Science\nScientific Discipline  Criminal Investigations\nLegal Process relation: Forensic Science --[Involves]-> Crime Scene Investigation relation: Forensic Science --[Uses]-> Advanced Technology and Instrumentation relation: Forensic Science --[Aids in]-> Criminal Investigations  forensic science\nScientific Discipline  Forensic Scientists\nProfession  forensic scientists\nProfession  Forensic Scientist\nProfession  The Art of Forensic Science\nConcept  sophistication and effectiveness of forensic science\nOutcome  Forensic Analysis\nProcess",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Forensic science combines various scientific disciplines such as biology, chemistry, physics, and mathematics.",
+    "retrieved_context": "relation: Forensic Science --[Contributes to]-> Court Proceedings  Court Proceedings\nLegal Process  Crime Scene Investigation\nInvestigative Technique  Advanced Technology and Instrumentation\nTechnology  Forensic Science\nScientific Discipline  Criminal Investigations\nLegal Process relation: Forensic Science --[Involves]-> Crime Scene Investigation relation: Forensic Science --[Uses]-> Advanced Technology and Instrumentation relation: Forensic Science --[Aids in]-> Criminal Investigations  forensic science\nScientific Discipline  Forensic Scientists\nProfession  forensic scientists\nProfession  Forensic Scientist\nProfession  The Art of Forensic Science\nConcept  sophistication and effectiveness of forensic science\nOutcome  Forensic Science Techniques\nTechniques",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Forensic science analyzes physical evidence to draw conclusions for court.",
+    "retrieved_context": "relation: Forensic Science --[Contributes to]-> Court Proceedings  Court Proceedings\nLegal Process  Crime Scene Investigation\nInvestigative Technique  Advanced Technology and Instrumentation\nTechnology  Forensic Science\nScientific Discipline  Criminal Investigations\nLegal Process relation: Forensic Science --[Involves]-> Crime Scene Investigation relation: Forensic Science --[Uses]-> Advanced Technology and Instrumentation relation: Forensic Science --[Aids in]-> Criminal Investigations  forensic science\nScientific Discipline  sophistication and effectiveness of forensic science\nOutcome  Forensic Scientists\nProfession  forensic scientists\nProfession  Physical Evidence\nCategory  Forensic Science Techniques\nTechniques  Forensic Scientist\nProfession",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Physical evidence in forensic science can include fingerprints, DNA samples, firearms, and tool marks.",
+    "retrieved_context": " Fingerprints\nPhysical Evidence  Physical Evidence\nCategory relation: Forensic Science --[Contributes to]-> Court Proceedings  Court Proceedings\nLegal Process  Crime Scene Investigation\nInvestigative Technique  Advanced Technology and Instrumentation\nTechnology  Forensic Science\nScientific Discipline  Criminal Investigations\nLegal Process relation: Forensic Science --[Involves]-> Crime Scene Investigation relation: Forensic Science --[Uses]-> Advanced Technology and Instrumentation relation: Forensic Science --[Aids in]-> Criminal Investigations  forensic science\nScientific Discipline  evidence\nPhysical Object  DNA sample\nPhysical Evidence relation: Forensic Science --[Contributes to]-> Court Proceedings relation: DNA sample --[Used in]-> Forensic Science  Suspect\nPerson  Forensic Science\nScientific Discipline relation: Forensic Science --[Involves]-> Crime Scene Investigation relation: Forensic Science --[Uses]-> Advanced Technology and Instrumentation relation: DNA sample --[Collected by]-> Forensic Scientists  Forensic Scientists\nProfession relation: DNA sample --[Identifies]-> Suspect relation: Forensic Science --[Aids in]-> Criminal Investigations  Forensic Science Techniques\nTechniques  Forensic Analysis\nProcess",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Forensic scientists use microscopy, spectroscopy, chromatography, and DNA profiling to analyze evidence.",
+    "retrieved_context": " DNA Profiling\nScientific Technique  DNA Samples\nBiological Evidence  DNA sample\nPhysical Evidence relation: Forensic Science --[Contributes to]-> Court Proceedings relation: DNA sample --[Used in]-> Forensic Science  Suspect\nPerson  Forensic Science\nScientific Discipline relation: Forensic Science --[Involves]-> Crime Scene Investigation relation: Forensic Science --[Uses]-> Advanced Technology and Instrumentation relation: DNA sample --[Collected by]-> Forensic Scientists  Forensic Scientists\nProfession relation: DNA sample --[Identifies]-> Suspect relation: Forensic Science --[Aids in]-> Criminal Investigations relation: Forensic Science --[Contributes to]-> Court Proceedings  Court Proceedings\nLegal Process  Crime Scene Investigation\nInvestigative Technique  Advanced Technology and Instrumentation\nTechnology  Forensic Science\nScientific Discipline  Criminal Investigations\nLegal Process relation: Forensic Science --[Involves]-> Crime Scene Investigation relation: Forensic Science --[Uses]-> Advanced Technology and Instrumentation relation: Forensic Science --[Aids in]-> Criminal Investigations  forensic science\nScientific Discipline  Forensic Science Techniques\nTechniques  Forensic Scientists\nProfession  forensic scientists\nProfession",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Forensic scientists determine details like suspect identity, cause of death, and presence of substances at a crime scene.",
+    "retrieved_context": "relation: Forensic Science --[Contributes to]-> Court Proceedings  Court Proceedings\nLegal Process  Crime Scene Investigation\nInvestigative Technique  Advanced Technology and Instrumentation\nTechnology  Forensic Science\nScientific Discipline  Criminal Investigations\nLegal Process relation: Forensic Science --[Involves]-> Crime Scene Investigation relation: Forensic Science --[Uses]-> Advanced Technology and Instrumentation relation: Forensic Science --[Aids in]-> Criminal Investigations  forensic science\nScientific Discipline  evidence collection\nProcess  cause of death\nForensic Evidence relation: cause of death --[Part of]-> evidence collection  forensic scientists\nProfession relation: cause of death --[Identified by]-> forensic scientists  Forensic Scientists\nProfession  forensic scientists\nProfession  Forensic Scientist\nProfession  Forensic Analysis\nProcess  The Art of Forensic Science\nConcept",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Forensic science uses advanced technology like scanning electron microscopes and mass spectrometry.",
+    "retrieved_context": "relation: Forensic Science --[Contributes to]-> Court Proceedings  Court Proceedings\nLegal Process  Crime Scene Investigation\nInvestigative Technique  Advanced Technology and Instrumentation\nTechnology  Forensic Science\nScientific Discipline  Criminal Investigations\nLegal Process relation: Forensic Science --[Involves]-> Crime Scene Investigation relation: Forensic Science --[Uses]-> Advanced Technology and Instrumentation relation: Forensic Science --[Aids in]-> Criminal Investigations  forensic science\nScientific Discipline  Forensic Scientists\nProfession  forensic scientists\nProfession  Forensic Scientist\nProfession  Forensic Science Techniques\nTechniques  Forensic Analysis\nProcess  The Art of Forensic Science\nConcept",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Forensic scientists document and preserve crime scenes, collect evidence, and reconstruct events.",
+    "retrieved_context": " Forensic Scientists\nProfession  forensic scientists\nProfession relation: Forensic Science --[Contributes to]-> Court Proceedings  Court Proceedings\nLegal Process  Crime Scene Investigation\nInvestigative Technique  Advanced Technology and Instrumentation\nTechnology  Forensic Science\nScientific Discipline  Criminal Investigations\nLegal Process relation: Forensic Science --[Involves]-> Crime Scene Investigation relation: Forensic Science --[Uses]-> Advanced Technology and Instrumentation relation: Forensic Science --[Aids in]-> Criminal Investigations  forensic science\nScientific Discipline  Forensic Scientist\nProfession  Forensic Science Techniques\nTechniques  Crime Scene Investigators\nProfession  sophistication and effectiveness of forensic science\nOutcome",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Forensic scientists interpret evidence and present findings in court.",
+    "retrieved_context": " Forensic Scientists\nProfession  forensic scientists\nProfession relation: Forensic Science --[Contributes to]-> Court Proceedings  Court Proceedings\nLegal Process  Crime Scene Investigation\nInvestigative Technique  Advanced Technology and Instrumentation\nTechnology  Forensic Science\nScientific Discipline  Criminal Investigations\nLegal Process relation: Forensic Science --[Involves]-> Crime Scene Investigation relation: Forensic Science --[Uses]-> Advanced Technology and Instrumentation relation: Forensic Science --[Aids in]-> Criminal Investigations  forensic science\nScientific Discipline  Forensic Scientist\nProfession  sophistication and effectiveness of forensic science\nOutcome  Forensic Analysis\nProcess relation: trace evidence --[Used In]-> crime scene investigation  crime scene investigation\nActivity  trace evidence\nEvidence Type relation: trace evidence --[Collected By]-> forensic scientists  forensic scientists\nProfession",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Forensic scientists must analyze complex data and communicate findings effectively.",
+    "retrieved_context": "relation: Forensic Science --[Contributes to]-> Court Proceedings  Court Proceedings\nLegal Process  Crime Scene Investigation\nInvestigative Technique  Advanced Technology and Instrumentation\nTechnology  Forensic Science\nScientific Discipline  Criminal Investigations\nLegal Process relation: Forensic Science --[Involves]-> Crime Scene Investigation relation: Forensic Science --[Uses]-> Advanced Technology and Instrumentation relation: Forensic Science --[Aids in]-> Criminal Investigations  forensic science\nScientific Discipline  Forensic Analysis\nProcess  Forensic Science Techniques\nTechniques  Forensic Scientists\nProfession  forensic scientists\nProfession  accuracy and reliability of forensic analysis\nQuality  sophistication and effectiveness of forensic science\nOutcome",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Forensic scientists require technical expertise, critical thinking skills, and attention to detail.",
+    "retrieved_context": " Forensic Scientists\nProfession  forensic scientists\nProfession  Forensic Scientist\nProfession relation: Forensic Science --[Contributes to]-> Court Proceedings  Court Proceedings\nLegal Process  Crime Scene Investigation\nInvestigative Technique  Advanced Technology and Instrumentation\nTechnology  Forensic Science\nScientific Discipline  Criminal Investigations\nLegal Process relation: Forensic Science --[Involves]-> Crime Scene Investigation relation: Forensic Science --[Uses]-> Advanced Technology and Instrumentation relation: Forensic Science --[Aids in]-> Criminal Investigations  forensic science\nScientific Discipline  sophistication and effectiveness of forensic science\nOutcome  The Art of Forensic Science\nConcept  Crime Scene Investigators\nProfession",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Forensic scientists must meticulously document every step of the analysis process.",
+    "retrieved_context": "relation: Forensic Science --[Contributes to]-> Court Proceedings  Court Proceedings\nLegal Process  Crime Scene Investigation\nInvestigative Technique  Advanced Technology and Instrumentation\nTechnology  Forensic Science\nScientific Discipline  Criminal Investigations\nLegal Process relation: Forensic Science --[Involves]-> Crime Scene Investigation relation: Forensic Science --[Uses]-> Advanced Technology and Instrumentation relation: Forensic Science --[Aids in]-> Criminal Investigations  forensic science\nScientific Discipline  Forensic Analysis\nProcess  Forensic Scientists\nProfession  forensic scientists\nProfession  accuracy and reliability of forensic analysis\nQuality  Forensic Scientist\nProfession  Forensic Science Techniques\nTechniques",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Forensic scientists must handle and process evidence in a controlled and consistent manner.",
+    "retrieved_context": "relation: Forensic Science --[Contributes to]-> Court Proceedings  Court Proceedings\nLegal Process  Crime Scene Investigation\nInvestigative Technique  Advanced Technology and Instrumentation\nTechnology  Forensic Science\nScientific Discipline  Criminal Investigations\nLegal Process relation: Forensic Science --[Involves]-> Crime Scene Investigation relation: Forensic Science --[Uses]-> Advanced Technology and Instrumentation relation: Forensic Science --[Aids in]-> Criminal Investigations  forensic science\nScientific Discipline  evidence collection\nProcess  Forensic Scientists\nProfession  forensic scientists\nProfession  Evidence Collection and Analysis\nProcess  Forensic Analysis\nProcess  accuracy and reliability of forensic analysis\nQuality",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "The art of forensic science is a powerful tool in the fight against crime and injustice.",
+    "retrieved_context": " The Art of Forensic Science\nConcept relation: Forensic Science --[Contributes to]-> Court Proceedings  Court Proceedings\nLegal Process  Crime Scene Investigation\nInvestigative Technique  Advanced Technology and Instrumentation\nTechnology  Forensic Science\nScientific Discipline  Criminal Investigations\nLegal Process relation: Forensic Science --[Involves]-> Crime Scene Investigation relation: Forensic Science --[Uses]-> Advanced Technology and Instrumentation relation: Forensic Science --[Aids in]-> Criminal Investigations  forensic science\nScientific Discipline  Forensic Scientists\nProfession  forensic scientists\nProfession  Forensic Scientist\nProfession  sophistication and effectiveness of forensic science\nOutcome  Forensic Science Techniques\nTechniques",
+    "evaluation": 1
+  },
+  {
+    "accuracy": "100.00%"
+  }
+]

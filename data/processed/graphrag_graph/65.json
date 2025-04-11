@@ -1,0 +1,154 @@
+{
+  "entities": [
+    {
+      "name": "SHARKS",
+      "type": "ORGANIZATION",
+      "description": "Sharks are a group of fish that have evolved over millions of years to become efficient predators in the marine ecosystem, with a variety of sensory adaptations for detecting and capturing prey"
+    },
+    {
+      "name": "OCEAN",
+      "type": "GEO",
+      "description": "The vast body of water where sharks live and hunt, providing a complex environment for their sensory adaptations"
+    },
+    {
+      "name": "OLYMPIC-SIZED SWIMMING POOL",
+      "type": "GEO",
+      "description": "A reference point used to illustrate the acute sense of smell of sharks, which can detect a single drop of blood in such a large volume of water"
+    },
+    {
+      "name": "GREAT WHITE SHARK",
+      "type": "ORGANIZATION",
+      "description": "A species of shark known for its well-developed eyes and a specialized structure called the tapetum lucidum, which enhances its ability to see in low light"
+    },
+    {
+      "name": "TAPETUM LUCIDUM",
+      "type": "ORGANIZATION",
+      "description": "A specialized structure behind the retinas of some shark species, including the great white shark, that enhances their ability to see in low light conditions"
+    },
+    {
+      "name": "AMPULLAE OF LORENZINI",
+      "type": "ORGANIZATION",
+      "description": "Specialized cells located in the heads and snouts of sharks that can detect the weak electrical fields produced by the muscles and nerves of other animals"
+    },
+    {
+      "name": "LATERAL LINE SYSTEM",
+      "type": "ORGANIZATION",
+      "description": "A sensory system in sharks that runs along the length of their bodies, helping them detect vibrations and movements in the water, and changes in water pressure and movement"
+    },
+    {
+      "name": "OLFACTORY BULBS",
+      "type": "ORGANIZATION",
+      "description": "Large and well-developed structures in a shark's brain that process and analyze different scents, enhancing their sense of smell"
+    },
+    {
+      "name": "ELECTRICAL SIGNALS",
+      "type": "ORGANIZATION",
+      "description": "Weak electrical fields produced by the muscles and nerves of other animals, which sharks can detect using their ampullae of Lorenzini"
+    },
+    {
+      "name": "LOW LIGHT CONDITIONS",
+      "type": "GEO",
+      "description": "Environmental conditions where sharks' eyes, particularly those with a tapetum lucidum, are adapted to see clearly, enhancing their hunting capabilities"
+    },
+    {
+      "name": "MURKY WATERS",
+      "type": "GEO",
+      "description": "Water conditions with low visibility where sharks' sensory adaptations, such as the lateral line system, help them locate prey"
+    },
+    {
+      "name": "MARINE ECOSYSTEM",
+      "type": "GEO",
+      "description": "The aquatic environment where sharks live and hunt, characterized by vast expanses of water and a variety of marine life"
+    },
+    {
+      "name": "PREY",
+      "type": "ORGANIZATION",
+      "description": "The animals that sharks hunt and consume, which are detected through various sensory adaptations"
+    },
+    {
+      "name": "OLFACTORY SYSTEM",
+      "type": "",
+      "description": ""
+    }
+  ],
+  "relations": [
+    [
+      "SHARKS",
+      ":has_relation_with",
+      "OCEAN",
+      "Sharks live and hunt in the ocean, where they use their sensory adaptations to navigate and find prey"
+    ],
+    [
+      "SHARKS",
+      ":has_relation_with",
+      "OLYMPIC-SIZED SWIMMING POOL",
+      "The example of an Olympic-sized swimming pool is used to illustrate the acute sense of smell of sharks, which can detect a single drop of blood in such a large volume of water"
+    ],
+    [
+      "SHARKS",
+      ":has_relation_with",
+      "GREAT WHITE SHARK",
+      "The great white shark is a species of shark known for its well-developed eyes and a specialized structure called the tapetum lucidum, which enhances its ability to see in low light"
+    ],
+    [
+      "SHARKS",
+      ":has_relation_with",
+      "TAPETUM LUCIDUM",
+      "The tapetum lucidum is a specialized structure behind the retinas of some shark species, including the great white shark, that enhances their ability to see in low light conditions"
+    ],
+    [
+      "SHARKS",
+      ":has_relation_with",
+      "AMPULLAE OF LORENZINI",
+      "The ampullae of Lorenzini are specialized cells in sharks that can detect the weak electrical fields produced by the muscles and nerves of other animals, aiding in prey detection"
+    ],
+    [
+      "SHARKS",
+      ":has_relation_with",
+      "LATERAL LINE SYSTEM",
+      "The lateral line system in sharks helps them detect vibrations and movements in the water, and changes in water pressure and movement, aiding in prey detection and navigation"
+    ],
+    [
+      "SHARKS",
+      ":has_relation_with",
+      "OLFACTORY SYSTEM",
+      "Sharks have a highly developed olfactory system that allows them to detect minute traces of blood and other chemicals in the water, contributing to their ability to locate prey"
+    ],
+    [
+      "SHARKS",
+      ":has_relation_with",
+      "OLFACTORY BULBS",
+      "Sharks have large and well-developed olfactory bulbs in their brain that process and analyze different scents, enhancing their sense of smell"
+    ],
+    [
+      "SHARKS",
+      ":has_relation_with",
+      "ELECTRICAL SIGNALS",
+      "Sharks can detect the weak electrical fields produced by the muscles and nerves of other animals using their ampullae of Lorenzini, aiding in prey detection"
+    ],
+    [
+      "SHARKS",
+      ":has_relation_with",
+      "LOW LIGHT CONDITIONS",
+      "Sharks' eyes, particularly those with a tapetum lucidum, are adapted to see clearly in low light conditions, enhancing their hunting capabilities"
+    ],
+    [
+      "SHARKS",
+      ":has_relation_with",
+      "MURKY WATERS",
+      "Sharks' sensory adaptations, such as the lateral line system, help them locate prey in murky waters with low visibility"
+    ],
+    [
+      "SHARKS",
+      ":has_relation_with",
+      "MARINE ECOSYSTEM",
+      "Sharks live and hunt in the marine ecosystem, where they use their sensory adaptations to navigate and find prey"
+    ],
+    [
+      "SHARKS",
+      ":has_relation_with",
+      "PREY",
+      "Sharks use their sensory adaptations to detect and capture prey, which are the animals they hunt and consume"
+    ]
+  ]
+}

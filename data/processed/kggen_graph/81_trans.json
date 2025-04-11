@@ -1,0 +1,448 @@
+{
+  "entities": [
+    {
+      "name": "high-quality materials"
+    },
+    {
+      "name": "tourism"
+    },
+    {
+      "name": "Sydney Opera House"
+    },
+    {
+      "name": "community"
+    },
+    {
+      "name": "well-designed buildings and infrastructure"
+    },
+    {
+      "name": "residents"
+    },
+    {
+      "name": "city layout"
+    },
+    {
+      "name": "columns"
+    },
+    {
+      "name": "public squares"
+    },
+    {
+      "name": "neighborhoods"
+    },
+    {
+      "name": "carbon footprint"
+    },
+    {
+      "name": "schools"
+    },
+    {
+      "name": "environment"
+    },
+    {
+      "name": "urban blight"
+    },
+    {
+      "name": "cities"
+    },
+    {
+      "name": "homes"
+    },
+    {
+      "name": "streets"
+    },
+    {
+      "name": "built environment"
+    },
+    {
+      "name": "construction"
+    },
+    {
+      "name": "residential neighborhoods"
+    },
+    {
+      "name": "glass walls"
+    },
+    {
+      "name": "quality of life"
+    },
+    {
+      "name": "modernist library"
+    },
+    {
+      "name": "greenhouse gas emissions"
+    },
+    {
+      "name": "social cohesion"
+    },
+    {
+      "name": "narrow sidewalks"
+    },
+    {
+      "name": "residential areas"
+    },
+    {
+      "name": "domed roof"
+    },
+    {
+      "name": "urban heat islands"
+    },
+    {
+      "name": "visitors"
+    },
+    {
+      "name": "technologies"
+    },
+    {
+      "name": "park"
+    },
+    {
+      "name": "functional"
+    },
+    {
+      "name": "society"
+    },
+    {
+      "name": "museums"
+    },
+    {
+      "name": "neglected or poorly maintained buildings"
+    },
+    {
+      "name": "investment"
+    },
+    {
+      "name": "local economy"
+    },
+    {
+      "name": "climate change"
+    },
+    {
+      "name": "seating"
+    },
+    {
+      "name": "design"
+    },
+    {
+      "name": "iconic buildings"
+    },
+    {
+      "name": "social isolation"
+    },
+    {
+      "name": "social unrest"
+    },
+    {
+      "name": "revenue"
+    },
+    {
+      "name": "aesthetically pleasing"
+    },
+    {
+      "name": "buildings"
+    },
+    {
+      "name": "parks"
+    },
+    {
+      "name": "urban forests"
+    },
+    {
+      "name": "sleek lines"
+    },
+    {
+      "name": "green spaces"
+    },
+    {
+      "name": "negative outcomes"
+    },
+    {
+      "name": "economic development"
+    },
+    {
+      "name": "environmentally responsible"
+    },
+    {
+      "name": "resilient"
+    },
+    {
+      "name": "libraries"
+    },
+    {
+      "name": "sidewalks"
+    },
+    {
+      "name": "socially equitable"
+    },
+    {
+      "name": "greenery"
+    },
+    {
+      "name": "public spaces"
+    },
+    {
+      "name": "Burj Khalifa"
+    },
+    {
+      "name": "houses"
+    },
+    {
+      "name": "sustainability"
+    },
+    {
+      "name": "inclusive"
+    },
+    {
+      "name": "jobs"
+    },
+    {
+      "name": "sustainable materials"
+    },
+    {
+      "name": "crime"
+    },
+    {
+      "name": "economic decline"
+    },
+    {
+      "name": "global energy consumption"
+    },
+    {
+      "name": "air quality"
+    },
+    {
+      "name": "economically sustainable"
+    },
+    {
+      "name": "government building"
+    },
+    {
+      "name": "communities"
+    },
+    {
+      "name": "heavy traffic"
+    },
+    {
+      "name": "poorly designed or dilapidated housing"
+    },
+    {
+      "name": "energy-efficient buildings"
+    },
+    {
+      "name": "government offices"
+    },
+    {
+      "name": "habitat for wildlife"
+    },
+    {
+      "name": "architecture"
+    }
+  ],
+  "relations": [
+    [
+      "built environment",
+      "includes",
+      "economically sustainable"
+    ],
+    [
+      "architecture",
+      "impacts",
+      "environment"
+    ],
+    [
+      "green spaces",
+      "provide",
+      "habitat for wildlife"
+    ],
+    [
+      "built environment",
+      "impacts",
+      "architecture"
+    ],
+    [
+      "architecture",
+      "contributes to",
+      "communities"
+    ],
+    [
+      "modernist library",
+      "has_part",
+      "glass walls"
+    ],
+    [
+      "built environment",
+      "are",
+      "functional"
+    ],
+    [
+      "sustainable materials",
+      "used_in",
+      "energy-efficient buildings"
+    ],
+    [
+      "residential areas",
+      "includes",
+      "neighborhoods"
+    ],
+    [
+      "built environment",
+      "includes",
+      "environmentally responsible"
+    ],
+    [
+      "streets",
+      "has_part",
+      "heavy traffic"
+    ],
+    [
+      "architecture",
+      "contributes to",
+      "cities"
+    ],
+    [
+      "green spaces",
+      "enhance",
+      "air quality"
+    ],
+    [
+      "poorly designed or dilapidated housing",
+      "contributes_to",
+      "crime"
+    ],
+    [
+      "society",
+      "influenced_by",
+      "architecture"
+    ],
+    [
+      "residential neighborhoods",
+      "shaped_by",
+      "architecture"
+    ],
+    [
+      "built environment",
+      "includes",
+      "socially equitable"
+    ],
+    [
+      "energy-efficient buildings",
+      "reduce",
+      "carbon footprint"
+    ],
+    [
+      "public spaces",
+      "designed_by",
+      "architecture"
+    ],
+    [
+      "park",
+      "has_part",
+      "greenery"
+    ],
+    [
+      "city layout",
+      "includes",
+      "streets"
+    ],
+    [
+      "government building",
+      "has_part",
+      "domed roof"
+    ],
+    [
+      "architecture",
+      "impacts",
+      "society"
+    ],
+    [
+      "green spaces",
+      "enhance",
+      "quality of life"
+    ],
+    [
+      "houses",
+      "built_with",
+      "high-quality materials"
+    ],
+    [
+      "technologies",
+      "integrated_into",
+      "energy-efficient buildings"
+    ],
+    [
+      "city layout",
+      "includes",
+      "public squares"
+    ],
+    [
+      "streets",
+      "has_part",
+      "narrow sidewalks"
+    ],
+    [
+      "city layout",
+      "includes",
+      "parks"
+    ],
+    [
+      "residential areas",
+      "includes",
+      "homes"
+    ],
+    [
+      "city layout",
+      "includes",
+      "sidewalks"
+    ],
+    [
+      "park",
+      "has_part",
+      "seating"
+    ],
+    [
+      "architecture",
+      "promotes",
+      "sustainability"
+    ],
+    [
+      "buildings",
+      "contribute_to",
+      "global energy consumption"
+    ],
+    [
+      "design",
+      "and",
+      "construction"
+    ],
+    [
+      "government building",
+      "has_part",
+      "columns"
+    ],
+    [
+      "climate change",
+      "mitigated_by",
+      "energy-efficient buildings"
+    ],
+    [
+      "built environment",
+      "are",
+      "aesthetically pleasing"
+    ],
+    [
+      "urban forests",
+      "reduce",
+      "urban heat islands"
+    ],
+    [
+      "buildings",
+      "produce",
+      "greenhouse gas emissions"
+    ],
+    [
+      "modernist library",
+      "has_part",
+      "sleek lines"
+    ]
+  ]
+}

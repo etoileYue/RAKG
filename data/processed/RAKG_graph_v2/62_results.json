@@ -1,0 +1,80 @@
+[
+  {
+    "correct_answer": "Music streaming services revolutionized music consumption.",
+    "retrieved_context": " Music streaming services\nTechnology  Music Streaming Services\nService  rise of music streaming platforms\nTrend  music streaming services\nTechnology Platform  Streaming Services\nMusic Distribution Platform  Apple Music\nMusic Streaming Service relation: music consumption --[Shifted Distribution and Consumption of]-> Music  music consumption\nActivity  Modern Era\nTime Period relation: music consumption --[Concerns Raised by]-> Industry Stakeholders  Wider Audience\nMusic Consumers relation: music consumption --[Revolutionized by]-> Modern Era relation: music consumption --[Transformed by]-> Music Streaming Services  Music\nContent  Music Streaming Services\nService relation: music consumption --[Made More Accessible to]-> Wider Audience  Industry Stakeholders\nGroup  Digital Music Streaming Services\nMusic Distribution Method",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Platforms like Spotify, Apple Music, and Pandora provide extensive song libraries.",
+    "retrieved_context": " Listeners\nMusic Consumers relation: Spotify --[Democratizes]-> Independent and Emerging Artists  Apple Music\nMusic Streaming Service relation: Pandora --[Serves]-> Listeners relation: Spotify --[Provides Platform For]-> Artists relation: Spotify --[Makes Music More Accessible To]-> Wider Audience  Spotify\nMusic Streaming Service relation: Spotify --[Transforms]-> Music Discovery and Enjoyment  Pandora\nMusic Streaming Platform relation: Spotify --[Challenges]-> Low Royalty Rates relation: Spotify --[Benefits From]-> Established Artists relation: Pandora --[Provides Access To]-> Artists relation: Spotify --[Competes With]-> Apple Music relation: Spotify --[Offers Access To]-> Listeners relation: Pandora --[Competes with]-> Spotify  Artists\nMusicians relation: Spotify --[Competes With]-> Pandora relation: Spotify --[Offers]-> Data and Analytics relation: Pandora --[Competes with]-> Apple Music  Apple Music\nMusic Streaming Service  Music\nContent  music streaming services\nTechnology Platform  Listeners\nMusic Consumers  millions of songs\nCollection of Music Tracks relation: Spotify --[Democratizes]-> Independent and Emerging Artists  Apple Music\nMusic Streaming Service relation: Pandora --[Serves]-> Listeners relation: Spotify --[Provides Platform For]-> Artists relation: millions of songs --[Accessible Through]-> Apple Music relation: Spotify --[Makes Music More Accessible To]-> Wider Audience  Spotify\nMusic Streaming Service relation: Spotify --[Transforms]-> Music Discovery and Enjoyment  Pandora\nMusic Streaming Platform relation: Spotify --[Challenges]-> Low Royalty Rates relation: Spotify --[Benefits From]-> Established Artists relation: Pandora --[Provides Access To]-> Artists relation: Spotify --[Competes With]-> Apple Music relation: Spotify --[Offers Access To]-> Listeners relation: Pandora --[Competes with]-> Spotify relation: Spotify --[Competes With]-> Pandora relation: millions of songs --[Accessible Through]-> Pandora relation: millions of songs --[Accessible Through]-> Spotify relation: millions of songs --[Explored By]-> Listeners relation: Spotify --[Offers]-> Data and Analytics relation: Pandora --[Competes with]-> Apple Music  Listeners\nMusic Consumers relation: Spotify --[Democratizes]-> Independent and Emerging Artists  Apple Music\nMusic Streaming Service relation: Pandora --[Serves]-> Listeners  Established Artists\nMusicians relation: Spotify --[Provides Platform For]-> Artists relation: Spotify --[Makes Music More Accessible To]-> Wider Audience  Spotify\nMusic Streaming Service relation: Spotify --[Transforms]-> Music Discovery and Enjoyment  Pandora\nMusic Streaming Platform relation: Spotify --[Challenges]-> Low Royalty Rates relation: Spotify --[Benefits From]-> Established Artists  Independent and Emerging Artists\nMusicians relation: Pandora --[Provides Access To]-> Artists relation: Spotify --[Competes With]-> Apple Music relation: Spotify --[Offers Access To]-> Listeners  Low Royalty Rates\nEconomic Issue relation: Pandora --[Competes with]-> Spotify  Artists\nMusicians relation: Spotify --[Competes With]-> Pandora  Music Discovery and Enjoyment\nUser Experience  Wider Audience\nMusic Consumers  Data and Analytics\nInformation relation: Spotify --[Offers]-> Data and Analytics relation: Pandora --[Competes with]-> Apple Music  Streaming Services\nMusic Distribution Platform  Music streaming services\nTechnology",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Shift from physical music formats to online platforms due to streaming services.",
+    "retrieved_context": " music streaming services\nTechnology Platform  Music streaming services\nTechnology  rise of music streaming platforms\nTrend  Streaming Services\nMusic Distribution Platform  physical music formats\nDistribution Medium  Music Streaming Services\nService  Digital Music Streaming Services\nMusic Distribution Method  Physical Music Formats\nMarket Segment",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Decline in physical music sales due to the rise of streaming services.",
+    "retrieved_context": " rise of music streaming platforms\nTrend  Music streaming services\nTechnology  Physical Music Retailers\nBusiness  Digital Music Streaming Services\nMusic Distribution Method  Music Streaming Services\nService  Shift in Music Consumption\nMarket Trend  Streaming Services\nMusic Distribution Platform  music streaming services\nTechnology Platform",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Streaming services offer opportunities for artists to reach a global audience.",
+    "retrieved_context": " Music streaming services\nTechnology  New opportunities for artists and listeners\nOpportunity  Music Streaming Services\nService  Streaming Services\nMusic Distribution Platform  rise of music streaming platforms\nTrend  Wider Audience\nMusic Consumers  Streaming services\nService  music streaming services\nTechnology Platform",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Streaming platforms democratize the music industry for independent artists.",
+    "retrieved_context": " rise of music streaming platforms\nTrend  music streaming services\nTechnology Platform  Streaming Services\nMusic Distribution Platform  Music streaming services\nTechnology  Wider Audience\nMusic Consumers  Digital Music Streaming Services\nMusic Distribution Method  Music Streaming Services\nService  Independent and Emerging Artists\nMusicians",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Artists earn royalties based on the number of streams on music streaming services.",
+    "retrieved_context": " royalties\nCompensation  Music streaming services\nTechnology  Digital Music Streaming Services\nMusic Distribution Method  Streaming Services\nMusic Distribution Platform  Music Streaming Services\nService  music streaming services\nTechnology Platform  Music\nContent  rise of music streaming platforms\nTrend",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Critics argue that the current royalty system is unfair to lesser-known artists.",
+    "retrieved_context": " royalty system\nEconomic System relation: royalty system --[Affects]-> Artists relation: royalty system --[Replaces]-> Traditional Record Sales  Traditional Record Sales\nEconomic Model  Streaming Services\nMusic Distribution Platform  Artists\nMusicians relation: royalty system --[Based On]-> Streaming Services  Low Royalty Rates\nEconomic Issue  artist compensation\nEconomic Concept relation: artist compensation --[Affected by]-> Music Streaming Services  Artists\nMusicians relation: artist compensation --[Concerned with]-> Artists  Music Streaming Services\nService  royalty system\nEconomic System relation: royalty system --[Affects]-> Artists relation: traditional record sales --[Provided Income For]-> Artists relation: traditional record sales --[Supported]-> Physical Music Retailers relation: royalty rates --[Part of]-> royalty system relation: royalty system --[Replaces]-> Traditional Record Sales relation: royalty rates --[Compared to]-> traditional record sales relation: traditional record sales --[Benefited]-> Record Labels  artist compensation\nEconomic Concept relation: royalty rates --[Affects]-> artist compensation  traditional record sales\nBusiness Model relation: artist compensation --[Affected by]-> Music Streaming Services relation: artist compensation --[Concerned with]-> Artists relation: royalty system --[Based On]-> Streaming Services  royalty rates\nEconomic Concept  royalties\nCompensation  Independent Artists\nArtist Type  new artists and genres\nArtists and Genres  Artists without major label backing\nGroup of People",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Established artists benefit from streaming platforms as a new revenue stream.",
+    "retrieved_context": " rise of music streaming platforms\nTrend  music streaming services\nTechnology Platform  Music streaming services\nTechnology  Streaming Services\nMusic Distribution Platform  Wider Audience\nMusic Consumers  Streaming Platforms\nOnline Service  New opportunities for artists and listeners\nOpportunity  new artists and genres\nArtists and Genres",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Streaming services provide valuable data and analytics for artists.",
+    "retrieved_context": " Music streaming services\nTechnology  Music Streaming Services\nService  Streaming services\nService  Streaming Services\nMusic Distribution Platform  music streaming services\nTechnology Platform  Streaming Platforms\nOnline Service  rise of music streaming platforms\nTrend  Digital Music Streaming Services\nMusic Distribution Method",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Listeners can easily discover new artists and genres through streaming services.",
+    "retrieved_context": " New opportunities for artists and listeners\nOpportunity  new artists and genres\nArtists and Genres  Listeners\nMusic Consumers  Music streaming services\nTechnology  Wider Audience\nMusic Consumers  Music Streaming Services\nService  music discovery\nActivity  Music\nContent",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Personalized playlists and recommendations enhance the music listening experience.",
+    "retrieved_context": " Streaming services\nService relation: Personalized playlists --[Used in]-> Streaming services  Personalized playlists\nFeature relation: Personalized playlists --[Generated by]-> Recommendation algorithms  Recommendation algorithms\nAlgorithm  Listeners\nMusic Consumers  Recommendation Algorithms\nAlgorithm  playlists\nMusic Feature relation: playlists --[Created By]-> Listeners relation: playlists --[Generated By]-> Recommendation Algorithms relation: playlists --[Available On]-> Streaming Platforms relation: playlists --[Contains]-> Songs  Songs\nMusic Track  Streaming Platforms\nOnline Service  Music Discovery and Enjoyment\nUser Experience  Listeners\nMusic Consumers relation: music consumption --[Shifted Distribution and Consumption of]-> Music  music consumption\nActivity  Modern Era\nTime Period relation: music consumption --[Concerns Raised by]-> Industry Stakeholders  Wider Audience\nMusic Consumers relation: music consumption --[Revolutionized by]-> Modern Era relation: music consumption --[Transformed by]-> Music Streaming Services  Music\nContent  Music Streaming Services\nService relation: music consumption --[Made More Accessible to]-> Wider Audience  Industry Stakeholders\nGroup  Music\nContent  music discovery\nActivity  music sharing\nActivity",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Music streaming services have made music more accessible to a wider audience.",
+    "retrieved_context": " Music streaming services\nTechnology  Music Streaming Services\nService  Wider Audience\nMusic Consumers  music streaming services\nTechnology Platform  Streaming Services\nMusic Distribution Platform  rise of music streaming platforms\nTrend  Digital Music Streaming Services\nMusic Distribution Method  Apple Music\nMusic Streaming Service",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Listeners can stream individual tracks and create personalized playlists.",
+    "retrieved_context": " Streaming services\nService relation: Personalized playlists --[Used in]-> Streaming services  Personalized playlists\nFeature relation: Personalized playlists --[Generated by]-> Recommendation algorithms  Recommendation algorithms\nAlgorithm  Listeners\nMusic Consumers  Recommendation Algorithms\nAlgorithm  playlists\nMusic Feature relation: playlists --[Created By]-> Listeners relation: playlists --[Generated By]-> Recommendation Algorithms relation: playlists --[Available On]-> Streaming Platforms relation: playlists --[Contains]-> Songs  Songs\nMusic Track  Streaming Platforms\nOnline Service  individual tracks\nMusic Tracks  music sharing\nActivity  music discovery\nActivity  Listeners\nMusic Consumers  Listeners\nMusic Consumers relation: Spotify --[Democratizes]-> Independent and Emerging Artists  Apple Music\nMusic Streaming Service relation: Pandora --[Serves]-> Listeners  Established Artists\nMusicians relation: Spotify --[Provides Platform For]-> Artists relation: Spotify --[Makes Music More Accessible To]-> Wider Audience  Spotify\nMusic Streaming Service relation: Spotify --[Transforms]-> Music Discovery and Enjoyment  Pandora\nMusic Streaming Platform relation: Spotify --[Challenges]-> Low Royalty Rates relation: Spotify --[Benefits From]-> Established Artists  Independent and Emerging Artists\nMusicians relation: Pandora --[Provides Access To]-> Artists relation: Spotify --[Competes With]-> Apple Music relation: Spotify --[Offers Access To]-> Listeners  Low Royalty Rates\nEconomic Issue relation: Pandora --[Competes with]-> Spotify  Artists\nMusicians relation: Spotify --[Competes With]-> Pandora  Music Discovery and Enjoyment\nUser Experience  Wider Audience\nMusic Consumers  Data and Analytics\nInformation relation: Spotify --[Offers]-> Data and Analytics relation: Pandora --[Competes with]-> Apple Music  Music\nContent",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Challenges include concerns about the sustainability of the music business model.",
+    "retrieved_context": "relation: music business model --[Affects]-> Artists relation: music business model --[Influenced by]-> Streaming Services  Future of Music Industry\nIndustry  Streaming Services\nMusic Distribution Platform  Artists\nMusicians  music business model\nBusiness Model relation: music business model --[Shapes]-> Future of Music Industry  Future of Music Industry\nIndustry  Listeners\nMusic Consumers relation: music industry --[Influenced By]-> Music Streaming Services  Independent and Emerging Artists\nMusicians relation: music industry --[Impacts]-> Listeners relation: music industry --[Impacts]-> Artists relation: music industry --[Supports]-> Independent and Emerging Artists  music industry\nIndustry  Artists\nMusicians relation: music industry --[Concerns Stakeholders]-> Industry Stakeholders  Music Streaming Services\nService  Industry Stakeholders\nGroup  Music Industry\nIndustry  Shift in Music Consumption\nMarket Trend relation: physical music retailers --[Impacted by]-> Streaming Services  physical music retailers\nBusiness Entity  Streaming Services\nMusic Distribution Platform relation: physical music retailers --[Declined Due to]-> Shift in Music Consumption  Physical Music Retailers\nBusiness  Traditional Music Industry\nIndustry  Wider Audience\nMusic Consumers",
+    "evaluation": 1
+  },
+  {
+    "accuracy": "100.00%"
+  }
+]

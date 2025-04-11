@@ -1,0 +1,80 @@
+[
+  {
+    "correct_answer": "Birds play a crucial role in ecosystems.",
+    "retrieved_context": " Bird Populations and Habitats\nBiological Entity relation: birds --[Support Growth of]-> New Vegetation  birds\nAnimal  Ecosystems\nEcosystem relation: birds --[Disperse Seeds of]-> Plants relation: birds --[Pollinate]-> Certain Plant Species relation: birds --[Control Populations of]-> Insects  Plants\nPlant Species  Certain Plant Species\nPlant Species  New Vegetation\nVegetation  Insects\nPest Species relation: birds --[Contribute to Nutrient Cycling in]-> Ecosystems  Birds\nAnimal  Bird populations and behaviors\nBiological Phenomenon  Changes in bird populations\nBiological Indicator  Protecting Bird Habitats\nConservation Effort  Bird Pollinators\nBiological Entity  Bird Populations and Behaviors\nIndicator Species",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Birds serve as indicators of environmental health.",
+    "retrieved_context": " Changes in bird populations\nBiological Indicator  Bird Populations and Behaviors\nIndicator Species  Bird populations and behaviors\nBiological Phenomenon  Bird Populations and Habitats\nBiological Entity relation: behaviors --[Help with]-> Nutrient Cycling  Nutrient Cycling\nBiogeochemical Process  Shifts in Environmental Conditions\nEnvironmental Change relation: behaviors --[Can Signal]-> Shifts in Environmental Conditions  behaviors\nAttribute of Bird Populations  bird populations monitoring\nActivity relation: birds --[Support Growth of]-> New Vegetation  birds\nAnimal  Ecosystems\nEcosystem relation: birds --[Disperse Seeds of]-> Plants relation: birds --[Pollinate]-> Certain Plant Species relation: birds --[Control Populations of]-> Insects  Plants\nPlant Species  Certain Plant Species\nPlant Species  New Vegetation\nVegetation  Insects\nPest Species relation: birds --[Contribute to Nutrient Cycling in]-> Ecosystems  Birds\nAnimal",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Birds contribute to biodiversity.",
+    "retrieved_context": " Bird Populations and Habitats\nBiological Entity  Protecting Bird Habitats\nConservation Effort  bird populations\nBiological Population  Changes in bird populations\nBiological Indicator  Bird Pollinators\nBiological Entity relation: birds --[Support Growth of]-> New Vegetation  birds\nAnimal  Ecosystems\nEcosystem relation: birds --[Disperse Seeds of]-> Plants relation: birds --[Pollinate]-> Certain Plant Species relation: birds --[Control Populations of]-> Insects  Plants\nPlant Species  Certain Plant Species\nPlant Species  New Vegetation\nVegetation  Insects\nPest Species relation: birds --[Contribute to Nutrient Cycling in]-> Ecosystems  Birds\nAnimal  Bird populations and behaviors\nBiological Phenomenon",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Birds help maintain balance in natural systems.",
+    "retrieved_context": " Bird Populations and Habitats\nBiological Entity  Bird populations and behaviors\nBiological Phenomenon  Changes in bird populations\nBiological Indicator relation: behaviors --[Help with]-> Nutrient Cycling  Nutrient Cycling\nBiogeochemical Process  Shifts in Environmental Conditions\nEnvironmental Change relation: behaviors --[Can Signal]-> Shifts in Environmental Conditions  behaviors\nAttribute of Bird Populations  Protecting Bird Habitats\nConservation Effort relation: birds --[Support Growth of]-> New Vegetation  birds\nAnimal  Ecosystems\nEcosystem relation: birds --[Disperse Seeds of]-> Plants relation: birds --[Pollinate]-> Certain Plant Species relation: birds --[Control Populations of]-> Insects  Plants\nPlant Species  Certain Plant Species\nPlant Species  New Vegetation\nVegetation  Insects\nPest Species relation: birds --[Contribute to Nutrient Cycling in]-> Ecosystems  Birds\nAnimal  Bird Pollinators\nBiological Entity",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Birds are important for seed dispersal.",
+    "retrieved_context": " Seed Dispersal\nEcological Process relation: seed dispersal --[Facilitated by]-> birds  birds\nAnimal relation: birds --[Support Growth of]-> New Vegetation relation: seed dispersal --[Contributes to]-> plant reproduction  plant reproduction\nBiological Process relation: birds --[Disperse Seeds of]-> Plants relation: birds --[Pollinate]-> Certain Plant Species relation: birds --[Control Populations of]-> Insects  seed dispersal\nBiological Process relation: seed dispersal --[Supports]-> fruit and seed production  fruit and seed production\nBiological Process relation: birds --[Contribute to Nutrient Cycling in]-> Ecosystems  Bird Populations and Habitats\nBiological Entity  bird populations\nBiological Population  Bird Pollinators\nBiological Entity  Changes in bird populations\nBiological Indicator  Protecting Bird Habitats\nConservation Effort  Bird populations and behaviors\nBiological Phenomenon",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Birds spread seeds far and wide.",
+    "retrieved_context": "relation: seed dispersal --[Facilitated by]-> birds  birds\nAnimal relation: birds --[Support Growth of]-> New Vegetation relation: seed dispersal --[Contributes to]-> plant reproduction  plant reproduction\nBiological Process relation: birds --[Disperse Seeds of]-> Plants relation: birds --[Pollinate]-> Certain Plant Species relation: birds --[Control Populations of]-> Insects  seed dispersal\nBiological Process relation: seed dispersal --[Supports]-> fruit and seed production  fruit and seed production\nBiological Process relation: birds --[Contribute to Nutrient Cycling in]-> Ecosystems  Seed Dispersal\nEcological Process relation: birds --[Support Growth of]-> New Vegetation  birds\nAnimal  Ecosystems\nEcosystem relation: birds --[Disperse Seeds of]-> Plants relation: birds --[Pollinate]-> Certain Plant Species relation: birds --[Control Populations of]-> Insects  Plants\nPlant Species  Certain Plant Species\nPlant Species  New Vegetation\nVegetation  Insects\nPest Species relation: birds --[Contribute to Nutrient Cycling in]-> Ecosystems  Birds\nAnimal  Bird populations and behaviors\nBiological Phenomenon  Bird Pollinators\nBiological Entity  Bird Populations and Habitats\nBiological Entity  bird pollinators\nAnimal",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Birds promote genetic diversity.",
+    "retrieved_context": " bird populations\nBiological Population relation: genetic diversity --[Contributes to]-> Biodiversity relation: genetic diversity --[Promoted by]-> Birds  genetic diversity\nBiological Concept relation: genetic diversity --[Supports]-> Plant Populations  Birds\nAnimal  Biodiversity\nEcological Concept  Plant Populations\nBiological Process  Genetic Diversity\nBiological Concept  Bird Populations and Habitats\nBiological Entity  Bird populations and behaviors\nBiological Phenomenon  Changes in bird populations\nBiological Indicator  Bird Populations\nAnimal Population  Bird populations\nAnimal Population",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Birds support the growth of new vegetation.",
+    "retrieved_context": " vegetation growth\nEcological Process  New Vegetation Growth\nBiological Process  Vegetation Growth\nEcosystem Process  Bird Populations and Habitats\nBiological Entity  New Vegetation\nVegetation  Changes in bird populations\nBiological Indicator relation: birds --[Support Growth of]-> New Vegetation  birds\nAnimal  Ecosystems\nEcosystem relation: birds --[Disperse Seeds of]-> Plants relation: birds --[Pollinate]-> Certain Plant Species relation: birds --[Control Populations of]-> Insects  Plants\nPlant Species  Certain Plant Species\nPlant Species  New Vegetation\nVegetation  Insects\nPest Species relation: birds --[Contribute to Nutrient Cycling in]-> Ecosystems  Birds\nAnimal",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Birds control insect populations.",
+    "retrieved_context": " Bird Populations and Habitats\nBiological Entity  bird populations\nBiological Population  Bird populations and behaviors\nBiological Phenomenon  Bird Populations\nAnimal Population  Bird populations\nAnimal Population  Bird Populations and Behaviors\nIndicator Species  Changes in bird populations\nBiological Indicator  Bird Pollinators\nBiological Entity",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Birds serve as natural pest control agents.",
+    "retrieved_context": "relation: birds --[Support Growth of]-> New Vegetation  birds\nAnimal relation: pest control agents --[Contributes to]-> natural systems stability relation: birds --[Disperse Seeds of]-> Plants  pest control agents\nRole relation: pest control agents --[Helps Prevent]-> pest outbreaks relation: birds --[Pollinate]-> Certain Plant Species  pest outbreaks\nEvent relation: birds --[Control Populations of]-> Insects  natural systems stability\nEcosystem Function relation: pest control agents --[Performed by]-> birds relation: birds --[Contribute to Nutrient Cycling in]-> Ecosystems  Protecting Bird Habitats\nConservation Effort  Bird Populations and Habitats\nBiological Entity  natural pest control\nEcosystem Service  Natural Pest Control\nEcosystem Service relation: birds --[Support Growth of]-> New Vegetation  birds\nAnimal  Ecosystems\nEcosystem relation: birds --[Disperse Seeds of]-> Plants relation: birds --[Pollinate]-> Certain Plant Species relation: birds --[Control Populations of]-> Insects  Plants\nPlant Species  Certain Plant Species\nPlant Species  New Vegetation\nVegetation  Insects\nPest Species relation: birds --[Contribute to Nutrient Cycling in]-> Ecosystems  Birds\nAnimal  Pest Control\nEcological Service",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Birds help prevent outbreaks of pests.",
+    "retrieved_context": " Protecting Bird Habitats\nConservation Effort  Bird Populations and Habitats\nBiological Entity  Bird Pollinators\nBiological Entity  Bird populations and behaviors\nBiological Phenomenon relation: birds --[Support Growth of]-> New Vegetation  birds\nAnimal  Ecosystems\nEcosystem relation: birds --[Disperse Seeds of]-> Plants relation: birds --[Pollinate]-> Certain Plant Species relation: birds --[Control Populations of]-> Insects  Plants\nPlant Species  Certain Plant Species\nPlant Species  New Vegetation\nVegetation  Insects\nPest Species relation: birds --[Contribute to Nutrient Cycling in]-> Ecosystems  Birds\nAnimal  Changes in bird populations\nBiological Indicator  bird populations\nBiological Population",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Birds contribute to nutrient cycling in ecosystems.",
+    "retrieved_context": " Changes in bird populations\nBiological Indicator  Bird Populations and Habitats\nBiological Entity  Bird Pollinators\nBiological Entity  Recycling of Nutrients\nEcosystem Process  Nutrient Cycling\nBiogeochemical Process  bird pollinators\nAnimal  Ecosystems\nEcosystem  bird populations monitoring\nActivity",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Seabirds enrich soils through their guano.",
+    "retrieved_context": " Seabird Guano\nBiological Substance  seabird guano\nBiological Substance  Seabirds\nAnimal  Plant Growth\nBiological Process relation: guano --[Enriches]-> Soils relation: guano --[Supports]-> Plant Growth  guano\nSubstance  Soils\nSubstance relation: birds --[Support Growth of]-> New Vegetation  birds\nAnimal  Ecosystems\nEcosystem relation: birds --[Disperse Seeds of]-> Plants relation: birds --[Pollinate]-> Certain Plant Species relation: birds --[Control Populations of]-> Insects  Plants\nPlant Species  Certain Plant Species\nPlant Species  New Vegetation\nVegetation  Insects\nPest Species relation: birds --[Contribute to Nutrient Cycling in]-> Ecosystems  Birds\nAnimal  Bird Populations and Habitats\nBiological Entity  hummingbirds\nBird Species",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Birds redistribute nutrients through their droppings.",
+    "retrieved_context": " Bird Pollinators\nBiological Entity  bird pollinators\nAnimal  Changes in bird populations\nBiological Indicator  Bird Populations and Habitats\nBiological Entity relation: birds --[Support Growth of]-> New Vegetation  birds\nAnimal  Ecosystems\nEcosystem relation: birds --[Disperse Seeds of]-> Plants relation: birds --[Pollinate]-> Certain Plant Species relation: birds --[Control Populations of]-> Insects  Plants\nPlant Species  Certain Plant Species\nPlant Species  New Vegetation\nVegetation  Insects\nPest Species relation: birds --[Contribute to Nutrient Cycling in]-> Ecosystems  Birds\nAnimal  bird populations monitoring\nActivity  Recycling of Nutrients\nEcosystem Process",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Birds play a role in pollination.",
+    "retrieved_context": " Bird Pollinators\nBiological Entity  bird pollinators\nAnimal relation: pollination --[Facilitated by]-> Birds  Vegetation Growth\nEcosystem Process  Plant Reproduction\nBiological Process relation: pollination --[Facilitated by]-> Insects  Genetic Diversity\nBiological Concept relation: pollination --[Supports]-> Plant Reproduction relation: pollination --[Contributes to]-> Vegetation Growth  pollination\nBiological Process relation: pollination --[Contributes to]-> Genetic Diversity  Insects\nPest Species  Birds\nAnimal  Bird Populations and Habitats\nBiological Entity relation: birds --[Support Growth of]-> New Vegetation  birds\nAnimal  Ecosystems\nEcosystem relation: birds --[Disperse Seeds of]-> Plants relation: birds --[Pollinate]-> Certain Plant Species relation: birds --[Control Populations of]-> Insects  Plants\nPlant Species  Certain Plant Species\nPlant Species  New Vegetation\nVegetation  Insects\nPest Species relation: birds --[Contribute to Nutrient Cycling in]-> Ecosystems  Birds\nAnimal  sunbirds\nBird Species  Bird populations and behaviors\nBiological Phenomenon",
+    "evaluation": 1
+  },
+  {
+    "accuracy": "100.00%"
+  }
+]

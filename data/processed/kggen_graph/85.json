@@ -1,0 +1,111 @@
+{
+  "entities": [
+    "Columbia disaster",
+    "Challenger disaster",
+    "Blue Origin",
+    "advanced propulsion systems",
+    "Vostok 1",
+    "space shuttle program",
+    "United States",
+    "International Space Station",
+    "Buzz Aldrin",
+    "National Aeronautics and Space Administration",
+    "Mars",
+    "Apollo 11",
+    "lunar bases",
+    "colonizing other planets",
+    "Sputnik 1",
+    "SpaceX",
+    "Elon Musk",
+    "interplanetary exploration",
+    "Yuri Gagarin",
+    "NASA",
+    "space tourism",
+    "Russia",
+    "manned missions to Mars",
+    "Neil Armstrong",
+    "ISS"
+  ],
+  "relations": [
+    [
+      "SpaceX",
+      "founded_by",
+      "Elon Musk"
+    ],
+    [
+      "space tourism",
+      "relates to",
+      "colonizing other planets"
+    ],
+    [
+      "interplanetary exploration",
+      "includes",
+      "manned missions to Mars"
+    ],
+    [
+      "Yuri Gagarin",
+      "traveled into space aboard",
+      "Vostok 1"
+    ],
+    [
+      "space shuttle program",
+      "enabled the construction of",
+      "International Space Station"
+    ],
+    [
+      "interplanetary exploration",
+      "includes",
+      "lunar bases"
+    ],
+    [
+      "advanced propulsion systems",
+      "enables",
+      "manned missions to Mars"
+    ],
+    [
+      "Sputnik 1",
+      "competed with",
+      "United States"
+    ],
+    [
+      "lunar bases",
+      "includes",
+      "interplanetary exploration"
+    ],
+    [
+      "advanced propulsion systems",
+      "enables",
+      "lunar bases"
+    ],
+    [
+      "SpaceX",
+      "plans_to_send_to",
+      "Mars"
+    ],
+    [
+      "SpaceX",
+      "launched_to",
+      "ISS"
+    ],
+    [
+      "NASA",
+      "initiated",
+      "space shuttle program"
+    ],
+    [
+      "Sputnik 1",
+      "launched by",
+      "Sputnik 1"
+    ],
+    [
+      "manned missions to Mars",
+      "includes",
+      "interplanetary exploration"
+    ],
+    [
+      "United States",
+      "launched",
+      "NASA"
+    ]
+  ]
+}

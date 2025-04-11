@@ -1,0 +1,428 @@
+{
+    "entity1": {
+        "name": "Sleep",
+        "type": "Biological Process",
+        "description": "A fundamental biological process essential for human health and well-being.",
+        "chunkid": "The Science Behind Sleep1"
+    },
+    "entity2": {
+        "name": "Human Health",
+        "type": "Health Concept",
+        "description": "The state of being free from illness or injury, which is supported by adequate sleep.",
+        "chunkid": "The Science Behind Sleep1"
+    },
+    "entity3": {
+        "name": "Well-Being",
+        "type": "Health Concept",
+        "description": "A state of being comfortable, healthy, and happy, which can be enhanced by sufficient sleep.",
+        "chunkid": "The Science Behind Sleep1"
+    },
+    "entity4": {
+        "name": "sleep",
+        "type": "Biological Process",
+        "description": "A naturally recurring state of rest characterized by altered consciousness, relatively inhibited sensory activity, and reduced muscle activity.",
+        "chunkid": "The Science Behind Sleep3"
+    },
+    "entity5": {
+        "name": "stages of sleep",
+        "type": "Biological Phenomenon",
+        "description": "The distinct phases that occur during the sleep cycle, typically divided into non-rapid eye movement (NREM) and rapid eye movement (REM) stages.",
+        "chunkid": "The Science Behind Sleep3"
+    },
+    "entity6": {
+        "name": "factors that influence sleep",
+        "type": "Factors",
+        "description": "Various internal and external elements that can affect the quality and quantity of sleep, such as age, health conditions, environment, and lifestyle choices.",
+        "chunkid": "The Science Behind Sleep3"
+    },
+    "entity7": {
+        "name": "adequate amount of rest",
+        "type": "Health Concept",
+        "description": "The sufficient duration and quality of sleep necessary to maintain physical and mental well-being.",
+        "chunkid": "The Science Behind Sleep3"
+    },
+    "entity8": {
+        "name": "sleep",
+        "type": "Biological Process",
+        "description": "A naturally recurring state characterized by reduced or absent consciousness, relatively suspended sensory activity, and inactivity of nearly all voluntary muscles.",
+        "chunkid": "The Science Behind Sleep4"
+    },
+    "entity9": {
+        "name": "stages",
+        "type": "Components of Sleep Cycle",
+        "description": "Distinct phases that occur during the sleep cycle, each characterized by specific brain wave patterns and physiological changes.",
+        "chunkid": "The Science Behind Sleep4"
+    },
+    "entity10": {
+        "name": "sleep cycle",
+        "type": "Biological Process",
+        "description": "The progression of sleep stages that occurs repeatedly throughout a period of sleep, typically lasting about 90 minutes in humans.",
+        "chunkid": "The Science Behind Sleep4"
+    },
+    "entity11": {
+        "name": "rapid eye movement (REM) sleep",
+        "type": "Biological Process",
+        "description": "A stage of sleep characterized by rapid movements of the eyes, increased respiration rate, and greater dreaming.",
+        "chunkid": "The Science Behind Sleep5"
+    },
+    "entity12": {
+        "name": "non-REM sleep",
+        "type": "Biological Process",
+        "description": "A stage of deep sleep that is divided into several stages, each with distinct brain wave patterns and physiological characteristics.",
+        "chunkid": "The Science Behind Sleep5"
+    },
+    "entity13": {
+        "name": "Non-REM sleep",
+        "type": "Biological Process",
+        "description": "A stage of sleep characterized by the absence of rapid eye movements, muscle atonia, and dreaming.",
+        "chunkid": "The Science Behind Sleep6"
+    },
+    "entity14": {
+        "name": "N1",
+        "type": "Sleep Stage",
+        "description": "The first stage of non-REM sleep, also known as light sleep, where the body begins to relax and slow down.",
+        "chunkid": "The Science Behind Sleep6"
+    },
+    "entity15": {
+        "name": "N2",
+        "type": "Sleep Stage",
+        "description": "The second stage of non-REM sleep, characterized by further slowing of brain waves and deeper relaxation.",
+        "chunkid": "The Science Behind Sleep6"
+    },
+    "entity16": {
+        "name": "N3",
+        "type": "Sleep Stage",
+        "description": "The third stage of non-REM sleep, also known as deep sleep or slow-wave sleep, where the body undergoes physical restoration.",
+        "chunkid": "The Science Behind Sleep6"
+    },
+    "entity17": {
+        "name": "N1 stage",
+        "type": "Sleep Stage",
+        "description": "The lightest stage of sleep where individuals may experience drifting in and out of consciousness.",
+        "chunkid": "The Science Behind Sleep7"
+    },
+    "entity18": {
+        "name": "N2 stage",
+        "type": "Medical Term",
+        "description": "A specific stage of non-rapid eye movement (NREM) sleep characterized by a decrease in body temperature and heart rate, as well as the onset of sleep spindles and K-complexes.",
+        "chunkid": "The Science Behind Sleep8"
+    },
+    "entity19": {
+        "name": "sleep spindles",
+        "type": "Medical Term",
+        "description": "Brief bursts of brain activity that occur during stage 2 (N2) of non-rapid eye movement sleep, typically lasting for about half a second to two seconds.",
+        "chunkid": "The Science Behind Sleep8"
+    },
+    "entity20": {
+        "name": "K-complexes",
+        "type": "Medical Term",
+        "description": "A high-amplitude delta wave that occurs during stage 2 (N2) of non-rapid eye movement sleep, often in response to external stimuli or internal events.",
+        "chunkid": "The Science Behind Sleep8"
+    },
+    "entity21": {
+        "name": "N3 stage",
+        "type": "Medical Term",
+        "description": "A stage of sleep characterized by slow brain waves, also known as slow-wave sleep.",
+        "chunkid": "The Science Behind Sleep9"
+    },
+    "entity22": {
+        "name": "slow-wave sleep",
+        "type": "Medical Term",
+        "description": "The deepest stage of non-rapid eye movement (NREM) sleep, associated with restorative processes in the body.",
+        "chunkid": "The Science Behind Sleep9"
+    },
+    "entity23": {
+        "name": "REM sleep",
+        "type": "Biological Phenomenon",
+        "description": "A stage of sleep characterized by rapid eye movement and increased brain activity, during which most dreaming occurs.",
+        "chunkid": "The Science Behind Sleep10"
+    },
+    "entity24": {
+        "name": "Rapid eye movements",
+        "type": "Physiological Phenomenon",
+        "description": "A characteristic of certain sleep stages, particularly REM sleep, where the eyes move quickly in various directions.",
+        "chunkid": "The Science Behind Sleep11"
+    },
+    "entity25": {
+        "name": "Increased brain activity",
+        "type": "Neurological Condition",
+        "description": "Refers to heightened levels of neural activity in the brain, often observed during specific states such as REM sleep or under certain stimuli.",
+        "chunkid": "The Science Behind Sleep11"
+    },
+    "entity26": {
+        "name": "Muscle paralysis",
+        "type": "Physiological Condition",
+        "description": "A state where muscles are unable to move, commonly occurring during REM sleep to prevent the acting out of dreams.",
+        "chunkid": "The Science Behind Sleep11"
+    },
+    "entity27": {
+        "name": "REM sleep",
+        "type": "Biological Process",
+        "description": "A stage of sleep characterized by rapid eye movements, low muscle tone throughout the body, and vivid dreams.",
+        "chunkid": "The Science Behind Sleep12"
+    },
+    "entity28": {
+        "name": "memory consolidation",
+        "type": "Cognitive Function",
+        "description": "The process by which new information is encoded and stabilized in the brain for long-term storage.",
+        "chunkid": "The Science Behind Sleep12"
+    },
+    "entity29": {
+        "name": "emotional processing",
+        "type": "Psychological Process",
+        "description": "The cognitive and physiological processes that occur when an individual perceives, interprets, and responds to emotional stimuli.",
+        "chunkid": "The Science Behind Sleep12"
+    },
+    "entity30": {
+        "name": "non-REM sleep",
+        "type": "Biological Process",
+        "description": "A stage of sleep characterized by the absence of rapid eye movements, relatively low brain activity, and muscle tone.",
+        "chunkid": "The Science Behind Sleep13"
+    },
+    "entity31": {
+        "name": "REM sleep",
+        "type": "Biological Process",
+        "description": "A stage of sleep marked by rapid eye movements, high brain activity, and vivid dreaming.",
+        "chunkid": "The Science Behind Sleep13"
+    },
+    "entity32": {
+        "name": "sleep",
+        "type": "Biological Process",
+        "description": "A naturally recurring state characterized by reduced or absent consciousness, relatively suspended sensory activity, and inactivity of nearly all voluntary muscles.",
+        "chunkid": "The Science Behind Sleep14"
+    },
+    "entity33": {
+        "name": "physiological processes",
+        "type": "Biological Processes",
+        "description": "The functions and activities that occur within living organisms to maintain life, including but not limited to metabolism, homeostasis, and cell signaling.",
+        "chunkid": "The Science Behind Sleep14"
+    },
+    "entity34": {
+        "name": "neurotransmitters",
+        "type": "Chemical Substances",
+        "description": "Endogenous chemicals that transmit signals across a synapse from one neuron to another 'target' neuron or other cells, such as muscles or glands.",
+        "chunkid": "The Science Behind Sleep14"
+    },
+    "entity35": {
+        "name": "circadian rhythm",
+        "type": "Biological Process",
+        "description": "An internal biological process that regulates the sleep-wake cycle and repeats roughly every 24 hours.",
+        "chunkid": "The Science Behind Sleep15"
+    },
+    "entity36": {
+        "name": "body's internal clock",
+        "type": "Physiological Mechanism",
+        "description": "A metaphorical term for the circadian rhythm, which helps regulate various biological processes including sleep and wakefulness.",
+        "chunkid": "The Science Behind Sleep15"
+    },
+    "entity37": {
+        "name": "suprachiasmatic nucleus",
+        "type": "Anatomical Structure",
+        "description": "A small region in the brain that acts as the body's master clock, regulating circadian rhythms.",
+        "chunkid": "The Science Behind Sleep16"
+    },
+    "entity38": {
+        "name": "brain",
+        "type": "Organ",
+        "description": "The central organ of the nervous system, responsible for controlling and coordinating bodily functions and activities.",
+        "chunkid": "The Science Behind Sleep16"
+    },
+    "entity39": {
+        "name": "melatonin",
+        "type": "Hormone",
+        "description": "A hormone produced by the pineal gland that regulates sleep-wake cycles.",
+        "chunkid": "The Science Behind Sleep16"
+    },
+    "entity40": {
+        "name": "circadian rhythm",
+        "type": "Biological Process",
+        "description": "An internal process that regulates the sleep-wake cycle and repeats roughly every 24 hours.",
+        "chunkid": "The Science Behind Sleep17"
+    },
+    "entity41": {
+        "name": "adenosine",
+        "type": "Neurotransmitter",
+        "description": "A chemical that promotes sleep by binding to receptors in the brain, leading to drowsiness.",
+        "chunkid": "The Science Behind Sleep17"
+    },
+    "entity42": {
+        "name": "serotonin",
+        "type": "Neurotransmitter",
+        "description": "A neurotransmitter involved in regulating mood, appetite, and sleep.",
+        "chunkid": "The Science Behind Sleep17"
+    },
+    "entity43": {
+        "name": "dopamine",
+        "type": "Neurotransmitter",
+        "description": "A neurotransmitter associated with pleasure, reward, and regulation of movement and emotional responses.",
+        "chunkid": "The Science Behind Sleep17"
+    },
+    "entity44": {
+        "name": "neurotransmitter systems",
+        "type": "Biological System",
+        "description": "A group of nerve cells that communicate with each other using chemical messengers called neurotransmitters.",
+        "chunkid": "The Science Behind Sleep18"
+    },
+    "entity45": {
+        "name": "sleep disorders",
+        "type": "Medical Condition",
+        "description": "A range of conditions characterized by disturbances in the amount, quality, or timing of sleep.",
+        "chunkid": "The Science Behind Sleep18"
+    },
+    "entity46": {
+        "name": "insomnia",
+        "type": "Medical Condition",
+        "description": "A common sleep disorder where individuals have trouble falling asleep, staying asleep, or both.",
+        "chunkid": "The Science Behind Sleep18"
+    },
+    "entity47": {
+        "name": "narcolepsy",
+        "type": "Medical Condition",
+        "description": "A chronic neurological disorder characterized by excessive daytime sleepiness and sudden attacks of sleep.",
+        "chunkid": "The Science Behind Sleep18"
+    },
+    "entity48": {
+        "name": "sleep apnea",
+        "type": "Medical Condition",
+        "description": "A potentially serious sleep disorder in which breathing repeatedly stops and starts during sleep.",
+        "chunkid": "The Science Behind Sleep18"
+    },
+    "entity49": {
+        "name": "light exposure",
+        "type": "Environmental Factor",
+        "description": "The amount of light that a person is exposed to, which can affect various biological processes including sleep.",
+        "chunkid": "The Science Behind Sleep19"
+    },
+    "entity50": {
+        "name": "noise",
+        "type": "Environmental Factor",
+        "description": "Sound levels in the environment that can disturb or enhance sleep quality depending on their intensity and nature.",
+        "chunkid": "The Science Behind Sleep19"
+    },
+    "entity51": {
+        "name": "temperature",
+        "type": "Environmental Factor",
+        "description": "The degree of hotness or coldness in the sleeping environment, which can significantly affect comfort and sleep quality.",
+        "chunkid": "The Science Behind Sleep19"
+    },
+    "entity52": {
+        "name": "lifestyle choices",
+        "type": "Behavioral Factor",
+        "description": "Personal habits and decisions that individuals make, such as diet, exercise, and bedtime routines, which can influence sleep patterns and quality.",
+        "chunkid": "The Science Behind Sleep19"
+    },
+    "entity53": {
+        "name": "melatonin",
+        "type": "Chemical Substance",
+        "description": "A hormone produced by the pineal gland that regulates sleep-wake cycles.",
+        "chunkid": "The Science Behind Sleep20"
+    },
+    "entity54": {
+        "name": "sleep-wake cycle",
+        "type": "Biological Process",
+        "description": "The natural pattern of sleeping and waking over a 24-hour period, also known as the circadian rhythm.",
+        "chunkid": "The Science Behind Sleep20"
+    },
+    "entity55": {
+        "name": "noise",
+        "type": "Environmental Factor",
+        "description": "A disturbance that can affect the quality of sleep.",
+        "chunkid": "The Science Behind Sleep21"
+    },
+    "entity56": {
+        "name": "temperature",
+        "type": "Environmental Condition",
+        "description": "The degree of hotness or coldness in an environment, which can impact sleep quality.",
+        "chunkid": "The Science Behind Sleep21"
+    },
+    "entity57": {
+        "name": "sleep",
+        "type": "Biological Process",
+        "description": "A naturally recurring state characterized by reduced consciousness and metabolic activity.",
+        "chunkid": "The Science Behind Sleep21"
+    },
+    "entity58": {
+        "name": "Sleep",
+        "type": "Biological Process",
+        "description": "A naturally recurring state characterized by reduced or absent consciousness, relatively suspended sensory activity, and inactivity of nearly all voluntary muscles.",
+        "chunkid": "The Science Behind Sleep23"
+    },
+    "entity59": {
+        "name": "immune function",
+        "type": "Physiological Function",
+        "description": "The body's ability to defend against pathogens and other foreign substances through the immune system.",
+        "chunkid": "The Science Behind Sleep23"
+    },
+    "entity60": {
+        "name": "metabolism",
+        "type": "Biological Process",
+        "description": "The set of life-sustaining chemical reactions in organisms, including anabolism (building molecules) and catabolism (breaking down molecules).",
+        "chunkid": "The Science Behind Sleep23"
+    },
+    "entity61": {
+        "name": "cognitive function",
+        "type": "Mental Process",
+        "description": "The mental processes involved in acquiring knowledge and understanding through thought, experience, and the senses.",
+        "chunkid": "The Science Behind Sleep23"
+    },
+    "entity62": {
+        "name": "Chronic sleep deprivation",
+        "type": "Medical Condition",
+        "description": "A prolonged lack of adequate sleep that can lead to various health issues.",
+        "chunkid": "The Science Behind Sleep24"
+    },
+    "entity63": {
+        "name": "obesity",
+        "type": "Medical Condition",
+        "description": "A medical condition characterized by excessive body fat accumulation, which may adversely affect health.",
+        "chunkid": "The Science Behind Sleep24"
+    },
+    "entity64": {
+        "name": "diabetes",
+        "type": "Medical Condition",
+        "description": "A group of metabolic disorders characterized by high blood sugar levels over a prolonged period.",
+        "chunkid": "The Science Behind Sleep24"
+    },
+    "entity65": {
+        "name": "cardiovascular disease",
+        "type": "Medical Condition",
+        "description": "A class of diseases that involve the heart or blood vessels, including conditions such as coronary artery disease and hypertension.",
+        "chunkid": "The Science Behind Sleep24"
+    },
+    "entity66": {
+        "name": "mental health disorders",
+        "type": "Medical Condition",
+        "description": "A range of conditions affecting a person's thinking, feeling, or mood, which may be characterized by significant impairment in daily functioning.",
+        "chunkid": "The Science Behind Sleep24"
+    },
+    "entity67": {
+        "name": "sleep",
+        "type": "Biological Process",
+        "description": "A naturally recurring state characterized by reduced or absent consciousness, relatively suspended sensory activity, and inactivity of nearly all voluntary muscles.",
+        "chunkid": "The Science Behind Sleep25"
+    },
+    "entity68": {
+        "name": "human health",
+        "type": "Health Concept",
+        "description": "The condition of being free from illness or injury; a state of complete physical, mental, and social well-being.",
+        "chunkid": "The Science Behind Sleep25"
+    },
+    "entity69": {
+        "name": "well-being",
+        "type": "Health Concept",
+        "description": "A state of being comfortable, healthy, or happy.",
+        "chunkid": "The Science Behind Sleep25"
+    },
+    "entity70": {
+        "name": "sleep",
+        "type": "Biological Process",
+        "description": "A naturally recurring state characterized by reduced or absent consciousness, relatively suspended sensory activity, and inactivity of nearly all voluntary muscles.",
+        "chunkid": "The Science Behind Sleep26"
+    },
+    "entity71": {
+        "name": "stages of sleep",
+        "type": "Biological Phenomenon",
+        "description": "Distinct phases that occur during the sleep cycle, each characterized by specific brain wave activity and physiological changes.",
+        "chunkid": "The Science Behind Sleep26"
+    }
+}

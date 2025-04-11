@@ -1,0 +1,139 @@
+{
+  "entities": [
+    {
+      "name": "19th century"
+    },
+    {
+      "name": "Sumerians"
+    },
+    {
+      "name": "board game conventions"
+    },
+    {
+      "name": "Checkers"
+    },
+    {
+      "name": "Chaturanga"
+    },
+    {
+      "name": "Renaissance period"
+    },
+    {
+      "name": "Scrabble"
+    },
+    {
+      "name": "20th century"
+    },
+    {
+      "name": "Chinese Chess"
+    },
+    {
+      "name": "Clue"
+    },
+    {
+      "name": "ancient Egypt"
+    },
+    {
+      "name": "Industrial Revolution"
+    },
+    {
+      "name": "Middle East"
+    },
+    {
+      "name": "Europe"
+    },
+    {
+      "name": "Royal Game of Ur"
+    },
+    {
+      "name": "Monopoly"
+    },
+    {
+      "name": "Zhou Dynasty"
+    },
+    {
+      "name": "Xiangqi"
+    },
+    {
+      "name": "Senet"
+    },
+    {
+      "name": "Backgammon"
+    },
+    {
+      "name": "Mesopotamia"
+    },
+    {
+      "name": "online platforms"
+    },
+    {
+      "name": "tabletop gaming cafes"
+    },
+    {
+      "name": "Go"
+    },
+    {
+      "name": "Persia"
+    },
+    {
+      "name": "Tric-Trac"
+    }
+  ],
+  "relations": [
+    [
+      "Backgammon",
+      "spread_to",
+      "Middle East"
+    ],
+    [
+      "Checkers",
+      "emerged_during",
+      "Renaissance period"
+    ],
+    [
+      "Backgammon",
+      "spread_to",
+      "Europe"
+    ],
+    [
+      "Sumerians",
+      "lived_in",
+      "Mesopotamia"
+    ],
+    [
+      "Tric-Trac",
+      "emerged_during",
+      "Renaissance period"
+    ],
+    [
+      "Royal Game of Ur",
+      "played_by",
+      "Sumerians"
+    ],
+    [
+      "Tric-Trac",
+      "is_precursor_of",
+      "Backgammon"
+    ],
+    [
+      "Zhou Dynasty",
+      "TIME_PERIOD_OF",
+      "Go"
+    ],
+    [
+      "Backgammon",
+      "originated_in",
+      "Persia"
+    ],
+    [
+      "Xiangqi",
+      "ALSO_KNOWN_AS",
+      "Chinese Chess"
+    ],
+    [
+      "Senet",
+      "originated_in",
+      "ancient Egypt"
+    ]
+  ]
+}

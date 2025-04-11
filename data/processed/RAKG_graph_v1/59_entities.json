@@ -1,0 +1,242 @@
+{
+    "entity1": {
+        "name": "Satellites",
+        "type": "Technology",
+        "description": "Artificial objects placed in orbit around the Earth to facilitate communication and other services.;;;Artificial objects placed in orbit around the Earth to facilitate communication, weather prediction, and other scientific or military functions.;;;The industry involved in transmitting audio or video content to a wide audience through media channels like radio or television.;;;The exchange of information over significant distances by electronic means and related technology.;;;Satellites that orbit the Earth at a lower altitude compared to other types of satellites, typically used for Earth observation, remote sensing, and satellite internet.;;;Artificial objects placed in orbit around the Earth to facilitate telecommunications and broadcasting.;;;Artificial objects placed in orbit around the Earth to facilitate communication, navigation, and data collection.;;;A specific type of Earth-orbiting satellite designed to relay signals for television, internet, phone calls, and other forms of communication.;;;Artificial objects launched into orbit around the Earth or other celestial bodies to perform various functions.;;;An object that orbits around a larger body in space.;;;The scientific and engineering discipline concerned with the design, development, deployment, and operation of satellites for various applications.;;;Artificial objects placed in orbit around the Earth to facilitate communication, navigation, and other services.;;;A field of technology that involves the use of artificial satellites for various applications such as communication, navigation, and Earth observation.;;;The field of technology that deals with communication over a distance using various methods such as telephones, radio, television, and the internet.;;;A type of satellite that orbits the Earth at the same speed as Earth's rotation, allowing it to remain fixed over a specific point on the equator.;;;An artificial object that has been intentionally placed into orbit around a celestial body, such as Earth.;;;Satellites used to observe and monitor weather conditions from space.;;;A type of spacecraft propulsion that uses electrical energy to accelerate propellants, enabling more efficient satellite maneuvers and extended operational lifetimes.;;;Artificial objects launched into orbit around the Earth or other celestial bodies, used for various purposes such as communication, navigation, and observation.;;;The technology and methods used to move a spacecraft or satellite through space or the atmosphere.;;;Man-made objects launched into space to orbit a celestial body and perform various functions.;;;The sector of the economy focused on manufacturing, launching, and operating satellites for various applications such as communication, navigation, and Earth observation.;;;An orbit around Earth with an altitude of 2,000 km or less.;;;Artificial objects placed in orbit around the Earth or other celestial bodies to serve various purposes such as communication, navigation, and observation.;;;The field of developing and using artificial satellites for various applications such as communication, navigation, and Earth observation.;;;Systems designed for transmitting information from one place to another, often used in satellites for data transfer and control.;;;Satellites equipped with sensors and cameras to monitor weather patterns.;;;Satellites used for scientific studies, including Earth's climate, oceans, atmosphere, and land cover.;;;A high Earth orbit where satellites are positioned to match the Earth's rotation, appearing stationary over a fixed point on the equator.;;;Artificial objects placed in orbit around the Earth to serve various purposes such as communication, navigation, and observation.;;;A man-made object that orbits the Earth and is used for various purposes such as communication, navigation, and observation.",
+        "chunkid": "How Satellites Work25;;;How Satellites Work5;;;How Satellites Work21;;;How Satellites Work17;;;How Satellites Work28;;;How Satellites Work22;;;How Satellites Work13;;;How Satellites Work6;;;How Satellites Work14;;;How Satellites Work7;;;How Satellites Work9;;;How Satellites Work16;;;How Satellites Work4;;;How Satellites Work26;;;How Satellites Work23;;;How Satellites Work18;;;How Satellites Work24;;;How Satellites Work1;;;How Satellites Work11;;;How Satellites Work20;;;How Satellites Work2;;;How Satellites Work8;;;How Satellites Work3;;;How Satellites Work27;;;How Satellites Work29"
+    },
+    "entity2": {
+        "name": "Earth",
+        "type": "Location",
+        "description": "The boundless three-dimensional extent in which objects and events have relative position and direction, particularly the area beyond Earth's atmosphere where celestial bodies exist.;;;The expanse that exists beyond Earth's atmosphere, containing celestial bodies such as stars, planets, and galaxies.;;;The third planet from the Sun, also known as our home planet.;;;The third planet from the Sun and the only astronomical object known to harbor life.",
+        "chunkid": "How Satellites Work25;;;How Satellites Work5;;;How Satellites Work10;;;How Satellites Work2;;;How Satellites Work16;;;How Satellites Work9;;;How Satellites Work18"
+    },
+    "entity4": {
+        "name": "weather forecasting",
+        "type": "Field",
+        "description": "The application of science and technology to predict the state of the atmosphere for a future time and given location.",
+        "chunkid": "How Satellites Work2"
+    },
+    "entity5": {
+        "name": "scientific research",
+        "type": "Field",
+        "description": "Systematic investigation into and study of materials, structures, or phenomena to discover facts and formulate laws.",
+        "chunkid": "How Satellites Work2"
+    },
+    "entity6": {
+        "name": "national security",
+        "type": "Field",
+        "description": "A concept that a government, along with its parliaments, should maintain the protection of the state and its citizens.",
+        "chunkid": "How Satellites Work2"
+    },
+    "entity15": {
+        "name": "sensors",
+        "type": "Technology",
+        "description": "Devices used for detecting or measuring a physical property and recording, indicating, or otherwise responding to it.",
+        "chunkid": "How Satellites Work7"
+    },
+    "entity16": {
+        "name": "cameras",
+        "type": "Technology",
+        "description": "Imaging devices that capture visual information, often used in satellites for Earth observation.",
+        "chunkid": "How Satellites Work7"
+    },
+    "entity17": {
+        "name": "planet's weather patterns",
+        "type": "Phenomenon",
+        "description": "The atmospheric conditions or meteorological phenomena observed on a planet, particularly Earth.;;;The long-term weather patterns and conditions of the planet Earth.;;;Long-term average weather conditions in a particular area or globally.",
+        "chunkid": "How Satellites Work22;;;How Satellites Work7;;;How Satellites Work21"
+    },
+    "entity18": {
+        "name": "meteorologists",
+        "type": "Occupation",
+        "description": "Scientists who study the atmosphere and predict weather patterns.;;;Scientists who study and predict weather patterns using data from various sources including satellites.",
+        "chunkid": "How Satellites Work7;;;How Satellites Work21"
+    },
+    "entity20": {
+        "name": "laws of motion",
+        "type": "Scientific Principle",
+        "description": "A set of fundamental principles that describe the relationship between a body and the forces acting upon it, and its motion in response to those forces.",
+        "chunkid": "How Satellites Work8"
+    },
+    "entity21": {
+        "name": "gravity",
+        "type": "Physical Phenomenon",
+        "description": "The natural force of attraction between physical bodies, especially when one of them is a celestial body like the Earth.",
+        "chunkid": "How Satellites Work8"
+    },
+    "entity28": {
+        "name": "polar orbit",
+        "type": "Orbit Type",
+        "description": "An orbit that passes above or nearly above both poles of the planet on each revolution.",
+        "chunkid": "How Satellites Work11"
+    },
+    "entity29": {
+        "name": "payload",
+        "type": "Component",
+        "description": "The equipment or instruments that perform the satellite's primary function.",
+        "chunkid": "How Satellites Work12"
+    },
+    "entity30": {
+        "name": "bus",
+        "type": "Component",
+        "description": "The structure that houses the payload and provides power, communication, and control systems.",
+        "chunkid": "How Satellites Work12"
+    },
+    "entity32": {
+        "name": "solar panels",
+        "type": "Technology",
+        "description": "Devices that convert light, usually from the sun, into electrical power using photovoltaic cells.",
+        "chunkid": "How Satellites Work13"
+    },
+    "entity33": {
+        "name": "sunlight",
+        "type": "Natural Phenomenon",
+        "description": "The natural light emitted by the Sun and received on Earth or other celestial bodies.",
+        "chunkid": "How Satellites Work13"
+    },
+    "entity34": {
+        "name": "electricity",
+        "type": "Energy Form",
+        "description": "A form of energy resulting from the movement of charged particles, such as electrons, which can be used to power various devices and systems.",
+        "chunkid": "How Satellites Work13"
+    },
+    "entity35": {
+        "name": "batteries",
+        "type": "Device",
+        "description": "Electrical storage units that store chemical energy and convert it into electrical energy when needed.",
+        "chunkid": "How Satellites Work13"
+    },
+    "entity37": {
+        "name": "radio signals",
+        "type": "Communication Method",
+        "description": "Electromagnetic waves used for transmitting information over distances through space or air.",
+        "chunkid": "How Satellites Work14"
+    },
+    "entity38": {
+        "name": "Earth stations",
+        "type": "Facility",
+        "description": "Fixed or mobile installations on Earth's surface used for communicating with satellites and spacecraft.;;;Ground-based facilities equipped to transmit and receive signals from satellites in orbit.",
+        "chunkid": "How Satellites Work14;;;How Satellites Work26"
+    },
+    "entity41": {
+        "name": "equator",
+        "type": "Geographical feature",
+        "description": "An imaginary line on the Earth's surface, equidistant from the North Pole and South Pole, dividing the Earth into Northern and Southern Hemispheres.",
+        "chunkid": "How Satellites Work16"
+    },
+    "entity48": {
+        "name": "global connectivity",
+        "type": "Service",
+        "description": "The ability to connect to a network or service from anywhere in the world, often facilitated by technology such as satellites.",
+        "chunkid": "How Satellites Work20"
+    },
+    "entity49": {
+        "name": "remote and rural areas",
+        "type": "Geographical Area",
+        "description": "Regions that are sparsely populated and far from urban centers, where access to traditional infrastructure is limited.",
+        "chunkid": "How Satellites Work20"
+    },
+    "entity50": {
+        "name": "traditional infrastructure",
+        "type": "Infrastructure",
+        "description": "The basic physical and organizational structures and facilities (e.g., buildings, roads, power supplies) needed for the operation of a society or enterprise.",
+        "chunkid": "How Satellites Work20"
+    },
+    "entity53": {
+        "name": "Storms",
+        "type": "Natural Phenomenon",
+        "description": "Intense tropical storms with strong winds and heavy rain that form over warm ocean waters.;;;Severe weather conditions involving strong winds, heavy rain, thunder, and lightning.",
+        "chunkid": "How Satellites Work21"
+    },
+    "entity55": {
+        "name": "Natural disasters",
+        "type": "Event",
+        "description": "Catastrophic events caused by natural processes of the Earth, such as earthquakes, floods, and volcanic eruptions.",
+        "chunkid": "How Satellites Work21"
+    },
+    "entity57": {
+        "name": "Tsunamis",
+        "type": "Natural Phenomenon",
+        "description": "Large ocean waves caused by underwater disturbances such as earthquakes or landslides.",
+        "chunkid": "How Satellites Work21"
+    },
+    "entity60": {
+        "name": "oceans",
+        "type": "Geographical Feature",
+        "description": "Large bodies of saltwater that cover most of the Earth's surface.",
+        "chunkid": "How Satellites Work22"
+    },
+    "entity61": {
+        "name": "atmosphere",
+        "type": "Natural Phenomenon",
+        "description": "The layer of gases surrounding the planet Earth, essential for life and weather processes.",
+        "chunkid": "How Satellites Work22"
+    },
+    "entity62": {
+        "name": "land cover",
+        "type": "Geographical Feature",
+        "description": "The physical material at the surface of the earth, including vegetation, soil, rock, and human-made structures.",
+        "chunkid": "How Satellites Work22"
+    },
+    "entity63": {
+        "name": "environmental monitoring",
+        "type": "Activity",
+        "description": "The process of observing and recording environmental conditions to assess changes over time.",
+        "chunkid": "How Satellites Work22"
+    },
+    "entity64": {
+        "name": "conservation efforts",
+        "type": "Activity",
+        "description": "Actions taken to protect, preserve, or restore natural resources and ecosystems.",
+        "chunkid": "How Satellites Work22"
+    },
+    "entity66": {
+        "name": "miniaturization",
+        "type": "Technological Process",
+        "description": "A process in which devices or systems are made smaller while maintaining or improving their functionality.",
+        "chunkid": "How Satellites Work23"
+    },
+    "entity69": {
+        "name": "CubeSats",
+        "type": "Technology",
+        "description": "Small satellites that are revolutionizing the satellite industry by reducing costs and increasing accessibility.",
+        "chunkid": "How Satellites Work24"
+    },
+    "entity71": {
+        "name": "educational institutions",
+        "type": "Organization Type",
+        "description": "Institutions that provide education at all levels, from primary to higher education.",
+        "chunkid": "How Satellites Work24"
+    },
+    "entity72": {
+        "name": "startups",
+        "type": "Business Type",
+        "description": "Newly established companies or ventures, often focused on developing and bringing a new product or service to market.",
+        "chunkid": "How Satellites Work24"
+    },
+    "entity73": {
+        "name": "developing countries",
+        "type": "Geographic Region",
+        "description": "Nations with lower levels of industrialization and generally lower standards of living compared to developed countries.",
+        "chunkid": "How Satellites Work24"
+    },
+    "entity77": {
+        "name": "Laser communication technology",
+        "type": "Technology",
+        "description": "A method of transmitting information using laser beams for high-speed data transfer.",
+        "chunkid": "How Satellites Work26"
+    },
+    "entity82": {
+        "name": "physics",
+        "type": "Science",
+        "description": "The natural science that involves the study of matter, energy, and the interactions between them.",
+        "chunkid": "How Satellites Work28"
+    },
+    "entity83": {
+        "name": "technology",
+        "type": "Field",
+        "description": "The application of scientific knowledge for practical purposes, especially in industry, communications, and engineering.",
+        "chunkid": "How Satellites Work28"
+    }
+}

@@ -1,0 +1,80 @@
+[
+  {
+    "correct_answer": "Color plays a crucial role in branding and marketing strategies.",
+    "retrieved_context": " Branding\nMarketing Strategy  Color Psychology\nPsychological Concept  Cultural and Contextual Associations\nCultural Factors relation: Branding --[Creates]-> Brand Identity relation: Branding --[Uses]-> Cultural and Contextual Associations relation: Branding --[Enhances]-> Consumer Connection  Consumer Connection\nMarketing Outcome relation: Branding --[Affects]-> Target Audience  Brand Identity\nConcept relation: Branding --[Involves]-> Color Psychology  Target Audience\nAudience relation: Color --[Associated with Emotions]-> Red  Warm Colors (Red, Orange)\nColor Group relation: Color --[Influences Consumer Behavior]-> Cool Colors (Blue, Green)  Blue\nColor  Color\nConcept relation: Color --[Associated with Emotions]-> Blue  Cool Colors (Blue, Green)\nColor Group relation: Color --[Connects with Target Audience]-> Target Audience relation: Color --[Influences Consumer Behavior]-> Warm Colors (Red, Orange)  Brand Identity\nConcept  Target Audience\nAudience relation: Color --[Creates Brand Differentiation]-> Brand Identity  Red\nColor  Colors\nConcept  Color Psychology\nPsychological Concept  Branding Decisions\nBusiness Practice  color scheme\nAttribute  Brand Perception\nConcept  Color Meanings\nConcept",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Colors have the power to evoke emotions.",
+    "retrieved_context": " Colors\nConcept  Color Psychology\nPsychological Concept relation: Color --[Associated with Emotions]-> Red  Warm Colors (Red, Orange)\nColor Group relation: Color --[Influences Consumer Behavior]-> Cool Colors (Blue, Green)  Blue\nColor  Color\nConcept relation: Color --[Associated with Emotions]-> Blue  Cool Colors (Blue, Green)\nColor Group relation: Color --[Connects with Target Audience]-> Target Audience relation: Color --[Influences Consumer Behavior]-> Warm Colors (Red, Orange)  Brand Identity\nConcept  Target Audience\nAudience relation: Color --[Creates Brand Differentiation]-> Brand Identity  Red\nColor  Color Meanings\nConcept  cool color\nColor Category  Cool Colors (Blue, Green)\nColor Group  color scheme\nAttribute  Warm Colors (Red, Orange)\nColor Group",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Colors can convey messages.",
+    "retrieved_context": " Colors\nConcept relation: Color --[Associated with Emotions]-> Red  Warm Colors (Red, Orange)\nColor Group relation: Color --[Influences Consumer Behavior]-> Cool Colors (Blue, Green)  Blue\nColor  Color\nConcept relation: Color --[Associated with Emotions]-> Blue  Cool Colors (Blue, Green)\nColor Group relation: Color --[Connects with Target Audience]-> Target Audience relation: Color --[Influences Consumer Behavior]-> Warm Colors (Red, Orange)  Brand Identity\nConcept  Target Audience\nAudience relation: Color --[Creates Brand Differentiation]-> Brand Identity  Red\nColor  Color Meanings\nConcept  Color Psychology\nPsychological Concept  color scheme\nAttribute  Cool Colors (Blue, Green)\nColor Group  cool color\nColor Category  Warm Colors (Red, Orange)\nColor Group",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Colors influence consumer behavior.",
+    "retrieved_context": " Colors\nConcept  Consumer Perception\nPsychological Effect relation: Color --[Associated with Emotions]-> Red  Warm Colors (Red, Orange)\nColor Group relation: Color --[Influences Consumer Behavior]-> Cool Colors (Blue, Green)  Blue\nColor  Color\nConcept relation: Color --[Associated with Emotions]-> Blue  Cool Colors (Blue, Green)\nColor Group relation: Color --[Connects with Target Audience]-> Target Audience relation: Color --[Influences Consumer Behavior]-> Warm Colors (Red, Orange)  Brand Identity\nConcept  Target Audience\nAudience relation: Color --[Creates Brand Differentiation]-> Brand Identity  Red\nColor  Color Psychology\nPsychological Concept  Consumer Minds\nPerception  consumer perception\nConcept  Color Psychology\nPsychological Concept relation: Consumer Behavior --[Influences]-> Consumer Emotions  Brand Perception\nConcept  Consumer Behavior\nConcept relation: Consumer Behavior --[Influences]-> Brand Perception relation: Consumer Behavior --[Affected By]-> Color Psychology  Consumer Emotions\nConcept  Color Meanings\nConcept",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Understanding color psychology helps create a strong brand identity.",
+    "retrieved_context": " Color Psychology\nPsychological Concept relation: Color --[Associated with Emotions]-> Red  Warm Colors (Red, Orange)\nColor Group relation: Color --[Influences Consumer Behavior]-> Cool Colors (Blue, Green)  Blue\nColor  Color\nConcept relation: Color --[Associated with Emotions]-> Blue  Cool Colors (Blue, Green)\nColor Group relation: Color --[Connects with Target Audience]-> Target Audience relation: Color --[Influences Consumer Behavior]-> Warm Colors (Red, Orange)  Brand Identity\nConcept  Target Audience\nAudience relation: Color --[Creates Brand Differentiation]-> Brand Identity  Red\nColor  Colors\nConcept  Brand Identity\nConcept  Color Meanings\nConcept  Brand Perception\nConcept  Brand Value\nPerception  Strong Brand Identity\nBrand Attribute",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Different colors evoke specific emotions and associations.",
+    "retrieved_context": " Color Psychology\nPsychological Concept  Colors\nConcept relation: Color --[Associated with Emotions]-> Red  Warm Colors (Red, Orange)\nColor Group relation: Color --[Influences Consumer Behavior]-> Cool Colors (Blue, Green)  Blue\nColor  Color\nConcept relation: Color --[Associated with Emotions]-> Blue  Cool Colors (Blue, Green)\nColor Group relation: Color --[Connects with Target Audience]-> Target Audience relation: Color --[Influences Consumer Behavior]-> Warm Colors (Red, Orange)  Brand Identity\nConcept  Target Audience\nAudience relation: Color --[Creates Brand Differentiation]-> Brand Identity  Red\nColor  Color Meanings\nConcept  cool color\nColor Category  Cool Colors (Blue, Green)\nColor Group  Warm Colors (Red, Orange)\nColor Group  color scheme\nAttribute",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Red is associated with passion, energy, and excitement.",
+    "retrieved_context": " Red\nColor  Warm Colors (Red, Orange)\nColor Group  Color Meanings\nConcept  Color Psychology\nPsychological Concept  Colors\nConcept relation: Color --[Associated with Emotions]-> Red  Warm Colors (Red, Orange)\nColor Group relation: Color --[Influences Consumer Behavior]-> Cool Colors (Blue, Green)  Blue\nColor  Color\nConcept relation: Color --[Associated with Emotions]-> Blue  Cool Colors (Blue, Green)\nColor Group relation: Color --[Connects with Target Audience]-> Target Audience relation: Color --[Influences Consumer Behavior]-> Warm Colors (Red, Orange)  Brand Identity\nConcept  Target Audience\nAudience relation: Color --[Creates Brand Differentiation]-> Brand Identity  Red\nColor relation: Emotions --[Evoked by]-> Colors  Colors\nConcept relation: Emotions --[Influence]-> Consumer Perceptions and Behaviors  Emotions\nConcept  Consumer Perceptions and Behaviors\nConcept  cool color\nColor Category",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Blue is associated with trust, reliability, and calmness.",
+    "retrieved_context": " Blue\nColor  trust and reliability\nEmotion or Quality  Color Psychology\nPsychological Concept  Colors\nConcept relation: Color --[Associated with Emotions]-> Red  Warm Colors (Red, Orange)\nColor Group relation: Color --[Influences Consumer Behavior]-> Cool Colors (Blue, Green)  Blue\nColor  Color\nConcept relation: Color --[Associated with Emotions]-> Blue  Cool Colors (Blue, Green)\nColor Group relation: Color --[Connects with Target Audience]-> Target Audience relation: Color --[Influences Consumer Behavior]-> Warm Colors (Red, Orange)  Brand Identity\nConcept  Target Audience\nAudience relation: Color --[Creates Brand Differentiation]-> Brand Identity  Red\nColor  Color Meanings\nConcept  Cool Colors (Blue, Green)\nColor Group  color scheme\nAttribute",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Colors affect how consumers perceive a brand's personality, quality, and value.",
+    "retrieved_context": " Colors\nConcept  brand\"s personality, quality, and value\nConsumer Perception  Brand Value\nPerception  Color Psychology\nPsychological Concept relation: Color --[Associated with Emotions]-> Red  Warm Colors (Red, Orange)\nColor Group relation: Color --[Influences Consumer Behavior]-> Cool Colors (Blue, Green)  Blue\nColor  Color\nConcept relation: Color --[Associated with Emotions]-> Blue  Cool Colors (Blue, Green)\nColor Group relation: Color --[Connects with Target Audience]-> Target Audience relation: Color --[Influences Consumer Behavior]-> Warm Colors (Red, Orange)  Brand Identity\nConcept  Target Audience\nAudience relation: Color --[Creates Brand Differentiation]-> Brand Identity  Red\nColor  Color Meanings\nConcept  Brand Quality\nPerception  Brand Perception\nConcept",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Warm colors like red and orange create a sense of urgency.",
+    "retrieved_context": " Warm Colors (Red, Orange)\nColor Group  Colors\nConcept relation: Color --[Associated with Emotions]-> Red  Warm Colors (Red, Orange)\nColor Group relation: Color --[Influences Consumer Behavior]-> Cool Colors (Blue, Green)  Blue\nColor  Color\nConcept relation: Color --[Associated with Emotions]-> Blue  Cool Colors (Blue, Green)\nColor Group relation: Color --[Connects with Target Audience]-> Target Audience relation: Color --[Influences Consumer Behavior]-> Warm Colors (Red, Orange)  Brand Identity\nConcept  Target Audience\nAudience relation: Color --[Creates Brand Differentiation]-> Brand Identity  Red\nColor  Red\nColor  Color Psychology\nPsychological Concept  Cool Colors (Blue, Green)\nColor Group  Color Meanings\nConcept  cool color\nColor Category",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Cool colors like blue and green create a sense of trust.",
+    "retrieved_context": " Cool Colors (Blue, Green)\nColor Group  cool color\nColor Category  Colors\nConcept  green\nColor relation: green --[Can Create Sense Of]-> trust and reliability  cool color\nColor Category relation: green --[Is a Type of]-> cool color  trust and reliability\nEmotion or Quality relation: Color --[Associated with Emotions]-> Red  Warm Colors (Red, Orange)\nColor Group relation: Color --[Influences Consumer Behavior]-> Cool Colors (Blue, Green)  Blue\nColor  Color\nConcept relation: Color --[Associated with Emotions]-> Blue  Cool Colors (Blue, Green)\nColor Group relation: Color --[Connects with Target Audience]-> Target Audience relation: Color --[Influences Consumer Behavior]-> Warm Colors (Red, Orange)  Brand Identity\nConcept  Target Audience\nAudience relation: Color --[Creates Brand Differentiation]-> Brand Identity  Red\nColor  color scheme\nAttribute  Blue\nColor  Color Psychology\nPsychological Concept",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Colors help differentiate a brand from competitors.",
+    "retrieved_context": " Colors\nConcept relation: Color --[Associated with Emotions]-> Red  Warm Colors (Red, Orange)\nColor Group relation: Color --[Influences Consumer Behavior]-> Cool Colors (Blue, Green)  Blue\nColor  Color\nConcept relation: Color --[Associated with Emotions]-> Blue  Cool Colors (Blue, Green)\nColor Group relation: Color --[Connects with Target Audience]-> Target Audience relation: Color --[Influences Consumer Behavior]-> Warm Colors (Red, Orange)  Brand Identity\nConcept  Target Audience\nAudience relation: Color --[Creates Brand Differentiation]-> Brand Identity  Red\nColor  Competitors\nBrand  Color Meanings\nConcept  Brand Perception\nConcept  Brand Value\nPerception  color scheme\nAttribute  Brand Quality\nPerception",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Cultural associations of colors should be considered in branding.",
+    "retrieved_context": " Colors\nConcept  Color Meanings\nConcept  Branding Decisions\nBusiness Practice  Color Psychology\nPsychological Concept  Branding\nMarketing Strategy  Color Psychology\nPsychological Concept  Cultural and Contextual Associations\nCultural Factors relation: Branding --[Creates]-> Brand Identity relation: Branding --[Uses]-> Cultural and Contextual Associations relation: Branding --[Enhances]-> Consumer Connection  Consumer Connection\nMarketing Outcome relation: Branding --[Affects]-> Target Audience  Brand Identity\nConcept relation: Branding --[Involves]-> Color Psychology  Target Audience\nAudience relation: Color --[Associated with Emotions]-> Red  Warm Colors (Red, Orange)\nColor Group relation: Color --[Influences Consumer Behavior]-> Cool Colors (Blue, Green)  Blue\nColor  Color\nConcept relation: Color --[Associated with Emotions]-> Blue  Cool Colors (Blue, Green)\nColor Group relation: Color --[Connects with Target Audience]-> Target Audience relation: Color --[Influences Consumer Behavior]-> Warm Colors (Red, Orange)  Brand Identity\nConcept  Target Audience\nAudience relation: Color --[Creates Brand Differentiation]-> Brand Identity  Red\nColor  Brand Perception\nConcept  Brand Identity\nConcept",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Context influences the meaning and effects of colors in branding.",
+    "retrieved_context": " Brand Perception\nConcept  Color Meanings\nConcept  Colors\nConcept  Brand Identity\nConcept relation: Color --[Associated with Emotions]-> Red  Warm Colors (Red, Orange)\nColor Group relation: Color --[Influences Consumer Behavior]-> Cool Colors (Blue, Green)  Blue\nColor  Color\nConcept relation: Color --[Associated with Emotions]-> Blue  Cool Colors (Blue, Green)\nColor Group relation: Color --[Connects with Target Audience]-> Target Audience relation: Color --[Influences Consumer Behavior]-> Warm Colors (Red, Orange)  Brand Identity\nConcept  Target Audience\nAudience relation: Color --[Creates Brand Differentiation]-> Brand Identity  Red\nColor  Branding\nMarketing Strategy  Color Psychology\nPsychological Concept  Cultural and Contextual Associations\nCultural Factors relation: Branding --[Creates]-> Brand Identity relation: Branding --[Uses]-> Cultural and Contextual Associations relation: Branding --[Enhances]-> Consumer Connection  Consumer Connection\nMarketing Outcome relation: Branding --[Affects]-> Target Audience  Brand Identity\nConcept relation: Branding --[Involves]-> Color Psychology  Target Audience\nAudience  Brand Value\nPerception  Color Psychology\nPsychological Concept",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Youth-oriented brands may use bright and bold colors.",
+    "retrieved_context": "relation: youth-oriented brand --[Affects Perception Of]-> Brand Quality relation: youth-oriented brand --[Affects Perception Of]-> Brand Value  Brand Value\nPerception  Brand Personality\nAttribute relation: youth-oriented brand --[Affects Perception Of]-> Brand Personality  youth-oriented brand\nBrand  Brand Quality\nPerception  Strong Brand Identity\nBrand Attribute  Warm Colors (Red, Orange)\nColor Group  Colors\nConcept  successful and memorable brand\nBrand Presence  Brand Personality\nAttribute  brand personality\nAttribute relation: Color --[Associated with Emotions]-> Red  Warm Colors (Red, Orange)\nColor Group relation: Color --[Influences Consumer Behavior]-> Cool Colors (Blue, Green)  Blue\nColor  Color\nConcept relation: Color --[Associated with Emotions]-> Blue  Cool Colors (Blue, Green)\nColor Group relation: Color --[Connects with Target Audience]-> Target Audience relation: Color --[Influences Consumer Behavior]-> Warm Colors (Red, Orange)  Brand Identity\nConcept  Target Audience\nAudience relation: Color --[Creates Brand Differentiation]-> Brand Identity  Red\nColor",
+    "evaluation": 1
+  },
+  {
+    "accuracy": "100.00%"
+  }
+]

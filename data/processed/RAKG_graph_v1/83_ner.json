@@ -1,0 +1,668 @@
+{
+    "entity1": {
+        "name": "human body",
+        "type": "Biological System",
+        "description": "The complex and intricate system of the human organism, including all its organs, tissues, and cells.",
+        "chunkid": "How the Human Body Fights Infections1"
+    },
+    "entity2": {
+        "name": "defense mechanisms",
+        "type": "Biological Process",
+        "description": "The processes within an organism that protect against disease by identifying and neutralizing pathogens and tumor cells.",
+        "chunkid": "How the Human Body Fights Infections1"
+    },
+    "entity3": {
+        "name": "pathogens",
+        "type": "Microorganism Category",
+        "description": "Disease-causing microorganisms, including bacteria, viruses, fungi, and parasites.",
+        "chunkid": "How the Human Body Fights Infections1"
+    },
+    "entity4": {
+        "name": "bacteria",
+        "type": "Microorganism Type",
+        "description": "Single-celled microorganisms that can exist either as independent organisms or as parasites.",
+        "chunkid": "How the Human Body Fights Infections1"
+    },
+    "entity5": {
+        "name": "viruses",
+        "type": "Microorganism Type",
+        "description": "Infectious agents that are only able to replicate inside the living cells of other organisms.",
+        "chunkid": "How the Human Body Fights Infections1"
+    },
+    "entity6": {
+        "name": "fungi",
+        "type": "Microorganism Type",
+        "description": "Eukaryotic organisms that include microorganisms such as yeasts and molds, as well as mushrooms.",
+        "chunkid": "How the Human Body Fights Infections1"
+    },
+    "entity7": {
+        "name": "parasites",
+        "type": "Microorganism Type",
+        "description": "Organisms that live on or in a host organism and get their food from or at the expense of the host.",
+        "chunkid": "How the Human Body Fights Infections1"
+    },
+    "entity8": {
+        "name": "pathogens",
+        "type": "Biological Agent",
+        "description": "Microorganisms that can cause disease.",
+        "chunkid": "How the Human Body Fights Infections2"
+    },
+    "entity9": {
+        "name": "immune system",
+        "type": "Biological System",
+        "description": "The body's defense against infectious organisms and other invaders.",
+        "chunkid": "How the Human Body Fights Infections2"
+    },
+    "entity10": {
+        "name": "infection",
+        "type": "Medical Condition",
+        "description": "An invasion of an organism by a pathogen that can cause disease.",
+        "chunkid": "How the Human Body Fights Infections2"
+    },
+    "entity11": {
+        "name": "cells",
+        "type": "Biological Component",
+        "description": "The basic structural and functional units of living organisms.",
+        "chunkid": "How the Human Body Fights Infections3"
+    },
+    "entity12": {
+        "name": "tissues",
+        "type": "Biological Component",
+        "description": "Groups of cells that work together to perform a specific function in the body.",
+        "chunkid": "How the Human Body Fights Infections3"
+    },
+    "entity13": {
+        "name": "organs",
+        "type": "Biological Component",
+        "description": "Structures composed of two or more tissue types that work together to perform specific functions in the body.",
+        "chunkid": "How the Human Body Fights Infections3"
+    },
+    "entity14": {
+        "name": "human body",
+        "type": "Biological System",
+        "description": "The physical structure of a human, including all its organs and systems.",
+        "chunkid": "How the Human Body Fights Infections4"
+    },
+    "entity15": {
+        "name": "infections",
+        "type": "Medical Condition",
+        "description": "Diseases caused by the invasion of microorganisms such as bacteria, viruses, or fungi into the body.",
+        "chunkid": "How the Human Body Fights Infections4"
+    },
+    "entity16": {
+        "name": "immune system",
+        "type": "Biological System",
+        "description": "A complex network of cells, tissues, and organs that work together to defend the body against pathogens and other foreign substances.",
+        "chunkid": "How the Human Body Fights Infections4"
+    },
+    "entity17": {
+        "name": "physical barriers",
+        "type": "Biological Structure",
+        "description": "Physical structures of the body that prevent pathogens from entering, such as skin and mucous membranes.",
+        "chunkid": "How the Human Body Fights Infections5"
+    },
+    "entity18": {
+        "name": "pathogens",
+        "type": "Microorganism",
+        "description": "Disease-causing organisms, including bacteria, viruses, fungi, and parasites.",
+        "chunkid": "How the Human Body Fights Infections5"
+    },
+    "entity19": {
+        "name": "skin",
+        "type": "Anatomical Structure",
+        "description": "The outer covering of the body that acts as a protective barrier.",
+        "chunkid": "How the Human Body Fights Infections6"
+    },
+    "entity20": {
+        "name": "pathogens",
+        "type": "Microorganisms",
+        "description": "Disease-causing organisms such as bacteria, viruses, and fungi.",
+        "chunkid": "How the Human Body Fights Infections6"
+    },
+    "entity21": {
+        "name": "deeper tissues",
+        "type": "Anatomical Structure",
+        "description": "The internal layers of the body beneath the skin.",
+        "chunkid": "How the Human Body Fights Infections6"
+    },
+    "entity22": {
+        "name": "mucous membranes",
+        "type": "Anatomical Structure",
+        "description": "Tissues lining the body cavities and canals that are exposed to the external environment, such as in the respiratory and digestive tracts.",
+        "chunkid": "How the Human Body Fights Infections7"
+    },
+    "entity23": {
+        "name": "respiratory tract",
+        "type": "Anatomical Structure",
+        "description": "The pathway of air entering and leaving the lungs, including the nose, mouth, pharynx, larynx, trachea, bronchi, and lungs.",
+        "chunkid": "How the Human Body Fights Infections7"
+    },
+    "entity24": {
+        "name": "digestive tract",
+        "type": "Anatomical Structure",
+        "description": "The pathway through which food passes in the body, including the mouth, esophagus, stomach, small intestine, large intestine, and anus.",
+        "chunkid": "How the Human Body Fights Infections7"
+    },
+    "entity25": {
+        "name": "mucus",
+        "type": "Biological Substance",
+        "description": "A slippery secretion produced by mucous membranes that serves to protect and lubricate surfaces in the body.",
+        "chunkid": "How the Human Body Fights Infections7"
+    },
+    "entity26": {
+        "name": "pathogens",
+        "type": "Microorganism",
+        "description": "Disease-causing organisms, including bacteria, viruses, fungi, and parasites.",
+        "chunkid": "How the Human Body Fights Infections7"
+    },
+    "entity27": {
+        "name": "stomach",
+        "type": "Anatomical Structure",
+        "description": "The muscular, hollow, acid-producing organ of the digestive system that is located in the upper abdomen.",
+        "chunkid": "How the Human Body Fights Infections8"
+    },
+    "entity28": {
+        "name": "pathogens",
+        "type": "Biological Agent",
+        "description": "Disease-causing microorganisms such as bacteria, viruses, fungi, or parasites.",
+        "chunkid": "How the Human Body Fights Infections8"
+    },
+    "entity29": {
+        "name": "physical barriers",
+        "type": "Biological Structure",
+        "description": "Structures in the body that prevent pathogens from entering and causing infections.",
+        "chunkid": "How the Human Body Fights Infections9"
+    },
+    "entity30": {
+        "name": "infections",
+        "type": "Medical Condition",
+        "description": "The invasion of an organism's body tissues by disease-causing agents, their multiplication, and the reaction of host tissues to these organisms and the toxins they produce.",
+        "chunkid": "How the Human Body Fights Infections9"
+    },
+    "entity31": {
+        "name": "immune system",
+        "type": "Biological System",
+        "description": "A complex network of cells, tissues, organs, and molecules that work together to defend the body against foreign invaders such as bacteria, viruses, and other pathogens.",
+        "chunkid": "How the Human Body Fights Infections9"
+    },
+    "entity32": {
+        "name": "pathogens",
+        "type": "Biological Agent",
+        "description": "Microorganisms that can cause disease.",
+        "chunkid": "How the Human Body Fights Infections10"
+    },
+    "entity33": {
+        "name": "immune system",
+        "type": "Biological System",
+        "description": "A complex network of cells, tissues, and organs that work together to defend the body against infections and other diseases.",
+        "chunkid": "How the Human Body Fights Infections10"
+    },
+    "entity34": {
+        "name": "immune system",
+        "type": "Biological System",
+        "description": "A complex network of cells, tissues, and organs that work together to identify and eliminate pathogens.",
+        "chunkid": "How the Human Body Fights Infections11"
+    },
+    "entity35": {
+        "name": "pathogens",
+        "type": "Microorganisms",
+        "description": "Disease-causing organisms such as bacteria, viruses, fungi, or parasites.",
+        "chunkid": "How the Human Body Fights Infections11"
+    },
+    "entity36": {
+        "name": "white blood cells",
+        "type": "Biological Entity",
+        "description": "A type of cell in the immune system that defends the body against infectious diseases and foreign invaders.",
+        "chunkid": "How the Human Body Fights Infections12"
+    },
+    "entity37": {
+        "name": "neutrophils",
+        "type": "Biological Entity",
+        "description": "A type of white blood cell that is part of the innate immune system, primarily involved in fighting bacterial infections.",
+        "chunkid": "How the Human Body Fights Infections12"
+    },
+    "entity38": {
+        "name": "macrophages",
+        "type": "Biological Entity",
+        "description": "Large phagocytic cells found in tissues throughout the body, which play a crucial role in innate immunity by ingesting and destroying pathogens and cellular debris.",
+        "chunkid": "How the Human Body Fights Infections12"
+    },
+    "entity39": {
+        "name": "lymphocytes",
+        "type": "Biological Entity",
+        "description": "A type of white blood cell that is part of the adaptive immune system, involved in producing antibodies and mediating specific immune responses.",
+        "chunkid": "How the Human Body Fights Infections12"
+    },
+    "entity40": {
+        "name": "cells",
+        "type": "Biological Component",
+        "description": "Cells are the basic structural and functional units of living organisms. In this context, they refer to immune cells that play a role in detecting and destroying pathogens.",
+        "chunkid": "How the Human Body Fights Infections13"
+    },
+    "entity41": {
+        "name": "pathogens",
+        "type": "Biological Agent",
+        "description": "Pathogens are microorganisms that can cause disease. They include bacteria, viruses, fungi, and parasites.",
+        "chunkid": "How the Human Body Fights Infections13"
+    },
+    "entity42": {
+        "name": "Neutrophils",
+        "type": "Biological Cell Type",
+        "description": "A type of white blood cell that is the most abundant and acts as a first responder to infections.",
+        "chunkid": "How the Human Body Fights Infections14"
+    },
+    "entity43": {
+        "name": "white blood cells",
+        "type": "Biological Cell Type",
+        "description": "Cells of the immune system that protect the body against both infectious disease and foreign invaders.",
+        "chunkid": "How the Human Body Fights Infections14"
+    },
+    "entity44": {
+        "name": "infection",
+        "type": "Medical Condition",
+        "description": "The invasion of an organism's body tissues by disease-causing agents, their multiplication, and the reaction of host tissues to these organisms and the toxins they produce.",
+        "chunkid": "How the Human Body Fights Infections14"
+    },
+    "entity45": {
+        "name": "pathogens",
+        "type": "Biological Entity",
+        "description": "Microorganisms that can cause disease.",
+        "chunkid": "How the Human Body Fights Infections15"
+    },
+    "entity46": {
+        "name": "phagocytosis",
+        "type": "Biological Process",
+        "description": "A cellular process by which a cell engulfs and destroys foreign particles or microorganisms.",
+        "chunkid": "How the Human Body Fights Infections15"
+    },
+    "entity47": {
+        "name": "Macrophages",
+        "type": "Biological Entity",
+        "description": "A type of white blood cell that plays a crucial role in the immune response by engulfing and digesting pathogens and cellular debris.",
+        "chunkid": "How the Human Body Fights Infections16"
+    },
+    "entity48": {
+        "name": "white blood cell",
+        "type": "Biological Entity",
+        "description": "A component of the immune system that defends the body against infectious diseases and foreign invaders.",
+        "chunkid": "How the Human Body Fights Infections16"
+    },
+    "entity49": {
+        "name": "immune response",
+        "type": "Biological Process",
+        "description": "The reaction of the immune system to a foreign substance, such as a pathogen or toxin, which results in the elimination of the invader and restoration of homeostasis.",
+        "chunkid": "How the Human Body Fights Infections16"
+    },
+    "entity50": {
+        "name": "pathogens",
+        "type": "Biological Entity",
+        "description": "Microorganisms that can cause disease.",
+        "chunkid": "How the Human Body Fights Infections17"
+    },
+    "entity51": {
+        "name": "immune cells",
+        "type": "Biological Entity",
+        "description": "Cells of the immune system that defend against foreign invaders in the body.",
+        "chunkid": "How the Human Body Fights Infections17"
+    },
+    "entity52": {
+        "name": "Lymphocytes",
+        "type": "Biological Entity",
+        "description": "A type of white blood cell that plays a key role in the immune system, particularly in mounting targeted and specific immune responses.",
+        "chunkid": "How the Human Body Fights Infections18"
+    },
+    "entity53": {
+        "name": "lymphocytes",
+        "type": "Biological Cell Type",
+        "description": "A type of white blood cell that is part of the immune system.",
+        "chunkid": "How the Human Body Fights Infections19"
+    },
+    "entity54": {
+        "name": "B cells",
+        "type": "Biological Cell Subtype",
+        "description": "A subtype of lymphocytes responsible for producing antibodies as part of the adaptive immune response.",
+        "chunkid": "How the Human Body Fights Infections19"
+    },
+    "entity55": {
+        "name": "T cells",
+        "type": "Biological Cell Subtype",
+        "description": "A subtype of lymphocytes that play a central role in cell-mediated immunity and can help regulate immune responses.",
+        "chunkid": "How the Human Body Fights Infections19"
+    },
+    "entity56": {
+        "name": "B cells",
+        "type": "Biological Entity",
+        "description": "A type of white blood cell that produces antibodies as part of the immune system.",
+        "chunkid": "How the Human Body Fights Infections20"
+    },
+    "entity57": {
+        "name": "antibodies",
+        "type": "Biological Substance",
+        "description": "Proteins produced by B cells to bind to and neutralize pathogens or toxins.",
+        "chunkid": "How the Human Body Fights Infections20"
+    },
+    "entity58": {
+        "name": "pathogens",
+        "type": "Biological Entity",
+        "description": "Disease-causing microorganisms, such as bacteria, viruses, fungi, or parasites.",
+        "chunkid": "How the Human Body Fights Infections20"
+    },
+    "entity59": {
+        "name": "T cells",
+        "type": "Biological Entity",
+        "description": "A type of white blood cell that plays a central role in cell-mediated immunity and can directly attack infected cells.",
+        "chunkid": "How the Human Body Fights Infections20"
+    },
+    "entity60": {
+        "name": "white blood cells",
+        "type": "Biological Entity",
+        "description": "A type of cell in the immune system that helps to fight infections and diseases.",
+        "chunkid": "How the Human Body Fights Infections21"
+    },
+    "entity61": {
+        "name": "immune system",
+        "type": "Biological System",
+        "description": "The biological system within an organism that protects against disease by identifying and killing pathogens and tumor cells.",
+        "chunkid": "How the Human Body Fights Infections21"
+    },
+    "entity62": {
+        "name": "dendritic cells",
+        "type": "Cell Type",
+        "description": "A type of immune cell that captures and presents antigens to T cells, initiating an immune response.",
+        "chunkid": "How the Human Body Fights Infections22"
+    },
+    "entity63": {
+        "name": "T cells",
+        "type": "Cell Type",
+        "description": "A type of white blood cell involved in the specific immune response, including the recognition of foreign substances and the activation of other immune cells.",
+        "chunkid": "How the Human Body Fights Infections22"
+    },
+    "entity64": {
+        "name": "Natural killer cells",
+        "type": "Biological Entity",
+        "description": "A type of immune cell that can directly kill infected or cancerous cells.",
+        "chunkid": "How the Human Body Fights Infections23"
+    },
+    "entity65": {
+        "name": "immune cell",
+        "type": "Biological Entity",
+        "description": "A cell of the immune system, which defends the body against infections and other harmful invaders.",
+        "chunkid": "How the Human Body Fights Infections23"
+    },
+    "entity66": {
+        "name": "infected cells",
+        "type": "Biological Entity",
+        "description": "Cells that have been invaded by a pathogen or microorganism, potentially causing disease.",
+        "chunkid": "How the Human Body Fights Infections23"
+    },
+    "entity67": {
+        "name": "Complement proteins",
+        "type": "Biological Molecule Group",
+        "description": "A group of proteins that work together to enhance the ability of antibodies to destroy pathogens.",
+        "chunkid": "How the Human Body Fights Infections24"
+    },
+    "entity68": {
+        "name": "antibodies",
+        "type": "Biological Molecule",
+        "description": "Proteins produced by the immune system to identify and neutralize foreign objects such as bacteria and viruses.",
+        "chunkid": "How the Human Body Fights Infections24"
+    },
+    "entity69": {
+        "name": "pathogens",
+        "type": "Organism Type",
+        "description": "Disease-causing microorganisms, including bacteria, viruses, fungi, and parasites.",
+        "chunkid": "How the Human Body Fights Infections24"
+    },
+    "entity70": {
+        "name": "Cytokines",
+        "type": "Biological Molecules",
+        "description": "Signaling molecules that coordinate the immune response and regulate the activity of immune cells.",
+        "chunkid": "How the Human Body Fights Infections25"
+    },
+    "entity71": {
+        "name": "Immune Response",
+        "type": "Biological Process",
+        "description": "A complex biological process involving various cellular and molecular mechanisms to defend against pathogens and other harmful agents.",
+        "chunkid": "How the Human Body Fights Infections25"
+    },
+    "entity72": {
+        "name": "Immune Cells",
+        "type": "Cell Type",
+        "description": "Specialized cells of the immune system that play a role in defending the body against infectious disease and foreign invaders.",
+        "chunkid": "How the Human Body Fights Infections25"
+    },
+    "entity73": {
+        "name": "immune system",
+        "type": "Biological System",
+        "description": "A complex network of cells, tissues, and organs that work together to defend the body against pathogens.",
+        "chunkid": "How the Human Body Fights Infections26"
+    },
+    "entity74": {
+        "name": "pathogen",
+        "type": "Microorganism",
+        "description": "An organism that can cause disease in other organisms.",
+        "chunkid": "How the Human Body Fights Infections26"
+    },
+    "entity75": {
+        "name": "immunological memory",
+        "type": "Biological Phenomenon",
+        "description": "A process by which the immune system remembers a pathogen and mounts a faster and stronger response upon subsequent exposures.",
+        "chunkid": "How the Human Body Fights Infections27"
+    },
+    "entity76": {
+        "name": "vaccination",
+        "type": "Medical Procedure",
+        "description": "The administration of a vaccine to stimulate an individual's immune system to develop adaptive immunity to a pathogen.",
+        "chunkid": "How the Human Body Fights Infections27"
+    },
+    "entity77": {
+        "name": "immune system",
+        "type": "Biological System",
+        "description": "A complex network of cells, tissues, and organs that work together to defend the body against pathogens.",
+        "chunkid": "How the Human Body Fights Infections28"
+    },
+    "entity78": {
+        "name": "pathogen",
+        "type": "Microorganism",
+        "description": "An organism capable of causing disease in a host.",
+        "chunkid": "How the Human Body Fights Infections28"
+    },
+    "entity79": {
+        "name": "lymphocytes",
+        "type": "Biological Cell Type",
+        "description": "A type of white blood cell that is part of the immune system and plays a key role in adaptive immunity.",
+        "chunkid": "How the Human Body Fights Infections29"
+    },
+    "entity80": {
+        "name": "immune response",
+        "type": "Biological Process",
+        "description": "The reaction of the body's immune system to foreign substances, such as pathogens or toxins.",
+        "chunkid": "How the Human Body Fights Infections29"
+    },
+    "entity81": {
+        "name": "memory cells",
+        "type": "Biological Cell Type",
+        "description": "A subset of lymphocytes that have previously encountered a specific antigen and can mount a faster and stronger immune response upon re-exposure to the same antigen.",
+        "chunkid": "How the Human Body Fights Infections29"
+    },
+    "entity82": {
+        "name": "pathogen",
+        "type": "Biological Agent",
+        "description": "A microorganism that can cause disease in its host, such as bacteria, viruses, fungi, or parasites.",
+        "chunkid": "How the Human Body Fights Infections29"
+    },
+    "entity83": {
+        "name": "immune system",
+        "type": "Biological System",
+        "description": "A complex network of cells, tissues, and organs that work together to defend the body against pathogens.",
+        "chunkid": "How the Human Body Fights Infections30"
+    },
+    "entity84": {
+        "name": "infection",
+        "type": "Medical Condition",
+        "description": "An invasion of an organism's body tissues by disease-causing agents, their multiplication, and the reaction of body tissues to these organisms and the toxins they produce.",
+        "chunkid": "How the Human Body Fights Infections30"
+    },
+    "entity85": {
+        "name": "immune response",
+        "type": "Biological Process",
+        "description": "A reaction of the immune system to pathogens or other foreign substances.",
+        "chunkid": "How the Human Body Fights Infections32"
+    },
+    "entity86": {
+        "name": "chronic inflammation",
+        "type": "Medical Condition",
+        "description": "A prolonged inflammatory response that can cause damage to healthy tissues over time.",
+        "chunkid": "How the Human Body Fights Infections32"
+    },
+    "entity87": {
+        "name": "autoimmune diseases",
+        "type": "Disease Category",
+        "description": "Disorders in which the immune system mistakenly attacks and damages the body's own tissues.",
+        "chunkid": "How the Human Body Fights Infections32"
+    },
+    "entity88": {
+        "name": "Autoimmune diseases",
+        "type": "Medical Condition",
+        "description": "A group of disorders in which the immune system attacks the body's own tissues, causing damage and dysfunction.",
+        "chunkid": "How the Human Body Fights Infections33"
+    },
+    "entity89": {
+        "name": "Immune system",
+        "type": "Biological System",
+        "description": "The complex network of cells, tissues, organs, and molecules that work together to defend the body against pathogens and other harmful substances.",
+        "chunkid": "How the Human Body Fights Infections33"
+    },
+    "entity90": {
+        "name": "rheumatoid arthritis",
+        "type": "Disease",
+        "description": "A chronic inflammatory disorder affecting many joints, including those in the hands and feet.",
+        "chunkid": "How the Human Body Fights Infections34"
+    },
+    "entity91": {
+        "name": "lupus",
+        "type": "Disease",
+        "description": "An autoimmune disease where the body's immune system becomes hyperactive and attacks normal, healthy tissue.",
+        "chunkid": "How the Human Body Fights Infections34"
+    },
+    "entity92": {
+        "name": "multiple sclerosis",
+        "type": "Disease",
+        "description": "A disease in which the immune system eats away at the protective covering of nerves, interfering with the brain's ability to communicate with the rest of the body.",
+        "chunkid": "How the Human Body Fights Infections34"
+    },
+    "entity93": {
+        "name": "Chronic inflammation",
+        "type": "Medical Condition",
+        "description": "A prolonged state of inflammation in the body that can last for several months or years.",
+        "chunkid": "How the Human Body Fights Infections35"
+    },
+    "entity94": {
+        "name": "heart disease",
+        "type": "Disease",
+        "description": "A range of conditions that affect the heart, including coronary artery disease, heart rhythm problems, and congenital heart defects.",
+        "chunkid": "How the Human Body Fights Infections35"
+    },
+    "entity95": {
+        "name": "diabetes",
+        "type": "Disease",
+        "description": "A group of metabolic disorders characterized by high blood sugar levels over a prolonged period.",
+        "chunkid": "How the Human Body Fights Infections35"
+    },
+    "entity96": {
+        "name": "cancer",
+        "type": "Disease",
+        "description": "A group of diseases involving abnormal cell growth with the potential to invade or spread to other parts of the body.",
+        "chunkid": "How the Human Body Fights Infections35"
+    },
+    "entity97": {
+        "name": "human body",
+        "type": "Biological Organism",
+        "description": "The physical structure of a human being, including all its organs and systems.",
+        "chunkid": "How the Human Body Fights Infections36"
+    },
+    "entity98": {
+        "name": "immune system",
+        "type": "Biological System",
+        "description": "A complex network of cells, tissues, and organs that work together to defend the body against pathogens and other foreign substances.",
+        "chunkid": "How the Human Body Fights Infections36"
+    },
+    "entity99": {
+        "name": "pathogens",
+        "type": "Microorganisms",
+        "description": "Disease-causing organisms such as bacteria, viruses, fungi, and parasites.",
+        "chunkid": "How the Human Body Fights Infections36"
+    },
+    "entity100": {
+        "name": "immune response",
+        "type": "Biological Process",
+        "description": "A biological process that involves the body's defense mechanisms against pathogens and other harmful agents.",
+        "chunkid": "How the Human Body Fights Infections37"
+    },
+    "entity101": {
+        "name": "cells",
+        "type": "Biological Component",
+        "description": "The basic structural and functional units of living organisms, which play a crucial role in the immune response.",
+        "chunkid": "How the Human Body Fights Infections37"
+    },
+    "entity102": {
+        "name": "tissues",
+        "type": "Biological Component",
+        "description": "Groups of cells that work together to perform specific functions within an organism, including those involved in the immune system.",
+        "chunkid": "How the Human Body Fights Infections37"
+    },
+    "entity103": {
+        "name": "molecules",
+        "type": "Biological Component",
+        "description": "Small particles or structures that are essential for various biological processes, including signaling and defense mechanisms in the immune response.",
+        "chunkid": "How the Human Body Fights Infections37"
+    },
+    "entity104": {
+        "name": "body",
+        "type": "Anatomical Structure",
+        "description": "The entire physical structure of an organism, which is protected by the immune system against infections.",
+        "chunkid": "How the Human Body Fights Infections37"
+    },
+    "entity105": {
+        "name": "infections",
+        "type": "Medical Condition",
+        "description": "Diseases caused by the invasion and multiplication of pathogenic microorganisms in the body, which the immune response aims to prevent or eliminate.",
+        "chunkid": "How the Human Body Fights Infections37"
+    },
+    "entity106": {
+        "name": "immune system",
+        "type": "Biological System",
+        "description": "A complex network of cells, tissues, and organs that work together to defend the body against pathogens.",
+        "chunkid": "How the Human Body Fights Infections38"
+    },
+    "entity107": {
+        "name": "pathogens",
+        "type": "Microorganisms",
+        "description": "Disease-causing organisms such as bacteria, viruses, fungi, and parasites.",
+        "chunkid": "How the Human Body Fights Infections38"
+    },
+    "entity108": {
+        "name": "immune system",
+        "type": "Biological System",
+        "description": "A complex network of cells, tissues, and organs that work together to defend the body against pathogens and other foreign substances.",
+        "chunkid": "How the Human Body Fights Infections39"
+    },
+    "entity109": {
+        "name": "infections",
+        "type": "Medical Condition",
+        "description": "Diseases caused by microorganisms such as bacteria, viruses, fungi, or parasites that invade the body and can cause illness.",
+        "chunkid": "How the Human Body Fights Infections39"
+    },
+    "entity110": {
+        "name": "health",
+        "type": "State of Well-being",
+        "description": "A state of complete physical, mental, and social well-being, not merely the absence of disease or infirmity.",
+        "chunkid": "How the Human Body Fights Infections39"
+    },
+    "entity111": {
+        "name": "disease",
+        "type": "Medical Condition",
+        "description": "An abnormal condition in an organism that impairs bodily functions, often associated with specific symptoms and signs.",
+        "chunkid": "How the Human Body Fights Infections39"
+    }
+}

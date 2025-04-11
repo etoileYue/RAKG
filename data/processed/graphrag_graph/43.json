@@ -1,0 +1,368 @@
+{
+  "entities": [
+    {
+      "name": "UNITED STATES GOVERNMENT",
+      "type": "ORGANIZATION",
+      "description": "The government of the United States, accused by some of staging the moon landing as a hoax"
+    },
+    {
+      "name": "NEIL ARMSTRONG",
+      "type": "PERSON",
+      "description": "Astronaut who, according to the moon landing conspiracy theory, did not actually set foot on the moon"
+    },
+    {
+      "name": "BUZZ ALDRIN",
+      "type": "PERSON",
+      "description": "Astronaut who, according to the moon landing conspiracy theory, did not actually set foot on the moon"
+    },
+    {
+      "name": "MOON LANDING",
+      "type": "EVENT",
+      "description": "The Apollo 11 mission in 1969, which is the subject of a famous conspiracy theory suggesting it was a hoax"
+    },
+    {
+      "name": "SOVIET UNION",
+      "type": "ORGANIZATION",
+      "description": "The rival superpower during the space race, which the United States was competing against"
+    },
+    {
+      "name": "JOHN F. KENNEDY",
+      "type": "PERSON",
+      "description": "35th President of the United States, whose assassination is the subject of numerous conspiracy theories"
+    },
+    {
+      "name": "LEE HARVEY OSWALD",
+      "type": "PERSON",
+      "description": "The man officially accused of assassinating President John F. Kennedy, but considered by some to be a patsy in a larger conspiracy"
+    },
+    {
+      "name": "ASSASSINATION OF JOHN F. KENNEDY",
+      "type": "EVENT",
+      "description": "The 1963 assassination of President John F. Kennedy, which is the subject of various conspiracy theories"
+    },
+    {
+      "name": "CIA",
+      "type": "ORGANIZATION",
+      "description": "The Central Intelligence Agency, sometimes implicated in conspiracy theories surrounding the assassination of JFK"
+    },
+    {
+      "name": "MAFIA",
+      "type": "ORGANIZATION",
+      "description": "Organized crime groups, sometimes implicated in conspiracy theories surrounding the assassination of JFK"
+    },
+    {
+      "name": "ILLUMINATI",
+      "type": "ORGANIZATION",
+      "description": "A secret society, according to conspiracy theories, that allegedly controls world events and manipulates governments and institutions"
+    },
+    {
+      "name": "SEPTEMBER 11, 2001 TERRORIST ATTACKS",
+      "type": "EVENT",
+      "description": "The attacks on the World Trade Center and the Pentagon, which are the subject of various conspiracy theories suggesting government involvement"
+    },
+    {
+      "name": "WORLD TRADE CENTER",
+      "type": "GEO",
+      "description": "The site of one of the most significant attacks on September 11, 2001, and a focal point of conspiracy theories"
+    },
+    {
+      "name": "PENTAGON",
+      "type": "GEO",
+      "description": "The site of one of the attacks on September 11, 2001, and a focal point of conspiracy theories"
+    },
+    {
+      "name": "INTERNET",
+      "type": "ORGANIZATION",
+      "description": "A global network that has facilitated the spread of conspiracy theories and the formation of communities around them"
+    },
+    {
+      "name": "SOCIAL MEDIA",
+      "type": "ORGANIZATION",
+      "description": "Platforms that have played a significant role in the spread of conspiracy theories and the formation of online communities"
+    },
+    {
+      "name": "WORLD EVENTS",
+      "type": "",
+      "description": ""
+    },
+    {
+      "name": "CONSPIRACY THEORIES",
+      "type": "",
+      "description": ""
+    },
+    {
+      "name": "PUBLIC IMAGINATION",
+      "type": "ORGANIZATION",
+      "description": "The collective interest and fascination of the public in conspiracy theories and alternative explanations"
+    },
+    {
+      "name": "OFFICIAL EXPLANATIONS",
+      "type": "ORGANIZATION",
+      "description": "The accepted and widely recognized explanations of events, often provided by governments and authoritative bodies"
+    },
+    {
+      "name": "SPACE RACE",
+      "type": "EVENT",
+      "description": "The competition between the United States and the Soviet Union to achieve superior spaceflight capability during the Cold War"
+    },
+    {
+      "name": "COLD WAR",
+      "type": "EVENT",
+      "description": "The period of geopolitical tension between the Soviet Union and the United States and their respective allies after World War II"
+    },
+    {
+      "name": "TEXAS SCHOOL BOOK DEPOSITORY",
+      "type": "GEO",
+      "description": "The building from which Lee Harvey Oswald allegedly shot President John F. Kennedy"
+    },
+    {
+      "name": "DALLAS",
+      "type": "GEO",
+      "description": "The city in Texas where President John F. Kennedy was assassinated"
+    },
+    {
+      "name": "SHADOWY GROUPS",
+      "type": "ORGANIZATION",
+      "description": "Vague and unspecified organizations or entities often implicated in conspiracy theories as being behind significant events"
+    },
+    {
+      "name": "FLAT EARTH",
+      "type": "EVENT",
+      "description": "A conspiracy theory that claims the Earth is flat rather than spherical"
+    },
+    {
+      "name": "GLOBAL PEDOPHILE RING",
+      "type": "ORGANIZATION",
+      "description": "A conspiracy theory involving a network of prominent figures accused of engaging in pedophilic activities"
+    },
+    {
+      "name": "ONLINE DISCOURSE",
+      "type": "ORGANIZATION",
+      "description": "The discussions and interactions that take place on the internet, often including the spread of conspiracy theories"
+    },
+    {
+      "name": "POLITICAL MOVEMENTS",
+      "type": "ORGANIZATION",
+      "description": "Groups or organizations that form around political ideologies or causes, sometimes influenced by conspiracy theories"
+    },
+    {
+      "name": "TRUTH-SEEKERS",
+      "type": "PERSON",
+      "description": "Individuals who investigate and promote conspiracy theories, often seeking to uncover hidden truths"
+    },
+    {
+      "name": "SOCIETAL ANXIETIES",
+      "type": "ORGANIZATION",
+      "description": "The collective fears and concerns of a society, which can be exacerbated by conspiracy theories"
+    },
+    {
+      "name": "TRUST IN AUTHORITY",
+      "type": "ORGANIZATION",
+      "description": "The level of confidence and faith that the public has in governmental and institutional authorities"
+    },
+    {
+      "name": "HUMAN DESIRE FOR ALTERNATIVE EXPLANATIONS",
+      "type": "ORGANIZATION",
+      "description": "The innate human tendency to seek out and believe in alternative explanations for complex or mysterious events"
+    },
+    {
+      "name": "MYSTERY AND INTRIGUE",
+      "type": "ORGANIZATION",
+      "description": "The fascination with unsolved mysteries and the allure of hidden truths, which often drives interest in conspiracy theories"
+    }
+  ],
+  "relations": [
+    [
+      "UNITED STATES GOVERNMENT",
+      ":has_relation_with",
+      "MOON LANDING",
+      "The United States Government is accused by some of staging the moon landing as a hoax"
+    ],
+    [
+      "UNITED STATES GOVERNMENT",
+      ":has_relation_with",
+      "SOVIET UNION",
+      "The United States and the Soviet Union were competing in the space race"
+    ],
+    [
+      "UNITED STATES GOVERNMENT",
+      ":has_relation_with",
+      "SEPTEMBER 11, 2001 TERRORIST ATTACKS",
+      "The United States Government is accused by some of orchestrating or allowing the September 11 attacks to happen"
+    ],
+    [
+      "UNITED STATES GOVERNMENT",
+      ":has_relation_with",
+      "SPACE RACE",
+      "The United States Government was a key player in the space race against the Soviet Union"
+    ],
+    [
+      "UNITED STATES GOVERNMENT",
+      ":has_relation_with",
+      "COLD WAR",
+      "The United States Government was one of the main actors in the Cold War"
+    ],
+    [
+      "NEIL ARMSTRONG",
+      ":has_relation_with",
+      "MOON LANDING",
+      "Neil Armstrong is one of the astronauts accused of not actually landing on the moon"
+    ],
+    [
+      "BUZZ ALDRIN",
+      ":has_relation_with",
+      "MOON LANDING",
+      "Buzz Aldrin is one of the astronauts accused of not actually landing on the moon"
+    ],
+    [
+      "JOHN F. KENNEDY",
+      ":has_relation_with",
+      "ASSASSINATION OF JOHN F. KENNEDY",
+      "John F. Kennedy was the victim of the assassination that is the subject of numerous conspiracy theories"
+    ],
+    [
+      "JOHN F. KENNEDY",
+      ":has_relation_with",
+      "DALLAS",
+      "President John F. Kennedy was assassinated in Dallas, Texas"
+    ],
+    [
+      "LEE HARVEY OSWALD",
+      ":has_relation_with",
+      "ASSASSINATION OF JOHN F. KENNEDY",
+      "Lee Harvey Oswald is the man officially accused of assassinating JFK, but is considered by some to be a patsy in a larger conspiracy"
+    ],
+    [
+      "LEE HARVEY OSWALD",
+      ":has_relation_with",
+      "TEXAS SCHOOL BOOK DEPOSITORY",
+      "Lee Harvey Oswald is alleged to have shot President Kennedy from the sixth-floor window of the Texas School Book Depository"
+    ],
+    [
+      "ASSASSINATION OF JOHN F. KENNEDY",
+      ":has_relation_with",
+      "CIA",
+      "The CIA is sometimes implicated in conspiracy theories surrounding the assassination of JFK"
+    ],
+    [
+      "ASSASSINATION OF JOHN F. KENNEDY",
+      ":has_relation_with",
+      "MAFIA",
+      "The Mafia is sometimes implicated in conspiracy theories surrounding the assassination of JFK"
+    ],
+    [
+      "ASSASSINATION OF JOHN F. KENNEDY",
+      ":has_relation_with",
+      "SHADOWY GROUPS",
+      "Shadowy groups are often implicated in conspiracy theories surrounding the assassination of JFK"
+    ],
+    [
+      "ILLUMINATI",
+      ":has_relation_with",
+      "WORLD EVENTS",
+      "The Illuminati is accused of controlling world events and manipulating governments and institutions"
+    ],
+    [
+      "ILLUMINATI",
+      ":has_relation_with",
+      "SHADOWY GROUPS",
+      "The Illuminati is often considered one of the shadowy groups that control world events"
+    ],
+    [
+      "SEPTEMBER 11, 2001 TERRORIST ATTACKS",
+      ":has_relation_with",
+      "WORLD TRADE CENTER",
+      "The World Trade Center was one of the primary targets of the September 11 attacks"
+    ],
+    [
+      "SEPTEMBER 11, 2001 TERRORIST ATTACKS",
+      ":has_relation_with",
+      "PENTAGON",
+      "The Pentagon was one of the targets of the September 11 attacks"
+    ],
+    [
+      "INTERNET",
+      ":has_relation_with",
+      "CONSPIRACY THEORIES",
+      "The Internet has facilitated the spread of conspiracy theories and the formation of communities around them"
+    ],
+    [
+      "INTERNET",
+      ":has_relation_with",
+      "ONLINE DISCOURSE",
+      "The Internet facilitates online discourse, including the spread of conspiracy theories"
+    ],
+    [
+      "SOCIAL MEDIA",
+      ":has_relation_with",
+      "CONSPIRACY THEORIES",
+      "Social media platforms have played a significant role in the spread of conspiracy theories and the formation of online communities"
+    ],
+    [
+      "SOCIAL MEDIA",
+      ":has_relation_with",
+      "ONLINE DISCOURSE",
+      "Social media platforms play a significant role in online discourse and the spread of conspiracy theories"
+    ],
+    [
+      "CONSPIRACY THEORIES",
+      ":has_relation_with",
+      "PUBLIC IMAGINATION",
+      "Conspiracy theories capture the public imagination by offering alternative explanations and narratives"
+    ],
+    [
+      "CONSPIRACY THEORIES",
+      ":has_relation_with",
+      "OFFICIAL EXPLANATIONS",
+      "Conspiracy theories challenge official explanations, often presenting alternative interpretations of events"
+    ],
+    [
+      "CONSPIRACY THEORIES",
+      ":has_relation_with",
+      "FLAT EARTH",
+      "The flat Earth theory is a popular conspiracy theory that challenges the scientific consensus"
+    ],
+    [
+      "CONSPIRACY THEORIES",
+      ":has_relation_with",
+      "GLOBAL PEDOPHILE RING",
+      "The global pedophile ring theory is a conspiracy theory involving prominent figures"
+    ],
+    [
+      "CONSPIRACY THEORIES",
+      ":has_relation_with",
+      "POLITICAL MOVEMENTS",
+      "Conspiracy theories can influence and shape political movements"
+    ],
+    [
+      "CONSPIRACY THEORIES",
+      ":has_relation_with",
+      "TRUTH-SEEKERS",
+      "Truth-seekers are individuals who investigate and promote conspiracy theories"
+    ],
+    [
+      "CONSPIRACY THEORIES",
+      ":has_relation_with",
+      "SOCIETAL ANXIETIES",
+      "Conspiracy theories often tap into deeper societal anxieties and distrust of authority"
+    ],
+    [
+      "CONSPIRACY THEORIES",
+      ":has_relation_with",
+      "TRUST IN AUTHORITY",
+      "Conspiracy theories can erode trust in authority and official explanations"
+    ],
+    [
+      "CONSPIRACY THEORIES",
+      ":has_relation_with",
+      "HUMAN DESIRE FOR ALTERNATIVE EXPLANATIONS",
+      "The human desire for alternative explanations drives interest in conspiracy theories"
+    ],
+    [
+      "CONSPIRACY THEORIES",
+      ":has_relation_with",
+      "MYSTERY AND INTRIGUE",
+      "The allure of mystery and intrigue often fuels the popularity of conspiracy theories"
+    ]
+  ]
+}

@@ -1,0 +1,250 @@
+{
+  "entities": [
+    {
+      "name": "ANCIENT EGYPT",
+      "type": "GEO",
+      "description": "Location of one of the earliest recorded protests, where workers on the construction of the pyramids staged a strike for better working conditions and wages"
+    },
+    {
+      "name": "AMERICAN REVOLUTION",
+      "type": "EVENT",
+      "description": "A significant turning point in the history of protests and revolutions, inspiring people around the world to fight for freedom and independence from colonial rule"
+    },
+    {
+      "name": "DECLARATION OF INDEPENDENCE",
+      "type": "EVENT",
+      "description": "Document that asserted the principles of equality and unalienable rights, serving as a foundation for many future protests and revolutions"
+    },
+    {
+      "name": "FRENCH REVOLUTION",
+      "type": "EVENT",
+      "description": "Overthrew the monarchy and established a republic based on the principles of liberty, equality, and fraternity, serving as a model for revolutionary movements across Europe and beyond"
+    },
+    {
+      "name": "RUSSIAN REVOLUTION",
+      "type": "EVENT",
+      "description": "Led by the Bolsheviks under Vladimir Lenin, it ended the Romanov dynasty and established the world's first communist state, sparking socialist movements and uprisings globally"
+    },
+    {
+      "name": "VLADIMIR LENIN",
+      "type": "PERSON",
+      "description": "Leader of the Bolsheviks and a key figure in the Russian Revolution, instrumental in establishing the world's first communist state"
+    },
+    {
+      "name": "CIVIL RIGHTS MOVEMENT",
+      "type": "EVENT",
+      "description": "Challenged racial segregation and discrimination in the United States, leading to the passage of landmark civil rights legislation in the 1960s and inspiring global movements for equality and human rights"
+    },
+    {
+      "name": "MARTIN LUTHER KING JR.",
+      "type": "PERSON",
+      "description": "Prominent leader of the civil rights movement, advocating for racial equality and justice through nonviolent protest"
+    },
+    {
+      "name": "ROSA PARKS",
+      "type": "PERSON",
+      "description": "Civil rights activist whose refusal to give up her seat on a bus to a white person sparked the Montgomery Bus Boycott and became a symbol of the civil rights movement"
+    },
+    {
+      "name": "ARAB SPRING",
+      "type": "EVENT",
+      "description": "A series of protests and revolutions that began in Tunisia in 2010 and spread across the Middle East and North Africa, leading to the overthrow of long-standing dictators and sparking hopes for democratic change"
+    },
+    {
+      "name": "BLACK LIVES MATTER MOVEMENT",
+      "type": "EVENT",
+      "description": "A movement that emerged in response to police brutality and systemic racism, galvanizing millions to demand racial justice and equality, and sparking a national conversation on race and inequality"
+    },
+    {
+      "name": "TIANANMEN SQUARE MASSACRE",
+      "type": "EVENT",
+      "description": "A violent crackdown on pro-democracy protesters in Beijing, China, in 1989, which resulted in numerous deaths and injuries"
+    },
+    {
+      "name": "BELARUS",
+      "type": "GEO",
+      "description": "Country where pro-democracy protesters have faced violent repression and crackdowns by the government"
+    },
+    {
+      "name": "TUNISIA",
+      "type": "GEO",
+      "description": "Country where the Arab Spring began in 2010 with protests against the government, leading to the overthrow of President Zine El Abidine Ben Ali"
+    },
+    {
+      "name": "MIDDLE EAST AND NORTH AFRICA",
+      "type": "GEO",
+      "description": "Region where the Arab Spring spread, leading to protests and revolutions in multiple countries, including Egypt, Libya, and Syria"
+    },
+    {
+      "name": "EGYPT",
+      "type": "GEO",
+      "description": "Country in the Middle East where the Arab Spring led to the overthrow of President Hosni Mubarak in 2011"
+    },
+    {
+      "name": "SYRIA",
+      "type": "GEO",
+      "description": "Country in the Middle East where the Arab Spring led to a civil war that began in 2011 and continues to this day"
+    },
+    {
+      "name": "POLICE BRUTALITY",
+      "type": "EVENT",
+      "description": "A recurring issue in the United States that has sparked widespread protests and the Black Lives Matter movement, focusing on the excessive use of force by law enforcement against Black individuals"
+    },
+    {
+      "name": "SYSTEMIC RACISM",
+      "type": "EVENT",
+      "description": "A pervasive issue in the United States that has been a central focus of the Black Lives Matter movement, highlighting the deep-seated racial inequalities in various aspects of society"
+    },
+    {
+      "name": "CHINA",
+      "type": "GEO",
+      "description": "Country where the Tiananmen Square massacre occurred in 1989, a violent crackdown on pro-democracy protesters"
+    },
+    {
+      "name": "BEIJING",
+      "type": "GEO",
+      "description": "Capital city of China where the Tiananmen Square massacre took place"
+    },
+    {
+      "name": "TIANANMEN SQUARE",
+      "type": "GEO",
+      "description": "Location in Beijing, China, where a violent crackdown on pro-democracy protesters occurred in 1989"
+    },
+    {
+      "name": "PRO-DEMOCRACY PROTESTERS",
+      "type": "PERSON",
+      "description": "Activists and citizens who participated in the Tiananmen Square protests, advocating for democratic reforms in China"
+    },
+    {
+      "name": "BELARUSIAN PRO-DEMOCRACY PROTESTERS",
+      "type": "PERSON",
+      "description": "Activists and citizens in Belarus who have faced violent repression and crackdowns by the government for advocating democratic reforms"
+    },
+    {
+      "name": "MONTGOMERY BUS BOYCOTT",
+      "type": "",
+      "description": ""
+    },
+    {
+      "name": "LIBYA",
+      "type": "",
+      "description": ""
+    }
+  ],
+  "relations": [
+    [
+      "ANCIENT EGYPT",
+      ":has_relation_with",
+      "AMERICAN REVOLUTION",
+      "Both are significant events in the history of protests, with Ancient Egypt representing one of the earliest recorded protests and the American Revolution marking a turning point in the fight for freedom and independence"
+    ],
+    [
+      "AMERICAN REVOLUTION",
+      ":has_relation_with",
+      "DECLARATION OF INDEPENDENCE",
+      "The Declaration of Independence was a key document of the American Revolution, asserting the principles that inspired many future protests and revolutions"
+    ],
+    [
+      "FRENCH REVOLUTION",
+      ":has_relation_with",
+      "RUSSIAN REVOLUTION",
+      "Both revolutions overthrew monarchies and established new forms of government, serving as models for revolutionary movements globally"
+    ],
+    [
+      "RUSSIAN REVOLUTION",
+      ":has_relation_with",
+      "VLADIMIR LENIN",
+      "Vladimir Lenin was a key leader of the Russian Revolution, instrumental in establishing the world's first communist state"
+    ],
+    [
+      "CIVIL RIGHTS MOVEMENT",
+      ":has_relation_with",
+      "MARTIN LUTHER KING JR.",
+      "Martin Luther King Jr. was a prominent leader of the civil rights movement, advocating for racial equality and justice through nonviolent protest"
+    ],
+    [
+      "CIVIL RIGHTS MOVEMENT",
+      ":has_relation_with",
+      "ROSA PARKS",
+      "Rosa Parks was a civil rights activist whose actions sparked the Montgomery Bus Boycott and became a symbol of the civil rights movement"
+    ],
+    [
+      "CIVIL RIGHTS MOVEMENT",
+      ":has_relation_with",
+      "MONTGOMERY BUS BOYCOTT",
+      "The Montgomery Bus Boycott was a pivotal event in the civil rights movement, sparked by Rosa Parks' actions and leading to significant changes in civil rights legislation"
+    ],
+    [
+      "ARAB SPRING",
+      ":has_relation_with",
+      "BLACK LIVES MATTER MOVEMENT",
+      "Both are modern movements that have galvanized millions of people to demand change, with the Arab Spring focusing on democratic reforms and the Black Lives Matter movement on racial justice"
+    ],
+    [
+      "ARAB SPRING",
+      ":has_relation_with",
+      "TUNISIA",
+      "Tunisia was the starting point of the Arab Spring, where protests against the government led to the overthrow of President Zine El Abidine Ben Ali and inspired similar movements across the region"
+    ],
+    [
+      "ARAB SPRING",
+      ":has_relation_with",
+      "MIDDLE EAST AND NORTH AFRICA",
+      "The Arab Spring spread across the Middle East and North Africa, leading to protests and revolutions in multiple countries"
+    ],
+    [
+      "ARAB SPRING",
+      ":has_relation_with",
+      "EGYPT",
+      "Egypt was a key country in the Arab Spring, where protests led to the overthrow of President Hosni Mubarak in 2011"
+    ],
+    [
+      "ARAB SPRING",
+      ":has_relation_with",
+      "LIBYA",
+      "Libya was a country where the Arab Spring led to a civil war and the overthrow of Muammar Gaddafi in 2011"
+    ],
+    [
+      "ARAB SPRING",
+      ":has_relation_with",
+      "SYRIA",
+      "Syria was a country where the Arab Spring led to a civil war that began in 2011 and continues to this day"
+    ],
+    [
+      "BLACK LIVES MATTER MOVEMENT",
+      ":has_relation_with",
+      "POLICE BRUTALITY",
+      "Police brutality is a key issue that has galvanized the Black Lives Matter movement, leading to widespread protests and calls for reform"
+    ],
+    [
+      "BLACK LIVES MATTER MOVEMENT",
+      ":has_relation_with",
+      "SYSTEMIC RACISM",
+      "Systemic racism is a central focus of the Black Lives Matter movement, highlighting the deep-seated racial inequalities in various aspects of society"
+    ],
+    [
+      "TIANANMEN SQUARE MASSACRE",
+      ":has_relation_with",
+      "BELARUS",
+      "Both events represent violent crackdowns on pro-democracy protesters by authoritarian governments, highlighting the challenges and risks involved in protests and revolutions"
+    ],
+    [
+      "TIANANMEN SQUARE MASSACRE",
+      ":has_relation_with",
+      "TIANANMEN SQUARE",
+      "Tiananmen Square was the location where the violent crackdown on pro-democracy protesters occurred in 1989"
+    ],
+    [
+      "TIANANMEN SQUARE MASSACRE",
+      ":has_relation_with",
+      "PRO-DEMOCRACY PROTESTERS",
+      "Pro-democracy protesters were the targets of the violent crackdown in Tiananmen Square in 1989"
+    ],
+    [
+      "BELARUS",
+      ":has_relation_with",
+      "BELARUSIAN PRO-DEMOCRACY PROTESTERS",
+      "Belarusian pro-democracy protesters have faced violent repression and crackdowns by the government in Belarus"
+    ]
+  ]
+}

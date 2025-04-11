@@ -1,0 +1,101 @@
+{
+  "entities": [
+    {
+      "name": "WEB-BUILDING",
+      "type": "EVENT",
+      "description": "The process by which spiders construct their webs, involving the selection of a location, production of silk, and construction of the web structure"
+    },
+    {
+      "name": "SILK",
+      "type": "ORGANIZATION",
+      "description": "A material produced by spiders from specialized glands called spinnerets, known for its strength and elasticity"
+    },
+    {
+      "name": "SPINNERETS",
+      "type": "ORGANIZATION",
+      "description": "Specialized glands located at the rear of a spider's abdomen that produce silk"
+    },
+    {
+      "name": "RADIAL LINES",
+      "type": "ORGANIZATION",
+      "description": "The framework lines of a spider's web, spaced at regular intervals to form the basic shape of the web"
+    },
+    {
+      "name": "SPIRAL LINES",
+      "type": "ORGANIZATION",
+      "description": "The sticky lines of a spider's web, laid down in a circular pattern to trap prey"
+    },
+    {
+      "name": "TRAP LINE",
+      "type": "ORGANIZATION",
+      "description": "A thick strand of silk in a spider's web that serves as a signal line, alerting the spider to the presence of prey"
+    },
+    {
+      "name": "SPIDERS",
+      "type": "",
+      "description": ""
+    }
+  ],
+  "relations": [
+    [
+      "WEB-BUILDING",
+      ":has_relation_with",
+      "SPIDERS",
+      "Spiders are the organisms that engage in the process of web-building"
+    ],
+    [
+      "WEB-BUILDING",
+      ":has_relation_with",
+      "SILK",
+      "The process of web-building involves the production and use of silk"
+    ],
+    [
+      "WEB-BUILDING",
+      ":has_relation_with",
+      "RADIAL LINES",
+      "The process of web-building includes the construction of radial lines as the framework of the web"
+    ],
+    [
+      "WEB-BUILDING",
+      ":has_relation_with",
+      "SPIRAL LINES",
+      "The process of web-building includes the construction of spiral lines to trap prey"
+    ],
+    [
+      "WEB-BUILDING",
+      ":has_relation_with",
+      "TRAP LINE",
+      "The process of web-building includes the placement of a trap line to signal the presence of prey"
+    ],
+    [
+      "SILK",
+      ":has_relation_with",
+      "SPIDERS",
+      "Spiders produce silk from their spinnerets"
+    ],
+    [
+      "SPINNERETS",
+      ":has_relation_with",
+      "SPIDERS",
+      "Spiders use spinnerets to produce silk"
+    ],
+    [
+      "RADIAL LINES",
+      ":has_relation_with",
+      "SPIRAL LINES",
+      "Radial lines form the framework on which spiral lines are laid"
+    ],
+    [
+      "SPIRAL LINES",
+      ":has_relation_with",
+      "TRAP LINE",
+      "Spiral lines and the trap line work together to alert the spider to the presence of prey"
+    ],
+    [
+      "TRAP LINE",
+      ":has_relation_with",
+      "SPIDERS",
+      "The trap line alerts spiders to the presence of prey"
+    ]
+  ]
+}

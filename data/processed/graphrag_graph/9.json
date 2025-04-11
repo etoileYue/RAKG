@@ -1,0 +1,154 @@
+{
+  "entities": [
+    {
+      "name": "COLOR PSYCHOLOGY",
+      "type": "ORGANIZATION",
+      "description": "Field of study that explores how different colors can affect human mood, behavior, and physical reactions"
+    },
+    {
+      "name": "RED",
+      "type": "COLOR",
+      "description": "Color associated with energy, warmth, and passion, can increase heart rate and blood pressure, and is often used to create a sense of urgency"
+    },
+    {
+      "name": "ORANGE",
+      "type": "COLOR",
+      "description": "Color associated with energy, warmth, and passion, often used to stimulate appetite or create a sense of urgency"
+    },
+    {
+      "name": "YELLOW",
+      "type": "COLOR",
+      "description": "Color associated with energy, warmth, and passion, as well as happiness and positivity, can increase serotonin levels and is used to create a sense of cheerfulness"
+    },
+    {
+      "name": "BLUE",
+      "type": "COLOR",
+      "description": "Color associated with calmness, tranquility, and relaxation, has a calming effect on the mind and body, and is popular in spaces where focus and concentration are important"
+    },
+    {
+      "name": "GREEN",
+      "type": "COLOR",
+      "description": "Color associated with calmness, tranquility, and relaxation, often used in spaces where a sense of peace and serenity is desired"
+    },
+    {
+      "name": "PURPLE",
+      "type": "COLOR",
+      "description": "Color associated with calmness, tranquility, and relaxation, often used in spaces where a sense of peace and serenity is desired"
+    },
+    {
+      "name": "BLACK",
+      "type": "COLOR",
+      "description": "Color associated with power, authority, and sophistication, but can also evoke feelings of sadness or mystery, and is versatile in conveying a wide range of emotions and meanings"
+    },
+    {
+      "name": "WHITE",
+      "type": "COLOR",
+      "description": "Color associated with purity and innocence in Western cultures, but with death and mourning in some Eastern cultures, highlighting the influence of cultural context on color perception"
+    },
+    {
+      "name": "EASTERN CULTURES",
+      "type": "GEO",
+      "description": "Cultural context where white is associated with death and mourning"
+    },
+    {
+      "name": "WESTERN CULTURES",
+      "type": "",
+      "description": ""
+    },
+    {
+      "name": "HEART RATE",
+      "type": "PHYSIOLOGICAL EFFECT",
+      "description": "A physiological response that can be influenced by the color red, leading to increased excitement and arousal"
+    },
+    {
+      "name": "BLOOD PRESSURE",
+      "type": "PHYSIOLOGICAL EFFECT",
+      "description": "A physiological response that can be influenced by the color red, leading to increased excitement and arousal"
+    },
+    {
+      "name": "SEROTONIN LEVELS",
+      "type": "PHYSIOLOGICAL EFFECT",
+      "description": "A physiological response that can be influenced by the color yellow, leading to increased feelings of happiness and positivity"
+    }
+  ],
+  "relations": [
+    [
+      "COLOR PSYCHOLOGY",
+      ":has_relation_with",
+      "RED",
+      "Red is a subject of study in color psychology, known for its effects on increasing heart rate and creating a sense of urgency"
+    ],
+    [
+      "COLOR PSYCHOLOGY",
+      ":has_relation_with",
+      "ORANGE",
+      "Orange is a subject of study in color psychology, known for its effects on stimulating appetite and creating a sense of urgency"
+    ],
+    [
+      "COLOR PSYCHOLOGY",
+      ":has_relation_with",
+      "YELLOW",
+      "Yellow is a subject of study in color psychology, known for its effects on increasing serotonin levels and creating a sense of cheerfulness"
+    ],
+    [
+      "COLOR PSYCHOLOGY",
+      ":has_relation_with",
+      "BLUE",
+      "Blue is a subject of study in color psychology, known for its calming effects and use in spaces requiring focus and concentration"
+    ],
+    [
+      "COLOR PSYCHOLOGY",
+      ":has_relation_with",
+      "GREEN",
+      "Green is a subject of study in color psychology, known for its calming effects and use in spaces requiring peace and serenity"
+    ],
+    [
+      "COLOR PSYCHOLOGY",
+      ":has_relation_with",
+      "PURPLE",
+      "Purple is a subject of study in color psychology, known for its calming effects and use in spaces requiring peace and serenity"
+    ],
+    [
+      "COLOR PSYCHOLOGY",
+      ":has_relation_with",
+      "BLACK",
+      "Black is a subject of study in color psychology, known for its versatility in conveying a wide range of emotions and meanings"
+    ],
+    [
+      "COLOR PSYCHOLOGY",
+      ":has_relation_with",
+      "WHITE",
+      "White is a subject of study in color psychology, known for its cultural significance and the influence of cultural context on its perception"
+    ],
+    [
+      "RED",
+      ":has_relation_with",
+      "HEART RATE",
+      "Red can increase heart rate, leading to feelings of excitement and arousal"
+    ],
+    [
+      "RED",
+      ":has_relation_with",
+      "BLOOD PRESSURE",
+      "Red can increase blood pressure, leading to feelings of excitement and arousal"
+    ],
+    [
+      "YELLOW",
+      ":has_relation_with",
+      "SEROTONIN LEVELS",
+      "Yellow can increase serotonin levels, leading to feelings of happiness and positivity"
+    ],
+    [
+      "WHITE",
+      ":has_relation_with",
+      "WESTERN CULTURES",
+      "In Western cultures, white is associated with purity and innocence"
+    ],
+    [
+      "WHITE",
+      ":has_relation_with",
+      "EASTERN CULTURES",
+      "In Eastern cultures, white is associated with death and mourning"
+    ]
+  ]
+}

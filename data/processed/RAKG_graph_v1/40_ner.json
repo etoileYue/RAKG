@@ -1,0 +1,440 @@
+{
+    "entity1": {
+        "name": "Bread",
+        "type": "Food",
+        "description": "A staple food in many cultures, made from flour and water, usually leavened with yeast or a sourdough starter.",
+        "chunkid": "The Science of Baking Bread1"
+    },
+    "entity2": {
+        "name": "Baking",
+        "type": "Process",
+        "description": "The process of cooking bread using dry heat, typically in an oven, which transforms the dough into a finished product.",
+        "chunkid": "The Science of Baking Bread1"
+    },
+    "entity3": {
+        "name": "flour",
+        "type": "Ingredient",
+        "description": "A fine powder made from grains, seeds, or roots that is a staple in many cuisines.",
+        "chunkid": "The Science of Baking Bread2"
+    },
+    "entity4": {
+        "name": "water",
+        "type": "Ingredient",
+        "description": "A transparent and nearly colorless chemical compound that is the most abundant substance on Earth's surface.",
+        "chunkid": "The Science of Baking Bread2"
+    },
+    "entity5": {
+        "name": "yeast",
+        "type": "Ingredient",
+        "description": "A microorganism used in baking and brewing to produce fermentation, which helps bread rise and gives it a light texture.",
+        "chunkid": "The Science of Baking Bread2"
+    },
+    "entity6": {
+        "name": "salt",
+        "type": "Ingredient",
+        "description": "A mineral composed primarily of sodium chloride that is essential for life and used as a flavor enhancer in cooking.",
+        "chunkid": "The Science of Baking Bread2"
+    },
+    "entity7": {
+        "name": "yeast",
+        "type": "Organism",
+        "description": "A microorganism that is commonly used in baking and brewing for its ability to ferment sugars and produce carbon dioxide.",
+        "chunkid": "The Science of Baking Bread3"
+    },
+    "entity8": {
+        "name": "dough",
+        "type": "Food Product",
+        "description": "A mixture of flour, water, and other ingredients that is kneaded into a mass and then baked to make bread or pastries.",
+        "chunkid": "The Science of Baking Bread3"
+    },
+    "entity9": {
+        "name": "fermentation",
+        "type": "Process",
+        "description": "A metabolic process that converts sugar to acids, gases, or alcohol. In bread baking, it is crucial for developing the flavor and texture of the bread.",
+        "chunkid": "The Science of Baking Bread4"
+    },
+    "entity10": {
+        "name": "Yeast",
+        "type": "Organism",
+        "description": "A type of fungus that plays a key role in various biological processes, including fermentation.",
+        "chunkid": "The Science of Baking Bread5"
+    },
+    "entity11": {
+        "name": "Fungus",
+        "type": "Biological Group",
+        "description": "A kingdom of eukaryotic organisms that includes mushrooms, yeasts, and molds.",
+        "chunkid": "The Science of Baking Bread5"
+    },
+    "entity12": {
+        "name": "yeast",
+        "type": "Organism",
+        "description": "A microorganism that is commonly used in baking and brewing to produce carbon dioxide and alcohol through fermentation.",
+        "chunkid": "The Science of Baking Bread6"
+    },
+    "entity13": {
+        "name": "water",
+        "type": "Substance",
+        "description": "A chemical substance that is composed of hydrogen and oxygen atoms, essential for the survival of most known forms of life.",
+        "chunkid": "The Science of Baking Bread6"
+    },
+    "entity14": {
+        "name": "flour",
+        "type": "Food Product",
+        "description": "A powder made by grinding raw grains or roots, commonly used in baking to make breads and pastries.",
+        "chunkid": "The Science of Baking Bread6"
+    },
+    "entity15": {
+        "name": "carbon dioxide gas",
+        "type": "Chemical Compound",
+        "description": "A colorless, odorless gas that is a byproduct of many biological processes and industrial activities.",
+        "chunkid": "The Science of Baking Bread6"
+    },
+    "entity16": {
+        "name": "dough",
+        "type": "Food Component",
+        "description": "A mixture of flour and other ingredients used in baking before it is cooked.",
+        "chunkid": "The Science of Baking Bread7"
+    },
+    "entity17": {
+        "name": "bread",
+        "type": "Baked Good",
+        "description": "A staple food made from dough that has been baked, often leavened with yeast or another agent to create an airy texture.",
+        "chunkid": "The Science of Baking Bread7"
+    },
+    "entity18": {
+        "name": "fermentation process",
+        "type": "Process",
+        "description": "A biochemical reaction where microorganisms convert sugar to acids, gases, or alcohol.",
+        "chunkid": "The Science of Baking Bread8"
+    },
+    "entity19": {
+        "name": "alcohol",
+        "type": "Chemical Substance",
+        "description": "An organic compound that is the result of fermentation and can contribute to flavor in certain foods like bread.",
+        "chunkid": "The Science of Baking Bread8"
+    },
+    "entity20": {
+        "name": "dough",
+        "type": "Food Product",
+        "description": "A mixture of flour and water, often with yeast or other leavening agents, that is kneaded into a mass before being baked.",
+        "chunkid": "The Science of Baking Bread9"
+    },
+    "entity21": {
+        "name": "ferment",
+        "type": "Process",
+        "description": "The chemical process by which substances undergo anaerobic glycolysis and produce energy, often resulting in the production of alcohol or acids.",
+        "chunkid": "The Science of Baking Bread9"
+    },
+    "entity22": {
+        "name": "artisanal breads",
+        "type": "Food Product",
+        "description": "A type of bread made using traditional methods, often with a focus on quality and flavor over mass production.",
+        "chunkid": "The Science of Baking Bread10"
+    },
+    "entity23": {
+        "name": "fermentation time",
+        "type": "Process Duration",
+        "description": "The period during which dough is allowed to rise through the action of yeast or other microorganisms, contributing to the development of flavors and textures in bread.",
+        "chunkid": "The Science of Baking Bread10"
+    },
+    "entity24": {
+        "name": "yeast",
+        "type": "Ingredient",
+        "description": "A microorganism used in baking and brewing to produce carbon dioxide, which helps dough rise.",
+        "chunkid": "The Science of Baking Bread11"
+    },
+    "entity25": {
+        "name": "flour",
+        "type": "Ingredient",
+        "description": "A powder made by grinding raw grains or seeds, commonly used as a base ingredient in bread making.",
+        "chunkid": "The Science of Baking Bread11"
+    },
+    "entity26": {
+        "name": "Flour",
+        "type": "Food Product",
+        "description": "A fine powder made from grinding grains, seeds, or roots, commonly used in baking.",
+        "chunkid": "The Science of Baking Bread12"
+    },
+    "entity27": {
+        "name": "Gluten",
+        "type": "Protein",
+        "description": "A group of proteins found in wheat and other grains that give dough its elastic properties.",
+        "chunkid": "The Science of Baking Bread12"
+    },
+    "entity28": {
+        "name": "Bread",
+        "type": "Food Product",
+        "description": "A staple food prepared from a dough of flour and water, usually baked.",
+        "chunkid": "The Science of Baking Bread12"
+    },
+    "entity29": {
+        "name": "flour",
+        "type": "Ingredient",
+        "description": "A powder obtained by grinding grain, used to make bread, cakes, and pasta.",
+        "chunkid": "The Science of Baking Bread13"
+    },
+    "entity30": {
+        "name": "water",
+        "type": "Ingredient",
+        "description": "A clear, colorless, odorless, and tasteless liquid that is essential for most plant and animal life and is the most widely used solvent in industrial and domestic use.",
+        "chunkid": "The Science of Baking Bread13"
+    },
+    "entity31": {
+        "name": "gluten proteins",
+        "type": "Protein",
+        "description": "A family of proteins found in wheat and related grains, which gives elasticity to dough and allows it to rise when baked.",
+        "chunkid": "The Science of Baking Bread13"
+    },
+    "entity32": {
+        "name": "carbon dioxide gas",
+        "type": "Chemical Compound",
+        "description": "A colorless, odorless gas that is a byproduct of cellular respiration and fermentation processes, often used in carbonated beverages and as a greenhouse gas.",
+        "chunkid": "The Science of Baking Bread13"
+    },
+    "entity33": {
+        "name": "yeast",
+        "type": "Microorganism",
+        "description": "A single-celled microorganism that is commonly used in baking and brewing to produce carbon dioxide and alcohol through the process of fermentation.",
+        "chunkid": "The Science of Baking Bread13"
+    },
+    "entity34": {
+        "name": "dough",
+        "type": "Food Product",
+        "description": "A thick, malleable mixture of flour, water, and other ingredients that is kneaded or mixed before being baked into bread, pastries, or other food items.",
+        "chunkid": "The Science of Baking Bread13"
+    },
+    "entity35": {
+        "name": "kneading process",
+        "type": "Process",
+        "description": "A method used in baking to mix and develop the dough by repeatedly folding, stretching, and pressing it.",
+        "chunkid": "The Science of Baking Bread14"
+    },
+    "entity36": {
+        "name": "gluten",
+        "type": "Component",
+        "description": "A protein found in wheat and other grains that gives elasticity to dough and helps it rise and keep its shape.",
+        "chunkid": "The Science of Baking Bread14"
+    },
+    "entity37": {
+        "name": "dough",
+        "type": "Food Product",
+        "description": "A mixture of flour, water, and often other ingredients such as yeast or salt, used in baking to make bread, pastries, and other baked goods.",
+        "chunkid": "The Science of Baking Bread14"
+    },
+    "entity38": {
+        "name": "Kneading",
+        "type": "Process",
+        "description": "A technique used in baking to mix and develop the dough, which helps to form gluten strands.",
+        "chunkid": "The Science of Baking Bread15"
+    },
+    "entity39": {
+        "name": "Gluten",
+        "type": "Protein",
+        "description": "A protein found in wheat and other grains that gives elasticity to dough and a chewy texture to baked goods.",
+        "chunkid": "The Science of Baking Bread15"
+    },
+    "entity40": {
+        "name": "Bread",
+        "type": "Food Product",
+        "description": "A staple food prepared from a dough of flour and water, usually baked.",
+        "chunkid": "The Science of Baking Bread15"
+    },
+    "entity41": {
+        "name": "kneading",
+        "type": "Process",
+        "description": "A technique used in baking to mix and develop the dough, ensuring a good texture and rise.",
+        "chunkid": "The Science of Baking Bread16"
+    },
+    "entity42": {
+        "name": "bread",
+        "type": "Food Product",
+        "description": "A staple food prepared from a dough of flour and water, usually baked.",
+        "chunkid": "The Science of Baking Bread16"
+    },
+    "entity43": {
+        "name": "Baking bread",
+        "type": "Process",
+        "description": "A culinary technique involving the preparation of dough and its transformation into bread through heat application.",
+        "chunkid": "The Science of Baking Bread18"
+    },
+    "entity44": {
+        "name": "Heat",
+        "type": "Physical Property",
+        "description": "The form of energy that is transferred from one body to another as a result of a difference in temperature, playing a crucial role in the baking process.",
+        "chunkid": "The Science of Baking Bread18"
+    },
+    "entity45": {
+        "name": "Ingredients",
+        "type": "Substance",
+        "description": "Components or elements used in the preparation of food, such as flour, water, yeast, and salt, which are mixed to form dough for bread baking.",
+        "chunkid": "The Science of Baking Bread18"
+    },
+    "entity46": {
+        "name": "Dough",
+        "type": "Food Product",
+        "description": "A thick, malleable mixture of flour and other ingredients used in cooking, particularly as the base for baked goods like bread.",
+        "chunkid": "The Science of Baking Bread18"
+    },
+    "entity47": {
+        "name": "yeast",
+        "type": "Organism",
+        "description": "A microorganism that is commonly used in baking and brewing to produce carbon dioxide gas, which helps bread rise.",
+        "chunkid": "The Science of Baking Bread19"
+    },
+    "entity48": {
+        "name": "carbon dioxide gas",
+        "type": "Chemical Compound",
+        "description": "A colorless, odorless gas produced by yeast during fermentation, contributing to the leavening of baked goods.",
+        "chunkid": "The Science of Baking Bread19"
+    },
+    "entity49": {
+        "name": "starches",
+        "type": "Chemical Compound",
+        "description": "A carbohydrate that is a major component of many plant-based foods, including flour.",
+        "chunkid": "The Science of Baking Bread20"
+    },
+    "entity50": {
+        "name": "flour",
+        "type": "Food Product",
+        "description": "A powder made by grinding raw grains or roots and used to make bread, cakes, and other food items.",
+        "chunkid": "The Science of Baking Bread20"
+    },
+    "entity51": {
+        "name": "bread",
+        "type": "Food Product",
+        "description": "A staple food prepared from a dough of flour and water, usually baked.",
+        "chunkid": "The Science of Baking Bread20"
+    },
+    "entity52": {
+        "name": "Maillard reaction",
+        "type": "Chemical Process",
+        "description": "A chemical reaction between amino acids and reducing sugars that occurs during the heating, roasting, or baking of food, contributing to flavor and color development.",
+        "chunkid": "The Science of Baking Bread21"
+    },
+    "entity53": {
+        "name": "baking",
+        "type": "Culinary Process",
+        "description": "The technique of cooking food by dry heat, typically in an oven, which can cause various chemical reactions including the Maillard reaction.",
+        "chunkid": "The Science of Baking Bread21"
+    },
+    "entity54": {
+        "name": "browning of the crust",
+        "type": "Process",
+        "description": "A chemical reaction that causes the surface of bread to turn brown during baking.",
+        "chunkid": "The Science of Baking Bread22"
+    },
+    "entity55": {
+        "name": "development of complex flavors",
+        "type": "Process",
+        "description": "The process by which various chemical reactions create a diverse range of tastes in baked bread.",
+        "chunkid": "The Science of Baking Bread22"
+    },
+    "entity56": {
+        "name": "Maillard reaction",
+        "type": "Chemical Reaction",
+        "description": "A chemical reaction between amino acids and reducing sugars that usually occurs when food is baked, toasted, or seared, leading to the formation of new flavor compounds.",
+        "chunkid": "The Science of Baking Bread23"
+    },
+    "entity57": {
+        "name": "proteins",
+        "type": "Biological Molecule",
+        "description": "Large biomolecules or macromolecules consisting of one or more long chains of amino acid residues, which are essential for the structure and function of all living organisms.",
+        "chunkid": "The Science of Baking Bread23"
+    },
+    "entity58": {
+        "name": "sugars",
+        "type": "Biological Molecule",
+        "description": "Simple carbohydrates that serve as an energy source in living organisms. They can be monosaccharides, disaccharides, or oligosaccharides.",
+        "chunkid": "The Science of Baking Bread23"
+    },
+    "entity59": {
+        "name": "dough",
+        "type": "Food Product",
+        "description": "A thick, malleable mixture of flour and water, often with other ingredients such as yeast, salt, and oil, used to make bread, pastries, and other baked goods.",
+        "chunkid": "The Science of Baking Bread23"
+    },
+    "entity60": {
+        "name": "bread",
+        "type": "Food Product",
+        "description": "A staple food prepared from a dough of flour and water, usually baked. It is one of the oldest and most widely consumed foods in human history.",
+        "chunkid": "The Science of Baking Bread23"
+    },
+    "entity61": {
+        "name": "oven",
+        "type": "Appliance",
+        "description": "A kitchen appliance used for baking and cooking food.",
+        "chunkid": "The Science of Baking Bread24"
+    },
+    "entity62": {
+        "name": "baking process",
+        "type": "Process",
+        "description": "The method of preparing food by dry heat, usually in an oven.",
+        "chunkid": "The Science of Baking Bread24"
+    },
+    "entity63": {
+        "name": "oven",
+        "type": "Appliance",
+        "description": "A kitchen appliance used for baking and cooking food, typically by using dry heat.",
+        "chunkid": "The Science of Baking Bread25"
+    },
+    "entity64": {
+        "name": "bread",
+        "type": "Food",
+        "description": "A staple food prepared from a dough of flour and water, usually baked.",
+        "chunkid": "The Science of Baking Bread25"
+    },
+    "entity65": {
+        "name": "Humidity",
+        "type": "Physical Property",
+        "description": "A measure of the amount of water vapor present in the air.",
+        "chunkid": "The Science of Baking Bread26"
+    },
+    "entity66": {
+        "name": "Oven",
+        "type": "Appliance",
+        "description": "A kitchen appliance used for baking, roasting, and heating food.",
+        "chunkid": "The Science of Baking Bread26"
+    },
+    "entity67": {
+        "name": "Crisp Crust",
+        "type": "Food Texture",
+        "description": "The outer layer of baked goods that is hard and dry to the touch.",
+        "chunkid": "The Science of Baking Bread26"
+    },
+    "entity68": {
+        "name": "Moist Interior",
+        "type": "Food Texture",
+        "description": "The inner part of baked goods that retains moisture and softness.",
+        "chunkid": "The Science of Baking Bread26"
+    },
+    "entity69": {
+        "name": "yeast",
+        "type": "Organism",
+        "description": "A microorganism that is commonly used in the fermentation process to produce alcohol and carbon dioxide.",
+        "chunkid": "The Science of Baking Bread28"
+    },
+    "entity70": {
+        "name": "gluten",
+        "type": "Protein",
+        "description": "A group of proteins found in wheat and other grains, which gives dough its elastic properties and contributes to the texture of baked goods.",
+        "chunkid": "The Science of Baking Bread28"
+    },
+    "entity71": {
+        "name": "baking",
+        "type": "Process",
+        "description": "The process of cooking food using prolonged dry heat, usually in an oven, which causes chemical changes that affect the flavor and texture of the food.",
+        "chunkid": "The Science of Baking Bread28"
+    },
+    "entity72": {
+        "name": "baking bread",
+        "type": "Process",
+        "description": "The process of preparing and cooking dough to create bread, involving ingredients like flour, water, yeast, and salt.",
+        "chunkid": "The Science of Baking Bread29"
+    },
+    "entity73": {
+        "name": "people around the world",
+        "type": "Group",
+        "description": "A collective term referring to all human beings living in various parts of the globe.",
+        "chunkid": "The Science of Baking Bread29"
+    }
+}

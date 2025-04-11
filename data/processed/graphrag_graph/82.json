@@ -1,0 +1,154 @@
+{
+  "entities": [
+    {
+      "name": "DEJA VU",
+      "type": "EVENT",
+      "description": "A phenomenon where individuals feel they have experienced a current situation before, despite it being the first time it is happening. It is a mysterious and largely unexplained occurrence that has intrigued scientists, psychologists, and the general public for centuries. Theories about its cause include dual processing and memory-based explanations, and factors like stress, fatigue, and creativity can increase its frequency. Despite extensive research, the phenomenon remains elusive and difficult to study in a controlled environment.|"
+    },
+    {
+      "name": "SCIENTISTS",
+      "type": "PERSON",
+      "description": "Experts in various fields who have studied and attempted to explain the phenomenon of deja vu. They have proposed several theories and conducted research to understand the underlying mechanisms of this mysterious experience.|"
+    },
+    {
+      "name": "PSYCHOLOGISTS",
+      "type": "PERSON",
+      "description": "Experts in the field of psychology who have contributed to the understanding of deja vu by exploring its psychological and cognitive aspects. They have proposed theories and conducted studies to explain the phenomenon.|"
+    },
+    {
+      "name": "DUAL PROCESSING THEORY",
+      "type": "EVENT",
+      "description": "A theory suggesting that deja vu occurs when the brain processes information in two different ways simultaneously, leading to a delay or discrepancy in the timing of these processes, which creates the sensation of having experienced the current situation before.|"
+    },
+    {
+      "name": "MEMORY-BASED THEORY",
+      "type": "EVENT",
+      "description": "A theory positing that deja vu is triggered by similarities between the current situation and a past memory. When the brain encounters a situation that is reminiscent of a past experience, it may mistakenly interpret it as a memory, leading to the sensation of deja vu.|"
+    },
+    {
+      "name": "STRESS",
+      "type": "EVENT",
+      "description": "A factor that has been associated with an increased frequency of deja vu episodes. Stress can affect brain function and may contribute to the occurrence of deja vu.|"
+    },
+    {
+      "name": "FATIGUE",
+      "type": "EVENT",
+      "description": "A factor that has been linked to an increased likelihood of experiencing deja vu. Fatigue can impact cognitive processes and may contribute to the phenomenon.|"
+    },
+    {
+      "name": "SLEEP DEPRIVATION",
+      "type": "EVENT",
+      "description": "A condition that has been associated with a higher frequency of deja vu. Lack of sleep can affect brain function and may contribute to the occurrence of deja vu.|"
+    },
+    {
+      "name": "CREATIVITY",
+      "type": "EVENT",
+      "description": "A characteristic that may increase the likelihood of experiencing deja vu. Individuals with higher levels of creativity or imagination may be more prone to experiencing this phenomenon.|"
+    },
+    {
+      "name": "IMAGINATION",
+      "type": "EVENT",
+      "description": "A trait that may contribute to the increased frequency of deja vu. Individuals with a vivid imagination may be more likely to experience the phenomenon.|"
+    },
+    {
+      "name": "HUMAN BRAIN",
+      "type": "ORGANIZATION",
+      "description": "The complex organ responsible for processing information and potentially causing the sensation of deja vu through various mechanisms.|"
+    },
+    {
+      "name": "LABORATORY SETTING",
+      "type": "GEO",
+      "description": "A controlled environment where scientists attempt to study and replicate phenomena like deja vu, though it is often difficult to do so.|"
+    },
+    {
+      "name": "SUBJECTIVE EXPERIENCE",
+      "type": "EVENT",
+      "description": "The personal and often unquantifiable nature of deja vu, which makes it challenging to study and understand.|"
+    },
+    {
+      "name": "FRENCH",
+      "type": "",
+      "description": ""
+    }
+  ],
+  "relations": [
+    [
+      "DEJA VU",
+      ":has_relation_with",
+      "SCIENTISTS",
+      "Scientists have studied deja vu to understand its causes and mechanisms, contributing to the development of various theories and research findings. The relationship is strong due to the extensive research and interest in the phenomenon."
+    ],
+    [
+      "DEJA VU",
+      ":has_relation_with",
+      "PSYCHOLOGISTS",
+      "Psychologists have explored the psychological and cognitive aspects of deja vu, contributing to the understanding of the phenomenon. The relationship is strong due to the significant contributions of psychological research."
+    ],
+    [
+      "DEJA VU",
+      ":has_relation_with",
+      "DUAL PROCESSING THEORY",
+      "The dual processing theory is one of the main explanations for deja vu, suggesting that the phenomenon occurs due to a delay or discrepancy in the brain's processing of information. The relationship is strong as this theory is widely accepted and studied."
+    ],
+    [
+      "DEJA VU",
+      ":has_relation_with",
+      "MEMORY-BASED THEORY",
+      "The memory-based theory is another significant explanation for deja vu, positing that the phenomenon is triggered by similarities between the current situation and past memories. The relationship is strong as this theory is also widely accepted and studied."
+    ],
+    [
+      "DEJA VU",
+      ":has_relation_with",
+      "STRESS",
+      "Stress is a factor that can increase the frequency of deja vu episodes, indicating a relationship between stress and the occurrence of the phenomenon. The relationship is moderate as stress is one of several factors that can influence deja vu."
+    ],
+    [
+      "DEJA VU",
+      ":has_relation_with",
+      "FATIGUE",
+      "Fatigue is a factor that can contribute to the increased frequency of deja vu, indicating a relationship between fatigue and the occurrence of the phenomenon. The relationship is moderate as fatigue is one of several factors that can influence deja vu."
+    ],
+    [
+      "DEJA VU",
+      ":has_relation_with",
+      "SLEEP DEPRIVATION",
+      "Sleep deprivation is a condition that can increase the likelihood of experiencing deja vu, indicating a relationship between lack of sleep and the occurrence of the phenomenon. The relationship is moderate as sleep deprivation is one of several factors that can influence deja vu."
+    ],
+    [
+      "DEJA VU",
+      ":has_relation_with",
+      "CREATIVITY",
+      "Creativity is a characteristic that may increase the likelihood of experiencing deja vu, indicating a relationship between creativity and the phenomenon. The relationship is moderate as creativity is one of several factors that can influence deja vu."
+    ],
+    [
+      "DEJA VU",
+      ":has_relation_with",
+      "IMAGINATION",
+      "Imagination is a trait that may contribute to the increased frequency of deja vu, indicating a relationship between imagination and the phenomenon. The relationship is moderate as imagination is one of several factors that can influence deja vu."
+    ],
+    [
+      "DEJA VU",
+      ":has_relation_with",
+      "FRENCH",
+      "The term \"deja vu\" is of French origin, meaning \"already seen,\" which directly relates to the phenomenon's definition."
+    ],
+    [
+      "DEJA VU",
+      ":has_relation_with",
+      "HUMAN BRAIN",
+      "The human brain is central to the occurrence of deja vu, as it processes information and can create the sensation of having experienced a situation before. The relationship is very strong as the brain is the primary organ involved in the phenomenon."
+    ],
+    [
+      "DEJA VU",
+      ":has_relation_with",
+      "LABORATORY SETTING",
+      "Studying deja vu in a laboratory setting is challenging due to the phenomenon's fleeting and subjective nature. The relationship is moderate as it highlights the difficulties in scientific research on deja vu."
+    ],
+    [
+      "DEJA VU",
+      ":has_relation_with",
+      "SUBJECTIVE EXPERIENCE",
+      "Deja vu is a subjective experience, which means it is personal and can vary widely among individuals. This variability complicates efforts to understand and study the phenomenon. The relationship is strong as the subjective nature is a key characteristic of deja vu."
+    ]
+  ]
+}

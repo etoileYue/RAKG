@@ -1,0 +1,1412 @@
+{
+    "entities": [
+        {
+            "name": "rituals",
+            "type": "Ceremonial Practices",
+            "description": "Structured activities performed to honor and remember the deceased.",
+            "attributes": {}
+        },
+        {
+            "name": "Deceased\"s Family",
+            "type": "Group of People",
+            "description": "The family members of the deceased who were responsible for organizing and financing the funeral.",
+            "attributes": {}
+        },
+        {
+            "name": "jewelry",
+            "type": "ornament",
+            "description": "Jewelry is a decorative item worn on the body.",
+            "attributes": {}
+        },
+        {
+            "name": "common people",
+            "type": "burial",
+            "description": "The common people were buried with care and respect.",
+            "attributes": {}
+        },
+        {
+            "name": "PRIESTS",
+            "type": "Religious Leaders",
+            "description": "Priests were religious leaders who played a crucial role in the burial process, performing rituals and guiding the deceased on their journey to the afterlife",
+            "attributes": {}
+        },
+        {
+            "name": "INTERNAL ORGANS",
+            "type": "Body Components",
+            "description": "Internal organs were removed during the mummification process to prevent decay and ensure the body's preservation",
+            "attributes": {}
+        },
+        {
+            "name": "ANCIENT EGYPT",
+            "type": "Civilization",
+            "description": "Ancient Egypt is the civilization known for its elaborate burial practices and beliefs about the afterlife",
+            "attributes": {}
+        },
+        {
+            "name": "society",
+            "type": "Social Structure",
+            "description": "Society refers to the community of people living in a particular country or region and having shared customs, laws, and organizations.",
+            "attributes": {
+                "Cultural Practices": "Ancient Egyptian burial practices were a vital part of society."
+            }
+        },
+        {
+            "name": "AMULETS",
+            "type": "Religious Symbols",
+            "description": "Amulets were small objects with magical properties, often included in the burial chamber to protect and guide the deceased in the afterlife",
+            "attributes": {}
+        },
+        {
+            "name": "AFTERLIFE",
+            "type": "Eternal Realm",
+            "description": "The concept of existence beyond physical death, often associated with gods and spiritual journeys.",
+            "attributes": {}
+        },
+        {
+            "name": "protect the deceased's body and possessions",
+            "type": "Funerary Function",
+            "description": "Ensuring preservation and safeguarding of remains and belongings",
+            "attributes": {}
+        },
+        {
+            "name": "prayers",
+            "type": "Religious Rituals",
+            "description": "Prayers are devotional recitations aimed at invoking divine assistance and guidance.",
+            "attributes": {}
+        },
+        {
+            "name": "soul",
+            "type": "Concept",
+            "description": "The soul, in ancient Egyptian belief, was an essential part of a person that needed to be reunited with the body in the afterlife for continued existence.",
+            "attributes": {
+                "Cultural Origin": "Ancient Egypt",
+                "Purpose": "Reunited with the body in the afterlife"
+            }
+        },
+        {
+            "name": "gods",
+            "type": "Deity Group",
+            "description": "The gods in ancient Egyptian belief are divine beings who inhabit the realm of the afterlife and play a crucial role in the spiritual journey of the deceased.",
+            "attributes": {
+                "Realm": "Afterlife",
+                "Role": "Guiding and protecting the deceased"
+            }
+        },
+        {
+            "name": "tools",
+            "type": "Tools",
+            "description": "Practical items used for daily tasks",
+            "attributes": {}
+        },
+        {
+            "name": "elite",
+            "type": "class",
+            "description": "The elite refers to the upper class or ruling\u9636\u5c42in ancient Egyptian society, known for their wealth, power, and status.",
+            "attributes": {}
+        },
+        {
+            "name": "ordinary Egyptians",
+            "type": "People",
+            "description": "Ordinary Egyptian people",
+            "attributes": {}
+        },
+        {
+            "name": "Skilled Individuals",
+            "type": "Craftsmen and Artisans",
+            "description": "Individuals with specialized skills in various crafts and arts.",
+            "attributes": {}
+        },
+        {
+            "name": "clothing",
+            "type": "Clothing",
+            "description": "Wearable items for covering the body",
+            "attributes": {}
+        },
+        {
+            "name": "spells",
+            "type": "Magical Incantations",
+            "description": "Formulas of power used to influence supernatural entities or events.",
+            "attributes": {}
+        },
+        {
+            "name": "gateway to the afterlife",
+            "type": "Passage",
+            "description": "A symbolic entry point into the spiritual realm.",
+            "attributes": {}
+        },
+        {
+            "name": "body",
+            "type": "Physical Entity",
+            "description": "The physical form of a person, which was preserved through mummification to ensure the soul\"s return.",
+            "attributes": {}
+        },
+        {
+            "name": "Important Individuals",
+            "type": "Person",
+            "description": "Important individuals in ancient Egypt included high-ranking officials, priests, and other notable figures who played significant roles in society.",
+            "attributes": {}
+        },
+        {
+            "name": "LINEN BANDAGES",
+            "type": "Funerary Wrapping Material",
+            "description": "Linen bandages were used in the mummification process to wrap the preserved body, ensuring its protection and preservation",
+            "attributes": {}
+        },
+        {
+            "name": "SALT",
+            "type": "preservative",
+            "description": "Salt was used in the mummification process to dry out the body and prevent decay",
+            "attributes": {}
+        },
+        {
+            "name": "food",
+            "type": "Consumable",
+            "description": "Nourishment for sustenance and life support.",
+            "attributes": {}
+        },
+        {
+            "name": "reverence for the deceased",
+            "type": "Cultural Respect",
+            "description": "A deep and profound respect towards those who have passed away, emphasizing their importance in society and the belief in their continued existence beyond death.",
+            "attributes": {}
+        },
+        {
+            "name": "Realm of the Gods",
+            "type": "Concept",
+            "description": "The realm of the gods is a divine place in ancient Egyptian belief where the souls of the deceased could achieve eternal existence.",
+            "attributes": {}
+        }
+    ],
+    "relations": [
+        [
+            "ancient egypt",
+            "Guided By",
+            "amulets",
+            "The pharaohs were guided by religious texts and amulets placed in their tombs."
+        ],
+        [
+            "EMBALMERS",
+            "ingredient",
+            "SALT",
+            "Embalmers used salt in the mummification process to dry out the body and prevent decay"
+        ],
+        [
+            "built_to_house",
+            "pharaohs",
+            "ancient egypt",
+            "Built_to_house refers to structures or buildings constructed during Ancient Egypt, specifically under the rule of Pharaohs."
+        ],
+        [
+            "priests",
+            "Performed Rituals With",
+            "ancient egypt",
+            "Priests performed rituals alongside professional mourners during the funeral processions."
+        ],
+        [
+            "MUMMIFICATION",
+            "component",
+            "AMULETS",
+            "Amulets were often included in the burial chamber as part of the mummification process to protect and guide the deceased"
+        ],
+        [
+            "pyramids at Giza",
+            "Inspire",
+            "Egyptian Burial Practices",
+            "The construction of the pyramids at Giza inspired and exemplified Egyptian burial practices."
+        ],
+        [
+            "priests",
+            "Led",
+            "ancient egypt",
+            "Priests often led the funeral procession, guiding the mourners and performing necessary rituals."
+        ],
+        [
+            "gods",
+            "Protect",
+            "Deceased",
+            "The gods protect the deceased from dangers in the afterlife."
+        ],
+        [
+            "Ancient Egypt",
+            "Included in Burial Chambers",
+            "Amulets",
+            "Ancient Egypt included amulets in burial chambers to protect and guide the deceased."
+        ],
+        [
+            "Egyptians",
+            "Practiced",
+            "Mummification",
+            "The Egyptians practiced mummification to ensure the preservation of the body for the afterlife."
+        ],
+        [
+            "amulets",
+            "Associated With",
+            "ancient egypt",
+            "Religious texts are associated with the mummification process as part of the overall funerary practices to ensure safe passage into the afterlife."
+        ],
+        [
+            "ancient egypt",
+            "Ensured Safe Passage By",
+            "ancient egypt",
+            "The pharaohs\" safe passage into the afterlife was ensured by these funerary practices."
+        ],
+        [
+            "priests",
+            "Worked With",
+            "ancient egypt",
+            "Priests worked closely with embalmers to ensure that the mummification and burial processes adhered to religious beliefs and practices."
+        ],
+        [
+            "BOOK OF THE DEAD",
+            "inscription",
+            "PAPYRUS SCROLLS",
+            "The Book of the Dead was often inscribed on papyrus scrolls, which were placed in the tomb with the deceased"
+        ],
+        [
+            "MUMMIFICATION",
+            "process",
+            "INTERNAL ORGANS",
+            "The internal organs were removed during the mummification process to prevent decay and ensure the body's preservation"
+        ],
+        [
+            "ancient egypt",
+            "Involves",
+            "ancient egypt",
+            "Burial practices in ancient Egypt involved mummification, a crucial step in preparing the deceased for the afterlife."
+        ],
+        [
+            "PYRAMIDS AT GIZA",
+            "burial_process_in",
+            "FUNERAL PROCESSION",
+            "The funeral procession was a significant part of the burial process for the pharaohs and other important individuals buried in the pyramids at Giza"
+        ],
+        [
+            "BOOK OF THE DEAD",
+            "burialCustom",
+            "EMBALMERS",
+            "The Book of the Dead was often placed in the tombs by embalmers as part of the burial process"
+        ],
+        [
+            "ancient egypt",
+            "elaborate tombs",
+            "include_construction_of",
+            "The elaborate construction of tombs was a significant aspect of ancient Egyptian culture, reflecting their belief in the afterlife and the need to provide for the deceased's journey beyond."
+        ],
+        [
+            "afterlife",
+            "Protected By",
+            "Pyramids",
+            "The pyramids were designed to protect the deceased\"s body and possessions, serving as a gateway to the afterlife."
+        ],
+        [
+            "afterlife",
+            "Guided By",
+            "Religious Texts and Amulets",
+            "These texts and amulets were intended to guide the deceased on their journey through the afterlife."
+        ],
+        [
+            "Egyptians",
+            "Provided",
+            "Items for Afterlife",
+            "The Egyptians provided items such as food, tools, and personal belongings in burials for the afterlife."
+        ],
+        [
+            "society",
+            "Supports",
+            "Religious Beliefs",
+            "Society supported and reinforced the religious beliefs that were integral to their burial practices."
+        ],
+        [
+            "PHARAOHS",
+            "used-for",
+            "LINEN BANDAGES",
+            "Linen bandages were used to wrap the mummified bodies of pharaohs"
+        ],
+        [
+            "internal organs",
+            "Dried Out With",
+            "salt",
+            "The internal organs were dried out with salt after being removed from the body."
+        ],
+        [
+            "PROFESSIONAL MOURNERS",
+            "lead",
+            "FUNERAL PROCESSION",
+            "Professional mourners led the funeral procession, performing rituals and honoring the deceased"
+        ],
+        [
+            "salt",
+            "Used In",
+            "Mummification Process",
+            "Salt is used to dry out the body during the mummification process."
+        ],
+        [
+            "BOOK OF THE DEAD",
+            "is-critical-for",
+            "BURIAL",
+            "The Book of the Dead was an essential part of the burial process, providing guidance for the deceased in the afterlife"
+        ],
+        [
+            "Ancient Egypt",
+            "Constructed for Elite",
+            "Elaborate Tombs",
+            "Ancient Egypt constructed elaborate tombs for their elite."
+        ],
+        [
+            "ancient egypt",
+            "example_of",
+            "ancient egypt",
+            "Ancient Egypt is an example of itself."
+        ],
+        [
+            "BOOK OF THE DEAD",
+            "guidance",
+            "FUNERAL PROCESSION",
+            "The Book of the Dead was sometimes read during the funeral procession to guide the deceased"
+        ],
+        [
+            "amulets",
+            "Included In",
+            "ancient egypt",
+            "Amulets were included in the burial chamber to protect and guide the deceased."
+        ],
+        [
+            "realm of the gods",
+            "Protected By",
+            "ancient egypt",
+            "The realm of the gods is indirectly protected by pyramids, which serve as gateways and protective structures for the deceased."
+        ],
+        [
+            "MUMMIFICATION",
+            "process",
+            "BURIAL",
+            "Mummification was a key part of the burial process, ensuring the preservation of the body for the afterlife"
+        ],
+        [
+            "BURIAL",
+            "burial_custom",
+            "AMULETS",
+            "Amulets were often included in the burial chamber to protect and guide the deceased in the afterlife"
+        ],
+        [
+            "PYRAMIDS AT GIZA",
+            "protect",
+            "MUMMIFICATION",
+            "The pyramids at Giza were designed to protect the mummified bodies of the pharaohs and other important individuals"
+        ],
+        [
+            "PROFESSIONAL MOURNERS",
+            "involved_in",
+            "AMULETS",
+            "Professional mourners were involved in the funeral procession, which often included the placement of amulets in the burial chamber"
+        ],
+        [
+            "ancient egypt",
+            "Hired By",
+            "Deceased\"s Family",
+            "Professional mourners were hired by the deceased\"s family to lead the funeral procession and perform rituals."
+        ],
+        [
+            "MUMMIFICATION",
+            "process",
+            "LINEN BANDAGES",
+            "Linen bandages were used in the mummification process to wrap the preserved body"
+        ],
+        [
+            "afterlife",
+            "aid in",
+            "amulets",
+            "Amulets are often believed to aid in facilitating the journey to the afterlife."
+        ],
+        [
+            "soul",
+            "Reaches",
+            "realm of the gods",
+            "The soul\"s journey through the afterlife was intended to lead it to the realm of the gods."
+        ],
+        [
+            "Egyptians",
+            "Constructed",
+            "Tombs and Pyramids",
+            "The Egyptians constructed elaborate tombs and, for those with resources, grand pyramids to honor the deceased."
+        ],
+        [
+            "amulets",
+            "Included In",
+            "ancient egypt",
+            "Religious texts were included in the burial chamber to guide the deceased on their journey to the afterlife."
+        ],
+        [
+            "realm of the gods",
+            "Guided By",
+            "amulets",
+            "The realm of the gods is guided by religious texts and amulets that help the deceased navigate the afterlife."
+        ],
+        [
+            "realm of the gods",
+            "Reached By",
+            "ancient egypt",
+            "The realm of the gods is reached by the deceased after they successfully navigate the dangers of the afterlife."
+        ],
+        [
+            "afterlife",
+            "Believed In By",
+            "Ancient Egyptians",
+            "The Ancient Egyptians believed in the afterlife as a continuation of existence beyond death."
+        ],
+        [
+            "ANCIENT EGYPT",
+            "process",
+            "INTERNAL ORGANS",
+            "Internal organs were removed during the mummification process in ancient Egypt to prevent decay and ensure the body's preservation"
+        ],
+        [
+            "Book of the Dead",
+            "Found In",
+            "Egyptian Tombs",
+            "The Book of the Dead is commonly found in Egyptian tombs."
+        ],
+        [
+            "society",
+            "Includes",
+            "Egyptian Culture",
+            "Society included the cultural aspects of Egyptian life, including their burial practices."
+        ],
+        [
+            "MUMMIFICATION",
+            "component_of",
+            "FUNERAL PROCESSION",
+            "The mummification process was a crucial part of the funeral procession, ensuring the proper preparation of the body for burial"
+        ],
+        [
+            "amulets",
+            "Placed In",
+            "Tomb",
+            "Papyrus scrolls inscribed with texts such as the Book of the Dead were placed in the tomb with the deceased."
+        ],
+        [
+            "ANCIENT EGYPT",
+            "rule",
+            "PHARAOHS",
+            "Pharaohs were the rulers of ancient Egypt and were often buried in elaborate tombs, reflecting the civilization's beliefs about the afterlife"
+        ],
+        [
+            "afterlife",
+            "burial practices",
+            "reflect_beliefs_about",
+            "The burial practices reflect beliefs about the afterlife."
+        ],
+        [
+            "BURIAL",
+            "preservative",
+            "SALT",
+            "Salt was used in the burial process to dry out the body and prevent decay"
+        ],
+        [
+            "ancient egypt",
+            "Participated In",
+            "Funeral Procession",
+            "Professional mourners led the funeral procession in ancient Egypt."
+        ],
+        [
+            "ancient Egyptian burial practices",
+            "involve",
+            "ancient egypt",
+            "Ancient Egyptian burial practices involve specific rituals and procedures unique to ancient Egypt."
+        ],
+        [
+            "gods",
+            "Guide",
+            "Deceased",
+            "The gods guide the deceased through the dangers of the afterlife to ensure their safe passage."
+        ],
+        [
+            "PRIESTS",
+            "buried_with",
+            "PAPYRUS SCROLLS",
+            "Priests often placed papyrus scrolls inscribed with the Book of the Dead in the tomb with the deceased"
+        ],
+        [
+            "soul",
+            "Reunited With",
+            "body",
+            "In ancient Egyptian belief, the soul needed to be reunited with the body in the afterlife for continued existence."
+        ],
+        [
+            "pyramids at Giza",
+            "House",
+            "Important Individuals",
+            "The pyramids at Giza were also built to house the bodies of important individuals in the afterlife."
+        ],
+        [
+            "Book of the Dead",
+            "placed_in",
+            "ancient egypt",
+            "The Book of the Dead was placed in ancient Egypt as part of funerary rituals and beliefs surrounding the afterlife."
+        ],
+        [
+            "ancient egypt",
+            "Includes",
+            "ancient egypt",
+            "Burial practices included the construction of elaborate tombs, which were essential for ensuring the safe passage of the deceased into the afterlife."
+        ],
+        [
+            "amulets",
+            "Accompanied By",
+            "ancient egypt",
+            "Spells and prayers were accompanied by personal belongings to ensure the comfort and well-being of the deceased in the afterlife."
+        ],
+        [
+            "Book of the Dead",
+            "Book of the Dead",
+            "inscribed_on",
+            "The Book of the Dead contains inscriptions intended for use in the afterlife."
+        ],
+        [
+            "BOOK OF THE DEAD",
+            "includes",
+            "AMULETS",
+            "The Book of the Dead and amulets were both included in the burial chamber to protect and guide the deceased in the afterlife"
+        ],
+        [
+            "EMBALMERS",
+            "include",
+            "AMULETS",
+            "Embalmers often included amulets in the burial chamber to protect and guide the deceased in the afterlife"
+        ],
+        [
+            "BURIAL",
+            "burial_component",
+            "PAPYRUS SCROLLS",
+            "Papyrus scrolls inscribed with the Book of the Dead were often placed in the tomb as part of the burial process"
+        ],
+        [
+            "internal organs",
+            "Removed During",
+            "ancient egypt",
+            "Internal organs were removed during the mummification process to prevent decay."
+        ],
+        [
+            "The deceased\"s family",
+            "Hired",
+            "Professional Mourners",
+            "The family hired professional mourners to lead the funeral procession and perform necessary rituals."
+        ],
+        [
+            "PROFESSIONAL MOURNERS",
+            "process",
+            "SALT",
+            "Professional mourners were involved in the funeral procession, which included the mummification process using salt to dry out the body"
+        ],
+        [
+            "gods",
+            "Inhabit",
+            "Afterlife",
+            "The gods inhabit the afterlife, which serves as the final destination for the souls of the deceased."
+        ],
+        [
+            "ANCIENT EGYPT",
+            "origin",
+            "PAPYRUS SCROLLS",
+            "Papyrus scrolls were used in ancient Egypt to inscribe the Book of the Dead and other religious texts, which were placed in the tomb with the deceased"
+        ],
+        [
+            "PHARAOHS",
+            "process",
+            "INTERNAL ORGANS",
+            "The internal organs of pharaohs were removed during the mummification process to prevent decay and ensure the body's preservation"
+        ],
+        [
+            "EMBALMERS",
+            "involved_in",
+            "FUNERAL PROCESSION",
+            "Embalmers were involved in the funeral procession, ensuring the proper preparation of the body for burial"
+        ],
+        [
+            "EMBALMERS",
+            "profession",
+            "PROFESSIONAL MOURNERS",
+            "Embalmers and professional mourners both played roles in the funeral procession, with embalmers preparing the body and mourners leading the procession"
+        ],
+        [
+            "ancient Egyptian burial practices",
+            "incorporate",
+            "amulets",
+            "Ancient Egyptian burial practices incorporated amulets as protective symbols."
+        ],
+        [
+            "ancient egypt",
+            "reverence for the deceased",
+            "show_reverence_for",
+            "Ancient Egypt revered the deceased, demonstrating show_reverence_for through elaborate burial practices and creation of monumental tombs."
+        ],
+        [
+            "ANCIENT EGYPT",
+            "used-for",
+            "LINEN BANDAGES",
+            "Linen bandages were used in the mummification process in ancient Egypt to wrap the preserved body"
+        ],
+        [
+            "linen bandages",
+            "Used In",
+            "Mummification Process",
+            "Linen bandages were used to wrap and preserve the body during the mummification process."
+        ],
+        [
+            "PHARAOHS",
+            "role_in_burial",
+            "PRIESTS",
+            "Priests played a crucial role in the burial of pharaohs, performing necessary rituals and guiding the deceased"
+        ],
+        [
+            "pyramids at Giza",
+            "Include",
+            "Amulets",
+            "The pyramids at Giza included amulets in the burial chambers to protect and guide the deceased."
+        ],
+        [
+            "ancient egypt",
+            "Subject of",
+            "Mummification Process",
+            "The deceased underwent a detailed mummification process to ensure their physical preservation for the afterlife."
+        ],
+        [
+            "PHARAOHS",
+            "processComponent",
+            "SALT",
+            "Salt was used in the mummification process of pharaohs to dry out the body and prevent decay"
+        ],
+        [
+            "ancient egypt",
+            "Reflects",
+            "Egyptian beliefs about the afterlife",
+            "Burial practices reflected the deep-seated Egyptian beliefs about the afterlife, emphasizing the importance of honoring the deceased."
+        ],
+        [
+            "ancient egypt",
+            "Subject Of",
+            "Mummification Process",
+            "The deceased underwent a detailed mummification process to ensure their physical preservation for the afterlife."
+        ],
+        [
+            "PHARAOHS",
+            "burial_practice",
+            "BURIAL",
+            "The burial of pharaohs was a significant event in ancient Egypt, involving elaborate tombs and rituals"
+        ],
+        [
+            "PYRAMIDS AT GIZA",
+            "function",
+            "TOMBS",
+            "The pyramids at Giza were a type of tomb built to house the pharaohs and other important individuals in the afterlife"
+        ],
+        [
+            "Ancient Egypt",
+            "burial practices",
+            "has_practice",
+            "Ancient Egypt's burial practices involve specific rituals and methods, denoted by 'has_practice', which characterize their approach to death and mummification."
+        ],
+        [
+            "amulets",
+            "Used In",
+            "ancient egypt",
+            "Spells and prayers were used during the mummification process to protect and guide the deceased."
+        ],
+        [
+            "afterlife",
+            "food",
+            "includes",
+            "The concept of afterlife often includes specific beliefs about food, suggesting what sustenance might be available or required in the post-mortem existence."
+        ],
+        [
+            "MUMMIFICATION",
+            "process",
+            "SALT",
+            "Salt was used in the mummification process to dry out the body and prevent decay"
+        ],
+        [
+            "Ancient Egypt",
+            "Included in Burial Chambers",
+            "Burial Items",
+            "Ancient Egypt included various items in burial chambers to ensure the deceased\"s comfort and sustenance."
+        ],
+        [
+            "PHARAOHS",
+            "believed_to_be_used_by",
+            "BOOK OF THE DEAD",
+            "The Book of the Dead was often placed in the tombs of pharaohs to guide them in the afterlife"
+        ],
+        [
+            "amulets",
+            "Part Of",
+            "ancient egypt",
+            "Amulets were considered part of the deceased\"s personal belongings in the burial chamber."
+        ],
+        [
+            "constructed_for",
+            "elaborate tombs",
+            "elite",
+            "undefine"
+        ],
+        [
+            "Book of the Dead",
+            "Associated With",
+            "Mummification Process",
+            "The Book of the Dead is associated with the mummification process as both are part of ensuring the deceased\"s safe passage into the afterlife."
+        ],
+        [
+            "priests",
+            "Worked With",
+            "ancient egypt",
+            "Priests collaborated with other skilled individuals to ensure that all aspects of the burial and afterlife preparations were properly executed."
+        ],
+        [
+            "PYRAMIDS AT GIZA",
+            "burial_location",
+            "DECEASED",
+            "The pyramids at Giza were built to house the deceased pharaohs and other important individuals"
+        ],
+        [
+            "ANCIENT EGYPT",
+            "process",
+            "SALT",
+            "Salt was used in the mummification process in ancient Egypt to dry out the body and prevent decay"
+        ],
+        [
+            "afterlife",
+            "aid in",
+            "amulets",
+            "Amulets are often believed to aid in facilitating the journey to the afterlife."
+        ],
+        [
+            "MUMMIFICATION",
+            "process-component",
+            "PAPYRUS SCROLLS",
+            "Papyrus scrolls inscribed with the Book of the Dead were often placed in the tomb as part of the mummification process"
+        ],
+        [
+            "amulets",
+            "Associated With",
+            "amulets",
+            "Religious texts and amulets were both included in the burial chamber to guide and protect the deceased on their journey to the afterlife."
+        ],
+        [
+            "amulets",
+            "Used In",
+            "ancient egypt",
+            "Amulets were used during the mummification process to ensure the deceased\"s safe passage into the afterlife."
+        ],
+        [
+            "ancient egypt",
+            "Prepared For",
+            "Mummification",
+            "Embalmers were responsible for preparing the body through mummification, which included removing organs, drying the body, and wrapping it in linen."
+        ],
+        [
+            "Ancient Egypt",
+            "Required Expertise of",
+            "Skilled Individuals",
+            "Ancient Egypt required the expertise of skilled individuals for their burial practices."
+        ],
+        [
+            "PRIESTS",
+            "involved_in",
+            "SALT",
+            "Priests were involved in the mummification process, which used salt to dry out the body and prevent decay"
+        ],
+        [
+            "priests",
+            "Conducted Rituals For",
+            "ancient egypt",
+            "Priests conducted various rituals for the deceased, including leading funeral processions and performing ceremonies."
+        ],
+        [
+            "EMBALMERS",
+            "process",
+            "INTERNAL ORGANS",
+            "Embalmers removed the internal organs during the mummification process to prevent decay and ensure the body's preservation"
+        ],
+        [
+            "ancient egypt",
+            "Worked With",
+            "Priests",
+            "Embalmers worked closely with priests during the mummification process."
+        ],
+        [
+            "BURIAL",
+            "component",
+            "FUNERAL PROCESSION",
+            "The funeral procession was a significant part of the burial process, where the deceased was carried to the burial site"
+        ],
+        [
+            "afterlife",
+            "Required For",
+            "Mummification Process",
+            "Mummification was essential for ensuring the preservation of the body, which was necessary for the soul\"s reunion with the body in the afterlife."
+        ],
+        [
+            "amulets",
+            "Associated With",
+            "amulets",
+            "Amulets were often included alongside religious texts to provide additional guidance and protection."
+        ],
+        [
+            "pyramids at Giza",
+            "Built By",
+            "Ancient Egyptians",
+            "The pyramids at Giza were constructed by the ancient Egyptians as part of their burial practices."
+        ],
+        [
+            "ancient egypt",
+            "Accompanied By",
+            "Religious Texts and Amulets",
+            "The deceased were accompanied by religious texts and amulets to ensure their safe passage into the afterlife."
+        ],
+        [
+            "BOOK OF THE DEAD",
+            "preservation",
+            "SALT",
+            "The Book of the Dead was placed in the tomb after the body was mummified using salt to prevent decay"
+        ],
+        [
+            "Book of the Dead",
+            "Helps Navigate",
+            "Afterlife",
+            "The Book of the Dead contains spells and prayers that help the deceased navigate the dangers of the afterlife."
+        ],
+        [
+            "afterlife",
+            "Included In",
+            "Burial Chambers",
+            "Items necessary for the afterlife, such as food, tools, and personal belongings, were included in burial chambers."
+        ],
+        [
+            "society",
+            "Influences",
+            "Funeral Processions",
+            "Society influenced the structure and conduct of funeral processions, which were an important part of the burial practices."
+        ],
+        [
+            "The deceased\"s family",
+            "Buried With",
+            "Items for the Afterlife",
+            "The family ensured that a variety of items were included in the tomb to assist the deceased in the afterlife."
+        ],
+        [
+            "PRIESTS",
+            "use",
+            "LINEN BANDAGES",
+            "Priests were involved in the burial process, which included the use of linen bandages to wrap the mummified body"
+        ],
+        [
+            "PHARAOHS",
+            "burial_context",
+            "PAPYRUS SCROLLS",
+            "Papyrus scrolls inscribed with the Book of the Dead and other religious texts were often placed in the tombs of pharaohs"
+        ],
+        [
+            "PHARAOHS",
+            "buried_in",
+            "TOMBS",
+            "Pharaohs were often buried in elaborate tombs, such as the pyramids, to ensure their safe passage into the afterlife"
+        ],
+        [
+            "BOOK OF THE DEAD",
+            "utilized",
+            "PRIESTS",
+            "Priests used the Book of the Dead to perform rituals and guide the deceased in the afterlife"
+        ],
+        [
+            "Ancient Egypt",
+            "Required Expertise of",
+            "Priests",
+            "Ancient Egypt required the expertise of priests in their burial practices."
+        ],
+        [
+            "ancient egypt",
+            "Performed For",
+            "Deceased",
+            "Professional mourners performed rituals to honor the deceased."
+        ],
+        [
+            "PRIESTS",
+            "role_in",
+            "FUNERAL PROCESSION",
+            "Priests played a significant role in the funeral procession, performing rituals and guiding the deceased"
+        ],
+        [
+            "afterlife",
+            "is part of",
+            "realm of the gods",
+            "In many mythological contexts, the concept of 'afterlife' often involves transitioning to a 'realm of the gods', suggesting a part-whole relationship where the afterlife is considered as being part of the greater divine realm governed by deities."
+        ],
+        [
+            "afterlife",
+            "includes",
+            "tools",
+            "The concept of afterlife often includes the use of tools as resources or instruments in the existence beyond life."
+        ],
+        [
+            "ANCIENT EGYPT",
+            "origin",
+            "PYRAMIDS AT GIZA",
+            "The pyramids at Giza are a part of ancient Egypt's elaborate burial practices, built to house the pharaohs and other important individuals"
+        ],
+        [
+            "EMBALMERS",
+            "collaboration",
+            "PRIESTS",
+            "Embalmers and priests worked together in the burial process, with embalmers preparing the body and priests performing rituals"
+        ],
+        [
+            "BOOK OF THE DEAD",
+            "replacement",
+            "INTERNAL ORGANS",
+            "The Book of the Dead was placed in the tomb after the internal organs were removed during the mummification process"
+        ],
+        [
+            "amulets",
+            "Accompanied By",
+            "amulets",
+            "Spells and prayers were accompanied by amulets to enhance their protective and guiding properties."
+        ],
+        [
+            "ANCIENT EGYPT",
+            "origin",
+            "BOOK OF THE DEAD",
+            "The Book of the Dead is a religious text from ancient Egypt, used to guide the deceased in the afterlife"
+        ],
+        [
+            "ancient egypt",
+            "Buried With",
+            "Items for Afterlife",
+            "The deceased was often buried with a variety of items to ensure their comfort and provision in the afterlife."
+        ],
+        [
+            "amulets",
+            "Associated With",
+            "ancient egypt",
+            "Religious texts are associated with elaborate tombs as part of the funerary practices to ensure safe passage into the afterlife."
+        ],
+        [
+            "perform",
+            "professional mourners",
+            "rituals",
+            "The act of performing professional mourners is associated with specific rituals, typically involving the expression of grief and condolences through performances or ceremonies."
+        ],
+        [
+            "amulets",
+            "ancient Egyptian burial practices",
+            "incorporate",
+            "Amulets were often incorporated into ancient Egyptian burial practices."
+        ],
+        [
+            "BURIAL",
+            "process",
+            "LINEN BANDAGES",
+            "Linen bandages were used in the burial process to wrap the mummified body"
+        ],
+        [
+            "PRIESTS",
+            "function_in_ceremony",
+            "PROFESSIONAL MOURNERS",
+            "Priests and professional mourners both played roles in the funeral procession, with priests performing rituals and mourners leading the procession"
+        ],
+        [
+            "Egyptians",
+            "afterlife",
+            "believed_in",
+            "The Egyptians believed in an afterlife, which was a significant part of their religious beliefs and funerary practices."
+        ],
+        [
+            "ancient egypt",
+            "Believed in Afterlife",
+            "Egyptians",
+            "The Egyptians believed that the deceased would continue to exist in an afterlife."
+        ],
+        [
+            "gods",
+            "Receive Offerings From",
+            "Ancient Egyptians",
+            "The gods receive offerings from the ancient Egyptians, who construct elaborate tombs, perform mummification, and include religious texts and amulets to ensure the safe passage of the deceased into the afterlife."
+        ],
+        [
+            "BOOK OF THE DEAD",
+            "burial_accompanyment",
+            "LINEN BANDAGES",
+            "The Book of the Dead was often placed in the tomb alongside the mummified body wrapped in linen bandages"
+        ],
+        [
+            "PHARAOHS",
+            "included_in",
+            "AMULETS",
+            "Amulets were included in the burial chambers of pharaohs to protect and guide them in the afterlife"
+        ],
+        [
+            "ancient egypt",
+            "Interred In",
+            "Tombs",
+            "The deceased was interred in elaborate tombs designed to ensure their safe passage into the afterlife."
+        ],
+        [
+            "linen bandages",
+            "Associated With",
+            "Egyptian Burial Practices",
+            "Linen bandages were an essential part of Egyptian burial practices, used in the mummification process."
+        ],
+        [
+            "Egyptians",
+            "Included in Burials",
+            "Religious Texts and Amulets",
+            "The Egyptians included religious texts and amulets in burials to assist the deceased in the afterlife."
+        ],
+        [
+            "ANCIENT EGYPT",
+            "burial_practice",
+            "TOMBS",
+            "Tombs in ancient Egypt were built to house the deceased and their possessions, ensuring their safe passage into the afterlife"
+        ],
+        [
+            "PYRAMIDS AT GIZA",
+            "burial",
+            "PHARAOHS",
+            "The pyramids at Giza were built to house the pharaohs and other important individuals, reflecting their status and the civilization's beliefs about the afterlife"
+        ],
+        [
+            "ANCIENT EGYPT",
+            "practice",
+            "AMULETS",
+            "Amulets were included in the burial chamber in ancient Egypt to protect and guide the deceased in the afterlife"
+        ],
+        [
+            "PYRAMIDS AT GIZA",
+            "burial-practice",
+            "AMULETS",
+            "Amulets were often included in the burial chambers of the pyramids at Giza to protect and guide the deceased"
+        ],
+        [
+            "ancient egypt",
+            "Incorporates",
+            "amulets",
+            "Burial practices incorporated religious texts and amulets to ensure the deceased\"s safe passage into the afterlife."
+        ],
+        [
+            "ancient egypt",
+            "Recipient Of",
+            "Funeral Procession",
+            "The deceased\"s family would often hire professional mourners to lead the funeral procession and perform rituals in honor of the deceased."
+        ],
+        [
+            "ancient egypt",
+            "Recipient Of",
+            "Religious Texts and Amulets",
+            "The deceased was provided with religious texts and amulets to help them navigate the dangers of the afterlife and reach the realm of the gods."
+        ],
+        [
+            "Book of the Dead",
+            "Aids in Reaching",
+            "Realm of the Gods",
+            "The Book of the Dead aids the deceased in reaching the realm of the gods."
+        ],
+        [
+            "amulets",
+            "Aimed At",
+            "ancient egypt",
+            "Amulets were aimed at ensuring the deceased\"s safe passage into the afterlife."
+        ],
+        [
+            "BOOK OF THE DEAD",
+            "was-read-by",
+            "PROFESSIONAL MOURNERS",
+            "The Book of the Dead was sometimes read during the funeral procession by professional mourners"
+        ],
+        [
+            "ANCIENT EGYPT",
+            "process",
+            "BURIAL",
+            "Burial in ancient Egypt was a complex process that included the construction of tombs, mummification, and the inclusion of religious texts and amulets"
+        ],
+        [
+            "ANCIENT EGYPT",
+            "profession",
+            "PROFESSIONAL MOURNERS",
+            "Professional mourners in ancient Egypt were hired to lead the funeral procession and perform rituals to honor the deceased"
+        ],
+        [
+            "PROFESSIONAL MOURNERS",
+            "role_in",
+            "BURIAL",
+            "Professional mourners played a role in the burial process, leading the funeral procession and performing rituals"
+        ],
+        [
+            "BURIAL",
+            "extraction",
+            "INTERNAL ORGANS",
+            "The internal organs were removed during the burial process to prevent decay and ensure the body's preservation"
+        ],
+        [
+            "ancient Egyptian burial practices",
+            "elaborate tombs",
+            "include",
+            "Ancient Egyptian burial practices include elaborate tombs."
+        ],
+        [
+            "ancient egypt",
+            "Ensured",
+            "Safe Passage to Afterlife",
+            "Embalmers ensured the safe passage of the deceased by performing the necessary rituals and procedures."
+        ],
+        [
+            "ANCIENT EGYPT",
+            "believe_in",
+            "AFTERLIFE",
+            "Ancient Egypt's burial practices were deeply rooted in the belief in the afterlife, where the deceased would continue to exist"
+        ],
+        [
+            "ANCIENT EGYPT",
+            "practice",
+            "MUMMIFICATION",
+            "Mummification was a key aspect of ancient Egyptian burial practices, involving the preservation of the body for the afterlife"
+        ],
+        [
+            "PYRAMIDS AT GIZA",
+            "origin",
+            "LINEN BANDAGES",
+            "Linen bandages were used to wrap the mummified bodies of the pharaohs and other important individuals buried in the pyramids at Giza"
+        ],
+        [
+            "PRIESTS",
+            "include_in_burial",
+            "AMULETS",
+            "Priests often included amulets in the burial chamber to protect and guide the deceased in the afterlife"
+        ],
+        [
+            "Ancient Egypt",
+            "Practiced",
+            "Mummification",
+            "Ancient Egypt practiced mummification as a key aspect of their burial practices."
+        ],
+        [
+            "PYRAMIDS AT GIZA",
+            "ingredient",
+            "SALT",
+            "Salt was used in the mummification process of the pharaohs and other important individuals buried in the pyramids at Giza"
+        ],
+        [
+            "afterlife",
+            "contain_items_for",
+            "ancient egypt",
+            "The concept of afterlife, as understood in ancient Egypt, contained items for use in the spiritual journey beyond life."
+        ],
+        [
+            "PROFESSIONAL MOURNERS",
+            "involved_in",
+            "PAPYRUS SCROLLS",
+            "Professional mourners were involved in the funeral procession, which often included the placement of papyrus scrolls inscribed with the Book of the Dead in the tomb"
+        ],
+        [
+            "Ancient Egypt",
+            "Required Expertise of",
+            "Embalmers",
+            "Ancient Egypt required the expertise of embalmers for their burial practices."
+        ],
+        [
+            "pyramids at Giza",
+            "Include",
+            "Religious Texts",
+            "The pyramids at Giza included a variety of religious texts in the burial chambers to assist the deceased."
+        ],
+        [
+            "PROFESSIONAL MOURNERS",
+            "mummification_process_involved",
+            "INTERNAL ORGANS",
+            "Professional mourners were involved in the funeral procession, which included the mummification process where internal organs were removed"
+        ],
+        [
+            "PHARAOHS",
+            "mummification_by",
+            "EMBALMERS",
+            "Pharaohs' bodies were mummified by skilled embalmers to ensure their preservation for the afterlife"
+        ],
+        [
+            "soul",
+            "Believed In By",
+            "ancient Egyptians",
+            "The ancient Egyptians believed in the existence of the soul and its importance in the afterlife."
+        ],
+        [
+            "EMBALMERS",
+            "role",
+            "BURIAL",
+            "Embalmers were crucial in the burial process, responsible for the mummification of the body"
+        ],
+        [
+            "ancient egypt",
+            "lead",
+            "ancient egypt",
+            "Ancient Egypt led itself"
+        ],
+        [
+            "The deceased\"s family",
+            "Placed in Tomb",
+            "Book of the Dead",
+            "The family ensured that the Book of the Dead was inscribed on papyrus scrolls and placed in the tomb."
+        ],
+        [
+            "ANCIENT EGYPT",
+            "burial_practices",
+            "DECEASED",
+            "The deceased in ancient Egypt were honored through elaborate burial practices, reflecting the civilization's beliefs about the afterlife"
+        ],
+        [
+            "PYRAMIDS AT GIZA",
+            "burial_process",
+            "INTERNAL ORGANS",
+            "The internal organs of the pharaohs and other important individuals buried in the pyramids at Giza were removed during the mummification process"
+        ],
+        [
+            "afterlife",
+            "includes",
+            "ancient egypt",
+            "In ancient Egyptian belief, the concept of afterlife involves the journey to the Field of Reeds and judgment by Osiris."
+        ],
+        [
+            "ANCIENT EGYPT",
+            "ritual_in",
+            "FUNERAL PROCESSION",
+            "The funeral procession was a significant ritual in ancient Egypt, where the deceased was carried to the burial site"
+        ],
+        [
+            "Ancient Egypt",
+            "Buried with Care and Respect",
+            "Common People",
+            "Ancient Egypt ensured that common people were buried with care and respect."
+        ],
+        [
+            "ancient egypt",
+            "Participated In",
+            "Burial Process",
+            "Embalmers played a crucial role in the burial process by preparing the body for mummification."
+        ],
+        [
+            "amulets",
+            "Included In",
+            "ancient egypt",
+            "Spells and prayers were included in elaborate tombs to ensure the safe passage of the deceased into the afterlife."
+        ],
+        [
+            "ancient egypt",
+            "Housed In",
+            "ancient egypt",
+            "Pharaohs were buried in pyramids, which served as their eternal resting places."
+        ],
+        [
+            "ancient egypt",
+            "Honored By",
+            "Professional Mourners",
+            "The deceased\"s family often hired professional mourners to honor the deceased during the funeral."
+        ],
+        [
+            "PHARAOHS",
+            "honored_by",
+            "PROFESSIONAL MOURNERS",
+            "Professional mourners were often hired to honor the pharaohs during the funeral procession"
+        ],
+        [
+            "realm of the gods",
+            "Ensured By",
+            "ancient egypt",
+            "The realm of the gods is ensured by the mummification process, which prepares the body for eternal existence."
+        ],
+        [
+            "EMBALMERS",
+            "utilize",
+            "LINEN BANDAGES",
+            "Embalmers used linen bandages to wrap the mummified body, ensuring its preservation"
+        ],
+        [
+            "PYRAMIDS AT GIZA",
+            "located-in",
+            "PAPYRUS SCROLLS",
+            "Papyrus scrolls inscribed with the Book of the Dead and other religious texts were often placed in the pyramids at Giza"
+        ],
+        [
+            "gateway to the afterlife",
+            "pharaohs",
+            "serve_as",
+            "The gateway to the afterlife, as served by Pharaohs, acts as a passage or portal for their souls to transition into the next world."
+        ],
+        [
+            "PHARAOHS",
+            "burial_custom",
+            "FUNERAL PROCESSION",
+            "The funeral procession was a significant part of the burial process for pharaohs, often led by professional mourners and priests"
+        ],
+        [
+            "ANCIENT EGYPT",
+            "role_in",
+            "PRIESTS",
+            "Priests in ancient Egypt played a significant role in the burial process, performing rituals and guiding the deceased"
+        ],
+        [
+            "EMBALMERS",
+            "placed_in_tomb",
+            "PAPYRUS SCROLLS",
+            "Embalmers often placed papyrus scrolls inscribed with the Book of the Dead in the tomb with the deceased"
+        ],
+        [
+            "amulets",
+            "Used In",
+            "Book of the Dead",
+            "Papyrus scrolls were often inscribed with the Book of the Dead and placed in the tomb with the deceased."
+        ],
+        [
+            "soul",
+            "Navigates",
+            "afterlife",
+            "The soul was thought to navigate the dangers of the afterlife with the help of spells and prayers."
+        ],
+        [
+            "PRIESTS",
+            "role",
+            "BURIAL",
+            "Priests were essential in the burial process, performing rituals and guiding the deceased"
+        ],
+        [
+            "PRIESTS",
+            "involved_in",
+            "INTERNAL ORGANS",
+            "Priests were involved in the mummification process, which included the removal of internal organs to prevent decay"
+        ],
+        [
+            "ANCIENT EGYPT",
+            "profession",
+            "EMBALMERS",
+            "Embalmers in ancient Egypt were responsible for the mummification process, a crucial part of the burial practices"
+        ],
+        [
+            "Ancient Egypt",
+            "Included in Burial Chambers",
+            "Religious Texts",
+            "Ancient Egypt included various religious texts in burial chambers to assist the deceased."
+        ],
+        [
+            "pyramids at Giza",
+            "House",
+            "Pharaohs",
+            "The pyramids at Giza were built to house the bodies of pharaohs in the afterlife."
+        ],
+        [
+            "ancient egypt",
+            "Protected By",
+            "ancient egypt",
+            "The pyramids protected the bodies and possessions of the pharaohs."
+        ],
+        [
+            "PROFESSIONAL MOURNERS",
+            "involved_in",
+            "LINEN BANDAGES",
+            "Professional mourners were involved in the funeral procession, which included the use of linen bandages to wrap the mummified body"
+        ]
+    ]
+}

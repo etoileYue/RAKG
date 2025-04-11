@@ -1,0 +1,177 @@
+{
+  "entities": [
+    {
+      "name": "SPACEX",
+      "type": "ORGANIZATION",
+      "description": "A private space company working on making space travel more affordable and developing space habitats, including on Mars"
+    },
+    {
+      "name": "BLUE ORIGIN",
+      "type": "ORGANIZATION",
+      "description": "A private space company focusing on reusable rockets and spacecraft to reduce the cost of space travel"
+    },
+    {
+      "name": "VIRGIN GALACTIC",
+      "type": "ORGANIZATION",
+      "description": "A private space company contributing to the development of space tourism by making space travel more accessible to civilians"
+    },
+    {
+      "name": "MARS",
+      "type": "GEO",
+      "description": "A planet where SpaceX is developing habitats for potential human settlement"
+    },
+    {
+      "name": "EARTH'S ORBIT",
+      "type": "GEO",
+      "description": "The area around Earth where space hotels and other space tourism infrastructure are being developed"
+    },
+    {
+      "name": "SPACE TOURISM",
+      "type": "EVENT",
+      "description": "The emerging industry of civilian travel to space for leisure and exploration, driven by advancements in technology and competition among private companies"
+    },
+    {
+      "name": "ASTRONAUTS",
+      "type": "PERSON",
+      "description": "Trained professionals who have traditionally been the only people to travel to space"
+    },
+    {
+      "name": "SCIENTISTS",
+      "type": "PERSON",
+      "description": "Researchers who may use space tourism as a platform for conducting experiments and gathering data in space"
+    },
+    {
+      "name": "RESEARCHERS",
+      "type": "PERSON",
+      "description": "Experts who collaborate with space enthusiasts to contribute to our understanding of the universe through space tourism"
+    },
+    {
+      "name": "SPACE HOTELS",
+      "type": "GEO",
+      "description": "Accommodations in Earth's orbit being developed to support longer stays and recreational activities in space"
+    },
+    {
+      "name": "REUSABLE ROCKETS",
+      "type": "GEO",
+      "description": "Spacecraft technology developed by companies like SpaceX and Blue Origin to reduce the cost and environmental impact of space travel"
+    },
+    {
+      "name": "SUBORBITAL FLIGHTS",
+      "type": "EVENT",
+      "description": "Short-duration space travel experiences offered by companies like Virgin Galactic, allowing civilians to experience weightlessness and view Earth from space"
+    },
+    {
+      "name": "SCIENTIFIC RESEARCH",
+      "type": "EVENT",
+      "description": "Experiments and data collection activities that can be conducted by civilians during space tourism trips, contributing to scientific knowledge"
+    },
+    {
+      "name": "SUSTAINABILITY",
+      "type": "EVENT",
+      "description": "Efforts to minimize the environmental impact of space tourism and develop eco-friendly technologies and practices"
+    },
+    {
+      "name": "CIVILIANS",
+      "type": "",
+      "description": ""
+    }
+  ],
+  "relations": [
+    [
+      "SPACEX",
+      ":has_relation_with",
+      "SPACE TOURISM",
+      "SpaceX is a key player in the development of space tourism, contributing to the affordability and infrastructure of space travel"
+    ],
+    [
+      "SPACEX",
+      ":has_relation_with",
+      "MARS",
+      "SpaceX is developing habitats on Mars as part of its long-term vision for space tourism and human settlement"
+    ],
+    [
+      "SPACEX",
+      ":has_relation_with",
+      "EARTH'S ORBIT",
+      "SpaceX is involved in the development of space habitats and infrastructure in Earth's orbit to support space tourism"
+    ],
+    [
+      "BLUE ORIGIN",
+      ":has_relation_with",
+      "SPACE TOURISM",
+      "Blue Origin is a significant contributor to space tourism, focusing on reducing the cost of space travel through reusable rockets and spacecraft"
+    ],
+    [
+      "BLUE ORIGIN",
+      ":has_relation_with",
+      "EARTH'S ORBIT",
+      "Blue Origin is contributing to the development of space tourism infrastructure in Earth's orbit through its reusable rockets and spacecraft"
+    ],
+    [
+      "VIRGIN GALACTIC",
+      ":has_relation_with",
+      "SPACE TOURISM",
+      "Virgin Galactic is a major player in the space tourism industry, making space travel more accessible to civilians"
+    ],
+    [
+      "VIRGIN GALACTIC",
+      ":has_relation_with",
+      "EARTH'S ORBIT",
+      "Virgin Galactic is developing space tourism experiences in Earth's orbit, including suborbital flights for civilians"
+    ],
+    [
+      "VIRGIN GALACTIC",
+      ":has_relation_with",
+      "SUBORBITAL FLIGHTS",
+      "Virgin Galactic offers suborbital flights as part of its space tourism offerings, providing civilians with unique space travel experiences"
+    ],
+    [
+      "EARTH'S ORBIT",
+      ":has_relation_with",
+      "SPACE HOTELS",
+      "Space hotels are being developed in Earth's orbit to provide accommodations and recreational activities for space tourists"
+    ],
+    [
+      "SPACE TOURISM",
+      ":has_relation_with",
+      "CIVILIANS",
+      "Civilians are the primary target audience for space tourism, as the industry aims to make space travel accessible to non-astronauts"
+    ],
+    [
+      "SPACE TOURISM",
+      ":has_relation_with",
+      "ASTRONAUTS",
+      "Astronauts represent the traditional participants in space travel, contrasting with the new demographic of civilians entering the space tourism market"
+    ],
+    [
+      "SPACE TOURISM",
+      ":has_relation_with",
+      "SCIENTISTS",
+      "Scientists can use space tourism as a platform to conduct experiments and gather data, contributing to scientific research"
+    ],
+    [
+      "SPACE TOURISM",
+      ":has_relation_with",
+      "RESEARCHERS",
+      "Researchers collaborate with space enthusiasts to advance scientific knowledge through space tourism activities"
+    ],
+    [
+      "SPACE TOURISM",
+      ":has_relation_with",
+      "REUSABLE ROCKETS",
+      "Reusable rockets are a key technology driving down the cost of space travel, making space tourism more sustainable and affordable"
+    ],
+    [
+      "SPACE TOURISM",
+      ":has_relation_with",
+      "SCIENTIFIC RESEARCH",
+      "Space tourism provides a platform for conducting scientific research, allowing civilians to contribute to scientific knowledge and discoveries"
+    ],
+    [
+      "SPACE TOURISM",
+      ":has_relation_with",
+      "SUSTAINABILITY",
+      "Sustainability is a critical consideration in the development of space tourism, with companies focusing on eco-friendly practices to minimize environmental impact"
+    ]
+  ]
+}

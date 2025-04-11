@@ -1,0 +1,203 @@
+{
+  "entities": [
+    {
+      "name": "ORIGAMI",
+      "type": "ORGANIZATION",
+      "description": "Origami is the ancient Japanese art of paper folding, which involves complex mathematical principles and theories, leading to the development of new geometric concepts, theorems, and applications in various fields such as engineering, computer science, and material science"
+    },
+    {
+      "name": "MATHEMATICS",
+      "type": "ORGANIZATION",
+      "description": "Mathematics is the field of study that provides the principles and theories used in origami, including geometry, symmetry, proportion, and ratio"
+    },
+    {
+      "name": "JAPAN",
+      "type": "GEO",
+      "description": "Japan is the country of origin for the art of origami"
+    },
+    {
+      "name": "EUCLIDEAN GEOMETRY",
+      "type": "ORGANIZATION",
+      "description": "Euclidean geometry is a branch of mathematics that studies the properties of points, lines, and planes, and is used in origami to calculate the exact angles and lengths of folds"
+    },
+    {
+      "name": "SYMMETRY",
+      "type": "ORGANIZATION",
+      "description": "Symmetry is a mathematical concept that refers to the balance and harmony of shapes and patterns in a design, which is crucial in creating visually appealing and structurally sound origami models"
+    },
+    {
+      "name": "PROPORTION",
+      "type": "ORGANIZATION",
+      "description": "Proportion is a mathematical principle that involves the relationship between different dimensions and proportions, ensuring that the folds and creases of the paper align correctly to create precise and accurate shapes"
+    },
+    {
+      "name": "RATIO",
+      "type": "ORGANIZATION",
+      "description": "Ratio is a mathematical concept that, along with proportion, plays a crucial role in scaling origami designs while maintaining the integrity of the original structure"
+    },
+    {
+      "name": "ENGINEERING",
+      "type": "ORGANIZATION",
+      "description": "Engineering is a field that has applied origami-inspired principles to develop innovative structures, such as deployable solar panels and medical devices"
+    },
+    {
+      "name": "ARCHITECTURE",
+      "type": "ORGANIZATION",
+      "description": "Architecture is a field that has benefited from the application of origami principles to create efficient and adaptable designs"
+    },
+    {
+      "name": "MATERIAL SCIENCE",
+      "type": "ORGANIZATION",
+      "description": "Material science is a field that has explored the use of origami principles to develop new materials and structures"
+    },
+    {
+      "name": "COMPUTATIONAL ORIGAMI",
+      "type": "ORGANIZATION",
+      "description": "Computational origami is a subfield of computer science that involves developing algorithms and software programs to simulate and analyze complex folding patterns"
+    },
+    {
+      "name": "ROBOTICS",
+      "type": "ORGANIZATION",
+      "description": "Robotics is a field that has seen advancements through the application of computational origami, leading to the design of advanced origami models and new possibilities in artificial intelligence"
+    },
+    {
+      "name": "ARTIFICIAL INTELLIGENCE",
+      "type": "ORGANIZATION",
+      "description": "Artificial intelligence is a field that has benefited from the principles of computational origami, contributing to the development of new algorithms and models"
+    },
+    {
+      "name": "PAPER FOLDING",
+      "type": "ORGANIZATION",
+      "description": "Paper folding is the technique used in origami to transform a flat sheet of paper into intricate three-dimensional structures"
+    },
+    {
+      "name": "GEOMETRY",
+      "type": "ORGANIZATION",
+      "description": "Geometry is a branch of mathematics that deals with the properties and relationships of points, lines, angles, and shapes, and is fundamental to the principles of origami"
+    },
+    {
+      "name": "COMPUTER SCIENCE",
+      "type": "ORGANIZATION",
+      "description": "Computer science is a field that has applied the principles of origami to develop algorithms and software for simulating and analyzing complex folding patterns"
+    },
+    {
+      "name": "DEPLOYABLE SOLAR PANELS",
+      "type": "ORGANIZATION",
+      "description": "Deployable solar panels are engineering applications that use origami principles to create structures that can be folded and unfolded with ease"
+    },
+    {
+      "name": "MEDICAL DEVICES",
+      "type": "ORGANIZATION",
+      "description": "Medical devices are applications of origami principles in engineering, designed to be compact and deployable for medical use"
+    },
+    {
+      "name": "JAPANESE ART",
+      "type": "",
+      "description": ""
+    }
+  ],
+  "relations": [
+    [
+      "ORIGAMI",
+      ":has_relation_with",
+      "MATHEMATICS",
+      "Origami relies heavily on mathematical principles and theories to create intricate and precise designs"
+    ],
+    [
+      "ORIGAMI",
+      ":has_relation_with",
+      "EUCLIDEAN GEOMETRY",
+      "Euclidean geometry is used in origami to calculate the exact angles and lengths of folds needed to create symmetrical and aesthetically pleasing designs"
+    ],
+    [
+      "ORIGAMI",
+      ":has_relation_with",
+      "SYMMETRY",
+      "Symmetry is a key concept in origami, used to create visually appealing and structurally sound models"
+    ],
+    [
+      "ORIGAMI",
+      ":has_relation_with",
+      "PROPORTION",
+      "Proportion is used in origami to scale designs up or down while maintaining the integrity of the original structure"
+    ],
+    [
+      "ORIGAMI",
+      ":has_relation_with",
+      "RATIO",
+      "Ratio, along with proportion, is used in origami to ensure that the folds and creases of the paper align correctly to create precise and accurate shapes"
+    ],
+    [
+      "ORIGAMI",
+      ":has_relation_with",
+      "ENGINEERING",
+      "Engineering has applied origami principles to develop innovative structures, such as deployable solar panels and medical devices"
+    ],
+    [
+      "ORIGAMI",
+      ":has_relation_with",
+      "ARCHITECTURE",
+      "Architecture has benefited from the application of origami principles to create efficient and adaptable designs"
+    ],
+    [
+      "ORIGAMI",
+      ":has_relation_with",
+      "MATERIAL SCIENCE",
+      "Material science has explored the use of origami principles to develop new materials and structures"
+    ],
+    [
+      "ORIGAMI",
+      ":has_relation_with",
+      "COMPUTATIONAL ORIGAMI",
+      "Computational origami is a field that uses algorithms and software to simulate and analyze complex folding patterns, contributing to the advancement of origami"
+    ],
+    [
+      "ORIGAMI",
+      ":has_relation_with",
+      "JAPANESE ART",
+      "Origami is a part of Japanese art, reflecting the cultural heritage and traditional techniques of Japan"
+    ],
+    [
+      "ORIGAMI",
+      ":has_relation_with",
+      "PAPER FOLDING",
+      "Origami is a specific form of paper folding that involves precise manipulations of paper to create intricate designs"
+    ],
+    [
+      "ORIGAMI",
+      ":has_relation_with",
+      "GEOMETRY",
+      "Geometry is a core mathematical principle in origami, used to determine how paper can be folded into specific forms"
+    ],
+    [
+      "ORIGAMI",
+      ":has_relation_with",
+      "COMPUTER SCIENCE",
+      "Computer science has applied the principles of origami to develop algorithms and software for simulating and analyzing complex folding patterns"
+    ],
+    [
+      "ORIGAMI",
+      ":has_relation_with",
+      "DEPLOYABLE SOLAR PANELS",
+      "Origami principles have been applied in engineering to develop deployable solar panels that can be folded and unfolded with ease"
+    ],
+    [
+      "ORIGAMI",
+      ":has_relation_with",
+      "MEDICAL DEVICES",
+      "Origami principles have been used in the design of medical devices that are compact and deployable"
+    ],
+    [
+      "COMPUTATIONAL ORIGAMI",
+      ":has_relation_with",
+      "ROBOTICS",
+      "Computational origami has contributed to the field of robotics by enabling the design of advanced origami models and exploring new possibilities in artificial intelligence"
+    ],
+    [
+      "COMPUTATIONAL ORIGAMI",
+      ":has_relation_with",
+      "ARTIFICIAL INTELLIGENCE",
+      "Computational origami has contributed to the development of new algorithms and models in artificial intelligence"
+    ]
+  ]
+}

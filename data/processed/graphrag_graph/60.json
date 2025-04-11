@@ -1,0 +1,517 @@
+{
+  "entities": [
+    {
+      "name": "FILM EDITING",
+      "type": "ORGANIZATION",
+      "description": "Film editing is the process of selecting and arranging shots in a film to create a cohesive and engaging narrative, often referred to as the \"invisible art\" because it is not noticeable when done well but is crucial for the film's impact"
+    },
+    {
+      "name": "FILM EDITOR",
+      "type": "PERSON",
+      "description": "A film editor is a professional who shapes the story by deciding what shots to include, the order in which they appear, and how long each shot should last, using various techniques to evoke emotions and enhance the storytelling"
+    },
+    {
+      "name": "ROUGH CUT",
+      "type": "EVENT",
+      "description": "The rough cut is the initial stage of the editing process where the editor selects the best takes and organizes them into a coherent sequence according to the script or the director's vision"
+    },
+    {
+      "name": "CONTINUITY EDITING",
+      "type": "ORGANIZATION",
+      "description": "Continuity editing is a set of techniques used to maintain a sense of spatial and temporal coherence within a scene, ensuring that the audience can follow the action smoothly and understand the spatial relationships between characters and objects"
+    },
+    {
+      "name": "MATCH CUTS",
+      "type": "ORGANIZATION",
+      "description": "Match cuts are a continuity editing technique where a cut is made between two shots that have a similar composition or movement, creating a smooth transition and a sense of visual coherence"
+    },
+    {
+      "name": "EYELINE MATCHES",
+      "type": "ORGANIZATION",
+      "description": "Eyeline matches are a continuity editing technique where a character's gaze in one shot is matched with what they are looking at in the next shot, establishing a clear line of sight and spatial relationship"
+    },
+    {
+      "name": "SHOT-REVERSE-SHOT SEQUENCES",
+      "type": "ORGANIZATION",
+      "description": "Shot-reverse-shot sequences are a continuity editing technique where the camera alternates between two characters in a conversation, typically showing one character speaking and the other listening, to maintain a sense of engagement and interaction"
+    },
+    {
+      "name": "JUMP CUTS",
+      "type": "ORGANIZATION",
+      "description": "Jump cuts are a creative editing technique where there is a sudden and noticeable change in the position of the subject within the frame, often used to create a sense of disorientation or to convey the passage of time"
+    },
+    {
+      "name": "CROSS-CUTTING",
+      "type": "ORGANIZATION",
+      "description": "Cross-cutting is a creative editing technique where the editor alternates between two or more scenes that are happening simultaneously, often used to build tension or to show the relationship between different events"
+    },
+    {
+      "name": "MONTAGES",
+      "type": "ORGANIZATION",
+      "description": "Montages are a creative editing technique where a series of shots are edited together to compress time and convey a lot of information in a short period, often used to show the passage of time or to build a mood"
+    },
+    {
+      "name": "PARALLEL EDITING",
+      "type": "ORGANIZATION",
+      "description": "Parallel editing is a creative editing technique where the editor alternates between two or more storylines that are happening at different times or in different places, often used to create suspense or to draw thematic parallels"
+    },
+    {
+      "name": "FLASHBACKS",
+      "type": "ORGANIZATION",
+      "description": "Flashbacks are a technique in film editing where a scene from the past is shown, often used to provide background information or to create a sense of mystery or psychological depth"
+    },
+    {
+      "name": "FLASH-FORWARDS",
+      "type": "ORGANIZATION",
+      "description": "Flash-forwards are a technique in film editing where a scene from the future is shown, often used to create a sense of anticipation or to reveal a character's fate"
+    },
+    {
+      "name": "NON-LINEAR EDITING",
+      "type": "ORGANIZATION",
+      "description": "Non-linear editing is a technique in film editing where the chronological order of events is distorted, often used to create a sense of mystery, disorientation, or psychological depth"
+    },
+    {
+      "name": "SOUND DESIGN",
+      "type": "ORGANIZATION",
+      "description": "Sound design is the process of creating and integrating sound elements, such as music, sound effects, and dialogue, into a film to enhance the mood, atmosphere, and tension of a scene, adding depth and dimension to the visual storytelling"
+    },
+    {
+      "name": "AUDIENCE",
+      "type": "PERSON",
+      "description": "The audience is the group of people who watch and experience the film, and whose engagement and emotional response are influenced by the film editing"
+    },
+    {
+      "name": "STORY",
+      "type": "ORGANIZATION",
+      "description": "The story is the narrative or plot of the film, which the film editor helps to shape and enhance through the selection and arrangement of shots"
+    },
+    {
+      "name": "SHOTS",
+      "type": "ORGANIZATION",
+      "description": "Shots are the individual visual elements that make up a film, which the film editor selects and arranges to create a cohesive narrative"
+    },
+    {
+      "name": "TIMING",
+      "type": "ORGANIZATION",
+      "description": "Timing refers to the duration and pacing of shots and scenes, which the film editor manipulates to evoke different emotions and build tension"
+    },
+    {
+      "name": "PACE",
+      "type": "ORGANIZATION",
+      "description": "Pace is the speed at which the film progresses, which the film editor controls to maintain audience engagement and enhance the storytelling"
+    },
+    {
+      "name": "RHYTHM",
+      "type": "ORGANIZATION",
+      "description": "Rhythm is the pattern and flow of the editing, which the film editor uses to create a sense of movement and energy in the film"
+    },
+    {
+      "name": "RAW FOOTAGE",
+      "type": "ORGANIZATION",
+      "description": "Raw footage is the unedited material captured during filming, which the film editor works with to create the final film"
+    },
+    {
+      "name": "SCRIPT",
+      "type": "ORGANIZATION",
+      "description": "The script is the written document that outlines the story, dialogue, and actions in the film, which the film editor uses as a guide during the editing process"
+    },
+    {
+      "name": "DIRECTOR",
+      "type": "PERSON",
+      "description": "The director is the creative leader of the film, whose vision the film editor aims to realize through the editing process"
+    },
+    {
+      "name": "VISUAL EFFECTS",
+      "type": "ORGANIZATION",
+      "description": "Visual effects are computer-generated imagery or other techniques used to enhance the visual storytelling, which the film editor integrates into the film"
+    },
+    {
+      "name": "SOUND EFFECTS",
+      "type": "ORGANIZATION",
+      "description": "Sound effects are audio elements used to enhance the realism or impact of a scene, which the film editor integrates into the film"
+    },
+    {
+      "name": "DIALOGUE",
+      "type": "ORGANIZATION",
+      "description": "Dialogue is the spoken words in a film, which the film editor works with to ensure clarity and emotional impact"
+    },
+    {
+      "name": "MUSIC",
+      "type": "ORGANIZATION",
+      "description": "Music is the audio component that sets the tone and mood of a scene, which the film editor integrates into the film"
+    },
+    {
+      "name": "EMOTIONS",
+      "type": "ORGANIZATION",
+      "description": "Emotions are the feelings evoked in the audience, which the film editor aims to manipulate through the editing process"
+    },
+    {
+      "name": "TENSION",
+      "type": "ORGANIZATION",
+      "description": "Tension is the feeling of suspense or anticipation created in the audience, which the film editor builds through the editing process"
+    },
+    {
+      "name": "SUSPENSE",
+      "type": "ORGANIZATION",
+      "description": "Suspense is the feeling of uncertainty or excitement about what will happen next, which the film editor creates through the editing process"
+    },
+    {
+      "name": "IMPACT",
+      "type": "ORGANIZATION",
+      "description": "Impact is the overall effect of the film on the audience, which the film editor aims to maximize through the editing process"
+    },
+    {
+      "name": "NARRATIVE STRUCTURE",
+      "type": "ORGANIZATION",
+      "description": "Narrative structure is the way the story is organized and presented, which the film editor helps to shape through the editing process"
+    },
+    {
+      "name": "SPATIAL COHERENCE",
+      "type": "ORGANIZATION",
+      "description": "Spatial coherence is the clear and consistent representation of space within a scene, which the film editor maintains through continuity editing techniques"
+    },
+    {
+      "name": "TEMPORAL COHERENCE",
+      "type": "ORGANIZATION",
+      "description": "Temporal coherence is the clear and consistent representation of time within a scene, which the film editor maintains through continuity editing techniques"
+    },
+    {
+      "name": "VISUAL COHERENCE",
+      "type": "ORGANIZATION",
+      "description": "Visual coherence is the consistency and clarity of the visual elements within a scene, which the film editor maintains through continuity editing techniques"
+    },
+    {
+      "name": "CREATIVE EDITING TECHNIQUES",
+      "type": "ORGANIZATION",
+      "description": "Creative editing techniques are methods used by the film editor to convey meaning, evoke emotions, and enhance the visual storytelling beyond basic continuity"
+    },
+    {
+      "name": "TEMPORAL STRUCTURE",
+      "type": "ORGANIZATION",
+      "description": "Temporal structure is the arrangement of events in time within a film, which the film editor manipulates to create a sense of mystery, disorientation, or psychological depth"
+    },
+    {
+      "name": "MYSTERY",
+      "type": "ORGANIZATION",
+      "description": "Mystery is a feeling of uncertainty or intrigue about the events or characters in a film, which the film editor can create through non-linear editing techniques"
+    },
+    {
+      "name": "DISORIENTATION",
+      "type": "ORGANIZATION",
+      "description": "Disorientation is a feeling of confusion or uncertainty about the events or characters in a film, which the film editor can create through non-linear editing techniques"
+    },
+    {
+      "name": "PSYCHOLOGICAL DEPTH",
+      "type": "ORGANIZATION",
+      "description": "Psychological depth is the complexity and richness of the characters' inner lives, which the film editor can reveal through non-linear editing techniques"
+    },
+    {
+      "name": "HARMONY",
+      "type": "ORGANIZATION",
+      "description": "Harmony is the balanced and cohesive integration of audio and visual elements in a film, which the film editor aims to achieve through sound editing"
+    },
+    {
+      "name": "SENSORY ENGAGEMENT",
+      "type": "ORGANIZATION",
+      "description": "Sensory engagement is the involvement of the audience's senses, which the film editor enhances through the integration of sound and visual elements"
+    },
+    {
+      "name": "EMOTIONAL RESONANCE",
+      "type": "ORGANIZATION",
+      "description": "Emotional resonance is the deep emotional connection the audience feels with the film, which the film editor aims to create through the careful selection and arrangement of shots"
+    },
+    {
+      "name": "IMAGINATION",
+      "type": "ORGANIZATION",
+      "description": "Imagination is the audience's ability to visualize and engage with the story, which the film editor aims to stimulate through the editing process"
+    },
+    {
+      "name": "POSSIBILITY",
+      "type": "ORGANIZATION",
+      "description": "Possibility is the sense of potential and exploration that the film editor aims to evoke in the audience through the editing process"
+    },
+    {
+      "name": "FILMMAKING",
+      "type": "",
+      "description": ""
+    }
+  ],
+  "relations": [
+    [
+      "FILM EDITING",
+      ":has_relation_with",
+      "FILM EDITOR",
+      "Film editing is the process carried out by a film editor, who uses various techniques to shape the story and enhance the film's impact"
+    ],
+    [
+      "FILM EDITING",
+      ":has_relation_with",
+      "ROUGH CUT",
+      "Film editing begins with the rough cut, where the editor assembles the raw footage into a coherent sequence"
+    ],
+    [
+      "FILM EDITING",
+      ":has_relation_with",
+      "CONTINUITY EDITING",
+      "Film editing often involves continuity editing techniques to maintain a sense of spatial and temporal coherence within a scene"
+    ],
+    [
+      "FILM EDITING",
+      ":has_relation_with",
+      "MATCH CUTS",
+      "Film editing can use match cuts to create smooth transitions and a sense of visual coherence"
+    ],
+    [
+      "FILM EDITING",
+      ":has_relation_with",
+      "EYELINE MATCHES",
+      "Film editing can use eyeline matches to establish a clear line of sight and spatial relationship between characters"
+    ],
+    [
+      "FILM EDITING",
+      ":has_relation_with",
+      "SHOT-REVERSE-SHOT SEQUENCES",
+      "Film editing can use shot-reverse-shot sequences to maintain engagement and interaction in a conversation"
+    ],
+    [
+      "FILM EDITING",
+      ":has_relation_with",
+      "JUMP CUTS",
+      "Film editing can use jump cuts to create a sense of disorientation or to convey the passage of time"
+    ],
+    [
+      "FILM EDITING",
+      ":has_relation_with",
+      "CROSS-CUTTING",
+      "Film editing can use cross-cutting to build tension or to show the relationship between different events"
+    ],
+    [
+      "FILM EDITING",
+      ":has_relation_with",
+      "MONTAGES",
+      "Film editing can use montages to compress time and convey a lot of information in a short period"
+    ],
+    [
+      "FILM EDITING",
+      ":has_relation_with",
+      "PARALLEL EDITING",
+      "Film editing can use parallel editing to create suspense or to draw thematic parallels"
+    ],
+    [
+      "FILM EDITING",
+      ":has_relation_with",
+      "FLASHBACKS",
+      "Film editing can use flashbacks to provide background information or to create a sense of mystery or psychological depth"
+    ],
+    [
+      "FILM EDITING",
+      ":has_relation_with",
+      "FLASH-FORWARDS",
+      "Film editing can use flash-forwards to create a sense of anticipation or to reveal a character's fate"
+    ],
+    [
+      "FILM EDITING",
+      ":has_relation_with",
+      "NON-LINEAR EDITING",
+      "Film editing can use non-linear editing to distort the chronological order of events and create a sense of mystery or psychological depth"
+    ],
+    [
+      "FILM EDITING",
+      ":has_relation_with",
+      "SOUND DESIGN",
+      "Film editing includes sound design, which integrates sound elements to enhance the mood, atmosphere, and tension of a scene"
+    ],
+    [
+      "FILM EDITING",
+      ":has_relation_with",
+      "FILMMAKING",
+      "Film editing is a crucial part of the filmmaking process, where the raw footage is transformed into a cohesive and engaging narrative"
+    ],
+    [
+      "FILM EDITING",
+      ":has_relation_with",
+      "AUDIENCE",
+      "Film editing aims to captivate and engage the audience by creating a compelling and immersive cinematic experience"
+    ],
+    [
+      "FILM EDITING",
+      ":has_relation_with",
+      "STORY",
+      "Film editing shapes and enhances the story by selecting and arranging shots to create a cohesive narrative"
+    ],
+    [
+      "FILM EDITING",
+      ":has_relation_with",
+      "SHOTS",
+      "Film editing involves selecting and arranging shots to create a cohesive and engaging narrative"
+    ],
+    [
+      "FILM EDITING",
+      ":has_relation_with",
+      "TIMING",
+      "Film editing manipulates the timing of shots and scenes to evoke different emotions and build tension"
+    ],
+    [
+      "FILM EDITING",
+      ":has_relation_with",
+      "PACE",
+      "Film editing controls the pace of the film to maintain audience engagement and enhance the storytelling"
+    ],
+    [
+      "FILM EDITING",
+      ":has_relation_with",
+      "RHYTHM",
+      "Film editing uses rhythm to create a sense of movement and energy in the film"
+    ],
+    [
+      "FILM EDITING",
+      ":has_relation_with",
+      "RAW FOOTAGE",
+      "Film editing begins with the raw footage, which is transformed into the final film"
+    ],
+    [
+      "FILM EDITING",
+      ":has_relation_with",
+      "SCRIPT",
+      "Film editing uses the script as a guide to organize and shape the narrative"
+    ],
+    [
+      "FILM EDITING",
+      ":has_relation_with",
+      "DIRECTOR",
+      "Film editing aims to realize the director's vision by shaping the story and enhancing the film's impact"
+    ],
+    [
+      "FILM EDITING",
+      ":has_relation_with",
+      "VISUAL EFFECTS",
+      "Film editing integrates visual effects to enhance the visual storytelling"
+    ],
+    [
+      "FILM EDITING",
+      ":has_relation_with",
+      "SOUND EFFECTS",
+      "Film editing integrates sound effects to enhance the realism and impact of a scene"
+    ],
+    [
+      "FILM EDITING",
+      ":has_relation_with",
+      "DIALOGUE",
+      "Film editing works with dialogue to ensure clarity and emotional impact"
+    ],
+    [
+      "FILM EDITING",
+      ":has_relation_with",
+      "MUSIC",
+      "Film editing integrates music to set the tone and mood of a scene"
+    ],
+    [
+      "FILM EDITING",
+      ":has_relation_with",
+      "EMOTIONS",
+      "Film editing aims to evoke emotions in the audience through the careful selection and arrangement of shots"
+    ],
+    [
+      "FILM EDITING",
+      ":has_relation_with",
+      "TENSION",
+      "Film editing builds tension through the manipulation of timing, pace, and rhythm"
+    ],
+    [
+      "FILM EDITING",
+      ":has_relation_with",
+      "SUSPENSE",
+      "Film editing creates suspense through the manipulation of timing, pace, and rhythm"
+    ],
+    [
+      "FILM EDITING",
+      ":has_relation_with",
+      "IMPACT",
+      "Film editing aims to maximize the overall impact of the film on the audience"
+    ],
+    [
+      "FILM EDITING",
+      ":has_relation_with",
+      "NARRATIVE STRUCTURE",
+      "Film editing helps to shape the narrative structure by organizing and presenting the story"
+    ],
+    [
+      "FILM EDITING",
+      ":has_relation_with",
+      "SPATIAL COHERENCE",
+      "Film editing maintains spatial coherence through continuity editing techniques"
+    ],
+    [
+      "FILM EDITING",
+      ":has_relation_with",
+      "TEMPORAL COHERENCE",
+      "Film editing maintains temporal coherence through continuity editing techniques"
+    ],
+    [
+      "FILM EDITING",
+      ":has_relation_with",
+      "VISUAL COHERENCE",
+      "Film editing maintains visual coherence through continuity editing techniques"
+    ],
+    [
+      "FILM EDITING",
+      ":has_relation_with",
+      "CREATIVE EDITING TECHNIQUES",
+      "Film editing employs creative editing techniques to convey meaning, evoke emotions, and enhance the visual storytelling"
+    ],
+    [
+      "FILM EDITING",
+      ":has_relation_with",
+      "TEMPORAL STRUCTURE",
+      "Film editing manipulates the temporal structure to create a sense of mystery, disorientation, or psychological depth"
+    ],
+    [
+      "FILM EDITING",
+      ":has_relation_with",
+      "MYSTERY",
+      "Film editing can create a sense of mystery through non-linear editing techniques"
+    ],
+    [
+      "FILM EDITING",
+      ":has_relation_with",
+      "DISORIENTATION",
+      "Film editing can create a sense of disorientation through non-linear editing techniques"
+    ],
+    [
+      "FILM EDITING",
+      ":has_relation_with",
+      "PSYCHOLOGICAL DEPTH",
+      "Film editing can reveal psychological depth through non-linear editing techniques"
+    ],
+    [
+      "FILM EDITING",
+      ":has_relation_with",
+      "HARMONY",
+      "Film editing aims to achieve harmony by integrating audio and visual elements in a balanced and cohesive manner"
+    ],
+    [
+      "FILM EDITING",
+      ":has_relation_with",
+      "SENSORY ENGAGEMENT",
+      "Film editing enhances sensory engagement by integrating sound and visual elements to engage the audience's senses"
+    ],
+    [
+      "FILM EDITING",
+      ":has_relation_with",
+      "EMOTIONAL RESONANCE",
+      "Film editing aims to create emotional resonance by stimulating a deep emotional connection with the film"
+    ],
+    [
+      "FILM EDITING",
+      ":has_relation_with",
+      "IMAGINATION",
+      "Film editing aims to stimulate the audience's imagination by creating a compelling and immersive cinematic experience"
+    ],
+    [
+      "FILM EDITING",
+      ":has_relation_with",
+      "POSSIBILITY",
+      "Film editing aims to evoke a sense of possibility by exploring new worlds of imagination and potential"
+    ]
+  ]
+}

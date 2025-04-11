@@ -1,0 +1,80 @@
+[
+  {
+    "correct_answer": "Spiders build intricate webs.",
+    "retrieved_context": " Spider Web\nStructure relation: prey --[Wrapped in silk by]-> spider relation: prey --[Caught by]-> web  webs\nStructure relation: silk --[Tested by]-> spider relation: silk --[Used for]-> egg sac creation relation: silk --[Used for]-> mating rituals relation: spiders --[Builds]-> webs  silk\nMaterial  spiders\nAnimal relation: silk --[Used for]-> web building relation: spiders --[Catches]-> prey  prey\nAnimal relation: spiders --[Uses]-> silk  spider web strand\nWeb Component  spider\nArachnid  webs\nStructure  web construction\nBehavior  web\nStructure  web building\nActivity",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Webs serve as homes and hunting grounds for spiders.",
+    "retrieved_context": " Spider Web\nStructure relation: prey --[Wrapped in silk by]-> spider relation: prey --[Caught by]-> web  webs\nStructure relation: silk --[Tested by]-> spider relation: silk --[Used for]-> egg sac creation relation: silk --[Used for]-> mating rituals relation: spiders --[Builds]-> webs  silk\nMaterial  spiders\nAnimal relation: silk --[Used for]-> web building relation: spiders --[Catches]-> prey  prey\nAnimal relation: spiders --[Uses]-> silk  spider web strand\nWeb Component  webs\nStructure  spider\nArachnid  web\nStructure  web construction\nBehavior  web building\nActivity",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Spiders catch prey efficiently using their webs.",
+    "retrieved_context": " Spider Web\nStructure relation: prey --[Wrapped in silk by]-> spider relation: prey --[Caught by]-> web  webs\nStructure relation: silk --[Tested by]-> spider relation: silk --[Used for]-> egg sac creation relation: silk --[Used for]-> mating rituals relation: spiders --[Builds]-> webs  silk\nMaterial  spiders\nAnimal relation: silk --[Used for]-> web building relation: spiders --[Catches]-> prey  prey\nAnimal relation: spiders --[Uses]-> silk  spider\nArachnid  spider web strand\nWeb Component relation: prey --[Wrapped in silk by]-> spider relation: prey --[Caught by]-> web  web\nStructure  spider\nArachnid  prey\nAnimal  webs\nStructure  web construction\nBehavior  web\nStructure",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Spiders select suitable locations for web-building.",
+    "retrieved_context": " Spider Web\nStructure  web building\nActivity  spider web strand\nWeb Component relation: prey --[Wrapped in silk by]-> spider relation: prey --[Caught by]-> web  webs\nStructure relation: silk --[Tested by]-> spider relation: silk --[Used for]-> egg sac creation relation: silk --[Used for]-> mating rituals relation: spiders --[Builds]-> webs  silk\nMaterial  spiders\nAnimal relation: silk --[Used for]-> web building relation: spiders --[Catches]-> prey  prey\nAnimal relation: spiders --[Uses]-> silk  web construction\nBehavior  webs\nStructure  web\nStructure  spider\nArachnid",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Spiders produce silk from spinnerets.",
+    "retrieved_context": " Spider Web\nStructure relation: prey --[Wrapped in silk by]-> spider relation: prey --[Caught by]-> web  webs\nStructure relation: silk --[Tested by]-> spider relation: silk --[Used for]-> egg sac creation relation: silk --[Used for]-> mating rituals relation: spiders --[Builds]-> webs  silk\nMaterial  spiders\nAnimal relation: silk --[Used for]-> web building relation: spiders --[Catches]-> prey  prey\nAnimal relation: spiders --[Uses]-> silk  spider\nArachnid  spider web strand\nWeb Component  spinnerets\nAnatomical Structure  web construction\nBehavior  spider\nArachnid relation: spinnerets --[Part of]-> spider relation: spinnerets --[Used for]-> web construction relation: silk --[Tested by]-> spider relation: silk --[Used for]-> egg sac creation relation: silk --[Used for]-> mating rituals  spider\nArachnid  silk\nMaterial relation: silk --[Used for]-> web building  web building\nActivity  egg sac creation\nActivity  mating rituals\nActivity  egg sac creation\nActivity  webs\nStructure",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Spider silk is strong and elastic.",
+    "retrieved_context": "relation: silk --[Tested by]-> spider relation: silk --[Used for]-> egg sac creation relation: silk --[Used for]-> mating rituals  spider\nArachnid  silk\nMaterial relation: silk --[Used for]-> web building  web building\nActivity  egg sac creation\nActivity  mating rituals\nActivity  Spider Web\nStructure  spider web strand\nWeb Component relation: prey --[Wrapped in silk by]-> spider relation: prey --[Caught by]-> web  webs\nStructure relation: silk --[Tested by]-> spider relation: silk --[Used for]-> egg sac creation relation: silk --[Used for]-> mating rituals relation: spiders --[Builds]-> webs  silk\nMaterial  spiders\nAnimal relation: silk --[Used for]-> web building relation: spiders --[Catches]-> prey  prey\nAnimal relation: spiders --[Uses]-> silk  spider\nArachnid  web construction\nBehavior  web\nStructure  webs\nStructure",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Spider silk is composed of protein molecules.",
+    "retrieved_context": " Spider Web\nStructure relation: silk --[Tested by]-> spider relation: silk --[Used for]-> egg sac creation relation: silk --[Used for]-> mating rituals  spider\nArachnid  silk\nMaterial relation: silk --[Used for]-> web building  web building\nActivity  egg sac creation\nActivity  mating rituals\nActivity  spider web strand\nWeb Component relation: prey --[Wrapped in silk by]-> spider relation: prey --[Caught by]-> web  webs\nStructure relation: silk --[Tested by]-> spider relation: silk --[Used for]-> egg sac creation relation: silk --[Used for]-> mating rituals relation: spiders --[Builds]-> webs  silk\nMaterial  spiders\nAnimal relation: silk --[Used for]-> web building relation: spiders --[Catches]-> prey  prey\nAnimal relation: spiders --[Uses]-> silk  spider\nArachnid  web\nStructure  webs\nStructure  web construction\nBehavior",
+    "evaluation": 0
+  },
+  {
+    "correct_answer": "Spiders can produce different types of silk.",
+    "retrieved_context": " Spider Web\nStructure relation: prey --[Wrapped in silk by]-> spider relation: prey --[Caught by]-> web  webs\nStructure relation: silk --[Tested by]-> spider relation: silk --[Used for]-> egg sac creation relation: silk --[Used for]-> mating rituals relation: spiders --[Builds]-> webs  silk\nMaterial  spiders\nAnimal relation: silk --[Used for]-> web building relation: spiders --[Catches]-> prey  prey\nAnimal relation: spiders --[Uses]-> silk relation: silk --[Tested by]-> spider relation: silk --[Used for]-> egg sac creation relation: silk --[Used for]-> mating rituals  spider\nArachnid  silk\nMaterial relation: silk --[Used for]-> web building  web building\nActivity  egg sac creation\nActivity  mating rituals\nActivity  spider web strand\nWeb Component  spider\nArachnid  web construction\nBehavior  webs\nStructure  web\nStructure",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Spiders anchor silk strands to surfaces to build webs.",
+    "retrieved_context": " Spider Web\nStructure  spider web strand\nWeb Component relation: prey --[Wrapped in silk by]-> spider relation: prey --[Caught by]-> web  webs\nStructure relation: silk --[Tested by]-> spider relation: silk --[Used for]-> egg sac creation relation: silk --[Used for]-> mating rituals relation: spiders --[Builds]-> webs  silk\nMaterial  spiders\nAnimal relation: silk --[Used for]-> web building relation: spiders --[Catches]-> prey  prey\nAnimal relation: spiders --[Uses]-> silk  web construction\nBehavior relation: silk --[Tested by]-> spider relation: silk --[Used for]-> egg sac creation relation: silk --[Used for]-> mating rituals  spider\nArachnid  silk\nMaterial relation: silk --[Used for]-> web building  web building\nActivity  egg sac creation\nActivity  mating rituals\nActivity  webs\nStructure  spider\nArachnid  web\nStructure",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Spiders construct radial lines as the framework of the web.",
+    "retrieved_context": " Spider Web\nStructure relation: prey --[Wrapped in silk by]-> spider relation: prey --[Caught by]-> web  webs\nStructure relation: silk --[Tested by]-> spider relation: silk --[Used for]-> egg sac creation relation: silk --[Used for]-> mating rituals relation: spiders --[Builds]-> webs  silk\nMaterial  spiders\nAnimal relation: silk --[Used for]-> web building relation: spiders --[Catches]-> prey  prey\nAnimal relation: spiders --[Uses]-> silk  spider web strand\nWeb Component  webs\nStructure  web\nStructure  spider\nArachnid  web construction\nBehavior relation: trap line --[Transmits]-> vibrations  web\nStructure  spider\nArachnid relation: trap line --[Alerts]-> spider  vibrations\nSignal relation: trap line --[Part of]-> web  trap line\nWeb Component",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Spiders lay down sticky spiral lines on the web.",
+    "retrieved_context": " Spider Web\nStructure relation: prey --[Wrapped in silk by]-> spider relation: prey --[Caught by]-> web  webs\nStructure relation: silk --[Tested by]-> spider relation: silk --[Used for]-> egg sac creation relation: silk --[Used for]-> mating rituals relation: spiders --[Builds]-> webs  silk\nMaterial  spiders\nAnimal relation: silk --[Used for]-> web building relation: spiders --[Catches]-> prey  prey\nAnimal relation: spiders --[Uses]-> silk  spider\nArachnid  spider web strand\nWeb Component relation: trap line --[Transmits]-> vibrations  web\nStructure  spider\nArachnid relation: trap line --[Alerts]-> spider  vibrations\nSignal relation: trap line --[Part of]-> web  trap line\nWeb Component  webs\nStructure  web construction\nBehavior  web\nStructure",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Spiders periodically test the tension of silk strands.",
+    "retrieved_context": " Spider Web\nStructure relation: prey --[Wrapped in silk by]-> spider relation: prey --[Caught by]-> web  webs\nStructure relation: silk --[Tested by]-> spider relation: silk --[Used for]-> egg sac creation relation: silk --[Used for]-> mating rituals relation: spiders --[Builds]-> webs  silk\nMaterial  spiders\nAnimal relation: silk --[Used for]-> web building relation: spiders --[Catches]-> prey  prey\nAnimal relation: spiders --[Uses]-> silk  spider web strand\nWeb Component relation: silk --[Tested by]-> spider relation: silk --[Used for]-> egg sac creation relation: silk --[Used for]-> mating rituals  spider\nArachnid  silk\nMaterial relation: silk --[Used for]-> web building  web building\nActivity  egg sac creation\nActivity  mating rituals\nActivity  spider\nArachnid  web construction\nBehavior  webs\nStructure  web\nStructure",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Spiders have an innate sense of how to build webs.",
+    "retrieved_context": " Spider Web\nStructure relation: prey --[Wrapped in silk by]-> spider relation: prey --[Caught by]-> web  webs\nStructure relation: silk --[Tested by]-> spider relation: silk --[Used for]-> egg sac creation relation: silk --[Used for]-> mating rituals relation: spiders --[Builds]-> webs  silk\nMaterial  spiders\nAnimal relation: silk --[Used for]-> web building relation: spiders --[Catches]-> prey  prey\nAnimal relation: spiders --[Uses]-> silk  spider web strand\nWeb Component  spider\nArachnid  webs\nStructure  web construction\nBehavior  web\nStructure  web building\nActivity",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Spiders place a trap line in the web to signal prey.",
+    "retrieved_context": " Spider Web\nStructure relation: prey --[Wrapped in silk by]-> spider relation: prey --[Caught by]-> web  webs\nStructure relation: silk --[Tested by]-> spider relation: silk --[Used for]-> egg sac creation relation: silk --[Used for]-> mating rituals relation: spiders --[Builds]-> webs  silk\nMaterial  spiders\nAnimal relation: silk --[Used for]-> web building relation: spiders --[Catches]-> prey  prey\nAnimal relation: spiders --[Uses]-> silk  spider\nArachnid  spider web strand\nWeb Component relation: trap line --[Transmits]-> vibrations  web\nStructure  spider\nArachnid relation: trap line --[Alerts]-> spider  vibrations\nSignal relation: trap line --[Part of]-> web  trap line\nWeb Component relation: prey --[Wrapped in silk by]-> spider relation: prey --[Caught by]-> web  web\nStructure  spider\nArachnid  prey\nAnimal  webs\nStructure  web\nStructure",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Spiders immobilize prey with a bite and wrap it in silk.",
+    "retrieved_context": "relation: prey --[Wrapped in silk by]-> spider relation: prey --[Caught by]-> web  webs\nStructure relation: silk --[Tested by]-> spider relation: silk --[Used for]-> egg sac creation relation: silk --[Used for]-> mating rituals relation: spiders --[Builds]-> webs  silk\nMaterial  spiders\nAnimal relation: silk --[Used for]-> web building relation: spiders --[Catches]-> prey  prey\nAnimal relation: spiders --[Uses]-> silk  Spider Web\nStructure  spider\nArachnid relation: silk --[Tested by]-> spider relation: silk --[Used for]-> egg sac creation relation: silk --[Used for]-> mating rituals  spider\nArachnid  silk\nMaterial relation: silk --[Used for]-> web building  web building\nActivity  egg sac creation\nActivity  mating rituals\nActivity  spider web strand\nWeb Component relation: prey --[Wrapped in silk by]-> spider relation: prey --[Caught by]-> web  web\nStructure  spider\nArachnid  prey\nAnimal  web construction\nBehavior  web\nStructure",
+    "evaluation": 1
+  },
+  {
+    "accuracy": "93.33%"
+  }
+]

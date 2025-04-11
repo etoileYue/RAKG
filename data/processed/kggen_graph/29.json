@@ -1,0 +1,78 @@
+{
+  "entities": [
+    "1928",
+    "bacterial infections",
+    "antibiotics",
+    "Fleming",
+    "antibacterial properties",
+    "Sir Alexander Fleming",
+    "The Discovery of Penicillin",
+    "antibiotic-resistant bacteria",
+    "Staphylococcus bacteria",
+    "St. Mary's Hospital in London",
+    "penicillin",
+    "University of Oxford",
+    "World War II",
+    "Ernst Chain",
+    "Howard Florey",
+    "Penicillium genus",
+    "mold"
+  ],
+  "relations": [
+    [
+      "The Discovery of Penicillin",
+      "occurred in",
+      "1928"
+    ],
+    [
+      "Fleming",
+      "discovered",
+      "penicillin"
+    ],
+    [
+      "penicillin",
+      "is a type of",
+      "antibiotics"
+    ],
+    [
+      "Sir Alexander Fleming",
+      "worked at",
+      "St. Mary's Hospital in London"
+    ],
+    [
+      "Sir Alexander Fleming",
+      "involved",
+      "Staphylococcus bacteria"
+    ],
+    [
+      "antibiotics",
+      "lead to",
+      "antibiotic-resistant bacteria"
+    ],
+    [
+      "penicillin",
+      "has_property",
+      "antibacterial properties"
+    ],
+    [
+      "The Discovery of Penicillin",
+      "involved",
+      "Penicillium genus"
+    ],
+    [
+      "antibiotics",
+      "treat",
+      "bacterial infections"
+    ],
+    [
+      "The Discovery of Penicillin",
+      "discovered by",
+      "Sir Alexander Fleming"
+    ],
+    [
+      "mold",
+      "produces",
+      "penicillin"
+    ]
+  ]
+}

@@ -1,0 +1,309 @@
+{
+  "entities": [
+    {
+      "name": "mental resilience"
+    },
+    {
+      "name": "characteristics and behaviors"
+    },
+    {
+      "name": "stress"
+    },
+    {
+      "name": "positive"
+    },
+    {
+      "name": "good health"
+    },
+    {
+      "name": "deep breathing exercises"
+    },
+    {
+      "name": "adaptability"
+    },
+    {
+      "name": "stay safe"
+    },
+    {
+      "name": "survival"
+    },
+    {
+      "name": "escape plan"
+    },
+    {
+      "name": "skills and abilities"
+    },
+    {
+      "name": "clean water"
+    },
+    {
+      "name": "fear"
+    },
+    {
+      "name": "trustworthy and reliable individuals"
+    },
+    {
+      "name": "proper nutrition"
+    },
+    {
+      "name": "zombie outbreak"
+    },
+    {
+      "name": "knowledge"
+    },
+    {
+      "name": "communication system"
+    },
+    {
+      "name": "vigilant"
+    },
+    {
+      "name": "plans"
+    },
+    {
+      "name": "ease of defense"
+    },
+    {
+      "name": "meditation"
+    },
+    {
+      "name": "open mind"
+    },
+    {
+      "name": "shelter"
+    },
+    {
+      "name": "headshots"
+    },
+    {
+      "name": "unfamiliar tasks"
+    },
+    {
+      "name": "careful planning"
+    },
+    {
+      "name": "positive mindset"
+    },
+    {
+      "name": "preparation"
+    },
+    {
+      "name": "non-perishable food"
+    },
+    {
+      "name": "essential supplies"
+    },
+    {
+      "name": "regular exercise"
+    },
+    {
+      "name": "safety"
+    },
+    {
+      "name": "new skills"
+    },
+    {
+      "name": "goals"
+    },
+    {
+      "name": "group"
+    },
+    {
+      "name": "physically fit"
+    },
+    {
+      "name": "visibility of surroundings"
+    },
+    {
+      "name": "informed"
+    },
+    {
+      "name": "stay alert"
+    },
+    {
+      "name": "solid plan"
+    },
+    {
+      "name": "contaminated food or water"
+    },
+    {
+      "name": "physical and mental health"
+    },
+    {
+      "name": "zombies"
+    },
+    {
+      "name": "zombie apocalypse"
+    },
+    {
+      "name": "adequate rest"
+    },
+    {
+      "name": "activities that bring joy"
+    },
+    {
+      "name": "roles and responsibilities"
+    },
+    {
+      "name": "teamwork"
+    },
+    {
+      "name": "food and water"
+    },
+    {
+      "name": "proactive"
+    }
+  ],
+  "relations": [
+    [
+      "clean water",
+      "requires consideration of",
+      "visibility of surroundings"
+    ],
+    [
+      "survival",
+      "requires",
+      "unfamiliar tasks"
+    ],
+    [
+      "clean water",
+      "requires consideration of",
+      "food and water"
+    ],
+    [
+      "preparation",
+      "includes",
+      "essential supplies"
+    ],
+    [
+      "survival",
+      "requires",
+      "informed"
+    ],
+    [
+      "zombie apocalypse",
+      "requires",
+      "preparation"
+    ],
+    [
+      "survival",
+      "requires",
+      "careful planning"
+    ],
+    [
+      "group",
+      "composed of",
+      "trustworthy and reliable individuals"
+    ],
+    [
+      "group",
+      "assigns",
+      "roles and responsibilities"
+    ],
+    [
+      "survival",
+      "requires",
+      "preparation"
+    ],
+    [
+      "clean water",
+      "has component",
+      "shelter"
+    ],
+    [
+      "clean water",
+      "has",
+      "escape plan"
+    ],
+    [
+      "zombie apocalypse",
+      "involves",
+      "zombie outbreak"
+    ],
+    [
+      "survival",
+      "requires",
+      "plans"
+    ],
+    [
+      "survival",
+      "requires",
+      "teamwork"
+    ],
+    [
+      "survival",
+      "requires",
+      "positive mindset"
+    ],
+    [
+      "roles and responsibilities",
+      "based on",
+      "skills and abilities"
+    ],
+    [
+      "clean water",
+      "requires consideration of",
+      "ease of defense"
+    ],
+    [
+      "survival",
+      "requires",
+      "physical and mental health"
+    ],
+    [
+      "group",
+      "needs",
+      "communication system"
+    ],
+    [
+      "survival",
+      "requires",
+      "knowledge"
+    ],
+    [
+      "survival",
+      "requires",
+      "adaptability"
+    ],
+    [
+      "essential supplies",
+      "contains",
+      "essential supplies"
+    ],
+    [
+      "zombie apocalypse",
+      "requires",
+      "solid plan"
+    ],
+    [
+      "preparation",
+      "ensures",
+      "clean water"
+    ],
+    [
+      "survival",
+      "requires",
+      "new skills"
+    ],
+    [
+      "preparation",
+      "ensures",
+      "non-perishable food"
+    ],
+    [
+      "zombies",
+      "have",
+      "characteristics and behaviors"
+    ],
+    [
+      "survival",
+      "requires",
+      "open mind"
+    ],
+    [
+      "survival",
+      "requires",
+      "group"
+    ]
+  ]
+}

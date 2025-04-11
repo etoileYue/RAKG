@@ -1,0 +1,88 @@
+{
+  "entities": [
+    {
+      "name": "CONCERT",
+      "type": "EVENT",
+      "description": "A concert is an event where people gather to listen to music, often creating a sense of unity and connection"
+    },
+    {
+      "name": "PARTY",
+      "type": "EVENT",
+      "description": "A party is a social gathering where music is often played, enhancing the atmosphere and social bonds"
+    },
+    {
+      "name": "CLASSICAL MUSIC",
+      "type": "ORGANIZATION",
+      "description": "Classical music is a genre known for its elegance, sophistication, and relaxation"
+    },
+    {
+      "name": "ROCK MUSIC",
+      "type": "ORGANIZATION",
+      "description": "Rock music is a genre known for its energy, rebellion, and intensity"
+    },
+    {
+      "name": "POP MUSIC",
+      "type": "ORGANIZATION",
+      "description": "Pop music is a popular genre that often evokes feelings of happiness and energy"
+    },
+    {
+      "name": "JAZZ MUSIC",
+      "type": "ORGANIZATION",
+      "description": "Jazz music is a genre known for its improvisation and complex rhythms, often associated with relaxation and sophistication"
+    },
+    {
+      "name": "ELECTRONIC MUSIC",
+      "type": "ORGANIZATION",
+      "description": "Electronic music is a genre characterized by electronic sounds and beats, often used in dance and club settings"
+    },
+    {
+      "name": "MUSIC",
+      "type": "",
+      "description": ""
+    }
+  ],
+  "relations": [
+    [
+      "CONCERT",
+      ":has_relation_with",
+      "MUSIC",
+      "Music is performed at concerts, creating a shared emotional experience among listeners"
+    ],
+    [
+      "PARTY",
+      ":has_relation_with",
+      "MUSIC",
+      "Music is played at parties, enhancing the social atmosphere and connections among attendees"
+    ],
+    [
+      "CLASSICAL MUSIC",
+      ":has_relation_with",
+      "MUSIC",
+      "Classical music is a genre of music that can evoke feelings of elegance and relaxation"
+    ],
+    [
+      "ROCK MUSIC",
+      ":has_relation_with",
+      "MUSIC",
+      "Rock music is a genre of music that can evoke feelings of energy and rebellion"
+    ],
+    [
+      "POP MUSIC",
+      ":has_relation_with",
+      "MUSIC",
+      "Pop music is a genre of music that can evoke feelings of happiness and energy"
+    ],
+    [
+      "JAZZ MUSIC",
+      ":has_relation_with",
+      "MUSIC",
+      "Jazz music is a genre of music that can evoke feelings of relaxation and sophistication"
+    ],
+    [
+      "ELECTRONIC MUSIC",
+      ":has_relation_with",
+      "MUSIC",
+      "Electronic music is a genre of music that is often used in dance and club settings, evoking feelings of excitement and energy"
+    ]
+  ]
+}

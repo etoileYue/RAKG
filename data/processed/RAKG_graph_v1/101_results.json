@@ -1,0 +1,80 @@
+[
+  {
+    "correct_answer": "Music is an integral part of human culture.",
+    "retrieved_context": " Multiple Areas of the Brain\nBiological Process relation: music --[Enhances]-> Problem-Solving Skills  music\nConcept relation: music --[Enhances]-> Memory  Memory\nCognitive Function  Emotional Responses\nEmotion  Music Therapy\nTherapeutic Practice relation: music --[Enhances]-> Language Skills  Language Skills\nCognitive Function relation: music --[Elicits]-> Emotional Responses relation: music --[Used in]-> Music Therapy  Problem-Solving Skills\nCognitive Function relation: music --[Stimulates]-> Multiple Areas of the Brain  Impact of Music on Cognitive Development\nResearch Topic  Music\nActivity  Impact of Music on Cognitive Development in Children\nResearch Topic  Listening to Music\nActivity  Engagement with Music\nActivity  music exposure\nActivity  Music Exposure\nActivity",
+    "evaluation": 0
+  },
+  {
+    "correct_answer": "Music serves as a form of entertainment.",
+    "retrieved_context": " Music\nActivity  Multiple Areas of the Brain\nBiological Process relation: music --[Enhances]-> Problem-Solving Skills  music\nConcept relation: music --[Enhances]-> Memory  Memory\nCognitive Function  Emotional Responses\nEmotion  Music Therapy\nTherapeutic Practice relation: music --[Enhances]-> Language Skills  Language Skills\nCognitive Function relation: music --[Elicits]-> Emotional Responses relation: music --[Used in]-> Music Therapy  Problem-Solving Skills\nCognitive Function relation: music --[Stimulates]-> Multiple Areas of the Brain  Engagement with Music\nActivity  Music Engagement\nActivity  Listening to Music\nActivity  Impact of Music on Cognitive Development\nResearch Topic  Impact of Music on Cognitive Development in Children\nResearch Topic  active engagement with music\nActivity",
+    "evaluation": 0
+  },
+  {
+    "correct_answer": "Music serves as a means of communication.",
+    "retrieved_context": " Multiple Areas of the Brain\nBiological Process relation: music --[Enhances]-> Problem-Solving Skills  music\nConcept relation: music --[Enhances]-> Memory  Memory\nCognitive Function  Emotional Responses\nEmotion  Music Therapy\nTherapeutic Practice relation: music --[Enhances]-> Language Skills  Language Skills\nCognitive Function relation: music --[Elicits]-> Emotional Responses relation: music --[Used in]-> Music Therapy  Problem-Solving Skills\nCognitive Function relation: music --[Stimulates]-> Multiple Areas of the Brain  Music\nActivity  Impact of Music on Cognitive Development\nResearch Topic  Listening to Music\nActivity  Impact of Music on Cognitive Development in Children\nResearch Topic  Engagement with Music\nActivity  Music Engagement\nActivity  Music Therapy\nTherapeutic Practice",
+    "evaluation": 0
+  },
+  {
+    "correct_answer": "Music serves as a means of expression.",
+    "retrieved_context": " Multiple Areas of the Brain\nBiological Process relation: music --[Enhances]-> Problem-Solving Skills  music\nConcept relation: music --[Enhances]-> Memory  Memory\nCognitive Function  Emotional Responses\nEmotion  Music Therapy\nTherapeutic Practice relation: music --[Enhances]-> Language Skills  Language Skills\nCognitive Function relation: music --[Elicits]-> Emotional Responses relation: music --[Used in]-> Music Therapy  Problem-Solving Skills\nCognitive Function relation: music --[Stimulates]-> Multiple Areas of the Brain  Music\nActivity  Impact of Music on Cognitive Development\nResearch Topic  Engagement with Music\nActivity  Music Engagement\nActivity  Impact of Music on Cognitive Development in Children\nResearch Topic  Music Therapy\nTherapeutic Practice  Playing an instrument or singing\nActivity",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Music can enhance memory.",
+    "retrieved_context": " Music and Memory Retention/Recall\nResearch Topic  Music Therapy for Memory-Related Disorders\nTherapeutic Approach  Impact of Music on Cognitive Development\nResearch Topic  Impact of Music on Cognitive Development in Children\nResearch Topic  Music\nActivity  Listening to Music\nActivity  Multiple Areas of the Brain\nBiological Process relation: music --[Enhances]-> Problem-Solving Skills  music\nConcept relation: music --[Enhances]-> Memory  Memory\nCognitive Function  Emotional Responses\nEmotion  Music Therapy\nTherapeutic Practice relation: music --[Enhances]-> Language Skills  Language Skills\nCognitive Function relation: music --[Elicits]-> Emotional Responses relation: music --[Used in]-> Music Therapy  Problem-Solving Skills\nCognitive Function relation: music --[Stimulates]-> Multiple Areas of the Brain  memory enhancement\nCognitive Ability",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Listening to music can improve memory retention.",
+    "retrieved_context": " Music and Memory Retention/Recall\nResearch Topic  Music Therapy for Memory-Related Disorders\nTherapeutic Approach  Listening to Music\nActivity  Impact of Music on Cognitive Development\nResearch Topic  Impact of Music on Cognitive Development in Children\nResearch Topic  Music\nActivity  Music Therapy\nTherapeutic Practice  learning to play an instrument\nActivity",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Listening to music can improve memory recall.",
+    "retrieved_context": " Music and Memory Retention/Recall\nResearch Topic  Music Therapy for Memory-Related Disorders\nTherapeutic Approach  Impact of Music on Cognitive Development\nResearch Topic  Listening to Music\nActivity  Impact of Music on Cognitive Development in Children\nResearch Topic  Music\nActivity relation: memory --[Improved in]-> children and adults  memory\nCognitive Function  children and adults\nDemographic Group  brain areas\nBiological Structure relation: memory --[Stimulated by]-> brain areas  Memory\nCognitive Function",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Music stimulates multiple areas of the brain.",
+    "retrieved_context": " Impact of Music on Cognitive Development\nResearch Topic  Impact of Music on Cognitive Development in Children\nResearch Topic  Music\nActivity  Listening to Music\nActivity  Music and Memory Retention/Recall\nResearch Topic  Music Therapy for Memory-Related Disorders\nTherapeutic Approach  Multiple Areas of the Brain\nBiological Process relation: music --[Enhances]-> Problem-Solving Skills  music\nConcept relation: music --[Enhances]-> Memory  Memory\nCognitive Function  Emotional Responses\nEmotion  Music Therapy\nTherapeutic Practice relation: music --[Enhances]-> Language Skills  Language Skills\nCognitive Function relation: music --[Elicits]-> Emotional Responses relation: music --[Used in]-> Music Therapy  Problem-Solving Skills\nCognitive Function relation: music --[Stimulates]-> Multiple Areas of the Brain  music exposure\nActivity",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Music can enhance language skills.",
+    "retrieved_context": " Impact of Music on Cognitive Development\nResearch Topic  Impact of Music on Cognitive Development in Children\nResearch Topic  language skills\nCognitive Ability relation: language skills --[Strengthened by]-> Engagement with Music  Music Exposure\nActivity  Engagement with Music\nActivity relation: language skills --[Improved by]-> Music Exposure  Listening to Music\nActivity relation: language skills --[Positively Impacted by]-> Listening to Music  Playing an instrument or singing\nActivity  Music and Memory Retention/Recall\nResearch Topic  Music\nActivity  Language Skills\nCognitive Function  language skills development\nCognitive Ability",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Exposure to music from a young age can improve language development.",
+    "retrieved_context": " Impact of Music on Cognitive Development in Children\nResearch Topic  Impact of Music on Cognitive Development\nResearch Topic  Language Development\nCognitive Skill  language skills development\nCognitive Ability  language skills\nCognitive Ability relation: language skills --[Strengthened by]-> Engagement with Music  Music Exposure\nActivity  Engagement with Music\nActivity relation: language skills --[Improved by]-> Music Exposure  Listening to Music\nActivity relation: language skills --[Positively Impacted by]-> Listening to Music  Language Skills\nCognitive Function  Music and Memory Retention/Recall\nResearch Topic  Music Therapy for Memory-Related Disorders\nTherapeutic Approach",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Music involves processing sound patterns and rhythms.",
+    "retrieved_context": " Multiple Areas of the Brain\nBiological Process relation: music --[Enhances]-> Problem-Solving Skills  music\nConcept relation: music --[Enhances]-> Memory  Memory\nCognitive Function  Emotional Responses\nEmotion  Music Therapy\nTherapeutic Practice relation: music --[Enhances]-> Language Skills  Language Skills\nCognitive Function relation: music --[Elicits]-> Emotional Responses relation: music --[Used in]-> Music Therapy  Problem-Solving Skills\nCognitive Function relation: music --[Stimulates]-> Multiple Areas of the Brain  Music\nActivity  Impact of Music on Cognitive Development\nResearch Topic  Listening to Music\nActivity  Impact of Music on Cognitive Development in Children\nResearch Topic  Music and Memory Retention/Recall\nResearch Topic  Playing an instrument or singing\nActivity  language skills\nCognitive Ability relation: language skills --[Strengthened by]-> Engagement with Music  playing an instrument\nActivity relation: playing an instrument --[Enhances]-> language skills  ability to understand and produce speech\nAbility relation: language skills --[Improved by]-> Music Exposure relation: playing an instrument --[Improves]-> ability to understand and produce speech relation: language skills --[Positively Impacted by]-> Listening to Music",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Music can enhance problem-solving skills.",
+    "retrieved_context": " Impact of Music on Cognitive Development\nResearch Topic  Impact of Music on Cognitive Development in Children\nResearch Topic  Cognitive Abilities\nSkill Set  Children\nDemographic Group relation: problem-solving skills --[Influenced by]-> Cognitive Abilities relation: problem-solving skills --[Enhanced in]-> Children relation: problem-solving skills --[Enhanced in]-> Adults relation: problem-solving skills --[Required for]-> Critical Thinking and Analytical Skills  Critical Thinking and Analytical Skills\nSkill Set  problem-solving skills\nSkill  Adults\nDemographic Group  Music and Memory Retention/Recall\nResearch Topic  Problem-Solving Skills\nCognitive Function  problem-solving skills development\nCognitive Ability  Music\nActivity  learning to play an instrument\nActivity",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Engaging with music requires critical thinking.",
+    "retrieved_context": " Impact of Music on Cognitive Development\nResearch Topic  Impact of Music on Cognitive Development in Children\nResearch Topic  Engagement with Music\nActivity  Music Engagement\nActivity  active engagement with music\nActivity  Multiple Areas of the Brain\nBiological Process relation: music --[Enhances]-> Problem-Solving Skills  music\nConcept relation: music --[Enhances]-> Memory  Memory\nCognitive Function  Emotional Responses\nEmotion  Music Therapy\nTherapeutic Practice relation: music --[Enhances]-> Language Skills  Language Skills\nCognitive Function relation: music --[Elicits]-> Emotional Responses relation: music --[Used in]-> Music Therapy  Problem-Solving Skills\nCognitive Function relation: music --[Stimulates]-> Multiple Areas of the Brain  Music Therapy\nTherapeutic Practice  Music\nActivity",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Engaging with music requires analytical skills.",
+    "retrieved_context": " Impact of Music on Cognitive Development\nResearch Topic  Impact of Music on Cognitive Development in Children\nResearch Topic  Engagement with Music\nActivity  Music Engagement\nActivity  Multiple Areas of the Brain\nBiological Process relation: music --[Enhances]-> Problem-Solving Skills  music\nConcept relation: music --[Enhances]-> Memory  Memory\nCognitive Function  Emotional Responses\nEmotion  Music Therapy\nTherapeutic Practice relation: music --[Enhances]-> Language Skills  Language Skills\nCognitive Function relation: music --[Elicits]-> Emotional Responses relation: music --[Used in]-> Music Therapy  Problem-Solving Skills\nCognitive Function relation: music --[Stimulates]-> Multiple Areas of the Brain  Music\nActivity  active engagement with music\nActivity  learning to play an instrument\nActivity",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Music can evoke strong emotional responses.",
+    "retrieved_context": " Emotional Responses\nEmotion  Engagement with Music\nActivity  Impact of Music on Cognitive Development\nResearch Topic  Multiple Areas of the Brain\nBiological Process relation: music --[Enhances]-> Problem-Solving Skills  music\nConcept relation: music --[Enhances]-> Memory  Memory\nCognitive Function  Emotional Responses\nEmotion  Music Therapy\nTherapeutic Practice relation: music --[Enhances]-> Language Skills  Language Skills\nCognitive Function relation: music --[Elicits]-> Emotional Responses relation: music --[Used in]-> Music Therapy  Problem-Solving Skills\nCognitive Function relation: music --[Stimulates]-> Multiple Areas of the Brain  music exposure\nActivity  Music Exposure\nActivity  Impact of Music on Cognitive Development in Children\nResearch Topic  Music Engagement\nActivity",
+    "evaluation": 1
+  },
+  {
+    "accuracy": "80.00%"
+  }
+]

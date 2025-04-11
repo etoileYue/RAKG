@@ -1,0 +1,37 @@
+{
+  "entities": [
+    "workplaces",
+    "celebrities",
+    "Tattoo artists",
+    "social media",
+    "Egypt",
+    "Japan",
+    "artistry",
+    "Europe",
+    "mainstream society",
+    "influencers",
+    "tattoo",
+    "tattoos",
+    "cultures",
+    "Asia",
+    "Polynesian cultures",
+    "self-expression"
+  ],
+  "relations": [
+    [
+      "tattoos",
+      "form_of",
+      "self-expression"
+    ],
+    [
+      "tattoos",
+      "part_of",
+      "cultures"
+    ],
+    [
+      "tattoos",
+      "demonstrate",
+      "artistry"
+    ]
+  ]
+}

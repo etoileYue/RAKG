@@ -1,0 +1,197 @@
+{
+  "entities": [
+    {
+      "name": "unlock"
+    },
+    {
+      "name": "fatigue"
+    },
+    {
+      "name": "proposed"
+    },
+    {
+      "name": "human"
+    },
+    {
+      "name": "factors"
+    },
+    {
+      "name": "elusive"
+    },
+    {
+      "name": "delve"
+    },
+    {
+      "name": "secrets"
+    },
+    {
+      "name": "Deja Vu"
+    },
+    {
+      "name": "French"
+    },
+    {
+      "name": "sleep deprivation"
+    },
+    {
+      "name": "researchers and general public"
+    },
+    {
+      "name": "theories"
+    },
+    {
+      "name": "laboratory setting"
+    },
+    {
+      "name": "stress"
+    },
+    {
+      "name": "various"
+    },
+    {
+      "name": "memory-based theory"
+    },
+    {
+      "name": "intriguing"
+    },
+    {
+      "name": "explanation"
+    },
+    {
+      "name": "phenomenon"
+    },
+    {
+      "name": "account"
+    },
+    {
+      "name": "creativity"
+    },
+    {
+      "name": "continue"
+    },
+    {
+      "name": "light"
+    },
+    {
+      "name": "subjective experience"
+    },
+    {
+      "name": "defies"
+    },
+    {
+      "name": "consciousness"
+    },
+    {
+      "name": "measured and quantified"
+    },
+    {
+      "name": "imagination"
+    },
+    {
+      "name": "nature"
+    },
+    {
+      "name": "scientists"
+    },
+    {
+      "name": "experience"
+    },
+    {
+      "name": "enigmatic"
+    },
+    {
+      "name": "curious"
+    },
+    {
+      "name": "brain"
+    },
+    {
+      "name": "puzzling"
+    },
+    {
+      "name": "complexities"
+    },
+    {
+      "name": "remains"
+    },
+    {
+      "name": "underlying mechanisms"
+    },
+    {
+      "name": "science"
+    },
+    {
+      "name": "conclusion"
+    },
+    {
+      "name": "deja vu"
+    }
+  ],
+  "relations": [
+    [
+      "phenomenon",
+      "defies",
+      "explanation"
+    ],
+    [
+      "deja vu",
+      "captures the interest of",
+      "researchers and general public"
+    ],
+    [
+      "deja vu",
+      "difficult to study in",
+      "laboratory setting"
+    ],
+    [
+      "deja vu",
+      "increased_by",
+      "stress"
+    ],
+    [
+      "deja vu",
+      "increased_by",
+      "sleep deprivation"
+    ],
+    [
+      "deja vu",
+      "explained_by",
+      "memory-based theory"
+    ],
+    [
+      "deja vu",
+      "experienced_more_by",
+      "creativity"
+    ],
+    [
+      "deja vu",
+      "increased_by",
+      "fatigue"
+    ],
+    [
+      "deja vu",
+      "is a",
+      "subjective experience"
+    ],
+    [
+      "Deja Vu",
+      "origin_of_term",
+      "French"
+    ],
+    [
+      "deja vu",
+      "underlying mechanisms of",
+      "underlying mechanisms"
+    ],
+    [
+      "deja vu",
+      "challenging to",
+      "measured and quantified"
+    ],
+    [
+      "deja vu",
+      "experienced_more_by",
+      "imagination"
+    ]
+  ]
+}

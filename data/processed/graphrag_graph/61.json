@@ -1,0 +1,268 @@
+{
+  "entities": [
+    {
+      "name": "LANGUAGES",
+      "type": "ORGANIZATION",
+      "description": "A broad category of human communication systems, which can face extinction due to various factors"
+    },
+    {
+      "name": "CULTURAL ASSIMILATION AND GLOBALIZATION",
+      "type": "EVENT",
+      "description": "The process by which smaller, minority languages are marginalized and replaced by dominant languages like English, Spanish, and Mandarin"
+    },
+    {
+      "name": "DECLINE IN INTERGENERATIONAL TRANSMISSION",
+      "type": "EVENT",
+      "description": "The process where younger generations no longer learn or use their ancestral languages, leading to the risk of language disappearance"
+    },
+    {
+      "name": "ENVIRONMENTAL FACTORS",
+      "type": "EVENT",
+      "description": "Factors such as natural disasters, wars, and forced migration that can lead to the displacement of communities and the death of their languages"
+    },
+    {
+      "name": "LOSS OF TRADITIONAL KNOWLEDGE",
+      "type": "EVENT",
+      "description": "The erosion of traditional ecological knowledge, spiritual beliefs, and social structures that are embedded in languages, contributing to language extinction"
+    },
+    {
+      "name": "LINGUISTIC DIVERSITY",
+      "type": "ORGANIZATION",
+      "description": "The variety of languages spoken around the world, which is threatened by language extinction"
+    },
+    {
+      "name": "LANGUAGE REVITALIZATION PROGRAMS",
+      "type": "ORGANIZATION",
+      "description": "Initiatives aimed at documenting, revitalizing, and promoting endangered languages through teaching, community engagement, and resource creation"
+    },
+    {
+      "name": "LINGUISTS",
+      "type": "PERSON",
+      "description": "Experts who study languages and work on documenting and preserving endangered languages"
+    },
+    {
+      "name": "LANGUAGE ACTIVISTS",
+      "type": "PERSON",
+      "description": "Individuals who advocate for the preservation and revitalization of endangered languages"
+    },
+    {
+      "name": "COMMUNITY MEMBERS",
+      "type": "PERSON",
+      "description": "People within a community who participate in efforts to preserve and revitalize their language"
+    },
+    {
+      "name": "SPANISH",
+      "type": "ORGANIZATION",
+      "description": "One of the dominant languages that contributes to the marginalization of minority languages through cultural assimilation and globalization"
+    },
+    {
+      "name": "MANDARIN",
+      "type": "ORGANIZATION",
+      "description": "One of the dominant languages that contributes to the marginalization of minority languages through cultural assimilation and globalization"
+    },
+    {
+      "name": "INDIGENOUS LANGUAGES",
+      "type": "ORGANIZATION",
+      "description": "Minority languages that are often marginalized and at risk of extinction due to cultural assimilation and globalization"
+    },
+    {
+      "name": "TRADITIONAL ECOLOGICAL KNOWLEDGE",
+      "type": "ORGANIZATION",
+      "description": "Knowledge and practices embedded in languages that are at risk of being lost with the extinction of those languages"
+    },
+    {
+      "name": "SPIRITUAL BELIEFS",
+      "type": "ORGANIZATION",
+      "description": "Beliefs and practices embedded in languages that are at risk of being lost with the extinction of those languages"
+    },
+    {
+      "name": "SOCIAL STRUCTURES",
+      "type": "ORGANIZATION",
+      "description": "Social systems and practices embedded in languages that are at risk of being lost with the extinction of those languages"
+    },
+    {
+      "name": "IDENTITY",
+      "type": "ORGANIZATION",
+      "description": "The sense of self and community that is often tied to language and is at risk of being eroded with the loss of a language"
+    },
+    {
+      "name": "SELF-ESTEEM",
+      "type": "ORGANIZATION",
+      "description": "The personal and communal sense of worth that can be negatively impacted by the loss of a language"
+    },
+    {
+      "name": "WELL-BEING",
+      "type": "ORGANIZATION",
+      "description": "The overall health and happiness of individuals and communities that can be negatively impacted by the loss of a language"
+    },
+    {
+      "name": "ENGLISH",
+      "type": "",
+      "description": ""
+    }
+  ],
+  "relations": [
+    [
+      "LANGUAGES",
+      ":has_relation_with",
+      "CULTURAL ASSIMILATION AND GLOBALIZATION",
+      "Cultural assimilation and globalization contribute to the marginalization and replacement of minority languages, leading to language death"
+    ],
+    [
+      "LANGUAGES",
+      ":has_relation_with",
+      "DECLINE IN INTERGENERATIONAL TRANSMISSION",
+      "The decline in intergenerational transmission of languages leads to the risk of language disappearance, contributing to language death"
+    ],
+    [
+      "LANGUAGES",
+      ":has_relation_with",
+      "ENVIRONMENTAL FACTORS",
+      "Environmental factors such as natural disasters and forced migration can lead to the displacement of communities and the death of their languages"
+    ],
+    [
+      "LANGUAGES",
+      ":has_relation_with",
+      "LOSS OF TRADITIONAL KNOWLEDGE",
+      "The loss of traditional knowledge and cultural practices encoded in languages accelerates the process of language extinction"
+    ],
+    [
+      "LANGUAGES",
+      ":has_relation_with",
+      "LINGUISTIC DIVERSITY",
+      "Linguistic diversity is threatened by the extinction of languages, which leads to a loss of unique ways of understanding the world"
+    ],
+    [
+      "LANGUAGES",
+      ":has_relation_with",
+      "LANGUAGE REVITALIZATION PROGRAMS",
+      "Language revitalization programs aim to preserve and promote endangered languages, helping to maintain linguistic diversity"
+    ],
+    [
+      "CULTURAL ASSIMILATION AND GLOBALIZATION",
+      ":has_relation_with",
+      "ENGLISH",
+      "English is a dominant language that contributes to the marginalization of minority languages through cultural assimilation and globalization"
+    ],
+    [
+      "CULTURAL ASSIMILATION AND GLOBALIZATION",
+      ":has_relation_with",
+      "SPANISH",
+      "Spanish is a dominant language that contributes to the marginalization of minority languages through cultural assimilation and globalization"
+    ],
+    [
+      "CULTURAL ASSIMILATION AND GLOBALIZATION",
+      ":has_relation_with",
+      "MANDARIN",
+      "Mandarin is a dominant language that contributes to the marginalization of minority languages through cultural assimilation and globalization"
+    ],
+    [
+      "CULTURAL ASSIMILATION AND GLOBALIZATION",
+      ":has_relation_with",
+      "INDIGENOUS LANGUAGES",
+      "Indigenous languages are often marginalized and at risk of extinction due to cultural assimilation and globalization"
+    ],
+    [
+      "DECLINE IN INTERGENERATIONAL TRANSMISSION",
+      ":has_relation_with",
+      "INDIGENOUS LANGUAGES",
+      "Indigenous languages are at risk of disappearing when younger generations no longer learn or use them"
+    ],
+    [
+      "ENVIRONMENTAL FACTORS",
+      ":has_relation_with",
+      "INDIGENOUS LANGUAGES",
+      "Indigenous languages can be at risk of extinction when communities are displaced or fragmented due to environmental factors"
+    ],
+    [
+      "LOSS OF TRADITIONAL KNOWLEDGE",
+      ":has_relation_with",
+      "TRADITIONAL ECOLOGICAL KNOWLEDGE",
+      "Traditional ecological knowledge is a part of the cultural heritage that is at risk of being lost with the extinction of languages"
+    ],
+    [
+      "LOSS OF TRADITIONAL KNOWLEDGE",
+      ":has_relation_with",
+      "SPIRITUAL BELIEFS",
+      "Spiritual beliefs are a part of the cultural heritage that is at risk of being lost with the extinction of languages"
+    ],
+    [
+      "LOSS OF TRADITIONAL KNOWLEDGE",
+      ":has_relation_with",
+      "SOCIAL STRUCTURES",
+      "Social structures are a part of the cultural heritage that is at risk of being lost with the extinction of languages"
+    ],
+    [
+      "LOSS OF TRADITIONAL KNOWLEDGE",
+      ":has_relation_with",
+      "IDENTITY",
+      "Identity is often tied to language and can be eroded with the loss of a language"
+    ],
+    [
+      "LOSS OF TRADITIONAL KNOWLEDGE",
+      ":has_relation_with",
+      "SELF-ESTEEM",
+      "Self-esteem can be negatively impacted by the loss of a language, which is part of one's cultural heritage"
+    ],
+    [
+      "LOSS OF TRADITIONAL KNOWLEDGE",
+      ":has_relation_with",
+      "WELL-BEING",
+      "Well-being can be negatively impacted by the loss of a language, which is part of one's cultural heritage"
+    ],
+    [
+      "LINGUISTIC DIVERSITY",
+      ":has_relation_with",
+      "IDENTITY",
+      "Linguistic diversity supports the identity of communities, which can be eroded with the loss of a language"
+    ],
+    [
+      "LINGUISTIC DIVERSITY",
+      ":has_relation_with",
+      "SELF-ESTEEM",
+      "Linguistic diversity supports the self-esteem of communities, which can be negatively impacted by the loss of a language"
+    ],
+    [
+      "LINGUISTIC DIVERSITY",
+      ":has_relation_with",
+      "WELL-BEING",
+      "Linguistic diversity supports the well-being of communities, which can be negatively impacted by the loss of a language"
+    ],
+    [
+      "LANGUAGE REVITALIZATION PROGRAMS",
+      ":has_relation_with",
+      "LINGUISTS",
+      "Linguists contribute to language revitalization programs by documenting and studying endangered languages"
+    ],
+    [
+      "LANGUAGE REVITALIZATION PROGRAMS",
+      ":has_relation_with",
+      "LANGUAGE ACTIVISTS",
+      "Language activists support and advocate for language revitalization programs to preserve endangered languages"
+    ],
+    [
+      "LANGUAGE REVITALIZATION PROGRAMS",
+      ":has_relation_with",
+      "COMMUNITY MEMBERS",
+      "Community members participate in language revitalization programs to help preserve and revitalize their language"
+    ],
+    [
+      "LANGUAGE REVITALIZATION PROGRAMS",
+      ":has_relation_with",
+      "IDENTITY",
+      "Language revitalization programs aim to preserve and promote endangered languages, which helps maintain the identity of communities"
+    ],
+    [
+      "LANGUAGE REVITALIZATION PROGRAMS",
+      ":has_relation_with",
+      "SELF-ESTEEM",
+      "Language revitalization programs aim to preserve and promote endangered languages, which helps maintain the self-esteem of communities"
+    ],
+    [
+      "LANGUAGE REVITALIZATION PROGRAMS",
+      ":has_relation_with",
+      "WELL-BEING",
+      "Language revitalization programs aim to preserve and promote endangered languages, which helps maintain the well-being of communities"
+    ]
+  ]
+}

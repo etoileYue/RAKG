@@ -1,0 +1,754 @@
+{
+    "entities": [
+        {
+            "name": "Public Perception",
+            "type": "Social Phenomenon",
+            "description": "The way people view and understand outer space.",
+            "attributes": {}
+        },
+        {
+            "name": "More Attractive Option for Travelers",
+            "type": "Outcome",
+            "description": "As space travel becomes more affordable, it will become a more attractive option for travelers.",
+            "attributes": {}
+        },
+        {
+            "name": "Environmental Impact",
+            "type": "Concept",
+            "description": "The environmental impact of human activities on Earth and beyond, including the effects of space tourism.",
+            "attributes": {}
+        },
+        {
+            "name": "SCIENTISTS",
+            "type": "experts_in_science",
+            "description": "Researchers who may use space tourism as a platform for conducting experiments and gathering data in space",
+            "attributes": {}
+        },
+        {
+            "name": "Cost Reduction",
+            "type": "Economic Concept",
+            "description": "The reduction of costs through efficient and sustainable practices.",
+            "attributes": {}
+        },
+        {
+            "name": "CIVILIANS",
+            "type": "Explorers",
+            "description": "Non-professional individuals venturing into space.",
+            "attributes": {}
+        },
+        {
+            "name": "environmental conservation",
+            "type": "Conservation",
+            "description": "The protection and preservation of natural environments.",
+            "attributes": {}
+        },
+        {
+            "name": "galaxies",
+            "type": "Galaxy",
+            "description": "A galaxy is a massive, gravitationally bound system consisting of stars, stellar remnants, an interstellar medium of gas and dust, and dark matter.",
+            "attributes": {}
+        },
+        {
+            "name": "stars",
+            "type": "Celestial Body",
+            "description": "Stars are luminous celestial bodies that emit light and heat due to the nuclear fusion reactions occurring in their cores. They are fundamental components of galaxies and play a crucial role in the universe\"s structure and evolution.",
+            "attributes": {
+                "Luminosity": "Varies depending on the star\"s size, temperature, and age",
+                "Temperature": "Ranges from about 2,500 K to over 50,000 K",
+                "Composition": "Primarily hydrogen and helium, with trace amounts of heavier elements"
+            }
+        },
+        {
+            "name": "innovative space habitats",
+            "type": "Habitats",
+            "description": "Advanced living quarters designed for long-term human habitation in space.",
+            "attributes": {}
+        },
+        {
+            "name": "understanding of the universe",
+            "type": "Scientific Knowledge",
+            "description": "The understanding of the universe encompasses all scientific knowledge about the cosmos, including its structure, evolution, and phenomena.",
+            "attributes": {}
+        },
+        {
+            "name": "sustainable practices",
+            "type": "practices",
+            "description": "Methods and procedures designed to minimize environmental impact and promote ecological balance in space tourism.",
+            "attributes": {}
+        },
+        {
+            "name": "Competition Among Private Companies",
+            "type": "Factor",
+            "description": "Increased competition among private companies is leading to lower prices for space travel.",
+            "attributes": {}
+        },
+        {
+            "name": "Collaboration Between Scientists, Researchers, and Space Enthusiasts",
+            "type": "Collaborative Effort",
+            "description": "Joint efforts between scientists, researchers, and space enthusiasts to advance knowledge and exploration in space.",
+            "attributes": {}
+        },
+        {
+            "name": "technology advances",
+            "type": "Innovation",
+            "description": "The advancement of tools, methods, and knowledge leading to new applications or improvements.",
+            "attributes": {}
+        },
+        {
+            "name": "longer stays in space",
+            "type": "Activity",
+            "description": "Longer stays in space involve extended periods of human presence beyond Earth\"s atmosphere, which requires advanced life support systems and sustainable living environments.",
+            "attributes": {}
+        },
+        {
+            "name": "scientific research and exploration",
+            "type": "Activity",
+            "description": "Scientific research and exploration involve systematic investigations to discover new knowledge, understand natural phenomena, and develop technologies. In the context of space, this includes studying celestial bodies, conducting experiments in microgravity, and more.",
+            "attributes": {}
+        },
+        {
+            "name": "affordability of space travel",
+            "type": "Concept",
+            "description": "The affordability of space travel refers to the cost-effectiveness and financial accessibility of traveling to outer space, which is becoming more attainable due to technological advancements and competition among private companies.",
+            "attributes": {
+                "Trend": "Decreasing",
+                "Impact on Space Tourism": "Increased Accessibility"
+            }
+        },
+        {
+            "name": "Sun",
+            "type": "Star",
+            "description": "The central star of the solar system, around which Earth and other planets revolve.",
+            "attributes": {}
+        },
+        {
+            "name": "ASTRONAUTS",
+            "type": "trained space explorers",
+            "description": "Trained professionals who have traditionally been the only people to travel to space",
+            "attributes": {}
+        },
+        {
+            "name": "outer space",
+            "type": "Cosmos",
+            "description": "The vast expanse beyond Earth's atmosphere containing stars, planets, and galaxies.",
+            "attributes": {}
+        },
+        {
+            "name": "technology",
+            "type": "Concept",
+            "description": "Technology refers to the application of scientific knowledge for practical purposes, including advancements in space tourism and transportation.",
+            "attributes": {
+                "Advancements": "Rapid progress in technology is driving down the cost of space tourism and improving space travel.",
+                "Eco-Friendly Focus": "The space tourism industry is increasingly focusing on eco-friendly technologies to minimize environmental impact."
+            }
+        },
+        {
+            "name": "Faster and More Efficient Transport",
+            "type": "Outcome",
+            "description": "Advancements in technology are expected to lead to faster and more efficient means of transporting passengers to space.",
+            "attributes": {}
+        },
+        {
+            "name": "Space Enthusiasts",
+            "type": "Group",
+            "description": "Individuals who have a strong interest in space and space-related activities.",
+            "attributes": {}
+        },
+        {
+            "name": "Broader Range of People",
+            "type": "Outcome",
+            "description": "As the cost of space travel decreases, a broader range of people will have access to space tourism.",
+            "attributes": {}
+        },
+        {
+            "name": "scientific research",
+            "type": "Research",
+            "description": "Systematic investigation aimed at discovering new knowledge.",
+            "attributes": {}
+        },
+        {
+            "name": "light and heat",
+            "type": "Energy",
+            "description": "Light and heat are forms of energy that stars emit due to nuclear fusion reactions in their cores.",
+            "attributes": {}
+        }
+    ],
+    "relations": [
+        [
+            "affordability of space travel",
+            "Leads To",
+            "Broader Range of People",
+            "The affordability of space travel leads to increased accessibility for a broader range of people."
+        ],
+        [
+            "scientists",
+            "Collaborate With",
+            "collaboration between scientists, researchers, and space enthusiasts",
+            "Scientists collaborate with researchers to advance scientific understanding and contribute to new discoveries."
+        ],
+        [
+            "scientists",
+            "Conduct Experiments On",
+            "affordability of space travel",
+            "Scientists use space tourism platforms to conduct experiments and gather data in the unique environment of space."
+        ],
+        [
+            "SPACE TOURISM",
+            "collaborate",
+            "RESEARCHERS",
+            "Researchers collaborate with space enthusiasts to advance scientific knowledge through space tourism activities"
+        ],
+        [
+            "scientists",
+            "Collaborate With",
+            "space enthusiasts",
+            "Scientists collaborate with space enthusiasts to engage the public and enhance the educational value of space missions."
+        ],
+        [
+            "affordability of space travel",
+            "Work On",
+            "Reusable Rockets and Spacecraft",
+            "Private companies like SpaceX and Blue Origin are working on reusable rockets and spacecraft to make space travel more sustainable."
+        ],
+        [
+            "stars",
+            "Destination Of",
+            "affordability of space travel",
+            "The journey to the stars is a significant aspect of space tourism, offering civilians the opportunity to experience out-of-this-world adventures."
+        ],
+        [
+            "SPACE TOURISM",
+            "Utilization",
+            "SCIENTISTS",
+            "Scientists can use space tourism as a platform to conduct experiments and gather data, contributing to scientific research"
+        ],
+        [
+            "SpaceX",
+            "Working On",
+            "Habitation on Mars",
+            "SpaceX is working on creating habitats on Mars to support long-term human habitation."
+        ],
+        [
+            "affordability of space travel",
+            "Part Of",
+            "Travel Adventures",
+            "Recreational activities are a part of the broader category of travel adventures, especially in the context of space tourism."
+        ],
+        [
+            "SPACE TOURISM",
+            "focuses_on",
+            "SUSTAINABILITY",
+            "Sustainability is a critical consideration in the development of space tourism, with companies focusing on eco-friendly practices to minimize environmental impact"
+        ],
+        [
+            "Space Tourism",
+            "Involves",
+            "Space Habitats and Infrastructure",
+            "Space tourism involves the development of space habitats and infrastructure to facilitate longer stays and more diverse experiences."
+        ],
+        [
+            "affordability of space travel",
+            "Focus On",
+            "Eco-Friendly Technologies and Practices",
+            "Private companies in the space tourism industry are increasingly focusing on eco-friendly technologies and practices to preserve the integrity of outer space."
+        ],
+        [
+            "VIRGIN GALACTIC",
+            "space-tourism-development",
+            "EARTH'S ORBIT",
+            "Virgin Galactic is developing space tourism experiences in Earth's orbit, including suborbital flights for civilians"
+        ],
+        [
+            "affordability of space travel",
+            "Compete With",
+            "Other Private Companies",
+            "Private companies compete with each other to drive down costs and innovate in the space tourism industry."
+        ],
+        [
+            "technology",
+            "Enables",
+            "New Recreational Activities and Experiences",
+            "Technology is creating new possibilities for recreational activities in space."
+        ],
+        [
+            "technology",
+            "Minimizes",
+            "Carbon Footprint",
+            "Technology is being used to minimize the carbon footprint of space tourism."
+        ],
+        [
+            "scientists",
+            "Contribute To",
+            "understanding of the universe",
+            "Scientists contribute to our understanding of the universe through their research and experiments conducted in space."
+        ],
+        [
+            "stars",
+            "Source Of",
+            "light and heat",
+            "Stars are the primary sources of light and heat in the universe, essential for life and various physical processes."
+        ],
+        [
+            "Space Tourism",
+            "Facilitates",
+            "Scientific Research and Exploration",
+            "Space tourism facilitates scientific research and exploration by providing a platform for collaboration between scientists, researchers, and enthusiasts."
+        ],
+        [
+            "affordability of space travel",
+            "Leads To",
+            "Faster and More Efficient Transport",
+            "The affordability of space travel is expected to contribute to the development of faster and more efficient transport methods."
+        ],
+        [
+            "SPACEX",
+            "contributes_to",
+            "SPACE TOURISM",
+            "SpaceX is a key player in the development of space tourism, contributing to the affordability and infrastructure of space travel"
+        ],
+        [
+            "VIRGIN GALACTIC",
+            "engaged_in",
+            "SPACE TOURISM",
+            "Virgin Galactic is a major player in the space tourism industry, making space travel more accessible to civilians"
+        ],
+        [
+            "SpaceX",
+            "Competitor Of",
+            "Virgin Galactic",
+            "SpaceX and Virgin Galactic are both working towards making space tourism a reality."
+        ],
+        [
+            "Virgin Galactic",
+            "Competes With",
+            "SpaceX",
+            "Virgin Galactic competes with SpaceX in the commercial space industry."
+        ],
+        [
+            "BLUE ORIGIN",
+            "contributes_to",
+            "EARTH'S ORBIT",
+            "Blue Origin is contributing to the development of space tourism infrastructure in Earth's orbit through its reusable rockets and spacecraft"
+        ],
+        [
+            "affordability of space travel",
+            "Requires",
+            "Sophisticated Living Spaces",
+            "Sustainability in space tourism requires the development of more sophisticated and sustainable living spaces as demand for space travel grows."
+        ],
+        [
+            "Earth\"s orbit",
+            "Explored By",
+            "SpaceX",
+            "SpaceX is exploring the possibility of establishing habitats in Earth\"s orbit."
+        ],
+        [
+            "Earth\"s orbit",
+            "Orbits Around",
+            "Sun",
+            "Earth\"s orbit is the path that Earth follows as it revolves around the Sun."
+        ],
+        [
+            "SPACEX",
+            "develops",
+            "MARS",
+            "SpaceX is developing habitats on Mars as part of its long-term vision for space tourism and human settlement"
+        ],
+        [
+            "affordability of space travel",
+            "Develop",
+            "Space Tourism",
+            "Private companies are developing the space tourism industry by creating habitats on Mars and exploring space hotels in Earth\"s orbit."
+        ],
+        [
+            "affordability of space travel",
+            "Developed By",
+            "SpaceX",
+            "SpaceX is working on creating habitats on Mars."
+        ],
+        [
+            "affordability of space travel",
+            "focuses on",
+            "affordability of space travel",
+            "The concept of 'affordability of space travel' focuses on understanding and improving the cost-effectiveness, accessibility, and financial feasibility associated with traveling to space."
+        ],
+        [
+            "SPACE TOURISM",
+            "facilitates",
+            "SCIENTIFIC RESEARCH",
+            "Space tourism provides a platform for conducting scientific research, allowing civilians to contribute to scientific knowledge and discoveries"
+        ],
+        [
+            "requires",
+            "space tourism",
+            "sustainable practices",
+            "The process of space tourism requires sustainable practices to ensure environmental responsibility and minimal impact on natural resources."
+        ],
+        [
+            "SpaceX",
+            "Developing",
+            "Reusable Rockets and Spacecraft",
+            "SpaceX is developing reusable rockets and spacecraft to make space travel more sustainable and affordable."
+        ],
+        [
+            "Blue Origin",
+            "Develops Technology For",
+            "Space Transportation",
+            "Blue Origin is developing advanced space transportation technologies to revolutionize the way we travel to space."
+        ],
+        [
+            "Space Tourism",
+            "Involves",
+            "Civilian Travelers",
+            "Space tourism involves civilian travelers, making it accessible to non-astronauts."
+        ],
+        [
+            "Blue Origin",
+            "Competes With",
+            "SpaceX",
+            "Blue Origin and SpaceX are both private space companies working on reusable rockets and spacecraft."
+        ],
+        [
+            "affordability of space travel",
+            "Reduced By",
+            "Reusable Rockets and Spacecraft",
+            "Companies like Blue Origin and SpaceX are working on reusable rockets and spacecraft, which will reduce the carbon footprint associated with space travel."
+        ],
+        [
+            "affordability of space travel",
+            "Minimized By",
+            "Eco-Friendly Technologies and Practices",
+            "Companies in the space tourism industry are focusing on eco-friendly technologies and practices to minimize their carbon footprint."
+        ],
+        [
+            "enables",
+            "innovative space habitats",
+            "technology advances",
+            "undefine"
+        ],
+        [
+            "affordability of space travel",
+            "Requires",
+            "affordability of space travel",
+            "As demand for space travel grows, there will be a need for more sophisticated and sustainable living spaces."
+        ],
+        [
+            "Virgin Galactic",
+            "Advances",
+            "Space Transportation Technology",
+            "Virgin Galactic is working on advancements in space transportation technology to make space travel more accessible and sustainable."
+        ],
+        [
+            "affordability of space travel",
+            "Used By",
+            "Companies in the space tourism industry",
+            "Eco-friendly technologies are increasingly being adopted by companies in the space tourism industry to reduce their environmental impact."
+        ],
+        [
+            "Mars",
+            "Subject of Scientific Research",
+            "Space Tourism",
+            "As more civilians venture into space through the space tourism industry, there will be opportunities to conduct scientific research and exploration on Mars."
+        ],
+        [
+            "SPACEX",
+            "develops",
+            "EARTH'S ORBIT",
+            "SpaceX is involved in the development of space habitats and infrastructure in Earth's orbit to support space tourism"
+        ],
+        [
+            "technology",
+            "Drives Down",
+            "Cost of Space Tourism",
+            "Advancements in technology are reducing the cost of space tourism."
+        ],
+        [
+            "affordability of space travel",
+            "Supports",
+            "affordability of space travel",
+            "Space habitats are essential for the development and expansion of space tourism."
+        ],
+        [
+            "contributes to",
+            "environmental conservation",
+            "sustainable practices",
+            "Sustainable practices contribute to environmental conservation by promoting responsible use of resources, reducing waste and pollution, and preserving natural ecosystems."
+        ],
+        [
+            "affordability of space travel",
+            "Open Up New Opportunities For",
+            "Space Enthusiasts",
+            "Recreational activities in space open up new opportunities for space enthusiasts to engage in unique experiences."
+        ],
+        [
+            "Space Tourism",
+            "Requires",
+            "Eco-Friendly Technologies",
+            "Space tourism requires eco-friendly technologies to ensure sustainable practices in space travel."
+        ],
+        [
+            "technology",
+            "Facilitates",
+            "Longer Stays in Space",
+            "Technology is enabling longer stays in space."
+        ],
+        [
+            "affordability of space travel",
+            "Developed By",
+            "SpaceX",
+            "SpaceX is working on reusable rockets, which are a form of eco-friendly technology."
+        ],
+        [
+            "Mars",
+            "Potential Site for",
+            "Human Settlement",
+            "Mars is being considered as a potential site for future human settlement due to its proximity and similarity to Earth."
+        ],
+        [
+            "affordability of space travel",
+            "Considered In",
+            "Sustainable Practices for Space Travel",
+            "As we venture beyond Earth, it is essential to consider the carbon footprint in the development of sustainable practices for space travel."
+        ],
+        [
+            "affordability of space travel",
+            "Leads To",
+            "More Attractive Option for Travelers",
+            "The affordability of space travel makes it a more appealing choice for potential space tourists."
+        ],
+        [
+            "affordability of space travel",
+            "offers",
+            "affordability of space travel",
+            "The concept 'affordability of space travel' offers insights into making space travel accessible and financially viable for various stakeholders including governments, private companies, and individuals."
+        ],
+        [
+            "Virgin Galactic",
+            "Competes With",
+            "Blue Origin",
+            "Virgin Galactic competes with Blue Origin in the commercial space industry."
+        ],
+        [
+            "Virgin Galactic",
+            "Contributes To",
+            "Scientific Research",
+            "Virgin Galactic contributes to scientific research by enabling civilians to conduct experiments in space."
+        ],
+        [
+            "aim to preserve",
+            "eco-friendly technologies",
+            "outer space",
+            "The aim of eco-friendly technologies is to preserve outer space by promoting sustainable practices and minimizing environmental impact in activities related to space exploration, utilization, and conservation."
+        ],
+        [
+            "Blue Origin",
+            "Competes With",
+            "Virgin Galactic",
+            "Blue Origin and Virgin Galactic are both private space companies working in the space tourism industry."
+        ],
+        [
+            "Blue Origin",
+            "Contributes To",
+            "Space Tourism Industry",
+            "Blue Origin is a key player in the space tourism industry, focusing on eco-friendly technologies and practices."
+        ],
+        [
+            "Mars",
+            "Target of Exploration by",
+            "SpaceX",
+            "SpaceX is working on creating habitats on Mars as part of its long-term goal to enable human settlement on the planet."
+        ],
+        [
+            "Space Tourism",
+            "Influences",
+            "Public Perception",
+            "Space tourism influences public perception by transforming the way we perceive and experience outer space."
+        ],
+        [
+            "affordability of space travel",
+            "Facilitates",
+            "longer stays in space",
+            "Space habitats will enable humans to stay in space for longer durations."
+        ],
+        [
+            "affordability of space travel",
+            "enables",
+            "technology advances",
+            "The advancement of technology enables the affordability of space travel."
+        ],
+        [
+            "space enthusiasts",
+            "Collaborate With",
+            "scientists",
+            "Space enthusiasts can collaborate with scientists to contribute to scientific research and exploration through space tourism."
+        ],
+        [
+            "affordability of space travel",
+            "Enables",
+            "affordability of space travel",
+            "Space habitats will provide platforms for various recreational activities and experiences."
+        ],
+        [
+            "Space Tourism",
+            "Depends On",
+            "Private Companies",
+            "Space tourism depends on private companies for advancements in technology and reducing costs."
+        ],
+        [
+            "SPACE TOURISM",
+            "contrast",
+            "ASTRONAUTS",
+            "Astronauts represent the traditional participants in space travel, contrasting with the new demographic of civilians entering the space tourism market"
+        ],
+        [
+            "SPACE TOURISM",
+            "drives",
+            "REUSABLE ROCKETS",
+            "Reusable rockets are a key technology driving down the cost of space travel, making space tourism more sustainable and affordable"
+        ],
+        [
+            "affordability of space travel",
+            "Developed By",
+            "Blue Origin",
+            "Blue Origin is working on reusable rockets, which are a form of eco-friendly technology."
+        ],
+        [
+            "affordability of space travel",
+            "Driven By",
+            "Competition Among Private Companies",
+            "The affordability of space travel is driven by competition among private companies."
+        ],
+        [
+            "affordability of space travel",
+            "Promotes",
+            "Cost Reduction",
+            "Sustainability in space tourism promotes cost reduction through the use of reusable rockets and spacecraft."
+        ],
+        [
+            "affordability of space travel",
+            "Driven By",
+            "Technological Advancements",
+            "The affordability of space travel is driven by technological advancements."
+        ],
+        [
+            "Mars",
+            "SpaceX",
+            "creating habitats on",
+            "SpaceX creates habitats on Mars."
+        ],
+        [
+            "aim to minimize",
+            "carbon footprint",
+            "affordability of space travel",
+            "The aim to minimize carbon footprint in space travel focuses on reducing environmental impact, thereby enhancing the affordability and sustainability of space exploration and transportation."
+        ],
+        [
+            "BLUE ORIGIN",
+            "contributes-to",
+            "SPACE TOURISM",
+            "Blue Origin is a significant contributor to space tourism, focusing on reducing the cost of space travel through reusable rockets and spacecraft"
+        ],
+        [
+            "Earth\"s orbit",
+            "Hosts",
+            "Space Hotels",
+            "Earth\"s orbit is a potential location for the development of space hotels."
+        ],
+        [
+            "space enthusiasts",
+            "Contribute To",
+            "scientific research and exploration",
+            "Space enthusiasts can contribute to scientific research and exploration by participating in space tourism and engaging in various activities such as data collection and experimentation."
+        ],
+        [
+            "Blue Origin",
+            "SpaceX",
+            "undefine",
+            "working on reusable rockets and spacecraft with"
+        ],
+        [
+            "SpaceX",
+            "Competitor Of",
+            "Blue Origin",
+            "SpaceX and Blue Origin are both working on similar technologies and competing in the space industry."
+        ],
+        [
+            "affordability of space travel",
+            "Opportunities",
+            "Eco-Friendly Technologies",
+            "Sustainability in space tourism presents opportunities for the development and implementation of eco-friendly technologies."
+        ],
+        [
+            "technology",
+            "Revolutionizes",
+            "Space Transportation",
+            "Technology is revolutionizing space transportation methods."
+        ],
+        [
+            "EARTH'S ORBIT",
+            "location",
+            "SPACE HOTELS",
+            "Space hotels are being developed in Earth's orbit to provide accommodations and recreational activities for space tourists"
+        ],
+        [
+            "VIRGIN GALACTIC",
+            "provides",
+            "SUBORBITAL FLIGHTS",
+            "Virgin Galactic offers suborbital flights as part of its space tourism offerings, providing civilians with unique space travel experiences"
+        ],
+        [
+            "affordability of space travel",
+            "Contribute To",
+            "Collaboration Between Scientists, Researchers, and Space Enthusiasts",
+            "Recreational activities can serve as a platform for collaboration between different groups, leading to new discoveries and breakthroughs."
+        ],
+        [
+            "affordability of space travel",
+            "Challenges",
+            "Environmental Impact",
+            "Sustainability in space tourism faces challenges related to minimizing the environmental impact of space travel."
+        ],
+        [
+            "affordability of space travel",
+            "Facilitated By",
+            "Developments in Space Tourism",
+            "Recreational activities in space are facilitated by the ongoing developments in space tourism."
+        ],
+        [
+            "stars",
+            "Located In",
+            "galaxies",
+            "Stars are located within galaxies, forming the fundamental building blocks of these cosmic structures."
+        ],
+        [
+            "enables",
+            "scientific research",
+            "affordability of space travel",
+            "undefine"
+        ],
+        [
+            "Earth\"s orbit",
+            "Explored By",
+            "Blue Origin",
+            "Blue Origin is working on reusable rockets and spacecraft, which could be used for activities in Earth\"s orbit."
+        ],
+        [
+            "SPACE TOURISM",
+            "targetAudience",
+            "CIVILIANS",
+            "Civilians are the primary target audience for space tourism, as the industry aims to make space travel accessible to non-astronauts"
+        ],
+        [
+            "space enthusiasts",
+            "Collaborate With",
+            "collaboration between scientists, researchers, and space enthusiasts",
+            "Space enthusiasts can collaborate with researchers to gather data and contribute to scientific discoveries through space tourism."
+        ],
+        [
+            "space enthusiasts",
+            "Participate In",
+            "affordability of space travel",
+            "Space enthusiasts are increasingly able to participate in space tourism as it becomes a more viable option for travel adventures."
+        ]
+    ]
+}

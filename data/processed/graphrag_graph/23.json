@@ -1,0 +1,198 @@
+{
+  "entities": [
+    {
+      "name": "ASTRONAUT",
+      "type": "PERSON",
+      "description": "A professional who travels in space, conducting scientific experiments, maintenance work, and other tasks on a space station"
+    },
+    {
+      "name": "SPACE STATION",
+      "type": "ORGANIZATION",
+      "description": "A large spacecraft designed for long-term human habitation in space, serving as a base for scientific research and other activities"
+    },
+    {
+      "name": "MISSION CONTROL",
+      "type": "ORGANIZATION",
+      "description": "The ground-based team responsible for monitoring and directing the activities of astronauts and spacecraft in space"
+    },
+    {
+      "name": "EARTH",
+      "type": "GEO",
+      "description": "The planet that astronauts observe and study from space, providing a unique perspective on its beauty and complexity"
+    },
+    {
+      "name": "SCIENTIFIC EXPERIMENTS",
+      "type": "EVENT",
+      "description": "Research activities conducted by astronauts to advance knowledge in various scientific fields"
+    },
+    {
+      "name": "MAINTENANCE WORK",
+      "type": "EVENT",
+      "description": "Tasks performed by astronauts to ensure the proper functioning of the space station's systems and equipment"
+    },
+    {
+      "name": "EXERCISE REGIMEN",
+      "type": "EVENT",
+      "description": "A structured program of physical activity designed to maintain astronauts' health in microgravity"
+    },
+    {
+      "name": "DAILY CHORES",
+      "type": "EVENT",
+      "description": "Routine tasks such as cleaning, meal preparation, and system checks that are essential for the space station's operation"
+    },
+    {
+      "name": "MEALS AND RELAXATION",
+      "type": "EVENT",
+      "description": "Scheduled breaks for astronauts to eat, socialize, and relax, which are important for maintaining morale and mental well-being"
+    },
+    {
+      "name": "FINAL CHECK-IN",
+      "type": "EVENT",
+      "description": "An evening meeting with mission control to report on the day's activities and receive instructions for the next day"
+    },
+    {
+      "name": "SLEEPING QUARTERS",
+      "type": "GEO",
+      "description": "The designated area on the space station where astronauts sleep, equipped with sleeping bags to prevent floating"
+    },
+    {
+      "name": "MORNING BRIEFING",
+      "type": "",
+      "description": ""
+    }
+  ],
+  "relations": [
+    [
+      "ASTRONAUT",
+      ":has_relation_with",
+      "SPACE STATION",
+      "Astronauts live and work on the space station, conducting various tasks and experiments"
+    ],
+    [
+      "ASTRONAUT",
+      ":has_relation_with",
+      "MISSION CONTROL",
+      "Astronauts receive instructions and report back to mission control, maintaining constant communication"
+    ],
+    [
+      "ASTRONAUT",
+      ":has_relation_with",
+      "EARTH",
+      "Astronauts observe and study Earth from space, often finding moments of relaxation and inspiration in the views"
+    ],
+    [
+      "ASTRONAUT",
+      ":has_relation_with",
+      "MORNING BRIEFING",
+      "Astronauts participate in a morning briefing to plan and coordinate their daily activities"
+    ],
+    [
+      "ASTRONAUT",
+      ":has_relation_with",
+      "SCIENTIFIC EXPERIMENTS",
+      "Astronauts conduct scientific experiments as part of their daily work on the space station"
+    ],
+    [
+      "ASTRONAUT",
+      ":has_relation_with",
+      "MAINTENANCE WORK",
+      "Astronauts perform maintenance tasks to ensure the space station's systems are functioning properly"
+    ],
+    [
+      "ASTRONAUT",
+      ":has_relation_with",
+      "EXERCISE REGIMEN",
+      "Astronauts follow a strict exercise regimen to maintain their physical health in microgravity"
+    ],
+    [
+      "ASTRONAUT",
+      ":has_relation_with",
+      "DAILY CHORES",
+      "Astronauts are responsible for performing daily chores to maintain the cleanliness and functionality of the space station"
+    ],
+    [
+      "ASTRONAUT",
+      ":has_relation_with",
+      "MEALS AND RELAXATION",
+      "Astronauts take scheduled breaks for meals and relaxation, which are crucial for their mental well-being"
+    ],
+    [
+      "ASTRONAUT",
+      ":has_relation_with",
+      "FINAL CHECK-IN",
+      "Astronauts have a final check-in with mission control to report on the day's activities and receive new instructions"
+    ],
+    [
+      "ASTRONAUT",
+      ":has_relation_with",
+      "SLEEPING QUARTERS",
+      "Astronauts sleep in designated quarters on the space station, which are equipped to prevent floating"
+    ],
+    [
+      "SPACE STATION",
+      ":has_relation_with",
+      "MISSION CONTROL",
+      "The space station operates under the guidance and support of mission control, which monitors and directs activities"
+    ],
+    [
+      "SPACE STATION",
+      ":has_relation_with",
+      "MORNING BRIEFING",
+      "The space station is the location where the morning briefing takes place, facilitating coordination among the crew"
+    ],
+    [
+      "SPACE STATION",
+      ":has_relation_with",
+      "SCIENTIFIC EXPERIMENTS",
+      "The space station serves as the platform for conducting scientific experiments by the astronauts"
+    ],
+    [
+      "SPACE STATION",
+      ":has_relation_with",
+      "MAINTENANCE WORK",
+      "The space station's systems and equipment require regular maintenance by the astronauts"
+    ],
+    [
+      "SPACE STATION",
+      ":has_relation_with",
+      "EXERCISE REGIMEN",
+      "The space station is equipped with specialized exercise equipment for astronauts to maintain their physical health"
+    ],
+    [
+      "SPACE STATION",
+      ":has_relation_with",
+      "DAILY CHORES",
+      "The space station's living quarters and systems require daily maintenance and cleaning by the astronauts"
+    ],
+    [
+      "SPACE STATION",
+      ":has_relation_with",
+      "MEALS AND RELAXATION",
+      "The space station provides a setting for astronauts to take breaks, eat, and relax"
+    ],
+    [
+      "SPACE STATION",
+      ":has_relation_with",
+      "FINAL CHECK-IN",
+      "The space station is the location where astronauts conduct their final check-in with mission control"
+    ],
+    [
+      "SPACE STATION",
+      ":has_relation_with",
+      "SLEEPING QUARTERS",
+      "The space station includes designated sleeping quarters for astronauts to rest and sleep"
+    ],
+    [
+      "MISSION CONTROL",
+      ":has_relation_with",
+      "MORNING BRIEFING",
+      "Mission control provides instructions and guidance during the morning briefing"
+    ],
+    [
+      "MISSION CONTROL",
+      ":has_relation_with",
+      "FINAL CHECK-IN",
+      "Mission control receives reports and provides new instructions during the final check-in"
+    ]
+  ]
+}

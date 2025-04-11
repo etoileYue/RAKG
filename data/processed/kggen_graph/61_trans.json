@@ -1,0 +1,170 @@
+{
+  "entities": [
+    {
+      "name": "human creativity"
+    },
+    {
+      "name": "knowledge"
+    },
+    {
+      "name": "Spanish"
+    },
+    {
+      "name": "cultural practices"
+    },
+    {
+      "name": "cultural assimilation"
+    },
+    {
+      "name": "cultural heritage"
+    },
+    {
+      "name": "world understanding"
+    },
+    {
+      "name": "human languages"
+    },
+    {
+      "name": "Mandarin"
+    },
+    {
+      "name": "well-being"
+    },
+    {
+      "name": "identity"
+    },
+    {
+      "name": "communities"
+    },
+    {
+      "name": "community members"
+    },
+    {
+      "name": "language extinction"
+    },
+    {
+      "name": "traditional ecological knowledge"
+    },
+    {
+      "name": "emotions expression"
+    },
+    {
+      "name": "Linguists"
+    },
+    {
+      "name": "traditional knowledge"
+    },
+    {
+      "name": "languages"
+    },
+    {
+      "name": "language death"
+    },
+    {
+      "name": "linguistic diversity"
+    },
+    {
+      "name": "English"
+    },
+    {
+      "name": "spiritual beliefs"
+    },
+    {
+      "name": "indigenous languages"
+    },
+    {
+      "name": "minority languages"
+    },
+    {
+      "name": "self-esteem"
+    },
+    {
+      "name": "language activists"
+    },
+    {
+      "name": "history preservation"
+    }
+  ],
+  "relations": [
+    [
+      "traditional ecological knowledge",
+      "eroded_by",
+      "language extinction"
+    ],
+    [
+      "Linguists",
+      "collaborate_with",
+      "language activists"
+    ],
+    [
+      "linguistic diversity",
+      "reflects",
+      "human creativity"
+    ],
+    [
+      "language death",
+      "caused_by",
+      "knowledge"
+    ],
+    [
+      "world understanding",
+      "lost_with",
+      "language extinction"
+    ],
+    [
+      "spiritual beliefs",
+      "embedded_in",
+      "languages"
+    ],
+    [
+      "cultural practices",
+      "lost_with",
+      "language extinction"
+    ],
+    [
+      "language death",
+      "caused_by",
+      "cultural assimilation"
+    ],
+    [
+      "Linguists",
+      "collaborate_with",
+      "community members"
+    ],
+    [
+      "language activists",
+      "work_with",
+      "community members"
+    ],
+    [
+      "traditional knowledge",
+      "lost_with",
+      "language extinction"
+    ],
+    [
+      "linguistic diversity",
+      "reflects",
+      "knowledge"
+    ],
+    [
+      "linguistic diversity",
+      "reflects",
+      "cultural heritage"
+    ],
+    [
+      "communities",
+      "embedded_in",
+      "languages"
+    ],
+    [
+      "history preservation",
+      "lost_with",
+      "language extinction"
+    ],
+    [
+      "emotions expression",
+      "lost_with",
+      "language extinction"
+    ]
+  ]
+}

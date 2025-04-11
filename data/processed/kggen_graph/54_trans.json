@@ -1,0 +1,294 @@
+{
+  "entities": [
+    {
+      "name": "mature stage"
+    },
+    {
+      "name": "satellite imagery"
+    },
+    {
+      "name": "tornado-prone regions"
+    },
+    {
+      "name": "Enhanced Fujita (EF) scale"
+    },
+    {
+      "name": "damage"
+    },
+    {
+      "name": "protecting lives"
+    },
+    {
+      "name": "condensation funnel"
+    },
+    {
+      "name": "surface"
+    },
+    {
+      "name": "forecasting capabilities"
+    },
+    {
+      "name": "thunderstorms"
+    },
+    {
+      "name": "cold front"
+    },
+    {
+      "name": "inflow of warm, moist air"
+    },
+    {
+      "name": "violent storms"
+    },
+    {
+      "name": "communities"
+    },
+    {
+      "name": "air parcels"
+    },
+    {
+      "name": "wind shear"
+    },
+    {
+      "name": "EF0"
+    },
+    {
+      "name": "rotating column of air"
+    },
+    {
+      "name": "EF5"
+    },
+    {
+      "name": "United States"
+    },
+    {
+      "name": "resilience"
+    },
+    {
+      "name": "weather radar"
+    },
+    {
+      "name": "dust whirl stage"
+    },
+    {
+      "name": "tornado warnings"
+    },
+    {
+      "name": "mesocyclone"
+    },
+    {
+      "name": "ground observations"
+    },
+    {
+      "name": "trigger mechanism"
+    },
+    {
+      "name": "Tornadoes"
+    },
+    {
+      "name": "tornado development"
+    },
+    {
+      "name": "property"
+    },
+    {
+      "name": "intensification"
+    },
+    {
+      "name": "cumulonimbus clouds"
+    },
+    {
+      "name": "dissipating stage"
+    },
+    {
+      "name": "instability"
+    },
+    {
+      "name": "Doppler radar"
+    },
+    {
+      "name": "natural disasters"
+    },
+    {
+      "name": "scientists"
+    },
+    {
+      "name": "outflow boundary"
+    },
+    {
+      "name": "dry line"
+    },
+    {
+      "name": "emergency responders"
+    },
+    {
+      "name": "wind speeds"
+    },
+    {
+      "name": "preparedness"
+    },
+    {
+      "name": "Forecasting tornadoes"
+    },
+    {
+      "name": "technology"
+    },
+    {
+      "name": "tornadoes"
+    },
+    {
+      "name": "atmospheric conditions"
+    }
+  ],
+  "relations": [
+    [
+      "mature stage",
+      "characterized by",
+      "rotating column of air"
+    ],
+    [
+      "forecasting capabilities",
+      "enhance",
+      "preparedness"
+    ],
+    [
+      "Enhanced Fujita (EF) scale",
+      "ranges from",
+      "EF0"
+    ],
+    [
+      "natural disasters",
+      "include",
+      "tornadoes"
+    ],
+    [
+      "air parcels",
+      "rise near",
+      "surface"
+    ],
+    [
+      "emergency responders",
+      "respond to",
+      "violent storms"
+    ],
+    [
+      "trigger mechanism",
+      "includes",
+      "dry line"
+    ],
+    [
+      "Forecasting tornadoes",
+      "is a task that uses",
+      "satellite imagery"
+    ],
+    [
+      "cumulonimbus clouds",
+      "form from",
+      "air parcels"
+    ],
+    [
+      "protecting lives",
+      "and",
+      "property"
+    ],
+    [
+      "technology",
+      "and",
+      "forecasting capabilities"
+    ],
+    [
+      "Enhanced Fujita (EF) scale",
+      "to",
+      "EF5"
+    ],
+    [
+      "tornadoes",
+      "pose threat to",
+      "communities"
+    ],
+    [
+      "preparedness",
+      "contributes to",
+      "resilience"
+    ],
+    [
+      "atmospheric conditions",
+      "lead to",
+      "violent storms"
+    ],
+    [
+      "Forecasting tornadoes",
+      "is a task that uses",
+      "weather radar"
+    ],
+    [
+      "Tornadoes",
+      "classified using",
+      "Enhanced Fujita (EF) scale"
+    ],
+    [
+      "Doppler radar",
+      "issues",
+      "tornado warnings"
+    ],
+    [
+      "Tornadoes",
+      "require",
+      "instability"
+    ],
+    [
+      "trigger mechanism",
+      "includes",
+      "outflow boundary"
+    ],
+    [
+      "tornado development",
+      "involves",
+      "intensification"
+    ],
+    [
+      "dust whirl stage",
+      "involves",
+      "condensation funnel"
+    ],
+    [
+      "United States",
+      "is part of",
+      "tornado-prone regions"
+    ],
+    [
+      "dissipating stage",
+      "caused by lack of",
+      "inflow of warm, moist air"
+    ],
+    [
+      "tornadoes",
+      "develop in",
+      "cumulonimbus clouds"
+    ],
+    [
+      "trigger mechanism",
+      "includes",
+      "cold front"
+    ],
+    [
+      "Tornadoes",
+      "require",
+      "wind shear"
+    ],
+    [
+      "Forecasting tornadoes",
+      "is a task that uses",
+      "ground observations"
+    ],
+    [
+      "Tornadoes",
+      "form_in",
+      "thunderstorms"
+    ],
+    [
+      "scientists",
+      "study",
+      "tornado development"
+    ]
+  ]
+}

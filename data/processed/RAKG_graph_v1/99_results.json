@@ -1,0 +1,80 @@
+[
+  {
+    "correct_answer": "Climate change impacts global agriculture.",
+    "retrieved_context": " Addressing climate change in agriculture\nAction  Biodiversity\nEcosystem Component  Livelihoods of Farmers\nEconomic Factor relation: global agriculture --[Contributes To]-> Food Security  Food Security\nSocial Issue relation: global agriculture --[Mitigates]-> Environmental Degradation relation: global agriculture --[Affected By]-> Climate Change  global agriculture\nSector  Climate Change\nEnvironmental Issue  Water Availability\nResource relation: global agriculture --[Enhances]-> Biodiversity relation: global agriculture --[Impacts]-> Livelihoods of Farmers  Environmental Degradation\nEnvironmental Issue relation: global agriculture --[Depends On]-> Water Availability  Global Agriculture\nEconomic Sector  Shift in Growing Seasons\nAgricultural Impact  Decreased Crop Yields\nAgricultural Outcome  Reduced Crop Yields\nAgricultural Outcome  Climate Change\nEnvironmental Issue  Sustainable Agriculture\nAgricultural Practice",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Agriculture is highly dependent on climate conditions.",
+    "retrieved_context": " Addressing climate change in agriculture\nAction  Sustainable Agriculture\nAgricultural Practice  Shift in Growing Seasons\nAgricultural Impact  Drought-Resistant Crop Varieties\nAgricultural Technology  Biodiversity\nEcosystem Component  Livelihoods of Farmers\nEconomic Factor relation: global agriculture --[Contributes To]-> Food Security  Food Security\nSocial Issue relation: global agriculture --[Mitigates]-> Environmental Degradation relation: global agriculture --[Affected By]-> Climate Change  global agriculture\nSector  Climate Change\nEnvironmental Issue  Water Availability\nResource relation: global agriculture --[Enhances]-> Biodiversity relation: global agriculture --[Impacts]-> Livelihoods of Farmers  Environmental Degradation\nEnvironmental Issue relation: global agriculture --[Depends On]-> Water Availability  Reduced Crop Yields\nAgricultural Outcome  Global Agriculture\nEconomic Sector  Decreased Crop Yields\nAgricultural Outcome",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Changes in climate affect crop production.",
+    "retrieved_context": " Addressing climate change in agriculture\nAction  Shift in Growing Seasons\nAgricultural Impact  Decreased Crop Yields\nAgricultural Outcome  Reduced Crop Yields\nAgricultural Outcome  Crop Yields\nAgricultural Output  Crop Production\nAgricultural Activity  Changing Climate Conditions\nClimate Change Phenomenon  Resilience to Climate Change\nEnvironmental Impact relation: crop rotation --[Contributes to]-> Resilience to Climate Change relation: crop rotation --[Is a Type of]-> Sustainable Farming Practice  Sustainable Farming Practice\nAgricultural Practice  Soil Health\nAgricultural Attribute  crop rotation\nAgricultural Practice relation: crop rotation --[Improves]-> Soil Health",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Climate change leads to more severe weather events.",
+    "retrieved_context": " Changing Climate Conditions\nClimate Change Phenomenon  extreme weather events\nEnvironmental Phenomenon  Changing Weather Patterns\nEnvironmental Impact  Severe Weather Events\nEnvironmental Event  climate change\nPhenomenon  Extreme Weather Events\nPhenomenon  Extreme weather events\nPhenomenon  Water Availability for Agriculture\nResource Management Issue relation: Climate change --[Affects]-> Water Availability for Agriculture  Innovation and Adaptation in Agriculture\nTechnological Development relation: Climate change --[Expands]-> Pests and Diseases relation: Climate change --[Leads to]-> Shift in Growing Seasons relation: Climate change --[Increases Frequency of]-> Severe Weather Events  Mitigation of Environmental Effects\nEnvironmental Impact relation: Climate change --[Causes]-> Changing Weather Patterns  Severe Weather Events\nEnvironmental Event relation: Climate change --[Requires]-> Sustainable Agricultural Practices  Shift in Growing Seasons\nAgricultural Impact  Pests and Diseases\nBiological Impact  Climate change\nEnvironmental Phenomenon relation: Climate change --[Promotes]-> Innovation and Adaptation in Agriculture relation: Climate change --[Contributes to]-> Mitigation of Environmental Effects  Sustainable Agricultural Practices\nAgricultural Practice  Changing Weather Patterns\nEnvironmental Impact",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Extreme weather events can devastate crops.",
+    "retrieved_context": " extreme weather events\nEnvironmental Phenomenon  Shift in Growing Seasons\nAgricultural Impact  Extreme Weather Events\nPhenomenon  Extreme weather events\nPhenomenon  Severe Weather Events\nEnvironmental Event  Reduced Crop Yields\nAgricultural Outcome  Addressing climate change in agriculture\nAction  Crops\nPlant",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Rising temperatures affect planting and harvesting seasons.",
+    "retrieved_context": " Adjusting Planting and Harvesting Seasons\nPractice  Adjustment of Planting and Harvesting Seasons\nPractice  Shift in Growing Seasons\nAgricultural Impact  Warmer temperatures leading to spread of pests and diseases\nEnvironmental Condition  Addressing climate change in agriculture\nAction  Rising Global Temperatures\nMeteorological Phenomenon  Decreased Crop Yields\nAgricultural Outcome  Changing Climate Conditions\nClimate Change Phenomenon",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Warmer temperatures lead to the spread of pests and diseases.",
+    "retrieved_context": " Warmer temperatures leading to spread of pests and diseases\nEnvironmental Condition  Spread of Pests and Diseases\nEnvironmental Change  Pests and Diseases\nBiological Impact relation: pests --[Spread Due To]-> Climate Change  Pesticides\nAgricultural Chemical  Crop Yields\nAgricultural Output  pests\nBiological Organism  Climate Change\nEnvironmental Issue relation: pests --[Affect]-> Crop Yields relation: pests --[Require Increased Use Of]-> Pesticides  Rising Global Temperatures\nMeteorological Phenomenon relation: diseases --[Affects]-> Crops  diseases\nBiological Phenomenon relation: diseases --[Caused By]-> Climate Change  Crops\nPlant  Climate Change\nEnvironmental Issue  Shift in Growing Seasons\nAgricultural Impact relation: diseases --[Expands Due to]-> Shift in Growing Seasons  Changing Climate Conditions\nClimate Change Phenomenon  climate change\nPhenomenon",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Climate change challenges water availability for agriculture.",
+    "retrieved_context": " Water Availability for Agriculture\nResource Management Issue  Addressing climate change in agriculture\nAction  Adapting to changing water availability conditions\nClimate Adaptation Strategy  Sustainable water management practices\nAgricultural Practice  Drought\nEnvironmental Condition  Drought-Resistant Crop Varieties\nAgricultural Technology  Water Availability\nResource  Prolonged Droughts\nEnvironmental Condition",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Water scarcity affects farmers' ability to irrigate crops.",
+    "retrieved_context": " Water Scarcity Mitigation\nEnvironmental Practice  Water Scarcity\nEnvironmental Issue  Water scarcity\nPhenomenon  Water Availability for Agriculture\nResource Management Issue  Sustainable water management practices\nAgricultural Practice  Reduced Crop Yields\nAgricultural Outcome  Crop Yields\nAgricultural Output  Decreased Crop Yields\nAgricultural Outcome",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Sustainable water management practices are crucial for adaptation.",
+    "retrieved_context": " Sustainable Water Management Practices\nPractice  Sustainable water management practices\nAgricultural Practice  Adapting to changing water availability conditions\nClimate Adaptation Strategy  Water Scarcity Mitigation\nEnvironmental Practice  Water Scarcity\nEnvironmental Issue  Increased Competition for Water Resources\nEnvironmental Issue relation: Rainwater harvesting --[Contributes to]-> Water Scarcity Mitigation  Efficient Irrigation Systems\nAgricultural Technology relation: Rainwater harvesting --[Supports]-> Efficient Irrigation Systems  Rainwater harvesting\nWater Management Practice  Water Scarcity Mitigation\nEnvironmental Practice  Water Availability\nResource",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Climate change presents opportunities for innovation in agriculture.",
+    "retrieved_context": " Addressing climate change in agriculture\nAction  Innovation and Adaptation in Agriculture\nTechnological Development  Innovation in Agriculture\nOpportunity  Sustainable Agriculture\nAgricultural Practice  Shift in Growing Seasons\nAgricultural Impact  Biodiversity\nEcosystem Component  Livelihoods of Farmers\nEconomic Factor relation: global agriculture --[Contributes To]-> Food Security  Food Security\nSocial Issue relation: global agriculture --[Mitigates]-> Environmental Degradation relation: global agriculture --[Affected By]-> Climate Change  global agriculture\nSector  Climate Change\nEnvironmental Issue  Water Availability\nResource relation: global agriculture --[Enhances]-> Biodiversity relation: global agriculture --[Impacts]-> Livelihoods of Farmers  Environmental Degradation\nEnvironmental Issue relation: global agriculture --[Depends On]-> Water Availability  Changing Climate Conditions\nClimate Change Phenomenon  Promotion of Sustainable Agriculture\nAction",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Drought-resistant crop varieties can mitigate climate change impacts.",
+    "retrieved_context": " Drought-resistant crop varieties\nCrop Variety  Drought-Resistant Crop Varieties\nAgricultural Technology  Development of Drought-Resistant Crop Varieties\nTechnique  Addressing climate change in agriculture\nAction  Prolonged Droughts\nEnvironmental Condition  Drought\nEnvironmental Condition  Reduced Crop Yields\nAgricultural Outcome  Decreased Crop Yields\nAgricultural Outcome",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Sustainable farming practices can improve soil health.",
+    "retrieved_context": " sustainable agricultural practices\nAgricultural Practice  agroecology\nAgricultural Practice  agroforestry\nAgricultural Practice relation: agroecology --[Protects]-> Biodiversity  organic farming\nFarming Method relation: soil health --[Contributes to]-> resilience to climate change relation: agroforestry --[Helps Build Resilience To]-> Climate Change relation: soil health --[Improved by]-> sustainable agricultural practices relation: soil health --[Enhanced by]-> agroforestry  resilience to climate change\nEnvironmental Outcome relation: agroecology --[Improves]-> Soil Health relation: soil health --[Enhanced by]-> organic farming relation: crop rotation --[Is a Type of]-> Sustainable Farming Practice  soil health\nAgricultural Concept relation: soil health --[Enhanced by]-> crop rotation  crop rotation\nAgricultural Practice relation: agroecology --[Contributes To]-> Sustainable Agriculture relation: crop rotation --[Contributes to]-> Resilience to Climate Change relation: agroforestry --[Improves]-> Soil Health relation: agroecology --[Helps Address]-> Climate Change relation: soil health --[Enhanced by]-> agroecology relation: crop rotation --[Improves]-> Soil Health  Sustainable Farming Practices\nAgricultural Practice  Sustainable Farming Practice\nAgricultural Practice  Soil Health\nAgricultural Attribute  Sustainable Agriculture\nAgricultural Practice  Sustainable Agricultural Practices\nAgricultural Practice  Sustainable agricultural practices\nAgricultural Practice  sustainable agricultural practices\nAgricultural Practice",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Promoting sustainable agriculture can reduce greenhouse gas emissions.",
+    "retrieved_context": " Promotion of Sustainable Agriculture\nAction  Sustainable Agriculture\nAgricultural Practice  Addressing climate change in agriculture\nAction relation: greenhouse gas emissions --[Reduced by]-> Sustainable Agricultural Practices  greenhouse gas emissions\nEnvironmental Impact  Climate Change\nEnvironmental Issue relation: greenhouse gas emissions --[Causes]-> Climate Change  Sustainable Agricultural Practices\nAgricultural Practice  Sustainable Farming Practices\nAgricultural Practice  Sustainable Farming Practice\nAgricultural Practice  Sustainable Agricultural Practices\nAgricultural Practice  Sustainable agricultural practices\nAgricultural Practice",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Investing in research and technology can address climate change challenges in agriculture.",
+    "retrieved_context": " Addressing climate change in agriculture\nAction  Innovation and Adaptation in Agriculture\nTechnological Development  Innovation in Agriculture\nOpportunity  Climate Change\nEnvironmental Issue  Drought-Resistant Crop Varieties\nAgricultural Technology  Sustainable Agriculture\nAgricultural Practice  Promotion of Sustainable Agriculture\nAction  Precision agriculture techniques\nAgricultural Technology",
+    "evaluation": 1
+  },
+  {
+    "accuracy": "100.00%"
+  }
+]

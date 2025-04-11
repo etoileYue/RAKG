@@ -1,0 +1,184 @@
+{
+  "entities": [
+    {
+      "name": "cloaks"
+    },
+    {
+      "name": "science"
+    },
+    {
+      "name": "Middle Ages"
+    },
+    {
+      "name": "storytelling"
+    },
+    {
+      "name": "unknown"
+    },
+    {
+      "name": "occult"
+    },
+    {
+      "name": "geometry"
+    },
+    {
+      "name": "Magic tricks"
+    },
+    {
+      "name": "optics"
+    },
+    {
+      "name": "Rome"
+    },
+    {
+      "name": "Jean EugÃ¨ne Robert-Houdin"
+    },
+    {
+      "name": "Egyptians"
+    },
+    {
+      "name": "ancient Egypt"
+    },
+    {
+      "name": "witchcraft"
+    },
+    {
+      "name": "David Copperfield"
+    },
+    {
+      "name": "illusions"
+    },
+    {
+      "name": "John Dee"
+    },
+    {
+      "name": "Penn & Teller"
+    },
+    {
+      "name": "entertainment"
+    },
+    {
+      "name": "Harry Houdini"
+    },
+    {
+      "name": "magic tricks"
+    },
+    {
+      "name": "wands"
+    },
+    {
+      "name": "ancient Greece"
+    },
+    {
+      "name": "cups and balls"
+    },
+    {
+      "name": "imagination"
+    },
+    {
+      "name": "modern era"
+    },
+    {
+      "name": "crystal balls"
+    },
+    {
+      "name": "Girolamo Cardano"
+    },
+    {
+      "name": "theatrics"
+    },
+    {
+      "name": "Renaissance period"
+    },
+    {
+      "name": "mathematics"
+    }
+  ],
+  "relations": [
+    [
+      "Middle Ages",
+      "associated_with",
+      "witchcraft"
+    ],
+    [
+      "storytelling",
+      "incorporated_into",
+      "Magic tricks"
+    ],
+    [
+      "optics",
+      "used_to_create",
+      "illusions"
+    ],
+    [
+      "Middle Ages",
+      "associated_with",
+      "occult"
+    ],
+    [
+      "magic tricks",
+      "form_of",
+      "entertainment"
+    ],
+    [
+      "Magic tricks",
+      "evolved_in",
+      "Rome"
+    ],
+    [
+      "geometry",
+      "used_to_create",
+      "illusions"
+    ],
+    [
+      "Renaissance period",
+      "saw_resurgence_of_interest_in",
+      "Magic tricks"
+    ],
+    [
+      "Egyptians",
+      "performed",
+      "Magic tricks"
+    ],
+    [
+      "theatrics",
+      "incorporated_into",
+      "Magic tricks"
+    ],
+    [
+      "Magic tricks",
+      "evolved_in",
+      "ancient Greece"
+    ],
+    [
+      "cups and balls",
+      "used_in",
+      "Magic tricks"
+    ],
+    [
+      "magic tricks",
+      "appeal_to",
+      "unknown"
+    ],
+    [
+      "magic tricks",
+      "testament_to",
+      "imagination"
+    ],
+    [
+      "ancient Egypt",
+      "origin_of",
+      "magic tricks"
+    ],
+    [
+      "Magic tricks",
+      "originated_in",
+      "ancient Egypt"
+    ],
+    [
+      "modern era",
+      "evolution_to",
+      "magic tricks"
+    ]
+  ]
+}

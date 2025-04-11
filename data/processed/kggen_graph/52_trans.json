@@ -1,0 +1,227 @@
+{
+  "entities": [
+    {
+      "name": "intimacy"
+    },
+    {
+      "name": "stronger relationships"
+    },
+    {
+      "name": "slouching"
+    },
+    {
+      "name": "gestures"
+    },
+    {
+      "name": "connections"
+    },
+    {
+      "name": "meaningful"
+    },
+    {
+      "name": "smiling"
+    },
+    {
+      "name": "crossing one's arms"
+    },
+    {
+      "name": "fulfilling"
+    },
+    {
+      "name": "social interactions"
+    },
+    {
+      "name": "mirroring gestures"
+    },
+    {
+      "name": "leaning in"
+    },
+    {
+      "name": "conveying"
+    },
+    {
+      "name": "conflicts"
+    },
+    {
+      "name": "body language"
+    },
+    {
+      "name": "waving hello"
+    },
+    {
+      "name": "eye contact"
+    },
+    {
+      "name": "shoulders back"
+    },
+    {
+      "name": "standing up straight"
+    },
+    {
+      "name": "nodding"
+    },
+    {
+      "name": "establishing"
+    },
+    {
+      "name": "relationships"
+    },
+    {
+      "name": "gazing"
+    },
+    {
+      "name": "attraction"
+    },
+    {
+      "name": "posture"
+    },
+    {
+      "name": "romantic body language"
+    },
+    {
+      "name": "touching"
+    },
+    {
+      "name": "nonverbal cues"
+    },
+    {
+      "name": "mirroring"
+    },
+    {
+      "name": "thumbs up"
+    },
+    {
+      "name": "communication"
+    },
+    {
+      "name": "confidence"
+    }
+  ],
+  "relations": [
+    [
+      "body language",
+      "impacts",
+      "social interactions"
+    ],
+    [
+      "romantic body language",
+      "signals",
+      "intimacy"
+    ],
+    [
+      "body language",
+      "impacts",
+      "relationships"
+    ],
+    [
+      "gazing",
+      "is an example of",
+      "romantic body language"
+    ],
+    [
+      "conveying",
+      "facilitates",
+      "communication"
+    ],
+    [
+      "thumbs up",
+      "example_of",
+      "gestures"
+    ],
+    [
+      "mirroring gestures",
+      "is an example of",
+      "romantic body language"
+    ],
+    [
+      "waving hello",
+      "example_of",
+      "gestures"
+    ],
+    [
+      "romantic body language",
+      "signals",
+      "attraction"
+    ],
+    [
+      "gestures",
+      "aspect_of",
+      "body language"
+    ],
+    [
+      "establishing",
+      "enhances",
+      "relationships"
+    ],
+    [
+      "touching",
+      "is an example of",
+      "romantic body language"
+    ],
+    [
+      "nodding",
+      "is an example of",
+      "body language"
+    ],
+    [
+      "shoulders back",
+      "part_of",
+      "standing up straight"
+    ],
+    [
+      "body language",
+      "conveys",
+      "nonverbal cues"
+    ],
+    [
+      "nonverbal cues",
+      "are a part of",
+      "communication"
+    ],
+    [
+      "smiling",
+      "is an example of",
+      "body language"
+    ],
+    [
+      "posture",
+      "aspect_of",
+      "body language"
+    ],
+    [
+      "fulfilling",
+      "results_from",
+      "relationships"
+    ],
+    [
+      "body language",
+      "builds",
+      "connections"
+    ],
+    [
+      "body language",
+      "helps establish",
+      "connections"
+    ],
+    [
+      "posture",
+      "conveys",
+      "confidence"
+    ],
+    [
+      "leaning in",
+      "is an example of",
+      "body language"
+    ],
+    [
+      "body language",
+      "projects",
+      "meaningful"
+    ],
+    [
+      "conveying",
+      "deepens",
+      "meaningful"
+    ]
+  ]
+}

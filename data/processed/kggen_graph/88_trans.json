@@ -1,0 +1,398 @@
+{
+  "entities": [
+    {
+      "name": "sophisticated"
+    },
+    {
+      "name": "forensic"
+    },
+    {
+      "name": "combining"
+    },
+    {
+      "name": "trace evidence such as fibers or hair"
+    },
+    {
+      "name": "evidence"
+    },
+    {
+      "name": "advanced technology and instrumentation"
+    },
+    {
+      "name": "scanning electron microscopes"
+    },
+    {
+      "name": "ensuring"
+    },
+    {
+      "name": "DNA samples"
+    },
+    {
+      "name": "microscopy"
+    },
+    {
+      "name": "principles"
+    },
+    {
+      "name": "tool marks"
+    },
+    {
+      "name": "firearms"
+    },
+    {
+      "name": "effective"
+    },
+    {
+      "name": "criminal justice system"
+    },
+    {
+      "name": "fighting"
+    },
+    {
+      "name": "judges"
+    },
+    {
+      "name": "served"
+    },
+    {
+      "name": "law enforcement agencies"
+    },
+    {
+      "name": "pressure"
+    },
+    {
+      "name": "physical characteristics of the evidence"
+    },
+    {
+      "name": "drugs or toxins in a sample"
+    },
+    {
+      "name": "puzzles"
+    },
+    {
+      "name": "expert witnesses"
+    },
+    {
+      "name": "DNA profiling"
+    },
+    {
+      "name": "chemistry"
+    },
+    {
+      "name": "spectroscopy"
+    },
+    {
+      "name": "accountable"
+    },
+    {
+      "name": "cause of death"
+    },
+    {
+      "name": "technology"
+    },
+    {
+      "name": "justice"
+    },
+    {
+      "name": "physical evidence"
+    },
+    {
+      "name": "court"
+    },
+    {
+      "name": "developed"
+    },
+    {
+      "name": "investigative"
+    },
+    {
+      "name": "accuracy and reliability of forensic analysis"
+    },
+    {
+      "name": "conclusion"
+    },
+    {
+      "name": "guilty"
+    },
+    {
+      "name": "identity of a suspect"
+    },
+    {
+      "name": "consistent"
+    },
+    {
+      "name": "fingerprints"
+    },
+    {
+      "name": "processed"
+    },
+    {
+      "name": "investigators"
+    },
+    {
+      "name": "meticulous"
+    },
+    {
+      "name": "mass spectrometry"
+    },
+    {
+      "name": "analysis"
+    },
+    {
+      "name": "crucial"
+    },
+    {
+      "name": "chromatography"
+    },
+    {
+      "name": "documenting and preserving the integrity of the crime scene"
+    },
+    {
+      "name": "Forensic science"
+    },
+    {
+      "name": "crime scene investigation"
+    },
+    {
+      "name": "modern criminal investigations"
+    },
+    {
+      "name": "creatively"
+    },
+    {
+      "name": "handled"
+    },
+    {
+      "name": "powerful"
+    },
+    {
+      "name": "documenting"
+    },
+    {
+      "name": "crime scene"
+    },
+    {
+      "name": "injustice"
+    },
+    {
+      "name": "challenging"
+    },
+    {
+      "name": "physics"
+    },
+    {
+      "name": "advances"
+    },
+    {
+      "name": "forensic scientists"
+    },
+    {
+      "name": "complex"
+    },
+    {
+      "name": "scientists"
+    },
+    {
+      "name": "uncover"
+    },
+    {
+      "name": "controlled"
+    },
+    {
+      "name": "hidden"
+    },
+    {
+      "name": "techniques"
+    },
+    {
+      "name": "collecting and cataloging evidence for further analysis"
+    },
+    {
+      "name": "lawyers"
+    },
+    {
+      "name": "analytically"
+    },
+    {
+      "name": "mathematics"
+    },
+    {
+      "name": "biology"
+    },
+    {
+      "name": "presence of a particular substance at a crime scene"
+    }
+  ],
+  "relations": [
+    [
+      "forensic scientists",
+      "help",
+      "investigators"
+    ],
+    [
+      "evidence",
+      "handled_by",
+      "scientists"
+    ],
+    [
+      "forensic scientists",
+      "testify",
+      "court"
+    ],
+    [
+      "investigative",
+      "describes_type_of",
+      "techniques"
+    ],
+    [
+      "mass spectrometry",
+      "determine",
+      "drugs or toxins in a sample"
+    ],
+    [
+      "conclusion",
+      "drawn_from",
+      "analysis"
+    ],
+    [
+      "ensuring",
+      "applies_to",
+      "justice"
+    ],
+    [
+      "forensic scientists",
+      "communicate",
+      "lawyers"
+    ],
+    [
+      "processed",
+      "communicate",
+      "evidence"
+    ],
+    [
+      "forensic scientists",
+      "communicate",
+      "law enforcement agencies"
+    ],
+    [
+      "forensic scientists",
+      "document",
+      "crime scene"
+    ],
+    [
+      "complex",
+      "describes",
+      "puzzles"
+    ],
+    [
+      "Forensic science",
+      "plays role in",
+      "criminal justice system"
+    ],
+    [
+      "forensic scientists",
+      "communicate",
+      "judges"
+    ],
+    [
+      "forensic scientists",
+      "use",
+      "mass spectrometry"
+    ],
+    [
+      "forensic scientists",
+      "use",
+      "scanning electron microscopes"
+    ],
+    [
+      "ensuring",
+      "applies_to",
+      "evidence"
+    ],
+    [
+      "documenting",
+      "is_part_of",
+      "analysis"
+    ],
+    [
+      "puzzles",
+      "solved_by",
+      "scientists"
+    ],
+    [
+      "forensic scientists",
+      "interpret",
+      "evidence"
+    ],
+    [
+      "meticulous",
+      "describes",
+      "scientists"
+    ],
+    [
+      "analysis",
+      "performed_by",
+      "scientists"
+    ],
+    [
+      "forensic scientists",
+      "determine",
+      "presence of a particular substance at a crime scene"
+    ],
+    [
+      "forensic scientists",
+      "examine",
+      "physical characteristics of the evidence"
+    ],
+    [
+      "forensic scientists",
+      "play a crucial role in",
+      "documenting and preserving the integrity of the crime scene"
+    ],
+    [
+      "accountable",
+      "for_actions",
+      "guilty"
+    ],
+    [
+      "forensic scientists",
+      "determine",
+      "cause of death"
+    ],
+    [
+      "Forensic science",
+      "interpret",
+      "physical evidence"
+    ],
+    [
+      "scientists",
+      "work_in",
+      "forensic"
+    ],
+    [
+      "forensic scientists",
+      "determine",
+      "identity of a suspect"
+    ],
+    [
+      "forensic scientists",
+      "play a crucial role in",
+      "crime scene investigation"
+    ],
+    [
+      "forensic scientists",
+      "serve as",
+      "expert witnesses"
+    ],
+    [
+      "forensic scientists",
+      "collect",
+      "evidence"
+    ],
+    [
+      "scanning electron microscopes",
+      "examine",
+      "trace evidence such as fibers or hair"
+    ]
+  ]
+}

@@ -1,0 +1,256 @@
+{
+  "entities": [
+    {
+      "name": "urgency"
+    },
+    {
+      "name": "cool colors"
+    },
+    {
+      "name": "Color"
+    },
+    {
+      "name": "value"
+    },
+    {
+      "name": "colors"
+    },
+    {
+      "name": "green"
+    },
+    {
+      "name": "competitors"
+    },
+    {
+      "name": "strong brand presence"
+    },
+    {
+      "name": "brand identity"
+    },
+    {
+      "name": "color psychology"
+    },
+    {
+      "name": "differentiate a brand"
+    },
+    {
+      "name": "cultural factors"
+    },
+    {
+      "name": "McDonald's arches"
+    },
+    {
+      "name": "cultural and contextual associations"
+    },
+    {
+      "name": "trust"
+    },
+    {
+      "name": "luxury brand"
+    },
+    {
+      "name": "Coca-Cola's logo"
+    },
+    {
+      "name": "impulse purchases"
+    },
+    {
+      "name": "emotions"
+    },
+    {
+      "name": "reliability"
+    },
+    {
+      "name": "perceptions"
+    },
+    {
+      "name": "Eastern cultures"
+    },
+    {
+      "name": "Blue"
+    },
+    {
+      "name": "crowded marketplace"
+    },
+    {
+      "name": "red"
+    },
+    {
+      "name": "quality"
+    },
+    {
+      "name": "youth-oriented brand"
+    },
+    {
+      "name": "Colors"
+    },
+    {
+      "name": "branding and marketing strategies"
+    },
+    {
+      "name": "brand's personality"
+    },
+    {
+      "name": "unique and memorable brand identity"
+    },
+    {
+      "name": "blue"
+    },
+    {
+      "name": "Western cultures"
+    },
+    {
+      "name": "orange"
+    },
+    {
+      "name": "target audience"
+    },
+    {
+      "name": "contextual factors"
+    },
+    {
+      "name": "brand differentiation"
+    },
+    {
+      "name": "distinctive color scheme"
+    },
+    {
+      "name": "warm colors"
+    },
+    {
+      "name": "businesses"
+    }
+  ],
+  "relations": [
+    [
+      "warm colors",
+      "create",
+      "urgency"
+    ],
+    [
+      "cool colors",
+      "create",
+      "trust"
+    ],
+    [
+      "warm colors",
+      "include",
+      "orange"
+    ],
+    [
+      "businesses",
+      "leverage",
+      "color psychology"
+    ],
+    [
+      "businesses",
+      "create",
+      "brand identity"
+    ],
+    [
+      "businesses",
+      "consider",
+      "cultural factors"
+    ],
+    [
+      "warm colors",
+      "include",
+      "red"
+    ],
+    [
+      "Colors",
+      "associated_with",
+      "Eastern cultures"
+    ],
+    [
+      "colors",
+      "affect",
+      "brand's personality"
+    ],
+    [
+      "colors",
+      "help",
+      "differentiate a brand"
+    ],
+    [
+      "colors",
+      "create",
+      "brand differentiation"
+    ],
+    [
+      "businesses",
+      "consider",
+      "contextual factors"
+    ],
+    [
+      "brand identity",
+      "resonates with",
+      "target audience"
+    ],
+    [
+      "distinctive color scheme",
+      "contribute to",
+      "strong brand presence"
+    ],
+    [
+      "colors",
+      "evokes",
+      "emotions"
+    ],
+    [
+      "warm colors",
+      "encourage",
+      "impulse purchases"
+    ],
+    [
+      "cool colors",
+      "include",
+      "green"
+    ],
+    [
+      "colors",
+      "affect",
+      "quality"
+    ],
+    [
+      "colors",
+      "affect",
+      "value"
+    ],
+    [
+      "colors",
+      "influence",
+      "perceptions"
+    ],
+    [
+      "colors",
+      "create",
+      "unique and memorable brand identity"
+    ],
+    [
+      "Colors",
+      "associated_with",
+      "Western cultures"
+    ],
+    [
+      "businesses",
+      "use",
+      "colors"
+    ],
+    [
+      "Colors",
+      "plays_a_role_in",
+      "branding and marketing strategies"
+    ],
+    [
+      "cool colors",
+      "include",
+      "blue"
+    ],
+    [
+      "cool colors",
+      "create",
+      "reliability"
+    ]
+  ]
+}

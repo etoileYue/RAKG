@@ -1,0 +1,196 @@
+{
+  "entities": [
+    {
+      "name": "Apollo 11 mission"
+    },
+    {
+      "name": "Mars"
+    },
+    {
+      "name": "international cooperation"
+    },
+    {
+      "name": "exploring other planets"
+    },
+    {
+      "name": "Buzz Aldrin"
+    },
+    {
+      "name": "Blue Origin"
+    },
+    {
+      "name": "International Space Station (ISS)"
+    },
+    {
+      "name": "system"
+    },
+    {
+      "name": "exploration"
+    },
+    {
+      "name": "solar"
+    },
+    {
+      "name": "Virgin Galactic"
+    },
+    {
+      "name": "ion propulsion systems"
+    },
+    {
+      "name": "Voyager missions"
+    },
+    {
+      "name": "humans to the moon"
+    },
+    {
+      "name": "NASA's Perseverance rover"
+    },
+    {
+      "name": "possibilities"
+    },
+    {
+      "name": "Jupiter"
+    },
+    {
+      "name": "revolutionize"
+    },
+    {
+      "name": "space missions"
+    },
+    {
+      "name": "commercial ventures"
+    },
+    {
+      "name": "Mars rovers"
+    },
+    {
+      "name": "United States"
+    },
+    {
+      "name": "suborbital spaceflights"
+    },
+    {
+      "name": "space tourism"
+    },
+    {
+      "name": "Sputnik 1"
+    },
+    {
+      "name": "scientific discoveries"
+    },
+    {
+      "name": "universe"
+    },
+    {
+      "name": "Yuri Gagarin"
+    },
+    {
+      "name": "advanced materials"
+    },
+    {
+      "name": "space race"
+    },
+    {
+      "name": "ISS"
+    },
+    {
+      "name": "permanent presence in space"
+    },
+    {
+      "name": "future"
+    },
+    {
+      "name": "Space Exploration"
+    },
+    {
+      "name": "Neil Armstrong"
+    },
+    {
+      "name": "habitable exoplanets"
+    },
+    {
+      "name": "discoveries"
+    },
+    {
+      "name": "understanding"
+    },
+    {
+      "name": "SpaceX"
+    },
+    {
+      "name": "Soviet Union"
+    }
+  ],
+  "relations": [
+    [
+      "NASA's Perseverance rover",
+      "landed_on",
+      "Mars"
+    ],
+    [
+      "understanding",
+      "universe",
+      "possibilities"
+    ],
+    [
+      "habitable exoplanets",
+      "focus_of",
+      "space missions"
+    ],
+    [
+      "Neil Armstrong",
+      "walked on the moon as part of",
+      "Apollo 11 mission"
+    ],
+    [
+      "solar",
+      "system",
+      "exploration"
+    ],
+    [
+      "Soviet Union",
+      "launched",
+      "Sputnik 1"
+    ],
+    [
+      "Buzz Aldrin",
+      "walked on the moon as part of",
+      "Apollo 11 mission"
+    ],
+    [
+      "space tourism",
+      "offered_by",
+      "Blue Origin"
+    ],
+    [
+      "future",
+      "exploration",
+      "solar"
+    ],
+    [
+      "discoveries",
+      "revolutionize",
+      "understanding"
+    ],
+    [
+      "Space Exploration",
+      "began_with",
+      "Sputnik 1"
+    ],
+    [
+      "United States",
+      "competed_with",
+      "Soviet Union"
+    ],
+    [
+      "possibilities",
+      "discoveries",
+      "revolutionize"
+    ],
+    [
+      "space tourism",
+      "offered_by",
+      "Virgin Galactic"
+    ]
+  ]
+}

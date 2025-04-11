@@ -1,0 +1,310 @@
+{
+  "entities": [
+    {
+      "name": "production efficiency"
+    },
+    {
+      "name": "telephone"
+    },
+    {
+      "name": "global trade"
+    },
+    {
+      "name": "cooking meals"
+    },
+    {
+      "name": "washing machines"
+    },
+    {
+      "name": "refrigerators"
+    },
+    {
+      "name": "industrialization"
+    },
+    {
+      "name": "Electricity"
+    },
+    {
+      "name": "mass production"
+    },
+    {
+      "name": "communication"
+    },
+    {
+      "name": "technology"
+    },
+    {
+      "name": "economic development"
+    },
+    {
+      "name": "electricity"
+    },
+    {
+      "name": "indoor temperatures"
+    },
+    {
+      "name": "healthcare"
+    },
+    {
+      "name": "stoves"
+    },
+    {
+      "name": "cities"
+    },
+    {
+      "name": "electric heating"
+    },
+    {
+      "name": "electric lighting"
+    },
+    {
+      "name": "cooling systems"
+    },
+    {
+      "name": "equipment"
+    },
+    {
+      "name": "factories"
+    },
+    {
+      "name": "hypothermia"
+    },
+    {
+      "name": "society"
+    },
+    {
+      "name": "economic growth"
+    },
+    {
+      "name": "safety"
+    },
+    {
+      "name": "computers"
+    },
+    {
+      "name": "economy"
+    },
+    {
+      "name": "sustainable energy sources"
+    },
+    {
+      "name": "lighting homes"
+    },
+    {
+      "name": "manual labor"
+    },
+    {
+      "name": "medical technology"
+    },
+    {
+      "name": "output"
+    },
+    {
+      "name": "crime rates"
+    },
+    {
+      "name": "greenhouse gas emissions"
+    },
+    {
+      "name": "heatstroke"
+    },
+    {
+      "name": "internet"
+    },
+    {
+      "name": "telecommunications"
+    },
+    {
+      "name": "transportation"
+    },
+    {
+      "name": "human history"
+    },
+    {
+      "name": "new industries"
+    },
+    {
+      "name": "electronic devices"
+    },
+    {
+      "name": "modernizing society"
+    },
+    {
+      "name": "public health"
+    },
+    {
+      "name": "computing"
+    },
+    {
+      "name": "machinery"
+    },
+    {
+      "name": "jobs"
+    },
+    {
+      "name": "electrification of transportation"
+    },
+    {
+      "name": "telegraph"
+    },
+    {
+      "name": "manufacturing plants"
+    },
+    {
+      "name": "Electric appliances"
+    },
+    {
+      "name": "electrical engineering"
+    },
+    {
+      "name": "washing clothes"
+    }
+  ],
+  "relations": [
+    [
+      "Electricity",
+      "impacts",
+      "economy"
+    ],
+    [
+      "Electric appliances",
+      "include",
+      "washing machines"
+    ],
+    [
+      "electrical engineering",
+      "contributes to",
+      "transportation"
+    ],
+    [
+      "electricity",
+      "improve",
+      "public health"
+    ],
+    [
+      "Electricity",
+      "discovery_in",
+      "human history"
+    ],
+    [
+      "electricity",
+      "stimulates",
+      "economic development"
+    ],
+    [
+      "Electricity",
+      "impacts",
+      "society"
+    ],
+    [
+      "electricity",
+      "impacts",
+      "technology"
+    ],
+    [
+      "electrification of transportation",
+      "reduces",
+      "greenhouse gas emissions"
+    ],
+    [
+      "internet",
+      "is an innovation in",
+      "telecommunications"
+    ],
+    [
+      "telephone",
+      "is an innovation in",
+      "telecommunications"
+    ],
+    [
+      "Electric appliances",
+      "include",
+      "stoves"
+    ],
+    [
+      "electricity",
+      "drive",
+      "economic growth"
+    ],
+    [
+      "telegraph",
+      "is an innovation in",
+      "telecommunications"
+    ],
+    [
+      "electrical engineering",
+      "contributes to",
+      "telecommunications"
+    ],
+    [
+      "electricity",
+      "enables",
+      "mass production"
+    ],
+    [
+      "electricity",
+      "impacts",
+      "society"
+    ],
+    [
+      "Electricity",
+      "enables",
+      "modernizing society"
+    ],
+    [
+      "electricity",
+      "improve",
+      "safety"
+    ],
+    [
+      "electricity",
+      "impacts",
+      "economy"
+    ],
+    [
+      "electricity",
+      "facilitates",
+      "global trade"
+    ],
+    [
+      "electricity",
+      "drive",
+      "industrialization"
+    ],
+    [
+      "electricity",
+      "creates",
+      "new industries"
+    ],
+    [
+      "Electricity",
+      "drives",
+      "technology"
+    ],
+    [
+      "electricity",
+      "generates",
+      "jobs"
+    ],
+    [
+      "electricity",
+      "enhances",
+      "communication"
+    ],
+    [
+      "electrification of transportation",
+      "promotes",
+      "sustainable energy sources"
+    ],
+    [
+      "Electric appliances",
+      "include",
+      "refrigerators"
+    ],
+    [
+      "electrical engineering",
+      "contributes to",
+      "computing"
+    ]
+  ]
+}

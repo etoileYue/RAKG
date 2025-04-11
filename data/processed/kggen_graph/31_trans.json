@@ -1,0 +1,165 @@
+{
+  "entities": [
+    {
+      "name": "vast distances"
+    },
+    {
+      "name": "DST"
+    },
+    {
+      "name": "world that is constantly connected and in motion"
+    },
+    {
+      "name": "Time zones"
+    },
+    {
+      "name": "Daylight Saving Time (DST)"
+    },
+    {
+      "name": "Trains"
+    },
+    {
+      "name": "British railway companies"
+    },
+    {
+      "name": "Sir Sandford Fleming"
+    },
+    {
+      "name": "Canadian engineer"
+    },
+    {
+      "name": "daily lives"
+    },
+    {
+      "name": "World War I"
+    },
+    {
+      "name": "Railway Time"
+    },
+    {
+      "name": "International Meridian Conference"
+    },
+    {
+      "name": "efficiency"
+    },
+    {
+      "name": "Greenwich Mean Time (GMT)"
+    },
+    {
+      "name": "telegraphs"
+    },
+    {
+      "name": "London"
+    },
+    {
+      "name": "coordination"
+    },
+    {
+      "name": "24 time zones"
+    },
+    {
+      "name": "local solar time"
+    },
+    {
+      "name": "timekeeping"
+    },
+    {
+      "name": "Greenwich Meridian"
+    },
+    {
+      "name": "global trade and transportation networks"
+    },
+    {
+      "name": "time zones"
+    },
+    {
+      "name": "standardized system of time zones"
+    },
+    {
+      "name": "1884"
+    },
+    {
+      "name": "GMT"
+    },
+    {
+      "name": "Washington, D.C."
+    }
+  ],
+  "relations": [
+    [
+      "Sir Sandford Fleming",
+      "proposed",
+      "24 time zones"
+    ],
+    [
+      "timekeeping",
+      "driven_by",
+      "efficiency"
+    ],
+    [
+      "Time zones",
+      "arose due to the expansion of",
+      "global trade and transportation networks"
+    ],
+    [
+      "local solar time",
+      "predecessor_of",
+      "standardized system of time zones"
+    ],
+    [
+      "standardized system of time zones",
+      "affects",
+      "daily lives"
+    ],
+    [
+      "DST",
+      "implemented_during",
+      "World War I"
+    ],
+    [
+      "Greenwich Meridian",
+      "located in",
+      "London"
+    ],
+    [
+      "British railway companies",
+      "adopted",
+      "Railway Time"
+    ],
+    [
+      "coordination",
+      "across",
+      "vast distances"
+    ],
+    [
+      "International Meridian Conference",
+      "held in",
+      "Washington, D.C."
+    ],
+    [
+      "daily lives",
+      "shaped_by",
+      "world that is constantly connected and in motion"
+    ],
+    [
+      "standardized system of time zones",
+      "part_of",
+      "timekeeping"
+    ],
+    [
+      "International Meridian Conference",
+      "agreed to adopt",
+      "Greenwich Mean Time (GMT)"
+    ],
+    [
+      "efficiency",
+      "across",
+      "vast distances"
+    ],
+    [
+      "timekeeping",
+      "driven_by",
+      "coordination"
+    ]
+  ]
+}

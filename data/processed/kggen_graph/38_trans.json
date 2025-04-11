@@ -1,0 +1,269 @@
+{
+  "entities": [
+    {
+      "name": "sustainable and resilient energy future"
+    },
+    {
+      "name": "Renewable energy"
+    },
+    {
+      "name": "climate change"
+    },
+    {
+      "name": "smart grid technologies"
+    },
+    {
+      "name": "public awareness"
+    },
+    {
+      "name": "carbon pricing mechanisms"
+    },
+    {
+      "name": "kinetic energy"
+    },
+    {
+      "name": "fossil fuels"
+    },
+    {
+      "name": "cleaner, greener, and more sustainable world"
+    },
+    {
+      "name": "solar"
+    },
+    {
+      "name": "renewable energy"
+    },
+    {
+      "name": "energy storage"
+    },
+    {
+      "name": "solar panels"
+    },
+    {
+      "name": "solar technology"
+    },
+    {
+      "name": "large-scale hydropower plants"
+    },
+    {
+      "name": "policy support"
+    },
+    {
+      "name": "technology"
+    },
+    {
+      "name": "electricity"
+    },
+    {
+      "name": "renewable energy deployment"
+    },
+    {
+      "name": "bioenergy"
+    },
+    {
+      "name": "offshore"
+    },
+    {
+      "name": "Paris Agreement"
+    },
+    {
+      "name": "carbon emissions"
+    },
+    {
+      "name": "energy needs"
+    },
+    {
+      "name": "wind farms"
+    },
+    {
+      "name": "onshore"
+    },
+    {
+      "name": "solar power"
+    },
+    {
+      "name": "wind turbines"
+    },
+    {
+      "name": "wind"
+    },
+    {
+      "name": "Governments"
+    },
+    {
+      "name": "subsidies"
+    },
+    {
+      "name": "environmental impact"
+    },
+    {
+      "name": "greenhouse gas emissions"
+    },
+    {
+      "name": "air pollution"
+    },
+    {
+      "name": "wind turbine technology"
+    },
+    {
+      "name": "renewable energy targets"
+    },
+    {
+      "name": "incentives"
+    },
+    {
+      "name": "batteries"
+    },
+    {
+      "name": "solar tracking systems"
+    },
+    {
+      "name": "geothermal energy"
+    },
+    {
+      "name": "Geothermal energy"
+    },
+    {
+      "name": "moving water"
+    },
+    {
+      "name": "pumped hydro storage"
+    },
+    {
+      "name": "hydropower"
+    },
+    {
+      "name": "thin-film solar cells"
+    },
+    {
+      "name": "wind power"
+    }
+  ],
+  "relations": [
+    [
+      "Governments",
+      "implement",
+      "renewable energy targets"
+    ],
+    [
+      "Governments",
+      "implement",
+      "carbon pricing mechanisms"
+    ],
+    [
+      "Renewable energy",
+      "uses",
+      "solar power"
+    ],
+    [
+      "solar technology",
+      "uses",
+      "solar tracking systems"
+    ],
+    [
+      "Geothermal energy",
+      "is type of",
+      "renewable energy"
+    ],
+    [
+      "Renewable energy",
+      "mitigates",
+      "air pollution"
+    ],
+    [
+      "wind power",
+      "harnessed in",
+      "offshore"
+    ],
+    [
+      "wind turbines",
+      "convert",
+      "kinetic energy"
+    ],
+    [
+      "solar",
+      "is type of",
+      "renewable energy"
+    ],
+    [
+      "wind power",
+      "uses",
+      "wind turbines"
+    ],
+    [
+      "energy storage",
+      "uses",
+      "pumped hydro storage"
+    ],
+    [
+      "wind farms",
+      "benefit from",
+      "wind turbine technology"
+    ],
+    [
+      "energy storage",
+      "uses",
+      "batteries"
+    ],
+    [
+      "solar power",
+      "utilizes",
+      "solar panels"
+    ],
+    [
+      "large-scale hydropower plants",
+      "generate",
+      "electricity"
+    ],
+    [
+      "Renewable energy",
+      "replaces",
+      "fossil fuels"
+    ],
+    [
+      "wind power",
+      "harnessed in",
+      "onshore"
+    ],
+    [
+      "solar technology",
+      "uses",
+      "thin-film solar cells"
+    ],
+    [
+      "wind",
+      "is type of",
+      "renewable energy"
+    ],
+    [
+      "wind power",
+      "replaces",
+      "fossil fuels"
+    ],
+    [
+      "hydropower",
+      "derived from",
+      "moving water"
+    ],
+    [
+      "Governments",
+      "implement",
+      "subsidies"
+    ],
+    [
+      "Renewable energy",
+      "addresses",
+      "climate change"
+    ],
+    [
+      "Geothermal energy",
+      "complements",
+      "renewable energy"
+    ],
+    [
+      "kinetic energy",
+      "into",
+      "electricity"
+    ]
+  ]
+}

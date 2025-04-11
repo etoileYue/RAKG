@@ -1,0 +1,123 @@
+{
+  "entities": [
+    "emotional depth",
+    "Sistine Chapel",
+    "Masterpieces",
+    "Vincent van Gogh",
+    "Baroque period",
+    "The Calling of Saint Matthew",
+    "Michelangelo",
+    "Renaissance man",
+    "Vatican",
+    "Les Demoiselles d'Avignon",
+    "Cubism",
+    "Giverny",
+    "light and shadow",
+    "da Vinci",
+    "Claude Monet",
+    "Caravaggio",
+    "Frida Kahlo",
+    "Famous Artists",
+    "Pablo Picasso",
+    "realism",
+    "Impressionists",
+    "Leonardo da Vinci",
+    "water lilies",
+    "Picasso",
+    "Modern Art",
+    "Renaissance",
+    "Mona Lisa"
+  ],
+  "relations": [
+    [
+      "The Calling of Saint Matthew",
+      "painted_by",
+      "Caravaggio"
+    ],
+    [
+      "Sistine Chapel",
+      "located_in",
+      "Vatican"
+    ],
+    [
+      "da Vinci",
+      "embodies_ideal_of",
+      "Renaissance man"
+    ],
+    [
+      "Caravaggio",
+      "known_for",
+      "light and shadow"
+    ],
+    [
+      "Sistine Chapel",
+      "includes",
+      "Sistine Chapel"
+    ],
+    [
+      "Caravaggio",
+      "characterized_by",
+      "emotional depth"
+    ],
+    [
+      "Caravaggio",
+      "characterized_by",
+      "realism"
+    ],
+    [
+      "Impressionists",
+      "include",
+      "Claude Monet"
+    ],
+    [
+      "Caravaggio",
+      "active_during",
+      "Baroque period"
+    ],
+    [
+      "Famous Artists",
+      "created",
+      "Masterpieces"
+    ],
+    [
+      "Picasso",
+      "pioneer_of",
+      "Cubism"
+    ],
+    [
+      "Michelangelo",
+      "painted_frescoes_on",
+      "Sistine Chapel"
+    ],
+    [
+      "Claude Monet",
+      "lived_in",
+      "Giverny"
+    ],
+    [
+      "Renaissance",
+      "influenced",
+      "Modern Art"
+    ],
+    [
+      "Leonardo da Vinci",
+      "painted",
+      "Mona Lisa"
+    ],
+    [
+      "Claude Monet",
+      "painted",
+      "water lilies"
+    ],
+    [
+      "Picasso",
+      "created",
+      "Les Demoiselles d'Avignon"
+    ],
+    [
+      "Mona Lisa",
+      "painted_by",
+      "da Vinci"
+    ]
+  ]
+}

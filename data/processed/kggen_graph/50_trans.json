@@ -1,0 +1,282 @@
+{
+  "entities": [
+    {
+      "name": "transportation systems"
+    },
+    {
+      "name": "traffic"
+    },
+    {
+      "name": "insurance"
+    },
+    {
+      "name": "liability"
+    },
+    {
+      "name": "emissions"
+    },
+    {
+      "name": "safety"
+    },
+    {
+      "name": "dedicated lanes"
+    },
+    {
+      "name": "artificial intelligence algorithms"
+    },
+    {
+      "name": "road infrastructure"
+    },
+    {
+      "name": "driving"
+    },
+    {
+      "name": "pilot programs"
+    },
+    {
+      "name": "communication systems"
+    },
+    {
+      "name": "efficiency"
+    },
+    {
+      "name": "travel times"
+    },
+    {
+      "name": "valuable space"
+    },
+    {
+      "name": "shared autonomous fleets"
+    },
+    {
+      "name": "technology companies"
+    },
+    {
+      "name": "mobility options"
+    },
+    {
+      "name": "licensing"
+    },
+    {
+      "name": "accidents"
+    },
+    {
+      "name": "parking"
+    },
+    {
+      "name": "traffic infrastructure"
+    },
+    {
+      "name": "automakers"
+    },
+    {
+      "name": "environment"
+    },
+    {
+      "name": "public and private entities"
+    },
+    {
+      "name": "human driver"
+    },
+    {
+      "name": "World Health Organization"
+    },
+    {
+      "name": "public trust"
+    },
+    {
+      "name": "cameras"
+    },
+    {
+      "name": "traffic flow"
+    },
+    {
+      "name": "autonomous vehicles"
+    },
+    {
+      "name": "convenience"
+    },
+    {
+      "name": "new roads and highways"
+    },
+    {
+      "name": "age"
+    },
+    {
+      "name": "sensors"
+    },
+    {
+      "name": "daily commute"
+    },
+    {
+      "name": "infrastructure"
+    },
+    {
+      "name": "disability"
+    },
+    {
+      "name": "congestion"
+    },
+    {
+      "name": "individual car ownership"
+    },
+    {
+      "name": "regulatory framework"
+    },
+    {
+      "name": "safety and reliability"
+    }
+  ],
+  "relations": [
+    [
+      "autonomous vehicles",
+      "increase",
+      "safety"
+    ],
+    [
+      "autonomous vehicles",
+      "faster than",
+      "human driver"
+    ],
+    [
+      "traffic",
+      "avoided with",
+      "autonomous vehicles"
+    ],
+    [
+      "traffic flow",
+      "optimized by",
+      "autonomous vehicles"
+    ],
+    [
+      "autonomous vehicles",
+      "increase",
+      "efficiency"
+    ],
+    [
+      "autonomous vehicles",
+      "communicate with",
+      "traffic infrastructure"
+    ],
+    [
+      "infrastructure",
+      "is a significant challenge for",
+      "autonomous vehicles"
+    ],
+    [
+      "regulatory framework",
+      "surrounding",
+      "autonomous vehicles"
+    ],
+    [
+      "road infrastructure",
+      "eliminated by",
+      "dedicated lanes"
+    ],
+    [
+      "autonomous vehicles",
+      "reduce",
+      "accidents"
+    ],
+    [
+      "disability",
+      "factor in",
+      "mobility options"
+    ],
+    [
+      "travel times",
+      "cut down on",
+      "autonomous vehicles"
+    ],
+    [
+      "autonomous vehicles",
+      "use",
+      "sensors"
+    ],
+    [
+      "valuable space",
+      "provided by",
+      "parking"
+    ],
+    [
+      "congestion",
+      "reduced by",
+      "autonomous vehicles"
+    ],
+    [
+      "autonomous vehicles",
+      "require",
+      "road infrastructure"
+    ],
+    [
+      "autonomous vehicles",
+      "increase",
+      "convenience"
+    ],
+    [
+      "mobility options",
+      "provided by",
+      "autonomous vehicles"
+    ],
+    [
+      "autonomous vehicles",
+      "increase efficiency of",
+      "transportation systems"
+    ],
+    [
+      "road infrastructure",
+      "eliminated by",
+      "communication systems"
+    ],
+    [
+      "safety and reliability",
+      "challenge for",
+      "autonomous vehicles"
+    ],
+    [
+      "emissions",
+      "reduced by",
+      "autonomous vehicles"
+    ],
+    [
+      "autonomous vehicles",
+      "use",
+      "cameras"
+    ],
+    [
+      "environment",
+      "positively impacted by",
+      "autonomous vehicles"
+    ],
+    [
+      "shared autonomous fleets",
+      "replace",
+      "individual car ownership"
+    ],
+    [
+      "daily commute",
+      "improved by",
+      "autonomous vehicles"
+    ],
+    [
+      "age",
+      "factor in",
+      "mobility options"
+    ],
+    [
+      "driving",
+      "eliminated by",
+      "autonomous vehicles"
+    ],
+    [
+      "new roads and highways",
+      "reduced need for",
+      "autonomous vehicles"
+    ],
+    [
+      "autonomous vehicles",
+      "use",
+      "artificial intelligence algorithms"
+    ]
+  ]
+}

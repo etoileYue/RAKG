@@ -1,0 +1,184 @@
+{
+  "entities": [
+    {
+      "name": "SIR SANDFORD FLEMING",
+      "type": "PERSON",
+      "description": "Canadian engineer who proposed the concept of dividing the world into 24 time zones, each representing a one-hour difference in mean solar time"
+    },
+    {
+      "name": "BRITISH RAILWAY COMPANIES",
+      "type": "ORGANIZATION",
+      "description": "Companies that adopted a single standard time for their schedules in 1847, known as Railway Time"
+    },
+    {
+      "name": "GREENWICH MERIDIAN",
+      "type": "GEO",
+      "description": "The Prime Meridian located in London, chosen as the reference point for coordinating time across the globe"
+    },
+    {
+      "name": "INTERNATIONAL MERIDIAN CONFERENCE",
+      "type": "EVENT",
+      "description": "Conference held in Washington, D.C. in 1884 where it was agreed to adopt a system of standard time zones based on Greenwich Mean Time (GMT)"
+    },
+    {
+      "name": "UNITED STATES",
+      "type": "GEO",
+      "description": "Country that divided itself into four time zones: Eastern, Central, Mountain, and Pacific"
+    },
+    {
+      "name": "DAYLIGHT SAVING TIME (DST)",
+      "type": "EVENT",
+      "description": "Practice of advancing clocks by one hour during the warmer months to extend daylight hours in the evening, first implemented during World War I"
+    },
+    {
+      "name": "GREENWICH MEAN TIME (GMT)",
+      "type": "ORGANIZATION",
+      "description": "Time standard used as the reference point for coordinating time across the globe, based on the time at the Greenwich Meridian"
+    },
+    {
+      "name": "WASHINGTON, D.C.",
+      "type": "GEO",
+      "description": "City where the International Meridian Conference was held in 1884"
+    },
+    {
+      "name": "LONDON",
+      "type": "GEO",
+      "description": "City where the Greenwich Meridian is located, serving as the reference point for global time zones"
+    },
+    {
+      "name": "EASTERN TIME ZONE",
+      "type": "ORGANIZATION",
+      "description": "One of the four time zones in the United States, covering the eastern part of the country"
+    },
+    {
+      "name": "CENTRAL TIME ZONE",
+      "type": "ORGANIZATION",
+      "description": "One of the four time zones in the United States, covering the central part of the country"
+    },
+    {
+      "name": "MOUNTAIN TIME ZONE",
+      "type": "ORGANIZATION",
+      "description": "One of the four time zones in the United States, covering the mountainous regions of the country"
+    },
+    {
+      "name": "PACIFIC TIME ZONE",
+      "type": "ORGANIZATION",
+      "description": "One of the four time zones in the United States, covering the western part of the country"
+    },
+    {
+      "name": "WORLD WAR I",
+      "type": "",
+      "description": ""
+    }
+  ],
+  "relations": [
+    [
+      "SIR SANDFORD FLEMING",
+      ":has_relation_with",
+      "INTERNATIONAL MERIDIAN CONFERENCE",
+      "Sir Sandford Fleming's proposal for time zones was discussed and adopted at the International Meridian Conference"
+    ],
+    [
+      "BRITISH RAILWAY COMPANIES",
+      ":has_relation_with",
+      "INTERNATIONAL MERIDIAN CONFERENCE",
+      "The British railway companies' adoption of Railway Time influenced the development of standard time zones, which were later formalized at the International Meridian Conference"
+    ],
+    [
+      "GREENWICH MERIDIAN",
+      ":has_relation_with",
+      "INTERNATIONAL MERIDIAN CONFERENCE",
+      "The Greenwich Meridian was chosen as the Prime Meridian at the International Meridian Conference, serving as the reference point for all time zones"
+    ],
+    [
+      "GREENWICH MERIDIAN",
+      ":has_relation_with",
+      "GREENWICH MEAN TIME (GMT)",
+      "Greenwich Mean Time is based on the time at the Greenwich Meridian, which serves as the reference point for global time zones"
+    ],
+    [
+      "GREENWICH MERIDIAN",
+      ":has_relation_with",
+      "LONDON",
+      "The Greenwich Meridian is located in London, which serves as the reference point for global time zones"
+    ],
+    [
+      "INTERNATIONAL MERIDIAN CONFERENCE",
+      ":has_relation_with",
+      "UNITED STATES",
+      "The United States adopted the time zone system agreed upon at the International Meridian Conference"
+    ],
+    [
+      "INTERNATIONAL MERIDIAN CONFERENCE",
+      ":has_relation_with",
+      "DAYLIGHT SAVING TIME (DST)",
+      "While not directly related to the International Meridian Conference, the concept of time zones laid the groundwork for the later introduction of Daylight Saving Time"
+    ],
+    [
+      "INTERNATIONAL MERIDIAN CONFERENCE",
+      ":has_relation_with",
+      "WASHINGTON, D.C.",
+      "The International Meridian Conference was held in Washington, D.C. in 1884"
+    ],
+    [
+      "UNITED STATES",
+      ":has_relation_with",
+      "EASTERN TIME ZONE",
+      "The United States adopted the Eastern Time Zone as one of its four time zones"
+    ],
+    [
+      "UNITED STATES",
+      ":has_relation_with",
+      "CENTRAL TIME ZONE",
+      "The United States adopted the Central Time Zone as one of its four time zones"
+    ],
+    [
+      "UNITED STATES",
+      ":has_relation_with",
+      "MOUNTAIN TIME ZONE",
+      "The United States adopted the Mountain Time Zone as one of its four time zones"
+    ],
+    [
+      "UNITED STATES",
+      ":has_relation_with",
+      "PACIFIC TIME ZONE",
+      "The United States adopted the Pacific Time Zone as one of its four time zones"
+    ],
+    [
+      "UNITED STATES",
+      ":has_relation_with",
+      "GREENWICH MEAN TIME (GMT)",
+      "The United States adopted time zones based on Greenwich Mean Time, which serves as the global reference point"
+    ],
+    [
+      "DAYLIGHT SAVING TIME (DST)",
+      ":has_relation_with",
+      "WORLD WAR I",
+      "Daylight Saving Time was first implemented during World War I as a way to conserve energy and make better use of natural daylight"
+    ],
+    [
+      "GREENWICH MEAN TIME (GMT)",
+      ":has_relation_with",
+      "EASTERN TIME ZONE",
+      "The Eastern Time Zone is based on Greenwich Mean Time, which serves as the global reference point"
+    ],
+    [
+      "GREENWICH MEAN TIME (GMT)",
+      ":has_relation_with",
+      "CENTRAL TIME ZONE",
+      "The Central Time Zone is based on Greenwich Mean Time, which serves as the global reference point"
+    ],
+    [
+      "GREENWICH MEAN TIME (GMT)",
+      ":has_relation_with",
+      "MOUNTAIN TIME ZONE",
+      "The Mountain Time Zone is based on Greenwich Mean Time, which serves as the global reference point"
+    ],
+    [
+      "GREENWICH MEAN TIME (GMT)",
+      ":has_relation_with",
+      "PACIFIC TIME ZONE",
+      "The Pacific Time Zone is based on Greenwich Mean Time, which serves as the global reference point"
+    ]
+  ]
+}

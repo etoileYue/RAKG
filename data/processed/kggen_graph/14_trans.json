@@ -1,0 +1,69 @@
+{
+  "entities": [
+    {
+      "name": "workplaces"
+    },
+    {
+      "name": "celebrities"
+    },
+    {
+      "name": "Tattoo artists"
+    },
+    {
+      "name": "social media"
+    },
+    {
+      "name": "Egypt"
+    },
+    {
+      "name": "Japan"
+    },
+    {
+      "name": "artistry"
+    },
+    {
+      "name": "Europe"
+    },
+    {
+      "name": "mainstream society"
+    },
+    {
+      "name": "influencers"
+    },
+    {
+      "name": "tattoo"
+    },
+    {
+      "name": "tattoos"
+    },
+    {
+      "name": "cultures"
+    },
+    {
+      "name": "Asia"
+    },
+    {
+      "name": "Polynesian cultures"
+    },
+    {
+      "name": "self-expression"
+    }
+  ],
+  "relations": [
+    [
+      "tattoos",
+      "form_of",
+      "self-expression"
+    ],
+    [
+      "tattoos",
+      "part_of",
+      "cultures"
+    ],
+    [
+      "tattoos",
+      "demonstrate",
+      "artistry"
+    ]
+  ]
+}

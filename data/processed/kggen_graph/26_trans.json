@@ -1,0 +1,311 @@
+{
+  "entities": [
+    {
+      "name": "creativity"
+    },
+    {
+      "name": "fuel system"
+    },
+    {
+      "name": "building a rocket"
+    },
+    {
+      "name": "Step 6: Add Electronics and Guidance Systems"
+    },
+    {
+      "name": "metal or composite materials"
+    },
+    {
+      "name": "Step-by-Step Guide"
+    },
+    {
+      "name": "step-by-step process"
+    },
+    {
+      "name": "parachutes"
+    },
+    {
+      "name": "guidance and control"
+    },
+    {
+      "name": "launch it into the sky"
+    },
+    {
+      "name": "carbon fiber"
+    },
+    {
+      "name": "lightweight but durable materials"
+    },
+    {
+      "name": "detailed drawings"
+    },
+    {
+      "name": "test flights"
+    },
+    {
+      "name": "Step 7: Test and Launch"
+    },
+    {
+      "name": "nose cones"
+    },
+    {
+      "name": "plans"
+    },
+    {
+      "name": "rocket's structure"
+    },
+    {
+      "name": "hobbyist"
+    },
+    {
+      "name": "Building a Rocket"
+    },
+    {
+      "name": "stability"
+    },
+    {
+      "name": "rocket's performance"
+    },
+    {
+      "name": "careful planning"
+    },
+    {
+      "name": "passion for exploration"
+    },
+    {
+      "name": "critical components"
+    },
+    {
+      "name": "aluminum"
+    },
+    {
+      "name": "rocket's stability"
+    },
+    {
+      "name": "safety"
+    },
+    {
+      "name": "ground tests"
+    },
+    {
+      "name": "science and engineering principles"
+    },
+    {
+      "name": "aspiring aerospace engineer"
+    },
+    {
+      "name": "thrill of launching a rocket"
+    },
+    {
+      "name": "weight distribution"
+    },
+    {
+      "name": "curiosity"
+    },
+    {
+      "name": "propulsion system"
+    },
+    {
+      "name": "materials"
+    },
+    {
+      "name": "Introduction"
+    },
+    {
+      "name": "applicable regulations and guidelines"
+    },
+    {
+      "name": "learning experience"
+    },
+    {
+      "name": "Design the Rocket"
+    },
+    {
+      "name": "aerodynamics"
+    },
+    {
+      "name": "Step 5: Install the Propulsion System"
+    },
+    {
+      "name": "Define the Purpose and Requirements"
+    },
+    {
+      "name": "precise execution"
+    },
+    {
+      "name": "fins"
+    },
+    {
+      "name": "payload capacity"
+    },
+    {
+      "name": "rocket-building journey"
+    },
+    {
+      "name": "student"
+    },
+    {
+      "name": "electronics"
+    },
+    {
+      "name": "fiberglass"
+    }
+  ],
+  "relations": [
+    [
+      "learning experience",
+      "INSPIRES",
+      "curiosity"
+    ],
+    [
+      "safety",
+      "PRIORITIZED_IN",
+      "building a rocket"
+    ],
+    [
+      "Building a Rocket",
+      "is described by",
+      "Step-by-Step Guide"
+    ],
+    [
+      "carbon fiber",
+      "is a type of",
+      "lightweight but durable materials"
+    ],
+    [
+      "learning experience",
+      "INSPIRES",
+      "passion for exploration"
+    ],
+    [
+      "building a rocket",
+      "IS_A",
+      "learning experience"
+    ],
+    [
+      "Step 6: Add Electronics and Guidance Systems",
+      "precedes",
+      "Step 7: Test and Launch"
+    ],
+    [
+      "ground tests",
+      "PERFORMED_ON",
+      "electronics"
+    ],
+    [
+      "launch it into the sky",
+      "is described by",
+      "precise execution"
+    ],
+    [
+      "fiberglass",
+      "is a type of",
+      "lightweight but durable materials"
+    ],
+    [
+      "plans",
+      "outline",
+      "propulsion system"
+    ],
+    [
+      "hobbyist",
+      "CAN_EMBARK_ON",
+      "rocket-building journey"
+    ],
+    [
+      "rocket-building journey",
+      "INVOLVES",
+      "thrill of launching a rocket"
+    ],
+    [
+      "building a rocket",
+      "REQUIRES",
+      "precise execution"
+    ],
+    [
+      "aluminum",
+      "is a type of",
+      "lightweight but durable materials"
+    ],
+    [
+      "plans",
+      "outline",
+      "payload capacity"
+    ],
+    [
+      "Define the Purpose and Requirements",
+      "precedes",
+      "Design the Rocket"
+    ],
+    [
+      "student",
+      "CAN_EMBARK_ON",
+      "rocket-building journey"
+    ],
+    [
+      "launch it into the sky",
+      "is described by",
+      "careful planning"
+    ],
+    [
+      "test flights",
+      "CONDUCTED_TO_VERIFY",
+      "rocket's performance"
+    ],
+    [
+      "Introduction",
+      "introduces",
+      "Building a Rocket"
+    ],
+    [
+      "Step 5: Install the Propulsion System",
+      "precedes",
+      "Step 6: Add Electronics and Guidance Systems"
+    ],
+    [
+      "building a rocket",
+      "REQUIRES",
+      "careful planning"
+    ],
+    [
+      "aspiring aerospace engineer",
+      "CAN_EMBARK_ON",
+      "rocket-building journey"
+    ],
+    [
+      "ground tests",
+      "PERFORMED_ON",
+      "propulsion system"
+    ],
+    [
+      "learning experience",
+      "INSPIRES",
+      "creativity"
+    ],
+    [
+      "detailed drawings",
+      "outline",
+      "rocket's structure"
+    ],
+    [
+      "guidance and control",
+      "provide by",
+      "electronics"
+    ],
+    [
+      "test flights",
+      "CONDUCTED_TO_VERIFY",
+      "rocket's stability"
+    ],
+    [
+      "ground tests",
+      "PERFORMED_ON",
+      "critical components"
+    ],
+    [
+      "building a rocket",
+      "REQUIRES",
+      "science and engineering principles"
+    ]
+  ]
+}

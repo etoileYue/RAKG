@@ -1,0 +1,169 @@
+{
+  "entities": [
+    "roasted meats",
+    "Maillard reaction",
+    "fermentation",
+    "sugars",
+    "eggs",
+    "enhancing the flavor",
+    "sweetness",
+    "balance sweetness",
+    "reactions",
+    "browning",
+    "dishes",
+    "flavor",
+    "texture",
+    "meat",
+    "creamy sauces",
+    "temperature",
+    "refreshing acidity",
+    "regulating enzymatic reactions",
+    "carbon",
+    "grilled vegetables",
+    "tenderize meat",
+    "structure of food",
+    "dressings",
+    "microorganisms",
+    "immiscible liquids",
+    "pickling",
+    "flavors",
+    "food",
+    "chemical",
+    "ingredients",
+    "salt",
+    "chemistry",
+    "lemon juice",
+    "emulsification",
+    "color",
+    "stable emulsion",
+    "mayonnaise",
+    "techniques",
+    "flavor compounds",
+    "preservation",
+    "baked goods",
+    "dioxide",
+    "acids",
+    "Pickling",
+    "proteins",
+    "fruit salad",
+    "alcohol",
+    "salts"
+  ],
+  "relations": [
+    [
+      "salts",
+      "enhance",
+      "flavor"
+    ],
+    [
+      "lemon juice",
+      "prevents",
+      "browning"
+    ],
+    [
+      "reactions",
+      "affect",
+      "color"
+    ],
+    [
+      "acids",
+      "affect",
+      "texture"
+    ],
+    [
+      "stable emulsion",
+      "used_in",
+      "creamy sauces"
+    ],
+    [
+      "fermentation",
+      "breaks down",
+      "sugars"
+    ],
+    [
+      "acids",
+      "affect",
+      "structure of food"
+    ],
+    [
+      "emulsification",
+      "results_in",
+      "stable emulsion"
+    ],
+    [
+      "microorganisms",
+      "produce",
+      "acids"
+    ],
+    [
+      "lemon juice",
+      "adds",
+      "refreshing acidity"
+    ],
+    [
+      "stable emulsion",
+      "used_in",
+      "dressings"
+    ],
+    [
+      "acids",
+      "help_with",
+      "balance sweetness"
+    ],
+    [
+      "acids",
+      "help_with",
+      "tenderize meat"
+    ],
+    [
+      "stable emulsion",
+      "used_in",
+      "mayonnaise"
+    ],
+    [
+      "proteins",
+      "denature",
+      "temperature"
+    ],
+    [
+      "microorganisms",
+      "produce",
+      "alcohol"
+    ],
+    [
+      "proteins",
+      "coagulate",
+      "temperature"
+    ],
+    [
+      "salt",
+      "amplifies",
+      "flavors"
+    ],
+    [
+      "acids",
+      "affect",
+      "flavor"
+    ],
+    [
+      "salt",
+      "tenderizes",
+      "proteins"
+    ],
+    [
+      "reactions",
+      "affect",
+      "texture"
+    ],
+    [
+      "salt",
+      "balances",
+      "sweetness"
+    ],
+    [
+      "temperature",
+      "affects",
+      "reactions"
+    ]
+  ]
+}

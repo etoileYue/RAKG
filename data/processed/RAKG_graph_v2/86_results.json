@@ -1,0 +1,80 @@
+[
+  {
+    "correct_answer": "AI revolutionized the way we live and work.",
+    "retrieved_context": " AI\nTechnology  AI technologies\nTechnology  AI Technologies\nTechnology  Responsible AI\nPractice relation: Artificial intelligence --[Can Improve]-> Workplace Safety  Artificial intelligence\nTechnology  Productivity and Efficiency\nWorkplace Metric relation: Artificial intelligence --[Can Assist]-> Doctors in Diagnosing Diseases  Human Capabilities\nCapability  Job Insecurity, Income Inequality, and Social Unrest\nSocietal Issue relation: Artificial intelligence --[Can Complement]-> Human Skills and Expertise  Hazardous or Physically Demanding Tasks\nTask relation: Artificial intelligence --[Can Augment]-> Human Capabilities  Human Skills and Expertise\nSkill relation: Artificial intelligence --[Can Create]-> New Job Opportunities  New Job Opportunities\nJob Opportunity relation: Artificial intelligence --[Can Enhance]-> Productivity and Efficiency  Doctors in Diagnosing Diseases\nMedical Practice relation: Artificial intelligence --[Can Support]-> Engineers in Designing Complex Systems  Engineers in Designing Complex Systems\nEngineering Practice relation: Artificial intelligence --[Can Lead To]-> Job Insecurity, Income Inequality, and Social Unrest  Human Workers\nWorker relation: Artificial intelligence --[Can Automate]-> Hazardous or Physically Demanding Tasks relation: Artificial intelligence --[Can Help]-> Lawyers Conduct Legal Research relation: Artificial intelligence --[Can Displace]-> Human Workers  Workplace Safety\nSafety Measure  Lawyers Conduct Legal Research\nLegal Practice  AI Technology Development\nActivity  AI Technology Maintenance\nActivity  AI Technology Operation\nActivity",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "AI brings significant changes in various industries.",
+    "retrieved_context": " AI Technology Operation\nActivity  AI Technology Development\nActivity  AI\nTechnology  AI technologies\nTechnology  AI Technologies\nTechnology  AI Technology Maintenance\nActivity relation: Artificial intelligence --[Can Improve]-> Workplace Safety  Artificial intelligence\nTechnology  Productivity and Efficiency\nWorkplace Metric relation: Artificial intelligence --[Can Assist]-> Doctors in Diagnosing Diseases  Human Capabilities\nCapability  Job Insecurity, Income Inequality, and Social Unrest\nSocietal Issue relation: Artificial intelligence --[Can Complement]-> Human Skills and Expertise  Hazardous or Physically Demanding Tasks\nTask relation: Artificial intelligence --[Can Augment]-> Human Capabilities  Human Skills and Expertise\nSkill relation: Artificial intelligence --[Can Create]-> New Job Opportunities  New Job Opportunities\nJob Opportunity relation: Artificial intelligence --[Can Enhance]-> Productivity and Efficiency  Doctors in Diagnosing Diseases\nMedical Practice relation: Artificial intelligence --[Can Support]-> Engineers in Designing Complex Systems  Engineers in Designing Complex Systems\nEngineering Practice relation: Artificial intelligence --[Can Lead To]-> Job Insecurity, Income Inequality, and Social Unrest  Human Workers\nWorker relation: Artificial intelligence --[Can Automate]-> Hazardous or Physically Demanding Tasks relation: Artificial intelligence --[Can Help]-> Lawyers Conduct Legal Research relation: Artificial intelligence --[Can Displace]-> Human Workers  Workplace Safety\nSafety Measure  Lawyers Conduct Legal Research\nLegal Practice  Automation\nTechnological Trend",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "There is a concern about AI's impact on employment.",
+    "retrieved_context": " equitable sharing of AI benefits among workers and society\nOutcome  AI Technology Operation\nActivity  AI Technology Development\nActivity  AI\nTechnology  Responsible AI\nPractice  AI technologies\nTechnology  AI Technologies\nTechnology  AI Technology Maintenance\nActivity",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "AI technologies advance rapidly.",
+    "retrieved_context": " AI technologies\nTechnology  AI Technologies\nTechnology  AI\nTechnology  AI Technology Development\nActivity  AI Technology Operation\nActivity relation: Artificial intelligence --[Can Improve]-> Workplace Safety  Artificial intelligence\nTechnology  Productivity and Efficiency\nWorkplace Metric relation: Artificial intelligence --[Can Assist]-> Doctors in Diagnosing Diseases  Human Capabilities\nCapability  Job Insecurity, Income Inequality, and Social Unrest\nSocietal Issue relation: Artificial intelligence --[Can Complement]-> Human Skills and Expertise  Hazardous or Physically Demanding Tasks\nTask relation: Artificial intelligence --[Can Augment]-> Human Capabilities  Human Skills and Expertise\nSkill relation: Artificial intelligence --[Can Create]-> New Job Opportunities  New Job Opportunities\nJob Opportunity relation: Artificial intelligence --[Can Enhance]-> Productivity and Efficiency  Doctors in Diagnosing Diseases\nMedical Practice relation: Artificial intelligence --[Can Support]-> Engineers in Designing Complex Systems  Engineers in Designing Complex Systems\nEngineering Practice relation: Artificial intelligence --[Can Lead To]-> Job Insecurity, Income Inequality, and Social Unrest  Human Workers\nWorker relation: Artificial intelligence --[Can Automate]-> Hazardous or Physically Demanding Tasks relation: Artificial intelligence --[Can Help]-> Lawyers Conduct Legal Research relation: Artificial intelligence --[Can Displace]-> Human Workers  Workplace Safety\nSafety Measure  Lawyers Conduct Legal Research\nLegal Practice  AI Technology Maintenance\nActivity  AI-powered tools\nTechnology",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "There is fear of automation replacing human workers.",
+    "retrieved_context": " Automation\nTechnological Trend  Human Workers\nWorker relation: automation --[Results in]-> Creation of New Industries and Job Opportunities relation: automation --[Leads to]-> Job Displacement  Job Displacement\nEconomic Phenomenon  Unemployment\nEconomic Phenomenon  Creation of New Industries and Job Opportunities\nEconomic Outcome relation: automation --[Driven by]-> AI technologies  automation\nProcess relation: automation --[Leads to]-> Unemployment  AI technologies\nTechnology  AI\nTechnology  Human workers to focus on more strategic and creative tasks\nWork Task relation: workplace safety --[Improved by]-> AI  workplace safety\nConcept relation: workplace safety --[Enables]-> Human workers to focus on more strategic and creative tasks  human workers\nEntity relation: human workers --[Protected From Injury By]-> AI Technologies  Rapidly Evolving Job Market\nEconomic Condition  AI Technologies\nTechnology relation: human workers --[Require Skills and Training For]-> Rapidly Evolving Job Market relation: job insecurity --[Contributes to]-> Income inequality relation: job insecurity --[Caused by]-> Automation relation: job insecurity --[Contributes to]-> Social unrest  Social unrest\nSocial Phenomenon  Widespread job displacement and unemployment\nSocial Phenomenon relation: job insecurity --[Leads to]-> Widespread job displacement and unemployment  job insecurity\nConcept  Income inequality\nEconomic Issue relation: job insecurity --[Caused by]-> AI technologies  Automation\nTechnological Trend  AI technologies\nTechnology  Job Insecurity\nEconomic Condition  Job insecurity\nEconomic Condition",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "AI automates repetitive and routine jobs.",
+    "retrieved_context": " repetitive and routine jobs\nJob Type  Repetitive and Routine Jobs\nJob Type  AI\nTechnology  AI Technology Maintenance\nActivity  Responsible AI\nPractice  AI technologies\nTechnology  AI Technologies\nTechnology  AI Technology Operation\nActivity",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Low-skilled workers are at risk of displacement by AI.",
+    "retrieved_context": " Low-skilled workers\nWorker Group  low-skilled jobs\nJob Category  equitable sharing of AI benefits among workers and society\nOutcome  Job Displacement\nEconomic Phenomenon  AI\nTechnology  Responsible AI\nPractice  workers are equipped with skills and training\nEducational Programs  AI technologies\nTechnology",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Automation has historical precedence.",
+    "retrieved_context": " Automation\nTechnological Trend relation: automation --[Results in]-> Creation of New Industries and Job Opportunities relation: automation --[Leads to]-> Job Displacement  Job Displacement\nEconomic Phenomenon  Unemployment\nEconomic Phenomenon  Creation of New Industries and Job Opportunities\nEconomic Outcome relation: automation --[Driven by]-> AI technologies  automation\nProcess relation: automation --[Leads to]-> Unemployment  AI technologies\nTechnology  Responsible AI\nPractice  AI\nTechnology  AI Technology Operation\nActivity  Technological Advancements\nHistorical Factor  AI Technology Maintenance\nActivity  AI technologies\nTechnology",
+    "evaluation": 0
+  },
+  {
+    "correct_answer": "AI can create new jobs in emerging fields.",
+    "retrieved_context": " AI Technology Development\nActivity  AI Technology Operation\nActivity  Job Creation\nConcept  AI technologies\nTechnology  AI Technologies\nTechnology  AI\nTechnology  AI Technology Maintenance\nActivity  Creation of New Industries and Job Opportunities\nEconomic Outcome",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "AI enhances productivity and efficiency in the workplace.",
+    "retrieved_context": " Productivity and Efficiency\nWorkplace Metric  Workers to Perform Jobs More Effectively and Efficiently\nActivity  equitable sharing of AI benefits among workers and society\nOutcome  AI\nTechnology  AI Technology Operation\nActivity  Productivity, Creativity, and Problem-Solving Abilities\nConcept  Responsible AI\nPractice  AI Technology Maintenance\nActivity",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "AI-powered tools can streamline processes.",
+    "retrieved_context": " AI-powered tools\nTechnology  AI-powered Tools\nTechnology  AI-powered Diagnostic Tools\nTechnology  AI\nTechnology  AI Technology Operation\nActivity  AI Technology Maintenance\nActivity  AI technologies\nTechnology  AI Technologies\nTechnology",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "AI can improve workplace safety.",
+    "retrieved_context": " AI\nTechnology  Human workers to focus on more strategic and creative tasks\nWork Task relation: workplace safety --[Improved by]-> AI  workplace safety\nConcept relation: workplace safety --[Enables]-> Human workers to focus on more strategic and creative tasks  Workplace Safety\nSafety Measure  Responsible AI\nPractice  AI\nTechnology  equitable sharing of AI benefits among workers and society\nOutcome  AI Technology Development\nActivity  AI technologies\nTechnology  AI Technologies\nTechnology",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "AI augments human capabilities.",
+    "retrieved_context": " Human Capabilities\nCapability  AI\nTechnology  AI technologies\nTechnology  AI Technologies\nTechnology  Responsible AI\nPractice  AI Technology Development\nActivity  AI Technology Operation\nActivity relation: Artificial intelligence --[Can Improve]-> Workplace Safety  Artificial intelligence\nTechnology  Productivity and Efficiency\nWorkplace Metric relation: Artificial intelligence --[Can Assist]-> Doctors in Diagnosing Diseases  Human Capabilities\nCapability  Job Insecurity, Income Inequality, and Social Unrest\nSocietal Issue relation: Artificial intelligence --[Can Complement]-> Human Skills and Expertise  Hazardous or Physically Demanding Tasks\nTask relation: Artificial intelligence --[Can Augment]-> Human Capabilities  Human Skills and Expertise\nSkill relation: Artificial intelligence --[Can Create]-> New Job Opportunities  New Job Opportunities\nJob Opportunity relation: Artificial intelligence --[Can Enhance]-> Productivity and Efficiency  Doctors in Diagnosing Diseases\nMedical Practice relation: Artificial intelligence --[Can Support]-> Engineers in Designing Complex Systems  Engineers in Designing Complex Systems\nEngineering Practice relation: Artificial intelligence --[Can Lead To]-> Job Insecurity, Income Inequality, and Social Unrest  Human Workers\nWorker relation: Artificial intelligence --[Can Automate]-> Hazardous or Physically Demanding Tasks relation: Artificial intelligence --[Can Help]-> Lawyers Conduct Legal Research relation: Artificial intelligence --[Can Displace]-> Human Workers  Workplace Safety\nSafety Measure  Lawyers Conduct Legal Research\nLegal Practice",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "AI technologies complement human skills.",
+    "retrieved_context": " AI technologies\nTechnology  AI Technologies\nTechnology  AI\nTechnology  AI Technology Development\nActivity relation: Artificial intelligence --[Can Improve]-> Workplace Safety  Artificial intelligence\nTechnology  Productivity and Efficiency\nWorkplace Metric relation: Artificial intelligence --[Can Assist]-> Doctors in Diagnosing Diseases  Human Capabilities\nCapability  Job Insecurity, Income Inequality, and Social Unrest\nSocietal Issue relation: Artificial intelligence --[Can Complement]-> Human Skills and Expertise  Hazardous or Physically Demanding Tasks\nTask relation: Artificial intelligence --[Can Augment]-> Human Capabilities  Human Skills and Expertise\nSkill relation: Artificial intelligence --[Can Create]-> New Job Opportunities  New Job Opportunities\nJob Opportunity relation: Artificial intelligence --[Can Enhance]-> Productivity and Efficiency  Doctors in Diagnosing Diseases\nMedical Practice relation: Artificial intelligence --[Can Support]-> Engineers in Designing Complex Systems  Engineers in Designing Complex Systems\nEngineering Practice relation: Artificial intelligence --[Can Lead To]-> Job Insecurity, Income Inequality, and Social Unrest  Human Workers\nWorker relation: Artificial intelligence --[Can Automate]-> Hazardous or Physically Demanding Tasks relation: Artificial intelligence --[Can Help]-> Lawyers Conduct Legal Research relation: Artificial intelligence --[Can Displace]-> Human Workers  Workplace Safety\nSafety Measure  Lawyers Conduct Legal Research\nLegal Practice  AI Technology Operation\nActivity  Human Skills and Expertise\nSkill  Responsible AI\nPractice",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "There are concerns about social and economic implications of automation.",
+    "retrieved_context": " Automation\nTechnological Trend  equitable sharing of AI benefits among workers and society\nOutcome  Job Insecurity, Income Inequality, and Social Unrest\nSocietal Issue relation: automation --[Results in]-> Creation of New Industries and Job Opportunities relation: automation --[Leads to]-> Job Displacement  Job Displacement\nEconomic Phenomenon  Unemployment\nEconomic Phenomenon  Creation of New Industries and Job Opportunities\nEconomic Outcome relation: automation --[Driven by]-> AI technologies  automation\nProcess relation: automation --[Leads to]-> Unemployment  AI technologies\nTechnology  AI Technology Operation\nActivity  AI\nTechnology  Job Insecurity\nEconomic Condition  Job insecurity\nEconomic Condition",
+    "evaluation": 1
+  },
+  {
+    "accuracy": "93.33%"
+  }
+]

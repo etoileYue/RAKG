@@ -1,0 +1,80 @@
+[
+  {
+    "correct_answer": "Protests challenge oppressive regimes.",
+    "retrieved_context": " Protests and Revolutions\nSocial Movements  people\nPeople Group  oppressive regimes\nPolitical Entity relation: oppressive regimes --[Challenge]-> people  ordinary people\nPeople Group relation: oppressive regimes --[Oppress]-> ordinary people  protests and revolutions\nSocial Movement relation: oppressive regimes --[Suppress]-> protests and revolutions  protests and revolutions\nSocial Movement  Protests\nSocial Movement  Protests and Strikes\nSocial Movements  Future Protests and Revolutions\nSocial Movement  Widespread Protests and Calls for Reform\nSocial Actions  Widespread Protests\nEvent",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Protests demand political rights.",
+    "retrieved_context": " Protests\nSocial Movement  Protests and Strikes\nSocial Movements  Protests and Revolutions\nSocial Movements  Widespread Protests\nEvent  protests and revolutions\nSocial Movement  Widespread Protests and Calls for Reform\nSocial Actions  Future Protests and Revolutions\nSocial Movement  Pro-democracy protesters\nGroup",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Protests fight for social justice.",
+    "retrieved_context": " Protests\nSocial Movement  Protests and Strikes\nSocial Movements  Widespread Protests and Calls for Reform\nSocial Actions  protests and revolutions\nSocial Movement  Protests and Revolutions\nSocial Movements  Future Protests and Revolutions\nSocial Movement  Widespread Protests\nEvent  Movements for Democracy, Equality, and Justice\nSocial Movement",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Protests can be peaceful demonstrations.",
+    "retrieved_context": " Protests and Strikes\nSocial Movements  Widespread Protests\nEvent  Protests\nSocial Movement  Protests and Revolutions\nSocial Movements  protests and revolutions\nSocial Movement  Future Protests and Revolutions\nSocial Movement  Widespread Protests and Calls for Reform\nSocial Actions  Pro-democracy protesters\nGroup",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Protests can be violent uprisings.",
+    "retrieved_context": " Protests and Strikes\nSocial Movements  Widespread Protests\nEvent  Protests and Revolutions\nSocial Movements  Protests\nSocial Movement  protests and revolutions\nSocial Movement  Widespread Protests and Calls for Reform\nSocial Actions  Future Protests and Revolutions\nSocial Movement  Early Recorded Protests\nHistorical Events",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "American Revolution inspired global fight for freedom.",
+    "retrieved_context": " American Revolution\nHistorical Event  Freedom and Independence from Colonial Rule\nPolitical Goal  Protests and Revolutions\nSocial Movements relation: American Revolution --[Fought For]-> Freedom and Independence from Colonial Rule relation: American Revolution --[Inspired]-> Protests and Revolutions  Revolutionary Movements\nHistorical Events  The revolution\nHistorical Event  Freedom and Independence from Colonial Rule\nPolitical Goal  Freedom and Independence from colonial rule\nConcept  French Revolution\nRevolutionary Movement  Global Activism\nSocial Movement  French Revolution\nRevolutionary Movement  liberty\nConcept  Civil Rights Movement\nSocial Movement relation: liberty --[Principle of]-> French Revolution relation: liberty --[Inspiration for]-> Civil Rights Movement",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "French Revolution established a republic based on liberty.",
+    "retrieved_context": " French Revolution\nRevolutionary Movement  French Revolution Principles\nHistorical Event  French Revolution\nRevolutionary Movement  liberty\nConcept  Civil Rights Movement\nSocial Movement relation: liberty --[Principle of]-> French Revolution relation: liberty --[Inspiration for]-> Civil Rights Movement  The revolution\nHistorical Event  Freedom and Independence from Colonial Rule\nPolitical Goal  Freedom and Independence from colonial rule\nConcept  American Revolution\nHistorical Event  Freedom and Independence from Colonial Rule\nPolitical Goal  Protests and Revolutions\nSocial Movements relation: American Revolution --[Fought For]-> Freedom and Independence from Colonial Rule relation: American Revolution --[Inspired]-> Protests and Revolutions  Revolutionary Movements\nHistorical Events",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Russian Revolution led to the world's first communist state.",
+    "retrieved_context": " World\"s First Communist State\nPolitical Entity  Vladimir Lenin\nPerson relation: Vladimir Lenin --[Established]-> World\"s First Communist State  Romanov Dynasty\nMonarchy relation: Bolsheviks --[Established]-> World\"s First Communist State  Bolsheviks\nPolitical Organization relation: Bolsheviks --[Overthrew]-> Romanov Dynasty relation: Vladimir Lenin --[Overthrew]-> Romanov Dynasty  World\"s First Communist State\nPolitical Entity relation: Vladimir Lenin --[Led]-> Bolsheviks relation: Bolsheviks --[Led by]-> Vladimir Lenin  Vladimir Lenin\nPerson  Romanov Dynasty\nMonarchy relation: Vladimir Lenin --[Established]-> World\"s First Communist State relation: Bolsheviks --[Established]-> World\"s First Communist State  Bolsheviks\nPolitical Organization relation: Bolsheviks --[Overthrew]-> Romanov Dynasty relation: Vladimir Lenin --[Overthrew]-> Romanov Dynasty  World\"s First Communist State\nPolitical Entity relation: Vladimir Lenin --[Led]-> Bolsheviks relation: Bolsheviks --[Led by]-> Vladimir Lenin  protests and revolutions\nSocial Movement  Protests and Revolutions\nSocial Movements  The revolution\nHistorical Event relation: socialist movements --[Inspired By]-> The revolution  Social Justice\nConcept  socialist movements\nSocial Movement  Equality and Human Rights\nConcept relation: socialist movements --[Fought For]-> Social Justice relation: socialist movements --[Fought For]-> Equality and Human Rights  The revolution\nHistorical Event  Revolutionary Movements\nHistorical Events",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Civil rights movement challenged racial segregation.",
+    "retrieved_context": " Global Activism\nSocial Movement  civil rights movement\nSocial Movement relation: civil rights movement --[Inspired By]-> Historical Movements relation: Martin Luther King Jr. --[Challenged]-> Racial Segregation and Discrimination relation: civil rights movement --[Part Of]-> National Conversation on Race and Inequality  National Conversation on Race and Inequality\nSocial Dialogue  Martin Luther King Jr.\nPerson  Historical Movements\nSocial Movement relation: civil rights movement --[Led By]-> Martin Luther King Jr. relation: civil rights movement --[Inspired]-> Global Activism relation: Martin Luther King Jr. --[Led]-> Civil Rights Movement relation: Martin Luther King Jr. --[Inspired]-> People Around the World  Civil Rights Movement\nSocial Movement  Racial Segregation and Discrimination\nSocial Issue  National Conversation on Race and Inequality\nSocial Dialogue  Black Lives Matter\nSocial Movement relation: Martin Luther King Jr. --[Led]-> Civil Rights Movement relation: Martin Luther King Jr. --[Inspired]-> People Around the World relation: Rosa Parks --[Participated In]-> Civil Rights Movement  Rosa Parks\nPerson  Calls for Reform\nSocial Demand  Martin Luther King Jr.\nPerson relation: Black Lives Matter --[Inspired By]-> Rosa Parks relation: Black Lives Matter --[Inspired By]-> Martin Luther King Jr. relation: Black Lives Matter --[Led To]-> Widespread Protests  Civil Rights Movement\nSocial Movement relation: Black Lives Matter --[Galvanized]-> Millions of People  Millions of People\nGroup relation: Black Lives Matter --[Sparked]-> National Conversation on Race and Inequality relation: Black Lives Matter --[Inspired By]-> Civil Rights Movement relation: Rosa Parks --[Inspired]-> Passage of landmark civil rights legislation in the 1960s relation: Martin Luther King Jr. --[Challenged]-> Racial Segregation and Discrimination  Widespread Protests\nEvent relation: Black Lives Matter --[Led To]-> Calls for Reform  Black Lives Matter Movement\nSocial Movement  race and inequality\nSocial Issue relation: Rosa Parks --[Participated In]-> Civil Rights Movement relation: Rosa Parks --[Inspired]-> Passage of landmark civil rights legislation in the 1960s  People around the world\nGroup  Rosa Parks\nPerson relation: race and inequality --[Led to]-> Landmark Civil Rights Legislation  National Conversation\nSocial Movement relation: race and inequality --[Inspired]-> People around the world  Landmark Civil Rights Legislation\nLegal Framework relation: race and inequality --[Challenged by]-> Rosa Parks relation: race and inequality --[Sparked]-> National Conversation  Movements for Democracy, Equality, and Justice\nSocial Movement  Historical Movements\nSocial Movement",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Arab Spring led to the overthrow of dictators.",
+    "retrieved_context": "relation: Arab Spring --[Spread to]-> Middle East and North Africa relation: Middle East and North Africa --[Location of]-> Arab Spring  Arab Spring\nHistorical Event relation: Middle East and North Africa --[Home to]-> Tunisia  Long-standing Dictators\nPolitical Figure  Democratic Change\nPolitical Movement relation: Arab Spring --[Led to Overthrow of]-> Long-standing Dictators relation: Arab Spring --[Inspired Hopes for]-> Democratic Change relation: Middle East and North Africa --[Home to]-> Long-standing Dictators  Middle East and North Africa\nRegion  Long-standing Dictators\nPolitical Figure  The revolution\nHistorical Event  people\nPeople Group  oppressive regimes\nPolitical Entity relation: oppressive regimes --[Challenge]-> people  ordinary people\nPeople Group relation: oppressive regimes --[Oppress]-> ordinary people  protests and revolutions\nSocial Movement relation: oppressive regimes --[Suppress]-> protests and revolutions  Protests and Revolutions\nSocial Movements  protests and revolutions\nSocial Movement  Revolutionary Movements\nHistorical Events relation: Tiananmen Square massacre --[Occurred in]-> China  Chinese Government\nGovernment  Tiananmen Square massacre\nHistorical Event relation: Tiananmen Square massacre --[Suppressed by]-> Chinese Government  China\nCountry  Protests and Revolutions\nSocial Movements relation: China --[Used Force to Suppress]-> Pro-democracy protesters relation: China --[Location of Event]-> Tiananmen Square massacre relation: Tiananmen Square massacre --[Inspired]-> Protests and Revolutions",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Black Lives Matter demands racial justice.",
+    "retrieved_context": " National Conversation on Race and Inequality\nSocial Dialogue  Black Lives Matter\nSocial Movement relation: Martin Luther King Jr. --[Led]-> Civil Rights Movement relation: Martin Luther King Jr. --[Inspired]-> People Around the World relation: Rosa Parks --[Participated In]-> Civil Rights Movement  Rosa Parks\nPerson  Calls for Reform\nSocial Demand  Martin Luther King Jr.\nPerson relation: Black Lives Matter --[Inspired By]-> Rosa Parks relation: Black Lives Matter --[Inspired By]-> Martin Luther King Jr. relation: Black Lives Matter --[Led To]-> Widespread Protests  Civil Rights Movement\nSocial Movement relation: Black Lives Matter --[Galvanized]-> Millions of People  Millions of People\nGroup relation: Black Lives Matter --[Sparked]-> National Conversation on Race and Inequality relation: Black Lives Matter --[Inspired By]-> Civil Rights Movement relation: Rosa Parks --[Inspired]-> Passage of landmark civil rights legislation in the 1960s relation: Martin Luther King Jr. --[Challenged]-> Racial Segregation and Discrimination  Widespread Protests\nEvent relation: Black Lives Matter --[Led To]-> Calls for Reform  Black Lives Matter Movement\nSocial Movement  Racial Segregation and Discrimination\nSocial Issue  race and inequality\nSocial Issue relation: Rosa Parks --[Participated In]-> Civil Rights Movement relation: Rosa Parks --[Inspired]-> Passage of landmark civil rights legislation in the 1960s  People around the world\nGroup  Rosa Parks\nPerson relation: race and inequality --[Led to]-> Landmark Civil Rights Legislation  National Conversation\nSocial Movement relation: race and inequality --[Inspired]-> People around the world  Landmark Civil Rights Legislation\nLegal Framework relation: race and inequality --[Challenged by]-> Rosa Parks relation: race and inequality --[Sparked]-> National Conversation relation: justice --[Fights Against]-> Injustice  Protests\nSocial Movement relation: justice --[Shapes]-> History relation: justice --[Serves As A Reminder Of]-> Power of Ordinary People relation: justice --[Demands]-> Accountability  justice\nConcept  Injustice\nConcept  History\nHistorical Process relation: justice --[Inspires]-> Protests  Power of Ordinary People\nSocial Concept  Accountability\nConcept  Injustice\nConcept  Social Justice\nConcept  National Conversation on Race and Inequality\nSocial Dialogue",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Governments use force to suppress protests.",
+    "retrieved_context": " Protests and Strikes\nSocial Movements  Widespread Protests and Calls for Reform\nSocial Actions  Protests\nSocial Movement  Widespread Protests\nEvent  Protests and Revolutions\nSocial Movements  protests and revolutions\nSocial Movement  Future Protests and Revolutions\nSocial Movement  Pro-democracy protesters\nGroup",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Protests are a tool for social and political change.",
+    "retrieved_context": " Protests\nSocial Movement  Widespread Protests and Calls for Reform\nSocial Actions  Protests and Strikes\nSocial Movements  protests and revolutions\nSocial Movement  Protests and Revolutions\nSocial Movements  Future Protests and Revolutions\nSocial Movement  Widespread Protests\nEvent  Pro-democracy protesters\nGroup",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Protests inspire movements for democracy.",
+    "retrieved_context": " Protests and Revolutions\nSocial Movements  Protests\nSocial Movement  protests and revolutions\nSocial Movement  Protests and Strikes\nSocial Movements  Widespread Protests and Calls for Reform\nSocial Actions  Future Protests and Revolutions\nSocial Movement  Widespread Protests\nEvent  Pro-democracy protesters\nGroup",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Protests remind of the power of the human spirit.",
+    "retrieved_context": " Protests\nSocial Movement  Protests and Strikes\nSocial Movements  Widespread Protests\nEvent  Widespread Protests and Calls for Reform\nSocial Actions  Protests and Revolutions\nSocial Movements  protests and revolutions\nSocial Movement  Future Protests and Revolutions\nSocial Movement  Pro-democracy protesters\nGroup",
+    "evaluation": 1
+  },
+  {
+    "accuracy": "100.00%"
+  }
+]

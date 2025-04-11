@@ -1,0 +1,265 @@
+{
+  "entities": [
+    {
+      "name": "roasted meats"
+    },
+    {
+      "name": "Maillard reaction"
+    },
+    {
+      "name": "fermentation"
+    },
+    {
+      "name": "sugars"
+    },
+    {
+      "name": "eggs"
+    },
+    {
+      "name": "enhancing the flavor"
+    },
+    {
+      "name": "sweetness"
+    },
+    {
+      "name": "balance sweetness"
+    },
+    {
+      "name": "reactions"
+    },
+    {
+      "name": "browning"
+    },
+    {
+      "name": "dishes"
+    },
+    {
+      "name": "flavor"
+    },
+    {
+      "name": "texture"
+    },
+    {
+      "name": "meat"
+    },
+    {
+      "name": "creamy sauces"
+    },
+    {
+      "name": "temperature"
+    },
+    {
+      "name": "refreshing acidity"
+    },
+    {
+      "name": "regulating enzymatic reactions"
+    },
+    {
+      "name": "carbon"
+    },
+    {
+      "name": "grilled vegetables"
+    },
+    {
+      "name": "tenderize meat"
+    },
+    {
+      "name": "structure of food"
+    },
+    {
+      "name": "dressings"
+    },
+    {
+      "name": "microorganisms"
+    },
+    {
+      "name": "immiscible liquids"
+    },
+    {
+      "name": "pickling"
+    },
+    {
+      "name": "flavors"
+    },
+    {
+      "name": "food"
+    },
+    {
+      "name": "chemical"
+    },
+    {
+      "name": "ingredients"
+    },
+    {
+      "name": "salt"
+    },
+    {
+      "name": "chemistry"
+    },
+    {
+      "name": "lemon juice"
+    },
+    {
+      "name": "emulsification"
+    },
+    {
+      "name": "color"
+    },
+    {
+      "name": "stable emulsion"
+    },
+    {
+      "name": "mayonnaise"
+    },
+    {
+      "name": "techniques"
+    },
+    {
+      "name": "flavor compounds"
+    },
+    {
+      "name": "preservation"
+    },
+    {
+      "name": "baked goods"
+    },
+    {
+      "name": "dioxide"
+    },
+    {
+      "name": "acids"
+    },
+    {
+      "name": "Pickling"
+    },
+    {
+      "name": "proteins"
+    },
+    {
+      "name": "fruit salad"
+    },
+    {
+      "name": "alcohol"
+    },
+    {
+      "name": "salts"
+    }
+  ],
+  "relations": [
+    [
+      "salts",
+      "enhance",
+      "flavor"
+    ],
+    [
+      "lemon juice",
+      "prevents",
+      "browning"
+    ],
+    [
+      "reactions",
+      "affect",
+      "color"
+    ],
+    [
+      "acids",
+      "affect",
+      "texture"
+    ],
+    [
+      "stable emulsion",
+      "used_in",
+      "creamy sauces"
+    ],
+    [
+      "fermentation",
+      "breaks down",
+      "sugars"
+    ],
+    [
+      "acids",
+      "affect",
+      "structure of food"
+    ],
+    [
+      "emulsification",
+      "results_in",
+      "stable emulsion"
+    ],
+    [
+      "microorganisms",
+      "produce",
+      "acids"
+    ],
+    [
+      "lemon juice",
+      "adds",
+      "refreshing acidity"
+    ],
+    [
+      "stable emulsion",
+      "used_in",
+      "dressings"
+    ],
+    [
+      "acids",
+      "help_with",
+      "balance sweetness"
+    ],
+    [
+      "acids",
+      "help_with",
+      "tenderize meat"
+    ],
+    [
+      "stable emulsion",
+      "used_in",
+      "mayonnaise"
+    ],
+    [
+      "proteins",
+      "denature",
+      "temperature"
+    ],
+    [
+      "microorganisms",
+      "produce",
+      "alcohol"
+    ],
+    [
+      "proteins",
+      "coagulate",
+      "temperature"
+    ],
+    [
+      "salt",
+      "amplifies",
+      "flavors"
+    ],
+    [
+      "acids",
+      "affect",
+      "flavor"
+    ],
+    [
+      "salt",
+      "tenderizes",
+      "proteins"
+    ],
+    [
+      "reactions",
+      "affect",
+      "texture"
+    ],
+    [
+      "salt",
+      "balances",
+      "sweetness"
+    ],
+    [
+      "temperature",
+      "affects",
+      "reactions"
+    ]
+  ]
+}

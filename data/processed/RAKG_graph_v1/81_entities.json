@@ -1,0 +1,146 @@
+{
+    "entity1": {
+        "name": "architecture",
+        "type": "Concept",
+        "description": "The human-made surroundings that provide the setting for human activity, ranging from buildings to parks and other public spaces.;;;The art and science of designing and constructing buildings and other physical structures.;;;Areas designed for public use and access, such as parks, squares, or streets.;;;A structure designed to house governmental functions, often featuring grand columns and a domed roof.;;;Buildings designed to minimize energy consumption and environmental impact.;;;Areas that are accessible to the general public, such as parks, squares, and streets.;;;Structures that are constructed for various purposes, such as residential, commercial, or industrial use.;;;A designated area for public recreation, often featuring greenery and seating.;;;Areas that are open and accessible to all members of a community, such as parks, squares, and streets.",
+        "chunkid": "The Influence of Architecture on Society11;;;The Influence of Architecture on Society4;;;The Influence of Architecture on Society20;;;The Influence of Architecture on Society10;;;The Influence of Architecture on Society21;;;The Influence of Architecture on Society7;;;The Influence of Architecture on Society25;;;The Influence of Architecture on Society24"
+    },
+    "entity2": {
+        "name": "society",
+        "type": "Social Group",
+        "description": "A community or group of people regarded as a single entity, often sharing common interests or living in the same area.;;;A group of people living in the same area and having common interests.;;;A community or group of people regarded as forming a single entity, often sharing common interests, culture, or institutions.;;;A community or group of people regarded as forming a single entity, often sharing common interests or values.",
+        "chunkid": "The Influence of Architecture on Society4;;;The Influence of Architecture on Society24;;;The Influence of Architecture on Society25;;;The Influence of Architecture on Society13"
+    },
+    "entity5": {
+        "name": "modernist library",
+        "type": "Architecture",
+        "description": "A building designed in the modernist style, typically characterized by sleek lines and glass walls, serving as a public or institutional repository of books and other information resources.",
+        "chunkid": "The Influence of Architecture on Society7"
+    },
+    "entity7": {
+        "name": "street",
+        "type": "Location",
+        "description": "A public road in a city or town, typically with sidewalks and vehicle lanes.",
+        "chunkid": "The Influence of Architecture on Society10"
+    },
+    "entity10": {
+        "name": "residential areas",
+        "type": "Location",
+        "description": "Areas primarily designated for housing, where people live in communities.;;;Neighborhoods or zones primarily designated for housing, where people live in homes or apartments.",
+        "chunkid": "The Influence of Architecture on Society24;;;The Influence of Architecture on Society11"
+    },
+    "entity11": {
+        "name": "houses",
+        "type": "Object",
+        "description": "Buildings or structures intended for human habitation.",
+        "chunkid": "The Influence of Architecture on Society13"
+    },
+    "entity12": {
+        "name": "residents",
+        "type": "People",
+        "description": "People who live in a specific place, such as a city, town, or neighborhood.;;;Individuals who live in a particular place, such as a house or community.",
+        "chunkid": "The Influence of Architecture on Society13;;;The Influence of Architecture on Society22"
+    },
+    "entity14": {
+        "name": "investment",
+        "type": "Economic Activity",
+        "description": "The action or process of investing money for profit.",
+        "chunkid": "The Influence of Architecture on Society16"
+    },
+    "entity15": {
+        "name": "tourism",
+        "type": "Industry",
+        "description": "The commercial organization and operation of attractions, accommodations, events, and transportation for the enjoyment of travelers.",
+        "chunkid": "The Influence of Architecture on Society16"
+    },
+    "entity16": {
+        "name": "jobs",
+        "type": "Economic Outcome",
+        "description": "Positions of employment that provide income to individuals.",
+        "chunkid": "The Influence of Architecture on Society16"
+    },
+    "entity17": {
+        "name": "local economy",
+        "type": "Economic System",
+        "description": "The economic system and activities within a specific local area or region.",
+        "chunkid": "The Influence of Architecture on Society16"
+    },
+    "entity18": {
+        "name": "Sydney Opera House",
+        "type": "Landmark",
+        "description": "A multi-venue performing arts centre in Sydney, Australia, known for its distinctive sail-like design.",
+        "chunkid": "The Influence of Architecture on Society17"
+    },
+    "entity19": {
+        "name": "Australia",
+        "type": "Country",
+        "description": "A country and continent located in the Southern Hemisphere, comprising the mainland of the Australian continent, the island of Tasmania, and numerous smaller islands.",
+        "chunkid": "The Influence of Architecture on Society17"
+    },
+    "entity20": {
+        "name": "Burj Khalifa",
+        "type": "Skyscraper",
+        "description": "A supertall skyscraper in Dubai, United Arab Emirates, known for being the tallest building in the world since 2010.",
+        "chunkid": "The Influence of Architecture on Society17"
+    },
+    "entity21": {
+        "name": "Dubai",
+        "type": "City",
+        "description": "A city and emirate in the United Arab Emirates known for its ultramodern architecture, luxury shopping, and vibrant nightlife.",
+        "chunkid": "The Influence of Architecture on Society17"
+    },
+    "entity23": {
+        "name": "global energy consumption",
+        "type": "Resource Usage",
+        "description": "The total amount of energy used across the world, including all sectors and sources.",
+        "chunkid": "The Influence of Architecture on Society20"
+    },
+    "entity24": {
+        "name": "greenhouse gas emissions",
+        "type": "Environmental Impact",
+        "description": "Gases that trap heat in the atmosphere, contributing to global warming and climate change.;;;The total amount of greenhouse gases emitted as a result of an organization, event, product, or person.;;;Long-term alteration in Earth's climate and weather patterns, primarily due to human activities such as the emission of greenhouse gases.",
+        "chunkid": "The Influence of Architecture on Society20;;;The Influence of Architecture on Society21"
+    },
+    "entity26": {
+        "name": "sustainable materials",
+        "type": "Material",
+        "description": "Materials that are sourced and produced in a way that minimizes environmental harm and supports long-term ecological balance.",
+        "chunkid": "The Influence of Architecture on Society21"
+    },
+    "entity27": {
+        "name": "technologies",
+        "type": "Technology",
+        "description": "Innovative methods, tools, or systems used to improve the efficiency and sustainability of buildings.",
+        "chunkid": "The Influence of Architecture on Society21"
+    },
+    "entity28": {
+        "name": "architects",
+        "type": "Profession",
+        "description": "Design professionals who plan and design buildings and structures.",
+        "chunkid": "The Influence of Architecture on Society21"
+    },
+    "entity32": {
+        "name": "green spaces",
+        "type": "Urban Feature",
+        "description": "Collections of trees and other vegetation in urban settings, which can include street trees, wooded parks, and forested areas within cities.;;;Areas within urban environments that are dedicated to vegetation and open space, such as parks, gardens, and other natural areas.",
+        "chunkid": "The Influence of Architecture on Society22"
+    },
+    "entity34": {
+        "name": "air quality",
+        "type": "Environmental Factor",
+        "description": "The condition of the air around us, particularly with respect to pollutants and other contaminants that can affect health and the environment.",
+        "chunkid": "The Influence of Architecture on Society22"
+    },
+    "entity35": {
+        "name": "urban heat islands",
+        "type": "Urban Phenomenon",
+        "description": "Areas within urban environments where temperatures are significantly higher than those of surrounding rural areas, primarily due to human activities and built structures.",
+        "chunkid": "The Influence of Architecture on Society22"
+    },
+    "entity36": {
+        "name": "wildlife",
+        "type": "Biodiversity Component",
+        "description": "The variety of living organisms, including animals and plants, that inhabit a particular area or region.",
+        "chunkid": "The Influence of Architecture on Society22"
+    }
+}

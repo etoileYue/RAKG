@@ -1,0 +1,50 @@
+{
+    "entity1": {
+        "name": "spiders",
+        "type": "Animal",
+        "description": "The process of constructing a web by spiders.;;;A structure made by spiders, consisting of silk threads, used for catching insects and other small creatures.;;;A class of arachnids that produce silk, known for their ability to create intricate webs and the unique properties of their silk.;;;Complex, often sticky structures created by spiders using their silk for various purposes including hunting and shelter.;;;A class of arachnids characterized by their eight legs and ability to produce silk.;;;Complex and intricate structures created by spiders for various purposes such as capturing prey, protection, and reproduction.;;;Complex structures built by spiders using silk for various purposes such as capturing prey, protection, and reproduction.;;;A class of arachnids characterized by their eight legs, ability to produce silk, and predatory nature.;;;A small arachnid that constructs webs using silk.;;;An eight-legged predatory arachnid that constructs and uses webs to catch prey.;;;An arachnid that constructs webs to catch prey.;;;A silk structure created by spiders to capture insects and other small creatures.;;;A class of arachnids known for their ability to produce silk and construct webs.;;;Complex, sticky structures created by spiders using silk for catching prey and other purposes.;;;The process by which spiders create their webs using silk produced from their bodies.;;;A small arachnid that constructs webs to catch prey.;;;A silk structure created by spiders for various purposes, including catching prey and as a habitat.;;;A class of arachnids characterized by their ability to produce silk and having eight legs.;;;A silk structure created by spiders for catching prey and other purposes.;;;A small arachnid that constructs webs and preys on insects.;;;A small arachnid that constructs webs for hunting and protection.",
+        "chunkid": "How Spiders Build Webs16;;;How Spiders Build Webs10;;;How Spiders Build Webs7;;;How Spiders Build Webs23;;;How Spiders Build Webs24;;;How Spiders Build Webs18;;;How Spiders Build Webs17;;;How Spiders Build Webs25;;;How Spiders Build Webs9;;;How Spiders Build Webs4;;;How Spiders Build Webs21;;;How Spiders Build Webs20;;;How Spiders Build Webs14;;;How Spiders Build Webs3;;;How Spiders Build Webs15"
+    },
+    "entity5": {
+        "name": "spinnerets",
+        "type": "Anatomy",
+        "description": "Specialized glands located at the rear of a spider's abdomen used for producing silk.",
+        "chunkid": "How Spiders Build Webs6"
+    },
+    "entity6": {
+        "name": "abdomen",
+        "type": "Anatomy",
+        "description": "The posterior section of a spider's body, containing vital organs and structures such as spinnerets.",
+        "chunkid": "How Spiders Build Webs6"
+    },
+    "entity8": {
+        "name": "silk",
+        "type": "Material",
+        "description": "A fine, strong, soft thread produced by spiders and some insects, used for various purposes including web construction and egg sac creation.;;;A fine, strong, soft thread produced by spiders and silkworms.;;;A natural protein fiber produced by spiders and other insects, characterized by its strength and elasticity.;;;Fine threads produced by spiders to construct their webs.",
+        "chunkid": "How Spiders Build Webs10;;;How Spiders Build Webs7;;;How Spiders Build Webs15;;;How Spiders Build Webs9;;;How Spiders Build Webs17"
+    },
+    "entity13": {
+        "name": "branch",
+        "type": "Plant Part",
+        "description": "A part of a tree that grows out from the trunk or another branch.",
+        "chunkid": "How Spiders Build Webs10"
+    },
+    "entity14": {
+        "name": "wall",
+        "type": "Structure",
+        "description": "A vertical structure that divides or encloses spaces, typically made of brick, stone, or other materials.",
+        "chunkid": "How Spiders Build Webs10"
+    },
+    "entity26": {
+        "name": "prey",
+        "type": "Animal",
+        "description": "An animal that is hunted or caught as food by another animal, in this case, the spider.",
+        "chunkid": "How Spiders Build Webs18"
+    },
+    "entity28": {
+        "name": "trap line",
+        "type": "Component",
+        "description": "A thick strand of silk used in spider webs as a signal line.",
+        "chunkid": "How Spiders Build Webs20"
+    }
+}

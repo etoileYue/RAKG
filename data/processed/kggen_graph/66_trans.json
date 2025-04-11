@@ -1,0 +1,355 @@
+{
+  "entities": [
+    {
+      "name": "literacy initiatives"
+    },
+    {
+      "name": "digital resources"
+    },
+    {
+      "name": "community hubs"
+    },
+    {
+      "name": "events"
+    },
+    {
+      "name": "increasingly"
+    },
+    {
+      "name": "discussions"
+    },
+    {
+      "name": "resources"
+    },
+    {
+      "name": "individuals"
+    },
+    {
+      "name": "Libraries"
+    },
+    {
+      "name": "intellectual freedom"
+    },
+    {
+      "name": "internet"
+    },
+    {
+      "name": "cultural identity"
+    },
+    {
+      "name": "community"
+    },
+    {
+      "name": "early literacy programs"
+    },
+    {
+      "name": "engagement"
+    },
+    {
+      "name": "gathering spaces"
+    },
+    {
+      "name": "intellectual"
+    },
+    {
+      "name": "learning"
+    },
+    {
+      "name": "promoting"
+    },
+    {
+      "name": "programs"
+    },
+    {
+      "name": "creating"
+    },
+    {
+      "name": "book clubs"
+    },
+    {
+      "name": "democracy"
+    },
+    {
+      "name": "social"
+    },
+    {
+      "name": "contributing"
+    },
+    {
+      "name": "remaining"
+    },
+    {
+      "name": "fabric"
+    },
+    {
+      "name": "technology"
+    },
+    {
+      "name": "literacy"
+    },
+    {
+      "name": "information"
+    },
+    {
+      "name": "supporting"
+    },
+    {
+      "name": "culture"
+    },
+    {
+      "name": "sense of community"
+    },
+    {
+      "name": "libraries"
+    },
+    {
+      "name": "cultural activities"
+    },
+    {
+      "name": "cultural heritage"
+    },
+    {
+      "name": "adult education classes"
+    },
+    {
+      "name": "beacons"
+    },
+    {
+      "name": "providing"
+    },
+    {
+      "name": "digital economy"
+    },
+    {
+      "name": "fostering"
+    },
+    {
+      "name": "educational programs"
+    },
+    {
+      "name": "information literacy"
+    },
+    {
+      "name": "knowledge"
+    },
+    {
+      "name": "lifelong learning"
+    },
+    {
+      "name": "educational institutions"
+    },
+    {
+      "name": "important"
+    },
+    {
+      "name": "internet services"
+    },
+    {
+      "name": "digital"
+    },
+    {
+      "name": "enrich"
+    },
+    {
+      "name": "cultural institutions"
+    },
+    {
+      "name": "heritage"
+    },
+    {
+      "name": "cultural"
+    },
+    {
+      "name": "computers"
+    },
+    {
+      "name": "services"
+    },
+    {
+      "name": "digital literacy skills"
+    },
+    {
+      "name": "cultural artifacts"
+    },
+    {
+      "name": "generations"
+    }
+  ],
+  "relations": [
+    [
+      "Libraries",
+      "promote",
+      "sense of community"
+    ],
+    [
+      "libraries",
+      "provide_access_to",
+      "events"
+    ],
+    [
+      "Libraries",
+      "preserve_and_promote",
+      "cultural heritage"
+    ],
+    [
+      "Libraries",
+      "host",
+      "events"
+    ],
+    [
+      "libraries",
+      "empower",
+      "literacy initiatives"
+    ],
+    [
+      "libraries",
+      "serve as",
+      "educational institutions"
+    ],
+    [
+      "Libraries",
+      "safeguard",
+      "intellectual freedom"
+    ],
+    [
+      "libraries",
+      "promote",
+      "information literacy"
+    ],
+    [
+      "community hubs",
+      "provide_access_to",
+      "internet services"
+    ],
+    [
+      "libraries",
+      "contribute to",
+      "democracy"
+    ],
+    [
+      "libraries",
+      "offer",
+      "digital resources"
+    ],
+    [
+      "Libraries",
+      "collect_and_preserve",
+      "resources"
+    ],
+    [
+      "Libraries",
+      "promote",
+      "social"
+    ],
+    [
+      "libraries",
+      "empower",
+      "intellectual freedom"
+    ],
+    [
+      "Libraries",
+      "collect_and_preserve",
+      "cultural artifacts"
+    ],
+    [
+      "libraries",
+      "empower",
+      "lifelong learning"
+    ],
+    [
+      "Libraries",
+      "collect_and_preserve",
+      "intellectual freedom"
+    ],
+    [
+      "community hubs",
+      "provide_access_to",
+      "digital resources"
+    ],
+    [
+      "Libraries",
+      "serve_as",
+      "cultural institutions"
+    ],
+    [
+      "Libraries",
+      "serve_as",
+      "gathering spaces"
+    ],
+    [
+      "libraries",
+      "provide access to",
+      "technology"
+    ],
+    [
+      "community hubs",
+      "provide_access_to",
+      "computers"
+    ],
+    [
+      "Libraries",
+      "create_opportunities_for",
+      "programs"
+    ],
+    [
+      "resources",
+      "include",
+      "resources"
+    ],
+    [
+      "Libraries",
+      "offer",
+      "educational programs"
+    ],
+    [
+      "Libraries",
+      "host",
+      "book clubs"
+    ],
+    [
+      "libraries",
+      "uphold",
+      "intellectual freedom"
+    ],
+    [
+      "libraries",
+      "provide_access_to",
+      "early literacy programs"
+    ],
+    [
+      "Libraries",
+      "provide_access_to",
+      "resources"
+    ],
+    [
+      "libraries",
+      "promote",
+      "cultural identity"
+    ],
+    [
+      "resources",
+      "of",
+      "information"
+    ],
+    [
+      "libraries",
+      "provide access to",
+      "internet"
+    ],
+    [
+      "Libraries",
+      "serve_as",
+      "community hubs"
+    ],
+    [
+      "libraries",
+      "provide_access_to",
+      "adult education classes"
+    ],
+    [
+      "libraries",
+      "provide access to",
+      "heritage"
+    ]
+  ]
+}

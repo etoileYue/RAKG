@@ -1,0 +1,80 @@
+[
+  {
+    "correct_answer": "Butterflies undergo a remarkable transformation throughout their life cycle.",
+    "retrieved_context": " Adult Butterfly\nOrganism  butterflies\nInsect  Butterflies\nInsect  Female Butterflies\nInsect  Pollination\nEcosystem Process  Larva (Caterpillar)\nLife Cycle Stage  Nectar from Flowers\nFlower Part  Egg\nLife Cycle Stage relation: Butterfly --[Lays Eggs On]-> Host Plants relation: Butterfly --[Has Life Cycle Stage]-> Adult relation: Butterfly --[Has Life Cycle Stage]-> Larva (Caterpillar)  Butterfly\nInsect  Pupa (Chrysalis)\nLife Cycle Stage relation: Butterfly --[Undergoes]-> Metamorphosis  Metamorphosis\nBiological Process relation: Butterfly --[Has Life Cycle Stage]-> Pupa (Chrysalis)  Leaves\nPlant Part relation: Butterfly --[Feeds On]-> Nectar from Flowers  Host Plants\nPlant relation: Butterfly --[Has Life Cycle Stage]-> Egg relation: Butterfly --[Contributes To]-> Pollination relation: Butterfly --[Feeds On]-> Leaves  Adult\nLife Cycle Stage relation: Butterfly --[Contributes To]-> Maintaining Plant Populations  Maintaining Plant Populations\nEcosystem Process  butterfly\nInsect  Butterfly Larvae\nInsect Larva  Larva (Caterpillar)\nLife Cycle Stage",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Female butterflies lay their eggs on specific host plants.",
+    "retrieved_context": " Female Butterflies\nInsect  butterflies\nInsect  Butterflies\nInsect  Butterfly Larvae\nInsect Larva  Adult Butterfly\nOrganism  Caterpillar Eggs\nEggs  Pollination\nEcosystem Process  Larva (Caterpillar)\nLife Cycle Stage  Nectar from Flowers\nFlower Part  Egg\nLife Cycle Stage relation: Butterfly --[Lays Eggs On]-> Host Plants relation: Butterfly --[Has Life Cycle Stage]-> Adult relation: Butterfly --[Has Life Cycle Stage]-> Larva (Caterpillar)  Butterfly\nInsect  Pupa (Chrysalis)\nLife Cycle Stage relation: Butterfly --[Undergoes]-> Metamorphosis  Metamorphosis\nBiological Process relation: Butterfly --[Has Life Cycle Stage]-> Pupa (Chrysalis)  Leaves\nPlant Part relation: Butterfly --[Feeds On]-> Nectar from Flowers  Host Plants\nPlant relation: Butterfly --[Has Life Cycle Stage]-> Egg relation: Butterfly --[Contributes To]-> Pollination relation: Butterfly --[Feeds On]-> Leaves  Adult\nLife Cycle Stage relation: Butterfly --[Contributes To]-> Maintaining Plant Populations  Maintaining Plant Populations\nEcosystem Process  butterfly\nInsect",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Butterfly eggs are usually laid on the underside of leaves.",
+    "retrieved_context": " Caterpillar Eggs\nEggs  Butterfly Larvae\nInsect Larva  Pollination\nEcosystem Process  Larva (Caterpillar)\nLife Cycle Stage  Nectar from Flowers\nFlower Part  Egg\nLife Cycle Stage relation: Butterfly --[Lays Eggs On]-> Host Plants relation: Butterfly --[Has Life Cycle Stage]-> Adult relation: Butterfly --[Has Life Cycle Stage]-> Larva (Caterpillar)  Butterfly\nInsect  Pupa (Chrysalis)\nLife Cycle Stage relation: Butterfly --[Undergoes]-> Metamorphosis  Metamorphosis\nBiological Process relation: Butterfly --[Has Life Cycle Stage]-> Pupa (Chrysalis)  Leaves\nPlant Part relation: Butterfly --[Feeds On]-> Nectar from Flowers  Host Plants\nPlant relation: Butterfly --[Has Life Cycle Stage]-> Egg relation: Butterfly --[Contributes To]-> Pollination relation: Butterfly --[Feeds On]-> Leaves  Adult\nLife Cycle Stage relation: Butterfly --[Contributes To]-> Maintaining Plant Populations  Maintaining Plant Populations\nEcosystem Process  butterfly\nInsect  butterflies\nInsect  Butterflies\nInsect  Female Butterflies\nInsect  eggs\nBiological Entity",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "The size, shape, and color of butterfly eggs vary depending on the species.",
+    "retrieved_context": " Caterpillar Eggs\nEggs  Pollination\nEcosystem Process  Larva (Caterpillar)\nLife Cycle Stage  Nectar from Flowers\nFlower Part  Egg\nLife Cycle Stage relation: Butterfly --[Lays Eggs On]-> Host Plants relation: Butterfly --[Has Life Cycle Stage]-> Adult relation: Butterfly --[Has Life Cycle Stage]-> Larva (Caterpillar)  Butterfly\nInsect  Pupa (Chrysalis)\nLife Cycle Stage relation: Butterfly --[Undergoes]-> Metamorphosis  Metamorphosis\nBiological Process relation: Butterfly --[Has Life Cycle Stage]-> Pupa (Chrysalis)  Leaves\nPlant Part relation: Butterfly --[Feeds On]-> Nectar from Flowers  Host Plants\nPlant relation: Butterfly --[Has Life Cycle Stage]-> Egg relation: Butterfly --[Contributes To]-> Pollination relation: Butterfly --[Feeds On]-> Leaves  Adult\nLife Cycle Stage relation: Butterfly --[Contributes To]-> Maintaining Plant Populations  Maintaining Plant Populations\nEcosystem Process  butterfly\nInsect  butterflies\nInsect  Butterflies\nInsect  Female Butterflies\nInsect  Adult Butterfly\nOrganism  Butterfly Larvae\nInsect Larva",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "After hatching, a tiny larva, known as a caterpillar, emerges.",
+    "retrieved_context": " Caterpillar\nInsect Larva  Caterpillars\nInsect Larva  Larva (Caterpillar)\nLife Cycle Stage  caterpillars\nBiological Entity  Butterfly Larvae\nInsect Larva  Caterpillar Eggs\nEggs  Chrysalis\nPupa Stage of Insects  Adult Butterfly\nOrganism",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Caterpillars are voracious eaters and spend most of their time feeding on leaves.",
+    "retrieved_context": " Caterpillars\nInsect Larva  caterpillars\nBiological Entity  Caterpillar\nInsect Larva  Larva (Caterpillar)\nLife Cycle Stage  Caterpillar Eggs\nEggs  Butterfly Larvae\nInsect Larva  butterflies\nInsect  Butterflies\nInsect",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Caterpillars shed their skin several times as they grow.",
+    "retrieved_context": " caterpillars\nBiological Entity  Caterpillars\nInsect Larva  Caterpillar\nInsect Larva  Larva (Caterpillar)\nLife Cycle Stage  Butterfly Larvae\nInsect Larva  Caterpillar Eggs\nEggs  Chrysalis\nPupa Stage of Insects  Adult Butterfly\nOrganism",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Caterpillars come in a variety of shapes, sizes, and colors.",
+    "retrieved_context": " caterpillars\nBiological Entity  Caterpillars\nInsect Larva  Caterpillar\nInsect Larva  Caterpillar Eggs\nEggs  Larva (Caterpillar)\nLife Cycle Stage  Butterfly Larvae\nInsect Larva  butterflies\nInsect  Butterflies\nInsect",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Caterpillars play a crucial role in pollination and maintaining plant populations.",
+    "retrieved_context": " caterpillars\nBiological Entity  Caterpillars\nInsect Larva  Caterpillar\nInsect Larva  Pollination\nEcosystem Process  Larva (Caterpillar)\nLife Cycle Stage  Caterpillar Eggs\nEggs  Caterpillars\nInsect Larva relation: pollination --[Performed by]-> Butterflies  Butterflies\nInsect relation: pollination --[Performed by]-> Caterpillars  pollination\nBiological Process  Butterfly Larvae\nInsect Larva",
+    "evaluation": 0
+  },
+  {
+    "correct_answer": "The caterpillar attaches itself to a leaf or stem and forms a chrysalis.",
+    "retrieved_context": " caterpillars\nBiological Entity  Caterpillar\nInsect Larva  chrysalis\nStructure  Caterpillars\nInsect Larva  Chrysalis\nPupa Stage of Insects  Larva (Caterpillar)\nLife Cycle Stage  Caterpillar Eggs\nEggs  Pupa (Chrysalis)\nLife Cycle Stage",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Inside the chrysalis, the caterpillar undergoes metamorphosis.",
+    "retrieved_context": " caterpillars\nBiological Entity  Chrysalis\nPupa Stage of Insects  Caterpillar\nInsect Larva  Caterpillars\nInsect Larva  Metamorphosis\nBiological Process  Larva (Caterpillar)\nLife Cycle Stage  chrysalis\nStructure  Pupa (Chrysalis)\nLife Cycle Stage",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "During metamorphosis, the caterpillar's body undergoes significant changes.",
+    "retrieved_context": " Metamorphosis\nBiological Process  caterpillars\nBiological Entity  Caterpillar\nInsect Larva  Caterpillars\nInsect Larva  Larva (Caterpillar)\nLife Cycle Stage  Caterpillar Eggs\nEggs  Butterfly Larvae\nInsect Larva  Chrysalis\nPupa Stage of Insects",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "The adult butterfly emerges from the chrysalis after metamorphosis is complete.",
+    "retrieved_context": " Adult Butterfly\nOrganism  Chrysalis\nPupa Stage of Insects  Metamorphosis\nBiological Process  Pollination\nEcosystem Process  Larva (Caterpillar)\nLife Cycle Stage  Nectar from Flowers\nFlower Part  Egg\nLife Cycle Stage relation: Butterfly --[Lays Eggs On]-> Host Plants relation: Butterfly --[Has Life Cycle Stage]-> Adult relation: Butterfly --[Has Life Cycle Stage]-> Larva (Caterpillar)  Butterfly\nInsect  Pupa (Chrysalis)\nLife Cycle Stage relation: Butterfly --[Undergoes]-> Metamorphosis  Metamorphosis\nBiological Process relation: Butterfly --[Has Life Cycle Stage]-> Pupa (Chrysalis)  Leaves\nPlant Part relation: Butterfly --[Feeds On]-> Nectar from Flowers  Host Plants\nPlant relation: Butterfly --[Has Life Cycle Stage]-> Egg relation: Butterfly --[Contributes To]-> Pollination relation: Butterfly --[Feeds On]-> Leaves  Adult\nLife Cycle Stage relation: Butterfly --[Contributes To]-> Maintaining Plant Populations  Maintaining Plant Populations\nEcosystem Process  butterfly\nInsect  butterflies\nInsect  Butterflies\nInsect  Butterfly Larvae\nInsect Larva",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Adult butterflies feed on nectar from flowers using their proboscis.",
+    "retrieved_context": " Adult Butterfly\nOrganism  butterflies\nInsect  Butterflies\nInsect  Female Butterflies\nInsect  Butterfly Larvae\nInsect Larva  Pollination\nEcosystem Process  Larva (Caterpillar)\nLife Cycle Stage  Nectar from Flowers\nFlower Part  Egg\nLife Cycle Stage relation: Butterfly --[Lays Eggs On]-> Host Plants relation: Butterfly --[Has Life Cycle Stage]-> Adult relation: Butterfly --[Has Life Cycle Stage]-> Larva (Caterpillar)  Butterfly\nInsect  Pupa (Chrysalis)\nLife Cycle Stage relation: Butterfly --[Undergoes]-> Metamorphosis  Metamorphosis\nBiological Process relation: Butterfly --[Has Life Cycle Stage]-> Pupa (Chrysalis)  Leaves\nPlant Part relation: Butterfly --[Feeds On]-> Nectar from Flowers  Host Plants\nPlant relation: Butterfly --[Has Life Cycle Stage]-> Egg relation: Butterfly --[Contributes To]-> Pollination relation: Butterfly --[Feeds On]-> Leaves  Adult\nLife Cycle Stage relation: Butterfly --[Contributes To]-> Maintaining Plant Populations  Maintaining Plant Populations\nEcosystem Process  butterfly\nInsect  Nectar from Flowers\nFlower Part",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Butterflies play a crucial role in pollination and serve as a food source for other animals.",
+    "retrieved_context": " butterflies\nInsect  Butterflies\nInsect  Female Butterflies\nInsect  Pollination\nEcosystem Process  Adult Butterfly\nOrganism  Pollination\nEcosystem Process  Larva (Caterpillar)\nLife Cycle Stage  Nectar from Flowers\nFlower Part  Egg\nLife Cycle Stage relation: Butterfly --[Lays Eggs On]-> Host Plants relation: Butterfly --[Has Life Cycle Stage]-> Adult relation: Butterfly --[Has Life Cycle Stage]-> Larva (Caterpillar)  Butterfly\nInsect  Pupa (Chrysalis)\nLife Cycle Stage relation: Butterfly --[Undergoes]-> Metamorphosis  Metamorphosis\nBiological Process relation: Butterfly --[Has Life Cycle Stage]-> Pupa (Chrysalis)  Leaves\nPlant Part relation: Butterfly --[Feeds On]-> Nectar from Flowers  Host Plants\nPlant relation: Butterfly --[Has Life Cycle Stage]-> Egg relation: Butterfly --[Contributes To]-> Pollination relation: Butterfly --[Feeds On]-> Leaves  Adult\nLife Cycle Stage relation: Butterfly --[Contributes To]-> Maintaining Plant Populations  Maintaining Plant Populations\nEcosystem Process  butterfly\nInsect  Caterpillars\nInsect Larva relation: pollination --[Performed by]-> Butterflies  Butterflies\nInsect relation: pollination --[Performed by]-> Caterpillars  pollination\nBiological Process",
+    "evaluation": 1
+  },
+  {
+    "accuracy": "93.33%"
+  }
+]

@@ -1,0 +1,319 @@
+{
+  "entities": [
+    {
+      "name": "CONSUMER BEHAVIOR",
+      "type": "EVENT",
+      "description": "The study of why consumers make certain purchasing decisions, influenced by psychological factors such as motivation, perception, attitudes, and decision-making processes"
+    },
+    {
+      "name": "MOTIVATION",
+      "type": "EVENT",
+      "description": "A psychological factor that drives consumers to make purchasing decisions, including both intrinsic and extrinsic motivations"
+    },
+    {
+      "name": "PERCEPTION",
+      "type": "EVENT",
+      "description": "A psychological factor that shapes how consumers view products or brands, influenced by marketing messages, brand image, packaging, and past experiences"
+    },
+    {
+      "name": "ATTITUDES",
+      "type": "EVENT",
+      "description": "A psychological factor that combines beliefs, feelings, and behaviors towards a product or brand, developed based on past experiences, social influences, and cognitive processes"
+    },
+    {
+      "name": "DECISION-MAKING PROCESSES",
+      "type": "EVENT",
+      "description": "A complex and multi-faceted psychological factor involving cognitive, emotional, and behavioral stages in the purchasing decision, including problem recognition, information search, evaluation of alternatives, purchase decision, and post-purchase evaluation"
+    },
+    {
+      "name": "CULTURAL FACTORS",
+      "type": "EVENT",
+      "description": "Influences on consumer behavior that encompass values, beliefs, customs, and norms, impacting consumer preferences, buying habits, and decision-making processes"
+    },
+    {
+      "name": "BUSINESSES",
+      "type": "ORGANIZATION",
+      "description": "Organizations that aim to understand consumer behavior to effectively market their products and services"
+    },
+    {
+      "name": "CONSUMERS",
+      "type": "PERSON",
+      "description": "Individuals who make purchasing decisions based on various psychological factors"
+    },
+    {
+      "name": "EXTRINSIC MOTIVATION",
+      "type": "EVENT",
+      "description": "External factors such as social norms, peer pressure, and marketing messages that influence consumer purchasing decisions"
+    },
+    {
+      "name": "BRAND IMAGE",
+      "type": "EVENT",
+      "description": "The perception of a brand's overall quality, reputation, and value, which can influence consumer purchasing decisions"
+    },
+    {
+      "name": "MARKETING MESSAGES",
+      "type": "EVENT",
+      "description": "Communications from businesses designed to influence consumer perceptions and attitudes towards products or brands"
+    },
+    {
+      "name": "PACKAGING",
+      "type": "EVENT",
+      "description": "The design and presentation of a product, which can influence consumer perceptions and purchasing decisions"
+    },
+    {
+      "name": "PAST EXPERIENCES",
+      "type": "EVENT",
+      "description": "Previous interactions with a product or brand that shape consumer attitudes and perceptions"
+    },
+    {
+      "name": "POSITIVE ATTITUDES",
+      "type": "EVENT",
+      "description": "Favorable beliefs, feelings, and behaviors towards a product or brand, which are more likely to result in purchase intentions"
+    },
+    {
+      "name": "NEGATIVE ATTITUDES",
+      "type": "EVENT",
+      "description": "Unfavorable beliefs, feelings, and behaviors towards a product or brand, which may deter consumers from making a purchase"
+    },
+    {
+      "name": "PROBLEM RECOGNITION",
+      "type": "EVENT",
+      "description": "The first stage in the consumer decision-making process, where consumers identify a need or want"
+    },
+    {
+      "name": "INFORMATION SEARCH",
+      "type": "EVENT",
+      "description": "The second stage in the consumer decision-making process, where consumers seek information about products or brands"
+    },
+    {
+      "name": "EVALUATION OF ALTERNATIVES",
+      "type": "EVENT",
+      "description": "The third stage in the consumer decision-making process, where consumers compare different options"
+    },
+    {
+      "name": "PURCHASE DECISION",
+      "type": "EVENT",
+      "description": "The fourth stage in the consumer decision-making process, where consumers decide whether to buy a product"
+    },
+    {
+      "name": "POST-PURCHASE EVALUATION",
+      "type": "EVENT",
+      "description": "The final stage in the consumer decision-making process, where consumers assess their satisfaction with the purchase"
+    },
+    {
+      "name": "COLLECTIVIST CULTURES",
+      "type": "EVENT",
+      "description": "Cultures that prioritize social relationships and group harmony in decision-making processes"
+    },
+    {
+      "name": "INDIVIDUALIST CULTURES",
+      "type": "EVENT",
+      "description": "Cultures that focus more on personal preferences and self-expression in decision-making processes"
+    },
+    {
+      "name": "INTRINSIC MOTIVATION",
+      "type": "",
+      "description": ""
+    }
+  ],
+  "relations": [
+    [
+      "CONSUMER BEHAVIOR",
+      ":has_relation_with",
+      "MOTIVATION",
+      "Motivation is a key factor in consumer behavior, driving consumers to make purchasing decisions based on both intrinsic and extrinsic factors"
+    ],
+    [
+      "CONSUMER BEHAVIOR",
+      ":has_relation_with",
+      "PERCEPTION",
+      "Perception significantly influences consumer behavior by shaping how consumers view products or brands"
+    ],
+    [
+      "CONSUMER BEHAVIOR",
+      ":has_relation_with",
+      "ATTITUDES",
+      "Attitudes play a crucial role in consumer behavior, affecting purchase intentions and deterring purchases based on past experiences and social influences"
+    ],
+    [
+      "CONSUMER BEHAVIOR",
+      ":has_relation_with",
+      "DECISION-MAKING PROCESSES",
+      "Decision-making processes are a fundamental part of consumer behavior, involving multiple stages that are influenced by various psychological factors"
+    ],
+    [
+      "CONSUMER BEHAVIOR",
+      ":has_relation_with",
+      "CULTURAL FACTORS",
+      "Cultural factors significantly impact consumer behavior by influencing consumer preferences, buying habits, and decision-making processes"
+    ],
+    [
+      "CONSUMER BEHAVIOR",
+      ":has_relation_with",
+      "BUSINESSES",
+      "Businesses study consumer behavior to better understand their target audience and tailor marketing strategies to influence consumer decisions"
+    ],
+    [
+      "CONSUMER BEHAVIOR",
+      ":has_relation_with",
+      "CONSUMERS",
+      "Consumers are the subjects of consumer behavior studies, making purchasing decisions based on psychological factors"
+    ],
+    [
+      "MOTIVATION",
+      ":has_relation_with",
+      "INTRINSIC MOTIVATION",
+      "Intrinsic motivation is a type of motivation that comes from internal factors such as personal preferences and values"
+    ],
+    [
+      "MOTIVATION",
+      ":has_relation_with",
+      "EXTRINSIC MOTIVATION",
+      "Extrinsic motivation is a type of motivation that comes from external factors such as social norms and marketing messages"
+    ],
+    [
+      "PERCEPTION",
+      ":has_relation_with",
+      "BRAND IMAGE",
+      "Brand image is a key factor in shaping consumer perception of a product or brand"
+    ],
+    [
+      "PERCEPTION",
+      ":has_relation_with",
+      "MARKETING MESSAGES",
+      "Marketing messages can significantly influence consumer perception of a product or brand"
+    ],
+    [
+      "PERCEPTION",
+      ":has_relation_with",
+      "PACKAGING",
+      "Packaging design and presentation can influence consumer perception of a product"
+    ],
+    [
+      "PERCEPTION",
+      ":has_relation_with",
+      "PAST EXPERIENCES",
+      "Past experiences with a product or brand can shape consumer perception and attitudes"
+    ],
+    [
+      "ATTITUDES",
+      ":has_relation_with",
+      "POSITIVE ATTITUDES",
+      "Positive attitudes towards a product or brand are more likely to result in purchase intentions"
+    ],
+    [
+      "ATTITUDES",
+      ":has_relation_with",
+      "NEGATIVE ATTITUDES",
+      "Negative attitudes towards a product or brand may deter consumers from making a purchase"
+    ],
+    [
+      "DECISION-MAKING PROCESSES",
+      ":has_relation_with",
+      "PROBLEM RECOGNITION",
+      "Problem recognition is the first stage in the consumer decision-making process"
+    ],
+    [
+      "DECISION-MAKING PROCESSES",
+      ":has_relation_with",
+      "INFORMATION SEARCH",
+      "Information search is the second stage in the consumer decision-making process"
+    ],
+    [
+      "DECISION-MAKING PROCESSES",
+      ":has_relation_with",
+      "EVALUATION OF ALTERNATIVES",
+      "Evaluation of alternatives is the third stage in the consumer decision-making process"
+    ],
+    [
+      "DECISION-MAKING PROCESSES",
+      ":has_relation_with",
+      "PURCHASE DECISION",
+      "Purchase decision is the fourth stage in the consumer decision-making process"
+    ],
+    [
+      "DECISION-MAKING PROCESSES",
+      ":has_relation_with",
+      "POST-PURCHASE EVALUATION",
+      "Post-purchase evaluation is the final stage in the consumer decision-making process"
+    ],
+    [
+      "CULTURAL FACTORS",
+      ":has_relation_with",
+      "COLLECTIVIST CULTURES",
+      "Collectivist cultures prioritize social relationships and group harmony in decision-making processes"
+    ],
+    [
+      "CULTURAL FACTORS",
+      ":has_relation_with",
+      "INDIVIDUALIST CULTURES",
+      "Individualist cultures focus more on personal preferences and self-expression in decision-making processes"
+    ],
+    [
+      "BUSINESSES",
+      ":has_relation_with",
+      "MARKETING MESSAGES",
+      "Businesses use marketing messages to influence consumer perceptions and attitudes towards their products or brands"
+    ],
+    [
+      "BUSINESSES",
+      ":has_relation_with",
+      "BRAND IMAGE",
+      "Businesses work to build and maintain a positive brand image to influence consumer perceptions and purchasing decisions"
+    ],
+    [
+      "BUSINESSES",
+      ":has_relation_with",
+      "PACKAGING",
+      "Businesses design packaging to influence consumer perceptions and purchasing decisions"
+    ],
+    [
+      "BUSINESSES",
+      ":has_relation_with",
+      "INFORMATION SEARCH",
+      "Businesses provide information to consumers during the information search stage to influence their purchasing decisions"
+    ],
+    [
+      "BUSINESSES",
+      ":has_relation_with",
+      "EVALUATION OF ALTERNATIVES",
+      "Businesses provide information and marketing efforts to influence consumers during the evaluation of alternatives stage"
+    ],
+    [
+      "BUSINESSES",
+      ":has_relation_with",
+      "POST-PURCHASE EVALUATION",
+      "Businesses aim to ensure customer satisfaction during the post-purchase evaluation stage to encourage repeat business and brand loyalty"
+    ],
+    [
+      "CONSUMERS",
+      ":has_relation_with",
+      "INFORMATION SEARCH",
+      "Consumers engage in information search to gather data about products or brands before making a purchase"
+    ],
+    [
+      "CONSUMERS",
+      ":has_relation_with",
+      "EVALUATION OF ALTERNATIVES",
+      "Consumers evaluate different options during the evaluation of alternatives stage to make an informed purchase decision"
+    ],
+    [
+      "CONSUMERS",
+      ":has_relation_with",
+      "POST-PURCHASE EVALUATION",
+      "Consumers assess their satisfaction with a purchase during the post-purchase evaluation stage"
+    ],
+    [
+      "CONSUMERS",
+      ":has_relation_with",
+      "COLLECTIVIST CULTURES",
+      "Consumers from collectivist cultures may prioritize social relationships and group harmony in their purchasing decisions"
+    ],
+    [
+      "CONSUMERS",
+      ":has_relation_with",
+      "INDIVIDUALIST CULTURES",
+      "Consumers from individualist cultures may focus more on personal preferences and self-expression in their purchasing decisions"
+    ]
+  ]
+}

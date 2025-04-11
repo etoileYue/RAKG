@@ -1,0 +1,130 @@
+{
+  "entities": [
+    {
+      "name": "PILTDOWN MAN",
+      "type": "EVENT",
+      "description": "A famous hoax involving a supposed missing link between humans and apes, discovered in England in 1912 and revealed as a forgery in 1953"
+    },
+    {
+      "name": "CARDIFF GIANT",
+      "type": "EVENT",
+      "description": "A hoax involving a 10-foot-tall petrified man \"discovered\" in Cardiff, New York, in 1869, later revealed to be a sculpture by George Hull"
+    },
+    {
+      "name": "WAR OF THE WORLDS BROADCAST",
+      "type": "EVENT",
+      "description": "A radio broadcast by Orson Welles in 1938 that presented a fictional Martian invasion as real news, causing widespread panic"
+    },
+    {
+      "name": "HAN VAN MEEGEREN",
+      "type": "PERSON",
+      "description": "A Dutch forger who created and sold fake Vermeer paintings during the 1930s and 1940s, fooling art experts and collectors"
+    },
+    {
+      "name": "SOKAL AFFAIR",
+      "type": "EVENT",
+      "description": "A hoax in 1996 where physicist Alan Sokal submitted a fake paper to the journal Social Text, exposing the lack of scientific rigor in postmodernist academic discourse"
+    },
+    {
+      "name": "GEORGE HULL",
+      "type": "PERSON",
+      "description": "The creator of the Cardiff Giant hoax, who sought to profit from public fascination with archaeology and giant mythologies"
+    },
+    {
+      "name": "ORSON WELLES",
+      "type": "PERSON",
+      "description": "An American filmmaker and actor who directed the War of the Worlds radio broadcast in 1938, causing mass hysteria"
+    },
+    {
+      "name": "ALAN SOKAL",
+      "type": "PERSON",
+      "description": "A physicist who exposed the shortcomings of postmodernist academic discourse through the Sokal Affair in 1996"
+    },
+    {
+      "name": "HERMANN GÖRING",
+      "type": "PERSON",
+      "description": "A Nazi leader who purchased one of Han van Meegeren's fake Vermeer paintings"
+    },
+    {
+      "name": "ENGLAND",
+      "type": "GEO",
+      "description": "Country where the Piltdown Man hoax was discovered and later exposed"
+    },
+    {
+      "name": "CARDIFF, NEW YORK",
+      "type": "GEO",
+      "description": "Location where the Cardiff Giant hoax was \"discovered\""
+    },
+    {
+      "name": "SOCIAL TEXT",
+      "type": "ORGANIZATION",
+      "description": "An academic journal that published Alan Sokal's fake paper, leading to the Sokal Affair\nAn academic journal that published Alan Sokal's fake paper in 1996"
+    },
+    {
+      "name": "VERMEER",
+      "type": "PERSON",
+      "description": "A famous Dutch painter whose works were forged by Han van Meegeren"
+    },
+    {
+      "name": "H.G. WELLS",
+      "type": "",
+      "description": ""
+    }
+  ],
+  "relations": [
+    [
+      "PILTDOWN MAN",
+      ":has_relation_with",
+      "ENGLAND",
+      "The Piltdown Man hoax was discovered and later exposed in England"
+    ],
+    [
+      "CARDIFF GIANT",
+      ":has_relation_with",
+      "CARDIFF, NEW YORK",
+      "The Cardiff Giant hoax was \"discovered\" in Cardiff, New York"
+    ],
+    [
+      "WAR OF THE WORLDS BROADCAST",
+      ":has_relation_with",
+      "ORSON WELLES",
+      "Orson Welles directed the War of the Worlds radio broadcast, which caused widespread panic"
+    ],
+    [
+      "WAR OF THE WORLDS BROADCAST",
+      ":has_relation_with",
+      "H.G. WELLS",
+      "The War of the Worlds broadcast was an adaptation of H.G. Wells' novel, presented as real news"
+    ],
+    [
+      "HAN VAN MEEGEREN",
+      ":has_relation_with",
+      "HERMANN GÖRING",
+      "Han van Meegeren's fake Vermeer painting was purchased by Hermann Göring"
+    ],
+    [
+      "HAN VAN MEEGEREN",
+      ":has_relation_with",
+      "VERMEER",
+      "Han van Meegeren created and sold fake Vermeer paintings, fooling art experts and collectors"
+    ],
+    [
+      "SOKAL AFFAIR",
+      ":has_relation_with",
+      "SOCIAL TEXT",
+      "The Sokal Affair involved the publication of a fake paper in the journal Social Text\nThe Sokal Affair involved the publication of a fake paper in the journal Social Text, exposing the lack of scientific rigor in postmodernist academic discourse"
+    ],
+    [
+      "SOKAL AFFAIR",
+      ":has_relation_with",
+      "ALAN SOKAL",
+      "Alan Sokal orchestrated the Sokal Affair to expose the lack of scientific rigor in postmodernist academic discourse"
+    ],
+    [
+      "ALAN SOKAL",
+      ":has_relation_with",
+      "SOCIAL TEXT",
+      "Alan Sokal submitted a fake paper to the journal Social Text, which was published without realizing its lack of scientific rigor"
+    ]
+  ]
+}

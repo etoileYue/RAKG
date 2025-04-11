@@ -1,0 +1,344 @@
+{
+    "entity1": {
+        "name": "Animals",
+        "type": "Living Organisms",
+        "description": "A broad group of multicellular, eukaryotic organisms that are capable of locomotion and respond to their environment.",
+        "chunkid": "Unusual Animal Adaptations1"
+    },
+    "entity2": {
+        "name": "animals",
+        "type": "Living Organisms",
+        "description": "A broad group of multicellular, eukaryotic organisms that are capable of locomotion and respond to their environment.",
+        "chunkid": "Unusual Animal Adaptations3"
+    },
+    "entity3": {
+        "name": "axolotl",
+        "type": "Animal",
+        "description": "A type of salamander known for its unusual adaptations.",
+        "chunkid": "Unusual Animal Adaptations5"
+    },
+    "entity4": {
+        "name": "Mexico",
+        "type": "Location",
+        "description": "A country in North America where the axolotl is native to.",
+        "chunkid": "Unusual Animal Adaptations5"
+    },
+    "entity5": {
+        "name": "axolotl",
+        "type": "Animal",
+        "description": "A type of salamander known for its ability to regenerate lost body parts, including limbs, tail, and even parts of its brain and spinal cord.",
+        "chunkid": "Unusual Animal Adaptations6"
+    },
+    "entity6": {
+        "name": "axolotl",
+        "type": "Animal",
+        "description": "A type of salamander known for its ability to regenerate body parts.",
+        "chunkid": "Unusual Animal Adaptations7"
+    },
+    "entity7": {
+        "name": "Scientists",
+        "type": "Person/Group",
+        "description": "A collective term for people engaged in scientific research and experimentation.",
+        "chunkid": "Unusual Animal Adaptations8"
+    },
+    "entity8": {
+        "name": "axolotl",
+        "type": "Animal",
+        "description": "A type of salamander known for its ability to regenerate limbs, spinal cord, heart, and other organs.",
+        "chunkid": "Unusual Animal Adaptations8"
+    },
+    "entity9": {
+        "name": "humans",
+        "type": "Species",
+        "description": "The common name for the species Homo sapiens, characterized by their capacity for complex language, abstract reasoning, and problem-solving skills.",
+        "chunkid": "Unusual Animal Adaptations8"
+    },
+    "entity10": {
+        "name": "mantis shrimp",
+        "type": "animal",
+        "description": "A colorful crustacean known for its unique adaptations, found in tropical waters.",
+        "chunkid": "Unusual Animal Adaptations9"
+    },
+    "entity11": {
+        "name": "tropical waters",
+        "type": "location",
+        "description": "Warm water environments typically located near the equator where various marine species thrive.",
+        "chunkid": "Unusual Animal Adaptations9"
+    },
+    "entity12": {
+        "name": "mantis shrimp",
+        "type": "Animal",
+        "description": "A marine crustacean known for its powerful striking ability.",
+        "chunkid": "Unusual Animal Adaptations10"
+    },
+    "entity13": {
+        "name": ".22 caliber bullet",
+        "type": "Object",
+        "description": "A small ammunition commonly used in firearms, known for its speed and penetration power.",
+        "chunkid": "Unusual Animal Adaptations10"
+    },
+    "entity14": {
+        "name": "club-like appendage",
+        "type": "Biological Structure",
+        "description": "A specialized body part that can accelerate at high speeds, often found in certain animals such as the mantis shrimp.",
+        "chunkid": "Unusual Animal Adaptations11"
+    },
+    "entity15": {
+        "name": "mantis shrimp",
+        "type": "animal",
+        "description": "A marine crustacean known for its powerful striking appendages used to attack prey.",
+        "chunkid": "Unusual Animal Adaptations12"
+    },
+    "entity16": {
+        "name": "crabs",
+        "type": "animal",
+        "description": "Aquatic or terrestrial crustaceans with a broad, flat body and a short tail, often the prey of mantis shrimp.",
+        "chunkid": "Unusual Animal Adaptations12"
+    },
+    "entity17": {
+        "name": "mollusks",
+        "type": "animal",
+        "description": "A diverse group of invertebrate animals that includes snails, clams, and octopuses, which can be prey for mantis shrimp.",
+        "chunkid": "Unusual Animal Adaptations12"
+    },
+    "entity18": {
+        "name": "mantis shrimp",
+        "type": "Animal",
+        "description": "A marine crustacean known for its unique hunting strategy and powerful strike, making it a formidable predator in underwater environments.",
+        "chunkid": "Unusual Animal Adaptations13"
+    },
+    "entity19": {
+        "name": "pangolin",
+        "type": "Animal",
+        "description": "A mammal known for its unique protective scales.",
+        "chunkid": "Unusual Animal Adaptations14"
+    },
+    "entity20": {
+        "name": "keratin",
+        "type": "Material",
+        "description": "A fibrous structural protein that is the main component of hair, nails, and the outer layer of skin in mammals.",
+        "chunkid": "Unusual Animal Adaptations15"
+    },
+    "entity21": {
+        "name": "human hair and nails",
+        "type": "Body Part",
+        "description": "Keratin-based structures found on humans, serving protective and functional roles.",
+        "chunkid": "Unusual Animal Adaptations15"
+    },
+    "entity22": {
+        "name": "pangolin",
+        "type": "Animal",
+        "description": "A mammal known for its distinctive scales which serve as a form of armor against predators.",
+        "chunkid": "Unusual Animal Adaptations15"
+    },
+    "entity23": {
+        "name": "pangolin",
+        "type": "Animal",
+        "description": "A mammal known for its unique scales and ability to curl into a protective ball when threatened.",
+        "chunkid": "Unusual Animal Adaptations16"
+    },
+    "entity24": {
+        "name": "pangolin",
+        "type": "Animal",
+        "description": "A mammal known for its unique scales and ability to roll into a ball as a defense mechanism.",
+        "chunkid": "Unusual Animal Adaptations17"
+    },
+    "entity25": {
+        "name": "pangolin",
+        "type": "Animal",
+        "description": "A mammal known for its distinctive scales and being one of the most trafficked animals in the world.",
+        "chunkid": "Unusual Animal Adaptations18"
+    },
+    "entity26": {
+        "name": "scales",
+        "type": "Body Part",
+        "description": "The hard, protective outer covering of a pangolin, often sought after for their supposed medicinal properties.",
+        "chunkid": "Unusual Animal Adaptations18"
+    },
+    "entity27": {
+        "name": "common swift",
+        "type": "bird species",
+        "description": "A bird known for its extraordinary flying abilities.",
+        "chunkid": "Unusual Animal Adaptations19"
+    },
+    "entity28": {
+        "name": "common swift",
+        "type": "Animal",
+        "description": "A bird species known for spending most of its life in the air, only landing to breed.",
+        "chunkid": "Unusual Animal Adaptations20"
+    },
+    "entity29": {
+        "name": "insects",
+        "type": "Animal",
+        "description": "Small invertebrate animals that are typically capable of flight and serve as a food source for various predators.",
+        "chunkid": "Unusual Animal Adaptations21"
+    },
+    "entity30": {
+        "name": "swift",
+        "type": "Animal",
+        "description": "A bird known for its aerial lifestyle and specialized adaptations for efficient flight.",
+        "chunkid": "Unusual Animal Adaptations22"
+    },
+    "entity31": {
+        "name": "wing shape",
+        "type": "Anatomical Feature",
+        "description": "The specific form or structure of the wings that contributes to the swift's ability to glide efficiently.",
+        "chunkid": "Unusual Animal Adaptations22"
+    },
+    "entity32": {
+        "name": "common swift",
+        "type": "Animal",
+        "description": "A small bird species known for its long migratory flights.",
+        "chunkid": "Unusual Animal Adaptations23"
+    },
+    "entity33": {
+        "name": "miles",
+        "type": "Unit of Measurement",
+        "description": "A unit of length or distance, commonly used to measure the extent of travel or migration.",
+        "chunkid": "Unusual Animal Adaptations23"
+    },
+    "entity34": {
+        "name": "barreleye fish",
+        "type": "Animal",
+        "description": "A deep-sea dwelling fish with a transparent head and tubular eyes that point upward.",
+        "chunkid": "Unusual Animal Adaptations24"
+    },
+    "entity35": {
+        "name": "ocean",
+        "type": "Geographical Feature",
+        "description": "The vast body of saltwater that covers most of the Earth's surface, where deep-sea creatures like the barreleye fish can be found.",
+        "chunkid": "Unusual Animal Adaptations24"
+    },
+    "entity36": {
+        "name": "barreleye fish",
+        "type": "Animal",
+        "description": "A deep-sea fish with a transparent head and barrel-shaped eyes that can rotate to look upwards.",
+        "chunkid": "Unusual Animal Adaptations25"
+    },
+    "entity37": {
+        "name": "deep sea",
+        "type": "Environment",
+        "description": "The part of the ocean that is far below the surface, characterized by extreme pressure, cold temperatures, and darkness.",
+        "chunkid": "Unusual Animal Adaptations25"
+    },
+    "entity38": {
+        "name": "fish",
+        "type": "Animal",
+        "description": "A type of aquatic animal with a transparent head that helps it avoid predators.",
+        "chunkid": "Unusual Animal Adaptations26"
+    },
+    "entity39": {
+        "name": "predators",
+        "type": "Animals",
+        "description": "Other animals that hunt and eat smaller creatures, in this case lurking below the fish.",
+        "chunkid": "Unusual Animal Adaptations26"
+    },
+    "entity40": {
+        "name": "barreleye fish",
+        "type": "Animal",
+        "description": "A type of deep-sea fish known for its unique barrel-shaped eyes.",
+        "chunkid": "Unusual Animal Adaptations27"
+    },
+    "entity41": {
+        "name": "ocean",
+        "type": "Geographical Feature",
+        "description": "A large body of saltwater that covers most of the Earth's surface.",
+        "chunkid": "Unusual Animal Adaptations27"
+    },
+    "entity42": {
+        "name": "aye-aye",
+        "type": "Animal",
+        "description": "A type of lemur native to Madagascar, known for its unique elongated middle finger.",
+        "chunkid": "Unusual Animal Adaptations28"
+    },
+    "entity43": {
+        "name": "Madagascar",
+        "type": "Location",
+        "description": "An island country in the Indian Ocean off the southeastern coast of Africa, home to a diverse range of endemic species including lemurs.",
+        "chunkid": "Unusual Animal Adaptations28"
+    },
+    "entity44": {
+        "name": "aye-aye",
+        "type": "Animal",
+        "description": "A nocturnal lemur native to Madagascar, known for its unique elongated middle finger used for extracting insects from tree bark.",
+        "chunkid": "Unusual Animal Adaptations29"
+    },
+    "entity45": {
+        "name": "aye-aye",
+        "type": "Animal",
+        "description": "A nocturnal lemur native to Madagascar, known for its unique method of finding food by tapping on trees.",
+        "chunkid": "Unusual Animal Adaptations30"
+    },
+    "entity46": {
+        "name": "wood surface",
+        "type": "Object",
+        "description": "The outer layer or face of a piece of wood, often used as a material in construction and furniture.",
+        "chunkid": "Unusual Animal Adaptations30"
+    },
+    "entity47": {
+        "name": "insects",
+        "type": "Animal",
+        "description": "A class of invertebrates that are characterized by having six legs, a body divided into three parts (head, thorax, abdomen), and often wings.",
+        "chunkid": "Unusual Animal Adaptations30"
+    },
+    "entity48": {
+        "name": "aye-aye",
+        "type": "Animal",
+        "description": "A nocturnal lemur native to Madagascar, known for its unique method of finding and extracting insect larvae from trees using a long, thin middle finger.",
+        "chunkid": "Unusual Animal Adaptations31"
+    },
+    "entity49": {
+        "name": "aye-aye",
+        "type": "Animal",
+        "description": "A type of lemur, known for its unique foraging behavior and specialized adaptations.",
+        "chunkid": "Unusual Animal Adaptations32"
+    },
+    "entity50": {
+        "name": "primates",
+        "type": "Taxonomic Group",
+        "description": "An order of mammals that includes humans, apes, monkeys, and prosimians like the aye-aye.",
+        "chunkid": "Unusual Animal Adaptations32"
+    },
+    "entity51": {
+        "name": "animal kingdom",
+        "type": "Biological Concept",
+        "description": "The animal kingdom is a taxonomic rank that includes all multicellular, eukaryotic organisms classified as animals.",
+        "chunkid": "Unusual Animal Adaptations33"
+    },
+    "entity52": {
+        "name": "regenerative abilities",
+        "type": "Biological Adaptation",
+        "description": "The capability of an organism to regenerate lost or damaged body parts.",
+        "chunkid": "Unusual Animal Adaptations34"
+    },
+    "entity53": {
+        "name": "powerful punches",
+        "type": "Physical Trait",
+        "description": "A physical characteristic that allows certain animals to deliver strong blows, often used for defense or hunting.",
+        "chunkid": "Unusual Animal Adaptations34"
+    },
+    "entity54": {
+        "name": "protective armor",
+        "type": "Biological Adaptation",
+        "description": "Structures such as shells, scales, or thick skin that protect an organism from physical harm.",
+        "chunkid": "Unusual Animal Adaptations34"
+    },
+    "entity55": {
+        "name": "specialized foraging techniques",
+        "type": "Behavioral Adaptation",
+        "description": "Specific methods used by animals to find and collect food, adapted to their environment and diet.",
+        "chunkid": "Unusual Animal Adaptations34"
+    },
+    "entity56": {
+        "name": "scientists",
+        "type": "Person/Group of People",
+        "description": "Professionals who conduct scientific research and experiments to understand natural phenomena.",
+        "chunkid": "Unusual Animal Adaptations35"
+    },
+    "entity57": {
+        "name": "Earth",
+        "type": "Location",
+        "description": "The third planet from the Sun, where life as we know it exists.",
+        "chunkid": "Unusual Animal Adaptations35"
+    }
+}

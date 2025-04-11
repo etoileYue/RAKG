@@ -1,0 +1,164 @@
+{
+  "entities": [
+    {
+      "name": "AXOLOTL",
+      "type": "ORGANIZATION",
+      "description": "A type of salamander native to Mexico with the unique ability to regenerate lost body parts, including limbs, tail, and even parts of its brain and spinal cord"
+    },
+    {
+      "name": "MEXICO",
+      "type": "GEO",
+      "description": "Country where the axolotl is native to"
+    },
+    {
+      "name": "MANTIS SHRIMP",
+      "type": "ORGANIZATION",
+      "description": "A colorful crustacean found in tropical waters with a powerful punch capable of striking with the force of a .22 caliber bullet, used to break open the shells of its prey"
+    },
+    {
+      "name": "PANGOLIN",
+      "type": "ORGANIZATION",
+      "description": "An animal with protective scales made of keratin that act as armor to shield it from predators, and is one of the most trafficked animals in the world due to the mistaken belief in the medicinal properties of its scales"
+    },
+    {
+      "name": "COMMON SWIFT",
+      "type": "ORGANIZATION",
+      "description": "A bird known for its extraordinary flying abilities, spending almost its entire life in the air and only landing to breed, capable of staying aloft for months at a time"
+    },
+    {
+      "name": "BARRLEYE FISH",
+      "type": "ORGANIZATION",
+      "description": "A deep-sea dweller with a transparent head and tubular eyes that point upward, allowing it to see prey silhouetted against the darkness above and avoid detection by predators"
+    },
+    {
+      "name": "AYE-AYE",
+      "type": "ORGANIZATION",
+      "description": "A lemur native to Madagascar with an elongated middle finger used to extract insects from tree bark, showcasing a unique foraging behavior"
+    },
+    {
+      "name": "MADAGASCAR",
+      "type": "GEO",
+      "description": "Island country where the aye-aye is native to"
+    },
+    {
+      "name": "TROPICAL WATERS",
+      "type": "",
+      "description": ""
+    },
+    {
+      "name": "TRAFFICKING",
+      "type": "ORGANIZATION",
+      "description": "\nIllegal trade and movement of pangolins, driven by the demand for their scales and meat"
+    },
+    {
+      "name": "AIR",
+      "type": "GEO",
+      "description": "\nThe environment where the common swift spends most of its life, flying and feeding on insects"
+    },
+    {
+      "name": "DEEP SEA",
+      "type": "GEO",
+      "description": "\nThe extreme environment where the barreleye fish lives, characterized by high pressure, low light, and cold temperatures"
+    },
+    {
+      "name": "SCIENTISTS",
+      "type": "PERSON",
+      "description": "\nResearchers studying the unique adaptations of animals, such as the axolotl's regenerative abilities, to gain insights into medical treatments for humans"
+    },
+    {
+      "name": "INSECTS",
+      "type": "ORGANIZATION",
+      "description": "\nSmall invertebrate animals that are a primary food source for the aye-aye and other animals"
+    },
+    {
+      "name": "PREY",
+      "type": "ORGANIZATION",
+      "description": "\nAnimals that are hunted and eaten by predators, such as the prey of the barreleye fish and the mantis shrimp"
+    },
+    {
+      "name": "PREDATORS",
+      "type": "ORGANIZATION",
+      "description": "\nAnimals that hunt and eat other animals, such as those that might prey on the pangolin"
+    }
+  ],
+  "relations": [
+    [
+      "AXOLOTL",
+      ":has_relation_with",
+      "MEXICO",
+      "The axolotl is native to Mexico, where it has evolved its remarkable regenerative abilities"
+    ],
+    [
+      "AXOLOTL",
+      ":has_relation_with",
+      "SCIENTISTS",
+      "Scientists are studying the axolotl's regenerative abilities in the hopes of unlocking new medical treatments for humans"
+    ],
+    [
+      "MANTIS SHRIMP",
+      ":has_relation_with",
+      "TROPICAL WATERS",
+      "The mantis shrimp is found in tropical waters, where it uses its powerful punch to break open the shells of its prey"
+    ],
+    [
+      "MANTIS SHRIMP",
+      ":has_relation_with",
+      "PREY",
+      "The mantis shrimp uses its powerful punch to break open the shells of its prey, such as crabs and mollusks"
+    ],
+    [
+      "PANGOLIN",
+      ":has_relation_with",
+      "TRAFFICKING",
+      "The pangolin is one of the most trafficked animals in the world due to the mistaken belief in the medicinal properties of its scales"
+    ],
+    [
+      "PANGOLIN",
+      ":has_relation_with",
+      "PREDATORS",
+      "The pangolin's protective scales act as armor to shield it from predators, allowing it to survive in its environment"
+    ],
+    [
+      "COMMON SWIFT",
+      ":has_relation_with",
+      "AIR",
+      "The common swift spends almost its entire life in the air, only landing to breed, and has evolved specialized adaptations for efficient flying"
+    ],
+    [
+      "COMMON SWIFT",
+      ":has_relation_with",
+      "INSECTS",
+      "The common swift feeds on insects caught in mid-air, spending almost its entire life in the air to do so"
+    ],
+    [
+      "BARRLEYE FISH",
+      ":has_relation_with",
+      "DEEP SEA",
+      "The barreleye fish is a deep-sea dweller with a transparent head and tubular eyes that allow it to see prey and avoid detection by predators in the light-starved depths of the ocean"
+    ],
+    [
+      "BARRLEYE FISH",
+      ":has_relation_with",
+      "PREY",
+      "The barreleye fish uses its transparent head and tubular eyes to see prey silhouetted against the darkness above"
+    ],
+    [
+      "BARRLEYE FISH",
+      ":has_relation_with",
+      "PREDATORS",
+      "The barreleye fish's transparent head helps it avoid detection by predators lurking below in the deep sea"
+    ],
+    [
+      "AYE-AYE",
+      ":has_relation_with",
+      "MADAGASCAR",
+      "The aye-aye is native to Madagascar, where it has evolved a unique foraging behavior using its elongated middle finger to extract insects from tree bark"
+    ],
+    [
+      "AYE-AYE",
+      ":has_relation_with",
+      "INSECTS",
+      "The aye-aye uses its elongated middle finger to extract insects from tree bark, showcasing a unique foraging behavior"
+    ]
+  ]
+}

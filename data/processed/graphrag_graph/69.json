@@ -1,0 +1,263 @@
+{
+  "entities": [
+    {
+      "name": "MARCEL PROUST",
+      "type": "PERSON",
+      "description": "French author known for his work on the Proustian effect, where the smell of a madeleine cookie triggered a flood of childhood memories"
+    },
+    {
+      "name": "AROMATHERAPY",
+      "type": "ORGANIZATION",
+      "description": "A form of alternative medicine that uses plant-derived essential oils to improve physical and psychological well-being"
+    },
+    {
+      "name": "ALZHEIMER'S DISEASE",
+      "type": "EVENT",
+      "description": "A progressive neurological disorder that affects memory, thinking, and behavior, often treated with methods that include exposure to familiar scents"
+    },
+    {
+      "name": "POST-TRAUMATIC STRESS DISORDER (PTSD)",
+      "type": "EVENT",
+      "description": "A mental health condition triggered by a terrifying event, either experiencing it or witnessing it, often treated with methods that include exposure to familiar scents"
+    },
+    {
+      "name": "THE FRAGRANCE INDUSTRY",
+      "type": "ORGANIZATION",
+      "description": "A multi-billion-dollar business that designs and sells perfumes and colognes to evoke specific emotions and create lasting impressions"
+    },
+    {
+      "name": "HUMAN BODY",
+      "type": "ORGANIZATION",
+      "description": "The biological system of a human, which includes the olfactory system responsible for the sense of smell"
+    },
+    {
+      "name": "ODOR MOLECULES",
+      "type": "ORGANIZATION",
+      "description": "Molecules that enter the nasal cavity and bind to olfactory receptors, triggering the sense of smell"
+    },
+    {
+      "name": "OLFACTORY RECEPTORS",
+      "type": "ORGANIZATION",
+      "description": "Specialized cells in the olfactory epithelium that detect odor molecules and send signals to the brain"
+    },
+    {
+      "name": "OLFACTORY EPITHELIUM",
+      "type": "ORGANIZATION",
+      "description": "A thin layer of tissue in the nasal cavity where olfactory receptors are located"
+    },
+    {
+      "name": "BRAIN",
+      "type": "ORGANIZATION",
+      "description": "The central organ of the nervous system, which processes and interprets signals from the olfactory receptors"
+    },
+    {
+      "name": "EARLY HUMANS",
+      "type": "PERSON",
+      "description": "Ancestors of modern humans who relied heavily on their sense of smell for survival"
+    },
+    {
+      "name": "PREDATORS",
+      "type": "PERSON",
+      "description": "Animals that hunt other animals for food, which early humans needed to detect using their sense of smell"
+    },
+    {
+      "name": "FOOD",
+      "type": "ORGANIZATION",
+      "description": "Substances consumed by organisms for nutritional support, which early humans found using their sense of smell"
+    },
+    {
+      "name": "LIMBIC SYSTEM",
+      "type": "ORGANIZATION",
+      "description": "A complex set of brain structures that play a role in emotions, memories, and the olfactory system"
+    },
+    {
+      "name": "MADELEINE COOKIE",
+      "type": "ORGANIZATION",
+      "description": "A small, shell-shaped cake that triggered Marcel Proust's vivid childhood memories"
+    },
+    {
+      "name": "LAVENDER",
+      "type": "ORGANIZATION",
+      "description": "A plant-derived essential oil used in aromatherapy for its relaxing properties"
+    },
+    {
+      "name": "PEPPERMINT",
+      "type": "ORGANIZATION",
+      "description": "A plant-derived essential oil used in aromatherapy for its focus-enhancing properties"
+    },
+    {
+      "name": "INCENSE",
+      "type": "ORGANIZATION",
+      "description": "A fragrant biotic material that is burned to release a pleasant aroma, often used in cultural practices"
+    },
+    {
+      "name": "SPICES",
+      "type": "ORGANIZATION",
+      "description": "A variety of dried seeds, fruits, roots, barks, or other plant substances used for flavoring, coloring, or preserving food, often valued for their scents"
+    },
+    {
+      "name": "FLORAL FRAGRANCES",
+      "type": "ORGANIZATION",
+      "description": "Scents derived from flowers, often used in perfumes and colognes"
+    },
+    {
+      "name": "CITRUS FRAGRANCES",
+      "type": "ORGANIZATION",
+      "description": "Scents derived from citrus fruits, often used in perfumes and colognes"
+    },
+    {
+      "name": "PERFUMES",
+      "type": "ORGANIZATION",
+      "description": "Fragrant substances used to create a pleasant scent, often worn for personal or social reasons"
+    },
+    {
+      "name": "COLOGNES",
+      "type": "ORGANIZATION",
+      "description": "Fragrant substances used to create a pleasant scent, often worn for personal or social reasons"
+    },
+    {
+      "name": "SCIENCE OF SMELL",
+      "type": "",
+      "description": ""
+    },
+    {
+      "name": "POTENTIAL MATES",
+      "type": "",
+      "description": ""
+    }
+  ],
+  "relations": [
+    [
+      "MARCEL PROUST",
+      ":has_relation_with",
+      "AROMATHERAPY",
+      "Marcel Proust's work on the Proustian effect highlights the emotional and memory-evoking power of scents, which is a principle used in aromatherapy"
+    ],
+    [
+      "MARCEL PROUST",
+      ":has_relation_with",
+      "MADELEINE COOKIE",
+      "The smell of a madeleine cookie triggered Marcel Proust's vivid childhood memories, illustrating the Proustian effect"
+    ],
+    [
+      "AROMATHERAPY",
+      ":has_relation_with",
+      "ALZHEIMER'S DISEASE",
+      "Aromatherapy is used as a treatment to help people with Alzheimer's disease recall memories and reduce anxiety"
+    ],
+    [
+      "AROMATHERAPY",
+      ":has_relation_with",
+      "POST-TRAUMATIC STRESS DISORDER (PTSD)",
+      "Aromatherapy is used as a treatment to help people with PTSD recall memories and reduce anxiety"
+    ],
+    [
+      "AROMATHERAPY",
+      ":has_relation_with",
+      "THE FRAGRANCE INDUSTRY",
+      "The fragrance industry leverages the principles of aromatherapy to create scents that evoke specific emotions and create lasting impressions"
+    ],
+    [
+      "AROMATHERAPY",
+      ":has_relation_with",
+      "LAVENDER",
+      "Aromatherapy uses lavender for its relaxing properties"
+    ],
+    [
+      "AROMATHERAPY",
+      ":has_relation_with",
+      "PEPPERMINT",
+      "Aromatherapy uses peppermint for its focus-enhancing properties"
+    ],
+    [
+      "THE FRAGRANCE INDUSTRY",
+      ":has_relation_with",
+      "INCENSE",
+      "The fragrance industry values incense for its pleasant aroma and cultural significance"
+    ],
+    [
+      "THE FRAGRANCE INDUSTRY",
+      ":has_relation_with",
+      "SPICES",
+      "The fragrance industry values spices for their unique scents and cultural significance"
+    ],
+    [
+      "THE FRAGRANCE INDUSTRY",
+      ":has_relation_with",
+      "FLORAL FRAGRANCES",
+      "The fragrance industry uses floral fragrances to create pleasant and appealing scents"
+    ],
+    [
+      "THE FRAGRANCE INDUSTRY",
+      ":has_relation_with",
+      "CITRUS FRAGRANCES",
+      "The fragrance industry uses citrus fragrances to create fresh and invigorating scents"
+    ],
+    [
+      "THE FRAGRANCE INDUSTRY",
+      ":has_relation_with",
+      "PERFUMES",
+      "The fragrance industry designs and sells perfumes to evoke specific emotions and create lasting impressions"
+    ],
+    [
+      "THE FRAGRANCE INDUSTRY",
+      ":has_relation_with",
+      "COLOGNES",
+      "The fragrance industry designs and sells colognes to evoke specific emotions and create lasting impressions"
+    ],
+    [
+      "HUMAN BODY",
+      ":has_relation_with",
+      "SCIENCE OF SMELL",
+      "The science of smell explores the mechanisms of the olfactory system within the human body"
+    ],
+    [
+      "ODOR MOLECULES",
+      ":has_relation_with",
+      "SCIENCE OF SMELL",
+      "The science of smell studies how odor molecules interact with the olfactory system"
+    ],
+    [
+      "OLFACTORY RECEPTORS",
+      ":has_relation_with",
+      "SCIENCE OF SMELL",
+      "The science of smell examines the role of olfactory receptors in detecting smells"
+    ],
+    [
+      "OLFACTORY EPITHELIUM",
+      ":has_relation_with",
+      "SCIENCE OF SMELL",
+      "The science of smell investigates the structure and function of the olfactory epithelium"
+    ],
+    [
+      "BRAIN",
+      ":has_relation_with",
+      "SCIENCE OF SMELL",
+      "The science of smell explores how the brain processes and interprets olfactory signals"
+    ],
+    [
+      "BRAIN",
+      ":has_relation_with",
+      "LIMBIC SYSTEM",
+      "The limbic system is a part of the brain that processes emotions and memories, closely linked to the olfactory system"
+    ],
+    [
+      "EARLY HUMANS",
+      ":has_relation_with",
+      "PREDATORS",
+      "Early humans used their sense of smell to detect predators, a key survival mechanism"
+    ],
+    [
+      "EARLY HUMANS",
+      ":has_relation_with",
+      "FOOD",
+      "Early humans used their sense of smell to find food, a crucial aspect of survival"
+    ],
+    [
+      "EARLY HUMANS",
+      ":has_relation_with",
+      "POTENTIAL MATES",
+      "Early humans used their sense of smell to identify potential mates, aiding in reproduction"
+    ]
+  ]
+}

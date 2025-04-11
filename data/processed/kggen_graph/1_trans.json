@@ -1,0 +1,196 @@
+{
+  "entities": [
+    {
+      "name": "pupa stage"
+    },
+    {
+      "name": "organs"
+    },
+    {
+      "name": "pupa"
+    },
+    {
+      "name": "eggs"
+    },
+    {
+      "name": "antennae"
+    },
+    {
+      "name": "caterpillar"
+    },
+    {
+      "name": "pollen"
+    },
+    {
+      "name": "life cycle"
+    },
+    {
+      "name": "Butterflies"
+    },
+    {
+      "name": "metamorphosis"
+    },
+    {
+      "name": "larva stage"
+    },
+    {
+      "name": "insects"
+    },
+    {
+      "name": "molting"
+    },
+    {
+      "name": "plants"
+    },
+    {
+      "name": "proboscis"
+    },
+    {
+      "name": "female butterflies"
+    },
+    {
+      "name": "wings"
+    },
+    {
+      "name": "host plants"
+    },
+    {
+      "name": "birds"
+    },
+    {
+      "name": "larvae"
+    },
+    {
+      "name": "Caterpillars"
+    },
+    {
+      "name": "adult butterfly"
+    },
+    {
+      "name": "butterfly"
+    },
+    {
+      "name": "reptiles"
+    },
+    {
+      "name": "chrysalis"
+    }
+  ],
+  "relations": [
+    [
+      "Butterflies",
+      "serve_as_food_for",
+      "insects"
+    ],
+    [
+      "pollen",
+      "transfers_to",
+      "plants"
+    ],
+    [
+      "Butterflies",
+      "help_reproduce",
+      "plants"
+    ],
+    [
+      "butterfly",
+      "emerges_from",
+      "chrysalis"
+    ],
+    [
+      "Caterpillars",
+      "undergo",
+      "molting"
+    ],
+    [
+      "Caterpillars",
+      "form",
+      "chrysalis"
+    ],
+    [
+      "metamorphosis",
+      "includes",
+      "life cycle"
+    ],
+    [
+      "life cycle",
+      "starts with",
+      "eggs"
+    ],
+    [
+      "butterfly",
+      "has",
+      "proboscis"
+    ],
+    [
+      "Butterflies",
+      "transfer",
+      "pollen"
+    ],
+    [
+      "caterpillar",
+      "is a stage of",
+      "larva stage"
+    ],
+    [
+      "eggs",
+      "are laid on",
+      "host plants"
+    ],
+    [
+      "Caterpillars",
+      "enter",
+      "pupa stage"
+    ],
+    [
+      "metamorphosis",
+      "occurs_in",
+      "chrysalis"
+    ],
+    [
+      "Butterflies",
+      "serve_as_food_for",
+      "reptiles"
+    ],
+    [
+      "wings",
+      "and",
+      "antennae"
+    ],
+    [
+      "Butterflies",
+      "undergo",
+      "metamorphosis"
+    ],
+    [
+      "female butterflies",
+      "lay",
+      "eggs"
+    ],
+    [
+      "pollen",
+      "transfers_from",
+      "plants"
+    ],
+    [
+      "caterpillar",
+      "undergoes",
+      "metamorphosis"
+    ],
+    [
+      "Butterflies",
+      "serve_as_food_for",
+      "birds"
+    ],
+    [
+      "host plants",
+      "provide food for",
+      "larvae"
+    ],
+    [
+      "eggs",
+      "hatch into",
+      "caterpillar"
+    ]
+  ]
+}

@@ -1,0 +1,430 @@
+{
+  "entities": [
+    "parasites",
+    "dendritic cells",
+    "immune",
+    "preventing",
+    "mucous membranes",
+    "physical barriers",
+    "protective barrier",
+    "Cytokines",
+    "bacteria",
+    "digestive tract",
+    "defense mechanisms",
+    "lupus",
+    "B cells",
+    "evolved",
+    "strategies",
+    "fungi",
+    "combat",
+    "physical",
+    "Complement proteins",
+    "penetrating into deeper tissues",
+    "health",
+    "Macrophages",
+    "valuable",
+    "barriers",
+    "involves",
+    "multiple sclerosis",
+    "eliminate the threat",
+    "respiratory tract",
+    "heart disease",
+    "organs",
+    "disease",
+    "infections",
+    "mucus",
+    "molecules",
+    "development",
+    "immune system",
+    "response",
+    "diabetes",
+    "tissues",
+    "immune response",
+    "Vaccination",
+    "phagocytosis",
+    "T cells",
+    "antigens",
+    "skin",
+    "coordinated responses",
+    "treating",
+    "acidic environment",
+    "defense",
+    "cells",
+    "pathogens",
+    "cancer",
+    "lymphocytes",
+    "chronic inflammation",
+    "viruses",
+    "macrophages",
+    "mechanisms",
+    "specialized",
+    "neutrophils",
+    "Natural killer cells",
+    "interplay",
+    "human body",
+    "provide",
+    "against",
+    "Memory cells",
+    "stomach",
+    "complex",
+    "white blood cells",
+    "antibodies",
+    "range",
+    "Neutrophils",
+    "autoimmune diseases",
+    "Understanding",
+    "Lymphocytes",
+    "Immunological memory",
+    "infection",
+    "rheumatoid arthritis",
+    "protect",
+    "insights"
+  ],
+  "relations": [
+    [
+      "Neutrophils",
+      "respond_to",
+      "infection"
+    ],
+    [
+      "insights",
+      "concern",
+      "health"
+    ],
+    [
+      "specialized",
+      "evolved_for",
+      "defense"
+    ],
+    [
+      "response",
+      "involves",
+      "interplay"
+    ],
+    [
+      "interplay",
+      "aims_to",
+      "protect"
+    ],
+    [
+      "Lymphocytes",
+      "differentiate into",
+      "Memory cells"
+    ],
+    [
+      "T cells",
+      "is_a_type_of",
+      "Lymphocytes"
+    ],
+    [
+      "defense mechanisms",
+      "protect against",
+      "pathogens"
+    ],
+    [
+      "Understanding",
+      "leads_to",
+      "insights"
+    ],
+    [
+      "response",
+      "involves",
+      "complex"
+    ],
+    [
+      "Macrophages",
+      "contribute_to",
+      "immune response"
+    ],
+    [
+      "infection",
+      "threatens",
+      "health"
+    ],
+    [
+      "autoimmune diseases",
+      "includes",
+      "multiple sclerosis"
+    ],
+    [
+      "protect",
+      "guards_against",
+      "infections"
+    ],
+    [
+      "autoimmune diseases",
+      "includes",
+      "lupus"
+    ],
+    [
+      "interplay",
+      "includes",
+      "tissues"
+    ],
+    [
+      "immune",
+      "includes",
+      "specialized"
+    ],
+    [
+      "mucus",
+      "traps",
+      "pathogens"
+    ],
+    [
+      "B cells",
+      "produce",
+      "antibodies"
+    ],
+    [
+      "coordinated responses",
+      "include",
+      "cells"
+    ],
+    [
+      "respiratory tract",
+      "contains",
+      "mucous membranes"
+    ],
+    [
+      "physical",
+      "acts_as",
+      "barriers"
+    ],
+    [
+      "B cells",
+      "is_a_type_of",
+      "Lymphocytes"
+    ],
+    [
+      "insights",
+      "concern",
+      "disease"
+    ],
+    [
+      "white blood cells",
+      "part of",
+      "immune system"
+    ],
+    [
+      "chronic inflammation",
+      "contributes to",
+      "diabetes"
+    ],
+    [
+      "immune",
+      "involves",
+      "response"
+    ],
+    [
+      "pathogens",
+      "include",
+      "bacteria"
+    ],
+    [
+      "autoimmune diseases",
+      "includes",
+      "rheumatoid arthritis"
+    ],
+    [
+      "immune system",
+      "responds to",
+      "pathogens"
+    ],
+    [
+      "dendritic cells",
+      "present",
+      "antigens"
+    ],
+    [
+      "interplay",
+      "includes",
+      "molecules"
+    ],
+    [
+      "pathogens",
+      "include",
+      "parasites"
+    ],
+    [
+      "strategies",
+      "aim_at",
+      "preventing"
+    ],
+    [
+      "physical barriers",
+      "prevent entry of",
+      "pathogens"
+    ],
+    [
+      "lymphocytes",
+      "type of",
+      "white blood cells"
+    ],
+    [
+      "Neutrophils",
+      "perform",
+      "phagocytosis"
+    ],
+    [
+      "immune system",
+      "eliminates",
+      "pathogens"
+    ],
+    [
+      "coordinated responses",
+      "aim to",
+      "eliminate the threat"
+    ],
+    [
+      "neutrophils",
+      "type of",
+      "white blood cells"
+    ],
+    [
+      "chronic inflammation",
+      "contributes to",
+      "heart disease"
+    ],
+    [
+      "human body",
+      "has",
+      "defense mechanisms"
+    ],
+    [
+      "chronic inflammation",
+      "contributes to",
+      "cancer"
+    ],
+    [
+      "protective barrier",
+      "prevents",
+      "penetrating into deeper tissues"
+    ],
+    [
+      "coordinated responses",
+      "include",
+      "tissues"
+    ],
+    [
+      "pathogens",
+      "include",
+      "viruses"
+    ],
+    [
+      "strategies",
+      "aim_at",
+      "treating"
+    ],
+    [
+      "pathogens",
+      "include",
+      "fungi"
+    ],
+    [
+      "digestive tract",
+      "contains",
+      "mucous membranes"
+    ],
+    [
+      "macrophages",
+      "type of",
+      "white blood cells"
+    ],
+    [
+      "acidic environment",
+      "eliminates",
+      "pathogens"
+    ],
+    [
+      "immune system",
+      "fights off",
+      "infection"
+    ],
+    [
+      "insights",
+      "facilitate",
+      "development"
+    ],
+    [
+      "development",
+      "produce",
+      "strategies"
+    ],
+    [
+      "skin",
+      "acts as",
+      "protective barrier"
+    ],
+    [
+      "immune",
+      "includes",
+      "physical"
+    ],
+    [
+      "Lymphocytes",
+      "contribute_to",
+      "immune response"
+    ],
+    [
+      "coordinated responses",
+      "include",
+      "organs"
+    ],
+    [
+      "stomach",
+      "has",
+      "acidic environment"
+    ],
+    [
+      "combat",
+      "targets",
+      "pathogens"
+    ],
+    [
+      "mechanisms",
+      "aim_to",
+      "combat"
+    ],
+    [
+      "Macrophages",
+      "is_a_type_of",
+      "white blood cells"
+    ],
+    [
+      "Neutrophils",
+      "is_a_type_of",
+      "white blood cells"
+    ],
+    [
+      "interplay",
+      "includes",
+      "cells"
+    ],
+    [
+      "defense",
+      "provides",
+      "mechanisms"
+    ],
+    [
+      "Immunological memory",
+      "is the basis for",
+      "Vaccination"
+    ],
+    [
+      "skin",
+      "is a type of",
+      "physical barriers"
+    ],
+    [
+      "Macrophages",
+      "destroy",
+      "pathogens"
+    ],
+    [
+      "mucous membranes",
+      "produce",
+      "mucus"
+    ]
+  ]
+}

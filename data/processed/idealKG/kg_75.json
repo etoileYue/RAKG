@@ -1,0 +1,1640 @@
+{
+    "entities": [
+        {
+            "name": "cookie-cutter design",
+            "type": "Architectural Style",
+            "description": "Standardized and uniform housing design",
+            "attributes": {}
+        },
+        {
+            "name": "World War II",
+            "type": "Historical Event",
+            "description": "World War II was a global war that lasted from 1939 to 1945, involving the vast majority of the world\"s nations. It was the most widespread and deadliest conflict in history.",
+            "attributes": {
+                "Start Date": "1939",
+                "End Date": "1945"
+            }
+        },
+        {
+            "name": "indoor and outdoor spaces",
+            "type": "Integration",
+            "description": "Blending of indoor living areas with outdoor environments",
+            "attributes": {}
+        },
+        {
+            "name": "architecture",
+            "type": "Building",
+            "description": "The art and technique of designing and constructing buildings.",
+            "attributes": {}
+        },
+        {
+            "name": "Noble Family",
+            "type": "Social Group",
+            "description": "A noble family is an aristocratic lineage with significant social, political, and economic influence.",
+            "attributes": {}
+        },
+        {
+            "name": "environmental impact",
+            "type": "Environmental Impact",
+            "description": "The environmental impact refers to the effects that human activities have on the environment, including pollution, resource depletion, and climate change.",
+            "attributes": {}
+        },
+        {
+            "name": "home",
+            "type": "Residence",
+            "description": "A dwelling place designed for living.",
+            "attributes": {}
+        },
+        {
+            "name": "modern amenities",
+            "type": "features",
+            "description": "Innovative facilities designed to enhance living comfort and convenience.",
+            "attributes": {}
+        },
+        {
+            "name": "20th century",
+            "type": "Time Period",
+            "description": "The 20th century spans from the year 1901 to 2000 and is marked by significant advancements in technology, changes in lifestyle, and transformations in home design and architecture.",
+            "attributes": {
+                "Start Year": "1901",
+                "End Year": "2000"
+            }
+        },
+        {
+            "name": "American Dream",
+            "type": "Concept",
+            "description": "The American Dream is the set of ideals (such as equality, democracy, and liberty) that are held by many Americans. It often includes the belief in opportunities for prosperity and success, and an upward social mobility achieved through hard work.",
+            "attributes": {
+                "Core Belief": "Opportunities for Prosperity and Success",
+                "Achievement Method": "Hard Work and Upward Social Mobility"
+            }
+        },
+        {
+            "name": "Religious Life",
+            "type": "Societal Aspect",
+            "description": "In ancient Greece, homes were also used for religious rituals and ceremonies.",
+            "attributes": {}
+        },
+        {
+            "name": "Social Life",
+            "type": "Societal Aspect",
+            "description": "In ancient Greece, homes were not just places to live but also served as centers for social interactions and gatherings.",
+            "attributes": {}
+        },
+        {
+            "name": "identity",
+            "type": "Reflection",
+            "description": "Identity represents personal characteristics, beliefs, and self-expression.",
+            "attributes": {}
+        },
+        {
+            "name": "lighting",
+            "type": "Smart Lighting",
+            "description": "Automated systems controlling and adjusting illumination based on various parameters.",
+            "attributes": {}
+        },
+        {
+            "name": "cultural values",
+            "type": "Cultural Aspect",
+            "description": "Cultural values influence the design and layout of homes, with different rooms designated for specific functions.",
+            "attributes": {}
+        },
+        {
+            "name": "Basic Shelter",
+            "type": "Type of Home",
+            "description": "Early human shelters were rudimentary structures made from natural materials such as wood, stone, and mud.",
+            "attributes": {}
+        },
+        {
+            "name": "renewable energy sources",
+            "type": "Energy Source",
+            "description": "Renewable energy sources are derived from natural processes that are replenished at a faster rate than they are consumed. They include solar, wind, hydroelectric, geothermal, and biomass energy.",
+            "attributes": {
+                "Type": "Sustainable",
+                "Environmental Impact": "Low"
+            }
+        },
+        {
+            "name": "Middle Ages",
+            "type": "Historical Period",
+            "description": "The Middle Ages, also known as the medieval period, spans roughly from the 5th to the late 15th century. It is characterized by significant social, political, and cultural changes.",
+            "attributes": {
+                "Time Span": "5th to late 15th century",
+                "Social Structure": "Feudal system with noble families governing their lands"
+            }
+        },
+        {
+            "name": "interconnected devices",
+            "type": "IoT",
+            "description": "Devices connected through a network allowing remote control and monitoring.",
+            "attributes": {}
+        },
+        {
+            "name": "concrete",
+            "type": "Building Material",
+            "description": "Concrete is a composite material composed of fine and coarse aggregate bonded together with a fluid cement that hardens over time.",
+            "attributes": {
+                "Composition": "Fine and coarse aggregate bonded with cement",
+                "Properties": "Strong, durable, and versatile"
+            }
+        },
+        {
+            "name": "home design",
+            "type": "Sustainable",
+            "description": "Home design that incorporates eco-friendly technologies and practices for sustainability.",
+            "attributes": {}
+        },
+        {
+            "name": "MODERNIST MOVEMENT",
+            "type": "Design Movement",
+            "description": "A cultural movement emphasizing simplicity, functionality, and efficiency in architecture and design.",
+            "attributes": {}
+        },
+        {
+            "name": "Cultural Influences",
+            "type": "Cultural Concept",
+            "description": "Cultural influences are the effects of a particular culture on individuals, groups, and society.",
+            "attributes": {}
+        },
+        {
+            "name": "functionality",
+            "type": "Design Principle",
+            "description": "Functionality refers to the focus on practicality and utility in design.",
+            "attributes": {}
+        },
+        {
+            "name": "Estate",
+            "type": "Land",
+            "description": "An estate is a large area of land owned by a noble family or other wealthy individual.",
+            "attributes": {}
+        },
+        {
+            "name": "Resilience",
+            "type": "Environmental Concept",
+            "description": "Resilience refers to the ability of a system or community to withstand and recover from adverse events.",
+            "attributes": {}
+        },
+        {
+            "name": "Middle Class",
+            "type": "Social Group",
+            "description": "The middle class is a social group that typically has moderate income and education levels.",
+            "attributes": {}
+        },
+        {
+            "name": "Societal Norms",
+            "type": "Social Concept",
+            "description": "Societal norms are the shared expectations and rules that guide behavior in society.",
+            "attributes": {}
+        },
+        {
+            "name": "Mass Production",
+            "type": "Economic Phenomenon",
+            "description": "Mass production is a method of manufacturing goods in large quantities using standardized processes and assembly lines.",
+            "attributes": {}
+        },
+        {
+            "name": "central heating",
+            "type": "Technology",
+            "description": "Central heating is a system that provides warmth to the whole interior of a building or portion of a building from one point to multiple rooms.",
+            "attributes": {
+                "Purpose": "To provide warmth and comfort in homes",
+                "Era of Introduction": "Modern era, with the rise of urbanization and mass production"
+            }
+        },
+        {
+            "name": "Modern Home Concept",
+            "type": "Concept",
+            "description": "The modern concept of home includes not just physical space but also a reflection of identity, lifestyle, and values.",
+            "attributes": {}
+        },
+        {
+            "name": "societies",
+            "type": "civilizations",
+            "description": "Groups of people living together in an organized community.",
+            "attributes": {}
+        },
+        {
+            "name": "INDUSTRIAL REVOLUTION",
+            "type": "Historical Event",
+            "description": "Period that brought significant changes in home building and organization, leading to more standardized and affordable housing for the middle class",
+            "attributes": {}
+        },
+        {
+            "name": "RAINWATER HARVESTING",
+            "type": "Sustainability Practice",
+            "description": "Practice of collecting and using rainwater for various household purposes, reducing reliance on municipal water supplies",
+            "attributes": {}
+        },
+        {
+            "name": "social hierarchy",
+            "type": "Social Structure",
+            "description": "The layout and design of homes often reflect the social hierarchy and cultural values of a society.",
+            "attributes": {}
+        },
+        {
+            "name": "Energy-efficient materials",
+            "type": "Materials",
+            "description": "Materials designed to minimize energy consumption and environmental impact.",
+            "attributes": {}
+        },
+        {
+            "name": "Home Layout and Design",
+            "type": "Design Element",
+            "description": "The layout and design of homes in the 20th century reflected the social hierarchy and cultural values of the time, with different rooms designated for specific functions.",
+            "attributes": {}
+        },
+        {
+            "name": "simplicity",
+            "type": "Design Principle",
+            "description": "Simplicity emphasizes minimal elements and straightforward design.",
+            "attributes": {}
+        },
+        {
+            "name": "ANCIENT CIVILIZATIONS",
+            "type": "Historical Societies",
+            "description": "Ancient civilizations such as Mesopotamia, Egypt, and Greece, where homes served as centers of social, political, and religious life",
+            "attributes": {}
+        },
+        {
+            "name": "Indoor Plumbing",
+            "type": "Technology",
+            "description": "Indoor plumbing refers to the system of pipes and fixtures that bring water into a building and remove waste.",
+            "attributes": {}
+        },
+        {
+            "name": "open floor plans",
+            "type": "DesignConcept",
+            "description": "An architectural layout featuring interconnected rooms without internal walls.",
+            "attributes": {}
+        },
+        {
+            "name": "affordable housing",
+            "type": "Economic Outcome",
+            "description": "Housing that is affordable for the growing middle class due to lower production costs.",
+            "attributes": {}
+        },
+        {
+            "name": "efficiency",
+            "type": "Design Principle",
+            "description": "Efficiency refers to the optimal use of resources with minimal waste.",
+            "attributes": {}
+        },
+        {
+            "name": "natural light",
+            "type": "Source_of_Illumination",
+            "description": "Natural light refers to the sunlight that enters a building through its windows or other openings, providing a source of illumination and contributing to the ambiance and energy efficiency of the space.",
+            "attributes": {}
+        },
+        {
+            "name": "FRANK LLOYD WRIGHT",
+            "type": "Architect",
+            "description": "Architect who championed modernist design principles, emphasizing simplicity, functionality, and efficiency in home design",
+            "attributes": {}
+        },
+        {
+            "name": "Urbanization",
+            "type": "Historical Period",
+            "description": "Urbanization is the process by which rural communities become urban. It involves significant population growth and economic development in cities.",
+            "attributes": {}
+        },
+        {
+            "name": "post-World War II period",
+            "type": "Post-War Era",
+            "description": "The time following World War II.",
+            "attributes": {}
+        },
+        {
+            "name": "values",
+            "type": "Cultural",
+            "description": "Values represent societal norms, beliefs, and priorities influencing behavior and decision-making.",
+            "attributes": {}
+        },
+        {
+            "name": "appliances",
+            "type": "Electrical",
+            "description": "Appliances are devices used in homes for various tasks such as cooking, cleaning, and cooling.",
+            "attributes": {}
+        },
+        {
+            "name": "Political Life",
+            "type": "Societal Aspect",
+            "description": "In ancient Greece, homes were often used for political discussions and decision-making processes.",
+            "attributes": {}
+        },
+        {
+            "name": "MODERN HOME",
+            "type": "Residential Architecture",
+            "description": "Modern Home represents innovative design and sustainable practices in contemporary living spaces.",
+            "attributes": {}
+        },
+        {
+            "name": "settlement",
+            "type": "Settlement",
+            "description": "A place where people live and are settled.",
+            "attributes": {}
+        },
+        {
+            "name": "early humans",
+            "type": "Human Group",
+            "description": "Early humans are the ancestors of modern humans who lived in prehistoric times.",
+            "attributes": {}
+        },
+        {
+            "name": "changes in lifestyle",
+            "type": "Lifestyle Change",
+            "description": "Changes in lifestyle, such as the shift towards more sustainable living, have influenced home design and architecture.",
+            "attributes": {}
+        },
+        {
+            "name": "Home Design and Architecture",
+            "type": "Architectural Style",
+            "description": "The 20th century witnessed a revolution in home design and architecture, driven by advancements in technology and changes in lifestyle.",
+            "attributes": {}
+        },
+        {
+            "name": "thermostats",
+            "type": "Smart Home Devices",
+            "description": "Automatically adjusts temperature based on programmed settings or occupancy.",
+            "attributes": {}
+        },
+        {
+            "name": "GREEN ROOFS",
+            "type": "Sustainable Architecture Feature",
+            "description": "Roofing systems covered with vegetation, which provide insulation, reduce heat island effect, and manage stormwater",
+            "attributes": {}
+        },
+        {
+            "name": "affordable prices",
+            "type": "pricing",
+            "description": "Affordable pricing strategy aimed at mass-market housing.",
+            "attributes": {}
+        },
+        {
+            "name": "Feudal System",
+            "type": "Political System",
+            "description": "A hierarchical system where lords owned land and provided protection to vassals in exchange for military service and other obligations.",
+            "attributes": {}
+        },
+        {
+            "name": "Seamless Integration of Indoor and Outdoor Spaces",
+            "type": "Design Concept",
+            "description": "This design concept involves creating a fluid connection between interior living spaces and the outdoor environment, often through large windows, sliding doors, and open layouts.",
+            "attributes": {}
+        },
+        {
+            "name": "security cameras",
+            "type": "Security Devices",
+            "description": "Monitors and records activities within a property for safety.",
+            "attributes": {}
+        },
+        {
+            "name": "LE CORBUSIER",
+            "type": "Architect",
+            "description": "Architect who championed modernist design principles, emphasizing simplicity, functionality, and efficiency in home design",
+            "attributes": {}
+        },
+        {
+            "name": "Society\"s Needs and Values",
+            "type": "Social Concept",
+            "description": "The changing needs, values, and aspirations of society throughout history.",
+            "attributes": {}
+        },
+        {
+            "name": "Electrical Appliances",
+            "type": "Technology",
+            "description": "Electrical appliances include a wide range of devices that use electricity to perform various tasks.",
+            "attributes": {}
+        },
+        {
+            "name": "apartment buildings",
+            "type": "Residential",
+            "description": "Apartment buildings are multi-unit structures designed for housing multiple households.",
+            "attributes": {}
+        },
+        {
+            "name": "lifestyle",
+            "type": "Concept",
+            "description": "Lifestyle refers to the way of life or habits, attitudes, and behaviors that characterize a person or group.",
+            "attributes": {
+                "Influence on Home Design": "Changes in lifestyle have driven advancements in home design and architecture.",
+                "Impact on Modern Living Spaces": "Lifestyle changes have influenced the integration of smart technology into homes, enhancing convenience and security."
+            }
+        },
+        {
+            "name": "present day",
+            "type": "Time Period",
+            "description": "The current time period, characterized by advanced technology and modern living conditions.",
+            "attributes": {
+                "Characteristics": "Advanced technology, smart homes, sustainable design practices"
+            }
+        },
+        {
+            "name": "LUDWIG MIES VAN DER ROHE",
+            "type": "Modernist Architect",
+            "description": "Architect who championed modernist design principles, emphasizing simplicity, functionality, and efficiency in home design",
+            "attributes": {}
+        }
+    ],
+    "relations": [
+        [
+            "include",
+            "interconnected devices",
+            "thermostats",
+            "The include component in smart home systems connects thermostats with other interconnected devices for automated temperature control and energy efficiency."
+        ],
+        [
+            "Apartment Buildings",
+            "Enabled By",
+            "Steel and Concrete",
+            "The invention of steel and concrete enabled the development of apartment buildings, allowing them to be constructed on a larger scale."
+        ],
+        [
+            "Industrial Revolution",
+            "Preceded",
+            "Modernist Movement",
+            "The Industrial Revolution set the stage for the modernist movement, which influenced home and building designs globally."
+        ],
+        [
+            "electrical appliances",
+            "included",
+            "modern amenities",
+            "Electrical appliances are modern amenities included in contemporary living spaces."
+        ],
+        [
+            "changes in lifestyle",
+            "Incorporates Concept",
+            "changes in lifestyle",
+            "Sustainable design practices incorporate passive solar design to promote sustainability."
+        ],
+        [
+            "changes in lifestyle",
+            "Uses Material",
+            "energy-efficient materials",
+            "Sustainable design practices use energy-efficient materials to promote sustainability."
+        ],
+        [
+            "concrete",
+            "Used In Development Of",
+            "Suburban Communities",
+            "Concrete was used in the development of suburban communities, facilitating the expansion of urban areas."
+        ],
+        [
+            "rainwater harvesting",
+            "Promotes",
+            "Sustainability",
+            "Rainwater harvesting promotes sustainability by reducing water usage and conserving natural resources."
+        ],
+        [
+            "renewable energy sources",
+            "Promote",
+            "resilience",
+            "Renewable energy sources promote sustainability by providing a clean and renewable source of energy for buildings."
+        ],
+        [
+            "central heating",
+            "Feature Of",
+            "Suburban Homes",
+            "Central heating is a common feature of suburban homes, contributing to the comfort and convenience of homeowners."
+        ],
+        [
+            "Frank Lloyd Wright",
+            "Contemporary Of",
+            "Ludwig Mies van der Rohe",
+            "Frank Lloyd Wright and Ludwig Mies van der Rohe were contemporaries who both championed innovative architectural concepts."
+        ],
+        [
+            "mass production",
+            "Embodied In",
+            "Levittown",
+            "Mass production was embodied in Levittown, where houses were built using standardized designs and processes to create an affordable and uniform residential area."
+        ],
+        [
+            "basic shelter",
+            "Used By",
+            "Early Humans",
+            "Caves were used by early humans as simple and functional dwellings for rest and refuge."
+        ],
+        [
+            "SUSTAINABLE HOME",
+            "involves",
+            "PASSIVE SOLAR DESIGN",
+            "Passive solar design is a key practice in the design of sustainable homes, using the sun's energy to heat and cool buildings"
+        ],
+        [
+            "ancient civilizations",
+            "Characterized By",
+            "Social, Political, and Religious Centers",
+            "In ancient times, homes were characterized by their roles as social, political, and religious centers."
+        ],
+        [
+            "SUSTAINABLE DESIGN PRACTICES",
+            "focus",
+            "MODERN HOME",
+            "Sustainable design practices have become increasingly important in the design and construction of modern homes, aiming to reduce environmental impact and create healthier living environments"
+        ],
+        [
+            "renewable energy sources",
+            "Used In",
+            "changes in lifestyle",
+            "Renewable energy sources are used in the construction and operation of modern homes to promote sustainability."
+        ],
+        [
+            "LEVITTOWN",
+            "defined",
+            "SUBURBAN HOME",
+            "Levittown set the standard for the suburban home, which became a symbol of the American Dream in the post-World War II period"
+        ],
+        [
+            "provided",
+            "rudimentary structures",
+            "basic shelter",
+            "Provided is a term often associated with the rudimentary structures necessary for basic shelter, implying the initial or simplest form of accommodation."
+        ],
+        [
+            "FRANK LLOYD WRIGHT",
+            "influenced",
+            "MODERNIST MOVEMENT",
+            "Frank Lloyd Wright was a key figure in the modernist movement, influencing the design of homes and buildings around the world\nFrank Lloyd Wright was a key figure in the modernist movement, which influenced the design of homes and buildings around the world"
+        ],
+        [
+            "appliances",
+            "include",
+            "interconnected devices",
+            "Appliances include interconnected devices as components of their operational system."
+        ],
+        [
+            "basic shelter",
+            "Provided By",
+            "Early Humans",
+            "Early humans constructed simple shelters for protection and rest."
+        ],
+        [
+            "home design",
+            "influenced",
+            "modernist movement",
+            "Home design concepts have significantly influenced the modernist movement by incorporating principles of functionality, simplicity, and aesthetic minimalism."
+        ],
+        [
+            "changes in lifestyle",
+            "Evolved With",
+            "interconnected devices",
+            "Sustainable design practices have evolved with the advent of smart technology."
+        ],
+        [
+            "Le Corbusier",
+            "Contemporary Of",
+            "Frank Lloyd Wright",
+            "Le Corbusier and Frank Lloyd Wright were contemporaries in the field of modern architecture."
+        ],
+        [
+            "American Dream",
+            "Influenced By",
+            "Urbanization",
+            "Urbanization contributed to the evolution of the American Dream by making housing more standardized and affordable."
+        ],
+        [
+            "became",
+            "settlement",
+            "societies",
+            "The process of becoming established or integrated within societies through various forms of settlement."
+        ],
+        [
+            "include",
+            "interconnected devices",
+            "security cameras",
+            "The include concept, when interconnected with devices, refers to security cameras forming part of an integrated system designed for enhanced surveillance and monitoring."
+        ],
+        [
+            "American Dream",
+            "Associated With",
+            "Levittown",
+            "Levittown is a notable example of how the American Dream was realized through affordable and standardized housing."
+        ],
+        [
+            "20th century",
+            "Reflected Social Hierarchy And Cultural Values",
+            "Home Layout and Design",
+            "The home layouts and designs of the 20th century reflected the prevailing social hierarchy and cultural values."
+        ],
+        [
+            "modernist movement",
+            "Influenced Design Of",
+            "Homes and Buildings",
+            "The modernist movement influenced the design of homes and buildings by emphasizing simplicity, functionality, and efficiency."
+        ],
+        [
+            "central heating",
+            "included",
+            "modern amenities",
+            "Central heating often includes modern amenities as part of its functionality or features."
+        ],
+        [
+            "indoor plumbing",
+            "Complements",
+            "central heating",
+            "Indoor plumbing and central heating are often installed together in modern homes to provide comprehensive comfort and convenience."
+        ],
+        [
+            "Le Corbusier",
+            "Championed Idea",
+            "Natural Light",
+            "Le Corbusier championed the idea of incorporating natural light in modern architecture."
+        ],
+        [
+            "Frank Lloyd Wright",
+            "Championed Idea",
+            "Open Floor Plans",
+            "Frank Lloyd Wright championed the idea of open floor plans in his designs."
+        ],
+        [
+            "made_of",
+            "mud",
+            "basic shelter",
+            "A basic shelter is made of mud."
+        ],
+        [
+            "is incorporated into",
+            "modern home designs",
+            "rainwater harvesting",
+            "Rainwater harvesting system is incorporated into modern home designs for sustainable water management."
+        ],
+        [
+            "Greece",
+            "Home as Center of",
+            "Social Life",
+            "Homes in ancient Greece played a central role in the social life of its inhabitants."
+        ],
+        [
+            "SMART TECHNOLOGY",
+            "transformed",
+            "MODERN HOME",
+            "Smart technology has transformed the modern home, allowing for remote control and monitoring of various home systems"
+        ],
+        [
+            "urbanization",
+            "Enabled By",
+            "Invention of New Building Materials",
+            "Urbanization was enabled by the invention of new building materials, which facilitated the construction of apartment buildings and suburban communities."
+        ],
+        [
+            "Ludwig Mies van der Rohe",
+            "Championed Idea",
+            "Open Floor Plans",
+            "Ludwig Mies van der Rohe championed the idea of open floor plans in modern architecture."
+        ],
+        [
+            "renewable energy sources",
+            "Create",
+            "changes in lifestyle",
+            "Renewable energy sources contribute to creating healthier living environments by reducing pollution and improving air quality."
+        ],
+        [
+            "Early humans",
+            "Lived In",
+            "Rudimentary Structures",
+            "Early humans lived in rudimentary structures for more permanent shelter."
+        ],
+        [
+            "Levittown",
+            "Featured",
+            "Modern Amenities",
+            "Levittown featured modern amenities such as central heating, indoor plumbing, and electrical appliances."
+        ],
+        [
+            "basic shelter",
+            "evolved_from",
+            "home",
+            "undefine"
+        ],
+        [
+            "Modern Home",
+            "Equipped With",
+            "Interconnected Devices and Systems",
+            "The modern home is equipped with interconnected devices and systems."
+        ],
+        [
+            "Mesopotamia",
+            "Reflected Social Hierarchy and Cultural Values",
+            "Social Hierarchy and Cultural Values",
+            "Mesopotamian home designs were influenced by the social structure and cultural norms of the civilization."
+        ],
+        [
+            "Middle Ages",
+            "Saw the Emergence of",
+            "Manor House",
+            "During the Middle Ages, manor houses emerged as significant architectural structures."
+        ],
+        [
+            "Frank Lloyd Wright",
+            "Championed Idea",
+            "Natural Light",
+            "Frank Lloyd Wright emphasized the importance of natural light in his architectural designs."
+        ],
+        [
+            "American Dream",
+            "Influenced By",
+            "Industrial Revolution",
+            "The Industrial Revolution brought about changes in home building and organization, which influenced the American Dream."
+        ],
+        [
+            "changes in lifestyle",
+            "Is Used With",
+            "energy-efficient materials",
+            "Passive solar design is often used with energy-efficient materials to create more sustainable and resilient homes."
+        ],
+        [
+            "home design and architecture",
+            "Incorporates Concept",
+            "changes in lifestyle",
+            "Home design and architecture have increasingly incorporated sustainable design practices to promote sustainability and resilience."
+        ],
+        [
+            "changes in lifestyle",
+            "Is Incorporated In",
+            "changes in lifestyle",
+            "Passive solar design is one of the concepts being incorporated into modern home designs to promote sustainability."
+        ],
+        [
+            "Ludwig Mies van der Rohe",
+            "Contemporary Of",
+            "Le Corbusier",
+            "Ludwig Mies van der Rohe and Le Corbusier were contemporaries in the field of modernist architecture."
+        ],
+        [
+            "lifestyle",
+            "Promotes",
+            "Sustainability and Resilience",
+            "Lifestyle changes have promoted the incorporation of sustainable and resilient design elements into modern homes, such as passive solar design, rainwater harvesting, and green roofs."
+        ],
+        [
+            "American Dream",
+            "Influenced By",
+            "Post-World War II Period",
+            "The post-World War II period saw the rise of suburban homes as a key element of the American Dream."
+        ],
+        [
+            "Ludwig Mies van der Rohe",
+            "Championed Idea",
+            "Seamless Integration of Indoor and Outdoor Spaces",
+            "Ludwig Mies van der Rohe championed the idea of seamless integration of indoor and outdoor spaces in modern architecture."
+        ],
+        [
+            "Apartment Buildings",
+            "Developed During",
+            "Urbanization",
+            "Apartment buildings were developed as a result of urbanization, providing housing for the growing middle class."
+        ],
+        [
+            "concrete",
+            "Enabled Construction Of",
+            "Larger and More Complex Structures",
+            "The invention of steel allowed for the construction of larger and more complex structures."
+        ],
+        [
+            "changes in lifestyle",
+            "sustainable design practices",
+            "undefine",
+            "use"
+        ],
+        [
+            "basic shelter",
+            "Used In Construction Of",
+            "Simple and Functional Dwellings",
+            "Wood was used as one of the materials to construct simple and functional dwellings by early humans."
+        ],
+        [
+            "Industrial Revolution",
+            "Brought About",
+            "Standardized Housing",
+            "The Industrial Revolution led to the standardization of housing, making it more accessible to the middle class."
+        ],
+        [
+            "20th century",
+            "Witnessed Revolution In",
+            "Home Design and Architecture",
+            "The 20th century witnessed a revolution in home design and architecture."
+        ],
+        [
+            "LUDWIG MIES VAN DER ROHE",
+            "influenced",
+            "MODERNIST MOVEMENT",
+            "Ludwig Mies van der Rohe was a key figure in the modernist movement, influencing the design of homes and buildings around the world\nLudwig Mies van der Rohe was a key figure in the modernist movement, which influenced the design of homes and buildings around the world"
+        ],
+        [
+            "Levittown",
+            "Developed During",
+            "Industrial Revolution",
+            "Levittown developed during the Industrial Revolution, which brought about significant changes in the way homes were built and organized."
+        ],
+        [
+            "basic shelter",
+            "Evolved From",
+            "Caves",
+            "Shelters evolved from natural caves to more constructed forms."
+        ],
+        [
+            "estate",
+            "Owned By",
+            "Noble Family",
+            "The manor house was owned by a noble family who lived in it and governed the surrounding lands."
+        ],
+        [
+            "mass production",
+            "Resulted In",
+            "changes in lifestyle",
+            "Mass production resulted in the standardization of housing, leading to more uniform and predictable construction methods."
+        ],
+        [
+            "present day",
+            "Continues to Evolve With",
+            "Smart Technology",
+            "The present day continues to evolve with the advent of smart technology, which is a key component of modern homes."
+        ],
+        [
+            "mass production",
+            "Influenced",
+            "changes in lifestyle",
+            "Mass production influenced the development of suburban communities by making it possible to build large numbers of affordable homes quickly."
+        ],
+        [
+            "changes in lifestyle",
+            "Located In",
+            "Levittown",
+            "Suburban homes are often found in planned communities like Levittown."
+        ],
+        [
+            "changes in lifestyle",
+            "Is Used With",
+            "green roofs",
+            "Passive solar design is often used in conjunction with green roofs to enhance sustainability and resilience in modern homes."
+        ],
+        [
+            "Industrial Revolution",
+            "Enabled",
+            "New Building Materials",
+            "The Industrial Revolution enabled the invention of new building materials such as steel and concrete, which allowed for larger and more complex structures."
+        ],
+        [
+            "Mesopotamia",
+            "Used Natural Materials for Construction",
+            "Natural Materials",
+            "Mesopotamian homes were built using natural materials."
+        ],
+        [
+            "basic shelter",
+            "Component Of",
+            "Rudimentary Structures",
+            "Stone was a key component in the construction of rudimentary structures."
+        ],
+        [
+            "ancient civilizations",
+            "Characterized By",
+            "Basic Shelter",
+            "In ancient times, homes were characterized by basic shelter."
+        ],
+        [
+            "Energy-efficient materials",
+            "sustainable design practices",
+            "undefine",
+            "use"
+        ],
+        [
+            "Smart homes",
+            "equipped with",
+            "interconnected devices",
+            "Smart homes are equipped with interconnected devices."
+        ],
+        [
+            "ANCIENT CIVILIZATIONS",
+            "origin",
+            "MESOPOTAMIA",
+            "Mesopotamia is one of the ancient civilizations where homes served as centers of social, political, and religious life"
+        ],
+        [
+            "LE CORBUSIER",
+            "influenced",
+            "MODERNIST MOVEMENT",
+            "Le Corbusier was a key figure in the modernist movement, influencing the design of homes and buildings around the world\nLe Corbusier was a key figure in the modernist movement, which influenced the design of homes and buildings around the world"
+        ],
+        [
+            "made_of",
+            "rudimentary structures",
+            "basic shelter",
+            "A basic shelter is made of rudimentary structures."
+        ],
+        [
+            "concrete",
+            "Used In Development Of",
+            "Apartment Buildings",
+            "Concrete was used in the development of apartment buildings, contributing to urbanization."
+        ],
+        [
+            "green roofs",
+            "is incorporated into",
+            "changes in lifestyle",
+            "Green roofs are designed to incorporate changes in lifestyle by promoting sustainable living practices, enhancing urban environments, and improving quality of life through ecological benefits such as reduced energy consumption, improved air quality, and increased biodiversity."
+        ],
+        [
+            "rainwater harvesting",
+            "Incorporated In",
+            "Modern Home Designs",
+            "Rainwater harvesting is being incorporated into modern home designs to promote sustainability and resilience."
+        ],
+        [
+            "urbanization",
+            "Led To",
+            "Suburban Development",
+            "Urbanization contributed to the development of suburban communities with modern amenities."
+        ],
+        [
+            "Frank Lloyd Wright",
+            "Contemporary Of",
+            "Le Corbusier",
+            "Frank Lloyd Wright and Le Corbusier were contemporaries who both championed innovative architectural concepts."
+        ],
+        [
+            "changes in lifestyle",
+            "Feature Of",
+            "American Dream",
+            "Suburban homes are often considered a key feature of the American Dream."
+        ],
+        [
+            "ancient civilizations",
+            "Includes Era",
+            "Mesopotamia",
+            "Ancient times include the era of Mesopotamian civilization."
+        ],
+        [
+            "rainwater harvesting",
+            "Contributes To",
+            "Resilience",
+            "Rainwater harvesting contributes to resilience by providing an alternative water source during times of scarcity."
+        ],
+        [
+            "middle class",
+            "Achieved",
+            "American Dream",
+            "The middle class achieved the American Dream, particularly during the post-World War II period, with the rise of suburban homes as a symbol of this achievement."
+        ],
+        [
+            "Ludwig Mies van der Rohe",
+            "Championed Idea",
+            "Natural Light",
+            "Ludwig Mies van der Rohe championed the idea of using natural light in modern architecture."
+        ],
+        [
+            "home design and architecture",
+            "Driven By",
+            "changes in lifestyle",
+            "Home design and architecture have been driven by changes in lifestyle."
+        ],
+        [
+            "central heating",
+            "Complements",
+            "Indoor Plumbing",
+            "Central heating and indoor plumbing are often installed together in modern homes, enhancing overall comfort and convenience."
+        ],
+        [
+            "estate",
+            "Reflects Social Hierarchy",
+            "Social Hierarchy",
+            "The layout and design of the manor house reflected the social hierarchy and cultural values of the time, with different rooms designated for specific functions."
+        ],
+        [
+            "provided",
+            "shelter",
+            "basic shelter",
+            "Provided refers to the act of offering or supplying, thus when discussing 'provided' in relation to 'shelter', it implies the supply or provision of shelter. In this context, 'basic shelter' specifically denotes the fundamental or essential type of shelter that is being provided."
+        ],
+        [
+            "controlled and monitored via",
+            "interconnected devices",
+            "interconnected devices",
+            "The controlled and monitored system utilizes interconnected devices to manage and oversee operations efficiently."
+        ],
+        [
+            "home design and architecture",
+            "Driven By",
+            "20th century",
+            "Home design and architecture have been driven by advancements in technology."
+        ],
+        [
+            "Greece",
+            "Home as Center of",
+            "Political Life",
+            "Homes in ancient Greece played a central role in the political life of its inhabitants."
+        ],
+        [
+            "basic shelter",
+            "Succeeded By",
+            "apartment buildings",
+            "Rudimentary structures were succeeded by larger and more complex structures as new building materials were invented."
+        ],
+        [
+            "changes in lifestyle",
+            "Uses Source",
+            "renewable energy sources",
+            "Sustainable design practices use renewable energy sources to promote sustainability."
+        ],
+        [
+            "Modern Home",
+            "Incorporates",
+            "Sustainable Design Practices",
+            "The modern home incorporates sustainable design practices."
+        ],
+        [
+            "green roofs",
+            "Incorporated In",
+            "Modern Home Designs",
+            "Green roofs are being incorporated into modern home designs to promote sustainability and resilience."
+        ],
+        [
+            "include",
+            "interconnected devices",
+            "lighting",
+            "The include component facilitates connectivity among various lighting devices, enabling an integrated system for efficient control and operation."
+        ],
+        [
+            "concrete",
+            "Contributed To Development Of",
+            "Apartment Buildings",
+            "Steel contributed to the development of apartment buildings by enabling taller and more stable structures."
+        ],
+        [
+            "home design and architecture",
+            "Reflects",
+            "cultural values",
+            "Home design and architecture have historically reflected the cultural values of their time."
+        ],
+        [
+            "basic shelter",
+            "Component Of",
+            "Early Human Shelters",
+            "Stone was one of the materials used in the construction of early human shelters."
+        ],
+        [
+            "Middle Ages",
+            "Characterized By",
+            "Feudal System",
+            "The Middle Ages were characterized by the feudal system, which structured social and political life."
+        ],
+        [
+            "Apartment Buildings",
+            "Influenced By",
+            "Green Building Techniques",
+            "Modern apartment buildings are increasingly incorporating green building techniques to reduce their environmental footprint."
+        ],
+        [
+            "20th century",
+            "Saw Rise Of",
+            "Suburban Home",
+            "The 20th century saw the rise of the suburban home as a prominent residential type."
+        ],
+        [
+            "urbanization",
+            "Caused",
+            "Mass Production",
+            "Urbanization led to the rise of mass production, which contributed to the standardization and affordability of housing."
+        ],
+        [
+            "basic shelter",
+            "Used By",
+            "early humans",
+            "Rudimentary structures were used by early humans for shelter."
+        ],
+        [
+            "basic shelter",
+            "Preceded By",
+            "basic shelter",
+            "Rudimentary structures were used by early humans after they started using caves and tents."
+        ],
+        [
+            "electrical appliances",
+            "Used In",
+            "Smart Homes",
+            "Electrical appliances can be integrated into smart homes, enhancing the functionality and convenience of these living spaces."
+        ],
+        [
+            "Frank Lloyd Wright",
+            "Championed Idea",
+            "Seamless Integration of Indoor and Outdoor Spaces",
+            "Frank Lloyd Wright advocated for the seamless integration of indoor and outdoor spaces in his designs."
+        ],
+        [
+            "lifestyle",
+            "Influences",
+            "Smart Technology Integration",
+            "Lifestyle changes have driven the integration of smart technology into homes, making them more convenient and secure."
+        ],
+        [
+            "mass production",
+            "Supported By",
+            "concrete",
+            "New building materials supported mass production by enabling the construction of larger and more complex buildings, which were essential for housing developments."
+        ],
+        [
+            "MANOR HOUSE",
+            "transformation",
+            "INDUSTRIAL REVOLUTION",
+            "The Industrial Revolution marked a shift from the grand, fortified manor houses of the Middle Ages to more standardized and affordable housing"
+        ],
+        [
+            "ANCIENT CIVILIZATIONS",
+            "origin",
+            "GREECE",
+            "Greece is one of the ancient civilizations where homes served as centers of social, political, and religious life"
+        ],
+        [
+            "Modern Home",
+            "Reflects",
+            "Cultural Influences",
+            "The modern home reflects cultural influences."
+        ],
+        [
+            "basic shelter",
+            "Used In Construction Of",
+            "Rudimentary Structures",
+            "Wood was used in the construction of rudimentary structures by early humans."
+        ],
+        [
+            "changes in lifestyle",
+            "Is Used With",
+            "changes in lifestyle",
+            "Passive solar design is a key technique in green building practices to promote sustainability."
+        ],
+        [
+            "Industrial Revolution",
+            "Influenced",
+            "Home Design and Architecture",
+            "The Industrial Revolution influenced the way homes were built and organized, leading to significant changes in home design and architecture."
+        ],
+        [
+            "basic shelter",
+            "Evolved Into",
+            "Primitive Shelters",
+            "Caves were the earliest form of dwellings that evolved into more complex primitive shelters."
+        ],
+        [
+            "Le Corbusier",
+            "Championed Idea",
+            "Seamless Integration of Indoor and Outdoor Spaces",
+            "Le Corbusier championed the idea of seamless integration of indoor and outdoor spaces in modern architecture."
+        ],
+        [
+            "Modern Home",
+            "Driven By",
+            "Lifestyle Changes",
+            "The modern home is driven by lifestyle changes."
+        ],
+        [
+            "ANCIENT CIVILIZATIONS",
+            "origin",
+            "EGYPT",
+            "Egypt is one of the ancient civilizations where homes served as centers of social, political, and religious life"
+        ],
+        [
+            "SUSTAINABLE HOME",
+            "practice",
+            "RAINWATER HARVESTING",
+            "Rainwater harvesting is a practice used in sustainable homes to collect and use rainwater for various household purposes"
+        ],
+        [
+            "is incorporated into",
+            "modern home designs",
+            "changes in lifestyle",
+            "Modern home designs are influenced by changes in lifestyle, which often lead to the incorporation of innovative features and layouts."
+        ],
+        [
+            "changes in lifestyle",
+            "Is Used With",
+            "renewable energy sources",
+            "Passive solar design is often used with renewable energy sources to reduce the environmental impact of buildings."
+        ],
+        [
+            "concrete",
+            "Enables Construction Of",
+            "Larger and More Complex Structures",
+            "The invention of concrete allowed for the construction of larger and more complex structures."
+        ],
+        [
+            "Le Corbusier",
+            "Championed Idea",
+            "Open Floor Plans",
+            "Le Corbusier championed the idea of open floor plans in modern architecture."
+        ],
+        [
+            "Modern Home",
+            "Reflects",
+            "Technological Advancements",
+            "The modern home reflects technological advancements."
+        ],
+        [
+            "Modern Home",
+            "Driven By",
+            "20th Century Technological Advancements",
+            "The modern home is driven by 20th-century technological advancements."
+        ],
+        [
+            "concrete",
+            "Contributed To Development Of",
+            "Suburban Communities",
+            "Steel contributed to the development of suburban communities by enabling the construction of more robust and durable buildings."
+        ],
+        [
+            "basic shelter",
+            "Used In",
+            "Early Human Shelters",
+            "Mud was used as a building material in the construction of early human shelters."
+        ],
+        [
+            "Egypt",
+            "Home to",
+            "Ancient Homes",
+            "Egypt was home to residential structures that played a significant role beyond mere shelter."
+        ],
+        [
+            "SMART TECHNOLOGY",
+            "is-equipped-with",
+            "SMART HOME",
+            "Smart homes are equipped with interconnected devices and systems that allow for remote control and monitoring of various aspects of the home"
+        ],
+        [
+            "Early humans",
+            "Used For",
+            "Basic Shelter",
+            "Early humans used their shelters primarily for basic protection and rest."
+        ],
+        [
+            "home",
+            "protection from the elements",
+            "provided",
+            "undefine"
+        ],
+        [
+            "Ludwig Mies van der Rohe",
+            "Contemporary Of",
+            "Frank Lloyd Wright",
+            "Ludwig Mies van der Rohe and Frank Lloyd Wright were contemporaries in the field of modernist architecture."
+        ],
+        [
+            "Suburban homes",
+            "featured",
+            "modern amenities",
+            "Suburban homes often feature modern amenities."
+        ],
+        [
+            "Modern Home",
+            "Reflects",
+            "Societal Norms",
+            "The modern home reflects changing societal norms."
+        ],
+        [
+            "Early humans",
+            "Lived In",
+            "Caves",
+            "Early humans lived in caves for shelter."
+        ],
+        [
+            "present day",
+            "Reflects",
+            "Society\"s Needs and Values",
+            "The present day reflects the evolving needs, values, and aspirations of society."
+        ],
+        [
+            "SUSTAINABLE HOME",
+            "characteristic",
+            "GREEN ROOFS",
+            "Green roofs are a feature of sustainable homes, providing insulation, reducing heat island effect, and managing stormwater"
+        ],
+        [
+            "ancient civilizations",
+            "Characterized By",
+            "Protection from Elements",
+            "In ancient times, homes were characterized by their primary purpose of providing protection from the elements."
+        ],
+        [
+            "Greece",
+            "Home as Center of",
+            "Religious Life",
+            "Homes in ancient Greece played a central role in the religious life of its inhabitants."
+        ],
+        [
+            "changes in lifestyle",
+            "Feature of",
+            "American Dream",
+            "Suburban communities became a symbol of the American Dream during the post-World War II period."
+        ],
+        [
+            "evolved_from",
+            "home",
+            "basic shelter",
+            "Evolved from basic shelter, home represents an advanced or improved living space."
+        ],
+        [
+            "changes in lifestyle",
+            "Influenced By",
+            "Mass Production",
+            "Mass production techniques made housing more affordable and standardized, contributing to the growth of suburban communities."
+        ],
+        [
+            "included",
+            "indoor plumbing",
+            "modern amenities",
+            "The inclusion of indoor plumbing as part of modern amenities signifies its essential role in contemporary living standards, highlighting advancements in sanitation and comfort facilities."
+        ],
+        [
+            "indoor plumbing",
+            "Feature Of",
+            "changes in lifestyle",
+            "Indoor plumbing is a common feature in modern homes, contributing to the overall comfort and convenience of homeowners."
+        ],
+        [
+            "renewable energy sources",
+            "Reduce",
+            "environmental impact",
+            "Renewable energy sources help reduce the environmental impact of buildings by providing clean and sustainable energy."
+        ],
+        [
+            "Apartment Buildings",
+            "Houses",
+            "Middle Class",
+            "Apartment buildings provided affordable housing for the growing middle class during urbanization."
+        ],
+        [
+            "evolve from",
+            "modern home designs",
+            "interconnected devices",
+            "Modern home designs often incorporate interconnected devices as a key feature, enabling seamless integration and automation for enhanced functionality and convenience."
+        ],
+        [
+            "Levittown",
+            "Set Standard For",
+            "Mass-produced Housing",
+            "Levittown set the standard for mass-produced housing with its cookie-cutter design and affordable prices."
+        ],
+        [
+            "estate",
+            "Located On",
+            "Estate",
+            "The manor house was situated on a large estate where the noble family lived and governed."
+        ],
+        [
+            "changes in lifestyle",
+            "Influenced By",
+            "Urbanization",
+            "The rise of urbanization contributed to the development of suburban communities."
+        ],
+        [
+            "changes in lifestyle",
+            "Influenced By",
+            "New Building Materials",
+            "The development of new building materials enabled the construction of larger and more complex suburban communities."
+        ],
+        [
+            "INDUSTRIAL REVOLUTION",
+            "preceded_by",
+            "SMART TECHNOLOGY",
+            "The Industrial Revolution laid the groundwork for technological advancements that eventually led to the development of smart technology in homes"
+        ],
+        [
+            "made_of",
+            "rudimentary structures",
+            "undefine",
+            "wood"
+        ],
+        [
+            "World War II",
+            "Influenced",
+            "Suburban Home",
+            "World War II influenced the development of suburban homes in the United States."
+        ],
+        [
+            "Early humans",
+            "Lived In",
+            "Tents",
+            "Early humans lived in tents for temporary shelter."
+        ],
+        [
+            "present day",
+            "Includes",
+            "Modern Home",
+            "The present day includes the concept of the modern home, which has evolved significantly from ancient times."
+        ],
+        [
+            "mass production",
+            "Enabled",
+            "affordable housing",
+            "Mass production enabled the creation of more standardized and affordable housing, making it accessible to a larger segment of the population."
+        ],
+        [
+            "central heating",
+            "Complements",
+            "Electrical Appliances",
+            "Central heating complements electrical appliances by providing a warm environment for their operation, enhancing the overall living experience."
+        ],
+        [
+            "electrical appliances",
+            "Feature Of",
+            "Modern Suburban Homes",
+            "Electrical appliances are a key feature of modern suburban homes, contributing to the overall comfort and convenience."
+        ],
+        [
+            "changes in lifestyle",
+            "Incorporates Concept",
+            "green roofs",
+            "Sustainable design practices incorporate green roofs to promote sustainability."
+        ],
+        [
+            "changes in lifestyle",
+            "Is Used With",
+            "rainwater harvesting",
+            "Passive solar design is often used in conjunction with rainwater harvesting to enhance sustainability in modern homes."
+        ],
+        [
+            "evolved_from",
+            "home",
+            "basic shelter",
+            "Evolved from basic shelter, home represents an advanced or improved living space."
+        ],
+        [
+            "basic shelter",
+            "Encompassed By",
+            "Modern Home Concept",
+            "Shelters are now part of the broader concept of home that reflects more than just shelter."
+        ],
+        [
+            "home design and architecture",
+            "Reflects",
+            "social hierarchy",
+            "Home design and architecture have historically reflected the social hierarchy and cultural values of their time."
+        ],
+        [
+            "American Dream",
+            "Symbolized By",
+            "Suburban Home",
+            "The suburban home is often seen as a symbol of achieving the American Dream."
+        ],
+        [
+            "basic shelter",
+            "Evolved To",
+            "Smart Homes",
+            "Shelters have evolved from simple structures to sophisticated smart homes."
+        ],
+        [
+            "Le Corbusier",
+            "Contemporary Of",
+            "Ludwig Mies van der Rohe",
+            "Le Corbusier and Ludwig Mies van der Rohe were contemporaries in the field of modern architecture."
+        ],
+        [
+            "home design and architecture",
+            "Incorporates Concept",
+            "interconnected devices",
+            "Home design and architecture have evolved to include smart technology, enhancing convenience and efficiency."
+        ],
+        [
+            "urbanization",
+            "Influenced",
+            "Modernist Movement",
+            "Urbanization influenced the modernist movement, which shaped the design of homes and buildings around the world."
+        ],
+        [
+            "present day",
+            "Continues to Evolve With",
+            "Sustainable Design Practices",
+            "The present day continues to evolve with the adoption of sustainable design practices, which are increasingly important in modern homes."
+        ],
+        [
+            "changes in lifestyle",
+            "Is Related To",
+            "changes in lifestyle",
+            "Passive solar design is a key component of sustainable design practices in modern home construction."
+        ],
+        [
+            "lifestyle",
+            "Influences",
+            "Home Design and Architecture",
+            "Changes in lifestyle have influenced home design and architecture, leading to more modern and technologically advanced homes."
+        ],
+        [
+            "ancient civilizations",
+            "Includes Era",
+            "Greece",
+            "Ancient times include the era of Greek civilization."
+        ],
+        [
+            "Mesopotamia",
+            "Had Homes That Served Multiple Functions",
+            "Homes in Mesopotamia",
+            "Mesopotamian homes had multiple functions beyond just providing shelter."
+        ],
+        [
+            "changes in lifestyle",
+            "Example Of",
+            "Levittown",
+            "Levittown set the standard for the development of suburban communities in the post-World War II period."
+        ],
+        [
+            "indoor plumbing",
+            "Complements",
+            "electrical appliances",
+            "Indoor plumbing works in conjunction with electrical appliances to enhance the functionality and convenience of modern homes."
+        ],
+        [
+            "Apartment Buildings",
+            "Influenced By",
+            "Energy-Efficient Materials",
+            "The use of energy-efficient materials has influenced the design and construction of modern apartment buildings, making them more sustainable."
+        ],
+        [
+            "middle class",
+            "Benefited From",
+            "Urbanization and Mass Production",
+            "The middle class benefited from the urbanization and mass production, which made housing more standardized and affordable."
+        ],
+        [
+            "SUSTAINABLE DESIGN PRACTICES",
+            "involves",
+            "SUSTAINABLE HOME",
+            "Sustainable homes are designed and constructed using sustainable practices to reduce environmental impact and create healthier living environments"
+        ],
+        [
+            "mass production",
+            "Facilitated By",
+            "urbanization",
+            "Urbanization facilitated the need for mass production to meet the increasing demand for goods and services in growing urban areas."
+        ],
+        [
+            "changes in lifestyle",
+            "Incorporates Concept",
+            "rainwater harvesting",
+            "Sustainable design practices incorporate rainwater harvesting to promote sustainability."
+        ],
+        [
+            "changes in lifestyle",
+            "Uses Technique",
+            "changes in lifestyle",
+            "Sustainable design practices use green building techniques to promote sustainability."
+        ],
+        [
+            "green roofs",
+            "Contributes To",
+            "Sustainable Design Practices",
+            "Green roofs contribute to sustainable design practices by reducing the environmental impact of buildings."
+        ],
+        [
+            "renewable energy sources",
+            "sustainable design practices",
+            "undefine",
+            "use"
+        ],
+        [
+            "basic shelter",
+            "provided",
+            "basic shelter",
+            "The basic shelter provides for its own needs."
+        ],
+        [
+            "changes in lifestyle",
+            "Evolved From",
+            "Primitive Shelters",
+            "Suburban homes evolved from primitive shelters over time."
+        ],
+        [
+            "changes in lifestyle",
+            "promote",
+            "resilience",
+            "Changes in lifestyle promote resilience."
+        ],
+        [
+            "basic shelter",
+            "Centered Around",
+            "Basic Shelter and Protection",
+            "Shelters were centered around the idea of providing basic shelter and protection from the elements."
+        ],
+        [
+            "ancient civilizations",
+            "Includes Era",
+            "Egypt",
+            "Ancient times include the era of Egyptian civilization."
+        ],
+        [
+            "middle class",
+            "Lived In",
+            "Suburban Homes",
+            "The middle class lived in suburban homes that featured modern amenities, making life more comfortable and convenient."
+        ],
+        [
+            "basic shelter",
+            "Preceded By",
+            "Smart Homes",
+            "Caves were the earliest form of dwellings, which eventually evolved into smart homes over time."
+        ],
+        [
+            "basic shelter",
+            "Used By",
+            "Early Humans",
+            "Tents were used by early humans as one of their dwelling options."
+        ]
+    ]
+}

@@ -1,0 +1,146 @@
+{
+  "entities": [
+    "pupa stage",
+    "organs",
+    "pupa",
+    "eggs",
+    "antennae",
+    "caterpillar",
+    "pollen",
+    "life cycle",
+    "Butterflies",
+    "metamorphosis",
+    "larva stage",
+    "insects",
+    "molting",
+    "plants",
+    "proboscis",
+    "female butterflies",
+    "wings",
+    "host plants",
+    "birds",
+    "larvae",
+    "Caterpillars",
+    "adult butterfly",
+    "butterfly",
+    "reptiles",
+    "chrysalis"
+  ],
+  "relations": [
+    [
+      "Butterflies",
+      "serve_as_food_for",
+      "insects"
+    ],
+    [
+      "pollen",
+      "transfers_to",
+      "plants"
+    ],
+    [
+      "Butterflies",
+      "help_reproduce",
+      "plants"
+    ],
+    [
+      "butterfly",
+      "emerges_from",
+      "chrysalis"
+    ],
+    [
+      "Caterpillars",
+      "undergo",
+      "molting"
+    ],
+    [
+      "Caterpillars",
+      "form",
+      "chrysalis"
+    ],
+    [
+      "metamorphosis",
+      "includes",
+      "life cycle"
+    ],
+    [
+      "life cycle",
+      "starts with",
+      "eggs"
+    ],
+    [
+      "butterfly",
+      "has",
+      "proboscis"
+    ],
+    [
+      "Butterflies",
+      "transfer",
+      "pollen"
+    ],
+    [
+      "caterpillar",
+      "is a stage of",
+      "larva stage"
+    ],
+    [
+      "eggs",
+      "are laid on",
+      "host plants"
+    ],
+    [
+      "Caterpillars",
+      "enter",
+      "pupa stage"
+    ],
+    [
+      "metamorphosis",
+      "occurs_in",
+      "chrysalis"
+    ],
+    [
+      "Butterflies",
+      "serve_as_food_for",
+      "reptiles"
+    ],
+    [
+      "wings",
+      "and",
+      "antennae"
+    ],
+    [
+      "Butterflies",
+      "undergo",
+      "metamorphosis"
+    ],
+    [
+      "female butterflies",
+      "lay",
+      "eggs"
+    ],
+    [
+      "pollen",
+      "transfers_from",
+      "plants"
+    ],
+    [
+      "caterpillar",
+      "undergoes",
+      "metamorphosis"
+    ],
+    [
+      "Butterflies",
+      "serve_as_food_for",
+      "birds"
+    ],
+    [
+      "host plants",
+      "provide food for",
+      "larvae"
+    ],
+    [
+      "eggs",
+      "hatch into",
+      "caterpillar"
+    ]
+  ]
+}

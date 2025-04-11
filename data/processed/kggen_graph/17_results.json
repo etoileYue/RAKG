@@ -1,0 +1,80 @@
+[
+  {
+    "correct_answer": "axolotl is a type of salamander native to Mexico",
+    "retrieved_context": "axolotl is_native_to Mexico. axolotl is_a_type_of salamander. barreleye fish lives_in ocean.",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "axolotl can regenerate lost body parts, including limbs, tail, and parts of its brain and spinal cord",
+    "retrieved_context": "axolotl is_native_to Mexico. axolotl is_a_type_of salamander. barreleye fish lives_in ocean. aye-aye native_to Madagascar.",
+    "evaluation": 0
+  },
+  {
+    "correct_answer": "mantis shrimp is a colorful crustacean found in tropical waters",
+    "retrieved_context": "barreleye fish lives_in ocean. aye-aye native_to Madagascar.",
+    "evaluation": 0
+  },
+  {
+    "correct_answer": "mantis shrimp has one of the most powerful punches in the animal kingdom",
+    "retrieved_context": "barreleye fish lives_in ocean. aye-aye native_to Madagascar. axolotl is_native_to Mexico. axolotl is_a_type_of salamander.",
+    "evaluation": 0
+  },
+  {
+    "correct_answer": "pangolin has protective scales made of keratin",
+    "retrieved_context": "axolotl is_native_to Mexico. axolotl is_a_type_of salamander. barreleye fish lives_in ocean.",
+    "evaluation": 0
+  },
+  {
+    "correct_answer": "pangolin curls into a tight ball with overlapping scales when threatened",
+    "retrieved_context": "barreleye fish lives_in ocean. axolotl is_native_to Mexico. axolotl is_a_type_of salamander.",
+    "evaluation": 0
+  },
+  {
+    "correct_answer": "common swift spends almost its entire life in the air",
+    "retrieved_context": "barreleye fish lives_in ocean. aye-aye native_to Madagascar. axolotl is_native_to Mexico. axolotl is_a_type_of salamander.",
+    "evaluation": 0
+  },
+  {
+    "correct_answer": "common swift can stay aloft for months at a time",
+    "retrieved_context": "barreleye fish lives_in ocean. axolotl is_native_to Mexico. axolotl is_a_type_of salamander. aye-aye native_to Madagascar.",
+    "evaluation": 0
+  },
+  {
+    "correct_answer": "barreleye fish is a deep-sea dweller with a transparent head and tubular eyes",
+    "retrieved_context": "barreleye fish lives_in ocean. axolotl is_native_to Mexico. axolotl is_a_type_of salamander. aye-aye native_to Madagascar.",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "barreleye fish can see prey silhouetted against the darkness above",
+    "retrieved_context": "barreleye fish lives_in ocean. axolotl is_native_to Mexico. axolotl is_a_type_of salamander. aye-aye native_to Madagascar.",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "aye-aye is a lemur native to Madagascar",
+    "retrieved_context": "aye-aye native_to Madagascar. axolotl is_native_to Mexico. axolotl is_a_type_of salamander.",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "aye-aye has an elongated middle finger used to extract insects from tree bark",
+    "retrieved_context": "aye-aye native_to Madagascar. axolotl is_native_to Mexico. axolotl is_a_type_of salamander. barreleye fish lives_in ocean.",
+    "evaluation": 0
+  },
+  {
+    "correct_answer": "animals have evolved an astonishing array of adaptations to ensure their survival",
+    "retrieved_context": "barreleye fish lives_in ocean. axolotl is_native_to Mexico. axolotl is_a_type_of salamander.",
+    "evaluation": 0
+  },
+  {
+    "correct_answer": "studying unusual adaptations provides valuable insights into the complexities of evolution",
+    "retrieved_context": "barreleye fish lives_in ocean. axolotl is_native_to Mexico. axolotl is_a_type_of salamander.",
+    "evaluation": 0
+  },
+  {
+    "correct_answer": "animal adaptations showcase the ingenuity and diversity of life on Earth",
+    "retrieved_context": "barreleye fish lives_in ocean. axolotl is_native_to Mexico. axolotl is_a_type_of salamander. aye-aye native_to Madagascar.",
+    "evaluation": 0
+  },
+  {
+    "accuracy": "26.67%"
+  }
+]

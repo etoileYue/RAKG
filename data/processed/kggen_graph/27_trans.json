@@ -1,0 +1,124 @@
+{
+  "entities": [
+    {
+      "name": "1953"
+    },
+    {
+      "name": "hoaxes"
+    },
+    {
+      "name": "Cardiff Giant"
+    },
+    {
+      "name": "George Hull"
+    },
+    {
+      "name": "Sokal Affair"
+    },
+    {
+      "name": "War of the Worlds broadcast"
+    },
+    {
+      "name": "War of the Worlds radio broadcast"
+    },
+    {
+      "name": "Social Text"
+    },
+    {
+      "name": "Orson Welles"
+    },
+    {
+      "name": "Transgressing the Boundaries: Towards a Transformative Hermeneutics of Quantum Gravity"
+    },
+    {
+      "name": "Alan Sokal"
+    },
+    {
+      "name": "veracity"
+    },
+    {
+      "name": "postmodernist scholarship"
+    },
+    {
+      "name": "Piltdown Man"
+    },
+    {
+      "name": "Nazi leader Hermann GÃ¶ring"
+    },
+    {
+      "name": "Vermeer paintings"
+    },
+    {
+      "name": "fake news"
+    },
+    {
+      "name": "1912"
+    },
+    {
+      "name": "England"
+    },
+    {
+      "name": "H.G. Wells"
+    },
+    {
+      "name": "Han van Meegeren"
+    }
+  ],
+  "relations": [
+    [
+      "War of the Worlds radio broadcast",
+      "broadcast_by",
+      "Orson Welles"
+    ],
+    [
+      "War of the Worlds radio broadcast",
+      "adapted_from",
+      "H.G. Wells"
+    ],
+    [
+      "Cardiff Giant",
+      "created_by",
+      "George Hull"
+    ],
+    [
+      "Piltdown Man",
+      "discovered_in",
+      "England"
+    ],
+    [
+      "fake news",
+      "affects",
+      "veracity"
+    ],
+    [
+      "Sokal Affair",
+      "challenged",
+      "postmodernist scholarship"
+    ],
+    [
+      "hoaxes",
+      "related_to",
+      "fake news"
+    ],
+    [
+      "Piltdown Man",
+      "exposed_as_forgery",
+      "1953"
+    ],
+    [
+      "Alan Sokal",
+      "authored",
+      "Transgressing the Boundaries: Towards a Transformative Hermeneutics of Quantum Gravity"
+    ],
+    [
+      "Alan Sokal",
+      "initiated",
+      "Sokal Affair"
+    ],
+    [
+      "Piltdown Man",
+      "discovery_year",
+      "1912"
+    ]
+  ]
+}

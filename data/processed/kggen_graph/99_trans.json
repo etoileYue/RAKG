@@ -1,0 +1,336 @@
+{
+  "entities": [
+    {
+      "name": "water scarcity"
+    },
+    {
+      "name": "Australia"
+    },
+    {
+      "name": "climate change"
+    },
+    {
+      "name": "sustainable water management practices"
+    },
+    {
+      "name": "planting and harvesting seasons"
+    },
+    {
+      "name": "rainwater harvesting"
+    },
+    {
+      "name": "spread of pests and diseases"
+    },
+    {
+      "name": "research and technology"
+    },
+    {
+      "name": "weather events"
+    },
+    {
+      "name": "droughts"
+    },
+    {
+      "name": "efficient irrigation systems"
+    },
+    {
+      "name": "organic farming"
+    },
+    {
+      "name": "resilience to climate change"
+    },
+    {
+      "name": "pests and diseases"
+    },
+    {
+      "name": "agroecology"
+    },
+    {
+      "name": "environment"
+    },
+    {
+      "name": "quality produce"
+    },
+    {
+      "name": "Rising global temperatures"
+    },
+    {
+      "name": "crop production"
+    },
+    {
+      "name": "drought-resistant crop varieties"
+    },
+    {
+      "name": "price spikes"
+    },
+    {
+      "name": "changes in precipitation patterns"
+    },
+    {
+      "name": "livelihoods"
+    },
+    {
+      "name": "adaptation"
+    },
+    {
+      "name": "human health"
+    },
+    {
+      "name": "crop rotation"
+    },
+    {
+      "name": "crops"
+    },
+    {
+      "name": "temperatures rise"
+    },
+    {
+      "name": "food prices"
+    },
+    {
+      "name": "decreased crop yields"
+    },
+    {
+      "name": "crop yields"
+    },
+    {
+      "name": "water resources"
+    },
+    {
+      "name": "agroforestry"
+    },
+    {
+      "name": "innovation"
+    },
+    {
+      "name": "greenhouse gas emissions"
+    },
+    {
+      "name": "sustainable farming practices"
+    },
+    {
+      "name": "increased reliance on pesticides"
+    },
+    {
+      "name": "soil health"
+    },
+    {
+      "name": "precision agriculture techniques"
+    },
+    {
+      "name": "increased evaporation rates"
+    },
+    {
+      "name": "negative environmental and health consequences"
+    },
+    {
+      "name": "biodiversity"
+    },
+    {
+      "name": "water availability for agriculture"
+    },
+    {
+      "name": "food security"
+    },
+    {
+      "name": "floods"
+    },
+    {
+      "name": "warmer temperatures"
+    },
+    {
+      "name": "sustainable agricultural practices"
+    },
+    {
+      "name": "resilience"
+    },
+    {
+      "name": "Climate change"
+    },
+    {
+      "name": "global agriculture"
+    },
+    {
+      "name": "heatwaves"
+    },
+    {
+      "name": "food shortages"
+    },
+    {
+      "name": "California"
+    },
+    {
+      "name": "supply chains"
+    },
+    {
+      "name": "growing seasons"
+    }
+  ],
+  "relations": [
+    [
+      "sustainable water management practices",
+      "include",
+      "rainwater harvesting"
+    ],
+    [
+      "sustainable agricultural practices",
+      "reduce",
+      "greenhouse gas emissions"
+    ],
+    [
+      "drought-resistant crop varieties",
+      "mitigate_impacts_of",
+      "climate change"
+    ],
+    [
+      "changes in precipitation patterns",
+      "contributes_to",
+      "water scarcity"
+    ],
+    [
+      "weather events",
+      "disrupt",
+      "supply chains"
+    ],
+    [
+      "increased evaporation rates",
+      "contributes_to",
+      "water scarcity"
+    ],
+    [
+      "climate change",
+      "poses_challenges_to",
+      "water availability for agriculture"
+    ],
+    [
+      "temperatures rise",
+      "requires_adjustment_of",
+      "planting and harvesting seasons"
+    ],
+    [
+      "sustainable agricultural practices",
+      "include",
+      "agroecology"
+    ],
+    [
+      "climate change",
+      "affect",
+      "food security"
+    ],
+    [
+      "sustainable agricultural practices",
+      "include",
+      "organic farming"
+    ],
+    [
+      "sustainable agricultural practices",
+      "protect",
+      "biodiversity"
+    ],
+    [
+      "precision agriculture techniques",
+      "mitigate_impacts_of",
+      "climate change"
+    ],
+    [
+      "sustainable water management practices",
+      "include",
+      "efficient irrigation systems"
+    ],
+    [
+      "innovation",
+      "contribute to",
+      "adaptation"
+    ],
+    [
+      "weather events",
+      "include",
+      "droughts"
+    ],
+    [
+      "warmer temperatures",
+      "facilitates",
+      "spread of pests and diseases"
+    ],
+    [
+      "weather events",
+      "include",
+      "heatwaves"
+    ],
+    [
+      "weather events",
+      "affect",
+      "crop production"
+    ],
+    [
+      "climate change",
+      "affect",
+      "livelihoods"
+    ],
+    [
+      "weather events",
+      "lead to",
+      "price spikes"
+    ],
+    [
+      "agroforestry",
+      "contribute_to",
+      "resilience to climate change"
+    ],
+    [
+      "sustainable farming practices",
+      "improve",
+      "soil health"
+    ],
+    [
+      "Climate change",
+      "impacts",
+      "global agriculture"
+    ],
+    [
+      "spread of pests and diseases",
+      "results_in",
+      "decreased crop yields"
+    ],
+    [
+      "weather events",
+      "cause",
+      "food shortages"
+    ],
+    [
+      "weather events",
+      "include",
+      "floods"
+    ],
+    [
+      "crop production",
+      "impacts",
+      "food security"
+    ],
+    [
+      "adaptation",
+      "build",
+      "resilience"
+    ],
+    [
+      "climate change",
+      "affect",
+      "crop production"
+    ],
+    [
+      "crop rotation",
+      "contribute_to",
+      "resilience to climate change"
+    ],
+    [
+      "sustainable agricultural practices",
+      "improve",
+      "soil health"
+    ],
+    [
+      "Rising global temperatures",
+      "causes",
+      "weather events"
+    ]
+  ]
+}

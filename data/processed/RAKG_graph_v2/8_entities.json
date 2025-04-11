@@ -1,0 +1,242 @@
+{
+    "entity1": {
+        "name": "Space Exploration",
+        "type": "Activity",
+        "description": "The discovery and exploration of outer space, including the Moon, planets, and other celestial bodies.;;;The investigation of celestial bodies and space beyond Earth's atmosphere, often involving the use of spacecraft.;;;Organized efforts or programs aimed at exploring outer space using spacecraft and other technologies.;;;The vast, mostly empty expanse beyond Earth's atmosphere where celestial bodies such as stars, planets, and moons exist.;;;A series of space probes launched by NASA to study the outer Solar System and interstellar space.;;;The investigation of celestial bodies and outer space using spacecraft, telescopes, and other technologies.;;;The discovery and investigation of celestial bodies and the space environment using spacecraft, satellites, and other technologies.;;;The investigation of celestial bodies and the universe using spacecraft, telescopes, and other scientific instruments.;;;The discovery and investigation of celestial bodies and phenomena that occur outside Earth's atmosphere.",
+        "chunkid": "Space Exploration: Past, Present, and Future1;;;Space Exploration: Past, Present, and Future15;;;Space Exploration: Past, Present, and Future20;;;Space Exploration: Past, Present, and Future9;;;Space Exploration: Past, Present, and Future3;;;Space Exploration: Past, Present, and Future17;;;Space Exploration: Past, Present, and Future7;;;Space Exploration: Past, Present, and Future21;;;Space Exploration: Past, Present, and Future22;;;Space Exploration: Past, Present, and Future2"
+    },
+    "entity2": {
+        "name": "World",
+        "type": "Location",
+        "description": "The planet Earth, specifically referring to all its countries and regions collectively.",
+        "chunkid": "Space Exploration: Past, Present, and Future1"
+    },
+    "entity3": {
+        "name": "satellites",
+        "type": "Object",
+        "description": "Artificial objects launched into orbit around the Earth or other celestial bodies for various purposes such as communication, navigation, and research.",
+        "chunkid": "Space Exploration: Past, Present, and Future2"
+    },
+    "entity4": {
+        "name": "planets",
+        "type": "Astronomical Body",
+        "description": "Large celestial bodies that orbit a star and do not produce their own light.;;;Large celestial bodies that orbit a star and have sufficient mass to be nearly round in shape due to their own gravity.",
+        "chunkid": "Space Exploration: Past, Present, and Future20;;;Space Exploration: Past, Present, and Future2"
+    },
+    "entity7": {
+        "name": "Soviet Union",
+        "type": "Organization",
+        "description": "A former federal socialist state that existed from 1922 to 1991, known for its role in the Cold War and space race.;;;A former country that existed from 1922 to 1991, comprising 15 republics and was known for its significant role in global politics and space exploration.",
+        "chunkid": "Space Exploration: Past, Present, and Future5;;;Space Exploration: Past, Present, and Future4"
+    },
+    "entity8": {
+        "name": "Sputnik 1",
+        "type": "Satellite",
+        "description": "The first artificial satellite launched by the Soviet Union on October 4, 1957, marking the beginning of the space age.",
+        "chunkid": "Space Exploration: Past, Present, and Future4"
+    },
+    "entity9": {
+        "name": "United States",
+        "type": "Country",
+        "description": "A country in North America, known for its significant contributions to technology and space exploration.",
+        "chunkid": "Space Exploration: Past, Present, and Future5"
+    },
+    "entity11": {
+        "name": "space race",
+        "type": "Historical Event",
+        "description": "A competition between the United States and the Soviet Union during the Cold War to achieve superior spaceflight capability.;;;A 20th-century competition between the Soviet Union and the United States for supremacy in spaceflight capability.",
+        "chunkid": "Space Exploration: Past, Present, and Future5;;;Space Exploration: Past, Present, and Future20"
+    },
+    "entity12": {
+        "name": "Yuri Gagarin",
+        "type": "Person",
+        "description": "The first human to orbit the Earth in 1961.",
+        "chunkid": "Space Exploration: Past, Present, and Future6"
+    },
+    "entity13": {
+        "name": "Neil Armstrong",
+        "type": "Person",
+        "description": "One of the first humans to walk on the moon as part of the Apollo 11 mission in 1969.",
+        "chunkid": "Space Exploration: Past, Present, and Future6"
+    },
+    "entity14": {
+        "name": "Buzz Aldrin",
+        "type": "Person",
+        "description": "One of the first humans to walk on the moon as part of the Apollo 11 mission in 1969.",
+        "chunkid": "Space Exploration: Past, Present, and Future6"
+    },
+    "entity15": {
+        "name": "Apollo 11",
+        "type": "Space Mission",
+        "description": "The space mission that landed the first humans on the moon in 1969.",
+        "chunkid": "Space Exploration: Past, Present, and Future6"
+    },
+    "entity17": {
+        "name": "Mars rovers",
+        "type": "Space Exploration Vehicle",
+        "description": "Robotic vehicles sent to Mars to explore its surface, gather data, and conduct scientific experiments.",
+        "chunkid": "Space Exploration: Past, Present, and Future7"
+    },
+    "entity18": {
+        "name": "International Space Station (ISS)",
+        "type": "Space Station",
+        "description": "A habitable artificial satellite in low Earth orbit, serving as a microgravity and space environment research laboratory.",
+        "chunkid": "Space Exploration: Past, Present, and Future8"
+    },
+    "entity19": {
+        "name": "1990s",
+        "type": "Time Period",
+        "description": "The decade from 1990 to 1999, during which significant advancements in international space cooperation occurred.",
+        "chunkid": "Space Exploration: Past, Present, and Future8"
+    },
+    "entity21": {
+        "name": "countries",
+        "type": "Organization",
+        "description": "Nations or states that participate in international collaborations for various purposes including scientific research and technological development.",
+        "chunkid": "Space Exploration: Past, Present, and Future9"
+    },
+    "entity22": {
+        "name": "private companies",
+        "type": "Organization",
+        "description": "Business entities that are not publicly owned, often involved in the commercialization of space technology and services.",
+        "chunkid": "Space Exploration: Past, Present, and Future9"
+    },
+    "entity23": {
+        "name": "SpaceX",
+        "type": "Organization",
+        "description": "A private American aerospace manufacturer and space transportation company founded by Elon Musk.;;;A private American aerospace manufacturer and space transportation services company founded by Elon Musk.",
+        "chunkid": "Space Exploration: Past, Present, and Future14;;;Space Exploration: Past, Present, and Future10"
+    },
+    "entity24": {
+        "name": "reusable rockets",
+        "type": "Technology",
+        "description": "Rockets designed to be used multiple times, reducing the cost of space launches compared to single-use rockets.",
+        "chunkid": "Space Exploration: Past, Present, and Future10"
+    },
+    "entity25": {
+        "name": "ISS",
+        "type": "Organization",
+        "description": "The International Space Station, a habitable artificial satellite in low Earth orbit used for scientific research and technological development.",
+        "chunkid": "Space Exploration: Past, Present, and Future11"
+    },
+    "entity26": {
+        "name": "Mars",
+        "type": "Planet",
+        "description": "The fourth planet from the Sun in the Solar System, known for its reddish appearance due to iron oxide on its surface.;;;The fourth planet from the Sun in the Solar System, known for its reddish appearance and the subject of numerous space missions.",
+        "chunkid": "Space Exploration: Past, Present, and Future12;;;Space Exploration: Past, Present, and Future13;;;Space Exploration: Past, Present, and Future14"
+    },
+    "entity27": {
+        "name": "NASA",
+        "type": "Organization",
+        "description": "The National Aeronautics and Space Administration, the U.S. government agency responsible for space exploration.",
+        "chunkid": "Space Exploration: Past, Present, and Future13"
+    },
+    "entity28": {
+        "name": "Perseverance rover",
+        "type": "Spacecraft",
+        "description": "A robotic vehicle designed by NASA to explore Mars and conduct scientific experiments.",
+        "chunkid": "Space Exploration: Past, Present, and Future13"
+    },
+    "entity33": {
+        "name": "Jupiter",
+        "type": "Planet",
+        "description": "The fifth planet from the Sun and the largest in the Solar System.",
+        "chunkid": "Space Exploration: Past, Present, and Future16"
+    },
+    "entity34": {
+        "name": "Saturn",
+        "type": "Planet",
+        "description": "The sixth planet from the Sun and known for its prominent ring system.",
+        "chunkid": "Space Exploration: Past, Present, and Future16"
+    },
+    "entity35": {
+        "name": "habitable exoplanets",
+        "type": "Astronomical Object",
+        "description": "Planets outside our solar system that have conditions potentially suitable for life.",
+        "chunkid": "Space Exploration: Past, Present, and Future17"
+    },
+    "entity36": {
+        "name": "solar system",
+        "type": "Astronomical Location",
+        "description": "The collection of planets, moons, asteroids, comets, and other objects orbiting the Sun.;;;The collection of celestial bodies, including planets and the sun, that are gravitationally bound to our star, the Sun.",
+        "chunkid": "Space Exploration: Past, Present, and Future22;;;Space Exploration: Past, Present, and Future17"
+    },
+    "entity38": {
+        "name": "extraterrestrial life",
+        "type": "Hypothetical Biological Entity",
+        "description": "Life that does not originate from Earth, potentially existing on other planets or in other parts of the universe.",
+        "chunkid": "Space Exploration: Past, Present, and Future17"
+    },
+    "entity39": {
+        "name": "space technology",
+        "type": "Field of Study",
+        "description": "A field that encompasses the development and application of technologies for space exploration and utilization.",
+        "chunkid": "Space Exploration: Past, Present, and Future18"
+    },
+    "entity40": {
+        "name": "ion propulsion systems",
+        "type": "Technology",
+        "description": "A type of spacecraft propulsion system that uses electric fields to accelerate ions, providing efficient thrust for long-duration missions.",
+        "chunkid": "Space Exploration: Past, Present, and Future18"
+    },
+    "entity41": {
+        "name": "advanced materials",
+        "type": "Technology",
+        "description": "Materials with superior properties designed for use in high-performance applications, including space technology.",
+        "chunkid": "Space Exploration: Past, Present, and Future18"
+    },
+    "entity42": {
+        "name": "spacecraft",
+        "type": "Object",
+        "description": "A vehicle or device designed to operate in outer space, used for various purposes such as exploration, communication, and observation.",
+        "chunkid": "Space Exploration: Past, Present, and Future18"
+    },
+    "entity43": {
+        "name": "Blue Origin",
+        "type": "Organization",
+        "description": "A private aerospace manufacturer and spaceflight services company founded by Jeff Bezos.",
+        "chunkid": "Space Exploration: Past, Present, and Future19"
+    },
+    "entity44": {
+        "name": "Virgin Galactic",
+        "type": "Organization",
+        "description": "A British-American spaceflight company within the Virgin Group, focused on providing suborbital spaceflights to private individuals and researchers.",
+        "chunkid": "Space Exploration: Past, Present, and Future19"
+    },
+    "entity47": {
+        "name": "moon",
+        "type": "Celestial Body",
+        "description": "The natural satellite of Earth, orbiting at an average distance of about 384,400 kilometers.",
+        "chunkid": "Space Exploration: Past, Present, and Future20"
+    },
+    "entity49": {
+        "name": "permanent presence in space",
+        "type": "Concept",
+        "description": "The idea of maintaining a continuous human presence in outer space, often realized through space stations or other long-term habitats.",
+        "chunkid": "Space Exploration: Past, Present, and Future20"
+    },
+    "entity51": {
+        "name": "international cooperation",
+        "type": "Concept",
+        "description": "Collaborative efforts among different countries to achieve common goals or solve problems together.",
+        "chunkid": "Space Exploration: Past, Present, and Future21"
+    },
+    "entity52": {
+        "name": "commercial ventures",
+        "type": "Economic Activity",
+        "description": "Business activities or enterprises that are undertaken for profit, often involving the private sector.",
+        "chunkid": "Space Exploration: Past, Present, and Future21"
+    },
+    "entity53": {
+        "name": "scientific discoveries",
+        "type": "Achievement",
+        "description": "New findings or advancements in scientific knowledge and understanding.",
+        "chunkid": "Space Exploration: Past, Present, and Future21"
+    },
+    "entity56": {
+        "name": "universe",
+        "type": "Cosmological Concept",
+        "description": "All of space and time and their contents, including Earth, stars, galaxies, and all other forms of matter and energy.",
+        "chunkid": "Space Exploration: Past, Present, and Future22"
+    }
+}

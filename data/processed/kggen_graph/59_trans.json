@@ -1,0 +1,310 @@
+{
+  "entities": [
+    {
+      "name": "environmental monitoring"
+    },
+    {
+      "name": "startups"
+    },
+    {
+      "name": "Weather satellites"
+    },
+    {
+      "name": "telecommunications"
+    },
+    {
+      "name": "meteorologists"
+    },
+    {
+      "name": "GEO"
+    },
+    {
+      "name": "CubeSats"
+    },
+    {
+      "name": "Geostationary satellites"
+    },
+    {
+      "name": "Satellites"
+    },
+    {
+      "name": "LEO"
+    },
+    {
+      "name": "land cover"
+    },
+    {
+      "name": "future of satellite technology"
+    },
+    {
+      "name": "communication satellite"
+    },
+    {
+      "name": "climate patterns"
+    },
+    {
+      "name": "communication systems"
+    },
+    {
+      "name": "hurricanes"
+    },
+    {
+      "name": "Low Earth orbit satellites"
+    },
+    {
+      "name": "satellite industry"
+    },
+    {
+      "name": "Laser communication technology"
+    },
+    {
+      "name": "remote and rural areas"
+    },
+    {
+      "name": "atmosphere"
+    },
+    {
+      "name": "developing countries"
+    },
+    {
+      "name": "polar orbit"
+    },
+    {
+      "name": "Electric propulsion systems"
+    },
+    {
+      "name": "Earth's climate"
+    },
+    {
+      "name": "storms"
+    },
+    {
+      "name": "weather forecasting"
+    },
+    {
+      "name": "propulsion"
+    },
+    {
+      "name": "weather satellites"
+    },
+    {
+      "name": "miniaturization"
+    },
+    {
+      "name": "scientific research"
+    },
+    {
+      "name": "educational institutions"
+    },
+    {
+      "name": "conservation efforts"
+    },
+    {
+      "name": "Earth"
+    },
+    {
+      "name": "oceans"
+    },
+    {
+      "name": "costs"
+    },
+    {
+      "name": "global connectivity"
+    },
+    {
+      "name": "natural disasters"
+    },
+    {
+      "name": "traditional infrastructure"
+    },
+    {
+      "name": "tsunamis"
+    },
+    {
+      "name": "satellites"
+    },
+    {
+      "name": "scientific research satellites"
+    },
+    {
+      "name": "national security"
+    }
+  ],
+  "relations": [
+    [
+      "weather satellites",
+      "assist",
+      "meteorologists"
+    ],
+    [
+      "global connectivity",
+      "benefits",
+      "remote and rural areas"
+    ],
+    [
+      "Satellites",
+      "orbit around",
+      "Earth"
+    ],
+    [
+      "Satellites",
+      "used for",
+      "national security"
+    ],
+    [
+      "scientific research satellites",
+      "study",
+      "oceans"
+    ],
+    [
+      "Satellites",
+      "used for",
+      "telecommunications"
+    ],
+    [
+      "meteorologists",
+      "track",
+      "storms"
+    ],
+    [
+      "CubeSats",
+      "increase accessibility for",
+      "developing countries"
+    ],
+    [
+      "Electric propulsion systems",
+      "enabling",
+      "satellites"
+    ],
+    [
+      "future of satellite technology",
+      "involves advancements in",
+      "communication systems"
+    ],
+    [
+      "scientific research satellites",
+      "provide data for",
+      "environmental monitoring"
+    ],
+    [
+      "meteorologists",
+      "provide data for",
+      "climate patterns"
+    ],
+    [
+      "scientific research satellites",
+      "study",
+      "Earth's climate"
+    ],
+    [
+      "remote and rural areas",
+      "lack",
+      "traditional infrastructure"
+    ],
+    [
+      "scientific research satellites",
+      "study",
+      "atmosphere"
+    ],
+    [
+      "Weather satellites",
+      "operate in",
+      "GEO"
+    ],
+    [
+      "scientific research satellites",
+      "study",
+      "land cover"
+    ],
+    [
+      "Weather satellites",
+      "operate in",
+      "polar orbit"
+    ],
+    [
+      "natural disasters",
+      "include",
+      "tsunamis"
+    ],
+    [
+      "scientific research satellites",
+      "support",
+      "conservation efforts"
+    ],
+    [
+      "Weather satellites",
+      "orbit around",
+      "Earth"
+    ],
+    [
+      "satellites",
+      "provide",
+      "global connectivity"
+    ],
+    [
+      "telecommunications",
+      "uses",
+      "satellites"
+    ],
+    [
+      "CubeSats",
+      "increase accessibility for",
+      "startups"
+    ],
+    [
+      "meteorologists",
+      "issue warnings for",
+      "natural disasters"
+    ],
+    [
+      "communication satellite",
+      "include",
+      "Satellites"
+    ],
+    [
+      "Satellites",
+      "used for",
+      "scientific research"
+    ],
+    [
+      "CubeSats",
+      "increase accessibility for",
+      "educational institutions"
+    ],
+    [
+      "CubeSats",
+      "are part of",
+      "satellite industry"
+    ],
+    [
+      "future of satellite technology",
+      "involves advancements in",
+      "miniaturization"
+    ],
+    [
+      "CubeSats",
+      "reduce",
+      "costs"
+    ],
+    [
+      "Satellites",
+      "used for",
+      "weather forecasting"
+    ],
+    [
+      "future of satellite technology",
+      "involves advancements in",
+      "propulsion"
+    ],
+    [
+      "Weather satellites",
+      "operate in",
+      "LEO"
+    ],
+    [
+      "natural disasters",
+      "include",
+      "hurricanes"
+    ]
+  ]
+}

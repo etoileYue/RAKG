@@ -1,0 +1,198 @@
+{
+  "entities": [
+    {
+      "name": "manganese ore"
+    },
+    {
+      "name": "Puerto Rico"
+    },
+    {
+      "name": "seafloor"
+    },
+    {
+      "name": "rogue waves"
+    },
+    {
+      "name": "methane gas"
+    },
+    {
+      "name": "306 people"
+    },
+    {
+      "name": "USS Cyclops"
+    },
+    {
+      "name": "aircraft"
+    },
+    {
+      "name": "U.S. Navy"
+    },
+    {
+      "name": "sailors"
+    },
+    {
+      "name": "North Atlantic Ocean"
+    },
+    {
+      "name": "pilots"
+    },
+    {
+      "name": "Bermuda Triangle"
+    },
+    {
+      "name": "unpredictable weather patterns"
+    },
+    {
+      "name": "compass malfunctions"
+    },
+    {
+      "name": "December 1945"
+    },
+    {
+      "name": "sudden storms"
+    },
+    {
+      "name": "Bermuda"
+    },
+    {
+      "name": "Flight 19"
+    },
+    {
+      "name": "ships"
+    },
+    {
+      "name": "14 crew members"
+    },
+    {
+      "name": "modern era"
+    },
+    {
+      "name": "magnetic anomalies"
+    },
+    {
+      "name": "navigation systems"
+    },
+    {
+      "name": "methane hydrate destabilization"
+    },
+    {
+      "name": "Devil's Triangle"
+    },
+    {
+      "name": "rescue plane"
+    },
+    {
+      "name": "Miami"
+    },
+    {
+      "name": "buoyancy"
+    }
+  ],
+  "relations": [
+    [
+      "unpredictable weather patterns",
+      "include",
+      "rogue waves"
+    ],
+    [
+      "Flight 19",
+      "vanished_in",
+      "Bermuda Triangle"
+    ],
+    [
+      "USS Cyclops",
+      "carried",
+      "manganese ore"
+    ],
+    [
+      "magnetic anomalies",
+      "affect",
+      "navigation systems"
+    ],
+    [
+      "aircraft",
+      "has_crew",
+      "14 crew members"
+    ],
+    [
+      "Bermuda Triangle",
+      "bounded_by",
+      "Bermuda"
+    ],
+    [
+      "methane gas",
+      "located_on",
+      "seafloor"
+    ],
+    [
+      "Bermuda Triangle",
+      "has_phenomenon",
+      "magnetic anomalies"
+    ],
+    [
+      "Bermuda Triangle",
+      "has_characteristic",
+      "unpredictable weather patterns"
+    ],
+    [
+      "Bermuda Triangle",
+      "also_known_as",
+      "Devil's Triangle"
+    ],
+    [
+      "Flight 19",
+      "part_of",
+      "U.S. Navy"
+    ],
+    [
+      "Bermuda Triangle",
+      "bounded_by",
+      "Miami"
+    ],
+    [
+      "USS Cyclops",
+      "had_on_board",
+      "306 people"
+    ],
+    [
+      "Bermuda Triangle",
+      "bounded_by",
+      "Puerto Rico"
+    ],
+    [
+      "navigation systems",
+      "cause",
+      "compass malfunctions"
+    ],
+    [
+      "Bermuda Triangle",
+      "located_in",
+      "North Atlantic Ocean"
+    ],
+    [
+      "Bermuda Triangle",
+      "exists during",
+      "modern era"
+    ],
+    [
+      "Bermuda Triangle",
+      "is also known as",
+      "Devil's Triangle"
+    ],
+    [
+      "Bermuda Triangle",
+      "contains",
+      "methane gas"
+    ],
+    [
+      "Flight 19",
+      "vanished_on",
+      "December 1945"
+    ],
+    [
+      "unpredictable weather patterns",
+      "include",
+      "sudden storms"
+    ]
+  ]
+}

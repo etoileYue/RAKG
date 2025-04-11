@@ -1,0 +1,178 @@
+{
+  "entities": [
+    {
+      "name": "SOCIAL MEDIA",
+      "type": "ORGANIZATION",
+      "description": "A broad term for various platforms and tools that enable users to create, share, and interact with information and content online, significantly impacting communication and society"
+    },
+    {
+      "name": "FACEBOOK",
+      "type": "ORGANIZATION",
+      "description": "A social networking platform that allows users to connect with friends, family, and acquaintances, share updates, photos, and thoughts, and engage in real-time communication"
+    },
+    {
+      "name": "TWITTER",
+      "type": "ORGANIZATION",
+      "description": "A social networking and microblogging platform that enables users to share short messages, news, and opinions, and has become a key platform for citizen journalism and social activism"
+    },
+    {
+      "name": "INSTAGRAM",
+      "type": "ORGANIZATION",
+      "description": "A social networking platform focused on visual content, where users can share photos and videos, and engage with others through comments and direct messaging"
+    },
+    {
+      "name": "SNAPCHAT",
+      "type": "ORGANIZATION",
+      "description": "A multimedia messaging app that allows users to send and receive 'snaps'—photos and videos that are hidden from the recipient after being viewed, promoting real-time and ephemeral communication"
+    },
+    {
+      "name": "CITIZEN JOURNALISM",
+      "type": "EVENT",
+      "description": "The practice of citizens playing an active role in the process of collecting, reporting, analyzing, and disseminating news and information, often facilitated by social media platforms"
+    },
+    {
+      "name": "FAKE NEWS",
+      "type": "EVENT",
+      "description": "The spread of false or misleading information, often through social media, which can have serious real-world consequences and impact public opinion and trust"
+    },
+    {
+      "name": "MARGINALIZED GROUPS",
+      "type": "PERSON",
+      "description": "Communities or individuals who are underrepresented or disadvantaged in society, often using social media to raise awareness and advocate for their rights and issues"
+    },
+    {
+      "name": "MENTAL HEALTH",
+      "type": "EVENT",
+      "description": "The psychological and emotional well-being of individuals, which can be negatively affected by the use of social media, particularly through the constant need for validation and comparison with others"
+    },
+    {
+      "name": "INFORMATION SHARING",
+      "type": "EVENT",
+      "description": "The act of disseminating news, data, and content through social media platforms, which has become faster and more widespread compared to traditional media"
+    },
+    {
+      "name": "SOCIAL ACTIVISM",
+      "type": "EVENT",
+      "description": "The use of social media to promote social and political change, often by marginalized groups and individuals"
+    },
+    {
+      "name": "SUPERFICIAL COMMUNICATION",
+      "type": "EVENT",
+      "description": "A form of communication on social media that is often characterized by a lack of depth and meaningful interaction, such as likes, shares, and emojis"
+    },
+    {
+      "name": "ONLINE RELATIONSHIPS",
+      "type": "EVENT",
+      "description": "The connections and interactions formed and maintained through social media, which can sometimes prioritize online engagement over face-to-face interactions"
+    },
+    {
+      "name": "COMMUNICATION",
+      "type": "",
+      "description": ""
+    }
+  ],
+  "relations": [
+    [
+      "SOCIAL MEDIA",
+      ":has_relation_with",
+      "FACEBOOK",
+      "Facebook is one of the major social media platforms that has revolutionized communication and interaction online"
+    ],
+    [
+      "SOCIAL MEDIA",
+      ":has_relation_with",
+      "TWITTER",
+      "Twitter is a key social media platform that has transformed the way news and information are shared and discussed online"
+    ],
+    [
+      "SOCIAL MEDIA",
+      ":has_relation_with",
+      "INSTAGRAM",
+      "Instagram is a social media platform that has changed the way visual content is shared and consumed, fostering a sense of community and connection"
+    ],
+    [
+      "SOCIAL MEDIA",
+      ":has_relation_with",
+      "SNAPCHAT",
+      "Snapchat is a social media app that has introduced ephemeral and real-time communication, enhancing the immediacy and intimacy of online interactions"
+    ],
+    [
+      "SOCIAL MEDIA",
+      ":has_relation_with",
+      "CITIZEN JOURNALISM",
+      "Social media platforms have enabled the rise of citizen journalism, allowing individuals to report and share news and information more widely and quickly"
+    ],
+    [
+      "SOCIAL MEDIA",
+      ":has_relation_with",
+      "FAKE NEWS",
+      "The ease of sharing information on social media has contributed to the spread of fake news and misinformation, posing significant challenges to the accuracy and reliability of information"
+    ],
+    [
+      "SOCIAL MEDIA",
+      ":has_relation_with",
+      "MARGINALIZED GROUPS",
+      "Social media has provided a platform for marginalized groups to share their stories, raise awareness, and advocate for change, amplifying their voices and visibility"
+    ],
+    [
+      "SOCIAL MEDIA",
+      ":has_relation_with",
+      "MENTAL HEALTH",
+      "The use of social media can have both positive and negative impacts on mental health, with concerns about the effects of constant validation and comparison on self-esteem and well-being"
+    ],
+    [
+      "SOCIAL MEDIA",
+      ":has_relation_with",
+      "COMMUNICATION",
+      "Social media has revolutionized the way we communicate, making it easier to connect with others regardless of physical distance"
+    ],
+    [
+      "SOCIAL MEDIA",
+      ":has_relation_with",
+      "INFORMATION SHARING",
+      "Social media has transformed the way information is shared, enabling rapid dissemination and user-generated content"
+    ],
+    [
+      "SOCIAL MEDIA",
+      ":has_relation_with",
+      "SOCIAL ACTIVISM",
+      "Social media has become a powerful tool for social activism, allowing marginalized groups to raise awareness and advocate for change"
+    ],
+    [
+      "SOCIAL MEDIA",
+      ":has_relation_with",
+      "SUPERFICIAL COMMUNICATION",
+      "Social media can promote shallow forms of communication, such as likes and shares, which may prioritize quantity over quality"
+    ],
+    [
+      "SOCIAL MEDIA",
+      ":has_relation_with",
+      "ONLINE RELATIONSHIPS",
+      "Social media has led to the formation of online relationships, which can sometimes take precedence over face-to-face interactions"
+    ],
+    [
+      "FAKE NEWS",
+      ":has_relation_with",
+      "INFORMATION SHARING",
+      "The rapid sharing of information on social media can lead to the spread of fake news and misinformation, which can have serious real-world consequences"
+    ],
+    [
+      "MARGINALIZED GROUPS",
+      ":has_relation_with",
+      "SOCIAL ACTIVISM",
+      "Social activism on social media has provided a platform for marginalized groups to share their stories and advocate for their rights"
+    ],
+    [
+      "MENTAL HEALTH",
+      ":has_relation_with",
+      "SUPERFICIAL COMMUNICATION",
+      "Superficial communication on social media can have negative effects on mental health, contributing to feelings of inadequacy and comparison"
+    ],
+    [
+      "MENTAL HEALTH",
+      ":has_relation_with",
+      "ONLINE RELATIONSHIPS",
+      "The prioritization of online relationships over face-to-face interactions can impact mental health, leading to a lack of meaningful connections"
+    ]
+  ]
+}

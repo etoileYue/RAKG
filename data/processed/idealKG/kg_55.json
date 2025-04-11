@@ -1,0 +1,946 @@
+{
+    "entities": [
+        {
+            "name": "pagan festival",
+            "type": "Cultural Event",
+            "description": "A pagan festival is a religious or cultural celebration that predates Christianity and often involves rituals, ceremonies, and games dedicated to deities.",
+            "attributes": {
+                "Religious Context": "Pre-Christian",
+                "Purpose": "Celebration of deities and cultural values"
+            }
+        },
+        {
+            "name": "1896",
+            "type": "Year",
+            "description": "The year in which the first modern Olympic Games were held in Athens, Greece.",
+            "attributes": {
+                "Event": "First Modern Olympic Games",
+                "Location": "Athens, Greece",
+                "Number of Participating Countries": "14",
+                "Number of Events": "43"
+            }
+        },
+        {
+            "name": "1894",
+            "type": "Year",
+            "description": "The year when the modern Olympic Games were founded by Pierre de Coubertin.",
+            "attributes": {}
+        },
+        {
+            "name": "Roman Emperor Theodosius",
+            "type": "Historical Figure",
+            "description": "The ruler who abolished the ancient Olympics.",
+            "attributes": {}
+        },
+        {
+            "name": "Christianity",
+            "type": "Religion",
+            "description": "Christianity is one of the world\"s major religions, centered on the life and teachings of Jesus Christ.",
+            "attributes": {
+                "Compatibility with Pagan Festivals": "Incompatible"
+            }
+        },
+        {
+            "name": "Doping Tests",
+            "type": "Regulation",
+            "description": "Doping tests are procedures used to ensure fair competition by detecting the use of performance-enhancing substances.",
+            "attributes": {}
+        },
+        {
+            "name": "billions of people around the world",
+            "type": "Global Audience",
+            "description": "Numerous individuals across various countries",
+            "attributes": {}
+        },
+        {
+            "name": "sport",
+            "type": "athletic competition",
+            "description": "A competitive event where participants engage in various physical activities.",
+            "attributes": {}
+        },
+        {
+            "name": "1936 Berlin Olympics",
+            "type": "Event",
+            "description": "The 1936 Summer Olympics, officially known as the Games of the XI Olympiad, were held in Berlin, Germany.",
+            "attributes": {}
+        },
+        {
+            "name": "Roman Empire",
+            "type": "Historical Empire",
+            "description": "The Roman Empire was one of the most significant and influential empires in ancient history, known for its vast territories, advanced legal system, and cultural achievements.",
+            "attributes": {
+                "Time Period": "27 BC - 476 AD (Western Roman Empire), 330 AD - 1453 AD (Eastern Roman Empire)",
+                "Religion": "Initially polytheistic, later adopted Christianity as the state religion"
+            }
+        },
+        {
+            "name": "medals",
+            "type": "Award",
+            "description": "Medals are awards given to athletes for their outstanding performances in the Olympic Games and other sporting events.",
+            "attributes": {
+                "Purpose": "To recognize athletic achievements",
+                "Context": "Olympic Games and other sporting events"
+            }
+        },
+        {
+            "name": "AFGHANISTAN",
+            "type": "country",
+            "description": "Country invaded by the Soviet Union, leading to the boycott of the 1980 Moscow Olympics by several Western countries",
+            "attributes": {}
+        },
+        {
+            "name": "global event",
+            "type": "International Sports Festival",
+            "description": "A major global competition featuring various sports disciplines.",
+            "attributes": {}
+        },
+        {
+            "name": "14 countries",
+            "type": "Participation",
+            "description": "Number of countries that participated",
+            "attributes": {}
+        },
+        {
+            "name": "French",
+            "type": "Nationality",
+            "description": "French refers to the nationality of people from France, a country in Western Europe.",
+            "attributes": {
+                "Country": "France",
+                "Continent": "Europe"
+            }
+        },
+        {
+            "name": "Social Causes",
+            "type": "Cause",
+            "description": "Social causes are issues or movements that athletes may support and advocate for.",
+            "attributes": {}
+        },
+        {
+            "name": "Truce",
+            "type": "Agreement",
+            "description": "The truce, or \"Ekecheiria,\" was a sacred armistice that allowed athletes and spectators to travel safely to the Olympic Games.",
+            "attributes": {}
+        },
+        {
+            "name": "respect",
+            "type": "Value",
+            "description": "Respect is an important value that emphasizes acknowledging the worth and dignity of all individuals, regardless of their background or status.",
+            "attributes": {
+                "Importance in Sports": "High",
+                "Promotion through Events": "Olympic Games"
+            }
+        },
+        {
+            "name": "Modern Athletes",
+            "type": "Person",
+            "description": "Modern athletes use their platform to promote various causes and advocate for social change.",
+            "attributes": {}
+        },
+        {
+            "name": "Global Participation",
+            "type": "Social Activity",
+            "description": "Global participation refers to the involvement of people from all over the world in a common activity or event.",
+            "attributes": {}
+        },
+        {
+            "name": "19th century",
+            "type": "Time Period",
+            "description": "The 19th century spans from the year 1801 to 1900. It was a period marked by significant industrial, political, and cultural changes.",
+            "attributes": {
+                "Start Year": "1801",
+                "End Year": "1900"
+            }
+        },
+        {
+            "name": "Athletes",
+            "type": "Person",
+            "description": "Athletes are individuals who compete in various sports and physical activities.",
+            "attributes": {}
+        },
+        {
+            "name": "Boycotts",
+            "type": "Action",
+            "description": "Boycotts are actions where individuals or groups refuse to participate in an event, often as a form of protest.",
+            "attributes": {}
+        },
+        {
+            "name": "Various Cities Around the World",
+            "type": "Cities",
+            "description": "Different cities have hosted the Olympic Games over the years.",
+            "attributes": {}
+        },
+        {
+            "name": "Four Years",
+            "type": "Time Interval",
+            "description": "A period of four years, also known as an Olympiad.",
+            "attributes": {}
+        },
+        {
+            "name": "NAZI GERMANY",
+            "type": "Authoritarian Regime",
+            "description": "Nazi Germany refers to the period from 1933 to 1945, characterized by the rule of Adolf Hitler and the Nazi Party, known for its aggressive foreign policies, which led to World War II.",
+            "attributes": {}
+        },
+        {
+            "name": "athletics",
+            "type": "Sport",
+            "description": "Athletics, also known as track and field, includes various events such as running, jumping, throwing, and walking. It is one of the oldest and most popular sports in the world.",
+            "attributes": {
+                "Category": "Olympic Sport",
+                "Events": "Running, Jumping, Throwing, Walking"
+            }
+        },
+        {
+            "name": "Doping Scandals",
+            "type": "Controversy",
+            "description": "Doping scandals involve athletes using performance-enhancing drugs, which is against the rules of the Olympic Games.",
+            "attributes": {}
+        },
+        {
+            "name": "WESTERN COUNTRIES",
+            "type": "International",
+            "description": "Group of countries that boycotted the 1980 Moscow Olympics in protest of the Soviet Union's invasion of Afghanistan",
+            "attributes": {}
+        },
+        {
+            "name": "393 AD",
+            "type": "Year",
+            "description": "The year of the abolition of the ancient Olympics by Roman Emperor Theodosius.",
+            "attributes": {}
+        },
+        {
+            "name": "swimming",
+            "type": "Sport",
+            "description": "Swimming is one of the traditional events included in the Olympic Games, alongside athletics and other sports. It has been a part of the Games since their inception.",
+            "attributes": {
+                "Category": "Aquatic Sport",
+                "Olympic Inclusion": "Traditional Event"
+            }
+        },
+        {
+            "name": "peace and understanding among nations",
+            "type": "Promotion",
+            "description": "Peace and understanding among nations refers to the goal of fostering harmony and mutual respect between different countries through shared cultural activities, such as sports.",
+            "attributes": {}
+        },
+        {
+            "name": "political disputes",
+            "type": "Concept",
+            "description": "Political disputes refer to disagreements or conflicts over political issues, often involving different ideologies, policies, or interests.",
+            "attributes": {
+                "Context": "Olympic Games",
+                "Frequency": "Throughout the history of the Olympic Games"
+            }
+        },
+        {
+            "name": "Sand Court",
+            "type": "Playing Surface",
+            "description": "A sand court is a flat, rectangular area covered with fine sand, suitable for playing beach volleyball.",
+            "attributes": {}
+        },
+        {
+            "name": "Fair Play",
+            "type": "Behavioral Principle",
+            "description": "Fair play is the concept of playing a game or sport according to the rules and in a fair manner.",
+            "attributes": {}
+        },
+        {
+            "name": "43 events",
+            "type": "Competition Events",
+            "description": "A total of forty-three athletic competitions held during the inaugural modern Olympic Games.",
+            "attributes": {}
+        },
+        {
+            "name": "1980 Moscow Olympics",
+            "type": "Event",
+            "description": "The 1980 Summer Olympics, officially known as the Games of the XXII Olympiad, were held in Moscow, Soviet Union.",
+            "attributes": {}
+        },
+        {
+            "name": "Unity",
+            "type": "Social Concept",
+            "description": "Unity refers to a state where people from different backgrounds come together and work towards common goals.",
+            "attributes": {}
+        },
+        {
+            "name": "snowboarding",
+            "type": "Sport",
+            "description": "Snowboarding is a winter sport that involves descending snow-covered slopes while standing on a board attached to the rider\"s feet.",
+            "attributes": {
+                "Category": "Winter Sport",
+                "Olympic Inclusion": "Yes"
+            }
+        },
+        {
+            "name": "beach volleyball",
+            "type": "Sport",
+            "description": "Beach volleyball is a team sport played by two teams of two players each on a sand court divided by a net.",
+            "attributes": {
+                "Category": "Olympic Sport",
+                "Number of Players per Team": "2"
+            }
+        }
+    ],
+    "relations": [
+        [
+            "doping scandals",
+            "Affected",
+            "Athletes",
+            "Numerous athletes have been affected by doping scandals, leading to the loss of their medals."
+        ],
+        [
+            "French",
+            "Is Nationality Of",
+            "Pierre de Coubertin",
+            "Pierre de Coubertin is a person with French nationality."
+        ],
+        [
+            "Greece",
+            "Olympic Games",
+            "held_in",
+            "Greece is the location where Olympic Games are held."
+        ],
+        [
+            "776 BC",
+            "Occurred In",
+            "Olympia, Greece",
+            "The first ancient Olympic Games were held in 776 BC in Olympia, Greece."
+        ],
+        [
+            "Greece",
+            "Honors",
+            "Zeus",
+            "Greece honors Zeus, the Greek god, through the ancient Olympic Games."
+        ],
+        [
+            "ancient Olympics",
+            "pagan festival",
+            "seen as",
+            "The ancient Olympics were seen as a significant pagan festival."
+        ],
+        [
+            "boycotts",
+            "Involved In",
+            "1980 Moscow Olympics",
+            "Several Western countries boycotted the 1980 Moscow Olympics in protest of the Soviet Union\"s invasion of Afghanistan."
+        ],
+        [
+            "beach volleyball",
+            "Included In",
+            "Olympics",
+            "Beach volleyball is one of the newer additions to the Olympic Games."
+        ],
+        [
+            "776 BC",
+            "Marked Beginning Of",
+            "Ancient Olympic Games",
+            "The year 776 BC marked the beginning of the ancient Olympic Games, which were held in Olympia, Greece."
+        ],
+        [
+            "1894",
+            "modern Olympic Games",
+            "undefine",
+            "year of founding"
+        ],
+        [
+            "OLYMPIC GAMES",
+            "founded",
+            "PIERRE DE COUBERTIN",
+            "Pierre de Coubertin founded the modern Olympic Games in 1894"
+        ],
+        [
+            "MOSCOW",
+            "hosted",
+            "SOVIET UNION",
+            "The Soviet Union hosted the 1980 Moscow Olympics"
+        ],
+        [
+            "1896",
+            "Founded By",
+            "Pierre de Coubertin",
+            "The modern Olympic Games were founded by Pierre de Coubertin in 1894, leading to the first games being held in 1896."
+        ],
+        [
+            "pagan festival",
+            "Deemed Incompatible With",
+            "Christianity",
+            "Pagan festivals were seen as incompatible with Christianity due to their polytheistic nature."
+        ],
+        [
+            "athletics",
+            "Competed In",
+            "Ancient Greek City-States",
+            "Athletics was one of the events competed in by athletes from ancient Greek city-states."
+        ],
+        [
+            "Christianity",
+            "Deemed Incompatible With",
+            "Olympic Games",
+            "Christianity deemed the Olympic Games incompatible due to their pagan origins and nature."
+        ],
+        [
+            "political disputes",
+            "Associated With",
+            "Doping Scandals",
+            "Political disputes have sometimes been intertwined with doping scandals during the Olympic Games."
+        ],
+        [
+            "19th century",
+            "Revived",
+            "Olympic Games",
+            "The 19th century saw the revival of the Olympic Games, which had been forgotten for over a thousand years."
+        ],
+        [
+            "OLYMPIC GAMES",
+            "origin",
+            "OLYMPIA",
+            "The Olympic Games originated in Olympia, where they were held in honor of Zeus"
+        ],
+        [
+            "Zeus",
+            "Honored During",
+            "Ancient Olympic Games",
+            "The ancient Olympic Games were dedicated to Zeus and served as a religious festival."
+        ],
+        [
+            "athletes",
+            "Represent",
+            "City-States, Countries",
+            "Athletes represent their city-states or countries in the Olympic Games."
+        ],
+        [
+            "doping scandals",
+            "Occurred During",
+            "Olympic Games",
+            "Doping scandals have occurred throughout the history of the Olympic Games."
+        ],
+        [
+            "Olympia",
+            "Olympic Games",
+            "started_at",
+            "The Olympic Games started at Olympia."
+        ],
+        [
+            "athletes",
+            "Promote",
+            "Social Causes",
+            "Athletes use their platform to promote social causes they believe in."
+        ],
+        [
+            "1896",
+            "Originated In",
+            "Olympia",
+            "The ancient beginnings of the Olympic Games originated in the city of Olympia."
+        ],
+        [
+            "ancient Greece",
+            "Hosted",
+            "ancient Olympic Games",
+            "Ancient Greece hosted the ancient Olympic Games, which were a significant cultural and religious event."
+        ],
+        [
+            "athletics",
+            "included in",
+            "modern Olympic Games",
+            "Athletics is included in the modern Olympic Games."
+        ],
+        [
+            "fair play",
+            "Celebrated In",
+            "Olympic Games",
+            "Sportsmanship is celebrated as part of the broader celebration of human excellence during the Olympic Games."
+        ],
+        [
+            "beach volleyball",
+            "Played On",
+            "Sand Court",
+            "Beach volleyball is played on a sand court."
+        ],
+        [
+            "Greece",
+            "Hosted Event",
+            "First Modern Olympic Games",
+            "Greece hosted the first modern Olympic Games in 1896."
+        ],
+        [
+            "fair play",
+            "Unified By",
+            "Athletes from All Corners of the Globe",
+            "Sportsmanship unifies athletes regardless of their race, religion, or political affiliation."
+        ],
+        [
+            "Soviet Union",
+            "Hosted",
+            "1980 Moscow Olympics",
+            "The Soviet Union hosted the 1980 Moscow Olympics, which were boycotted by several Western countries due to the invasion of Afghanistan."
+        ],
+        [
+            "SOVIET UNION",
+            "conflict",
+            "WESTERN COUNTRIES",
+            "The Soviet Union's invasion of Afghanistan led to a boycott of the 1980 Moscow Olympics by several Western countries"
+        ],
+        [
+            "respect",
+            "Facilitates",
+            "Global Participation",
+            "Respect facilitates global participation by ensuring that athletes and nations are treated equally, regardless of their background."
+        ],
+        [
+            "fair play",
+            "Symbolized By",
+            "Olympic Games",
+            "The Olympic Games symbolize the values of sportsmanship, fair play, and respect."
+        ],
+        [
+            "Olympic motto",
+            "Embodies Spirit Of",
+            "Olympic Games",
+            "The Olympic motto embodies the spirit of the Olympic Games, which is characterized by unity, sportsmanship, and excellence."
+        ],
+        [
+            "Olympic Games",
+            "Zeus",
+            "dedicated_to",
+            "The Olympic Games, dedicated to Zeus, were a series of athletic competitions held in ancient Greece and are believed to have been initiated as a way to honor the king of the gods."
+        ],
+        [
+            "pagan festival",
+            "Associated With",
+            "Olympic Games",
+            "The Olympic Games were initially a pagan festival dedicated to Zeus."
+        ],
+        [
+            "fair play",
+            "Emphasized In",
+            "Future Olympics",
+            "The importance of sportsmanship is emphasized as a key value for future Olympic Games."
+        ],
+        [
+            "OLYMPIC GAMES",
+            "hosted",
+            "BERLIN",
+            "The 1936 Berlin Olympics were used as a propaganda tool by Nazi Germany"
+        ],
+        [
+            "Nazi Germany",
+            "Used as Propaganda Tool",
+            "1936 Berlin Olympics",
+            "Nazi Germany used the 1936 Berlin Olympics as a propaganda tool to promote its ideology and showcase the supposed superiority of the Aryan race."
+        ],
+        [
+            "fair play",
+            "Promoted In",
+            "Olympic Games",
+            "Sportsmanship is promoted as one of the core values during the Olympic Games."
+        ],
+        [
+            "Citius, Altius, Fortius",
+            "Inspires",
+            "Athletes",
+            "\"Citius, Altius, Fortius\" inspires athletes to push themselves to new heights of achievement."
+        ],
+        [
+            "Roman Empire",
+            "Emperor",
+            "Theodosius I",
+            "Theodosius I, as the Roman Emperor, abolished the ancient Olympic Games in 393 AD."
+        ],
+        [
+            "1896",
+            "Participated In By",
+            "14 Countries",
+            "Athletes from 14 countries participated in the first modern Olympic Games."
+        ],
+        [
+            "Pierre de Coubertin",
+            "founded by",
+            "modern Olympic Games",
+            "Pierre de Coubertin founded the modern Olympic Games."
+        ],
+        [
+            "19th century",
+            "Inspired",
+            "Pierre de Coubertin",
+            "The 19th century inspired Pierre de Coubertin, leading him to found the modern Olympic Games in 1894."
+        ],
+        [
+            "Pierre de Coubertin",
+            "Founded",
+            "Modern Olympic Games",
+            "Pierre de Coubertin founded the modern Olympic Games, which have become a global celebration of sportsmanship and human achievement."
+        ],
+        [
+            "ancient Greece",
+            "Originated",
+            "Olympia",
+            "The ancient Olympic Games originated in the city of Olympia, which was a significant religious and cultural center in ancient Greece."
+        ],
+        [
+            "Soviet Union",
+            "Invaded",
+            "Afghanistan",
+            "The Soviet Union invaded Afghanistan in 1979, leading to international condemnation and the boycott of the 1980 Moscow Olympics."
+        ],
+        [
+            "BERLIN",
+            "utilized",
+            "NAZI GERMANY",
+            "Nazi Germany used the 1936 Berlin Olympics as a propaganda tool"
+        ],
+        [
+            "respect",
+            "Encourages",
+            "Fair Play",
+            "Respect encourages athletes to adhere to the principles of fair play."
+        ],
+        [
+            "peace and understanding among nations",
+            "promotes",
+            "sport",
+            "Sport promotes peace and understanding among nations by providing a platform for international cooperation, shared experiences, and mutual respect through competitive and collaborative activities."
+        ],
+        [
+            "added to",
+            "modern Olympic Games",
+            "snowboarding",
+            "Snowboarding was added to the modern Olympic Games."
+        ],
+        [
+            "respect",
+            "Fosters",
+            "Sportsmanship",
+            "Respect fosters good sportsmanship among athletes."
+        ],
+        [
+            "MOSCOW",
+            "involvement",
+            "AFGHANISTAN",
+            "The Soviet Union's invasion of Afghanistan led to the boycott of the 1980 Moscow Olympics"
+        ],
+        [
+            "Olympic Games",
+            "Have Faced Controversies Such As",
+            "Political Issues, Doping Scandals",
+            "The Olympic Games have faced various controversies, including political issues and doping scandals."
+        ],
+        [
+            "billions of people around the world",
+            "capture attention of",
+            "modern Olympic Games",
+            "The modern Olympic Games capture the attention of billions of people around the world."
+        ],
+        [
+            "Olympic motto",
+            "Inspires",
+            "Athletes",
+            "The Olympic motto inspires athletes to push themselves to new heights of achievement."
+        ],
+        [
+            "393 AD",
+            "ancient Olympics",
+            "time of abolition",
+            "The year 393 AD marks the time when the ancient Olympic Games were abolished."
+        ],
+        [
+            "Olympic Games",
+            "Held Every",
+            "Four Years",
+            "The Olympic Games are held every four years."
+        ],
+        [
+            "athletics",
+            "Promoted By",
+            "Modern Athletes",
+            "Modern athletes often promote athletics and other sports as a means to advocate for social issues."
+        ],
+        [
+            "Greece",
+            "Origin of",
+            "Ancient Olympic Games",
+            "Greece is the origin of the ancient Olympic Games."
+        ],
+        [
+            "Olympic Games",
+            "Include Sports Such As",
+            "Athletics, Swimming, Snowboarding, Beach Volleyball",
+            "The Olympic Games include a wide range of sports, from traditional events like athletics and swimming to newer additions like snowboarding and beach volleyball."
+        ],
+        [
+            "OLYMPIC GAMES",
+            "location",
+            "MOSCOW",
+            "The 1980 Moscow Olympics were boycotted by several Western countries"
+        ],
+        [
+            "Olympic Games",
+            "Promote Values Such As",
+            "Unity, Sportsmanship, Excellence",
+            "The Olympic Games promote values such as unity, sportsmanship, and excellence."
+        ],
+        [
+            "boycotts",
+            "Occurred During",
+            "Olympic Games",
+            "Boycotts have occurred during the history of the Olympic Games."
+        ],
+        [
+            "snowboarding",
+            "Part Of",
+            "Olympic Games",
+            "Snowboarding is one of the sports included in the Olympic Games."
+        ],
+        [
+            "Afghanistan",
+            "Invaded By",
+            "Soviet Union",
+            "In 1979, the Soviet Union invaded Afghanistan, leading to significant international condemnation and boycotts."
+        ],
+        [
+            "Olympic Games",
+            "Dedicated To",
+            "Zeus",
+            "The ancient Olympic Games were a religious festival dedicated to Zeus."
+        ],
+        [
+            "Pierre de Coubertin",
+            "Inspired By",
+            "Ancient Olympics",
+            "Pierre de Coubertin was inspired by the ancient Olympics and believed that sport could promote peace and understanding among nations."
+        ],
+        [
+            "medals",
+            "Stripped From",
+            "athletes",
+            "Medals have been stripped from athletes due to doping violations."
+        ],
+        [
+            "Olympia",
+            "Olympic Games",
+            "originated_in",
+            "Olympia originated_in the Olympic Games"
+        ],
+        [
+            "ancient Greece",
+            "Influenced",
+            "modern Olympic Games",
+            "The ancient Greek tradition of the Olympic Games influenced the creation of the modern Olympic Games."
+        ],
+        [
+            "OLYMPIC GAMES",
+            "origin",
+            "ATHENS",
+            "The first modern Olympic Games were held in Athens in 1896"
+        ],
+        [
+            "Theodosius",
+            "Abolished",
+            "Ancient Olympic Games",
+            "Theodosius, as Roman Emperor, ordered the abolition of the ancient Olympic Games in 393 AD."
+        ],
+        [
+            "athletes",
+            "Participate In",
+            "Doping Tests",
+            "Athletes participate in doping tests, and some have been stripped of their medals due to violations."
+        ],
+        [
+            "1896",
+            "Participated In",
+            "Truce",
+            "During the Olympic Games, warring city-states would lay down their arms to participate in friendly competition."
+        ],
+        [
+            "OLYMPIC GAMES",
+            "origin",
+            "GREECE",
+            "The Olympic Games have strong ties to Greece, both in ancient and modern times"
+        ],
+        [
+            "added to",
+            "beach volleyball",
+            "modern Olympic Games",
+            "undefine"
+        ],
+        [
+            "SOVIET UNION",
+            "invasion",
+            "AFGHANISTAN",
+            "The Soviet Union invaded Afghanistan, leading to international political disputes"
+        ],
+        [
+            "Olympic Games",
+            "Revived By",
+            "Pierre de Coubertin",
+            "The modern Olympic Games were revived by Pierre de Coubertin."
+        ],
+        [
+            "MOSCOW",
+            "boycott",
+            "WESTERN COUNTRIES",
+            "Several Western countries boycotted the 1980 Moscow Olympics in protest of the Soviet Union's actions"
+        ],
+        [
+            "included in",
+            "modern Olympic Games",
+            "swimming",
+            "undefine"
+        ],
+        [
+            "Olympic Games",
+            "ancient Greece",
+            "originated_in",
+            "The Olympic Games originated in ancient Greece."
+        ],
+        [
+            "1896",
+            "Held In Honor Of",
+            "Zeus",
+            "The ancient Olympic Games were held in honor of Zeus, the supreme deity of the Greek pantheon."
+        ],
+        [
+            "Olympic Games",
+            "Have Been Hosted By",
+            "Various Cities Around the World",
+            "The Olympic Games have been hosted by various cities around the world."
+        ],
+        [
+            "political disputes",
+            "Occurred During",
+            "Olympic Games",
+            "Political disputes have occurred during the history of the Olympic Games."
+        ],
+        [
+            "Roman Emperor Theodosius",
+            "abolished by",
+            "ancient Olympics",
+            "Roman Emperor Theodosius abolished the ancient Olympic Games."
+        ],
+        [
+            "respect",
+            "Promotes",
+            "Unity",
+            "Respect helps promote unity among athletes and nations during the Olympic Games."
+        ],
+        [
+            "Roman Empire",
+            "Abolished",
+            "Ancient Olympic Games",
+            "The Roman Empire, under Emperor Theodosius I, abolished the ancient Olympic Games in 393 AD, deeming them incompatible with Christianity."
+        ],
+        [
+            "Pierre de Coubertin",
+            "Promoted",
+            "Peace and Understanding Among Nations",
+            "Pierre de Coubertin believed that sport could promote peace and understanding among nations."
+        ],
+        [
+            "Citius, Altius, Fortius",
+            "Motto Of",
+            "Olympic Games",
+            "\"Citius, Altius, Fortius\" is the official motto of the Olympic Games."
+        ],
+        [
+            "athletes",
+            "Compete In",
+            "Olympic Games",
+            "Athletes from around the world gather to compete in various events at the Olympic Games."
+        ],
+        [
+            "respect",
+            "Component Of",
+            "Olympic Values",
+            "Respect is one of the core values promoted by the Olympic Games."
+        ],
+        [
+            "1896",
+            "modern Olympic Games",
+            "undefine",
+            "year of first"
+        ],
+        [
+            "became",
+            "global event",
+            "modern Olympic Games",
+            "The modern Olympic Games became a global event."
+        ],
+        [
+            "Afghanistan",
+            "Boycotted By",
+            "Western Countries",
+            "Several Western countries boycotted the 1980 Moscow Olympics in protest of the Soviet Union\"s invasion of Afghanistan."
+        ],
+        [
+            "1896",
+            "Evolved Into",
+            "Modern Olympic Games",
+            "The ancient beginnings of the Olympic Games eventually evolved into the modern-day global phenomenon known as the Olympic Games."
+        ],
+        [
+            "OLYMPIC GAMES",
+            "worship",
+            "ZEUS",
+            "The Olympic Games were originally held as a religious festival in honor of Zeus"
+        ],
+        [
+            "athletics",
+            "Included In",
+            "Olympic Games",
+            "Athletics is included as one of the main events in the Olympic Games."
+        ],
+        [
+            "Greece",
+            "Home to",
+            "Olympia",
+            "Greece is home to the city of Olympia, where the ancient Olympic Games were held."
+        ],
+        [
+            "OLYMPIC GAMES",
+            "abolished",
+            "THEODOSIUS",
+            "The Olympic Games were abolished by Theodosius in 393 AD"
+        ],
+        [
+            "medals",
+            "Awarded To",
+            "athletes",
+            "Medals are awarded to athletes for their outstanding performances."
+        ],
+        [
+            "Christianity",
+            "deemed incompatible with",
+            "pagan festival",
+            "Christianity is deemed incompatible with pagan festivals due to their differing beliefs and practices."
+        ],
+        [
+            "political disputes",
+            "Associated With",
+            "Boycotts",
+            "Political disputes have led to boycotts during the Olympic Games."
+        ],
+        [
+            "swimming",
+            "Part Of",
+            "Olympic Games",
+            "Swimming is one of the traditional events included in the Olympic Games."
+        ],
+        [
+            "1896",
+            "Competed In",
+            "Olympic Games",
+            "City-states would send athletes to compete in various events at the Olympic Games."
+        ],
+        [
+            "1896",
+            "Held In",
+            "Athens, Greece",
+            "The first modern Olympic Games were held in Athens, Greece."
+        ],
+        [
+            "ancient Greece",
+            "Honored",
+            "Zeus",
+            "The ancient Olympic Games were held in honor of Zeus, the most important deity in the Greek pantheon."
+        ]
+    ]
+}

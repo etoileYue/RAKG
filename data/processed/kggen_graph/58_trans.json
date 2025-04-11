@@ -1,0 +1,198 @@
+{
+  "entities": [
+    {
+      "name": "cancer"
+    },
+    {
+      "name": "technology"
+    },
+    {
+      "name": "Louis Pasteur"
+    },
+    {
+      "name": "diseases"
+    },
+    {
+      "name": "Robert Koch"
+    },
+    {
+      "name": "William Morton"
+    },
+    {
+      "name": "scientific discoveries"
+    },
+    {
+      "name": "pharmaceutical industry"
+    },
+    {
+      "name": "genetic makeup"
+    },
+    {
+      "name": "advanced medical technologies"
+    },
+    {
+      "name": "healthcare"
+    },
+    {
+      "name": "Alexander Fleming"
+    },
+    {
+      "name": "diabetes"
+    },
+    {
+      "name": "personalized medicine"
+    },
+    {
+      "name": "Andreas Vesalius"
+    },
+    {
+      "name": "surgical techniques"
+    },
+    {
+      "name": "ancient civilizations"
+    },
+    {
+      "name": "vaccines"
+    },
+    {
+      "name": "supernatural causes"
+    },
+    {
+      "name": "germs"
+    },
+    {
+      "name": "hypertension"
+    },
+    {
+      "name": "human anatomy"
+    },
+    {
+      "name": "antibiotics"
+    },
+    {
+      "name": "physiology"
+    },
+    {
+      "name": "X-ray"
+    },
+    {
+      "name": "germ theory"
+    },
+    {
+      "name": "CT scans"
+    },
+    {
+      "name": "penicillin"
+    },
+    {
+      "name": "antibiotic era"
+    },
+    {
+      "name": "laparoscopy"
+    },
+    {
+      "name": "technological innovations"
+    },
+    {
+      "name": "Wilhelm Roentgen"
+    },
+    {
+      "name": "artificial intelligence"
+    },
+    {
+      "name": "bacterial infections"
+    },
+    {
+      "name": "equity and inclusivity in healthcare delivery"
+    },
+    {
+      "name": "Renaissance period"
+    },
+    {
+      "name": "wearable devices"
+    },
+    {
+      "name": "illnesses"
+    },
+    {
+      "name": "electronic health records"
+    },
+    {
+      "name": "19th century"
+    },
+    {
+      "name": "MRI"
+    },
+    {
+      "name": "Modern medicine"
+    },
+    {
+      "name": "Telemedicine"
+    },
+    {
+      "name": "anesthesia"
+    }
+  ],
+  "relations": [
+    [
+      "Wilhelm Roentgen",
+      "invented",
+      "X-ray"
+    ],
+    [
+      "germ theory",
+      "paved the way for",
+      "antibiotics"
+    ],
+    [
+      "Robert Koch",
+      "developed",
+      "germ theory"
+    ],
+    [
+      "Louis Pasteur",
+      "developed",
+      "germ theory"
+    ],
+    [
+      "surgical techniques",
+      "refinement_of",
+      "laparoscopy"
+    ],
+    [
+      "germ theory",
+      "paved the way for",
+      "vaccines"
+    ],
+    [
+      "antibiotic era",
+      "revolutionized",
+      "bacterial infections"
+    ],
+    [
+      "William Morton",
+      "introduced",
+      "anesthesia"
+    ],
+    [
+      "Alexander Fleming",
+      "discoverer_of",
+      "penicillin"
+    ],
+    [
+      "penicillin",
+      "beginning_of",
+      "antibiotic era"
+    ],
+    [
+      "technology",
+      "integrated_into",
+      "healthcare"
+    ],
+    [
+      "pharmaceutical industry",
+      "discovery_of",
+      "penicillin"
+    ]
+  ]
+}

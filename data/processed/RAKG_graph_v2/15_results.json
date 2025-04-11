@@ -1,0 +1,80 @@
+[
+  {
+    "correct_answer": "Ancient Egyptian burial practices reflect Egyptians' beliefs about the afterlife.",
+    "retrieved_context": " Egyptian burial practices\nCultural Practice  Egyptian Burial Practices\nCultural Practice  Elaborate Tombs\nBurial Practice  Burial Practices\nCultural Practice  ancient Egyptians\nCulture  Ancient Egyptians\nCulture  elaborate tombs\nBurial Structure  Egyptian tombs\nLocation",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Elaborate tombs were constructed to house pharaohs and important individuals.",
+    "retrieved_context": " Egyptian tombs\nLocation  elaborate tombs\nBurial Structure  Elaborate Tombs\nBurial Practice  pyramids\nMonumental Structure relation: afterlife --[Provided with]-> items for comfort and sustenance relation: pharaohs --[Protected By]-> pyramids relation: afterlife --[Navigated with]-> religious texts and amulets relation: pharaohs --[Guided By]-> religious texts and amulets relation: afterlife --[Included in]-> elaborate tombs relation: afterlife --[Believed in by]-> ancient Egyptians relation: pharaohs --[Served As Gateway To]-> afterlife relation: afterlife --[Required for]-> mummification process  afterlife\nConcept  pharaohs\nPerson  religious texts and amulets\nReligious Artifacts  pyramids\nMonumental Structure  Egyptian burial practices\nCultural Practice  Egyptian Burial Practices\nCultural Practice  tomb\nBurial Site",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Pyramids at Giza were designed to protect the deceased's body and possessions.",
+    "retrieved_context": "relation: afterlife --[Provided with]-> items for comfort and sustenance  pyramids at Giza\nMonumental Structures relation: afterlife --[Navigated with]-> religious texts and amulets  afterlife\nConcept relation: afterlife --[Included in]-> elaborate tombs  Egyptian burial practices\nCultural Practice relation: pyramids at Giza --[Reflects beliefs about]-> afterlife relation: afterlife --[Required for]-> mummification process relation: pyramids at Giza --[Associated with]-> Egyptian burial practices relation: afterlife --[Believed in by]-> ancient Egyptians  pyramids\nMonumental Structure  elaborate tombs\nBurial Structure  Pyramids\nStructure  Elaborate Tombs\nBurial Practice  Egyptian burial practices\nCultural Practice  Egyptian Burial Practices\nCultural Practice  Egyptian tombs\nLocation",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Items like food, clothing, and jewelry were buried with the deceased.",
+    "retrieved_context": " items for comfort and sustenance\nBurial Goods  tomb\nBurial Site  Elaborate Tombs\nBurial Practice  elaborate tombs\nBurial Structure  Burial Practices\nCultural Practice  Items for the Afterlife\nFunerary Item  Items for Afterlife\nObject  Egyptian burial practices\nCultural Practice",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Mummification was used to preserve the body for the afterlife.",
+    "retrieved_context": " Mummification process\nBurial Practice  Mummification\nFunerary Practice  mummification process\nFunerary Practice  Mummification Process\nFunerary Practice  Elaborate Tombs\nBurial Practice  Rituals to Honor the Deceased\nRitual  Egyptian burial practices\nCultural Practice  Egyptian Burial Practices\nCultural Practice",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Mummification involved removing internal organs and drying out the body.",
+    "retrieved_context": " Mummification process\nBurial Practice  mummification process\nFunerary Practice  Mummification Process\nFunerary Practice  Mummification\nFunerary Practice relation: embalmers --[Participates in]-> Mummification Process  embalmers\nOccupation relation: embalmers --[Works with]-> Skilled Individuals  Priests\nOccupation relation: embalmers --[Works with]-> Priests  Skilled Individuals\nOccupation  Mummification Process\nFunerary Practice  Elaborate Tombs\nBurial Practice  Egyptian burial practices\nCultural Practice  Egyptian Burial Practices\nCultural Practice",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Religious texts and amulets were included in the burial chamber.",
+    "retrieved_context": " religious texts and amulets\nReligious Artifacts  Religious Texts and Amulets\nFunerary Item  Elaborate Tombs\nBurial Practice  elaborate tombs\nBurial Structure  burial chamber\nLocation  tomb\nBurial Site  Safe passage into the afterlife and continued existence in the realm of the gods\nAfterlife Belief  Egyptian tombs\nLocation relation: Book of the Dead --[Found in]-> Egyptian tombs  Mummification process\nBurial Practice relation: Book of the Dead --[Serves to ensure]-> Safe passage into the afterlife and continued existence in the realm of the gods relation: Book of the Dead --[Associated with]-> Mummification process  Book of the Dead\nReligious Text  Burial Practices\nCultural Practice",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "The Book of the Dead helped the deceased navigate the afterlife.",
+    "retrieved_context": " Safe passage into the afterlife and continued existence in the realm of the gods\nAfterlife Belief  Egyptian tombs\nLocation relation: Book of the Dead --[Found in]-> Egyptian tombs  Mummification process\nBurial Practice relation: Book of the Dead --[Serves to ensure]-> Safe passage into the afterlife and continued existence in the realm of the gods relation: Book of the Dead --[Associated with]-> Mummification process  Book of the Dead\nReligious Text  safe passage into the afterlife\nConcept  Safe passage into the afterlife and continued existence in the realm of the gods\nAfterlife Belief relation: afterlife --[Provided with]-> items for comfort and sustenance  items for comfort and sustenance\nBurial Goods relation: afterlife --[Navigated with]-> religious texts and amulets  mummification process\nFunerary Practice relation: afterlife --[Included in]-> elaborate tombs relation: afterlife --[Believed in by]-> ancient Egyptians relation: afterlife --[Required for]-> mummification process  afterlife\nConcept  ancient Egyptians\nCulture  elaborate tombs\nBurial Structure  religious texts and amulets\nReligious Artifacts  Afterlife\nConcept  The Deceased\nPerson  The deceased\"s family\nGroup of People  The Deceased\nPerson relation: The deceased\"s family --[Buried with]-> The Deceased relation: The deceased\"s family --[Hired]-> Professional Mourners  Professional Mourners\nPerson  Items for the Afterlife\nFunerary Item",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Burial process required priests, embalmers, and skilled individuals.",
+    "retrieved_context": " Elaborate Tombs\nBurial Practice  Burial Practices\nCultural Practice  Mummification process\nBurial Practice relation: embalmers --[Participates in]-> Mummification Process  embalmers\nOccupation relation: embalmers --[Works with]-> Skilled Individuals  Priests\nOccupation relation: embalmers --[Works with]-> Priests  Skilled Individuals\nOccupation  Mummification Process\nFunerary Practice  elaborate tombs\nBurial Structure  Egyptian burial practices\nCultural Practice  Egyptian Burial Practices\nCultural Practice  Rituals to Honor the Deceased\nRitual",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Professional mourners were hired to lead funeral processions.",
+    "retrieved_context": " Funeral Procession\nEvent  Funeral Procession\nEvent relation: professional mourners --[Performs]-> Rituals to Honor the Deceased relation: professional mourners --[Participates in]-> Funeral Procession  professional mourners\nOccupation  Rituals to Honor the Deceased\nRitual  Professional Mourners\nPerson relation: embalmers --[Participates in]-> Mummification Process  embalmers\nOccupation relation: embalmers --[Works with]-> Skilled Individuals  Priests\nOccupation relation: embalmers --[Works with]-> Priests  Skilled Individuals\nOccupation  Mummification Process\nFunerary Practice  Rituals to Honor the Deceased\nRitual  The deceased\"s family\nGroup of People  The Deceased\nPerson relation: The deceased\"s family --[Buried with]-> The Deceased relation: The deceased\"s family --[Hired]-> Professional Mourners  Professional Mourners\nPerson  The Deceased\nPerson  Elaborate Tombs\nBurial Practice",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Common people in ancient Egypt were buried with care and respect.",
+    "retrieved_context": " Egyptian burial practices\nCultural Practice  Egyptian Burial Practices\nCultural Practice  ancient Egyptians\nCulture  Ancient Egyptians\nCulture  Ancient Egypt\nCivilization relation: Ancient Egypt --[Included in Burial Chambers]-> Amulets  Soul Reunion with Body\nReligious Belief  Items for the Afterlife\nFunerary Item relation: Ancient Egypt --[Practiced]-> Mummification  Book of the Dead\nReligious Text relation: Book of the Dead --[Found in]-> Egyptian tombs relation: Book of the Dead --[Serves to ensure]-> Safe passage into the afterlife and continued existence in the realm of the gods relation: Ancient Egypt --[Believed in]-> Soul Reunion with Body relation: Book of the Dead --[Associated with]-> Mummification process  Mummification\nFunerary Practice  Amulets\nFunerary Item relation: Ancient Egypt --[Used]-> Book of the Dead relation: Ancient Egypt --[Buried with]-> Items for the Afterlife  Elaborate Tombs\nBurial Practice  Egyptians\nCultural Group relation: Egyptians --[Performed]-> Mummification relation: Egyptians --[Included in Burials]-> Religious Texts and Amulets relation: Egyptians --[Buried with Items for]-> Afterlife relation: Egyptians --[Practiced]-> Elaborate Tombs  Religious Texts and Amulets\nFunerary Item  Afterlife\nConcept  Soul\nSpiritual Concept  Mummification\nFunerary Practice relation: Egyptians --[Believed in the Existence of]-> Soul  Egyptian tombs\nLocation  Elaborate Tombs\nBurial Practice",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Ordinary Egyptians were buried with items they would need in the afterlife.",
+    "retrieved_context": " Egyptian burial practices\nCultural Practice  Egyptian Burial Practices\nCultural Practice  Elaborate Tombs\nBurial Practice  items for comfort and sustenance\nBurial Goods  Egyptian tombs\nLocation  ancient Egyptians\nCulture  Ancient Egyptians\nCulture  elaborate tombs\nBurial Structure",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Burial practices ensured the deceased's safe passage into the afterlife.",
+    "retrieved_context": " Elaborate Tombs\nBurial Practice  Burial Practices\nCultural Practice  safe passage into the afterlife\nConcept  Rituals to Honor the Deceased\nRitual  Egyptian burial practices\nCultural Practice  Egyptian Burial Practices\nCultural Practice  elaborate tombs\nBurial Structure  tomb\nBurial Site",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Ancient Egyptians believed in the existence of a soul.",
+    "retrieved_context": " soul\nConcept relation: realm of the gods --[Reached by]-> deceased relation: afterlife --[Provided with]-> items for comfort and sustenance  body\nPhysical Entity relation: soul --[Believed to Need Reunification with]-> body relation: afterlife --[Navigated with]-> religious texts and amulets relation: realm of the gods --[Guided to by]-> religious texts and amulets relation: realm of the gods --[Protected by]-> pyramids relation: soul --[Navigates]-> afterlife relation: afterlife --[Included in]-> elaborate tombs  realm of the gods\nConceptual Place  afterlife\nConcept relation: afterlife --[Required for]-> mummification process relation: soul --[Reaches]-> realm of the gods relation: afterlife --[Believed in by]-> ancient Egyptians  ancient Egyptians\nCulture  Ancient Egyptians\nCulture  Soul\nSpiritual Concept  Elaborate Tombs\nBurial Practice  Egyptians\nCultural Group relation: Egyptians --[Performed]-> Mummification relation: Egyptians --[Included in Burials]-> Religious Texts and Amulets relation: Egyptians --[Buried with Items for]-> Afterlife relation: Egyptians --[Practiced]-> Elaborate Tombs  Religious Texts and Amulets\nFunerary Item  Afterlife\nConcept  Soul\nSpiritual Concept  Mummification\nFunerary Practice relation: Egyptians --[Believed in the Existence of]-> Soul  Ancient Egypt\nCivilization relation: Ancient Egypt --[Included in Burial Chambers]-> Amulets  Soul Reunion with Body\nReligious Belief  Items for the Afterlife\nFunerary Item relation: Ancient Egypt --[Practiced]-> Mummification  Book of the Dead\nReligious Text relation: Book of the Dead --[Found in]-> Egyptian tombs relation: Book of the Dead --[Serves to ensure]-> Safe passage into the afterlife and continued existence in the realm of the gods relation: Ancient Egypt --[Believed in]-> Soul Reunion with Body relation: Book of the Dead --[Associated with]-> Mummification process  Mummification\nFunerary Practice  Amulets\nFunerary Item relation: Ancient Egypt --[Used]-> Book of the Dead relation: Ancient Egypt --[Buried with]-> Items for the Afterlife  Egyptian burial practices\nCultural Practice  Egyptian Burial Practices\nCultural Practice",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Ancient Egyptian burial practices were a vital part of Egyptian culture.",
+    "retrieved_context": " Egyptian burial practices\nCultural Practice  Egyptian Burial Practices\nCultural Practice  ancient Egyptians\nCulture  Ancient Egyptians\nCulture  Ancient Egypt\nCivilization relation: Ancient Egypt --[Included in Burial Chambers]-> Amulets  Soul Reunion with Body\nReligious Belief  Items for the Afterlife\nFunerary Item relation: Ancient Egypt --[Practiced]-> Mummification  Book of the Dead\nReligious Text relation: Book of the Dead --[Found in]-> Egyptian tombs relation: Book of the Dead --[Serves to ensure]-> Safe passage into the afterlife and continued existence in the realm of the gods relation: Ancient Egypt --[Believed in]-> Soul Reunion with Body relation: Book of the Dead --[Associated with]-> Mummification process  Mummification\nFunerary Practice  Amulets\nFunerary Item relation: Ancient Egypt --[Used]-> Book of the Dead relation: Ancient Egypt --[Buried with]-> Items for the Afterlife  Burial Practices\nCultural Practice  Elaborate Tombs\nBurial Practice  Egyptian tombs\nLocation",
+    "evaluation": 1
+  },
+  {
+    "accuracy": "100.00%"
+  }
+]

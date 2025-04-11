@@ -1,0 +1,338 @@
+{
+    "entity1": {
+        "name": "Bicycle",
+        "type": "Object",
+        "description": "A two-wheeled vehicle propelled by human power.",
+        "chunkid": "The Evolution of the Bicycle1"
+    },
+    "entity2": {
+        "name": "bicycle",
+        "type": "Object",
+        "description": "A two-wheeled vehicle propelled by the rider, typically with pedals and a simple frame.",
+        "chunkid": "The Evolution of the Bicycle2"
+    },
+    "entity3": {
+        "name": "19th century",
+        "type": "Time Period",
+        "description": "The period of time from 1801 to 1900, characterized by significant industrial and technological advancements.",
+        "chunkid": "The Evolution of the Bicycle2"
+    },
+    "entity4": {
+        "name": "carbon fiber",
+        "type": "Material",
+        "description": "A strong, lightweight material made from thin fibers of carbon, used in various applications requiring high strength-to-weight ratio.",
+        "chunkid": "The Evolution of the Bicycle2"
+    },
+    "entity5": {
+        "name": "Baron Karl von Drais",
+        "type": "Person",
+        "description": "A German inventor who created an early version of the bicycle called the 'draisine' in the early 19th century.",
+        "chunkid": "The Evolution of the Bicycle3"
+    },
+    "entity6": {
+        "name": "Draisine",
+        "type": "Invention",
+        "description": "An early two-wheeled vehicle without pedals, invented by Baron Karl von Drais in the early 19th century. It was propelled by the rider pushing off the ground with their feet.",
+        "chunkid": "The Evolution of the Bicycle3"
+    },
+    "entity7": {
+        "name": "draisine",
+        "type": "Invention",
+        "description": "An early human-powered vehicle, often considered a precursor to the bicycle.",
+        "chunkid": "The Evolution of the Bicycle4"
+    },
+    "entity8": {
+        "name": "mid-19th century",
+        "type": "Time Period",
+        "description": "A period in history that spans from the 1850s to the 1860s.",
+        "chunkid": "The Evolution of the Bicycle5"
+    },
+    "entity9": {
+        "name": "bicycle",
+        "type": "Invention",
+        "description": "A human-powered vehicle with two wheels, typically propelled by pedals.",
+        "chunkid": "The Evolution of the Bicycle5"
+    },
+    "entity10": {
+        "name": "velocipede",
+        "type": "Invention",
+        "description": "An early type of bicycle that featured pedals attached directly to the front wheel, also known as the 'boneshaker'.",
+        "chunkid": "The Evolution of the Bicycle5"
+    },
+    "entity11": {
+        "name": "boneshaker",
+        "type": "Invention",
+        "description": "An early type of bicycle that was a significant improvement over the draisine, offering a smoother ride and greater speed.",
+        "chunkid": "The Evolution of the Bicycle6"
+    },
+    "entity12": {
+        "name": "draisine",
+        "type": "Invention",
+        "description": "An early form of bicycle invented by Baron Karl von Drais, which was improved upon by the boneshaker.",
+        "chunkid": "The Evolution of the Bicycle6"
+    },
+    "entity13": {
+        "name": "bicycle",
+        "type": "Object",
+        "description": "A vehicle with two wheels propelled by foot pedals, used for transportation or recreation.",
+        "chunkid": "The Evolution of the Bicycle7"
+    },
+    "entity14": {
+        "name": "high-wheel bicycle",
+        "type": "Invention",
+        "description": "An early type of bicycle characterized by a large front wheel and a much smaller rear wheel, popular in the late 19th century.",
+        "chunkid": "The Evolution of the Bicycle7"
+    },
+    "entity15": {
+        "name": "penny-farthing",
+        "type": "Invention",
+        "description": "Another name for the high-wheel bicycle, named after British coins to describe its size difference between the two wheels.",
+        "chunkid": "The Evolution of the Bicycle7"
+    },
+    "entity16": {
+        "name": "bicycle",
+        "type": "Object",
+        "description": "A vehicle with two wheels, typically propelled by pedals and steered with handlebars.",
+        "chunkid": "The Evolution of the Bicycle8"
+    },
+    "entity17": {
+        "name": "front wheel",
+        "type": "Component",
+        "description": "The larger wheel located at the front of the bicycle, contributing to its distinctive appearance and high center of gravity.",
+        "chunkid": "The Evolution of the Bicycle8"
+    },
+    "entity18": {
+        "name": "rear wheel",
+        "type": "Component",
+        "description": "The smaller wheel located at the back of the bicycle, providing support and balance in conjunction with the front wheel.",
+        "chunkid": "The Evolution of the Bicycle8"
+    },
+    "entity19": {
+        "name": "penny-farthing",
+        "type": "Vehicle",
+        "description": "A type of bicycle popular in the 19th century, characterized by a large front wheel and a much smaller rear wheel.",
+        "chunkid": "The Evolution of the Bicycle9"
+    },
+    "entity20": {
+        "name": "wealthy gentlemen",
+        "type": "Social Group",
+        "description": "A class of affluent men who had the means to afford expensive hobbies or pastimes, such as riding a penny-farthing.",
+        "chunkid": "The Evolution of the Bicycle9"
+    },
+    "entity21": {
+        "name": "safety bicycle",
+        "type": "Invention",
+        "description": "A type of bicycle that was safer and more comfortable to ride, leading to increased popularity in the late 19th century.",
+        "chunkid": "The Evolution of the Bicycle10"
+    },
+    "entity22": {
+        "name": "late 19th century",
+        "type": "Time Period",
+        "description": "The period from around 1870 to 1900, characterized by significant technological and social changes.",
+        "chunkid": "The Evolution of the Bicycle10"
+    },
+    "entity23": {
+        "name": "safety bicycle",
+        "type": "Invention",
+        "description": "A type of bicycle that features two wheels of equal size, a chain drive system, and pneumatic tires, designed to be more stable, comfortable, and efficient than earlier bicycles.",
+        "chunkid": "The Evolution of the Bicycle11"
+    },
+    "entity24": {
+        "name": "safety bicycle",
+        "type": "Invention",
+        "description": "A type of bicycle that was safer and easier to ride than its predecessors, leading to increased popularity in the late 19th century.",
+        "chunkid": "The Evolution of the Bicycle12"
+    },
+    "entity25": {
+        "name": "cycling",
+        "type": "Activity",
+        "description": "The activity or sport of riding bicycles, which gained significant popularity with the introduction of the safety bicycle.",
+        "chunkid": "The Evolution of the Bicycle12"
+    },
+    "entity26": {
+        "name": "bicycle",
+        "type": "Object",
+        "description": "A vehicle with two wheels propelled by foot pedals, used for transportation or recreation.",
+        "chunkid": "The Evolution of the Bicycle13"
+    },
+    "entity27": {
+        "name": "20th century",
+        "type": "Time Period",
+        "description": "The period from 1901 to 2000, characterized by significant technological and social changes.",
+        "chunkid": "The Evolution of the Bicycle13"
+    },
+    "entity28": {
+        "name": "steel",
+        "type": "Material",
+        "description": "A strong and durable metal alloy, primarily composed of iron with a small percentage of carbon.",
+        "chunkid": "The Evolution of the Bicycle14"
+    },
+    "entity29": {
+        "name": "bicycle frames",
+        "type": "Product Component",
+        "description": "The structural framework of a bicycle that supports the rider and other components such as wheels, pedals, and seats.",
+        "chunkid": "The Evolution of the Bicycle14"
+    },
+    "entity30": {
+        "name": "aluminum",
+        "type": "Material",
+        "description": "A lightweight, durable metal used as an alternative to steel in various applications.",
+        "chunkid": "The Evolution of the Bicycle15"
+    },
+    "entity31": {
+        "name": "titanium",
+        "type": "Material",
+        "description": "A strong, corrosion-resistant metal that is lighter than steel and often used in high-performance applications.",
+        "chunkid": "The Evolution of the Bicycle15"
+    },
+    "entity32": {
+        "name": "steel",
+        "type": "Material",
+        "description": "A common alloy of iron and carbon, widely used for its strength and durability in construction and manufacturing.",
+        "chunkid": "The Evolution of the Bicycle15"
+    },
+    "entity33": {
+        "name": "20th century",
+        "type": "Time Period",
+        "description": "A period of 100 years from the year 1901 to 2000.",
+        "chunkid": "The Evolution of the Bicycle16"
+    },
+    "entity34": {
+        "name": "carbon fiber",
+        "type": "Material",
+        "description": "A strong and lightweight material made from thin fibers of carbon, used in various applications including bicycle construction.",
+        "chunkid": "The Evolution of the Bicycle16"
+    },
+    "entity35": {
+        "name": "Carbon fiber frames",
+        "type": "Material",
+        "description": "A type of frame material used in bicycles, known for being lightweight, strong, and aerodynamic.",
+        "chunkid": "The Evolution of the Bicycle17"
+    },
+    "entity36": {
+        "name": "Competitive racing",
+        "type": "Sport",
+        "description": "A form of sport where participants compete against each other to determine the fastest rider or team.",
+        "chunkid": "The Evolution of the Bicycle17"
+    },
+    "entity37": {
+        "name": "High-performance cycling",
+        "type": "Activity",
+        "description": "Cycling that focuses on achieving high speeds and optimal performance, often associated with professional or elite cyclists.",
+        "chunkid": "The Evolution of the Bicycle17"
+    },
+    "entity38": {
+        "name": "carbon fiber",
+        "type": "Material",
+        "description": "A strong, lightweight material used in various applications including bicycle manufacturing.",
+        "chunkid": "The Evolution of the Bicycle18"
+    },
+    "entity39": {
+        "name": "bicycle manufacturing",
+        "type": "Industry",
+        "description": "The process of designing and producing bicycles for commercial sale.",
+        "chunkid": "The Evolution of the Bicycle18"
+    },
+    "entity40": {
+        "name": "racing bikes",
+        "type": "Product",
+        "description": "High-performance bicycles designed for competitive cycling events.",
+        "chunkid": "The Evolution of the Bicycle18"
+    },
+    "entity41": {
+        "name": "bicycles",
+        "type": "Product/Item",
+        "description": "A two-wheeled vehicle propelled by pedals and steered with handlebars attached to the front wheel.",
+        "chunkid": "The Evolution of the Bicycle19"
+    },
+    "entity42": {
+        "name": "racing bikes",
+        "type": "Bicycle Style",
+        "description": "A type of bicycle designed for speed, typically with dropped handlebars and a more aerodynamic riding position.",
+        "chunkid": "The Evolution of the Bicycle20"
+    },
+    "entity43": {
+        "name": "cruisers",
+        "type": "Bicycle Style",
+        "description": "A type of bicycle designed for comfort, often featuring upright seating positions and wide tires suitable for casual riding.",
+        "chunkid": "The Evolution of the Bicycle20"
+    },
+    "entity44": {
+        "name": "electric bikes",
+        "type": "Product",
+        "description": "A type of bicycle equipped with an electric motor to assist the rider, allowing for easier and longer rides.",
+        "chunkid": "The Evolution of the Bicycle21"
+    },
+    "entity45": {
+        "name": "bicycle",
+        "type": "Object",
+        "description": "A two-wheeled vehicle propelled by pedals, used for transportation and recreation.",
+        "chunkid": "The Evolution of the Bicycle22"
+    },
+    "entity46": {
+        "name": "Bicycles",
+        "type": "Object",
+        "description": "A human-powered vehicle with two wheels, typically used for transportation or recreation.",
+        "chunkid": "The Evolution of the Bicycle23"
+    },
+    "entity47": {
+        "name": "cars",
+        "type": "Object",
+        "description": "Motor vehicles designed primarily for passenger transportation on roads.",
+        "chunkid": "The Evolution of the Bicycle23"
+    },
+    "entity48": {
+        "name": "public transportation",
+        "type": "Service",
+        "description": "A shared transport service that is available for use by the general public, typically provided by government or private operators.",
+        "chunkid": "The Evolution of the Bicycle23"
+    },
+    "entity49": {
+        "name": "Tour de France",
+        "type": "Event",
+        "description": "A famous multi-stage bicycle race primarily held in France, known for its challenging routes and prestigious status in the world of cycling.",
+        "chunkid": "The Evolution of the Bicycle24"
+    },
+    "entity50": {
+        "name": "bicycle",
+        "type": "Object",
+        "description": "A human-powered vehicle with two wheels, typically propelled by pedals.",
+        "chunkid": "The Evolution of the Bicycle25"
+    },
+    "entity51": {
+        "name": "human ingenuity",
+        "type": "Concept",
+        "description": "The capacity of humans to invent and solve problems using creative skills and intelligence.",
+        "chunkid": "The Evolution of the Bicycle25"
+    },
+    "entity52": {
+        "name": "creativity",
+        "type": "Concept",
+        "description": "The ability to think outside the conventional patterns and come up with innovative ideas.",
+        "chunkid": "The Evolution of the Bicycle25"
+    },
+    "entity53": {
+        "name": "perseverance",
+        "type": "Concept",
+        "description": "The steadfastness in doing something despite difficulty or delay in achieving success.",
+        "chunkid": "The Evolution of the Bicycle25"
+    },
+    "entity54": {
+        "name": "bicycle",
+        "type": "Object",
+        "description": "A two-wheeled vehicle propelled by pedals, used for transportation and recreation.",
+        "chunkid": "The Evolution of the Bicycle26"
+    },
+    "entity55": {
+        "name": "future",
+        "type": "Time",
+        "description": "A period of time that is yet to come, often associated with predictions and expectations.",
+        "chunkid": "The Evolution of the Bicycle27"
+    },
+    "entity56": {
+        "name": "two-wheeled vehicle",
+        "type": "Object",
+        "description": "A mode of transportation characterized by having two wheels, such as a bicycle or motorcycle.",
+        "chunkid": "The Evolution of the Bicycle27"
+    }
+}

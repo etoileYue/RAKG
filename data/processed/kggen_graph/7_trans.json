@@ -1,0 +1,256 @@
+{
+  "entities": [
+    {
+      "name": "unity and connection"
+    },
+    {
+      "name": "heart rate"
+    },
+    {
+      "name": "slow, calming music"
+    },
+    {
+      "name": "emotional well-being"
+    },
+    {
+      "name": "blood pressure"
+    },
+    {
+      "name": "sensitivities"
+    },
+    {
+      "name": "party"
+    },
+    {
+      "name": "relaxation"
+    },
+    {
+      "name": "belonging"
+    },
+    {
+      "name": "elegance"
+    },
+    {
+      "name": "style"
+    },
+    {
+      "name": "lyrics"
+    },
+    {
+      "name": "music"
+    },
+    {
+      "name": "positive atmosphere"
+    },
+    {
+      "name": "messages"
+    },
+    {
+      "name": "intensity"
+    },
+    {
+      "name": "social bonds"
+    },
+    {
+      "name": "preferences"
+    },
+    {
+      "name": "empowering lyrics"
+    },
+    {
+      "name": "concert"
+    },
+    {
+      "name": "emotional state"
+    },
+    {
+      "name": "sophistication"
+    },
+    {
+      "name": "shared space"
+    },
+    {
+      "name": "emotions"
+    },
+    {
+      "name": "camaraderie"
+    },
+    {
+      "name": "classical music"
+    },
+    {
+      "name": "rebellion"
+    },
+    {
+      "name": "memories"
+    },
+    {
+      "name": "styles"
+    },
+    {
+      "name": "rock music"
+    },
+    {
+      "name": "energy"
+    },
+    {
+      "name": "sad or melancholic lyrics"
+    },
+    {
+      "name": "cortisol levels"
+    },
+    {
+      "name": "connections"
+    },
+    {
+      "name": "mood"
+    },
+    {
+      "name": "genres"
+    },
+    {
+      "name": "genre"
+    },
+    {
+      "name": "upbeat and fast-paced music"
+    },
+    {
+      "name": "personal tastes"
+    },
+    {
+      "name": "emotional needs"
+    }
+  ],
+  "relations": [
+    [
+      "music",
+      "enhances",
+      "messages"
+    ],
+    [
+      "cortisol levels",
+      "are indicators of",
+      "emotional state"
+    ],
+    [
+      "upbeat and fast-paced music",
+      "increases",
+      "heart rate"
+    ],
+    [
+      "classical music",
+      "evokes",
+      "elegance"
+    ],
+    [
+      "music",
+      "strengthens",
+      "social bonds"
+    ],
+    [
+      "music",
+      "enhances",
+      "positive atmosphere"
+    ],
+    [
+      "classical music",
+      "evokes",
+      "sophistication"
+    ],
+    [
+      "rock music",
+      "evokes",
+      "rebellion"
+    ],
+    [
+      "lyrics",
+      "influence",
+      "mood"
+    ],
+    [
+      "rock music",
+      "evokes",
+      "energy"
+    ],
+    [
+      "rock music",
+      "evokes",
+      "intensity"
+    ],
+    [
+      "music",
+      "associated_with",
+      "genres"
+    ],
+    [
+      "genre",
+      "affects",
+      "mood"
+    ],
+    [
+      "music",
+      "associated_with",
+      "styles"
+    ],
+    [
+      "music",
+      "evokes",
+      "memories"
+    ],
+    [
+      "music",
+      "can create",
+      "camaraderie"
+    ],
+    [
+      "music",
+      "can create",
+      "belonging"
+    ],
+    [
+      "music",
+      "enhances",
+      "emotional well-being"
+    ],
+    [
+      "classical music",
+      "evokes",
+      "relaxation"
+    ],
+    [
+      "mood",
+      "affected_by",
+      "sensitivities"
+    ],
+    [
+      "slow, calming music",
+      "lowers",
+      "heart rate"
+    ],
+    [
+      "music",
+      "enhances",
+      "connections"
+    ],
+    [
+      "music",
+      "influence",
+      "mood"
+    ],
+    [
+      "preferences",
+      "vary based on",
+      "emotional needs"
+    ],
+    [
+      "mood",
+      "affected_by",
+      "personal tastes"
+    ],
+    [
+      "music",
+      "regulates",
+      "emotions"
+    ]
+  ]
+}

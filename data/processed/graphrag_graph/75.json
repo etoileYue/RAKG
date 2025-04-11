@@ -1,0 +1,202 @@
+{
+  "entities": [
+    {
+      "name": "ANCIENT CIVILIZATIONS",
+      "type": "ORGANIZATION",
+      "description": "Ancient civilizations such as Mesopotamia, Egypt, and Greece, where homes served as centers of social, political, and religious life"
+    },
+    {
+      "name": "MESOPOTAMIA",
+      "type": "GEO",
+      "description": "Ancient civilization where homes were more than just shelters, serving as centers of social, political, and religious life"
+    },
+    {
+      "name": "EGYPT",
+      "type": "GEO",
+      "description": "Ancient civilization where homes were more than just shelters, serving as centers of social, political, and religious life"
+    },
+    {
+      "name": "GREECE",
+      "type": "GEO",
+      "description": "Ancient civilization where homes were more than just shelters, serving as centers of social, political, and religious life"
+    },
+    {
+      "name": "MANOR HOUSE",
+      "type": "ORGANIZATION",
+      "description": "Large estate in the Middle Ages where noble families lived and governed their lands, often fortified and featuring elaborate architecture"
+    },
+    {
+      "name": "INDUSTRIAL REVOLUTION",
+      "type": "EVENT",
+      "description": "Period that brought significant changes in home building and organization, leading to more standardized and affordable housing for the middle class"
+    },
+    {
+      "name": "LE CORBUSIER",
+      "type": "PERSON",
+      "description": "Architect who championed modernist design principles, emphasizing simplicity, functionality, and efficiency in home design"
+    },
+    {
+      "name": "FRANK LLOYD WRIGHT",
+      "type": "PERSON",
+      "description": "Architect who championed modernist design principles, emphasizing simplicity, functionality, and efficiency in home design"
+    },
+    {
+      "name": "LUDWIG MIES VAN DER ROHE",
+      "type": "PERSON",
+      "description": "Architect who championed modernist design principles, emphasizing simplicity, functionality, and efficiency in home design"
+    },
+    {
+      "name": "LEVITTOWN",
+      "type": "GEO",
+      "description": "First planned suburban community in the United States, setting the standard for mass-produced housing with its cookie-cutter design and affordable prices"
+    },
+    {
+      "name": "SMART TECHNOLOGY",
+      "type": "ORGANIZATION",
+      "description": "Technology that equips homes with interconnected devices and systems, allowing homeowners to control and monitor various aspects of their home remotely"
+    },
+    {
+      "name": "SUSTAINABLE DESIGN PRACTICES",
+      "type": "ORGANIZATION",
+      "description": "Practices in home design and construction that aim to reduce environmental impact and create healthier living environments, including energy-efficient materials and green building techniques"
+    },
+    {
+      "name": "MODERNIST MOVEMENT",
+      "type": "",
+      "description": ""
+    },
+    {
+      "name": "SUBURBAN HOME",
+      "type": "ORGANIZATION",
+      "description": "\nType of home that became popular in the post-World War II period, characterized by mass-produced, affordable housing in planned communities"
+    },
+    {
+      "name": "MODERN HOME",
+      "type": "",
+      "description": ""
+    },
+    {
+      "name": "SMART HOME",
+      "type": "ORGANIZATION",
+      "description": "Home equipped with interconnected devices and systems that allow for remote control and monitoring of various aspects of the home"
+    },
+    {
+      "name": "SUSTAINABLE HOME",
+      "type": "ORGANIZATION",
+      "description": "Home designed and constructed using sustainable practices to reduce environmental impact and create healthier living environments"
+    },
+    {
+      "name": "PASSIVE SOLAR DESIGN",
+      "type": "ORGANIZATION",
+      "description": "Design practice that uses the sun's energy to heat and cool buildings, reducing the need for mechanical systems"
+    },
+    {
+      "name": "RAINWATER HARVESTING",
+      "type": "ORGANIZATION",
+      "description": "Practice of collecting and using rainwater for various household purposes, reducing reliance on municipal water supplies"
+    },
+    {
+      "name": "GREEN ROOFS",
+      "type": "ORGANIZATION",
+      "description": "Roofing systems covered with vegetation, which provide insulation, reduce heat island effect, and manage stormwater"
+    }
+  ],
+  "relations": [
+    [
+      "ANCIENT CIVILIZATIONS",
+      ":has_relation_with",
+      "MESOPOTAMIA",
+      "Mesopotamia is one of the ancient civilizations where homes served as centers of social, political, and religious life"
+    ],
+    [
+      "ANCIENT CIVILIZATIONS",
+      ":has_relation_with",
+      "EGYPT",
+      "Egypt is one of the ancient civilizations where homes served as centers of social, political, and religious life"
+    ],
+    [
+      "ANCIENT CIVILIZATIONS",
+      ":has_relation_with",
+      "GREECE",
+      "Greece is one of the ancient civilizations where homes served as centers of social, political, and religious life"
+    ],
+    [
+      "MANOR HOUSE",
+      ":has_relation_with",
+      "INDUSTRIAL REVOLUTION",
+      "The Industrial Revolution marked a shift from the grand, fortified manor houses of the Middle Ages to more standardized and affordable housing"
+    ],
+    [
+      "INDUSTRIAL REVOLUTION",
+      ":has_relation_with",
+      "SMART TECHNOLOGY",
+      "The Industrial Revolution laid the groundwork for technological advancements that eventually led to the development of smart technology in homes"
+    ],
+    [
+      "LE CORBUSIER",
+      ":has_relation_with",
+      "MODERNIST MOVEMENT",
+      "Le Corbusier was a key figure in the modernist movement, influencing the design of homes and buildings around the world\nLe Corbusier was a key figure in the modernist movement, which influenced the design of homes and buildings around the world"
+    ],
+    [
+      "FRANK LLOYD WRIGHT",
+      ":has_relation_with",
+      "MODERNIST MOVEMENT",
+      "Frank Lloyd Wright was a key figure in the modernist movement, influencing the design of homes and buildings around the world\nFrank Lloyd Wright was a key figure in the modernist movement, which influenced the design of homes and buildings around the world"
+    ],
+    [
+      "LUDWIG MIES VAN DER ROHE",
+      ":has_relation_with",
+      "MODERNIST MOVEMENT",
+      "Ludwig Mies van der Rohe was a key figure in the modernist movement, influencing the design of homes and buildings around the world\nLudwig Mies van der Rohe was a key figure in the modernist movement, which influenced the design of homes and buildings around the world"
+    ],
+    [
+      "LEVITTOWN",
+      ":has_relation_with",
+      "SUBURBAN HOME",
+      "Levittown set the standard for the suburban home, which became a symbol of the American Dream in the post-World War II period"
+    ],
+    [
+      "SMART TECHNOLOGY",
+      ":has_relation_with",
+      "MODERN HOME",
+      "Smart technology has transformed the modern home, allowing for remote control and monitoring of various home systems"
+    ],
+    [
+      "SMART TECHNOLOGY",
+      ":has_relation_with",
+      "SMART HOME",
+      "Smart homes are equipped with interconnected devices and systems that allow for remote control and monitoring of various aspects of the home"
+    ],
+    [
+      "SUSTAINABLE DESIGN PRACTICES",
+      ":has_relation_with",
+      "MODERN HOME",
+      "Sustainable design practices have become increasingly important in the design and construction of modern homes, aiming to reduce environmental impact and create healthier living environments"
+    ],
+    [
+      "SUSTAINABLE DESIGN PRACTICES",
+      ":has_relation_with",
+      "SUSTAINABLE HOME",
+      "Sustainable homes are designed and constructed using sustainable practices to reduce environmental impact and create healthier living environments"
+    ],
+    [
+      "SUSTAINABLE HOME",
+      ":has_relation_with",
+      "PASSIVE SOLAR DESIGN",
+      "Passive solar design is a key practice in the design of sustainable homes, using the sun's energy to heat and cool buildings"
+    ],
+    [
+      "SUSTAINABLE HOME",
+      ":has_relation_with",
+      "RAINWATER HARVESTING",
+      "Rainwater harvesting is a practice used in sustainable homes to collect and use rainwater for various household purposes"
+    ],
+    [
+      "SUSTAINABLE HOME",
+      ":has_relation_with",
+      "GREEN ROOFS",
+      "Green roofs are a feature of sustainable homes, providing insulation, reducing heat island effect, and managing stormwater"
+    ]
+  ]
+}

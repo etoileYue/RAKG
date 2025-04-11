@@ -1,0 +1,80 @@
+[
+  {
+    "correct_answer": "Rocket requires careful planning",
+    "retrieved_context": " goals of the rocket\nDesign Consideration  Rocket Construction\nProject  Rocket Design\nEngineering Task  rocket\nVehicle  Rocket\nVehicle  Building a Rocket\nProcess  Step-by-Step Guide\nDocument  rocket-building journey\nActivity relation: rocket-building journey --[Requires]-> Step-by-Step Guide relation: rocket-building journey --[Involves]-> Building a Rocket  Building a Rocket\nProcess  Rocket Building\nActivity",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Rocket requires precise engineering",
+    "retrieved_context": " Rocket Design\nEngineering Task  Testing and Launching\nProcess  Space Exploration\nField of Study relation: Rockets --[Involves]-> Material Gathering  Payload Launching\nActivity  Rocket Body Construction\nProcess relation: Rockets --[Required for]-> Payload Launching  Material Gathering\nProcess  Design Process\nProcess relation: Rockets --[Involves]-> Rocket Body Construction  Rockets\nSpace Technology  Propulsion System Installation\nProcess relation: Rockets --[Used in]-> Space Exploration relation: Rockets --[Involves]-> Propulsion System Installation relation: Rockets --[Involves]-> Design Process relation: Rockets --[Involves]-> Testing and Launching  goals of the rocket\nDesign Consideration  Rocket Construction\nProject  Building a Rocket\nProcess  rocket design\nDesign Process  Rocket Body Construction\nProcess  Rocket Design Process\nProcess",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Rocket requires understanding of physics",
+    "retrieved_context": " Rocket Design\nEngineering Task  Testing and Launching\nProcess  Space Exploration\nField of Study relation: Rockets --[Involves]-> Material Gathering  Payload Launching\nActivity  Rocket Body Construction\nProcess relation: Rockets --[Required for]-> Payload Launching  Material Gathering\nProcess  Design Process\nProcess relation: Rockets --[Involves]-> Rocket Body Construction  Rockets\nSpace Technology  Propulsion System Installation\nProcess relation: Rockets --[Used in]-> Space Exploration relation: Rockets --[Involves]-> Propulsion System Installation relation: Rockets --[Involves]-> Design Process relation: Rockets --[Involves]-> Testing and Launching  goals of the rocket\nDesign Consideration  rocket\nVehicle  Rocket\nVehicle  Rocket Construction\nProject  Rocket Body Construction\nProcess  Building a Rocket\nProcess",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Rocket requires understanding of materials science",
+    "retrieved_context": " Testing and Launching\nProcess  Space Exploration\nField of Study relation: Rockets --[Involves]-> Material Gathering  Payload Launching\nActivity  Rocket Body Construction\nProcess relation: Rockets --[Required for]-> Payload Launching  Material Gathering\nProcess  Design Process\nProcess relation: Rockets --[Involves]-> Rocket Body Construction  Rockets\nSpace Technology  Propulsion System Installation\nProcess relation: Rockets --[Used in]-> Space Exploration relation: Rockets --[Involves]-> Propulsion System Installation relation: Rockets --[Involves]-> Design Process relation: Rockets --[Involves]-> Testing and Launching  Rocket Design\nEngineering Task  Rocket Body Construction\nProcess  goals of the rocket\nDesign Consideration  Rocket Construction\nProject  Building a Rocket\nProcess  rocket design\nDesign Process  Rocket Design Process\nProcess",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Rockets have been instrumental in space exploration",
+    "retrieved_context": " Testing and Launching\nProcess  Space Exploration\nField of Study relation: Rockets --[Involves]-> Material Gathering  Payload Launching\nActivity  Rocket Body Construction\nProcess relation: Rockets --[Required for]-> Payload Launching  Material Gathering\nProcess  Design Process\nProcess relation: Rockets --[Involves]-> Rocket Body Construction  Rockets\nSpace Technology  Propulsion System Installation\nProcess relation: Rockets --[Used in]-> Space Exploration relation: Rockets --[Involves]-> Propulsion System Installation relation: Rockets --[Involves]-> Design Process relation: Rockets --[Involves]-> Testing and Launching  launching rockets\nActivity  goals of the rocket\nDesign Consideration  Modern Rockets\nVehicle  Builder of model rockets\nActivity  Space Exploration\nField of Study  Rocket Launching\nActivity  Building a Rocket\nProcess  Step-by-Step Guide\nDocument  rocket-building journey\nActivity relation: rocket-building journey --[Requires]-> Step-by-Step Guide relation: rocket-building journey --[Involves]-> Building a Rocket",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Building a rocket can be rewarding",
+    "retrieved_context": " Rocket Construction\nProject  Rocket Building\nActivity  rocket building\nActivity  goals of the rocket\nDesign Consideration  Rocket Building Journey\nActivity  Building a Rocket\nProcess  Step-by-Step Guide\nDocument  rocket-building journey\nActivity relation: rocket-building journey --[Requires]-> Step-by-Step Guide relation: rocket-building journey --[Involves]-> Building a Rocket  Building a Rocket\nProcess  Rocket Design\nEngineering Task",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Building a rocket can be educational",
+    "retrieved_context": " Rocket Construction\nProject  Rocket Building\nActivity  rocket building\nActivity  Rocket Design\nEngineering Task  Building a Rocket\nProcess  Testing and Launching\nProcess  Space Exploration\nField of Study relation: Rockets --[Involves]-> Material Gathering  Payload Launching\nActivity  Rocket Body Construction\nProcess relation: Rockets --[Required for]-> Payload Launching  Material Gathering\nProcess  Design Process\nProcess relation: Rockets --[Involves]-> Rocket Body Construction  Rockets\nSpace Technology  Propulsion System Installation\nProcess relation: Rockets --[Used in]-> Space Exploration relation: Rockets --[Involves]-> Propulsion System Installation relation: Rockets --[Involves]-> Design Process relation: Rockets --[Involves]-> Testing and Launching  goals of the rocket\nDesign Consideration  Rocket Body Construction\nProcess",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Rocket building involves defining purpose and requirements",
+    "retrieved_context": " goals of the rocket\nDesign Consideration  Rocket Building\nActivity  rocket building\nActivity  Rocket Construction\nProject  Rocket Design\nEngineering Task  rocket design\nDesign Process  Rocket Building Process\nProcess relation: Step 7 --[Follows]-> Step 6 relation: Step 7 --[Involves]-> Launch  Step 6\nStep in Rocket Building Process  Launch\nEvent  Step 7\nStep in Rocket Building Process relation: Step 7 --[Involves]-> Testing  Testing\nAction",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Rocket building involves designing the rocket",
+    "retrieved_context": " rocket design\nDesign Process  Rocket Building\nActivity  rocket building\nActivity  Rocket Construction\nProject  Rocket Design\nEngineering Task  Rocket Body Construction\nProcess  Rocket Design Process\nProcess  Rocket Building Process\nProcess",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Rocket building involves gathering materials and components",
+    "retrieved_context": " Rocket Building\nActivity  rocket building\nActivity  Rocket Construction\nProject  Rocket Body Construction\nProcess  Rocket Building Process\nProcess  Building a Rocket\nProcess relation: Step 7 --[Follows]-> Step 6 relation: Step 7 --[Involves]-> Launch  Step 6\nStep in Rocket Building Process  Launch\nEvent  Step 7\nStep in Rocket Building Process relation: Step 7 --[Involves]-> Testing  Testing\nAction  Step 6\nStep in Rocket Building Process",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Rocket body is typically constructed from lightweight materials",
+    "retrieved_context": " Rocket Body Construction\nProcess  Rocket Body\nComponent  Step 4: Build the Rocket Body\nBuild Process Step  Rocket Construction\nProject  rocket design\nDesign Process  Rocket Design\nEngineering Task  Rocket Design Process\nProcess  Modern Rockets\nVehicle",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Propulsion system provides thrust to the rocket",
+    "retrieved_context": " Propulsion System\nSystem relation: propulsion system --[Requires]-> fuel system relation: fuel system --[Part of]-> Propulsion System  fuel system\nComponent  rocket\nVehicle  propulsion system\nComponent relation: propulsion system --[Controlled by]-> electronics and guidance systems relation: fuel system --[Used in]-> Rocket relation: propulsion system --[Part of]-> rocket  electronics and guidance systems\nComponent relation: hybrid engines --[Used in]-> Rocket  hybrid engines\nPropulsion System relation: hybrid engines --[Alternative to]-> Liquid Fuel Engines  Rocket\nVehicle  Solid Fuel Engines\nPropulsion System  Liquid Fuel Engines\nPropulsion System relation: hybrid engines --[Alternative to]-> Solid Fuel Engines  Liquid Fuel Engines\nPropulsion System relation: solid fuel engines --[Used in]-> rocket relation: propulsion system --[Requires]-> fuel system  rocket\nVehicle  propulsion system\nComponent relation: propulsion system --[Controlled by]-> electronics and guidance systems  solid fuel engines\nPropulsion System relation: solid fuel engines --[Component of]-> propulsion system relation: propulsion system --[Part of]-> rocket  Solid Fuel Engines\nPropulsion System  Propulsion System Installation\nProcess  rocket\nVehicle",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Modern rockets use sophisticated electronics and guidance systems",
+    "retrieved_context": " Testing and Launching\nProcess  Space Exploration\nField of Study relation: Rockets --[Involves]-> Material Gathering  Payload Launching\nActivity  Rocket Body Construction\nProcess relation: Rockets --[Required for]-> Payload Launching  Material Gathering\nProcess  Design Process\nProcess relation: Rockets --[Involves]-> Rocket Body Construction  Rockets\nSpace Technology  Propulsion System Installation\nProcess relation: Rockets --[Used in]-> Space Exploration relation: Rockets --[Involves]-> Propulsion System Installation relation: Rockets --[Involves]-> Design Process relation: Rockets --[Involves]-> Testing and Launching  Modern Rockets\nVehicle  electronics and guidance systems\nComponent  Builder of model rockets\nActivity  Rocket Design\nEngineering Task  goals of the rocket\nDesign Consideration  rocket design\nDesign Process  launching rockets\nActivity",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Testing is essential before launching the rocket",
+    "retrieved_context": " Testing and Launching\nProcess  launching rockets\nActivity  Test Flights\nFlight Test  Rocket Launching\nActivity  goals of the rocket\nDesign Consideration  Systems Testing\nTask  Testing\nAction  System Testing\nProcess",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Building a rocket requires a deep understanding of science and engineering principles",
+    "retrieved_context": " Rocket Design\nEngineering Task  Rocket Construction\nProject  goals of the rocket\nDesign Consideration  Building a Rocket\nProcess  Testing and Launching\nProcess  Space Exploration\nField of Study relation: Rockets --[Involves]-> Material Gathering  Payload Launching\nActivity  Rocket Body Construction\nProcess relation: Rockets --[Required for]-> Payload Launching  Material Gathering\nProcess  Design Process\nProcess relation: Rockets --[Involves]-> Rocket Body Construction  Rockets\nSpace Technology  Propulsion System Installation\nProcess relation: Rockets --[Used in]-> Space Exploration relation: Rockets --[Involves]-> Propulsion System Installation relation: Rockets --[Involves]-> Design Process relation: Rockets --[Involves]-> Testing and Launching  Rocket Body Construction\nProcess relation: Step 7 --[Follows]-> Step 6 relation: Step 7 --[Involves]-> Launch  Step 6\nStep in Rocket Building Process  Launch\nEvent  Step 7\nStep in Rocket Building Process relation: Step 7 --[Involves]-> Testing  Testing\nAction  Rocket Building\nActivity",
+    "evaluation": 1
+  },
+  {
+    "accuracy": "100.00%"
+  }
+]

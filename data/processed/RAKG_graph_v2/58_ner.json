@@ -1,0 +1,476 @@
+{
+    "entity1": {
+        "name": "Modern Medicine",
+        "type": "Field of Study",
+        "description": "The branch of medical science that focuses on the diagnosis, treatment, and prevention of diseases using contemporary knowledge and techniques.",
+        "chunkid": "The Development of Modern Medicine1"
+    },
+    "entity2": {
+        "name": "medicine",
+        "type": "Field of Study",
+        "description": "The science and practice of the diagnosis, treatment, and prevention of disease.",
+        "chunkid": "The Development of Modern Medicine2"
+    },
+    "entity3": {
+        "name": "ancient civilizations",
+        "type": "Historical Period/Location",
+        "description": "Societies that existed in the distant past, often characterized by their significant contributions to human knowledge and culture.",
+        "chunkid": "The Development of Modern Medicine2"
+    },
+    "entity4": {
+        "name": "modern era",
+        "type": "Time Period",
+        "description": "A period characterized by significant scientific and technological advancements.",
+        "chunkid": "The Development of Modern Medicine3"
+    },
+    "entity5": {
+        "name": "medical practices",
+        "type": "Healthcare",
+        "description": "Procedures, treatments, and methods used in the field of medicine to diagnose, treat, and prevent diseases.",
+        "chunkid": "The Development of Modern Medicine3"
+    },
+    "entity6": {
+        "name": "modern medicine",
+        "type": "Field of Study",
+        "description": "The branch of medical science concerned with the diagnosis, treatment, and prevention of disease using contemporary knowledge and techniques.",
+        "chunkid": "The Development of Modern Medicine4"
+    },
+    "entity7": {
+        "name": "human anatomy",
+        "type": "Scientific Discipline",
+        "description": "The study of the structure of the human body, including its organs, tissues, and other components.",
+        "chunkid": "The Development of Modern Medicine4"
+    },
+    "entity8": {
+        "name": "physiology",
+        "type": "Scientific Discipline",
+        "description": "The branch of biology that deals with the functions and activities of living organisms and their parts.",
+        "chunkid": "The Development of Modern Medicine4"
+    },
+    "entity9": {
+        "name": "human body",
+        "type": "Biological Entity",
+        "description": "The physical structure of a human being, including all its organs and systems.",
+        "chunkid": "The Development of Modern Medicine5"
+    },
+    "entity10": {
+        "name": "illnesses and diseases",
+        "type": "Medical Condition",
+        "description": "Health conditions that affect the body or mind, causing discomfort, dysfunction, or distress.",
+        "chunkid": "The Development of Modern Medicine5"
+    },
+    "entity11": {
+        "name": "supernatural causes",
+        "type": "Concept",
+        "description": "Beliefs in phenomena that are beyond scientific explanation and often attributed to divine or spiritual forces.",
+        "chunkid": "The Development of Modern Medicine5"
+    },
+    "entity12": {
+        "name": "Renaissance period",
+        "type": "Historical Period",
+        "description": "A cultural movement that spanned from the 14th to the 17th century, marking a revival of art, science, and learning in Europe.",
+        "chunkid": "The Development of Modern Medicine6"
+    },
+    "entity13": {
+        "name": "Andreas Vesalius",
+        "type": "Historical Figure",
+        "description": "A Flemish anatomist and physician who is often referred to as the founder of modern human anatomy due to his detailed dissections and publications.",
+        "chunkid": "The Development of Modern Medicine6"
+    },
+    "entity14": {
+        "name": "modern medical practices",
+        "type": "Concept",
+        "description": "A set of contemporary methods and techniques used in the field of medicine for diagnosing, treating, and preventing diseases.",
+        "chunkid": "The Development of Modern Medicine7"
+    },
+    "entity15": {
+        "name": "physicians",
+        "type": "Occupation",
+        "description": "Medical doctors who practice medicine to maintain or restore human health through the study, diagnosis, and treatment of disease and injury.",
+        "chunkid": "The Development of Modern Medicine7"
+    },
+    "entity16": {
+        "name": "Louis Pasteur",
+        "type": "Person",
+        "description": "A French biologist, microbiologist and chemist renowned for his discoveries of the principles of vaccination, microbial fermentation and pasteurization.",
+        "chunkid": "The Development of Modern Medicine8"
+    },
+    "entity17": {
+        "name": "Robert Koch",
+        "type": "Person",
+        "description": "A German physician and microbiologist who was one of the main founders of modern bacteriology. He identified the specific causative agents of tuberculosis, cholera, and anthrax.",
+        "chunkid": "The Development of Modern Medicine8"
+    },
+    "entity18": {
+        "name": "19th century",
+        "type": "Time Period",
+        "description": "The period from 1801 to 1900, during which significant scientific advancements were made, including the development of germ theory.",
+        "chunkid": "The Development of Modern Medicine8"
+    },
+    "entity19": {
+        "name": "germ theory",
+        "type": "Scientific Theory",
+        "description": "A model that explains the cause of infectious diseases by proposing that microorganisms are responsible for causing disease.",
+        "chunkid": "The Development of Modern Medicine8"
+    },
+    "entity20": {
+        "name": "infectious diseases",
+        "type": "Medical Concept",
+        "description": "Conditions caused by pathogenic microorganisms that can be transmitted from one individual to another.",
+        "chunkid": "The Development of Modern Medicine9"
+    },
+    "entity21": {
+        "name": "microorganisms",
+        "type": "Biological Entity",
+        "description": "Microscopic living organisms that can cause diseases.",
+        "chunkid": "The Development of Modern Medicine10"
+    },
+    "entity22": {
+        "name": "diseases",
+        "type": "Medical Condition",
+        "description": "Pathological conditions affecting the body or mind, often caused by microorganisms.",
+        "chunkid": "The Development of Modern Medicine10"
+    },
+    "entity23": {
+        "name": "medicine",
+        "type": "Field of Study",
+        "description": "The science and practice of diagnosing, treating, and preventing disease.",
+        "chunkid": "The Development of Modern Medicine10"
+    },
+    "entity24": {
+        "name": "antibiotics",
+        "type": "Medical Treatment",
+        "description": "Drugs used to treat bacterial infections by killing or inhibiting the growth of bacteria.",
+        "chunkid": "The Development of Modern Medicine10"
+    },
+    "entity25": {
+        "name": "vaccines",
+        "type": "Medical Treatment",
+        "description": "Biological preparations that provide active acquired immunity to specific diseases.",
+        "chunkid": "The Development of Modern Medicine10"
+    },
+    "entity26": {
+        "name": "bacterial infections",
+        "type": "Medical Condition",
+        "description": "Infections caused by bacteria, which can be treated with antibiotics.",
+        "chunkid": "The Development of Modern Medicine10"
+    },
+    "entity27": {
+        "name": "viral infections",
+        "type": "Medical Condition",
+        "description": "Infections caused by viruses, often requiring antiviral medications or vaccines for prevention and treatment.",
+        "chunkid": "The Development of Modern Medicine10"
+    },
+    "entity28": {
+        "name": "This breakthrough",
+        "type": "Event",
+        "description": "A significant development or discovery that has had a positive impact on public health.",
+        "chunkid": "The Development of Modern Medicine11"
+    },
+    "entity29": {
+        "name": "20th century",
+        "type": "Time Period",
+        "description": "A period of 100 years from the year 1901 to 2000.",
+        "chunkid": "The Development of Modern Medicine12"
+    },
+    "entity30": {
+        "name": "medical technology",
+        "type": "Field of Study",
+        "description": "The application of organized knowledge and skills in the form of devices, medicines, vaccines, procedures, and systems developed to solve a health problem and improve quality of life.",
+        "chunkid": "The Development of Modern Medicine12"
+    },
+    "entity31": {
+        "name": "X-ray",
+        "type": "Invention",
+        "description": "A form of electromagnetic radiation used in medical imaging to visualize internal structures.",
+        "chunkid": "The Development of Modern Medicine13"
+    },
+    "entity32": {
+        "name": "Wilhelm Roentgen",
+        "type": "Person",
+        "description": "The physicist who invented the X-ray, a significant contributor to the field of medical science.",
+        "chunkid": "The Development of Modern Medicine13"
+    },
+    "entity33": {
+        "name": "1895",
+        "type": "Date",
+        "description": "The year in which Wilhelm Roentgen invented the X-ray.",
+        "chunkid": "The Development of Modern Medicine13"
+    },
+    "entity34": {
+        "name": "medical imaging",
+        "type": "Field",
+        "description": "A branch of medicine that uses various techniques to visualize internal structures for diagnostic and therapeutic purposes.",
+        "chunkid": "The Development of Modern Medicine13"
+    },
+    "entity35": {
+        "name": "physicians",
+        "type": "Profession",
+        "description": "Medical doctors who practice in the field of medicine, diagnosing and treating patients.",
+        "chunkid": "The Development of Modern Medicine13"
+    },
+    "entity36": {
+        "name": "fractures",
+        "type": "Medical Condition",
+        "description": "A break or crack in a bone, often diagnosed using X-ray imaging.",
+        "chunkid": "The Development of Modern Medicine13"
+    },
+    "entity37": {
+        "name": "tumors",
+        "type": "Medical Condition",
+        "description": "Abnormal growths of tissue that can be benign or malignant, detectable through medical imaging techniques like X-rays.",
+        "chunkid": "The Development of Modern Medicine13"
+    },
+    "entity38": {
+        "name": "pneumonia",
+        "type": "Medical Condition",
+        "description": "An inflammatory condition of the lung affecting primarily the microscopic air sacs known as alveoli, often diagnosed using chest X-rays.",
+        "chunkid": "The Development of Modern Medicine13"
+    },
+    "entity39": {
+        "name": "MRI",
+        "type": "Medical Imaging Technique",
+        "description": "Magnetic Resonance Imaging, a medical imaging technique used to visualize detailed internal structures of the body.",
+        "chunkid": "The Development of Modern Medicine14"
+    },
+    "entity40": {
+        "name": "CT scans",
+        "type": "Medical Imaging Technique",
+        "description": "Computed Tomography scans, a medical imaging procedure that uses X-rays and computer processing to generate detailed images of the inside of the body.",
+        "chunkid": "The Development of Modern Medicine14"
+    },
+    "entity41": {
+        "name": "diagnostic tools",
+        "type": "Medical Equipment",
+        "description": "Tools used by medical professionals to diagnose diseases and conditions.",
+        "chunkid": "The Development of Modern Medicine15"
+    },
+    "entity42": {
+        "name": "surgery",
+        "type": "Medical Field",
+        "description": "A branch of medicine that treats injuries, diseases, and deformities through operations.",
+        "chunkid": "The Development of Modern Medicine15"
+    },
+    "entity43": {
+        "name": "modern era",
+        "type": "Time Period",
+        "description": "The recent period in history characterized by significant advancements in technology, science, and society.",
+        "chunkid": "The Development of Modern Medicine15"
+    },
+    "entity44": {
+        "name": "William Morton",
+        "type": "Person",
+        "description": "A 19th-century dentist and medical innovator who introduced the use of ether anesthesia for surgery.",
+        "chunkid": "The Development of Modern Medicine16"
+    },
+    "entity45": {
+        "name": "anesthesia",
+        "type": "Medical Practice",
+        "description": "The process of administering medication to prevent pain during surgical procedures.",
+        "chunkid": "The Development of Modern Medicine16"
+    },
+    "entity46": {
+        "name": "surgical techniques",
+        "type": "Medical Procedure",
+        "description": "Methods and practices used in performing surgical operations.",
+        "chunkid": "The Development of Modern Medicine17"
+    },
+    "entity47": {
+        "name": "minimally invasive procedures",
+        "type": "Medical Procedure",
+        "description": "Surgical techniques that minimize the size of incisions and reduce trauma to the body, leading to faster recovery times and less pain for patients.",
+        "chunkid": "The Development of Modern Medicine17"
+    },
+    "entity48": {
+        "name": "laparoscopy",
+        "type": "Medical Procedure",
+        "description": "A minimally invasive surgical procedure used to examine or operate on the abdominal cavity using a laparoscope, a long, thin tube with a high-intensity light and a high-resolution camera at the front.",
+        "chunkid": "The Development of Modern Medicine17"
+    },
+    "entity49": {
+        "name": "pharmaceutical industry",
+        "type": "Industry",
+        "description": "A sector of the economy that focuses on developing, manufacturing, and marketing drugs for use as medications.",
+        "chunkid": "The Development of Modern Medicine18"
+    },
+    "entity50": {
+        "name": "modern medicine",
+        "type": "Field",
+        "description": "The application of scientific knowledge to the practice of medicine, characterized by the use of advanced technology and research-driven treatments.",
+        "chunkid": "The Development of Modern Medicine18"
+    },
+    "entity51": {
+        "name": "penicillin",
+        "type": "Chemical Substance",
+        "description": "An antibiotic derived from the fungus Penicillium, used to treat bacterial infections.",
+        "chunkid": "The Development of Modern Medicine19"
+    },
+    "entity52": {
+        "name": "Alexander Fleming",
+        "type": "Person",
+        "description": "A Scottish physician and microbiologist who discovered penicillin in 1928.",
+        "chunkid": "The Development of Modern Medicine19"
+    },
+    "entity53": {
+        "name": "1928",
+        "type": "Date",
+        "description": "The year when Alexander Fleming discovered penicillin, marking the beginning of the antibiotic era.",
+        "chunkid": "The Development of Modern Medicine19"
+    },
+    "entity54": {
+        "name": "pharmaceutical companies",
+        "type": "Organization",
+        "description": "Companies that research, develop, and manufacture drugs and medical therapies.",
+        "chunkid": "The Development of Modern Medicine20"
+    },
+    "entity55": {
+        "name": "diabetes",
+        "type": "Medical Condition",
+        "description": "A chronic disease characterized by high blood sugar levels due to the body's inability to produce or effectively use insulin.",
+        "chunkid": "The Development of Modern Medicine20"
+    },
+    "entity56": {
+        "name": "hypertension",
+        "type": "Medical Condition",
+        "description": "A medical condition where the pressure in the arteries is persistently elevated, also known as high blood pressure.",
+        "chunkid": "The Development of Modern Medicine20"
+    },
+    "entity57": {
+        "name": "cancer",
+        "type": "Medical Condition",
+        "description": "A group of diseases characterized by uncontrolled cell growth that can invade and damage surrounding tissues and organs.",
+        "chunkid": "The Development of Modern Medicine20"
+    },
+    "entity58": {
+        "name": "personalized medicine",
+        "type": "Medical Concept",
+        "description": "An approach to healthcare that customizes medical treatment to the individual characteristics of each patient, often using genetic information.",
+        "chunkid": "The Development of Modern Medicine21"
+    },
+    "entity59": {
+        "name": "technology",
+        "type": "Concept",
+        "description": "The application of scientific knowledge for practical purposes, especially in industry and healthcare.",
+        "chunkid": "The Development of Modern Medicine22"
+    },
+    "entity60": {
+        "name": "healthcare",
+        "type": "Industry",
+        "description": "The maintenance and improvement of physical and mental health, especially through the provision of medical services.",
+        "chunkid": "The Development of Modern Medicine22"
+    },
+    "entity61": {
+        "name": "medicine",
+        "type": "Field",
+        "description": "The science and practice of diagnosing, treating, and preventing disease.",
+        "chunkid": "The Development of Modern Medicine22"
+    },
+    "entity62": {
+        "name": "Telemedicine",
+        "type": "Technology",
+        "description": "A method of delivering healthcare services remotely using telecommunications technology.",
+        "chunkid": "The Development of Modern Medicine23"
+    },
+    "entity63": {
+        "name": "Artificial Intelligence",
+        "type": "Technology",
+        "description": "The simulation of human intelligence processes by machines, especially computer systems, used to analyze and interpret complex medical data.",
+        "chunkid": "The Development of Modern Medicine23"
+    },
+    "entity64": {
+        "name": "Wearable Devices",
+        "type": "Technology",
+        "description": "Devices that can be worn on the body, often equipped with sensors to monitor health-related data and transmit it for analysis or real-time feedback.",
+        "chunkid": "The Development of Modern Medicine23"
+    },
+    "entity65": {
+        "name": "electronic health records",
+        "type": "Technology",
+        "description": "Digital versions of patient medical charts that are maintained in an electronic format.",
+        "chunkid": "The Development of Modern Medicine24"
+    },
+    "entity66": {
+        "name": "healthcare providers",
+        "type": "Organization",
+        "description": "Professionals or institutions responsible for providing health care services to patients.",
+        "chunkid": "The Development of Modern Medicine24"
+    },
+    "entity67": {
+        "name": "patients",
+        "type": "Person",
+        "description": "Individuals receiving medical treatment or care from healthcare providers.",
+        "chunkid": "The Development of Modern Medicine24"
+    },
+    "entity68": {
+        "name": "healthcare quality and outcomes",
+        "type": "Concept",
+        "description": "Refers to the standards of medical care and the results achieved through healthcare services.",
+        "chunkid": "The Development of Modern Medicine26"
+    },
+    "entity69": {
+        "name": "marginalized communities",
+        "type": "Social Group",
+        "description": "Groups of people who are excluded from the mainstream society, often due to economic or social factors.",
+        "chunkid": "The Development of Modern Medicine26"
+    },
+    "entity70": {
+        "name": "essential medical services",
+        "type": "Service",
+        "description": "Necessary healthcare services that are vital for maintaining health and well-being.",
+        "chunkid": "The Development of Modern Medicine26"
+    },
+    "entity71": {
+        "name": "policymakers",
+        "type": "Group of People",
+        "description": "Individuals or groups responsible for making and implementing policies, often in government or organizational settings.",
+        "chunkid": "The Development of Modern Medicine27"
+    },
+    "entity72": {
+        "name": "healthcare providers",
+        "type": "Group of People",
+        "description": "Professionals who deliver healthcare services to patients, including doctors, nurses, and other medical staff.",
+        "chunkid": "The Development of Modern Medicine27"
+    },
+    "entity73": {
+        "name": "the public",
+        "type": "Group of People",
+        "description": "The general population or community at large.",
+        "chunkid": "The Development of Modern Medicine27"
+    },
+    "entity74": {
+        "name": "modern medicine",
+        "type": "Field of Study",
+        "description": "The area of medical science and practice that uses advanced scientific knowledge and technology to diagnose, treat, and prevent diseases.",
+        "chunkid": "The Development of Modern Medicine28"
+    },
+    "entity75": {
+        "name": "human ingenuity",
+        "type": "Concept",
+        "description": "The creative skills, cleverness, and resourcefulness of human beings in solving problems or inventing new things.",
+        "chunkid": "The Development of Modern Medicine28"
+    },
+    "entity76": {
+        "name": "innovation",
+        "type": "Process",
+        "description": "The process of introducing new ideas, methods, or products to improve existing systems or create entirely new ones.",
+        "chunkid": "The Development of Modern Medicine28"
+    },
+    "entity77": {
+        "name": "human anatomy",
+        "type": "Medical Field",
+        "description": "The study of the structure and organization of the human body.",
+        "chunkid": "The Development of Modern Medicine29"
+    },
+    "entity78": {
+        "name": "germs",
+        "type": "Microbiology",
+        "description": "Microscopic organisms, some of which can cause disease.",
+        "chunkid": "The Development of Modern Medicine29"
+    },
+    "entity79": {
+        "name": "advanced medical technologies",
+        "type": "Medical Technology",
+        "description": "Sophisticated tools and techniques used in healthcare for diagnosis, treatment, and prevention of diseases.",
+        "chunkid": "The Development of Modern Medicine29"
+    }
+}

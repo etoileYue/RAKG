@@ -1,0 +1,104 @@
+{
+  "entities": [
+    {
+      "name": "GESTURES",
+      "type": "GEO",
+      "description": "Gestures are a form of body language used to communicate without words"
+    },
+    {
+      "name": "POSTURE",
+      "type": "GEO",
+      "description": "Posture is a form of body language that can reveal a person's thoughts and feelings"
+    },
+    {
+      "name": "EYE CONTACT",
+      "type": "GEO",
+      "description": "Maintaining eye contact is a form of body language that can signal attentiveness and engagement"
+    },
+    {
+      "name": "PROXEMICS",
+      "type": "GEO",
+      "description": "Proxemics refers to the distance between individuals during an interaction, conveying important cultural and personal cues"
+    },
+    {
+      "name": "CONFIDENCE",
+      "type": "GEO",
+      "description": "Confidence is a quality that can be projected through body language, such as maintaining good posture and making direct eye contact"
+    },
+    {
+      "name": "RAPPORT",
+      "type": "GEO",
+      "description": "Rapport is a relationship of mutual understanding or trust, which can be established through body language"
+    },
+    {
+      "name": "CONFLICT RESOLUTION",
+      "type": "GEO",
+      "description": "Body language can play a role in resolving conflicts by improving communication and understanding"
+    },
+    {
+      "name": "RELATIONSHIP BUILDING",
+      "type": "GEO",
+      "description": "Body language can help build stronger relationships by enhancing communication and connection"
+    },
+    {
+      "name": "FACIAL EXPRESSIONS",
+      "type": "",
+      "description": ""
+    },
+    {
+      "name": "BODY LANGUAGE",
+      "type": "",
+      "description": ""
+    }
+  ],
+  "relations": [
+    [
+      "GESTURES",
+      ":has_relation_with",
+      "FACIAL EXPRESSIONS",
+      "Facial expressions and gestures are both forms of body language used to convey emotions and intentions"
+    ],
+    [
+      "GESTURES",
+      ":has_relation_with",
+      "POSTURE",
+      "Gestures and posture are both forms of body language that can enhance the clarity and effectiveness of communication"
+    ],
+    [
+      "POSTURE",
+      ":has_relation_with",
+      "FACIAL EXPRESSIONS",
+      "Facial expressions and posture are both forms of body language that can reveal a person's thoughts and feelings"
+    ],
+    [
+      "POSTURE",
+      ":has_relation_with",
+      "CONFIDENCE",
+      "Confidence can be projected through good posture, which is a form of body language"
+    ],
+    [
+      "POSTURE",
+      ":has_relation_with",
+      "RAPPORT",
+      "Rapport can be established through mirroring another person's posture, a form of body language"
+    ],
+    [
+      "EYE CONTACT",
+      ":has_relation_with",
+      "PROXEMICS",
+      "Eye contact and proxemics are both forms of body language that can convey important social and cultural cues"
+    ],
+    [
+      "CONFLICT RESOLUTION",
+      ":has_relation_with",
+      "BODY LANGUAGE",
+      "Body language can play a crucial role in resolving conflicts by improving communication and understanding"
+    ],
+    [
+      "RELATIONSHIP BUILDING",
+      ":has_relation_with",
+      "BODY LANGUAGE",
+      "Body language can help build stronger relationships by enhancing communication and connection"
+    ]
+  ]
+}

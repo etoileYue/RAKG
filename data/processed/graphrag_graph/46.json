@@ -1,0 +1,223 @@
+{
+  "entities": [
+    {
+      "name": "ROSETTA STONE",
+      "type": "ARTIFACT",
+      "description": "A significant artifact discovered in 1799 by French soldiers during Napoleon's campaign in Egypt, containing a decree issued by King Ptolemy V in 196 BC, written in three scripts: ancient Egyptian hieroglyphs, Demotic script, and Greek"
+    },
+    {
+      "name": "NAPOLEON",
+      "type": "PERSON",
+      "description": "French military and political leader who led a campaign in Egypt where the Rosetta Stone was discovered"
+    },
+    {
+      "name": "EGYPT",
+      "type": "GEO",
+      "description": "Country where the Rosetta Stone was discovered and the civilization that created the hieroglyphic script"
+    },
+    {
+      "name": "KING PTOLEMY V",
+      "type": "PERSON",
+      "description": "Ancient Egyptian ruler who issued the decree inscribed on the Rosetta Stone in 196 BC"
+    },
+    {
+      "name": "JEAN-FRANÇOIS CHAMPOLLION",
+      "type": "PERSON",
+      "description": "French scholar who successfully deciphered the hieroglyphic text on the Rosetta Stone in 1822"
+    },
+    {
+      "name": "DECRETE OF KING PTOLEMY V",
+      "type": "EVENT",
+      "description": "The decree issued by King Ptolemy V in 196 BC, which is inscribed on the Rosetta Stone in three scripts"
+    },
+    {
+      "name": "DECRYPTION OF HIEROGLYPHS",
+      "type": "EVENT",
+      "description": "The process and achievement of deciphering ancient Egyptian hieroglyphs, primarily through the work of Jean-François Champollion in 1822"
+    },
+    {
+      "name": "ANCIENT EGYPTIAN CIVILIZATION",
+      "type": "ORGANIZATION",
+      "description": "The civilization that created the hieroglyphic script and the Rosetta Stone"
+    },
+    {
+      "name": "GREEK SCRIPT",
+      "type": "ORGANIZATION",
+      "description": "One of the three scripts used on the Rosetta Stone, which was already known and understood, aiding in the decipherment of hieroglyphs"
+    },
+    {
+      "name": "DEMOSTIC SCRIPT",
+      "type": "ORGANIZATION",
+      "description": "One of the three scripts used on the Rosetta Stone, alongside hieroglyphs and Greek"
+    },
+    {
+      "name": "EGYPTOLOGY",
+      "type": "ORGANIZATION",
+      "description": "The field of study that focuses on the history, language, and culture of ancient Egypt"
+    },
+    {
+      "name": "ARCHAEOLOGY",
+      "type": "ORGANIZATION",
+      "description": "The scientific study of human history and prehistory through the excavation of sites and the analysis of artifacts and other physical remains"
+    },
+    {
+      "name": "LINGUISTICS",
+      "type": "ORGANIZATION",
+      "description": "The scientific study of language and its structure, including the study of ancient scripts and languages"
+    },
+    {
+      "name": "CUNEIFORM",
+      "type": "ORGANIZATION",
+      "description": "An ancient writing system used in Mesopotamia, inspired by the methods used to decipher the Rosetta Stone"
+    },
+    {
+      "name": "LINEAR B",
+      "type": "ORGANIZATION",
+      "description": "An ancient script used in Mycenaean Greece, deciphered using methods inspired by the Rosetta Stone"
+    },
+    {
+      "name": "MAYAN HIEROGLYPHS",
+      "type": "ORGANIZATION",
+      "description": "An ancient writing system used by the Maya civilization, deciphered using methods inspired by the Rosetta Stone"
+    },
+    {
+      "name": "FRENCH SOLDIERS",
+      "type": "",
+      "description": ""
+    }
+  ],
+  "relations": [
+    [
+      "ROSETTA STONE",
+      ":has_relation_with",
+      "EGYPT",
+      "The Rosetta Stone was discovered in Egypt and is a product of the ancient Egyptian civilization"
+    ],
+    [
+      "ROSETTA STONE",
+      ":has_relation_with",
+      "KING PTOLEMY V",
+      "The Rosetta Stone contains a decree issued by King Ptolemy V"
+    ],
+    [
+      "ROSETTA STONE",
+      ":has_relation_with",
+      "JEAN-FRANÇOIS CHAMPOLLION",
+      "Jean-François Champollion used the Rosetta Stone to decipher ancient Egyptian hieroglyphs"
+    ],
+    [
+      "ROSETTA STONE",
+      ":has_relation_with",
+      "NAPOLEON",
+      "Napoleon's campaign in Egypt led to the discovery of the Rosetta Stone"
+    ],
+    [
+      "ROSETTA STONE",
+      ":has_relation_with",
+      "DECRETE OF KING PTOLEMY V",
+      "The decree of King Ptolemy V is inscribed on the Rosetta Stone"
+    ],
+    [
+      "ROSETTA STONE",
+      ":has_relation_with",
+      "DECRYPTION OF HIEROGLYPHS",
+      "The Rosetta Stone was crucial in the decryption of hieroglyphs"
+    ],
+    [
+      "ROSETTA STONE",
+      ":has_relation_with",
+      "FRENCH SOLDIERS",
+      "French soldiers discovered the Rosetta Stone during Napoleon's campaign in Egypt"
+    ],
+    [
+      "ROSETTA STONE",
+      ":has_relation_with",
+      "ANCIENT EGYPTIAN CIVILIZATION",
+      "The Rosetta Stone is a product of the ancient Egyptian civilization"
+    ],
+    [
+      "ROSETTA STONE",
+      ":has_relation_with",
+      "GREEK SCRIPT",
+      "The Rosetta Stone contains text in Greek script, which was crucial for its decipherment"
+    ],
+    [
+      "ROSETTA STONE",
+      ":has_relation_with",
+      "DEMOSTIC SCRIPT",
+      "The Rosetta Stone contains text in Demotic script, one of the three scripts used"
+    ],
+    [
+      "ROSETTA STONE",
+      ":has_relation_with",
+      "EGYPTOLOGY",
+      "The Rosetta Stone is a key artifact in the field of Egyptology"
+    ],
+    [
+      "ROSETTA STONE",
+      ":has_relation_with",
+      "ARCHAEOLOGY",
+      "The Rosetta Stone is a significant artifact in the field of archaeology"
+    ],
+    [
+      "ROSETTA STONE",
+      ":has_relation_with",
+      "LINGUISTICS",
+      "The Rosetta Stone played a crucial role in the field of linguistics, particularly in the study of ancient scripts"
+    ],
+    [
+      "ROSETTA STONE",
+      ":has_relation_with",
+      "CUNEIFORM",
+      "The methods used to decipher the Rosetta Stone inspired the decipherment of cuneiform"
+    ],
+    [
+      "ROSETTA STONE",
+      ":has_relation_with",
+      "LINEAR B",
+      "The methods used to decipher the Rosetta Stone inspired the decipherment of Linear B"
+    ],
+    [
+      "ROSETTA STONE",
+      ":has_relation_with",
+      "MAYAN HIEROGLYPHS",
+      "The methods used to decipher the Rosetta Stone inspired the decipherment of Mayan hieroglyphs"
+    ],
+    [
+      "JEAN-FRANÇOIS CHAMPOLLION",
+      ":has_relation_with",
+      "DECRYPTION OF HIEROGLYPHS",
+      "Jean-François Champollion was the key figure in the decryption of hieroglyphs"
+    ],
+    [
+      "JEAN-FRANÇOIS CHAMPOLLION",
+      ":has_relation_with",
+      "EGYPTOLOGY",
+      "Jean-François Champollion's work on the Rosetta Stone significantly advanced the field of Egyptology"
+    ],
+    [
+      "JEAN-FRANÇOIS CHAMPOLLION",
+      ":has_relation_with",
+      "LINGUISTICS",
+      "Jean-François Champollion's work on the Rosetta Stone significantly advanced the field of linguistics"
+    ],
+    [
+      "DECRETE OF KING PTOLEMY V",
+      ":has_relation_with",
+      "ANCIENT EGYPTIAN CIVILIZATION",
+      "The decree of King Ptolemy V is a product of the ancient Egyptian civilization"
+    ],
+    [
+      "DECRYPTION OF HIEROGLYPHS",
+      ":has_relation_with",
+      "EGYPTOLOGY",
+      "The decryption of hieroglyphs revolutionized the field of Egyptology"
+    ],
+    [
+      "DECRYPTION OF HIEROGLYPHS",
+      ":has_relation_with",
+      "LINGUISTICS",
+      "The decryption of hieroglyphs significantly advanced the field of linguistics"
+    ]
+  ]
+}

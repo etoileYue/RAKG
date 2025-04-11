@@ -1,0 +1,201 @@
+{
+  "entities": [
+    {
+      "name": "public safety"
+    },
+    {
+      "name": "public participation"
+    },
+    {
+      "name": "community"
+    },
+    {
+      "name": "crimes"
+    },
+    {
+      "name": "privacy rights"
+    },
+    {
+      "name": "surveillance cameras"
+    },
+    {
+      "name": "detect"
+    },
+    {
+      "name": "clear guidelines and regulations"
+    },
+    {
+      "name": "security"
+    },
+    {
+      "name": "secure communication channels"
+    },
+    {
+      "name": "digital platforms"
+    },
+    {
+      "name": "abuses of power"
+    },
+    {
+      "name": "crime prevention"
+    },
+    {
+      "name": "community engagement tools"
+    },
+    {
+      "name": "mobile applications"
+    },
+    {
+      "name": "communication platforms"
+    },
+    {
+      "name": "mobile devices"
+    },
+    {
+      "name": "deter"
+    },
+    {
+      "name": "Social media platforms"
+    },
+    {
+      "name": "technology"
+    },
+    {
+      "name": "citizens"
+    },
+    {
+      "name": "video analytics technology"
+    },
+    {
+      "name": "investigate criminal activities"
+    },
+    {
+      "name": "online reporting systems"
+    },
+    {
+      "name": "predictive analytics"
+    },
+    {
+      "name": "innovation"
+    },
+    {
+      "name": "real-time information sharing"
+    },
+    {
+      "name": "law enforcement agencies"
+    },
+    {
+      "name": "information"
+    },
+    {
+      "name": "data mining"
+    }
+  ],
+  "relations": [
+    [
+      "surveillance cameras",
+      "complements",
+      "predictive analytics"
+    ],
+    [
+      "citizens",
+      "communicate with",
+      "law enforcement agencies"
+    ],
+    [
+      "law enforcement agencies",
+      "use",
+      "surveillance cameras"
+    ],
+    [
+      "predictive analytics",
+      "enhances",
+      "security"
+    ],
+    [
+      "secure communication channels",
+      "supports",
+      "real-time information sharing"
+    ],
+    [
+      "community",
+      "be active participants in",
+      "crime prevention"
+    ],
+    [
+      "online reporting systems",
+      "allow",
+      "citizens"
+    ],
+    [
+      "citizens",
+      "report",
+      "crimes"
+    ],
+    [
+      "mobile devices",
+      "facilitates",
+      "real-time information sharing"
+    ],
+    [
+      "law enforcement agencies",
+      "leverage",
+      "technology"
+    ],
+    [
+      "technology",
+      "enhance the capabilities of",
+      "law enforcement agencies"
+    ],
+    [
+      "Social media platforms",
+      "allow",
+      "citizens"
+    ],
+    [
+      "technology",
+      "enables",
+      "innovation"
+    ],
+    [
+      "citizens",
+      "share",
+      "information"
+    ],
+    [
+      "mobile applications",
+      "allow",
+      "citizens"
+    ],
+    [
+      "digital platforms",
+      "enables",
+      "real-time information sharing"
+    ],
+    [
+      "surveillance cameras",
+      "raise concerns about",
+      "privacy rights"
+    ],
+    [
+      "surveillance cameras",
+      "contributes to",
+      "public safety"
+    ],
+    [
+      "surveillance cameras",
+      "raise concerns about",
+      "abuses of power"
+    ],
+    [
+      "surveillance cameras",
+      "enhance capabilities through",
+      "video analytics technology"
+    ],
+    [
+      "community engagement tools",
+      "supports",
+      "public safety"
+    ]
+  ]
+}

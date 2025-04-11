@@ -1,0 +1,114 @@
+{
+  "entities": [
+    "human creativity",
+    "knowledge",
+    "Spanish",
+    "cultural practices",
+    "cultural assimilation",
+    "cultural heritage",
+    "world understanding",
+    "human languages",
+    "Mandarin",
+    "well-being",
+    "identity",
+    "communities",
+    "community members",
+    "language extinction",
+    "traditional ecological knowledge",
+    "emotions expression",
+    "Linguists",
+    "traditional knowledge",
+    "languages",
+    "language death",
+    "linguistic diversity",
+    "English",
+    "spiritual beliefs",
+    "indigenous languages",
+    "minority languages",
+    "self-esteem",
+    "language activists",
+    "history preservation"
+  ],
+  "relations": [
+    [
+      "traditional ecological knowledge",
+      "eroded_by",
+      "language extinction"
+    ],
+    [
+      "Linguists",
+      "collaborate_with",
+      "language activists"
+    ],
+    [
+      "linguistic diversity",
+      "reflects",
+      "human creativity"
+    ],
+    [
+      "language death",
+      "caused_by",
+      "knowledge"
+    ],
+    [
+      "world understanding",
+      "lost_with",
+      "language extinction"
+    ],
+    [
+      "spiritual beliefs",
+      "embedded_in",
+      "languages"
+    ],
+    [
+      "cultural practices",
+      "lost_with",
+      "language extinction"
+    ],
+    [
+      "language death",
+      "caused_by",
+      "cultural assimilation"
+    ],
+    [
+      "Linguists",
+      "collaborate_with",
+      "community members"
+    ],
+    [
+      "language activists",
+      "work_with",
+      "community members"
+    ],
+    [
+      "traditional knowledge",
+      "lost_with",
+      "language extinction"
+    ],
+    [
+      "linguistic diversity",
+      "reflects",
+      "knowledge"
+    ],
+    [
+      "linguistic diversity",
+      "reflects",
+      "cultural heritage"
+    ],
+    [
+      "communities",
+      "embedded_in",
+      "languages"
+    ],
+    [
+      "history preservation",
+      "lost_with",
+      "language extinction"
+    ],
+    [
+      "emotions expression",
+      "lost_with",
+      "language extinction"
+    ]
+  ]
+}

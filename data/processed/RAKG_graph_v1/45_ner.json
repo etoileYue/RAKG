@@ -1,0 +1,500 @@
+{
+    "entity1": {
+        "name": "fashion",
+        "type": "Concept",
+        "description": "The style and design of clothing, often influenced by cultural, technological, political, and economic factors.",
+        "chunkid": "A History of Fashion Trends2"
+    },
+    "entity2": {
+        "name": "culture",
+        "type": "Societal Factor",
+        "description": "The customs, arts, social institutions, and achievements of a particular nation, people, or other social group.",
+        "chunkid": "A History of Fashion Trends2"
+    },
+    "entity3": {
+        "name": "technology",
+        "type": "Innovation Factor",
+        "description": "The application of scientific knowledge for practical purposes, especially in industry, communication, and manufacturing.",
+        "chunkid": "A History of Fashion Trends2"
+    },
+    "entity4": {
+        "name": "politics",
+        "type": "Governance Factor",
+        "description": "The activities associated with the governance of a country or area, involving the making and administration of public policy and the operation of government.",
+        "chunkid": "A History of Fashion Trends2"
+    },
+    "entity5": {
+        "name": "economics",
+        "type": "Economic Factor",
+        "description": "The branch of knowledge concerned with the production, consumption, and transfer of wealth.",
+        "chunkid": "A History of Fashion Trends2"
+    },
+    "entity6": {
+        "name": "fashion trends",
+        "type": "Concept",
+        "description": "A pattern or style of clothing, accessories, and overall appearance that is popular at a particular time.",
+        "chunkid": "A History of Fashion Trends3"
+    },
+    "entity7": {
+        "name": "ancient times",
+        "type": "Time Period",
+        "description": "The period in history before the Middle Ages, often characterized by early civilizations such as those of Egypt, Greece, and Rome.",
+        "chunkid": "A History of Fashion Trends3"
+    },
+    "entity8": {
+        "name": "modern era",
+        "type": "Time Period",
+        "description": "The current or recent historical period, typically marked by significant technological advancements and social changes.",
+        "chunkid": "A History of Fashion Trends3"
+    },
+    "entity9": {
+        "name": "Egypt",
+        "type": "Location",
+        "description": "An ancient civilization located in northeastern Africa, known for its pyramids and pharaohs.",
+        "chunkid": "A History of Fashion Trends4"
+    },
+    "entity10": {
+        "name": "Greece",
+        "type": "Location",
+        "description": "An ancient civilization situated in southeastern Europe, renowned for its contributions to philosophy, democracy, and the arts.",
+        "chunkid": "A History of Fashion Trends4"
+    },
+    "entity11": {
+        "name": "Rome",
+        "type": "Location",
+        "description": "An ancient civilization that originated on the Italian Peninsula, known for its vast empire and significant influence on Western culture and law.",
+        "chunkid": "A History of Fashion Trends4"
+    },
+    "entity12": {
+        "name": "wealthy and elite",
+        "type": "Social Group",
+        "description": "A group of people with high social status and significant financial resources.",
+        "chunkid": "A History of Fashion Trends5"
+    },
+    "entity13": {
+        "name": "elaborate garments",
+        "type": "Clothing",
+        "description": "Highly detailed and ornate clothing items, often associated with the wealthy and elite.",
+        "chunkid": "A History of Fashion Trends5"
+    },
+    "entity14": {
+        "name": "luxurious fabrics",
+        "type": "Material",
+        "description": "High-quality, expensive textiles used in the creation of fine garments.",
+        "chunkid": "A History of Fashion Trends5"
+    },
+    "entity15": {
+        "name": "intricate embroidery",
+        "type": "Decoration",
+        "description": "Complex and detailed needlework used to embellish clothing or other items.",
+        "chunkid": "A History of Fashion Trends5"
+    },
+    "entity16": {
+        "name": "jewelry",
+        "type": "Accessory",
+        "description": "Ornaments worn for personal adornment, often made from precious metals and stones.",
+        "chunkid": "A History of Fashion Trends5"
+    },
+    "entity17": {
+        "name": "common people",
+        "type": "Social Group",
+        "description": "A term used to refer to the general population or the majority of individuals in a society, often contrasted with the elite or ruling classes.",
+        "chunkid": "A History of Fashion Trends6"
+    },
+    "entity18": {
+        "name": "linen",
+        "type": "Material",
+        "description": "A textile made from the fibers of the flax plant, known for its coolness and freshness in warm weather.",
+        "chunkid": "A History of Fashion Trends6"
+    },
+    "entity19": {
+        "name": "wool",
+        "type": "Material",
+        "description": "A natural fiber obtained from sheep and certain other animals, commonly used for clothing due to its warmth and durability.",
+        "chunkid": "A History of Fashion Trends6"
+    },
+    "entity20": {
+        "name": "Middle Ages",
+        "type": "Historical Period",
+        "description": "A period in European history from the 5th to the late 15th century, characterized by feudalism and significant religious influence.",
+        "chunkid": "A History of Fashion Trends7"
+    },
+    "entity21": {
+        "name": "fashion trends",
+        "type": "Cultural Phenomenon",
+        "description": "The prevailing styles of clothing, accessories, and personal appearance in a particular time and place.",
+        "chunkid": "A History of Fashion Trends7"
+    },
+    "entity22": {
+        "name": "religion",
+        "type": "Social Institution",
+        "description": "A system of beliefs and practices that generally involves reverence for a higher power or powers, often influencing societal norms and behaviors.",
+        "chunkid": "A History of Fashion Trends7"
+    },
+    "entity23": {
+        "name": "social hierarchy",
+        "type": "Societal Structure",
+        "description": "The stratification of people in society into different levels based on factors such as wealth, status, and power.",
+        "chunkid": "A History of Fashion Trends7"
+    },
+    "entity24": {
+        "name": "Catholic Church",
+        "type": "Organization",
+        "description": "A Christian organization and the largest Christian church, which played a significant role in dictating social norms and attire through sumptuary laws.",
+        "chunkid": "A History of Fashion Trends8"
+    },
+    "entity25": {
+        "name": "sumptuary laws",
+        "type": "Legal Concept",
+        "description": "Laws that regulated personal habits, especially the extravagance of dress and food, according to one's social class or status.",
+        "chunkid": "A History of Fashion Trends8"
+    },
+    "entity26": {
+        "name": "Nobles and royalty",
+        "type": "Social Class",
+        "description": "A social class consisting of individuals with high status, often hereditary, who held significant power and wealth.",
+        "chunkid": "A History of Fashion Trends9"
+    },
+    "entity27": {
+        "name": "silk",
+        "type": "Material",
+        "description": "A natural protein fiber, some forms of which can be woven into textiles. It is known for its smooth texture and luster.",
+        "chunkid": "A History of Fashion Trends9"
+    },
+    "entity28": {
+        "name": "velvet",
+        "type": "Material",
+        "description": "A type of woven fabric with a cut pile or velvety surface, often made from silk, cotton, or synthetic fibers, known for its softness and rich appearance.",
+        "chunkid": "A History of Fashion Trends9"
+    },
+    "entity29": {
+        "name": "peasants",
+        "type": "Social Class",
+        "description": "A social class of rural laborers who worked the land, often under feudal systems, with limited rights and resources compared to higher classes.",
+        "chunkid": "A History of Fashion Trends9"
+    },
+    "entity30": {
+        "name": "Renaissance",
+        "type": "Historical Period",
+        "description": "A cultural movement that spanned the period roughly from the 14th to the 17th century, marking a revival of art, culture, and learning in Europe.",
+        "chunkid": "A History of Fashion Trends10"
+    },
+    "entity31": {
+        "name": "Europe",
+        "type": "Location",
+        "description": "A continent in the Northern Hemisphere, comprising numerous countries and a significant portion of the world's population.",
+        "chunkid": "A History of Fashion Trends11"
+    },
+    "entity32": {
+        "name": "wealthy elite",
+        "type": "Social Group",
+        "description": "A segment of society characterized by high economic status and often holding considerable influence and power.",
+        "chunkid": "A History of Fashion Trends11"
+    },
+    "entity33": {
+        "name": "printing press",
+        "type": "Invention",
+        "description": "A device for evenly printing ink onto paper or other material by means of pressure.",
+        "chunkid": "A History of Fashion Trends12"
+    },
+    "entity34": {
+        "name": "fashion trends",
+        "type": "Cultural Phenomenon",
+        "description": "The prevailing styles and preferences in clothing, accessories, and personal appearance within a society at a particular time.",
+        "chunkid": "A History of Fashion Trends12"
+    },
+    "entity35": {
+        "name": "illustrated fashion plates",
+        "type": "Art Form",
+        "description": "Printed images that depict fashionable attire, often used to showcase the latest styles in magazines or catalogs.",
+        "chunkid": "A History of Fashion Trends12"
+    },
+    "entity36": {
+        "name": "magazines",
+        "type": "Publication",
+        "description": "Periodical publications containing articles, stories, photographs, and other content, typically focused on a particular subject or audience.",
+        "chunkid": "A History of Fashion Trends12"
+    },
+    "entity37": {
+        "name": "Industrial Revolution",
+        "type": "Historical Event",
+        "description": "A period of significant technological and socioeconomic change that began in the 18th century, characterized by the shift from manual labor to machine-based manufacturing.",
+        "chunkid": "A History of Fashion Trends13"
+    },
+    "entity38": {
+        "name": "18th and 19th centuries",
+        "type": "Time Period",
+        "description": "The period spanning from the year 1701 to 1900, during which the Industrial Revolution took place.",
+        "chunkid": "A History of Fashion Trends13"
+    },
+    "entity39": {
+        "name": "fashion industry",
+        "type": "Industry",
+        "description": "A sector of the economy that deals with the design, production, and marketing of clothing and accessories.",
+        "chunkid": "A History of Fashion Trends13"
+    },
+    "entity40": {
+        "name": "Mass production techniques",
+        "type": "Process/Technology",
+        "description": "A set of methods used in manufacturing to produce large quantities of standardized products efficiently.",
+        "chunkid": "A History of Fashion Trends14"
+    },
+    "entity41": {
+        "name": "Ready-to-wear clothing",
+        "type": "Product",
+        "description": "Clothing that is manufactured in standard sizes and sold ready for use, as opposed to custom-made or tailored items.",
+        "chunkid": "A History of Fashion Trends14"
+    },
+    "entity42": {
+        "name": "Fashion",
+        "type": "Industry/Culture",
+        "description": "A popular trend, especially in styles of dress and ornament, hair, makeup, and lifestyle, often influenced by designers and celebrities.",
+        "chunkid": "A History of Fashion Trends14"
+    },
+    "entity43": {
+        "name": "General population",
+        "type": "Demographic Group",
+        "description": "The broad segment of society that is not specifically defined by particular characteristics or specialized roles.",
+        "chunkid": "A History of Fashion Trends14"
+    },
+    "entity44": {
+        "name": "department stores",
+        "type": "Business/Commerce",
+        "description": "Retail establishments that offer a wide range of products, including clothing and accessories.",
+        "chunkid": "A History of Fashion Trends15"
+    },
+    "entity45": {
+        "name": "fashion magazines",
+        "type": "Media/Publication",
+        "description": "Periodical publications focused on fashion trends, styles, and industry news.",
+        "chunkid": "A History of Fashion Trends15"
+    },
+    "entity46": {
+        "name": "20th century",
+        "type": "Time Period",
+        "description": "A period of 100 years from the year 1901 to 2000, characterized by significant technological and social changes.",
+        "chunkid": "A History of Fashion Trends16"
+    },
+    "entity47": {
+        "name": "The Roaring Twenties",
+        "type": "Historical Period",
+        "description": "A decade of significant social, artistic, and cultural dynamism in Western society that occurred during the 1920s.",
+        "chunkid": "A History of Fashion Trends17"
+    },
+    "entity48": {
+        "name": "women",
+        "type": "Demographic Group",
+        "description": "Female individuals, often used to describe a group of adult females within a specific context or time period.",
+        "chunkid": "A History of Fashion Trends17"
+    },
+    "entity49": {
+        "name": "The Great Depression",
+        "type": "Historical Event",
+        "description": "A severe worldwide economic depression that took place during the 1930s, characterized by widespread unemployment and poverty.",
+        "chunkid": "A History of Fashion Trends18"
+    },
+    "entity50": {
+        "name": "1930s",
+        "type": "Time Period",
+        "description": "The decade from 1930 to 1939, marked by significant economic hardship and social change.",
+        "chunkid": "A History of Fashion Trends18"
+    },
+    "entity51": {
+        "name": "World War II",
+        "type": "Historical Event",
+        "description": "A global war that lasted from 1939 to 1945, involving the vast majority of the world's nations.",
+        "chunkid": "A History of Fashion Trends19"
+    },
+    "entity52": {
+        "name": "fashion",
+        "type": "Cultural Phenomenon",
+        "description": "The practice of wearing or using items that are popular at a particular time, often influenced by designers and celebrities.",
+        "chunkid": "A History of Fashion Trends19"
+    },
+    "entity53": {
+        "name": "Audrey Hepburn",
+        "type": "Person",
+        "description": "A British actress and humanitarian, known for her roles in films such as 'Roman Holiday' and 'Breakfast at Tiffany's', and for her iconic style.",
+        "chunkid": "A History of Fashion Trends20"
+    },
+    "entity54": {
+        "name": "Marilyn Monroe",
+        "type": "Person",
+        "description": "An American actress, model, and singer, famous for her roles in films like 'Gentlemen Prefer Blondes' and 'Some Like It Hot', and for her glamorous image.",
+        "chunkid": "A History of Fashion Trends20"
+    },
+    "entity55": {
+        "name": "1950s",
+        "type": "Time Period",
+        "description": "A decade of the 20th century, known for significant cultural changes including in fashion and music.",
+        "chunkid": "A History of Fashion Trends20"
+    },
+    "entity56": {
+        "name": "1960s and 1970s",
+        "type": "Time Period",
+        "description": "A two-decade period in the 20th century known for significant social, cultural, and political changes.",
+        "chunkid": "A History of Fashion Trends21"
+    },
+    "entity57": {
+        "name": "youth culture",
+        "type": "Social Group",
+        "description": "The attitudes, behaviors, and interests of young people, often influencing broader societal trends.",
+        "chunkid": "A History of Fashion Trends21"
+    },
+    "entity58": {
+        "name": "mini skirts",
+        "type": "Fashion Item",
+        "description": "A short skirt that typically ends well above the knee, popularized in the 1960s as a symbol of rebellion and modernity.",
+        "chunkid": "A History of Fashion Trends21"
+    },
+    "entity59": {
+        "name": "bell-bottoms",
+        "type": "Fashion Item",
+        "description": "A style of pants that are tight around the legs and flare out at the bottom, popular in the 1960s and 1970s.",
+        "chunkid": "A History of Fashion Trends21"
+    },
+    "entity60": {
+        "name": "psychedelic prints",
+        "type": "Fashion Item",
+        "description": "Vivid, colorful patterns often associated with the psychedelic art movement of the 1960s and 1970s.",
+        "chunkid": "A History of Fashion Trends21"
+    },
+    "entity61": {
+        "name": "1980s and 1990s",
+        "type": "Time Period",
+        "description": "A two-decade period in the late 20th century, known for significant cultural and economic changes.",
+        "chunkid": "A History of Fashion Trends22"
+    },
+    "entity62": {
+        "name": "fashion scene",
+        "type": "Cultural Phenomenon",
+        "description": "The collective area of fashion trends, styles, and practices that are prevalent during a specific time or in a particular place.",
+        "chunkid": "A History of Fashion Trends22"
+    },
+    "entity63": {
+        "name": "Cindy Crawford",
+        "type": "Person",
+        "description": "An American supermodel who gained prominence in the 1980s and 1990s.",
+        "chunkid": "A History of Fashion Trends23"
+    },
+    "entity64": {
+        "name": "Naomi Campbell",
+        "type": "Person",
+        "description": "A British supermodel who is one of the most recognizable faces in fashion, known for her work since the early 1990s.",
+        "chunkid": "A History of Fashion Trends23"
+    },
+    "entity65": {
+        "name": "millennium",
+        "type": "Time Period",
+        "description": "A period of one thousand years, often used to denote a significant transition in time.",
+        "chunkid": "A History of Fashion Trends24"
+    },
+    "entity66": {
+        "name": "21st century",
+        "type": "Time Period",
+        "description": "The current century, starting from the year 2001 and lasting until 2100.",
+        "chunkid": "A History of Fashion Trends25"
+    },
+    "entity67": {
+        "name": "fashion trends",
+        "type": "Concept",
+        "description": "The prevailing styles or practices in clothing and accessories at a particular time.",
+        "chunkid": "A History of Fashion Trends25"
+    },
+    "entity68": {
+        "name": "sustainability",
+        "type": "Concept",
+        "description": "The ability to maintain or manage resources in a way that meets current needs without compromising future generations.",
+        "chunkid": "A History of Fashion Trends25"
+    },
+    "entity69": {
+        "name": "diversity",
+        "type": "Concept",
+        "description": "The state of being varied and different, often used in the context of representation and inclusion.",
+        "chunkid": "A History of Fashion Trends25"
+    },
+    "entity70": {
+        "name": "body positivity",
+        "type": "Concept",
+        "description": "A social movement that advocates for accepting and respecting all body types and appearances.",
+        "chunkid": "A History of Fashion Trends25"
+    },
+    "entity71": {
+        "name": "Instagram",
+        "type": "Social Media Platform",
+        "description": "A popular social media platform focused on sharing photos and short videos.",
+        "chunkid": "A History of Fashion Trends26"
+    },
+    "entity72": {
+        "name": "TikTok",
+        "type": "Social Media Platform",
+        "description": "A video-sharing social networking service owned by Chinese company ByteDance.",
+        "chunkid": "A History of Fashion Trends26"
+    },
+    "entity73": {
+        "name": "fashion",
+        "type": "Industry",
+        "description": "The business of designing, manufacturing, and selling clothes or accessories.",
+        "chunkid": "A History of Fashion Trends26"
+    },
+    "entity74": {
+        "name": "influencers",
+        "type": "Person Group",
+        "description": "Individuals with a significant online following who can sway the opinions and behaviors of their audience.",
+        "chunkid": "A History of Fashion Trends26"
+    },
+    "entity75": {
+        "name": "bloggers",
+        "type": "Person Group",
+        "description": "People who write or maintain blogs, often sharing personal experiences, news, or reviews on specific topics.",
+        "chunkid": "A History of Fashion Trends26"
+    },
+    "entity76": {
+        "name": "Sustainable fashion practices",
+        "type": "Concept",
+        "description": "A set of methods and approaches in the fashion industry aimed at reducing environmental impact through responsible production and consumption.",
+        "chunkid": "A History of Fashion Trends27"
+    },
+    "entity77": {
+        "name": "upcycling",
+        "type": "Practice",
+        "description": "The process of converting waste materials or unwanted products into new materials or products of better quality or for better environmental value.",
+        "chunkid": "A History of Fashion Trends27"
+    },
+    "entity78": {
+        "name": "recycling",
+        "type": "Practice",
+        "description": "The process of collecting and processing materials that would otherwise be thrown away as trash and turning them into new products.",
+        "chunkid": "A History of Fashion Trends27"
+    },
+    "entity79": {
+        "name": "ethical sourcing",
+        "type": "Practice",
+        "description": "A business practice that ensures the materials or labor used to produce goods are obtained in a responsible and sustainable way, considering environmental and social impacts.",
+        "chunkid": "A History of Fashion Trends27"
+    },
+    "entity80": {
+        "name": "fashion industry",
+        "type": "Industry",
+        "description": "The global business sector involved in designing, manufacturing, distributing, marketing, retailing, and advertising clothing and accessories.",
+        "chunkid": "A History of Fashion Trends27"
+    },
+    "entity81": {
+        "name": "fashion trends",
+        "type": "Concept",
+        "description": "A general term for the prevailing styles or customs, especially in clothing, footwear, accessories, makeup, and hairstyles.",
+        "chunkid": "A History of Fashion Trends28"
+    },
+    "entity82": {
+        "name": "history",
+        "type": "Time Period",
+        "description": "The study of past events, particularly human affairs over time.",
+        "chunkid": "A History of Fashion Trends28"
+    },
+    "entity83": {
+        "name": "society",
+        "type": "Social Group",
+        "description": "A community or group of people regarded as forming a single entity, often sharing common interests and values.",
+        "chunkid": "A History of Fashion Trends28"
+    }
+}

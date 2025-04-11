@@ -1,0 +1,367 @@
+{
+  "entities": [
+    {
+      "name": "ANCIENT EGYPT",
+      "type": "GEO",
+      "description": "Ancient Egypt is the location where some of the earliest known records of magic tricks can be traced, where magicians performed illusions using sleight of hand and misdirection, often in religious ceremonies, believed to have supernatural powers"
+    },
+    {
+      "name": "ANCIENT GREECE",
+      "type": "GEO",
+      "description": "Ancient Greece is a location where magicians incorporated elements of storytelling and theatrics into their performances, often performing in public squares and marketplaces"
+    },
+    {
+      "name": "ANCIENT ROME",
+      "type": "GEO",
+      "description": "Ancient Rome is a location where magicians incorporated elements of storytelling and theatrics into their performances, often performing in public squares and marketplaces"
+    },
+    {
+      "name": "MIDDLE AGES",
+      "type": "GEO",
+      "description": "During the Middle Ages, magic tricks took on a more mysterious and mystical quality, with magicians often being associated with witchcraft and the occult"
+    },
+    {
+      "name": "RENAISSANCE",
+      "type": "GEO",
+      "description": "The Renaissance period saw a resurgence of interest in magic tricks, with magicians incorporating elements of science and mathematics into their performances"
+    },
+    {
+      "name": "19TH CENTURY",
+      "type": "GEO",
+      "description": "The 19th century saw the rise of professional magicians, such as Jean Eugène Robert-Houdin and Harry Houdini, who revolutionized the art of magic with their daring escapes and death-defying stunts"
+    },
+    {
+      "name": "20TH CENTURY",
+      "type": "GEO",
+      "description": "The 20th century saw magic tricks become more sophisticated and technologically advanced, with magicians such as David Copperfield and Penn & Teller pushing the boundaries of what was possible in the realm of illusion"
+    },
+    {
+      "name": "JOHN DEE",
+      "type": "PERSON",
+      "description": "John Dee was a Renaissance magician who incorporated elements of science and mathematics into his performances, using his knowledge of optics and geometry to create elaborate illusions"
+    },
+    {
+      "name": "GIROLAMO CARDANO",
+      "type": "PERSON",
+      "description": "Girolamo Cardano was a Renaissance magician who incorporated elements of science and mathematics into his performances, using his knowledge of optics and geometry to create elaborate illusions"
+    },
+    {
+      "name": "JEAN EUGÈNE ROBERT-HOUDIN",
+      "type": "PERSON",
+      "description": "Jean Eugène Robert-Houdin was a 19th-century magician who revolutionized the art of magic with his daring escapes and death-defying stunts, popularizing the use of elaborate props and stage effects"
+    },
+    {
+      "name": "HARRY HOUDINI",
+      "type": "PERSON",
+      "description": "Harry Houdini was a 19th-century magician who revolutionized the art of magic with his daring escapes and death-defying stunts, popularizing the use of elaborate props and stage effects"
+    },
+    {
+      "name": "DAVID COPPERFIELD",
+      "type": "PERSON",
+      "description": "David Copperfield is a 20th-century magician known for his sophisticated and technologically advanced magic tricks, pushing the boundaries of what was possible in the realm of illusion"
+    },
+    {
+      "name": "PENN & TELLER",
+      "type": "PERSON",
+      "description": "Penn & Teller are 20th-century magicians known for their sophisticated and technologically advanced magic tricks, pushing the boundaries of what was possible in the realm of illusion"
+    },
+    {
+      "name": "ILLUSIONS",
+      "type": "EVENT",
+      "description": "Illusions are a form of magic tricks that use sleight of hand and misdirection to deceive the audience, often associated with religious ceremonies in ancient times"
+    },
+    {
+      "name": "SLEIGHT OF HAND",
+      "type": "EVENT",
+      "description": "Sleight of hand is a technique used in magic tricks to manipulate objects without the audience noticing, a skill that has been used since ancient times"
+    },
+    {
+      "name": "RELIGIOUS CEREMONIES",
+      "type": "EVENT",
+      "description": "Religious ceremonies in ancient Egypt often included magic tricks, which were believed to have supernatural powers"
+    },
+    {
+      "name": "STORYTELLING",
+      "type": "EVENT",
+      "description": "Storytelling is an element incorporated into magic tricks by magicians in ancient Greece and Rome, enhancing the entertainment value of their performances"
+    },
+    {
+      "name": "THEATRICS",
+      "type": "EVENT",
+      "description": "Theatrics are elements incorporated into magic tricks by magicians in ancient Greece and Rome, enhancing the entertainment value of their performances"
+    },
+    {
+      "name": "WITCHCRAFT",
+      "type": "EVENT",
+      "description": "During the Middle Ages, magic tricks were often associated with witchcraft and the occult, adding to their mysterious and mystical quality"
+    },
+    {
+      "name": "OPTICS",
+      "type": "EVENT",
+      "description": "Optics is a scientific field used by Renaissance magicians like John Dee and Girolamo Cardano to create elaborate illusions"
+    },
+    {
+      "name": "GEOMETRY",
+      "type": "EVENT",
+      "description": "Geometry is a mathematical field used by Renaissance magicians like John Dee and Girolamo Cardano to create elaborate illusions"
+    },
+    {
+      "name": "DARING ESCAPES",
+      "type": "EVENT",
+      "description": "Daring escapes are a type of magic trick popularized by 19th-century magicians like Jean Eugène Robert-Houdin and Harry Houdini"
+    },
+    {
+      "name": "DEATH-DEFYING STUNTS",
+      "type": "EVENT",
+      "description": "Death-defying stunts are a type of magic trick popularized by 19th-century magicians like Jean Eugène Robert-Houdin and Harry Houdini"
+    },
+    {
+      "name": "CUTTING-EDGE TECHNOLOGY",
+      "type": "EVENT",
+      "description": "Cutting-edge technology is used by 20th-century magicians like David Copperfield and Penn & Teller to create sophisticated and technologically advanced magic tricks"
+    },
+    {
+      "name": "INNOVATIVE TECHNIQUES",
+      "type": "EVENT",
+      "description": "Innovative techniques are used by 20th-century magicians like David Copperfield and Penn & Teller to create sophisticated and technologically advanced magic tricks"
+    },
+    {
+      "name": "COMEDY",
+      "type": "EVENT",
+      "description": "Comedy is an element incorporated into modern magic tricks, enhancing the entertainment value of performances"
+    },
+    {
+      "name": "SUSPENSE",
+      "type": "EVENT",
+      "description": "Suspense is an element incorporated into modern magic tricks, enhancing the entertainment value of performances"
+    },
+    {
+      "name": "MAGIC TRICKS",
+      "type": "",
+      "description": ""
+    },
+    {
+      "name": "DRAMA",
+      "type": "",
+      "description": ""
+    }
+  ],
+  "relations": [
+    [
+      "ANCIENT EGYPT",
+      ":has_relation_with",
+      "JOHN DEE",
+      "John Dee, a Renaissance magician, built upon the early traditions of magic that originated in Ancient Egypt"
+    ],
+    [
+      "ANCIENT EGYPT",
+      ":has_relation_with",
+      "GIROLAMO CARDANO",
+      "Girolamo Cardano, a Renaissance magician, built upon the early traditions of magic that originated in Ancient Egypt"
+    ],
+    [
+      "ANCIENT EGYPT",
+      ":has_relation_with",
+      "JEAN EUGÈNE ROBERT-HOUDIN",
+      "Jean Eugène Robert-Houdin, a 19th-century magician, built upon the early traditions of magic that originated in Ancient Egypt"
+    ],
+    [
+      "ANCIENT EGYPT",
+      ":has_relation_with",
+      "HARRY HOUDINI",
+      "Harry Houdini, a 19th-century magician, built upon the early traditions of magic that originated in Ancient Egypt"
+    ],
+    [
+      "ANCIENT EGYPT",
+      ":has_relation_with",
+      "DAVID COPPERFIELD",
+      "David Copperfield, a 20th-century magician, built upon the early traditions of magic that originated in Ancient Egypt"
+    ],
+    [
+      "ANCIENT EGYPT",
+      ":has_relation_with",
+      "PENN & TELLER",
+      "Penn & Teller, 20th-century magicians, built upon the early traditions of magic that originated in Ancient Egypt"
+    ],
+    [
+      "JOHN DEE",
+      ":has_relation_with",
+      "GIROLAMO CARDANO",
+      "Both John Dee and Girolamo Cardano were Renaissance magicians who incorporated elements of science and mathematics into their performances"
+    ],
+    [
+      "JOHN DEE",
+      ":has_relation_with",
+      "JEAN EUGÈNE ROBERT-HOUDIN",
+      "John Dee's work influenced later magicians like Jean Eugène Robert-Houdin, who further developed the art of magic"
+    ],
+    [
+      "JOHN DEE",
+      ":has_relation_with",
+      "HARRY HOUDINI",
+      "John Dee's work influenced later magicians like Harry Houdini, who further developed the art of magic"
+    ],
+    [
+      "JOHN DEE",
+      ":has_relation_with",
+      "DAVID COPPERFIELD",
+      "John Dee's work influenced later magicians like David Copperfield, who further developed the art of magic"
+    ],
+    [
+      "JOHN DEE",
+      ":has_relation_with",
+      "PENN & TELLER",
+      "John Dee's work influenced later magicians like Penn & Teller, who further developed the art of magic"
+    ],
+    [
+      "GIROLAMO CARDANO",
+      ":has_relation_with",
+      "JEAN EUGÈNE ROBERT-HOUDIN",
+      "Girolamo Cardano's work influenced later magicians like Jean Eugène Robert-Houdin, who further developed the art of magic"
+    ],
+    [
+      "GIROLAMO CARDANO",
+      ":has_relation_with",
+      "HARRY HOUDINI",
+      "Girolamo Cardano's work influenced later magicians like Harry Houdini, who further developed the art of magic"
+    ],
+    [
+      "GIROLAMO CARDANO",
+      ":has_relation_with",
+      "DAVID COPPERFIELD",
+      "Girolamo Cardano's work influenced later magicians like David Copperfield, who further developed the art of magic"
+    ],
+    [
+      "GIROLAMO CARDANO",
+      ":has_relation_with",
+      "PENN & TELLER",
+      "Girolamo Cardano's work influenced later magicians like Penn & Teller, who further developed the art of magic"
+    ],
+    [
+      "JEAN EUGÈNE ROBERT-HOUDIN",
+      ":has_relation_with",
+      "HARRY HOUDINI",
+      "Jean Eugène Robert-Houdin and Harry Houdini were both influential 19th-century magicians who revolutionized the art of magic"
+    ],
+    [
+      "JEAN EUGÈNE ROBERT-HOUDIN",
+      ":has_relation_with",
+      "DAVID COPPERFIELD",
+      "Jean Eugène Robert-Houdin's work influenced later magicians like David Copperfield, who further developed the art of magic"
+    ],
+    [
+      "JEAN EUGÈNE ROBERT-HOUDIN",
+      ":has_relation_with",
+      "PENN & TELLER",
+      "Jean Eugène Robert-Houdin's work influenced later magicians like Penn & Teller, who further developed the art of magic"
+    ],
+    [
+      "HARRY HOUDINI",
+      ":has_relation_with",
+      "DAVID COPPERFIELD",
+      "Harry Houdini's work influenced later magicians like David Copperfield, who further developed the art of magic"
+    ],
+    [
+      "HARRY HOUDINI",
+      ":has_relation_with",
+      "PENN & TELLER",
+      "Harry Houdini's work influenced later magicians like Penn & Teller, who further developed the art of magic"
+    ],
+    [
+      "DAVID COPPERFIELD",
+      ":has_relation_with",
+      "PENN & TELLER",
+      "David Copperfield and Penn & Teller are both influential 20th-century magicians who have pushed the boundaries of what is possible in the realm of illusion"
+    ],
+    [
+      "ILLUSIONS",
+      ":has_relation_with",
+      "MAGIC TRICKS",
+      "Magic tricks often involve illusions, which are used to deceive the audience and challenge their perceptions of reality"
+    ],
+    [
+      "SLEIGHT OF HAND",
+      ":has_relation_with",
+      "MAGIC TRICKS",
+      "Magic tricks often involve sleight of hand, a technique used to manipulate objects without the audience noticing"
+    ],
+    [
+      "RELIGIOUS CEREMONIES",
+      ":has_relation_with",
+      "MAGIC TRICKS",
+      "In ancient Egypt, magic tricks were often performed as part of religious ceremonies, believed to have supernatural powers"
+    ],
+    [
+      "STORYTELLING",
+      ":has_relation_with",
+      "MAGIC TRICKS",
+      "In ancient Greece and Rome, magicians incorporated storytelling into their magic tricks, enhancing the entertainment value of their performances"
+    ],
+    [
+      "THEATRICS",
+      ":has_relation_with",
+      "MAGIC TRICKS",
+      "In ancient Greece and Rome, magicians incorporated theatrics into their magic tricks, enhancing the entertainment value of their performances"
+    ],
+    [
+      "WITCHCRAFT",
+      ":has_relation_with",
+      "MAGIC TRICKS",
+      "During the Middle Ages, magic tricks were often associated with witchcraft and the occult, adding to their mysterious and mystical quality"
+    ],
+    [
+      "OPTICS",
+      ":has_relation_with",
+      "MAGIC TRICKS",
+      "Renaissance magicians like John Dee and Girolamo Cardano used optics to create elaborate illusions in their magic tricks"
+    ],
+    [
+      "GEOMETRY",
+      ":has_relation_with",
+      "MAGIC TRICKS",
+      "Renaissance magicians like John Dee and Girolamo Cardano used geometry to create elaborate illusions in their magic tricks"
+    ],
+    [
+      "DARING ESCAPES",
+      ":has_relation_with",
+      "MAGIC TRICKS",
+      "19th-century magicians like Jean Eugène Robert-Houdin and Harry Houdini popularized daring escapes in their magic tricks"
+    ],
+    [
+      "DEATH-DEFYING STUNTS",
+      ":has_relation_with",
+      "MAGIC TRICKS",
+      "19th-century magicians like Jean Eugène Robert-Houdin and Harry Houdini popularized death-defying stunts in their magic tricks"
+    ],
+    [
+      "CUTTING-EDGE TECHNOLOGY",
+      ":has_relation_with",
+      "MAGIC TRICKS",
+      "20th-century magicians like David Copperfield and Penn & Teller used cutting-edge technology to create sophisticated and technologically advanced magic tricks"
+    ],
+    [
+      "INNOVATIVE TECHNIQUES",
+      ":has_relation_with",
+      "MAGIC TRICKS",
+      "20th-century magicians like David Copperfield and Penn & Teller used innovative techniques to create sophisticated and technologically advanced magic tricks"
+    ],
+    [
+      "COMEDY",
+      ":has_relation_with",
+      "MAGIC TRICKS",
+      "Modern magicians incorporate elements of comedy into their magic tricks, enhancing the entertainment value of their performances"
+    ],
+    [
+      "SUSPENSE",
+      ":has_relation_with",
+      "MAGIC TRICKS",
+      "Modern magicians incorporate elements of suspense into their magic tricks, enhancing the entertainment value of their performances"
+    ],
+    [
+      "MAGIC TRICKS",
+      ":has_relation_with",
+      "DRAMA",
+      "Modern magicians incorporate elements of drama into their magic tricks, enhancing the entertainment value of their performances"
+    ]
+  ]
+}

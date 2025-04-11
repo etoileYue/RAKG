@@ -1,0 +1,186 @@
+{
+  "entities": [
+    {
+      "name": "relationships"
+    },
+    {
+      "name": "civic engagement"
+    },
+    {
+      "name": "community"
+    },
+    {
+      "name": "time"
+    },
+    {
+      "name": "disaster relief efforts"
+    },
+    {
+      "name": "resources"
+    },
+    {
+      "name": "Volunteerism"
+    },
+    {
+      "name": "organizations"
+    },
+    {
+      "name": "critical needs"
+    },
+    {
+      "name": "interests"
+    },
+    {
+      "name": "connections"
+    },
+    {
+      "name": "mental health"
+    },
+    {
+      "name": "unity"
+    },
+    {
+      "name": "elderly"
+    },
+    {
+      "name": "positive impact"
+    },
+    {
+      "name": "skill development"
+    },
+    {
+      "name": "self-discovery"
+    },
+    {
+      "name": "volunteers"
+    },
+    {
+      "name": "individuals"
+    },
+    {
+      "name": "social bonds"
+    },
+    {
+      "name": "diverse groups"
+    },
+    {
+      "name": "self-esteem"
+    },
+    {
+      "name": "social responsibility"
+    },
+    {
+      "name": "healthcare"
+    },
+    {
+      "name": "environmental conservation"
+    },
+    {
+      "name": "individuals with disabilities"
+    },
+    {
+      "name": "environmental conservation projects"
+    },
+    {
+      "name": "causes"
+    },
+    {
+      "name": "social justice"
+    },
+    {
+      "name": "homeless"
+    },
+    {
+      "name": "belonging"
+    },
+    {
+      "name": "friendships"
+    },
+    {
+      "name": "vulnerable populations"
+    },
+    {
+      "name": "volunteerism"
+    },
+    {
+      "name": "personal growth"
+    },
+    {
+      "name": "sense of community"
+    },
+    {
+      "name": "positive change"
+    },
+    {
+      "name": "education"
+    },
+    {
+      "name": "values"
+    },
+    {
+      "name": "well-being"
+    }
+  ],
+  "relations": [
+    [
+      "volunteers",
+      "create",
+      "positive change"
+    ],
+    [
+      "Volunteerism",
+      "create",
+      "sense of community"
+    ],
+    [
+      "Volunteerism",
+      "addresses",
+      "critical needs"
+    ],
+    [
+      "Volunteerism",
+      "promotes",
+      "social responsibility"
+    ],
+    [
+      "volunteerism",
+      "promotes",
+      "social responsibility"
+    ],
+    [
+      "volunteers",
+      "promote",
+      "social responsibility"
+    ],
+    [
+      "Volunteerism",
+      "contributes to",
+      "well-being"
+    ],
+    [
+      "Volunteerism",
+      "forms",
+      "friendships"
+    ],
+    [
+      "Volunteerism",
+      "makes",
+      "positive impact"
+    ],
+    [
+      "volunteers",
+      "inspire",
+      "civic engagement"
+    ],
+    [
+      "Volunteerism",
+      "fosters",
+      "sense of community"
+    ],
+    [
+      "volunteers",
+      "contribute_to",
+      "community"
+    ]
+  ]
+}

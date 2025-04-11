@@ -1,0 +1,446 @@
+{
+    "entity1": {
+        "name": "Smell",
+        "type": "Sense",
+        "description": "The sense of smell, also known as olfaction, is one of the most fascinating and complex senses in the human body.",
+        "chunkid": "The Science of Smell1"
+    },
+    "entity2": {
+        "name": "Olfaction",
+        "type": "Medical Term",
+        "description": "A medical term referring to the sense of smell.",
+        "chunkid": "The Science of Smell1"
+    },
+    "entity3": {
+        "name": "smell",
+        "type": "Biological Process",
+        "description": "The process of perceiving odors through the olfactory system, which is a critical sensory function in many species.",
+        "chunkid": "The Science of Smell3"
+    },
+    "entity4": {
+        "name": "evolutionary significance",
+        "type": "Concept",
+        "description": "The importance or role that a trait or characteristic has played in the evolutionary history of an organism or group of organisms.",
+        "chunkid": "The Science of Smell3"
+    },
+    "entity5": {
+        "name": "Smell",
+        "type": "Biological Process",
+        "description": "A biological process that allows organisms to detect and interpret chemical signals from the environment, primarily through the nose.",
+        "chunkid": "The Science of Smell4"
+    },
+    "entity6": {
+        "name": "odor molecules",
+        "type": "Chemical Substance",
+        "description": "Molecules that are volatile and can be detected by olfactory receptors in the nasal cavity, leading to the perception of smell.",
+        "chunkid": "The Science of Smell4"
+    },
+    "entity7": {
+        "name": "nasal cavity",
+        "type": "Anatomical Structure",
+        "description": "The internal space within the nose where air passes through during breathing and where odor molecules are detected by olfactory receptors.",
+        "chunkid": "The Science of Smell4"
+    },
+    "entity8": {
+        "name": "nostrils",
+        "type": "Anatomical Structure",
+        "description": "External openings of the nasal cavity that allow air and odor molecules to enter the nose.",
+        "chunkid": "The Science of Smell4"
+    },
+    "entity9": {
+        "name": "olfactory receptors",
+        "type": "Biological Structure",
+        "description": "Specialized proteins that detect odor molecules in the olfactory system.",
+        "chunkid": "The Science of Smell5"
+    },
+    "entity10": {
+        "name": "olfactory epithelium",
+        "type": "Anatomical Structure",
+        "description": "A thin layer of tissue located at the back of the nasal cavity, containing olfactory receptors.",
+        "chunkid": "The Science of Smell5"
+    },
+    "entity11": {
+        "name": "nasal cavity",
+        "type": "Anatomical Structure",
+        "description": "The internal space within the nose that is involved in the sense of smell and breathing.",
+        "chunkid": "The Science of Smell5"
+    },
+    "entity12": {
+        "name": "receptor",
+        "type": "Biological Structure",
+        "description": "A structure in the body that responds to specific stimuli, such as odor molecules.",
+        "chunkid": "The Science of Smell6"
+    },
+    "entity13": {
+        "name": "odor molecules",
+        "type": "Chemical Compound",
+        "description": "Molecules that have a smell and can be detected by olfactory receptors.",
+        "chunkid": "The Science of Smell6"
+    },
+    "entity14": {
+        "name": "odor molecule",
+        "type": "Biological Substance",
+        "description": "A chemical compound that has a smell and can be detected by the olfactory system.",
+        "chunkid": "The Science of Smell7"
+    },
+    "entity15": {
+        "name": "receptor",
+        "type": "Biological Structure",
+        "description": "A protein molecule in cells to which mobile signaling molecules, such as hormones or neurotransmitters, may attach. In this context, it is part of the olfactory system.",
+        "chunkid": "The Science of Smell7"
+    },
+    "entity16": {
+        "name": "brain",
+        "type": "Anatomical Structure",
+        "description": "The central organ of the nervous system that processes and interprets sensory information, including smells.",
+        "chunkid": "The Science of Smell7"
+    },
+    "entity17": {
+        "name": "sense of smell",
+        "type": "Biological Feature",
+        "description": "A biological capability that allows organisms to detect and process olfactory information.",
+        "chunkid": "The Science of Smell8"
+    },
+    "entity18": {
+        "name": "humans",
+        "type": "Species",
+        "description": "The most intelligent species on Earth, characterized by the ability to reason, use complex language, make and use tools, and create art and culture.",
+        "chunkid": "The Science of Smell8"
+    },
+    "entity19": {
+        "name": "animals",
+        "type": "Biological Group",
+        "description": "A broad group of multicellular eukaryotic organisms that are capable of locomotion and have a wide range of physiological and behavioral characteristics.",
+        "chunkid": "The Science of Smell8"
+    },
+    "entity20": {
+        "name": "evolution",
+        "type": "Biological Process",
+        "description": "The process by which different kinds of living organisms develop and diversify from earlier forms during the history of the Earth.",
+        "chunkid": "The Science of Smell8"
+    },
+    "entity21": {
+        "name": "Early humans",
+        "type": "Historical Group",
+        "description": "Refers to the early ancestors of modern humans, who lived in prehistoric times.",
+        "chunkid": "The Science of Smell9"
+    },
+    "entity22": {
+        "name": "predators",
+        "type": "Biological Entity",
+        "description": "Animals that hunt and eat other animals for survival.",
+        "chunkid": "The Science of Smell9"
+    },
+    "entity23": {
+        "name": "food",
+        "type": "Resource",
+        "description": "Substances consumed by organisms to provide nutritional support for their bodies.",
+        "chunkid": "The Science of Smell9"
+    },
+    "entity24": {
+        "name": "potential mates",
+        "type": "Biological Entity",
+        "description": "Individuals of the same species who are considered as possible partners for reproduction.",
+        "chunkid": "The Science of Smell9"
+    },
+    "entity25": {
+        "name": "smell",
+        "type": "Sensory Function",
+        "description": "The ability to perceive odors or scents through the nose, which serves important functions such as warning of danger and guiding food choices.",
+        "chunkid": "The Science of Smell10"
+    },
+    "entity26": {
+        "name": "danger",
+        "type": "Concept",
+        "description": "A situation that could lead to harm, injury, or loss. In this context, it refers to potential threats detected by the sense of smell, such as smoke or spoiled food.",
+        "chunkid": "The Science of Smell10"
+    },
+    "entity27": {
+        "name": "smoke",
+        "type": "Substance",
+        "description": "A visible suspension of carbon or other particles in air, typically produced by combustion. It can be a sign of fire and is often detected through the sense of smell.",
+        "chunkid": "The Science of Smell10"
+    },
+    "entity28": {
+        "name": "spoiled food",
+        "type": "Substance",
+        "description": "Food that has gone bad or decayed, potentially harmful if consumed. The smell of spoiled food can be a warning sign to avoid it.",
+        "chunkid": "The Science of Smell10"
+    },
+    "entity29": {
+        "name": "fresh fruits",
+        "type": "Food Item",
+        "description": "Edible parts of plants that are sweet or tart and often eaten as a snack or dessert. The aroma of fresh fruits can be appealing and guide food choices.",
+        "chunkid": "The Science of Smell10"
+    },
+    "entity30": {
+        "name": "cooked meals",
+        "type": "Food Item",
+        "description": "Prepared dishes made from various ingredients, usually involving heat in the cooking process. The aroma of cooked meals can influence food preferences and choices.",
+        "chunkid": "The Science of Smell10"
+    },
+    "entity31": {
+        "name": "sense of smell",
+        "type": "Biological Function",
+        "description": "The ability to detect and distinguish odors through the olfactory system.",
+        "chunkid": "The Science of Smell11"
+    },
+    "entity32": {
+        "name": "ancestors",
+        "type": "Historical Group",
+        "description": "Predecessors or forebears of a person, group, or species from which they are descended.",
+        "chunkid": "The Science of Smell11"
+    },
+    "entity33": {
+        "name": "sight",
+        "type": "Biological Function",
+        "description": "The ability to see or perceive the environment through the visual system.",
+        "chunkid": "The Science of Smell11"
+    },
+    "entity34": {
+        "name": "hearing",
+        "type": "Biological Function",
+        "description": "The ability to perceive sound and interpret auditory information through the auditory system.",
+        "chunkid": "The Science of Smell11"
+    },
+    "entity35": {
+        "name": "smell",
+        "type": "Sensory Perception",
+        "description": "A sense that allows organisms to detect and process chemical signals from the environment, often associated with odors.",
+        "chunkid": "The Science of Smell12"
+    },
+    "entity36": {
+        "name": "emotions",
+        "type": "Psychological State",
+        "description": "Complex reactions involving changes in thoughts, feelings, and physiological responses, typically experienced as positive or negative.",
+        "chunkid": "The Science of Smell12"
+    },
+    "entity37": {
+        "name": "memories",
+        "type": "Cognitive Process",
+        "description": "The mental processes involved in the acquisition, storage, retention, and retrieval of information from past experiences.",
+        "chunkid": "The Science of Smell12"
+    },
+    "entity38": {
+        "name": "Proustian effect",
+        "type": "Phenomenon",
+        "description": "A psychological phenomenon where a sensory experience, such as smell or taste, triggers vivid memories.",
+        "chunkid": "The Science of Smell13"
+    },
+    "entity39": {
+        "name": "Marcel Proust",
+        "type": "Person",
+        "description": "French author known for his novel 'In Search of Lost Time', which includes a famous passage about the madeleine cookie evoking childhood memories.",
+        "chunkid": "The Science of Smell13"
+    },
+    "entity40": {
+        "name": "madeleine cookie",
+        "type": "Food Item",
+        "description": "A small, shell-shaped cake that is a traditional French pastry, often associated with Proust's literary work due to its role in triggering memories.",
+        "chunkid": "The Science of Smell13"
+    },
+    "entity41": {
+        "name": "olfactory system",
+        "type": "Biological System",
+        "description": "The sensory system responsible for the sense of smell.",
+        "chunkid": "The Science of Smell14"
+    },
+    "entity42": {
+        "name": "limbic system",
+        "type": "Brain Structure",
+        "description": "A complex set of brain structures located on both sides of the thalamus, involved in emotions and memory formation.",
+        "chunkid": "The Science of Smell14"
+    },
+    "entity43": {
+        "name": "loved one's perfume",
+        "type": "Object",
+        "description": "A personal item belonging to a loved one, often associated with emotional memories.",
+        "chunkid": "The Science of Smell15"
+    },
+    "entity44": {
+        "name": "favorite childhood dish",
+        "type": "Food",
+        "description": "A specific food item that holds sentimental value from the speaker's childhood.",
+        "chunkid": "The Science of Smell15"
+    },
+    "entity45": {
+        "name": "smell",
+        "type": "Sensory Modality",
+        "description": "A sensory modality that involves the perception of odors and scents, which can evoke emotions and memories.",
+        "chunkid": "The Science of Smell16"
+    },
+    "entity46": {
+        "name": "emotions",
+        "type": "Psychological State",
+        "description": "Feelings or affective states experienced by individuals, often influenced by sensory inputs such as smell.",
+        "chunkid": "The Science of Smell16"
+    },
+    "entity47": {
+        "name": "memories",
+        "type": "Cognitive Process",
+        "description": "Mental processes involved in the encoding, storage, and retrieval of information from past experiences, which can be triggered by smells.",
+        "chunkid": "The Science of Smell16"
+    },
+    "entity48": {
+        "name": "psychological therapies",
+        "type": "Treatment Method",
+        "description": "Therapeutic approaches used to treat mental health issues, often incorporating various sensory stimuli like smell.",
+        "chunkid": "The Science of Smell16"
+    },
+    "entity49": {
+        "name": "Aromatherapy",
+        "type": "Practice",
+        "description": "A form of alternative medicine that uses plant-derived essential oils to improve physical and psychological well-being.",
+        "chunkid": "The Science of Smell17"
+    },
+    "entity50": {
+        "name": "Essential Oils",
+        "type": "Substance",
+        "description": "Concentrated hydrophobic liquid containing volatile aroma compounds from plants, used in aromatherapy.",
+        "chunkid": "The Science of Smell17"
+    },
+    "entity51": {
+        "name": "lavender",
+        "type": "Plant/Herb",
+        "description": "A plant known for its fragrant flowers and commonly used in aromatherapy for relaxation.",
+        "chunkid": "The Science of Smell18"
+    },
+    "entity52": {
+        "name": "peppermint",
+        "type": "Plant/Herb",
+        "description": "A hybrid mint, a cross between watermint and spearmint. It is often used in aromatherapy to enhance focus.",
+        "chunkid": "The Science of Smell18"
+    },
+    "entity53": {
+        "name": "Alzheimer's disease",
+        "type": "Medical Condition",
+        "description": "A progressive neurological disorder that affects memory, thinking, and behavior.",
+        "chunkid": "The Science of Smell19"
+    },
+    "entity54": {
+        "name": "post-traumatic stress disorder (PTSD)",
+        "type": "Medical Condition",
+        "description": "A mental health condition triggered by a terrifying event — either experiencing it or witnessing it. Symptoms may include flashbacks, nightmares, and severe anxiety.",
+        "chunkid": "The Science of Smell19"
+    },
+    "entity55": {
+        "name": "Smell",
+        "type": "Sensory Phenomenon",
+        "description": "A sensation perceived by the olfactory system, which can influence cultural and social interactions.",
+        "chunkid": "The Science of Smell20"
+    },
+    "entity56": {
+        "name": "cultures",
+        "type": "Social Group",
+        "description": "A collective of people who share a common set of social norms, values, and practices.",
+        "chunkid": "The Science of Smell21"
+    },
+    "entity57": {
+        "name": "scents",
+        "type": "Sensory Perception",
+        "description": "Perceptual experiences derived from the sense of smell.",
+        "chunkid": "The Science of Smell21"
+    },
+    "entity58": {
+        "name": "geographical location",
+        "type": "Geographic Feature",
+        "description": "A specific place or area on the Earth's surface, defined by its physical characteristics and spatial coordinates.",
+        "chunkid": "The Science of Smell21"
+    },
+    "entity59": {
+        "name": "historical traditions",
+        "type": "Cultural Practice",
+        "description": "Customs, beliefs, and practices that have been passed down through generations within a particular culture or society.",
+        "chunkid": "The Science of Smell21"
+    },
+    "entity60": {
+        "name": "personal preferences",
+        "type": "Individual Attribute",
+        "description": "The individual likes and dislikes of a person, which can influence their choices and behaviors.",
+        "chunkid": "The Science of Smell21"
+    },
+    "entity61": {
+        "name": "incense",
+        "type": "Product",
+        "description": "A substance that is burned to produce a pleasant aroma, often used in religious or cultural practices.",
+        "chunkid": "The Science of Smell22"
+    },
+    "entity62": {
+        "name": "spices",
+        "type": "Product",
+        "description": "Various aromatic plant substances commonly used for flavoring food and beverages.",
+        "chunkid": "The Science of Smell22"
+    },
+    "entity63": {
+        "name": "floral fragrances",
+        "type": "Scent",
+        "description": "A type of scent that is derived from flowers, often used in perfumes and other aromatic products.",
+        "chunkid": "The Science of Smell22"
+    },
+    "entity64": {
+        "name": "citrus fragrances",
+        "type": "Scent",
+        "description": "A type of scent that is derived from citrus fruits, known for its fresh and invigorating aroma.",
+        "chunkid": "The Science of Smell22"
+    },
+    "entity65": {
+        "name": "fragrance industry",
+        "type": "Industry",
+        "description": "A sector of the economy that produces and sells fragrances, including perfumes and colognes.",
+        "chunkid": "The Science of Smell24"
+    },
+    "entity66": {
+        "name": "perfumes",
+        "type": "Product",
+        "description": "Scented liquid typically applied to the skin or clothes to emit a pleasant aroma.",
+        "chunkid": "The Science of Smell24"
+    },
+    "entity67": {
+        "name": "colognes",
+        "type": "Product",
+        "description": "A type of fragrance, usually lighter than perfumes and designed for both men and women.",
+        "chunkid": "The Science of Smell24"
+    },
+    "entity68": {
+        "name": "science of smell",
+        "type": "Field of Study",
+        "description": "A scientific discipline that explores the mechanisms and phenomena related to olfaction.",
+        "chunkid": "The Science of Smell25"
+    },
+    "entity69": {
+        "name": "researchers",
+        "type": "People",
+        "description": "Individuals who conduct research in various fields, including the science of smell.",
+        "chunkid": "The Science of Smell25"
+    },
+    "entity70": {
+        "name": "enthusiasts",
+        "type": "People",
+        "description": "Individuals with a strong interest or passion for a particular subject, such as the science of smell.",
+        "chunkid": "The Science of Smell25"
+    },
+    "entity71": {
+        "name": "smell",
+        "type": "Sensory Modality",
+        "description": "A sensory modality that allows organisms to detect and identify chemical substances in the environment, often associated with odors.",
+        "chunkid": "The Science of Smell26"
+    },
+    "entity72": {
+        "name": "evolution",
+        "type": "Biological Process",
+        "description": "The process by which different kinds of living organisms are believed to have developed from earlier forms during the history of the earth.",
+        "chunkid": "The Science of Smell26"
+    },
+    "entity73": {
+        "name": "emotions",
+        "type": "Psychological State",
+        "description": "Complex reactions involving various physiological, behavioral, and cognitive changes that can be triggered by internal or external stimuli.",
+        "chunkid": "The Science of Smell26"
+    },
+    "entity74": {
+        "name": "memories",
+        "type": "Cognitive Process",
+        "description": "The mental processes involved in the acquisition, storage, retention, and retrieval of information and experiences.",
+        "chunkid": "The Science of Smell26"
+    }
+}

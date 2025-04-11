@@ -1,0 +1,234 @@
+{
+  "entities": [
+    {
+      "name": "funeral procession"
+    },
+    {
+      "name": "Book of the Dead"
+    },
+    {
+      "name": "jewelry"
+    },
+    {
+      "name": "protect the deceased's body and possessions"
+    },
+    {
+      "name": "embalmers"
+    },
+    {
+      "name": "professional mourners"
+    },
+    {
+      "name": "amulets"
+    },
+    {
+      "name": "clothing"
+    },
+    {
+      "name": "gateway to the afterlife"
+    },
+    {
+      "name": "mummification process"
+    },
+    {
+      "name": "pharaohs"
+    },
+    {
+      "name": "Ancient Egypt"
+    },
+    {
+      "name": "spells"
+    },
+    {
+      "name": "ordinary Egyptians"
+    },
+    {
+      "name": "tools"
+    },
+    {
+      "name": "Egyptians"
+    },
+    {
+      "name": "common people"
+    },
+    {
+      "name": "food"
+    },
+    {
+      "name": "tomb"
+    },
+    {
+      "name": "rituals"
+    },
+    {
+      "name": "burial practices"
+    },
+    {
+      "name": "reverence for the deceased"
+    },
+    {
+      "name": "priests"
+    },
+    {
+      "name": "realm of the gods"
+    },
+    {
+      "name": "elite"
+    },
+    {
+      "name": "ancient Egyptian burial practices"
+    },
+    {
+      "name": "religious texts"
+    },
+    {
+      "name": "afterlife"
+    },
+    {
+      "name": "burial chamber"
+    },
+    {
+      "name": "prayers"
+    },
+    {
+      "name": "mummification"
+    },
+    {
+      "name": "personal belongings"
+    },
+    {
+      "name": "elaborate tombs"
+    },
+    {
+      "name": "linen bandages"
+    },
+    {
+      "name": "soul"
+    },
+    {
+      "name": "internal organs"
+    }
+  ],
+  "relations": [
+    [
+      "professional mourners",
+      "lead",
+      "funeral procession"
+    ],
+    [
+      "pharaohs",
+      "serve_as",
+      "gateway to the afterlife"
+    ],
+    [
+      "burial practices",
+      "include_construction_of",
+      "elaborate tombs"
+    ],
+    [
+      "afterlife",
+      "is part of",
+      "realm of the gods"
+    ],
+    [
+      "elaborate tombs",
+      "example_of",
+      "pharaohs"
+    ],
+    [
+      "afterlife",
+      "includes",
+      "food"
+    ],
+    [
+      "elaborate tombs",
+      "constructed_for",
+      "elite"
+    ],
+    [
+      "pharaohs",
+      "built_to_house",
+      "pharaohs"
+    ],
+    [
+      "Egyptians",
+      "believed_in",
+      "afterlife"
+    ],
+    [
+      "religious texts",
+      "aid in",
+      "afterlife"
+    ],
+    [
+      "elaborate tombs",
+      "contain_items_for",
+      "afterlife"
+    ],
+    [
+      "burial practices",
+      "show_reverence_for",
+      "reverence for the deceased"
+    ],
+    [
+      "Book of the Dead",
+      "placed_in",
+      "tomb"
+    ],
+    [
+      "professional mourners",
+      "perform",
+      "rituals"
+    ],
+    [
+      "amulets",
+      "aid in",
+      "afterlife"
+    ],
+    [
+      "ancient Egyptian burial practices",
+      "incorporate",
+      "amulets"
+    ],
+    [
+      "Book of the Dead",
+      "inscribed_on",
+      "Book of the Dead"
+    ],
+    [
+      "ancient Egyptian burial practices",
+      "incorporate",
+      "religious texts"
+    ],
+    [
+      "ancient Egyptian burial practices",
+      "involve",
+      "mummification process"
+    ],
+    [
+      "Ancient Egypt",
+      "has_practice",
+      "burial practices"
+    ],
+    [
+      "afterlife",
+      "includes",
+      "personal belongings"
+    ],
+    [
+      "ancient Egyptian burial practices",
+      "include",
+      "elaborate tombs"
+    ],
+    [
+      "afterlife",
+      "includes",
+      "tools"
+    ],
+    [
+      "burial practices",
+      "reflect_beliefs_about",
+      "afterlife"
+    ]
+  ]
+}

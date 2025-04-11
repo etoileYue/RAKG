@@ -1,0 +1,287 @@
+{
+  "entities": [
+    {
+      "name": "Australia wildfires"
+    },
+    {
+      "name": "Climate change"
+    },
+    {
+      "name": "habitat loss"
+    },
+    {
+      "name": "food webs"
+    },
+    {
+      "name": "Arctic"
+    },
+    {
+      "name": "white-nose syndrome"
+    },
+    {
+      "name": "habitats"
+    },
+    {
+      "name": "world"
+    },
+    {
+      "name": "animals"
+    },
+    {
+      "name": "warmer ocean temperatures"
+    },
+    {
+      "name": "governments"
+    },
+    {
+      "name": "individuals"
+    },
+    {
+      "name": "animal populations"
+    },
+    {
+      "name": "sustainable future"
+    },
+    {
+      "name": "breeding seasons"
+    },
+    {
+      "name": "hurricanes"
+    },
+    {
+      "name": "warmer winters"
+    },
+    {
+      "name": "conservation organizations"
+    },
+    {
+      "name": "natural cycles of plants and animals"
+    },
+    {
+      "name": "wildfires"
+    },
+    {
+      "name": "fungus"
+    },
+    {
+      "name": "polar bears"
+    },
+    {
+      "name": "adapting to a changing climate"
+    },
+    {
+      "name": "diseases and parasites"
+    },
+    {
+      "name": "spread of diseases"
+    },
+    {
+      "name": "food shortages"
+    },
+    {
+      "name": "warming planet"
+    },
+    {
+      "name": "droughts"
+    },
+    {
+      "name": "koalas"
+    },
+    {
+      "name": "strategies"
+    },
+    {
+      "name": "extreme weather events"
+    },
+    {
+      "name": "coral bleaching"
+    },
+    {
+      "name": "behavior and reproductive patterns"
+    },
+    {
+      "name": "fish that rely on coral reefs"
+    },
+    {
+      "name": "biodiversity"
+    },
+    {
+      "name": "climate change"
+    },
+    {
+      "name": "ranges poleward or to higher elevations"
+    },
+    {
+      "name": "species"
+    },
+    {
+      "name": "greenhouse gas emissions"
+    },
+    {
+      "name": "survival"
+    },
+    {
+      "name": "food sources"
+    },
+    {
+      "name": "ecosystems"
+    }
+  ],
+  "relations": [
+    [
+      "extreme weather events",
+      "include",
+      "wildfires"
+    ],
+    [
+      "climate change",
+      "affects",
+      "animals"
+    ],
+    [
+      "coral bleaching",
+      "disrupts",
+      "food webs"
+    ],
+    [
+      "Australia wildfires",
+      "decimate",
+      "koalas"
+    ],
+    [
+      "warmer ocean temperatures",
+      "cause",
+      "coral bleaching"
+    ],
+    [
+      "polar bears",
+      "inhabit",
+      "Arctic"
+    ],
+    [
+      "extreme weather events",
+      "affect",
+      "animal populations"
+    ],
+    [
+      "climate change",
+      "causes",
+      "habitat loss"
+    ],
+    [
+      "extreme weather events",
+      "include",
+      "droughts"
+    ],
+    [
+      "governments",
+      "can reduce",
+      "greenhouse gas emissions"
+    ],
+    [
+      "climate change",
+      "increases frequency of",
+      "extreme weather events"
+    ],
+    [
+      "climate change",
+      "pressures",
+      "animal populations"
+    ],
+    [
+      "climate change",
+      "causes",
+      "warmer ocean temperatures"
+    ],
+    [
+      "extreme weather events",
+      "include",
+      "hurricanes"
+    ],
+    [
+      "climate change",
+      "leads to",
+      "warmer winters"
+    ],
+    [
+      "Climate change",
+      "impacts",
+      "polar bears"
+    ],
+    [
+      "coral bleaching",
+      "reduces",
+      "fish that rely on coral reefs"
+    ],
+    [
+      "climate change",
+      "leads to",
+      "extreme weather events"
+    ],
+    [
+      "individuals",
+      "implement",
+      "strategies"
+    ],
+    [
+      "sustainable future",
+      "requires action against",
+      "climate change"
+    ],
+    [
+      "climate change",
+      "alters",
+      "behavior and reproductive patterns"
+    ],
+    [
+      "climate change",
+      "causes",
+      "diseases and parasites"
+    ],
+    [
+      "white-nose syndrome",
+      "affects",
+      "animals"
+    ],
+    [
+      "climate change",
+      "facilitates",
+      "spread of diseases"
+    ],
+    [
+      "climate change",
+      "impacts",
+      "species"
+    ],
+    [
+      "climate change",
+      "leads to",
+      "food shortages"
+    ],
+    [
+      "warming planet",
+      "is a result of",
+      "climate change"
+    ],
+    [
+      "conservation organizations",
+      "conserve",
+      "habitats"
+    ],
+    [
+      "climate change",
+      "disrupts",
+      "natural cycles of plants and animals"
+    ],
+    [
+      "climate change",
+      "affects",
+      "ecosystems"
+    ],
+    [
+      "climate change",
+      "threatens",
+      "survival"
+    ]
+  ]
+}

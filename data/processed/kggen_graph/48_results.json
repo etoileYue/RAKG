@@ -1,0 +1,80 @@
+[
+  {
+    "correct_answer": "Spiders build intricate webs.",
+    "retrieved_context": "spider produces silk. silk is_composed_of protein. silk is_produced_by spider. spider builds web. spider selects location. web is_constructed_by spider. spider produces silk. silk is_composed_of protein. silk is_produced_by spider. spider builds web. protein is_formed_by molecule. spider selects location. spider produces silk. spider selects location. web is_constructed_by spider. spider builds web. prey is_trapped_by web. web is_constructed_by spider. structure is_supported_by framework. framework is_formed_by radial. spider produces silk. spider selects location. spider builds web. pattern is_followed_by spider.",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Webs serve as homes and hunting grounds for spiders.",
+    "retrieved_context": "spider produces silk. silk is_composed_of protein. silk is_produced_by spider. spider builds web. spider selects location. web is_constructed_by spider. spider produces silk. spider selects location. web is_constructed_by spider. spider builds web. prey is_trapped_by web. web is_constructed_by spider. spider produces silk. silk is_composed_of protein. silk is_produced_by spider. spider builds web. protein is_formed_by molecule. spider selects location. silk is_composed_of protein. silk is_produced_by spider. anchor is_made_of silk. radial is_part_of web. framework is_formed_by radial.",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Spiders catch prey efficiently using their webs.",
+    "retrieved_context": "spider produces silk. silk is_composed_of protein. silk is_produced_by spider. spider builds web. spider selects location. web is_constructed_by spider. prey is_trapped_by web. web is_constructed_by spider. spider produces silk. spider selects location. web is_constructed_by spider. spider builds web. spider produces silk. silk is_composed_of protein. silk is_produced_by spider. spider builds web. protein is_formed_by molecule. spider selects location. silk is_composed_of protein. silk is_produced_by spider. anchor is_made_of silk. spider produces silk. spider selects location. spider builds web. pattern is_followed_by spider. spinneret is_part_of abdomen.",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Spiders select suitable locations for web-building.",
+    "retrieved_context": "spider produces silk. silk is_composed_of protein. silk is_produced_by spider. spider builds web. spider selects location. web is_constructed_by spider. spider produces silk. spider selects location. web is_constructed_by spider. spider builds web. spider produces silk. silk is_composed_of protein. silk is_produced_by spider. spider builds web. protein is_formed_by molecule. spider selects location. prey is_trapped_by web. web is_constructed_by spider. structure is_supported_by framework. framework is_formed_by radial. silk is_composed_of protein. silk is_produced_by spider. anchor is_made_of silk.",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Spiders produce silk from spinnerets.",
+    "retrieved_context": "spider produces silk. silk is_composed_of protein. silk is_produced_by spider. spider builds web. spider selects location. web is_constructed_by spider. spider produces silk. silk is_composed_of protein. silk is_produced_by spider. spider builds web. protein is_formed_by molecule. spider selects location. spinneret is_part_of abdomen. prey is_trapped_by web. web is_constructed_by spider. web is_constructed_by spider. spiral is_part_of web. spider produces silk. spider selects location. web is_constructed_by spider. spider builds web. silk is_composed_of protein. silk is_produced_by spider. anchor is_made_of silk.",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Spider silk is strong and elastic.",
+    "retrieved_context": "spider produces silk. silk is_composed_of protein. silk is_produced_by spider. spider builds web. protein is_formed_by molecule. spider selects location. spider produces silk. silk is_composed_of protein. silk is_produced_by spider. spider builds web. spider selects location. web is_constructed_by spider. spider produces silk. spider selects location. spider builds web. strength is_tested_by spider. silk is_composed_of protein. silk is_produced_by spider. anchor is_made_of silk. spider produces silk. spider selects location. spider builds web. tension is_tested_by spider. spider produces silk. spider selects location. web is_constructed_by spider. spider builds web. spinneret is_part_of abdomen.",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Spider silk is composed of protein molecules.",
+    "retrieved_context": "spider produces silk. silk is_composed_of protein. silk is_produced_by spider. spider builds web. protein is_formed_by molecule. spider selects location. spider produces silk. silk is_composed_of protein. silk is_produced_by spider. spider builds web. spider selects location. web is_constructed_by spider. protein is_formed_by molecule. spider produces silk. spider selects location. web is_constructed_by spider. spider builds web. structure is_supported_by framework. framework is_formed_by radial. substance makes_spiral_sticky spiral. spiral is_part_of web.",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Spiders can produce different types of silk.",
+    "retrieved_context": "spider produces silk. silk is_composed_of protein. silk is_produced_by spider. spider builds web. protein is_formed_by molecule. spider selects location. spider produces silk. silk is_composed_of protein. silk is_produced_by spider. spider builds web. spider selects location. web is_constructed_by spider. spider produces silk. spider selects location. spider builds web. pattern is_followed_by spider. spider produces silk. spider selects location. web is_constructed_by spider. spider builds web. spinneret is_part_of abdomen. prey is_trapped_by web. web is_constructed_by spider.",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Spiders anchor silk strands to surfaces to build webs.",
+    "retrieved_context": "spider produces silk. silk is_composed_of protein. silk is_produced_by spider. spider builds web. protein is_formed_by molecule. spider selects location. spider produces silk. silk is_composed_of protein. silk is_produced_by spider. spider builds web. spider selects location. web is_constructed_by spider. silk is_composed_of protein. silk is_produced_by spider. anchor is_made_of silk. spider produces silk. spider selects location. web is_constructed_by spider. spider builds web. adhesive is_produced_by spider. spider selects location. spider builds web. spider produces silk. prey is_trapped_by web. web is_constructed_by spider.",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Spiders construct radial lines as the framework of the web.",
+    "retrieved_context": "spider produces silk. silk is_composed_of protein. silk is_produced_by spider. spider builds web. spider selects location. web is_constructed_by spider. spider produces silk. spider selects location. web is_constructed_by spider. spider builds web. web is_constructed_by spider. radial is_part_of web. spider produces silk. silk is_composed_of protein. silk is_produced_by spider. spider builds web. protein is_formed_by molecule. spider selects location. line is_anchored_to surface. radial is_part_of web. framework is_formed_by radial. web is_constructed_by spider. spiral is_part_of web.",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Spiders lay down sticky spiral lines on the web.",
+    "retrieved_context": "spider produces silk. silk is_composed_of protein. silk is_produced_by spider. spider builds web. spider selects location. web is_constructed_by spider. web is_constructed_by spider. spiral is_part_of web. spider produces silk. spider selects location. web is_constructed_by spider. spider builds web. prey is_trapped_by web. web is_constructed_by spider. silk is_composed_of protein. silk is_produced_by spider. anchor is_made_of silk. spider produces silk. silk is_composed_of protein. silk is_produced_by spider. spider builds web. protein is_formed_by molecule. spider selects location. line is_anchored_to surface.",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Spiders periodically test the tension of silk strands.",
+    "retrieved_context": "spider produces silk. silk is_composed_of protein. silk is_produced_by spider. spider builds web. protein is_formed_by molecule. spider selects location. spider produces silk. silk is_composed_of protein. silk is_produced_by spider. spider builds web. spider selects location. web is_constructed_by spider. spider produces silk. spider selects location. spider builds web. tension is_tested_by spider. spider produces silk. spider selects location. spider builds web. pattern is_followed_by spider. spider produces silk. spider selects location. web is_constructed_by spider. spider builds web. spinneret is_part_of abdomen. web is_constructed_by spider. spiral is_part_of web.",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Spiders have an innate sense of how to build webs.",
+    "retrieved_context": "spider produces silk. silk is_composed_of protein. silk is_produced_by spider. spider builds web. spider selects location. web is_constructed_by spider. spider produces silk. spider selects location. web is_constructed_by spider. spider builds web. spider produces silk. silk is_composed_of protein. silk is_produced_by spider. spider builds web. protein is_formed_by molecule. spider selects location. prey is_trapped_by web. web is_constructed_by spider. structure is_supported_by framework. framework is_formed_by radial. silk is_composed_of protein. silk is_produced_by spider. anchor is_made_of silk.",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Spiders place a trap line in the web to signal prey.",
+    "retrieved_context": "spider produces silk. silk is_composed_of protein. silk is_produced_by spider. spider builds web. spider selects location. web is_constructed_by spider. prey is_trapped_by web. web is_constructed_by spider. spider produces silk. spider selects location. web is_constructed_by spider. spider builds web. silk is_composed_of protein. silk is_produced_by spider. anchor is_made_of silk. spider produces silk. silk is_composed_of protein. silk is_produced_by spider. spider builds web. protein is_formed_by molecule. spider selects location. line is_anchored_to surface.",
+    "evaluation": 0
+  },
+  {
+    "correct_answer": "Spiders immobilize prey with a bite and wrap it in silk.",
+    "retrieved_context": "spider produces silk. silk is_composed_of protein. silk is_produced_by spider. spider builds web. spider selects location. web is_constructed_by spider. spider produces silk. silk is_composed_of protein. silk is_produced_by spider. spider builds web. protein is_formed_by molecule. spider selects location. prey is_trapped_by web. web is_constructed_by spider. silk is_composed_of protein. silk is_produced_by spider. anchor is_made_of silk. spider produces silk. spider selects location. web is_constructed_by spider. spider builds web. adhesive is_produced_by spider. spider selects location. spider builds web. spider produces silk. spinneret is_part_of abdomen.",
+    "evaluation": 1
+  },
+  {
+    "accuracy": "93.33%"
+  }
+]

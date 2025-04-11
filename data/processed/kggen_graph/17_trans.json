@@ -1,0 +1,56 @@
+{
+  "entities": [
+    {
+      "name": "mantis shrimp"
+    },
+    {
+      "name": "barreleye fish"
+    },
+    {
+      "name": "salamander"
+    },
+    {
+      "name": "Madagascar"
+    },
+    {
+      "name": "Mexico"
+    },
+    {
+      "name": "pangolin"
+    },
+    {
+      "name": "common swift"
+    },
+    {
+      "name": "ocean"
+    },
+    {
+      "name": "aye-aye"
+    },
+    {
+      "name": "axolotl"
+    }
+  ],
+  "relations": [
+    [
+      "barreleye fish",
+      "lives_in",
+      "ocean"
+    ],
+    [
+      "axolotl",
+      "is_native_to",
+      "Mexico"
+    ],
+    [
+      "aye-aye",
+      "native_to",
+      "Madagascar"
+    ],
+    [
+      "axolotl",
+      "is_a_type_of",
+      "salamander"
+    ]
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "entities": [
+    "1953",
+    "hoaxes",
+    "Cardiff Giant",
+    "George Hull",
+    "Sokal Affair",
+    "War of the Worlds broadcast",
+    "War of the Worlds radio broadcast",
+    "Social Text",
+    "Orson Welles",
+    "Transgressing the Boundaries: Towards a Transformative Hermeneutics of Quantum Gravity",
+    "Alan Sokal",
+    "veracity",
+    "postmodernist scholarship",
+    "Piltdown Man",
+    "Nazi leader Hermann GÃ¶ring",
+    "Vermeer paintings",
+    "fake news",
+    "1912",
+    "England",
+    "H.G. Wells",
+    "Han van Meegeren"
+  ],
+  "relations": [
+    [
+      "War of the Worlds radio broadcast",
+      "broadcast_by",
+      "Orson Welles"
+    ],
+    [
+      "War of the Worlds radio broadcast",
+      "adapted_from",
+      "H.G. Wells"
+    ],
+    [
+      "Cardiff Giant",
+      "created_by",
+      "George Hull"
+    ],
+    [
+      "Piltdown Man",
+      "discovered_in",
+      "England"
+    ],
+    [
+      "fake news",
+      "affects",
+      "veracity"
+    ],
+    [
+      "Sokal Affair",
+      "challenged",
+      "postmodernist scholarship"
+    ],
+    [
+      "hoaxes",
+      "related_to",
+      "fake news"
+    ],
+    [
+      "Piltdown Man",
+      "exposed_as_forgery",
+      "1953"
+    ],
+    [
+      "Alan Sokal",
+      "authored",
+      "Transgressing the Boundaries: Towards a Transformative Hermeneutics of Quantum Gravity"
+    ],
+    [
+      "Alan Sokal",
+      "initiated",
+      "Sokal Affair"
+    ],
+    [
+      "Piltdown Man",
+      "discovery_year",
+      "1912"
+    ]
+  ]
+}

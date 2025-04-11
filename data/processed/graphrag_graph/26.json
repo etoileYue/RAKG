@@ -1,0 +1,308 @@
+{
+  "entities": [
+    {
+      "name": "BUILDING A ROCKET: A STEP-BY-STEP GUIDE",
+      "type": "EVENT",
+      "description": "An essay that outlines the process of building a rocket, from initial design to launch"
+    },
+    {
+      "name": "ROCKET",
+      "type": "ORGANIZATION",
+      "description": "A vehicle designed to travel through space, often used for scientific research and exploration"
+    },
+    {
+      "name": "SCIENCE PROJECT",
+      "type": "EVENT",
+      "description": "A project typically undertaken by students to explore scientific principles and concepts"
+    },
+    {
+      "name": "PAYLOAD",
+      "type": "ORGANIZATION",
+      "description": "The cargo or equipment that a rocket carries into space"
+    },
+    {
+      "name": "ORBIT",
+      "type": "GEO",
+      "description": "The path that a spacecraft or satellite follows around a planet or other celestial body"
+    },
+    {
+      "name": "AERODYNAMICS",
+      "type": "ORGANIZATION",
+      "description": "The study of how air moves around objects, particularly in the context of designing efficient and stable rockets"
+    },
+    {
+      "name": "STABILITY",
+      "type": "ORGANIZATION",
+      "description": "The ability of a rocket to maintain a consistent and controlled flight path"
+    },
+    {
+      "name": "WEIGHT DISTRIBUTION",
+      "type": "ORGANIZATION",
+      "description": "The arrangement of mass within a rocket to ensure optimal performance and stability"
+    },
+    {
+      "name": "ALUMINUM",
+      "type": "ORGANIZATION",
+      "description": "A lightweight and durable material often used in the construction of rocket bodies"
+    },
+    {
+      "name": "CARBON FIBER",
+      "type": "ORGANIZATION",
+      "description": "A strong and lightweight composite material used in the construction of rocket bodies"
+    },
+    {
+      "name": "FIBERGLASS",
+      "type": "ORGANIZATION",
+      "description": "A composite material used for its strength and lightweight properties in rocket construction"
+    },
+    {
+      "name": "FUEL SYSTEM",
+      "type": "ORGANIZATION",
+      "description": "The system that provides the necessary energy for the rocket's propulsion"
+    },
+    {
+      "name": "PROPULSION SYSTEM",
+      "type": "ORGANIZATION",
+      "description": "The system that generates thrust to lift the rocket and propel it into space"
+    },
+    {
+      "name": "GUIDANCE SYSTEMS",
+      "type": "ORGANIZATION",
+      "description": "Sophisticated electronics that control the rocket's flight path and ensure a safe and successful launch"
+    },
+    {
+      "name": "ELECTRONICS",
+      "type": "ORGANIZATION",
+      "description": "Components such as sensors, actuators, and onboard computers that control the rocket's functions"
+    },
+    {
+      "name": "TEST FLIGHTS",
+      "type": "EVENT",
+      "description": "Flights conducted to verify the rocket's stability and performance before the final launch"
+    },
+    {
+      "name": "LAUNCH",
+      "type": "EVENT",
+      "description": "The event where the rocket is sent into the sky, marking the culmination of the building process"
+    },
+    {
+      "name": "STUDENT",
+      "type": "PERSON",
+      "description": "An individual, often young, who is learning and may be involved in building a rocket as part of a science project"
+    },
+    {
+      "name": "HOBBYIST",
+      "type": "PERSON",
+      "description": "An individual who builds rockets as a personal interest or pastime"
+    },
+    {
+      "name": "ASPIRING AEROSPACE ENGINEER",
+      "type": "PERSON",
+      "description": "An individual who is interested in pursuing a career in aerospace engineering and may build rockets as part of their learning and development"
+    },
+    {
+      "name": "ELECTRONIC COMPONENTS",
+      "type": "ORGANIZATION",
+      "description": "Components such as sensors, actuators, and onboard computers that are essential for the control and guidance of the rocket"
+    },
+    {
+      "name": "NOSE CONE",
+      "type": "ORGANIZATION",
+      "description": "The front part of the rocket designed to reduce air resistance and protect the payload"
+    },
+    {
+      "name": "PARACHUTES",
+      "type": "ORGANIZATION",
+      "description": "Devices used to safely return the rocket or its components back to the ground after launch"
+    },
+    {
+      "name": "GROUND TESTS",
+      "type": "EVENT",
+      "description": "Tests conducted on the ground to ensure the rocket's systems are functioning correctly before the final launch"
+    },
+    {
+      "name": "SAFETY REGULATIONS",
+      "type": "ORGANIZATION",
+      "description": "Rules and guidelines that must be followed to ensure the safe construction and launch of rockets"
+    },
+    {
+      "name": "SCIENCE AND ENGINEERING PRINCIPLES",
+      "type": "ORGANIZATION",
+      "description": "The fundamental concepts and theories that underpin the design and construction of rockets"
+    },
+    {
+      "name": "FLIGHT PATH",
+      "type": "ORGANIZATION",
+      "description": "The trajectory that a rocket follows during its flight, controlled by the guidance system"
+    },
+    {
+      "name": "CRITICAL COMPONENTS",
+      "type": "ORGANIZATION",
+      "description": "Key parts of the rocket that are essential for its operation, including the propulsion system, electronics, and structural components"
+    }
+  ],
+  "relations": [
+    [
+      "BUILDING A ROCKET: A STEP-BY-STEP GUIDE",
+      ":has_relation_with",
+      "ROCKET",
+      "The guide outlines the process of building a rocket, which is the main subject of the essay"
+    ],
+    [
+      "BUILDING A ROCKET: A STEP-BY-STEP GUIDE",
+      ":has_relation_with",
+      "SCIENCE PROJECT",
+      "The guide mentions building a rocket for a science project as one of the potential purposes"
+    ],
+    [
+      "BUILDING A ROCKET: A STEP-BY-STEP GUIDE",
+      ":has_relation_with",
+      "PAYLOAD",
+      "The guide discusses the importance of defining the payload when designing a rocket"
+    ],
+    [
+      "BUILDING A ROCKET: A STEP-BY-STEP GUIDE",
+      ":has_relation_with",
+      "ORBIT",
+      "The guide mentions launching a payload into orbit as a potential goal for building a rocket"
+    ],
+    [
+      "BUILDING A ROCKET: A STEP-BY-STEP GUIDE",
+      ":has_relation_with",
+      "AERODYNAMICS",
+      "The guide emphasizes the importance of aerodynamics in the design of a rocket"
+    ],
+    [
+      "BUILDING A ROCKET: A STEP-BY-STEP GUIDE",
+      ":has_relation_with",
+      "STABILITY",
+      "The guide highlights the importance of stability in the design and construction of a rocket"
+    ],
+    [
+      "BUILDING A ROCKET: A STEP-BY-STEP GUIDE",
+      ":has_relation_with",
+      "WEIGHT DISTRIBUTION",
+      "The guide discusses the importance of weight distribution in the design of a rocket"
+    ],
+    [
+      "BUILDING A ROCKET: A STEP-BY-STEP GUIDE",
+      ":has_relation_with",
+      "ALUMINUM",
+      "The guide mentions aluminum as a material used in the construction of rocket bodies"
+    ],
+    [
+      "BUILDING A ROCKET: A STEP-BY-STEP GUIDE",
+      ":has_relation_with",
+      "CARBON FIBER",
+      "The guide mentions carbon fiber as a material used in the construction of rocket bodies"
+    ],
+    [
+      "BUILDING A ROCKET: A STEP-BY-STEP GUIDE",
+      ":has_relation_with",
+      "FIBERGLASS",
+      "The guide mentions fiberglass as a material used in the construction of rocket bodies"
+    ],
+    [
+      "BUILDING A ROCKET: A STEP-BY-STEP GUIDE",
+      ":has_relation_with",
+      "FUEL SYSTEM",
+      "The guide discusses the importance of the fuel system in the propulsion of a rocket"
+    ],
+    [
+      "BUILDING A ROCKET: A STEP-BY-STEP GUIDE",
+      ":has_relation_with",
+      "PROPULSION SYSTEM",
+      "The guide outlines the installation of the propulsion system as a critical step in building a rocket"
+    ],
+    [
+      "BUILDING A ROCKET: A STEP-BY-STEP GUIDE",
+      ":has_relation_with",
+      "GUIDANCE SYSTEMS",
+      "The guide emphasizes the importance of guidance systems in controlling the rocket's flight path"
+    ],
+    [
+      "BUILDING A ROCKET: A STEP-BY-STEP GUIDE",
+      ":has_relation_with",
+      "ELECTRONICS",
+      "The guide discusses the installation of electronics as a key step in building a rocket"
+    ],
+    [
+      "BUILDING A ROCKET: A STEP-BY-STEP GUIDE",
+      ":has_relation_with",
+      "TEST FLIGHTS",
+      "The guide mentions the importance of conducting test flights to ensure the rocket's stability and performance"
+    ],
+    [
+      "BUILDING A ROCKET: A STEP-BY-STEP GUIDE",
+      ":has_relation_with",
+      "LAUNCH",
+      "The guide concludes with the launch of the rocket, marking the culmination of the building process"
+    ],
+    [
+      "BUILDING A ROCKET: A STEP-BY-STEP GUIDE",
+      ":has_relation_with",
+      "STUDENT",
+      "The guide is relevant to students who may be building a rocket as part of a science project"
+    ],
+    [
+      "BUILDING A ROCKET: A STEP-BY-STEP GUIDE",
+      ":has_relation_with",
+      "HOBBYIST",
+      "The guide is relevant to hobbyists who build rockets as a personal interest"
+    ],
+    [
+      "BUILDING A ROCKET: A STEP-BY-STEP GUIDE",
+      ":has_relation_with",
+      "ASPIRING AEROSPACE ENGINEER",
+      "The guide is relevant to aspiring aerospace engineers who may build rockets as part of their learning and development"
+    ],
+    [
+      "BUILDING A ROCKET: A STEP-BY-STEP GUIDE",
+      ":has_relation_with",
+      "ELECTRONIC COMPONENTS",
+      "The guide discusses the installation of electronic components as a key step in building a rocket"
+    ],
+    [
+      "BUILDING A ROCKET: A STEP-BY-STEP GUIDE",
+      ":has_relation_with",
+      "NOSE CONE",
+      "The guide mentions the nose cone as a component that is part of the rocket's design"
+    ],
+    [
+      "BUILDING A ROCKET: A STEP-BY-STEP GUIDE",
+      ":has_relation_with",
+      "PARACHUTES",
+      "The guide mentions parachutes as a component used for the safe return of the rocket"
+    ],
+    [
+      "BUILDING A ROCKET: A STEP-BY-STEP GUIDE",
+      ":has_relation_with",
+      "GROUND TESTS",
+      "The guide emphasizes the importance of conducting ground tests to ensure the rocket's systems are functioning correctly"
+    ],
+    [
+      "BUILDING A ROCKET: A STEP-BY-STEP GUIDE",
+      ":has_relation_with",
+      "SAFETY REGULATIONS",
+      "The guide stresses the importance of following safety regulations when building and launching rockets"
+    ],
+    [
+      "BUILDING A ROCKET: A STEP-BY-STEP GUIDE",
+      ":has_relation_with",
+      "SCIENCE AND ENGINEERING PRINCIPLES",
+      "The guide highlights the importance of understanding science and engineering principles in the design and construction of rockets"
+    ],
+    [
+      "BUILDING A ROCKET: A STEP-BY-STEP GUIDE",
+      ":has_relation_with",
+      "FLIGHT PATH",
+      "The guide discusses the role of guidance systems in controlling the rocket's flight path"
+    ],
+    [
+      "BUILDING A ROCKET: A STEP-BY-STEP GUIDE",
+      ":has_relation_with",
+      "CRITICAL COMPONENTS",
+      "The guide outlines the importance of critical components in the design and construction of a rocket"
+    ]
+  ]
+}

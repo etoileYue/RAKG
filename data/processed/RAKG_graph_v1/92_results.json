@@ -1,0 +1,80 @@
+[
+  {
+    "correct_answer": "Renewable energy sources combat climate change and reduce dependence on fossil fuels.",
+    "retrieved_context": " Renewable energy\nEnergy Source  Renewable Energy\nEnergy Source relation: Fossil Fuels --[Used For]-> Electricity Generation  Biofuels\nEnergy Source relation: Fossil Fuels --[Competes With]-> Renewable Energy Sources  Greenhouse Gas Emissions\nEnvironmental Impact relation: Fossil Fuels --[Reduces Dependence On]-> Biofuels relation: Fossil Fuels --[Used For]-> Transportation  Fossil Fuels\nEnergy Source  Transportation\nEnergy Application  Renewable Energy Sources\nEnergy Initiative relation: Fossil Fuels --[Contributes To]-> Greenhouse Gas Emissions  Electricity Generation\nEnergy Application  Renewable Energy Sources\nEnergy Initiative  renewable energy sources\nEnergy Source Type relation: Renewable energy sources --[Includes]-> Solar energy  Energy storage solutions\nTechnology relation: Renewable energy sources --[Includes]-> Bioenergy  Renewable energy sources\nEnergy Source Category relation: Renewable energy sources --[Contributes to]-> Sustainable development  Hydropower\nEnergy Source relation: Renewable energy sources --[Supports]-> Environmental protection  Environmental protection\nGoal  Geothermal energy\nEnergy Source relation: Renewable energy sources --[Includes]-> Hydropower  Bioenergy\nEnergy Source  Sustainable development\nGoal relation: Renewable energy sources --[Requires]-> Grid modernization and smart grid technologies relation: Renewable energy sources --[Includes]-> Geothermal energy  Grid modernization and smart grid technologies\nTechnology  Solar energy\nEnergy Source relation: Renewable energy sources --[Requires]-> Energy storage solutions  Wind power\nEnergy Source relation: Renewable energy sources --[Includes]-> Wind power  Climate Change\nEnvironmental Impact  renewable energy development\nConcept",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Renewable energy sources are replenished on a human timescale.",
+    "retrieved_context": " Renewable energy\nEnergy Source  Renewable Energy\nEnergy Source  renewable energy sources\nEnergy Source Type  Renewable Energy Sources\nEnergy Initiative relation: Renewable energy sources --[Includes]-> Solar energy  Energy storage solutions\nTechnology relation: Renewable energy sources --[Includes]-> Bioenergy  Renewable energy sources\nEnergy Source Category relation: Renewable energy sources --[Contributes to]-> Sustainable development  Hydropower\nEnergy Source relation: Renewable energy sources --[Supports]-> Environmental protection  Environmental protection\nGoal  Geothermal energy\nEnergy Source relation: Renewable energy sources --[Includes]-> Hydropower  Bioenergy\nEnergy Source  Sustainable development\nGoal relation: Renewable energy sources --[Requires]-> Grid modernization and smart grid technologies relation: Renewable energy sources --[Includes]-> Geothermal energy  Grid modernization and smart grid technologies\nTechnology  Solar energy\nEnergy Source relation: Renewable energy sources --[Requires]-> Energy storage solutions  Wind power\nEnergy Source relation: Renewable energy sources --[Includes]-> Wind power  renewable energy development\nConcept  Bioenergy\nEnergy Source  bioenergy\nEnergy Source",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Renewable energy sources are abundant and have lower environmental impacts compared to fossil fuels.",
+    "retrieved_context": " Renewable energy\nEnergy Source  Renewable Energy\nEnergy Source  renewable energy sources\nEnergy Source Type relation: Fossil Fuels --[Used For]-> Electricity Generation  Biofuels\nEnergy Source relation: Fossil Fuels --[Competes With]-> Renewable Energy Sources  Greenhouse Gas Emissions\nEnvironmental Impact relation: Fossil Fuels --[Reduces Dependence On]-> Biofuels relation: Fossil Fuels --[Used For]-> Transportation  Fossil Fuels\nEnergy Source  Transportation\nEnergy Application  Renewable Energy Sources\nEnergy Initiative relation: Fossil Fuels --[Contributes To]-> Greenhouse Gas Emissions  Electricity Generation\nEnergy Application relation: Renewable energy sources --[Includes]-> Solar energy  Energy storage solutions\nTechnology relation: Renewable energy sources --[Includes]-> Bioenergy  Renewable energy sources\nEnergy Source Category relation: Renewable energy sources --[Contributes to]-> Sustainable development  Hydropower\nEnergy Source relation: Renewable energy sources --[Supports]-> Environmental protection  Environmental protection\nGoal  Geothermal energy\nEnergy Source relation: Renewable energy sources --[Includes]-> Hydropower  Bioenergy\nEnergy Source  Sustainable development\nGoal relation: Renewable energy sources --[Requires]-> Grid modernization and smart grid technologies relation: Renewable energy sources --[Includes]-> Geothermal energy  Grid modernization and smart grid technologies\nTechnology  Solar energy\nEnergy Source relation: Renewable energy sources --[Requires]-> Energy storage solutions  Wind power\nEnergy Source relation: Renewable energy sources --[Includes]-> Wind power  Renewable Energy Sources\nEnergy Initiative  Bioenergy\nEnergy Source  bioenergy\nEnergy Source",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Solar energy harnesses sunlight through photovoltaic cells.",
+    "retrieved_context": " Solar energy\nEnergy Source  solar energy\nEnergy Source  Solar Energy\nEnergy Source  solar power\nEnergy Source  Solar power\nEnergy Source  Photovoltaic Cells\nTechnology  Solar Energy Technologies\nEnergy Technology  Solar Power\nRenewable Energy Technology",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Solar panels are installed on rooftops and in utility-scale solar farms.",
+    "retrieved_context": " Decarbonizing the Energy Sector\nEnvironmental Goal  Photovoltaic Cells\nTechnology relation: Utility-scale solar farms --[Uses Technology]-> Photovoltaic Cells  Rooftops and Building Designs\nLocation relation: Utility-scale solar farms --[Contributes To]-> Decarbonizing the Energy Sector relation: Utility-scale solar farms --[Installed In]-> Rooftops and Building Designs  Utility-scale solar farms\nEnergy Facility  Solar Panels\nRenewable Energy Device  Solar energy\nEnergy Source  solar energy\nEnergy Source  Solar Energy\nEnergy Source  solar power\nEnergy Source  Solar power\nEnergy Source  Solar Power\nRenewable Energy Technology",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Wind turbines convert the kinetic energy of wind into electricity.",
+    "retrieved_context": " Wind Turbines\nEnergy Generation Technology  Wind power\nEnergy Source  wind power\nEnergy Source  wind energy\nEnergy Source  Wind turbines\nTechnology  Wind Power\nRenewable Energy Technology  Wind Power Generation\nEnergy Technology  Wind Turbine Technology Advancements\nTechnology Development",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Advances in wind turbine technology have increased efficiency and cost-effectiveness.",
+    "retrieved_context": " Wind Turbine Technology Advancements\nTechnology Development  Wind turbines\nTechnology  Wind Turbines\nEnergy Generation Technology  Wind Power\nRenewable Energy Technology  Wind Power Generation\nEnergy Technology  Wind power\nEnergy Source  wind power\nEnergy Source  wind energy\nEnergy Source",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Hydropower plants harness the energy of flowing water to generate electricity.",
+    "retrieved_context": " hydropower plants\nEnergy Source  Hydropower Plants\nEnergy Generation Technology  Hydropower\nEnergy Source  hydropower\nEnergy Source  Hydropower Projects\nEnergy Source  Hydropower Generation\nEnergy Generation Method  Shift towards Smaller-Scale Hydropower Installations and Run-of-River Projects\nEnergy Solution  large-scale hydropower projects\nEnergy Project",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Geothermal energy taps into underground reservoirs of hot water or steam.",
+    "retrieved_context": " Geothermal energy\nEnergy Source  geothermal energy\nEnergy Source  Geothermal Energy\nEnergy Source  Geothermal heat pumps\nTechnology  Geothermal power plants\nPower Plant Type  Geothermal power plants\nPower Plant Type  underground reservoirs\nGeological Feature relation: underground reservoirs --[Tapped by]-> Geothermal power plants  geothermal energy reliability\nEnergy Source Reliability  Hydropower\nEnergy Source",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Bioenergy is derived from organic materials and can be converted into biofuels.",
+    "retrieved_context": " Bioenergy\nEnergy Source  bioenergy\nEnergy Source  Biofuels\nEnergy Source relation: ethanol --[Used in]-> Transportation relation: ethanol --[Derived from]-> Bioenergy  Transportation\nEnergy Application  Bioenergy\nEnergy Source  ethanol\nBiofuel relation: Fossil Fuels --[Used For]-> Electricity Generation  Biofuels\nEnergy Source relation: Fossil Fuels --[Competes With]-> Renewable Energy Sources  Greenhouse Gas Emissions\nEnvironmental Impact relation: Fossil Fuels --[Reduces Dependence On]-> Biofuels relation: Fossil Fuels --[Used For]-> Transportation  Fossil Fuels\nEnergy Source  Transportation\nEnergy Application  Renewable Energy Sources\nEnergy Initiative relation: Fossil Fuels --[Contributes To]-> Greenhouse Gas Emissions  Electricity Generation\nEnergy Application  Technological Advancements\nInnovation  Greenhouse Gas Emissions\nEnvironmental Impact  Market Forces\nEconomic Factor  Climate Change\nEnvironmental Impact relation: Renewable Energy Development --[Aims To Mitigate]-> Climate Change relation: Renewable Energy Development --[Aims To Enhance]-> Energy Security relation: Renewable Energy Development --[Driven By]-> Market Forces relation: Renewable Energy Development --[Driven By]-> Policy Support  Energy Security\nStrategic Goal relation: Renewable Energy Development --[Driven By]-> Technological Advancements  Policy Support\nGovernment Policy relation: Renewable Energy Development --[Aims To Reduce]-> Greenhouse Gas Emissions  Renewable Energy Development\nProcess  Biomass Power Plants\nPower Generation Facility  Biomass Power Plants\nPower Generation Facility relation: organic materials --[Used In]-> Biomass Power Plants  organic materials\nMaterial  Bioenergy\nEnergy Source relation: organic materials --[Derived From]-> Bioenergy",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Government incentives promote the deployment of renewable energy technologies.",
+    "retrieved_context": " Promoting the deployment of renewable energy technologies\nObjective  Renewable Energy Sources\nEnergy Initiative  Renewable Energy Technologies\nTechnology  Renewable energy technologies\nTechnology  accelerating the deployment of renewable energy technologies\nProcess  Renewable energy\nEnergy Source  Renewable Energy\nEnergy Source  Renewable Energy Adoption\nEnergy Sector",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Energy storage technologies are being developed to store excess renewable energy.",
+    "retrieved_context": " energy storage\nTechnology  Energy Storage\nTechnology  Energy storage solutions\nTechnology  Renewable Energy Technologies\nTechnology  Renewable energy technologies\nTechnology  Renewable energy\nEnergy Source  Renewable Energy\nEnergy Source  Solar Power\nRenewable Energy Technology",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "The levelized cost of electricity for solar and wind power is becoming competitive with fossil fuels.",
+    "retrieved_context": " Levelized Cost of Electricity (LCOE) for Solar and Wind Power\nEconomic Indicator  Renewable Energy Adoption\nEnergy Sector  wind power growth\nEnergy Sector Trend  Promoting the deployment of renewable energy technologies\nObjective  Solar Power\nRenewable Energy Technology  wind power growth\nEnergy Sector Trend relation: global electricity demand --[Is Influenced By]-> geothermal energy reliability  global electricity demand\nEnergy Demand relation: global electricity demand --[Is Influenced By]-> wind power growth  geothermal energy reliability\nEnergy Source Reliability  solar energy\nEnergy Source  hydropower\nEnergy Source relation: global electricity demand --[Can Be Met By]-> solar energy relation: global electricity demand --[Can Be Met By]-> hydropower  accelerating the deployment of renewable energy technologies\nProcess  Renewable energy\nEnergy Source",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Environmental concerns such as land use impacts need to be addressed in renewable energy projects.",
+    "retrieved_context": " ecosystems\nEcosystem relation: land use impacts --[Addressed by]-> environmental impact assessments  environmental impact assessments\nAssessment relation: land use impacts --[Impact on]-> ecosystems  renewable energy development\nConcept  land use impacts\nEnvironmental Concern relation: land use impacts --[Associated with]-> sustainable siting and planning practices relation: land use impacts --[Concern in]-> renewable energy development  sustainable siting and planning practices\nPractice  development of renewable energy projects\nProcess relation: environmental impacts --[Led to]-> shift towards smaller-scale hydropower installations and run-of-river projects relation: environmental impacts --[Challenges for]-> accelerating the deployment of renewable energy technologies  ecosystems and local communities\nConcept relation: environmental impacts --[Impact on]-> ecosystems and local communities  environmental impacts\nConcept  renewable energy development\nConcept  accelerating the deployment of renewable energy technologies\nProcess relation: environmental impacts --[Associated with]-> renewable energy development relation: environmental impacts --[Addressed in]-> development of renewable energy projects  shift towards smaller-scale hydropower installations and run-of-river projects\nTrend  Environmental concerns\nConcern  environmental impact assessments\nAssessment  Environmental Concerns\nPolicy and Practice relation: Sustainable siting and planning practices --[Essential for]-> Renewable energy development  Sustainable siting and planning practices\nPractice  Environmental impact assessments\nProcess relation: Environmental impact assessments --[Essential for]-> Sustainable siting and planning practices  Environmental concerns\nConcern relation: Sustainable siting and planning practices --[Addresses]-> Environmental concerns relation: Environmental impact assessments --[Addresses]-> Environmental concerns  renewable energy projects\nEnergy Project  Renewable Energy Projects\nDevelopment Project",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Technological advancements continue to drive down costs and improve performance of renewable energy sources.",
+    "retrieved_context": " Promoting the deployment of renewable energy technologies\nObjective  accelerating the deployment of renewable energy technologies\nProcess  Renewable Energy Technologies\nTechnology  Renewable energy technologies\nTechnology  Renewable energy\nEnergy Source  Renewable Energy\nEnergy Source  Technological Advancements\nInnovation  Greenhouse Gas Emissions\nEnvironmental Impact  Market Forces\nEconomic Factor  Climate Change\nEnvironmental Impact relation: Renewable Energy Development --[Aims To Mitigate]-> Climate Change relation: Renewable Energy Development --[Aims To Enhance]-> Energy Security relation: Renewable Energy Development --[Driven By]-> Market Forces relation: Renewable Energy Development --[Driven By]-> Policy Support  Energy Security\nStrategic Goal relation: Renewable Energy Development --[Driven By]-> Technological Advancements  Policy Support\nGovernment Policy relation: Renewable Energy Development --[Aims To Reduce]-> Greenhouse Gas Emissions  Renewable Energy Development\nProcess  Renewable energy development\nEnergy Development",
+    "evaluation": 1
+  },
+  {
+    "accuracy": "100.00%"
+  }
+]

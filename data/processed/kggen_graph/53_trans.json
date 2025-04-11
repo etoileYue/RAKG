@@ -1,0 +1,93 @@
+{
+  "entities": [
+    {
+      "name": "belonging"
+    },
+    {
+      "name": "Major sporting events"
+    },
+    {
+      "name": "social justice"
+    },
+    {
+      "name": "competition"
+    },
+    {
+      "name": "stereotypes"
+    },
+    {
+      "name": "fans"
+    },
+    {
+      "name": "women"
+    },
+    {
+      "name": "teams"
+    },
+    {
+      "name": "World Cup"
+    },
+    {
+      "name": "teamwork"
+    },
+    {
+      "name": "pride"
+    },
+    {
+      "name": "resilience"
+    },
+    {
+      "name": "athletes"
+    },
+    {
+      "name": "sports"
+    },
+    {
+      "name": "inclusivity"
+    },
+    {
+      "name": "Olympics"
+    },
+    {
+      "name": "gender equality"
+    },
+    {
+      "name": "perseverance"
+    },
+    {
+      "name": "positive change"
+    }
+  ],
+  "relations": [
+    [
+      "athletes",
+      "part_of",
+      "teams"
+    ],
+    [
+      "sports",
+      "inspire",
+      "athletes"
+    ],
+    [
+      "sports",
+      "promote",
+      "competition"
+    ],
+    [
+      "sports",
+      "contribute_to",
+      "inclusivity"
+    ],
+    [
+      "sports",
+      "bring_together",
+      "fans"
+    ],
+    [
+      "sports",
+      "drive",
+      "positive change"
+    ]
+  ]
+}

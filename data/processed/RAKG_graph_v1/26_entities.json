@@ -1,0 +1,218 @@
+{
+    "entity1": {
+        "name": "Rockets",
+        "type": "Technology",
+        "description": "A vehicle designed to travel through space or the atmosphere, often used for launching satellites or spacecraft.;;;A vehicle designed to travel through space or the atmosphere by expelling gas at high speed from a nozzle.;;;A small, typically non-functional replica of a larger rocket, often used for educational purposes or as a hobby.;;;A vehicle designed to travel through space or the atmosphere by ejecting a jet of gas at high speed in the opposite direction to the desired motion.;;;The main structure of a rocket, typically constructed from lightweight but durable materials.;;;A vehicle designed to travel through space or the atmosphere by ejecting a jet of fast-moving fluid or gas.;;;A vehicle designed to travel through space by expelling gas at high speed from a nozzle, often used in space exploration and satellite deployment.;;;A vehicle designed to travel through space or the atmosphere, often for scientific research or military purposes.;;;A vehicle designed to travel through space or the atmosphere, often used for launching satellites or carrying payloads.;;;A vehicle or device propelled by the ejection of gases produced by combustion, used for launching satellites and spacecraft into space.;;;A vehicle designed to travel through space or the atmosphere, often used for carrying payloads such as satellites or humans.",
+        "chunkid": "How to Build a Rocket21;;;How to Build a Rocket4;;;How to Build a Rocket5;;;How to Build a Rocket10;;;How to Build a Rocket15;;;How to Build a Rocket7;;;How to Build a Rocket2;;;How to Build a Rocket8;;;How to Build a Rocket3;;;How to Build a Rocket14;;;How to Build a Rocket12;;;How to Build a Rocket6;;;How to Build a Rocket23;;;How to Build a Rocket24;;;How to Build a Rocket19;;;How to Build a Rocket18"
+    },
+    "entity2": {
+        "name": "space",
+        "type": "Location",
+        "description": "The boundless three-dimensional extent in which objects and events have relative position and direction, particularly the area beyond Earth's atmosphere where celestial bodies exist.",
+        "chunkid": "How to Build a Rocket2"
+    },
+    "entity4": {
+        "name": "initial design",
+        "type": "Process",
+        "description": "The first stage in creating a rocket, involving conceptualization and planning of its structure and systems.",
+        "chunkid": "How to Build a Rocket3"
+    },
+    "entity5": {
+        "name": "launch",
+        "type": "Event",
+        "description": "The act of sending a rocket into the air or space, often as part of a scientific mission or hobbyist activity.;;;The act of sending a rocket into space or the atmosphere, marking the final phase of the rocket's development process.",
+        "chunkid": "How to Build a Rocket22;;;How to Build a Rocket3"
+    },
+    "entity6": {
+        "name": "Step 1",
+        "type": "Process Stage",
+        "description": "The initial phase in a sequence of actions or steps.",
+        "chunkid": "How to Build a Rocket4"
+    },
+    "entity7": {
+        "name": "Purpose and Requirements",
+        "type": "Project Element",
+        "description": "Key aspects that define the goals and constraints of a project, such as a rocket build.;;;The intended use and necessary specifications that must be met by a project or product, in this case, the rocket.",
+        "chunkid": "How to Build a Rocket7;;;How to Build a Rocket4"
+    },
+    "entity10": {
+        "name": "science project",
+        "type": "Activity",
+        "description": "An educational assignment or task that involves scientific research, experimentation, or the creation of a model to demonstrate a concept.",
+        "chunkid": "How to Build a Rocket5"
+    },
+    "entity11": {
+        "name": "payload",
+        "type": "Object",
+        "description": "The cargo or equipment carried by a rocket or spacecraft, intended for delivery into space or orbit.",
+        "chunkid": "How to Build a Rocket5"
+    },
+    "entity12": {
+        "name": "orbit",
+        "type": "Location",
+        "description": "A curved path around a celestial body, such as the Earth, where satellites and other objects can remain in motion due to gravitational forces.",
+        "chunkid": "How to Build a Rocket5"
+    },
+    "entity17": {
+        "name": "propulsion system",
+        "type": "Component",
+        "description": "An advanced method of spacecraft propulsion that uses electrical energy to accelerate propellant to high velocities, typically more efficient than chemical engines for long-duration missions.;;;A part of the rocket responsible for generating thrust to propel the vehicle.;;;The mechanism that generates thrust to move a rocket or spacecraft forward, typically consisting of engines and fuel systems.;;;The propulsion system is a critical component of the rocket, responsible for generating thrust to lift the rocket off the ground and propel it into space.;;;The mechanism that generates thrust to move a rocket or other vehicle forward.",
+        "chunkid": "How to Build a Rocket15;;;How to Build a Rocket8;;;How to Build a Rocket14;;;How to Build a Rocket19"
+    },
+    "entity18": {
+        "name": "payload capacity",
+        "type": "Attribute",
+        "description": "The maximum weight of cargo or equipment that a rocket can carry into space or the atmosphere.",
+        "chunkid": "How to Build a Rocket8"
+    },
+    "entity20": {
+        "name": "materials and components",
+        "type": "Resources",
+        "description": "The physical items and parts required to construct a rocket, including but not limited to fuel, structural elements, and electronic systems.",
+        "chunkid": "How to Build a Rocket10"
+    },
+    "entity21": {
+        "name": "metal",
+        "type": "Material",
+        "description": "A lightweight and durable metal commonly used in the construction of rockets and other aerospace vehicles.;;;Materials made from two or more constituent materials with significantly different physical or chemical properties, one of which is a matrix and the other is a reinforcement.;;;A strong, lightweight composite material made from carbon fibers, often used in high-performance applications such as rocket construction.;;;A class of materials that are typically hard, dense, and conductive.",
+        "chunkid": "How to Build a Rocket12;;;How to Build a Rocket11"
+    },
+    "entity23": {
+        "name": "fuel system",
+        "type": "System",
+        "description": "A component in vehicles that stores and delivers fuel to the engine for propulsion.",
+        "chunkid": "How to Build a Rocket11"
+    },
+    "entity24": {
+        "name": "electronics",
+        "type": "Component",
+        "description": "Devices or systems used for processing signals, data, and information, often used for guidance and control in various applications.;;;Electrical systems and devices used in the operation and control of the rocket.;;;Sophisticated devices used in modern rockets to control various functions and systems.;;;Computers that are integrated into the vehicle or machinery, often used for controlling and monitoring various functions.",
+        "chunkid": "How to Build a Rocket16;;;How to Build a Rocket17;;;How to Build a Rocket19;;;How to Build a Rocket11"
+    },
+    "entity25": {
+        "name": "fins",
+        "type": "Component",
+        "description": "Structural elements attached to the exterior of a vehicle or projectile to provide stability during flight.",
+        "chunkid": "How to Build a Rocket11"
+    },
+    "entity26": {
+        "name": "nose cones",
+        "type": "Component",
+        "description": "The forward-most part of a rocket, missile, or aircraft designed to reduce drag and protect the payload.",
+        "chunkid": "How to Build a Rocket11"
+    },
+    "entity27": {
+        "name": "parachutes",
+        "type": "Component",
+        "description": "Devices used to slow the motion of an object through an atmosphere by creating drag, typically deployed during descent to ensure a safe landing.",
+        "chunkid": "How to Build a Rocket11"
+    },
+    "entity31": {
+        "name": "Fiberglass",
+        "type": "Material",
+        "description": "A composite material made of glass fibers embedded in a resin matrix, known for its strength and lightweight properties, suitable for rocket body construction.",
+        "chunkid": "How to Build a Rocket12"
+    },
+    "entity36": {
+        "name": "solid fuel engines",
+        "type": "Technology",
+        "description": "A type of engine used in rockets where the propellant is solid at room temperature, providing a simple and reliable propulsion method.",
+        "chunkid": "How to Build a Rocket15"
+    },
+    "entity37": {
+        "name": "liquid fuel engines",
+        "type": "Technology",
+        "description": "A type of rocket engine that uses liquid propellants to generate thrust, offering more control over the combustion process compared to solid fuels.",
+        "chunkid": "How to Build a Rocket15"
+    },
+    "entity38": {
+        "name": "hybrid engines",
+        "type": "Technology",
+        "description": "A propulsion system for rockets that combines elements of both solid and liquid fuel engines, potentially offering a balance between simplicity and performance.",
+        "chunkid": "How to Build a Rocket15"
+    },
+    "entity41": {
+        "name": "Guidance Systems",
+        "type": "Component",
+        "description": "Advanced systems designed to direct the rocket's flight path, ensuring accuracy and safety during launch.",
+        "chunkid": "How to Build a Rocket16"
+    },
+    "entity42": {
+        "name": "sensors",
+        "type": "Component",
+        "description": "Devices that detect and respond to some type of input from the physical environment.",
+        "chunkid": "How to Build a Rocket17"
+    },
+    "entity43": {
+        "name": "actuators",
+        "type": "Component",
+        "description": "Mechanical or electro-mechanical devices used to move or control a mechanism or system.",
+        "chunkid": "How to Build a Rocket17"
+    },
+    "entity45": {
+        "name": "design plans",
+        "type": "Document",
+        "description": "Detailed drawings or specifications that outline how a system should be constructed or assembled.",
+        "chunkid": "How to Build a Rocket17"
+    },
+    "entity46": {
+        "name": "Step 7",
+        "type": "Procedure Step",
+        "description": "A specific step in a procedure or process, indicating the stage of testing and launching.",
+        "chunkid": "How to Build a Rocket18"
+    },
+    "entity52": {
+        "name": "science and engineering principles",
+        "type": "Concept",
+        "description": "Fundamental theories and practices from scientific and technical disciplines that are essential for designing and building complex systems like rockets.",
+        "chunkid": "How to Build a Rocket21"
+    },
+    "entity53": {
+        "name": "rocket-building journey",
+        "type": "Activity",
+        "description": "A process or project of constructing a rocket, typically involving design, assembly, and testing phases.",
+        "chunkid": "How to Build a Rocket22"
+    },
+    "entity55": {
+        "name": "the great unknown",
+        "type": "Concept",
+        "description": "A metaphorical term referring to unexplored territories or the vastness of outer space, symbolizing adventure and discovery.",
+        "chunkid": "How to Build a Rocket22"
+    },
+    "entity56": {
+        "name": "student",
+        "type": "Role",
+        "description": "A person who is enrolled in a school or educational institution and is learning various subjects.",
+        "chunkid": "How to Build a Rocket23"
+    },
+    "entity57": {
+        "name": "hobbyist",
+        "type": "Role",
+        "description": "An amateur enthusiast of a particular activity, often pursued for pleasure rather than profit.",
+        "chunkid": "How to Build a Rocket23"
+    },
+    "entity58": {
+        "name": "aerospace engineer",
+        "type": "Profession",
+        "description": "A professional who designs and builds aircraft, spacecraft, satellites, and missiles.",
+        "chunkid": "How to Build a Rocket23"
+    },
+    "entity60": {
+        "name": "safety",
+        "type": "Concept",
+        "description": "The condition of being protected from or unlikely to cause danger, risk, or injury.",
+        "chunkid": "How to Build a Rocket24"
+    },
+    "entity61": {
+        "name": "regulations",
+        "type": "Legal Document",
+        "description": "Official rules and guidelines set by authorities that must be followed.",
+        "chunkid": "How to Build a Rocket24"
+    },
+    "entity62": {
+        "name": "guidelines",
+        "type": "Recommendation",
+        "description": "Suggested procedures or principles to follow, often less strict than regulations.",
+        "chunkid": "How to Build a Rocket24"
+    }
+}

@@ -1,0 +1,87 @@
+{
+  "entities": [
+    "19th century",
+    "Sumerians",
+    "board game conventions",
+    "Checkers",
+    "Chaturanga",
+    "Renaissance period",
+    "Scrabble",
+    "20th century",
+    "Chinese Chess",
+    "Clue",
+    "ancient Egypt",
+    "Industrial Revolution",
+    "Middle East",
+    "Europe",
+    "Royal Game of Ur",
+    "Monopoly",
+    "Zhou Dynasty",
+    "Xiangqi",
+    "Senet",
+    "Backgammon",
+    "Mesopotamia",
+    "online platforms",
+    "tabletop gaming cafes",
+    "Go",
+    "Persia",
+    "Tric-Trac"
+  ],
+  "relations": [
+    [
+      "Backgammon",
+      "spread_to",
+      "Middle East"
+    ],
+    [
+      "Checkers",
+      "emerged_during",
+      "Renaissance period"
+    ],
+    [
+      "Backgammon",
+      "spread_to",
+      "Europe"
+    ],
+    [
+      "Sumerians",
+      "lived_in",
+      "Mesopotamia"
+    ],
+    [
+      "Tric-Trac",
+      "emerged_during",
+      "Renaissance period"
+    ],
+    [
+      "Royal Game of Ur",
+      "played_by",
+      "Sumerians"
+    ],
+    [
+      "Tric-Trac",
+      "is_precursor_of",
+      "Backgammon"
+    ],
+    [
+      "Zhou Dynasty",
+      "TIME_PERIOD_OF",
+      "Go"
+    ],
+    [
+      "Backgammon",
+      "originated_in",
+      "Persia"
+    ],
+    [
+      "Xiangqi",
+      "ALSO_KNOWN_AS",
+      "Chinese Chess"
+    ],
+    [
+      "Senet",
+      "originated_in",
+      "ancient Egypt"
+    ]
+  ]
+}

@@ -1,0 +1,80 @@
+[
+  {
+    "correct_answer": "The human body has defense mechanisms to protect itself against harmful pathogens.",
+    "retrieved_context": " Pathogens\nBiological Entity  pathogens\nMicroorganism  Immune System\nBiological System  immune system\nBiological System  Immune Response\nBiological Process  Immune Response\nBiological Process  Physical Barriers\nDefense Mechanism relation: human body --[Fights]-> Pathogens relation: human body --[Has]-> Lymphocytes relation: human body --[Has]-> Mucous Membranes relation: human body --[Mounts]-> Immune Response relation: human body --[Has]-> Dendritic Cells  Acidic Environment of the Stomach\nBiological Process relation: human body --[Has]-> Macrophages  Mucous Membranes\nTissue  Macrophages\nCell Type relation: human body --[Has]-> T Cells  T Cells\nCell Type relation: human body --[Has]-> Physical Barriers  Memory Cells\nCell Type relation: human body --[Has]-> Cytokines relation: human body --[Has]-> Antibodies relation: human body --[Has]-> Complement System  Dendritic Cells\nCell Type  B Cells\nCell Type relation: human body --[Has]-> Skin  Skin\nTissue relation: human body --[Has]-> Inflammatory Response relation: human body --[Has]-> Memory Cells  Antibodies\nMolecule  Immune System\nBiological System relation: human body --[Has]-> Immune System relation: human body --[Has]-> Acidic Environment of the Stomach relation: human body --[Has]-> B Cells  Inflammatory Response\nBiological Process  White Blood Cells\nCell Type relation: human body --[Has]-> Natural Killer Cells relation: human body --[Has]-> White Blood Cells  Neutrophils\nCell Type  human body\nBiological System  Complement System\nBiological Process relation: human body --[Has]-> Neutrophils  Lymphocytes\nCell Type  Pathogens\nBiological Entity  Cytokines\nMolecule  Natural Killer Cells\nCell Type  Human Body\nBiological System  Physical Barriers\nDefense Mechanism",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "The immune system fights off infections to restore health.",
+    "retrieved_context": " Immune System\nBiological System  immune system\nBiological System  Immune Response\nBiological Process  dysregulated immune response\nMedical Condition  Pathogens\nBiological Entity  Inflammatory Response\nBiological Process  pathogens\nMicroorganism relation: phagocytosis --[Performed by]-> Cells  Pathogens\nBiological Entity  phagocytosis\nBiological Process relation: phagocytosis --[Targets]-> Pathogens  Cells\nBiological Entity",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "The immune response involves coordinated responses of cells, tissues, and organs.",
+    "retrieved_context": " Immune Response\nBiological Process  Immune System\nBiological System  immune system\nBiological System  Inflammatory Response\nBiological Process  dysregulated immune response\nMedical Condition  Immunological Memory\nBiological Phenomenon  Cells\nBiological Entity  Cytokines\nMolecule",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Physical barriers prevent pathogens from entering the body.",
+    "retrieved_context": " Pathogens\nBiological Entity  Physical Barriers\nDefense Mechanism  pathogens\nMicroorganism  Immune Response\nBiological Process  Immune System\nBiological System  immune system\nBiological System  dysregulated immune response\nMedical Condition  Immune Response\nBiological Process  Physical Barriers\nDefense Mechanism relation: human body --[Fights]-> Pathogens relation: human body --[Has]-> Lymphocytes relation: human body --[Has]-> Mucous Membranes relation: human body --[Mounts]-> Immune Response relation: human body --[Has]-> Dendritic Cells  Acidic Environment of the Stomach\nBiological Process relation: human body --[Has]-> Macrophages  Mucous Membranes\nTissue  Macrophages\nCell Type relation: human body --[Has]-> T Cells  T Cells\nCell Type relation: human body --[Has]-> Physical Barriers  Memory Cells\nCell Type relation: human body --[Has]-> Cytokines relation: human body --[Has]-> Antibodies relation: human body --[Has]-> Complement System  Dendritic Cells\nCell Type  B Cells\nCell Type relation: human body --[Has]-> Skin  Skin\nTissue relation: human body --[Has]-> Inflammatory Response relation: human body --[Has]-> Memory Cells  Antibodies\nMolecule  Immune System\nBiological System relation: human body --[Has]-> Immune System relation: human body --[Has]-> Acidic Environment of the Stomach relation: human body --[Has]-> B Cells  Inflammatory Response\nBiological Process  White Blood Cells\nCell Type relation: human body --[Has]-> Natural Killer Cells relation: human body --[Has]-> White Blood Cells  Neutrophils\nCell Type  human body\nBiological System  Complement System\nBiological Process relation: human body --[Has]-> Neutrophils  Lymphocytes\nCell Type  Pathogens\nBiological Entity  Cytokines\nMolecule  Natural Killer Cells\nCell Type",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "The skin acts as a protective barrier against pathogens.",
+    "retrieved_context": " Pathogens\nBiological Entity  pathogens\nMicroorganism  Skin\nTissue  Immune System\nBiological System  immune system\nBiological System  Immune Response\nBiological Process  Physical Barriers\nDefense Mechanism  Mucus\nBiological Substance relation: mucous membranes --[Part of]-> Digestive Tract relation: mucous membranes --[Traps]-> Pathogens  Respiratory Tract\nAnatomical Structure  Pathogens\nBiological Entity relation: mucous membranes --[Produces]-> Mucus  mucous membranes\nBiological Tissue relation: mucous membranes --[Part of]-> Respiratory Tract  Digestive Tract\nAnatomical Structure",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Mucous membranes produce mucus to trap pathogens.",
+    "retrieved_context": " Mucus\nBiological Substance relation: mucous membranes --[Part of]-> Digestive Tract relation: mucous membranes --[Traps]-> Pathogens  Respiratory Tract\nAnatomical Structure  Pathogens\nBiological Entity relation: mucous membranes --[Produces]-> Mucus  mucous membranes\nBiological Tissue relation: mucous membranes --[Part of]-> Respiratory Tract  Digestive Tract\nAnatomical Structure  Mucous Membranes\nTissue relation: mucus --[Produced by]-> mucous membranes  mucus\nBiological Substance  pathogens\nMicroorganism relation: mucous membranes --[Part of]-> Digestive Tract relation: mucous membranes --[Traps]-> Pathogens relation: mucous membranes --[Produces]-> Mucus relation: mucus --[Traps]-> pathogens  mucous membranes\nBiological Tissue relation: mucous membranes --[Part of]-> Respiratory Tract  Mucus\nBiological Substance  Pathogens\nBiological Entity  pathogens\nMicroorganism relation: phagocytosis --[Performed by]-> Cells  Pathogens\nBiological Entity  phagocytosis\nBiological Process relation: phagocytosis --[Targets]-> Pathogens  Cells\nBiological Entity  Respiratory Tract\nAnatomical Structure",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "The acidic environment of the stomach can kill pathogens.",
+    "retrieved_context": " Acidic Environment of the Stomach\nBiological Process  Pathogens\nBiological Entity  pathogens\nMicroorganism relation: phagocytosis --[Performed by]-> Cells  Pathogens\nBiological Entity  phagocytosis\nBiological Process relation: phagocytosis --[Targets]-> Pathogens  Cells\nBiological Entity  Digestive System\nSystem  stomach\nOrgan relation: stomach --[Part of]-> Digestive System  Pathogens\nBiological Entity relation: stomach --[Protects Against]-> Pathogens  Stomach\nOrgan  Stomach\nOrgan relation: digestive tract --[Part of]-> Human Body relation: digestive tract --[Contains]-> Stomach  Human Body\nBiological System  digestive tract\nAnatomical Structure  Digestive Tract\nAnatomical Structure",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "White blood cells are key players in the immune response.",
+    "retrieved_context": " White Blood Cells\nCell Type  Immune Response\nBiological Process  Immune System\nBiological System  immune system\nBiological System  dysregulated immune response\nMedical Condition  Inflammatory Response\nBiological Process  Immunological Memory\nBiological Phenomenon  Lymphocytes\nCell Type",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Neutrophils are the first responders to infections.",
+    "retrieved_context": " Neutrophils\nCell Type  Pathogens\nBiological Entity  pathogens\nMicroorganism  dysregulated immune response\nMedical Condition  Inflammatory Response\nBiological Process  Immune Response\nBiological Process relation: phagocytosis --[Performed by]-> Cells  Pathogens\nBiological Entity  phagocytosis\nBiological Process relation: phagocytosis --[Targets]-> Pathogens  Cells\nBiological Entity  Cytokines\nMolecule",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Macrophages patrol the body and alert other immune cells.",
+    "retrieved_context": " Macrophages\nCell Type  Immune Response\nBiological Process  Immune System\nBiological System  immune system\nBiological System  Cytokines\nMolecule relation: phagocytosis --[Performed by]-> Cells  Pathogens\nBiological Entity  phagocytosis\nBiological Process relation: phagocytosis --[Targets]-> Pathogens  Cells\nBiological Entity  dysregulated immune response\nMedical Condition  Inflammatory Response\nBiological Process",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Lymphocytes mount a targeted immune response.",
+    "retrieved_context": " Immune Response\nBiological Process  Lymphocytes\nCell Type  dysregulated immune response\nMedical Condition  Immune System\nBiological System  immune system\nBiological System  Cytokines\nMolecule  Immunological Memory\nBiological Phenomenon  Inflammatory Response\nBiological Process",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Dendritic cells present antigens to T cells for a specific immune response.",
+    "retrieved_context": " Dendritic Cells\nCell Type  T Cells\nCell Type  Immune System\nBiological System  immune system\nBiological System  Immune Response\nBiological Process  dysregulated immune response\nMedical Condition  Neutrophils\nCell Type  Lymphocytes\nCell Type",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Natural killer cells can directly kill infected cells.",
+    "retrieved_context": " Natural Killer Cells\nCell Type  Immune Response\nBiological Process  Cells\nBiological Entity relation: phagocytosis --[Performed by]-> Cells  Pathogens\nBiological Entity  phagocytosis\nBiological Process relation: phagocytosis --[Targets]-> Pathogens  Cells\nBiological Entity  Pathogens\nBiological Entity  Immune System\nBiological System  immune system\nBiological System  Macrophages\nCell Type",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Complement proteins enhance the ability of antibodies to destroy pathogens.",
+    "retrieved_context": " Complement System\nBiological Process  Pathogens\nBiological Entity  Antibodies\nMolecule  Immune System\nBiological System  immune system\nBiological System  pathogens\nMicroorganism  Immune Response\nBiological Process  dysregulated immune response\nMedical Condition",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Cytokines coordinate the immune response and regulate immune cell activity.",
+    "retrieved_context": " Cytokines\nMolecule  Immune Response\nBiological Process  Immune System\nBiological System  immune system\nBiological System  Inflammatory Response\nBiological Process  dysregulated immune response\nMedical Condition  Macrophages\nCell Type  Cells\nBiological Entity",
+    "evaluation": 1
+  },
+  {
+    "accuracy": "100.00%"
+  }
+]

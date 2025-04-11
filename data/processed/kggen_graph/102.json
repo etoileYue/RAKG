@@ -1,0 +1,141 @@
+{
+  "entities": [
+    "public safety",
+    "public participation",
+    "community",
+    "crimes",
+    "privacy rights",
+    "surveillance cameras",
+    "detect",
+    "clear guidelines and regulations",
+    "security",
+    "secure communication channels",
+    "digital platforms",
+    "abuses of power",
+    "crime prevention",
+    "community engagement tools",
+    "mobile applications",
+    "communication platforms",
+    "mobile devices",
+    "deter",
+    "Social media platforms",
+    "technology",
+    "citizens",
+    "video analytics technology",
+    "investigate criminal activities",
+    "online reporting systems",
+    "predictive analytics",
+    "innovation",
+    "real-time information sharing",
+    "law enforcement agencies",
+    "information",
+    "data mining"
+  ],
+  "relations": [
+    [
+      "surveillance cameras",
+      "complements",
+      "predictive analytics"
+    ],
+    [
+      "citizens",
+      "communicate with",
+      "law enforcement agencies"
+    ],
+    [
+      "law enforcement agencies",
+      "use",
+      "surveillance cameras"
+    ],
+    [
+      "predictive analytics",
+      "enhances",
+      "security"
+    ],
+    [
+      "secure communication channels",
+      "supports",
+      "real-time information sharing"
+    ],
+    [
+      "community",
+      "be active participants in",
+      "crime prevention"
+    ],
+    [
+      "online reporting systems",
+      "allow",
+      "citizens"
+    ],
+    [
+      "citizens",
+      "report",
+      "crimes"
+    ],
+    [
+      "mobile devices",
+      "facilitates",
+      "real-time information sharing"
+    ],
+    [
+      "law enforcement agencies",
+      "leverage",
+      "technology"
+    ],
+    [
+      "technology",
+      "enhance the capabilities of",
+      "law enforcement agencies"
+    ],
+    [
+      "Social media platforms",
+      "allow",
+      "citizens"
+    ],
+    [
+      "technology",
+      "enables",
+      "innovation"
+    ],
+    [
+      "citizens",
+      "share",
+      "information"
+    ],
+    [
+      "mobile applications",
+      "allow",
+      "citizens"
+    ],
+    [
+      "digital platforms",
+      "enables",
+      "real-time information sharing"
+    ],
+    [
+      "surveillance cameras",
+      "raise concerns about",
+      "privacy rights"
+    ],
+    [
+      "surveillance cameras",
+      "contributes to",
+      "public safety"
+    ],
+    [
+      "surveillance cameras",
+      "raise concerns about",
+      "abuses of power"
+    ],
+    [
+      "surveillance cameras",
+      "enhance capabilities through",
+      "video analytics technology"
+    ],
+    [
+      "community engagement tools",
+      "supports",
+      "public safety"
+    ]
+  ]
+}

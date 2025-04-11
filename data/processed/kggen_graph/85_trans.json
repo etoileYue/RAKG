@@ -1,0 +1,161 @@
+{
+  "entities": [
+    {
+      "name": "Columbia disaster"
+    },
+    {
+      "name": "Challenger disaster"
+    },
+    {
+      "name": "Blue Origin"
+    },
+    {
+      "name": "advanced propulsion systems"
+    },
+    {
+      "name": "Vostok 1"
+    },
+    {
+      "name": "space shuttle program"
+    },
+    {
+      "name": "United States"
+    },
+    {
+      "name": "International Space Station"
+    },
+    {
+      "name": "Buzz Aldrin"
+    },
+    {
+      "name": "National Aeronautics and Space Administration"
+    },
+    {
+      "name": "Mars"
+    },
+    {
+      "name": "Apollo 11"
+    },
+    {
+      "name": "lunar bases"
+    },
+    {
+      "name": "colonizing other planets"
+    },
+    {
+      "name": "Sputnik 1"
+    },
+    {
+      "name": "SpaceX"
+    },
+    {
+      "name": "Elon Musk"
+    },
+    {
+      "name": "interplanetary exploration"
+    },
+    {
+      "name": "Yuri Gagarin"
+    },
+    {
+      "name": "NASA"
+    },
+    {
+      "name": "space tourism"
+    },
+    {
+      "name": "Russia"
+    },
+    {
+      "name": "manned missions to Mars"
+    },
+    {
+      "name": "Neil Armstrong"
+    },
+    {
+      "name": "ISS"
+    }
+  ],
+  "relations": [
+    [
+      "SpaceX",
+      "founded_by",
+      "Elon Musk"
+    ],
+    [
+      "space tourism",
+      "relates to",
+      "colonizing other planets"
+    ],
+    [
+      "interplanetary exploration",
+      "includes",
+      "manned missions to Mars"
+    ],
+    [
+      "Yuri Gagarin",
+      "traveled into space aboard",
+      "Vostok 1"
+    ],
+    [
+      "space shuttle program",
+      "enabled the construction of",
+      "International Space Station"
+    ],
+    [
+      "interplanetary exploration",
+      "includes",
+      "lunar bases"
+    ],
+    [
+      "advanced propulsion systems",
+      "enables",
+      "manned missions to Mars"
+    ],
+    [
+      "Sputnik 1",
+      "competed with",
+      "United States"
+    ],
+    [
+      "lunar bases",
+      "includes",
+      "interplanetary exploration"
+    ],
+    [
+      "advanced propulsion systems",
+      "enables",
+      "lunar bases"
+    ],
+    [
+      "SpaceX",
+      "plans_to_send_to",
+      "Mars"
+    ],
+    [
+      "SpaceX",
+      "launched_to",
+      "ISS"
+    ],
+    [
+      "NASA",
+      "initiated",
+      "space shuttle program"
+    ],
+    [
+      "Sputnik 1",
+      "launched by",
+      "Sputnik 1"
+    ],
+    [
+      "manned missions to Mars",
+      "includes",
+      "interplanetary exploration"
+    ],
+    [
+      "United States",
+      "launched",
+      "NASA"
+    ]
+  ]
+}

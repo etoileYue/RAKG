@@ -1,0 +1,915 @@
+{
+    "entities": [
+        {
+            "name": "Japanese",
+            "type": "Ethnicity/Culture",
+            "description": "The Japanese are an ethnic group native to Japan, known for their rich cultural heritage and contributions to various fields including art, technology, and mathematics.",
+            "attributes": {
+                "Origin": "Japan",
+                "Language": "Japanese"
+            }
+        },
+        {
+            "name": "robotics",
+            "type": "field_of_study",
+            "description": "Robotics is the study and design of robots.",
+            "attributes": {}
+        },
+        {
+            "name": "shapes",
+            "type": "Geometric",
+            "description": "Shapes refer to the various forms and outlines that can be created using lines and curves, which are fundamental elements in geometry.",
+            "attributes": {}
+        },
+        {
+            "name": "Advanced Origami Models",
+            "type": "Artistic Creation",
+            "description": "Advanced origami models are complex designs that require a deep understanding of mathematical principles.",
+            "attributes": {}
+        },
+        {
+            "name": "algorithms",
+            "type": "Concept",
+            "description": "Algorithms are step-by-step procedures or formulas for solving problems, often used in computational processes.",
+            "attributes": {
+                "Purpose": "To solve problems and perform tasks efficiently",
+                "Application Domain": "Computational origami, computer science, engineering"
+            }
+        },
+        {
+            "name": "DEPLOYABLE SOLAR PANELS",
+            "type": "Structures",
+            "description": "Deployable solar panels are engineering applications that use origami principles to create structures that can be folded and unfolded with ease",
+            "attributes": {}
+        },
+        {
+            "name": "MEDICAL DEVICES",
+            "type": "medical_technology",
+            "description": "Medical devices are applications of origami principles in engineering, designed to be compact and deployable for medical use",
+            "attributes": {}
+        },
+        {
+            "name": "visually appealing models",
+            "type": "Models",
+            "description": "Attractive representations used for visual appeal.",
+            "attributes": {}
+        },
+        {
+            "name": "ENGINEERING",
+            "type": "academic_discipline",
+            "description": "Engineering is a field that has applied origami-inspired principles to develop innovative structures, such as deployable solar panels and medical devices",
+            "attributes": {}
+        },
+        {
+            "name": "paper's edges",
+            "type": "Manifold",
+            "description": "The paper's edges refer to the linear boundaries where two surfaces of the paper meet, forming a one-dimensional geometric structure.",
+            "attributes": {}
+        },
+        {
+            "name": "repetitions",
+            "type": "Repetitive Patterns",
+            "description": "The use of identical elements repeated in a systematic way to create complexity and balance.",
+            "attributes": {}
+        },
+        {
+            "name": "science",
+            "type": "Field of Study",
+            "description": "Science is a systematic and logical approach to discovering how the world works. It encompasses various disciplines such as physics, chemistry, biology, and more.",
+            "attributes": {
+                "Interdisciplinary Nature": "Combines art, mathematics, engineering, and technology",
+                "Innovative Applications": "Contributes to advancements in various fields such as origami, computer science, engineering, architecture, and material science"
+            }
+        },
+        {
+            "name": "symmetrical folds",
+            "type": "Folding Technique",
+            "description": "Symmetrical folds are precise creases made along lines of symmetry, ensuring both sides of the paper mirror each other perfectly.",
+            "attributes": {}
+        },
+        {
+            "name": "Scaling Designs",
+            "type": "Process",
+            "description": "Scaling designs involves adjusting the size of an origami model while maintaining its structural integrity.",
+            "attributes": {}
+        },
+        {
+            "name": "enthusiasts",
+            "type": "Group of People",
+            "description": "Enthusiasts are individuals who have a strong interest and passion for origami, often engaging in the creation of intricate designs with precision and accuracy.",
+            "attributes": {
+                "Interest": "Origami",
+                "Skill Level": "Varies (from beginner to advanced)"
+            }
+        },
+        {
+            "name": "science and engineering",
+            "type": "discipline",
+            "description": "Science and engineering are interdisciplinary fields that apply scientific theories and principles of mathematics, physics, and materials science to design, develop, and create solutions for practical problems.",
+            "attributes": {}
+        },
+        {
+            "name": "Stability and Balance",
+            "type": "Structural Quality",
+            "description": "The structural quality of origami models is ensured by the application of mathematical principles.",
+            "attributes": {}
+        },
+        {
+            "name": "graph theory",
+            "type": "Mathematical Discipline",
+            "description": "Graph Theory studies properties of graphs, which are mathematical structures used to model pairwise relations between objects.",
+            "attributes": {}
+        },
+        {
+            "name": "symmetry",
+            "type": "Mathematical Concept",
+            "description": "Symmetry refers to balance and harmony of shapes and patterns.",
+            "attributes": {}
+        },
+        {
+            "name": "design complexity",
+            "type": "Concept",
+            "description": "Design complexity refers to the intricacy and detail of an origami design.",
+            "attributes": {}
+        },
+        {
+            "name": "MATERIAL SCIENCE",
+            "type": "Science",
+            "description": "Material science is a field that has explored the use of origami principles to develop new materials and structures",
+            "attributes": {}
+        },
+        {
+            "name": "structurally sound models",
+            "type": "Models",
+            "description": "Structurally sound models are creations that are both aesthetically pleasing and physically stable.",
+            "attributes": {}
+        },
+        {
+            "name": "Angles and Lengths of Folds",
+            "type": "Measurement",
+            "description": "The angles and lengths of folds are crucial for creating symmetrical and aesthetically pleasing designs.",
+            "attributes": {}
+        },
+        {
+            "name": "Beauty",
+            "type": "Aesthetic Quality",
+            "description": "The aesthetic quality of origami creations is enhanced by the application of mathematical principles.",
+            "attributes": {}
+        },
+        {
+            "name": "vertices",
+            "type": "Geometric Points",
+            "description": "Vertices are the corners where edges of a polygon meet.",
+            "attributes": {}
+        },
+        {
+            "name": "computational geometry",
+            "type": "branch_of_mathematics",
+            "description": "Computational geometry is a branch of mathematics that deals with algorithms for solving geometric problems involving shapes, sizes, positions and relative distances of planar or spatial objects.",
+            "attributes": {}
+        },
+        {
+            "name": "ratio",
+            "type": "Mathematical Concept",
+            "description": "A ratio is a comparison of two quantities, often expressed as a fraction or with a colon.",
+            "attributes": {}
+        },
+        {
+            "name": "folds",
+            "type": "Geometric Transformation",
+            "description": "A method of altering paper's shape through precise creasing.",
+            "attributes": {}
+        },
+        {
+            "name": "Engineers and Designers",
+            "type": "Professionals",
+            "description": "Engineers and designers are professionals who apply scientific and mathematical principles to develop innovative structures.",
+            "attributes": {}
+        },
+        {
+            "name": "three-dimensional structures",
+            "type": "Geometric Forms",
+            "description": "Three-dimensional structures are complex shapes formed by folding paper into various configurations.",
+            "attributes": {}
+        },
+        {
+            "name": "ARCHITECTURE",
+            "type": "Design and Construction Field",
+            "description": "Architecture is a field that has benefited from the application of origami principles to create efficient and adaptable designs",
+            "attributes": {}
+        },
+        {
+            "name": "researchers",
+            "type": "Group of People",
+            "description": "Researchers are individuals who conduct systematic investigations to discover new knowledge or develop a deeper understanding of existing knowledge.",
+            "attributes": {
+                "Field of Study": "Mathematics, Origami, Robotics, Artificial Intelligence",
+                "Applications": "Engineering, Architecture, Material Science"
+            }
+        }
+    ],
+    "relations": [
+        [
+            "advanced origami models",
+            "Related To",
+            "advanced origami models",
+            "Dimensions are closely related to geometry, as geometric principles such as Euclidean geometry help calculate angles and lengths needed for precise folds."
+        ],
+        [
+            "Origami",
+            "Involves Application Of",
+            "Euclidean Geometry",
+            "Origami artists use Euclidean geometry to calculate exact angles and lengths of folds."
+        ],
+        [
+            "ORIGAMI",
+            "applies_to",
+            "MATERIAL SCIENCE",
+            "Material science has explored the use of origami principles to develop new materials and structures"
+        ],
+        [
+            "researchers",
+            "Create",
+            "Advanced Origami Models",
+            "Researchers create advanced origami models by applying mathematical concepts."
+        ],
+        [
+            "Origami",
+            "computer science",
+            "undefine",
+            "uses: cluster\ncreates: context\napplies_in: data analysis\nleads_to: understanding of relationships\ncreated_by: graph extraction algorithms\ntransforms: raw text into structured information\napplied_by: researchers, data scientists\nused_by: machine learning models, natural language processing systems\nis_a: representation of connections\ninvolves: nodes and edges"
+        ],
+        [
+            "material science",
+            "Intersects With",
+            "advanced origami models",
+            "Material science intersects with computer science to develop new computational methods for material design and analysis."
+        ],
+        [
+            "enthusiasts",
+            "Create",
+            "advanced origami models",
+            "Enthusiasts create intricate and visually appealing origami designs with precision and accuracy."
+        ],
+        [
+            "deployable solar panels",
+            "Developed By",
+            "Engineers and Designers",
+            "Deployable solar panels were developed by engineers and designers using origami-inspired principles."
+        ],
+        [
+            "researchers",
+            "Explore Possibilities In",
+            "Artificial Intelligence",
+            "Researchers explore new possibilities in artificial intelligence by leveraging mathematical concepts."
+        ],
+        [
+            "algorithms",
+            "Developed For",
+            "advanced origami models",
+            "Algorithms are developed to simulate and analyze complex folding patterns in origami."
+        ],
+        [
+            "Robotics",
+            "Applies Concepts From",
+            "Graph Theory",
+            "Robotics applies concepts from graph theory to design advanced origami models and explore new possibilities."
+        ],
+        [
+            "advanced origami models",
+            "Developed For",
+            "Complex Folding Patterns",
+            "Software programs are developed specifically to handle the complexity of these folding patterns."
+        ],
+        [
+            "medical devices",
+            "Applied In",
+            "architecture",
+            "Medical devices are applied in the field of architecture."
+        ],
+        [
+            "science",
+            "Intersects With",
+            "advanced origami models",
+            "Science intersects with origami, where mathematical principles are applied to create complex structures that have practical applications."
+        ],
+        [
+            "Origami",
+            "Contributes To",
+            "Architecture",
+            "Origami has inspired new architectural designs that are both aesthetically pleasing and structurally sound."
+        ],
+        [
+            "advanced origami models",
+            "Supports",
+            "Intricate Designs",
+            "Proportion supports the creation of intricate designs by ensuring accurate proportions and alignments."
+        ],
+        [
+            "ORIGAMI",
+            "application",
+            "PROPORTION",
+            "Proportion is used in origami to scale designs up or down while maintaining the integrity of the original structure"
+        ],
+        [
+            "ORIGAMI",
+            "application",
+            "DEPLOYABLE SOLAR PANELS",
+            "Origami principles have been applied in engineering to develop deployable solar panels that can be folded and unfolded with ease"
+        ],
+        [
+            "Engineers and designers",
+            "Explored New Frontiers In",
+            "Various Fields",
+            "By applying the principles of origami, engineers and designers have explored new frontiers in various fields."
+        ],
+        [
+            "medical devices",
+            "Developed Using",
+            "advanced origami models",
+            "Medical devices have been developed using origami-inspired principles."
+        ],
+        [
+            "algorithms",
+            "Part Of",
+            "advanced origami models",
+            "Algorithms form a crucial part of software programs used in computational origami."
+        ],
+        [
+            "advanced origami models",
+            "Applied In",
+            "Architecture",
+            "Software programs used in computational origami have applications in the architecture field."
+        ],
+        [
+            "Origami",
+            "three-dimensional structures",
+            "undefine",
+            "uses: cluster\ncreates: context\napplies_in: data analysis\nleads_to: understanding of relationships\ncreated_by: graph extraction algorithms\ntransforms: raw text into structured information\napplied_by: researchers, data scientists\nused_by: machine learning models, natural language processing systems\nis_a: representation of connections\ninvolves: nodes and edges"
+        ],
+        [
+            "advanced origami models",
+            "Enables",
+            "Scaling Designs",
+            "Proportion enables origami artists to scale their designs up or down while maintaining the integrity of the original structure."
+        ],
+        [
+            "COMPUTATIONAL ORIGAMI",
+            "contributes_to",
+            "ROBOTICS",
+            "Computational origami has contributed to the field of robotics by enabling the design of advanced origami models and exploring new possibilities in artificial intelligence"
+        ],
+        [
+            "algorithms",
+            "Applied In",
+            "advanced origami models",
+            "Algorithms developed for computational origami have applications in various fields such as engineering, computer science, and robotics."
+        ],
+        [
+            "advanced origami models",
+            "Involves",
+            "Computational Origami",
+            "Artificial intelligence involves the field of computational origami, which is used to develop advanced models and simulations."
+        ],
+        [
+            "advanced origami models",
+            "Guides",
+            "Folding Techniques",
+            "Proportion guides the precise manipulation of paper\"s edges, angles, and vertices during folding."
+        ],
+        [
+            "science",
+            "Intersects With",
+            "architecture",
+            "Science intersects with architecture, where origami principles have been applied to create innovative designs."
+        ],
+        [
+            "advanced origami models",
+            "Influences",
+            "design complexity",
+            "Dimensions influence the complexity of origami designs by affecting the feasibility and precision of folds."
+        ],
+        [
+            "Origami",
+            "Involves Application Of",
+            "Proportion",
+            "Understanding proportion helps origami artists scale their designs while maintaining structural integrity."
+        ],
+        [
+            "science",
+            "Intersects With",
+            "advanced origami models",
+            "Science intersects with computer science, where mathematical principles from origami have made significant contributions."
+        ],
+        [
+            "Japanese",
+            "Influenced",
+            "Mathematical Concepts in Origami",
+            "Japanese origami has influenced the development of mathematical concepts, particularly in symmetry and structural design."
+        ],
+        [
+            "ORIGAMI",
+            "is_a",
+            "PAPER FOLDING",
+            "Origami is a specific form of paper folding that involves precise manipulations of paper to create intricate designs"
+        ],
+        [
+            "researchers",
+            "Leverage Concepts Of",
+            "Computational Geometry",
+            "Researchers leverage computational geometry to design advanced origami models and explore new possibilities in robotics and artificial intelligence."
+        ],
+        [
+            "Origami",
+            "Involves Application Of",
+            "Symmetry",
+            "Symmetry in origami enhances the beauty and stability of the final creation."
+        ],
+        [
+            "advanced origami models",
+            "Used In",
+            "Computational Origami",
+            "Software programs are used in the field of computational origami to develop and run simulations."
+        ],
+        [
+            "ORIGAMI",
+            "applied",
+            "COMPUTER SCIENCE",
+            "Computer science has applied the principles of origami to develop algorithms and software for simulating and analyzing complex folding patterns"
+        ],
+        [
+            "medical devices",
+            "Applied In",
+            "material science",
+            "Medical devices are applied in the field of material science."
+        ],
+        [
+            "Origami",
+            "Contributes To",
+            "Artificial Intelligence",
+            "Origami has inspired new approaches in AI, particularly in the design of algorithms for folding and unfolding structures."
+        ],
+        [
+            "Origami",
+            "Contributes To",
+            "Robotics",
+            "Origami principles have been applied in robotics to create foldable and reconfigurable robots."
+        ],
+        [
+            "algorithms",
+            "Used In",
+            "advanced origami models",
+            "Algorithms are used in the field of computational origami to develop software for simulating and analyzing complex folding patterns."
+        ],
+        [
+            "Origami",
+            "Contributes To",
+            "Engineering",
+            "Origami principles have been applied in engineering to develop innovative structures like deployable solar panels and medical devices."
+        ],
+        [
+            "advanced origami models",
+            "Calculate",
+            "Angles and Lengths of Folds",
+            "Mathematical principles, such as Euclidean geometry, allow origami artists to calculate the exact angles and lengths of folds."
+        ],
+        [
+            "advanced origami models",
+            "Calculated Using",
+            "Euclidean geometry",
+            "Angles in origami are calculated using principles of Euclidean geometry."
+        ],
+        [
+            "material science",
+            "Applies Concepts From",
+            "advanced origami models",
+            "Material science applies concepts from origami to develop new materials and structures."
+        ],
+        [
+            "Origami",
+            "mathematics",
+            "undefine",
+            "uses: cluster\ncreates: context\napplies_in: data analysis\nleads_to: understanding of relationships\ncreated_by: graph extraction algorithms\ntransforms: raw text into structured information\napplied_by: researchers, data scientists\nused_by: machine learning models, natural language processing systems\nis_a: representation of connections\ninvolves: nodes and edges"
+        ],
+        [
+            "advanced origami models",
+            "Determined By",
+            "advanced origami models",
+            "The exact angles needed for precise folds in origami are determined by mathematical principles."
+        ],
+        [
+            "enthusiasts",
+            "symmetrical folds",
+            "undefine",
+            "uses: cluster\ncreates: context\napplies_in: data analysis\nleads_to: understanding of relationships\ncreated_by: graph extraction algorithms\ntransforms: raw text into structured information\napplied_by: researchers, data scientists\nused_by: machine learning models, natural language processing systems\nis_a: representation of connections\ninvolves: nodes and edges"
+        ],
+        [
+            "ORIGAMI",
+            "belong_to",
+            "JAPANESE ART",
+            "Origami is a part of Japanese art, reflecting the cultural heritage and traditional techniques of Japan"
+        ],
+        [
+            "deployable solar panels",
+            "Uses Mathematical Concepts From",
+            "Origami",
+            "Deployable solar panels use mathematical concepts derived from origami to achieve efficient and adaptable designs."
+        ],
+        [
+            "advanced origami models",
+            "Influences",
+            "advanced origami models",
+            "Dimensions influence the folding techniques by determining how the paper can be folded to achieve desired forms."
+        ],
+        [
+            "Origami",
+            "Involves Application Of",
+            "Ratio",
+            "Ratios are used in origami to ensure the correct proportions and dimensions of folds."
+        ],
+        [
+            "Japanese",
+            "Created Art Form",
+            "Origami",
+            "The Japanese created origami, an art form that combines aesthetics with mathematical principles."
+        ],
+        [
+            "advanced origami models",
+            "Ensure",
+            "Stability and Balance",
+            "Mathematical principles ensure stability and balance in the folded structure of origami."
+        ],
+        [
+            "Engineers and designers",
+            "Developed",
+            "Medical Devices",
+            "Engineers and designers have used origami-inspired principles to develop medical devices."
+        ],
+        [
+            "advanced origami models",
+            "Guide",
+            "Folds",
+            "Mathematical principles guide the precise manipulation of folds to ensure symmetry, proportion, and balance."
+        ],
+        [
+            "Robotics",
+            "Intersects With",
+            "Artificial Intelligence",
+            "Robotics intersects with artificial intelligence, leveraging AI techniques to enhance the capabilities of robots."
+        ],
+        [
+            "advanced origami models",
+            "Develop",
+            "New Geometric Concepts and Theorems",
+            "Mathematical principles in origami contribute to the development of new geometric concepts and theorems."
+        ],
+        [
+            "Robotics",
+            "Intersects With",
+            "Engineering",
+            "Robotics intersects with engineering to develop mechanical and electrical components for robots."
+        ],
+        [
+            "researchers",
+            "Leverage Concepts Of",
+            "Graph Theory",
+            "Researchers leverage graph theory to design advanced origami models."
+        ],
+        [
+            "advanced origami models",
+            "Involves Study Of",
+            "Shapes, Angles, and Dimensions",
+            "Paper folding techniques involve the study of shapes, angles, and dimensions to determine how to fold paper."
+        ],
+        [
+            "advanced origami models",
+            "Plays a Role In",
+            "Origami",
+            "Proportion plays a crucial role in ensuring that the folds and creases of the paper align correctly to create precise and accurate shapes."
+        ],
+        [
+            "advanced origami models",
+            "Design",
+            "Advanced Origami Models",
+            "Mathematical principles, such as graph theory and computational geometry, enable the design of advanced origami models."
+        ],
+        [
+            "deployable solar panels",
+            "Applied In",
+            "Various Fields",
+            "Deployable solar panels are applied in multiple fields including engineering, architecture, and material science."
+        ],
+        [
+            "advanced origami models",
+            "Formed By",
+            "advanced origami models",
+            "Angles are formed by two rays or line segments that share a common endpoint."
+        ],
+        [
+            "Japanese art of paper folding",
+            "Origami",
+            "undefine",
+            "uses: cluster\ncreates: context\napplies_in: data analysis\nleads_to: understanding of relationships\ncreated_by: graph extraction algorithms\ntransforms: raw text into structured information\napplied_by: researchers, data scientists\nused_by: machine learning models, natural language processing systems\nis_a: representation of connections\ninvolves: nodes and edges"
+        ],
+        [
+            "ORIGAMI",
+            "influenced_by",
+            "ARCHITECTURE",
+            "Architecture has benefited from the application of origami principles to create efficient and adaptable designs"
+        ],
+        [
+            "advanced origami models",
+            "Used In",
+            "advanced origami models",
+            "Angles are used in origami to create precise folds and aesthetically pleasing designs."
+        ],
+        [
+            "algorithms",
+            "computational origami",
+            "undefine",
+            "uses: cluster\ncreates: context\napplies_in: data analysis\nleads_to: understanding of relationships\ncreated_by: graph extraction algorithms\ntransforms: raw text into structured information\napplied_by: researchers, data scientists\nused_by: machine learning models, natural language processing systems\nis_a: representation of connections\ninvolves: nodes and edges"
+        ],
+        [
+            "Origami",
+            "geometric concepts",
+            "undefine",
+            "uses: cluster\ncreates: context\napplies_in: data analysis\nleads_to: understanding of relationships\ncreated_by: graph extraction algorithms\ntransforms: raw text into structured information\napplied_by: researchers, data scientists\nused_by: machine learning models, natural language processing systems\nis_a: representation of connections\ninvolves: nodes and edges"
+        ],
+        [
+            "advanced origami models",
+            "Enhance",
+            "Beauty",
+            "Mathematical principles enhance the beauty of origami creations through symmetry and proportion."
+        ],
+        [
+            "Robotics",
+            "Intersects With",
+            "Computer Science",
+            "Robotics intersects with computer science to design algorithms and systems for controlling robots."
+        ],
+        [
+            "science",
+            "Intersects With",
+            "material science",
+            "Science intersects with material science, where origami principles have been applied to develop new materials and structures."
+        ],
+        [
+            "science",
+            "Intersects With",
+            "advanced origami models",
+            "Science intersects with mathematics, particularly in the field of origami where mathematical principles are applied to create complex structures."
+        ],
+        [
+            "enthusiasts",
+            "repetitions",
+            "undefine",
+            "uses: cluster\ncreates: context\napplies_in: data analysis\nleads_to: understanding of relationships\ncreated_by: graph extraction algorithms\ntransforms: raw text into structured information\napplied_by: researchers, data scientists\nused_by: machine learning models, natural language processing systems\nis_a: representation of connections\ninvolves: nodes and edges"
+        ],
+        [
+            "Origami",
+            "folds",
+            "undefine",
+            "uses: cluster\ncreates: context\napplies_in: data analysis\nleads_to: understanding of relationships\ncreated_by: graph extraction algorithms\ntransforms: raw text into structured information\napplied_by: researchers, data scientists\nused_by: machine learning models, natural language processing systems\nis_a: representation of connections\ninvolves: nodes and edges"
+        ],
+        [
+            "Engineers and designers",
+            "Developed",
+            "Deployable Solar Panels",
+            "Engineers and designers have used origami-inspired principles to develop deployable solar panels."
+        ],
+        [
+            "advanced origami models",
+            "Explore New Possibilities",
+            "Robotics and Artificial Intelligence",
+            "Mathematical principles, when applied to origami, help explore new possibilities in robotics and artificial intelligence."
+        ],
+        [
+            "advanced origami models",
+            "software programs",
+            "undefine",
+            "uses: cluster\ncreates: context\napplies_in: data analysis\nleads_to: understanding of relationships\ncreated_by: graph extraction algorithms\ntransforms: raw text into structured information\napplied_by: researchers, data scientists\nused_by: machine learning models, natural language processing systems\nis_a: representation of connections\ninvolves: nodes and edges"
+        ],
+        [
+            "advanced origami models",
+            "Applied In",
+            "Engineering",
+            "Software programs used in computational origami have applications in the engineering field."
+        ],
+        [
+            "Robotics",
+            "Applies Concepts From",
+            "Computational Geometry",
+            "Robotics applies concepts from computational geometry to design advanced origami models and explore new possibilities."
+        ],
+        [
+            "Origami",
+            "flat sheet of paper",
+            "undefine",
+            "uses: cluster\ncreates: context\napplies_in: data analysis\nleads_to: understanding of relationships\ncreated_by: graph extraction algorithms\ntransforms: raw text into structured information\napplied_by: researchers, data scientists\nused_by: machine learning models, natural language processing systems\nis_a: representation of connections\ninvolves: nodes and edges"
+        ],
+        [
+            "researchers",
+            "Apply Concepts Of",
+            "Origami",
+            "Researchers apply mathematical concepts of origami to design models that can be folded and unfolded with ease."
+        ],
+        [
+            "Euclidean geometry",
+            "origami artists",
+            "undefine",
+            "uses: cluster\ncreates: context\napplies_in: data analysis\nleads_to: understanding of relationships\ncreated_by: graph extraction algorithms\ntransforms: raw text into structured information\napplied_by: researchers, data scientists\nused_by: machine learning models, natural language processing systems\nis_a: representation of connections\ninvolves: nodes and edges"
+        ],
+        [
+            "science",
+            "Intersects With",
+            "engineering",
+            "Science intersects with engineering, where origami-inspired designs have led to innovative advancements."
+        ],
+        [
+            "Origami",
+            "engineering",
+            "undefine",
+            "uses: cluster\ncreates: context\napplies_in: data analysis\nleads_to: understanding of relationships\ncreated_by: graph extraction algorithms\ntransforms: raw text into structured information\napplied_by: researchers, data scientists\nused_by: machine learning models, natural language processing systems\nis_a: representation of connections\ninvolves: nodes and edges"
+        ],
+        [
+            "advanced origami models",
+            "Determine",
+            "Paper Folding Techniques",
+            "Mathematical principles determine how paper can be folded to create specific forms."
+        ],
+        [
+            "ORIGAMI",
+            "application",
+            "MEDICAL DEVICES",
+            "Origami principles have been used in the design of medical devices that are compact and deployable"
+        ],
+        [
+            "ORIGAMI",
+            "involves",
+            "MATHEMATICS",
+            "Origami relies heavily on mathematical principles and theories to create intricate and precise designs"
+        ],
+        [
+            "advanced origami models",
+            "Is Part Of",
+            "Mathematical Principles",
+            "Proportion is part of the mathematical principles used in origami, along with geometry, symmetry, and ratio."
+        ],
+        [
+            "ORIGAMI",
+            "application",
+            "RATIO",
+            "Ratio, along with proportion, is used in origami to ensure that the folds and creases of the paper align correctly to create precise and accurate shapes"
+        ],
+        [
+            "advanced origami models",
+            "Guided By",
+            "Mathematical Principles",
+            "Paper folding techniques are guided by mathematical principles to ensure precision and accuracy."
+        ],
+        [
+            "ORIGAMI",
+            "involves",
+            "SYMMETRY",
+            "Symmetry is a key concept in origami, used to create visually appealing and structurally sound models"
+        ],
+        [
+            "ORIGAMI",
+            "applied_to",
+            "EUCLIDEAN GEOMETRY",
+            "Euclidean geometry is used in origami to calculate the exact angles and lengths of folds needed to create symmetrical and aesthetically pleasing designs"
+        ],
+        [
+            "ORIGAMI",
+            "involves",
+            "GEOMETRY",
+            "Geometry is a core mathematical principle in origami, used to determine how paper can be folded into specific forms"
+        ],
+        [
+            "COMPUTATIONAL ORIGAMI",
+            "contribution",
+            "ARTIFICIAL INTELLIGENCE",
+            "Computational origami has contributed to the development of new algorithms and models in artificial intelligence"
+        ],
+        [
+            "Origami",
+            "Contributes To",
+            "Computer Science",
+            "Origami has applications in computer science, particularly in algorithm design and computational geometry."
+        ],
+        [
+            "algorithms",
+            "folding patterns",
+            "simulate and analyze",
+            "Algorithms are used to simulate and analyze folding patterns."
+        ],
+        [
+            "advanced origami models",
+            "Applied In",
+            "Various Fields",
+            "These theorems have practical applications across multiple domains."
+        ],
+        [
+            "enthusiasts",
+            "Apply",
+            "advanced origami models",
+            "Enthusiasts apply mathematical concepts to create precise and intricate origami models."
+        ],
+        [
+            "material science",
+            "Intersects With",
+            "engineering",
+            "Material science intersects with engineering to apply new materials in practical applications."
+        ],
+        [
+            "researchers",
+            "Explore Possibilities In",
+            "Robotics",
+            "Researchers explore new possibilities in robotics by leveraging mathematical concepts."
+        ],
+        [
+            "material science",
+            "Intersects With",
+            "architecture",
+            "Material science intersects with architecture to develop innovative building materials and designs."
+        ],
+        [
+            "researchers",
+            "Apply Principles Of",
+            "Geometry, Symmetry, Proportion, Ratio",
+            "Researchers apply these principles to create intricate origami designs and explore new frontiers in various fields."
+        ],
+        [
+            "Robotics",
+            "Utilizes Concepts From",
+            "Mathematics of Origami",
+            "Robotics utilizes concepts from the mathematics of origami, particularly through computational geometry and graph theory."
+        ],
+        [
+            "advanced origami models",
+            "Applied In",
+            "Material Science",
+            "Software programs used in computational origami have applications in material science."
+        ],
+        [
+            "ORIGAMI",
+            "field_of_study",
+            "COMPUTATIONAL ORIGAMI",
+            "Computational origami is a field that uses algorithms and software to simulate and analyze complex folding patterns, contributing to the advancement of origami"
+        ],
+        [
+            "Origami",
+            "Contributes To",
+            "Material Science",
+            "Origami techniques have been used in material science to create new materials with unique properties."
+        ],
+        [
+            "ORIGAMI",
+            "applied",
+            "ENGINEERING",
+            "Engineering has applied origami principles to develop innovative structures, such as deployable solar panels and medical devices"
+        ],
+        [
+            "advanced origami models",
+            "Developed In",
+            "Intersection of Mathematics and Origami",
+            "New geometric theorems have been developed in this interdisciplinary field."
+        ],
+        [
+            "advanced origami models",
+            "Utilizes",
+            "Origami Models",
+            "Artificial intelligence utilizes advanced origami models, which are designed using computational geometry and graph theory."
+        ],
+        [
+            "advanced origami models",
+            "Related To",
+            "advanced origami models",
+            "Understanding the relationship between dimensions and proportions is essential for scaling origami designs while maintaining structural integrity."
+        ],
+        [
+            "Engineers and designers",
+            "Applied Concepts From",
+            "Mathematical Principles of Origami",
+            "Engineers and designers apply the mathematical concepts of origami to create intricate and functional designs."
+        ],
+        [
+            "medical devices",
+            "Applied In",
+            "engineering",
+            "Medical devices are applied in the field of engineering."
+        ],
+        [
+            "Origami",
+            "theorems",
+            "undefine",
+            "uses: cluster\ncreates: context\napplies_in: data analysis\nleads_to: understanding of relationships\ncreated_by: graph extraction algorithms\ntransforms: raw text into structured information\napplied_by: researchers, data scientists\nused_by: machine learning models, natural language processing systems\nis_a: representation of connections\ninvolves: nodes and edges"
+        ],
+        [
+            "material science",
+            "Intersects With",
+            "advanced origami models",
+            "Material science intersects with mathematics to understand and apply geometric principles and theories."
+        ]
+    ]
+}

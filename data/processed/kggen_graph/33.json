@@ -1,0 +1,87 @@
+{
+  "entities": [
+    "lost civilization",
+    "Critias",
+    "Plato",
+    "Atlantis",
+    "Pillars of Hercules",
+    "Mediterranean Sea",
+    "mythological creation",
+    "legend",
+    "Atlantic Ocean",
+    "Antarctica",
+    "Strait of Gibraltar"
+  ],
+  "relations": [
+    [
+      "Atlantis",
+      "located_beyond",
+      "Pillars of Hercules"
+    ],
+    [
+      "Atlantis",
+      "speculated_location",
+      "Atlantic Ocean"
+    ],
+    [
+      "Atlantis",
+      "mentioned_in",
+      "Critias"
+    ],
+    [
+      "Atlantis",
+      "described_by",
+      "Plato"
+    ],
+    [
+      "Atlantis",
+      "speculated_location",
+      "Mediterranean Sea"
+    ],
+    [
+      "Atlantis",
+      "speculated_location",
+      "Antarctica"
+    ],
+    [
+      "Atlantis",
+      "mentioned_in_work_by",
+      "Plato"
+    ],
+    [
+      "Pillars of Hercules",
+      "believed_to_be",
+      "Strait of Gibraltar"
+    ],
+    [
+      "Atlantis",
+      "is_a",
+      "legend"
+    ],
+    [
+      "Plato",
+      "wrote",
+      "Atlantis"
+    ],
+    [
+      "Atlantis",
+      "may_be",
+      "lost civilization"
+    ],
+    [
+      "Atlantis",
+      "mentioned_in",
+      "Atlantis"
+    ],
+    [
+      "Atlantis",
+      "may_be",
+      "mythological creation"
+    ],
+    [
+      "Plato",
+      "wrote",
+      "Critias"
+    ]
+  ]
+}

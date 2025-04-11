@@ -1,0 +1,80 @@
+[
+  {
+    "correct_answer": "Ants are fascinating creatures.",
+    "retrieved_context": " ants\nInsect  Ants\nInsect  worker ants\nAnts  fellow workers\nAnts  Worker ants\nAnt  Worker Ants\nInsect  Queen ant\nAnt  Soldier ants\nAnt",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Ants have mastered the art of cooperation and organization.",
+    "retrieved_context": " worker ants\nAnts  ant colonies\nStructure  Ant Colonies\nBiological Structure  Worker ants\nAnt  ants\nInsect  Ants\nInsect  fellow workers\nAnts  Worker Ants\nInsect",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Ant colonies serve as the central hub for ants to live, work, and thrive together.",
+    "retrieved_context": " ant colonies\nStructure  Ant Colonies\nBiological Structure relation: colonies --[Consists of]-> Queen ant  Soldier ants\nAnt  Worker ants\nAnt relation: colonies --[Builds]-> Nest structures relation: colonies --[Utilizes]-> Fungi  colonies\nAnt Colony  Queen ant\nAnt relation: colonies --[Consists of]-> Soldier ants relation: colonies --[Consists of]-> Worker ants  Nest structures\nStructure  Fungi\nOrganism relation: colonies --[Consists of]-> Male ants  Natural disasters\nEvent  Male ants\nAnt relation: colonies --[Responds to]-> Natural disasters  worker ants\nAnts  Worker ants\nAnt  fellow workers\nAnts  Worker Ants\nInsect  Ant Colony Relocation\nBehavioral Response",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Ant colonies are highly structured and organized societies.",
+    "retrieved_context": " ant colonies\nStructure  Ant Colonies\nBiological Structure relation: colonies --[Consists of]-> Queen ant  Soldier ants\nAnt  Worker ants\nAnt relation: colonies --[Builds]-> Nest structures relation: colonies --[Utilizes]-> Fungi  colonies\nAnt Colony  Queen ant\nAnt relation: colonies --[Consists of]-> Soldier ants relation: colonies --[Consists of]-> Worker ants  Nest structures\nStructure  Fungi\nOrganism relation: colonies --[Consists of]-> Male ants  Natural disasters\nEvent  Male ants\nAnt relation: colonies --[Responds to]-> Natural disasters  Ant Nest\nStructure  ant nest\nStructure  Ant Colony Relocation\nBehavioral Response  worker ants\nAnts  Worker ants\nAnt",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Each ant in a colony has a specific role to play.",
+    "retrieved_context": "relation: colonies --[Consists of]-> Queen ant  Soldier ants\nAnt  Worker ants\nAnt relation: colonies --[Builds]-> Nest structures relation: colonies --[Utilizes]-> Fungi  colonies\nAnt Colony  Queen ant\nAnt relation: colonies --[Consists of]-> Soldier ants relation: colonies --[Consists of]-> Worker ants  Nest structures\nStructure  Fungi\nOrganism relation: colonies --[Consists of]-> Male ants  Natural disasters\nEvent  Male ants\nAnt relation: colonies --[Responds to]-> Natural disasters  ant colonies\nStructure  Ant Colonies\nBiological Structure  Ant Colony Relocation\nBehavioral Response  worker ants\nAnts  Worker ants\nAnt  Ant Nest\nStructure  ant nest\nStructure",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Ant colonies typically consist of a queen, male ants, worker ants, and soldier ants.",
+    "retrieved_context": " worker ants\nAnts  Worker ants\nAnt  Male ants\nAnt  ant colonies\nStructure  Ant Colonies\nBiological Structure  Soldier ants\nAnt  Queen ant\nAnt relation: colonies --[Consists of]-> Queen ant  Soldier ants\nAnt  Worker ants\nAnt relation: colonies --[Builds]-> Nest structures relation: colonies --[Utilizes]-> Fungi  colonies\nAnt Colony  Queen ant\nAnt relation: colonies --[Consists of]-> Soldier ants relation: colonies --[Consists of]-> Worker ants  Nest structures\nStructure  Fungi\nOrganism relation: colonies --[Consists of]-> Male ants  Natural disasters\nEvent  Male ants\nAnt relation: colonies --[Responds to]-> Natural disasters",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "The queen ant is responsible for laying eggs.",
+    "retrieved_context": " Queen ant\nAnt relation: Queen Ant --[Lays Eggs]-> Eggs relation: Queen Ant --[Transported By]-> Worker Ants relation: Queen Ant --[Housed In]-> Chambers  Chambers\nNest Structure  Eggs\nBiological Material  Queen Ant\nInsect  Worker Ants\nInsect  ants\nInsect  Ants\nInsect  Ant Colonies\nBiological Structure  worker ants\nAnts  Worker ants\nAnt  Worker Ants\nInsect",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Worker ants cater to the queen's needs and maintain the nest.",
+    "retrieved_context": " worker ants\nAnts  Worker ants\nAnt  Worker Ants\nInsect  Queen ant\nAnt relation: Queen Ant --[Lays Eggs]-> Eggs relation: Queen Ant --[Transported By]-> Worker Ants relation: Queen Ant --[Housed In]-> Chambers  Chambers\nNest Structure  Eggs\nBiological Material  Queen Ant\nInsect  Worker Ants\nInsect  fellow workers\nAnts  Ants Relocating Nest\nBehavior  ants\nInsect",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Worker ants perform tasks like foraging for food and caring for the young.",
+    "retrieved_context": " worker ants\nAnts  Worker ants\nAnt  Worker Ants\nInsect  fellow workers\nAnts  ants\nInsect  Ants\nInsect  Male ants\nAnt  Ants Relocating Nest\nBehavior",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Soldier ants defend the colony from external threats.",
+    "retrieved_context": " Soldier ants\nAnt relation: colonies --[Consists of]-> Queen ant  Soldier ants\nAnt  Worker ants\nAnt relation: colonies --[Builds]-> Nest structures relation: colonies --[Utilizes]-> Fungi  colonies\nAnt Colony  Queen ant\nAnt relation: colonies --[Consists of]-> Soldier ants relation: colonies --[Consists of]-> Worker ants  Nest structures\nStructure  Fungi\nOrganism relation: colonies --[Consists of]-> Male ants  Natural disasters\nEvent  Male ants\nAnt relation: colonies --[Responds to]-> Natural disasters  worker ants\nAnts  ants\nInsect  Ants\nInsect  Ant Colonies\nBiological Structure  Worker ants\nAnt  Worker Ants\nInsect",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Ants use a variety of materials to build their nests, such as soil, leaves, twigs, and pebbles.",
+    "retrieved_context": " Ant Colonies\nBiological Structure  ant colonies\nStructure  Ant Nest\nStructure  ant nest\nStructure  worker ants\nAnts  Ants Relocating Nest\nBehavior  ants\nInsect  Ants\nInsect",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Worker ants excavate the soil and create tunnels and chambers underground.",
+    "retrieved_context": " worker ants\nAnts  Worker ants\nAnt  fellow workers\nAnts  Worker Ants\nInsect  ant colonies\nStructure  Soldier ants\nAnt  Ant Colonies\nBiological Structure  ants\nInsect",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Ants communicate with each other using chemical signals called pheromones.",
+    "retrieved_context": " ants\nInsect  Ants\nInsect  pheromones\nChemical Signal  Cooperation and Organization\nBehavioral Trait relation: pheromones --[Help in]-> Cooperation and Organization relation: pheromones --[Used by]-> Ants  Ants\nInsect  Male ants\nAnt  worker ants\nAnts relation: pheromone trails --[Laid down by]-> fellow workers  fellow workers\nAnts relation: pheromone trails --[Used by]-> worker ants  pheromone trails\nChemical Signal  worker ants\nAnts  Worker ants\nAnt  Worker Ants\nInsect",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Ants demonstrate impressive engineering abilities when constructing their nests.",
+    "retrieved_context": " ant colonies\nStructure  Ant Colonies\nBiological Structure  Ant Nest\nStructure  ant nest\nStructure  worker ants\nAnts  Ants Relocating Nest\nBehavior  Worker ants\nAnt  ants\nInsect",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Ants exhibit remarkable adaptability in responding to changes in their environment.",
+    "retrieved_context": " Ants Relocating Nest\nBehavior  Ant Colony Relocation\nBehavioral Response  Ant Colonies\nBiological Structure  ants\nInsect  Ants\nInsect  ant colonies\nStructure  worker ants\nAnts  Worker ants\nAnt",
+    "evaluation": 1
+  },
+  {
+    "accuracy": "100.00%"
+  }
+]

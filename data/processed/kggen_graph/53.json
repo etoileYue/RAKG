@@ -1,0 +1,55 @@
+{
+  "entities": [
+    "belonging",
+    "Major sporting events",
+    "social justice",
+    "competition",
+    "stereotypes",
+    "fans",
+    "women",
+    "teams",
+    "World Cup",
+    "teamwork",
+    "pride",
+    "resilience",
+    "athletes",
+    "sports",
+    "inclusivity",
+    "Olympics",
+    "gender equality",
+    "perseverance",
+    "positive change"
+  ],
+  "relations": [
+    [
+      "athletes",
+      "part_of",
+      "teams"
+    ],
+    [
+      "sports",
+      "inspire",
+      "athletes"
+    ],
+    [
+      "sports",
+      "promote",
+      "competition"
+    ],
+    [
+      "sports",
+      "contribute_to",
+      "inclusivity"
+    ],
+    [
+      "sports",
+      "bring_together",
+      "fans"
+    ],
+    [
+      "sports",
+      "drive",
+      "positive change"
+    ]
+  ]
+}

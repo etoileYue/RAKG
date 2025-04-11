@@ -1,0 +1,113 @@
+{
+  "entities": [
+    "telephone",
+    "wheeled vehicles",
+    "Thomas Edison",
+    "ENIAC",
+    "James Watt",
+    "transportation",
+    "Mesopotamia",
+    "3500 BC",
+    "internet",
+    "Thomas Newcomen",
+    "15th century",
+    "modern transportation systems",
+    "The History of Famous Inventions",
+    "printing press",
+    "Johannes Gutenberg",
+    "steam engine",
+    "Alexander Graham Bell",
+    "19th century",
+    "18th century",
+    "light bulb",
+    "technological advancements",
+    "wheel"
+  ],
+  "relations": [
+    [
+      "wheel",
+      "enabled_development_of",
+      "wheeled vehicles"
+    ],
+    [
+      "The History of Famous Inventions",
+      "discusses",
+      "wheel"
+    ],
+    [
+      "wheel",
+      "invented_in",
+      "3500 BC"
+    ],
+    [
+      "wheel",
+      "laid_foundation_for",
+      "technological advancements"
+    ],
+    [
+      "wheel",
+      "remains_essential_component_of",
+      "modern transportation systems"
+    ],
+    [
+      "15th century",
+      "time_of_invention",
+      "printing press"
+    ],
+    [
+      "internet",
+      "follows",
+      "wheel"
+    ],
+    [
+      "wheel",
+      "revolutionized",
+      "transportation"
+    ],
+    [
+      "19th century",
+      "time_of_invention",
+      "telephone"
+    ],
+    [
+      "Johannes Gutenberg",
+      "invented",
+      "printing press"
+    ],
+    [
+      "18th century",
+      "time_of_invention",
+      "steam engine"
+    ],
+    [
+      "Thomas Newcomen",
+      "developed",
+      "steam engine"
+    ],
+    [
+      "wheel",
+      "precedes",
+      "internet"
+    ],
+    [
+      "Thomas Edison",
+      "invented",
+      "light bulb"
+    ],
+    [
+      "James Watt",
+      "developed",
+      "steam engine"
+    ],
+    [
+      "Alexander Graham Bell",
+      "invented",
+      "telephone"
+    ],
+    [
+      "wheel",
+      "originated_from",
+      "Mesopotamia"
+    ]
+  ]
+}

@@ -1,0 +1,196 @@
+{
+  "entities": [
+    {
+      "name": "bodies"
+    },
+    {
+      "name": "sharks"
+    },
+    {
+      "name": "Sharks"
+    },
+    {
+      "name": "lateral line system"
+    },
+    {
+      "name": "lateral line"
+    },
+    {
+      "name": "hearing"
+    },
+    {
+      "name": "complexities"
+    },
+    {
+      "name": "water pressure"
+    },
+    {
+      "name": "abilities"
+    },
+    {
+      "name": "vision"
+    },
+    {
+      "name": "aquatic environment"
+    },
+    {
+      "name": "sense of touch"
+    },
+    {
+      "name": "predators"
+    },
+    {
+      "name": "secure"
+    },
+    {
+      "name": "retinas"
+    },
+    {
+      "name": "movement"
+    },
+    {
+      "name": "sensory system"
+    },
+    {
+      "name": "tapetum lucidum"
+    },
+    {
+      "name": "great white shark"
+    },
+    {
+      "name": "highly efficient and successful predators"
+    },
+    {
+      "name": "acute sense of smell"
+    },
+    {
+      "name": "electroreception"
+    },
+    {
+      "name": "low light conditions"
+    },
+    {
+      "name": "Olympic-sized swimming pool"
+    },
+    {
+      "name": "place"
+    },
+    {
+      "name": "navigate"
+    },
+    {
+      "name": "ampullae of Lorenzini"
+    },
+    {
+      "name": "prey"
+    },
+    {
+      "name": "utilizing"
+    },
+    {
+      "name": "chain"
+    },
+    {
+      "name": "ocean"
+    },
+    {
+      "name": "murky waters"
+    },
+    {
+      "name": "touch"
+    },
+    {
+      "name": "sensory"
+    },
+    {
+      "name": "marine"
+    }
+  ],
+  "relations": [
+    [
+      "tapetum lucidum",
+      "located behind",
+      "retinas"
+    ],
+    [
+      "utilizing",
+      "abilities",
+      "sensory"
+    ],
+    [
+      "great white shark",
+      "has",
+      "tapetum lucidum"
+    ],
+    [
+      "sharks",
+      "live in",
+      "aquatic environment"
+    ],
+    [
+      "navigate",
+      "complexities",
+      "ocean"
+    ],
+    [
+      "sharks",
+      "have",
+      "vision"
+    ],
+    [
+      "secure",
+      "place",
+      "predators"
+    ],
+    [
+      "sharks",
+      "have",
+      "touch"
+    ],
+    [
+      "vision",
+      "adapted to",
+      "low light conditions"
+    ],
+    [
+      "secure",
+      "chain",
+      "marine"
+    ],
+    [
+      "sharks",
+      "have",
+      "electroreception"
+    ],
+    [
+      "sharks",
+      "see clearly in",
+      "murky waters"
+    ],
+    [
+      "sharks",
+      "use",
+      "sense of touch"
+    ],
+    [
+      "sharks",
+      "have",
+      "lateral line"
+    ],
+    [
+      "lateral line",
+      "helps locate",
+      "prey"
+    ],
+    [
+      "sharks",
+      "have",
+      "hearing"
+    ],
+    [
+      "sharks",
+      "have",
+      "acute sense of smell"
+    ]
+  ]
+}

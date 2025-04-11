@@ -1,0 +1,197 @@
+{
+  "entities": [
+    {
+      "name": "Jacob and Wilhelm Grimm"
+    },
+    {
+      "name": "Fairytales"
+    },
+    {
+      "name": "evil queen"
+    },
+    {
+      "name": "Rhodopis"
+    },
+    {
+      "name": "Snow White"
+    },
+    {
+      "name": "Brothers Grimm"
+    },
+    {
+      "name": "peasants and villagers"
+    },
+    {
+      "name": "Brothers Grimm's 'Grimm's Fairy Tales'"
+    },
+    {
+      "name": "Ovid"
+    },
+    {
+      "name": "German brothers and scholars"
+    },
+    {
+      "name": "Hansel and Gretel"
+    },
+    {
+      "name": "cannibalistic witch"
+    },
+    {
+      "name": "early 19th century"
+    },
+    {
+      "name": "handsome prince"
+    },
+    {
+      "name": "oral traditions"
+    },
+    {
+      "name": "German countryside"
+    },
+    {
+      "name": "Beauty and the Beast"
+    },
+    {
+      "name": "wicked stepmother"
+    },
+    {
+      "name": "Cinderella"
+    },
+    {
+      "name": "Charles Perrault"
+    },
+    {
+      "name": "seven dwarfs"
+    },
+    {
+      "name": "Pygmalion and Galatea"
+    }
+  ],
+  "relations": [
+    [
+      "Charles Perrault",
+      "published_version_of",
+      "Cinderella"
+    ],
+    [
+      "Ovid",
+      "wrote_about",
+      "Pygmalion and Galatea"
+    ],
+    [
+      "Brothers Grimm",
+      "AUTHOR_OF",
+      "Snow White"
+    ],
+    [
+      "Beauty and the Beast",
+      "is_influenced_by",
+      "Ovid"
+    ],
+    [
+      "Hansel and Gretel",
+      "outsmart",
+      "cannibalistic witch"
+    ],
+    [
+      "Cinderella",
+      "earlier_version_of",
+      "Rhodopis"
+    ],
+    [
+      "Snow White",
+      "helped by",
+      "seven dwarfs"
+    ],
+    [
+      "Pygmalion and Galatea",
+      "gathered stories from",
+      "Beauty and the Beast"
+    ],
+    [
+      "Jacob and Wilhelm Grimm",
+      "traveled throughout",
+      "German countryside"
+    ],
+    [
+      "Snow White",
+      "flees from",
+      "wicked stepmother"
+    ],
+    [
+      "Snow White",
+      "collected_by",
+      "Brothers Grimm"
+    ],
+    [
+      "Brothers Grimm's 'Grimm's Fairy Tales'",
+      "are",
+      "Cinderella"
+    ],
+    [
+      "Fairytales",
+      "are collected in",
+      "Brothers Grimm's 'Grimm's Fairy Tales'"
+    ],
+    [
+      "Jacob and Wilhelm Grimm",
+      "gathered stories from",
+      "peasants and villagers"
+    ],
+    [
+      "Fairytales",
+      "preserve",
+      "oral traditions"
+    ],
+    [
+      "Brothers Grimm",
+      "AUTHOR_OF",
+      "Beauty and the Beast"
+    ],
+    [
+      "Jacob and Wilhelm Grimm",
+      "collected and published",
+      "Fairytales"
+    ],
+    [
+      "Brothers Grimm's 'Grimm's Fairy Tales'",
+      "are",
+      "Hansel and Gretel"
+    ],
+    [
+      "Jacob and Wilhelm Grimm",
+      "are",
+      "German brothers and scholars"
+    ],
+    [
+      "Brothers Grimm",
+      "AUTHOR_OF",
+      "Cinderella"
+    ],
+    [
+      "Hansel and Gretel",
+      "collected by",
+      "Brothers Grimm"
+    ],
+    [
+      "Brothers Grimm's 'Grimm's Fairy Tales'",
+      "are",
+      "Snow White"
+    ],
+    [
+      "Snow White",
+      "marries",
+      "handsome prince"
+    ],
+    [
+      "Jacob and Wilhelm Grimm",
+      "began collecting and publishing",
+      "early 19th century"
+    ],
+    [
+      "Brothers Grimm",
+      "AUTHOR_OF",
+      "Hansel and Gretel"
+    ]
+  ]
+}

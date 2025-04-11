@@ -1,0 +1,227 @@
+{
+  "entities": [
+    {
+      "name": "traction"
+    },
+    {
+      "name": "roller coaster designers"
+    },
+    {
+      "name": "mechanical"
+    },
+    {
+      "name": "gravitational force"
+    },
+    {
+      "name": "kinetic energy"
+    },
+    {
+      "name": "energy conservation"
+    },
+    {
+      "name": "gravity"
+    },
+    {
+      "name": "centripetal force"
+    },
+    {
+      "name": "amusement park rides"
+    },
+    {
+      "name": "kinetic"
+    },
+    {
+      "name": "airtime"
+    },
+    {
+      "name": "excitement"
+    },
+    {
+      "name": "speed"
+    },
+    {
+      "name": "potential energy"
+    },
+    {
+      "name": "stability"
+    },
+    {
+      "name": "Roller coasters"
+    },
+    {
+      "name": "sharp turns"
+    },
+    {
+      "name": "loops"
+    },
+    {
+      "name": "friction"
+    },
+    {
+      "name": "mechanical energy"
+    },
+    {
+      "name": "acceleration"
+    },
+    {
+      "name": "force"
+    },
+    {
+      "name": "potential"
+    },
+    {
+      "name": "energy"
+    },
+    {
+      "name": "weightlessness"
+    },
+    {
+      "name": "velocity"
+    },
+    {
+      "name": "first hill"
+    },
+    {
+      "name": "Roller Coasters"
+    },
+    {
+      "name": "centripetal"
+    },
+    {
+      "name": "curves"
+    },
+    {
+      "name": "track"
+    },
+    {
+      "name": "physics"
+    }
+  ],
+  "relations": [
+    [
+      "friction",
+      "affects",
+      "stability"
+    ],
+    [
+      "acceleration",
+      "affects",
+      "velocity"
+    ],
+    [
+      "gravity",
+      "contributes_to",
+      "acceleration"
+    ],
+    [
+      "mechanical",
+      "contributes_to",
+      "potential"
+    ],
+    [
+      "friction",
+      "affects",
+      "speed"
+    ],
+    [
+      "first hill",
+      "gives",
+      "potential energy"
+    ],
+    [
+      "mechanical",
+      "contributes_to",
+      "kinetic"
+    ],
+    [
+      "acceleration",
+      "creates",
+      "airtime"
+    ],
+    [
+      "centripetal force",
+      "equals to",
+      "gravitational force"
+    ],
+    [
+      "friction",
+      "affects",
+      "traction"
+    ],
+    [
+      "mechanical energy",
+      "is sum of",
+      "kinetic energy"
+    ],
+    [
+      "roller coaster designers",
+      "contributes_to",
+      "friction"
+    ],
+    [
+      "acceleration",
+      "creates",
+      "weightlessness"
+    ],
+    [
+      "sharp turns",
+      "require",
+      "stability"
+    ],
+    [
+      "Roller coasters",
+      "is a type of",
+      "amusement park rides"
+    ],
+    [
+      "speed",
+      "contributes_to",
+      "excitement"
+    ],
+    [
+      "centripetal",
+      "contributes_to",
+      "acceleration"
+    ],
+    [
+      "friction",
+      "contributes_to",
+      "acceleration"
+    ],
+    [
+      "mechanical energy",
+      "is sum of",
+      "potential energy"
+    ],
+    [
+      "potential",
+      "converts_to",
+      "kinetic"
+    ],
+    [
+      "sharp turns",
+      "require",
+      "traction"
+    ],
+    [
+      "gravity",
+      "causes",
+      "acceleration"
+    ],
+    [
+      "kinetic",
+      "converts_to",
+      "potential"
+    ],
+    [
+      "centripetal force",
+      "keeps",
+      "track"
+    ],
+    [
+      "Roller coasters",
+      "demonstrate principles of",
+      "physics"
+    ]
+  ]
+}

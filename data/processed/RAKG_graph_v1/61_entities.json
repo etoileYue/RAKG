@@ -1,0 +1,170 @@
+{
+    "entity1": {
+        "name": "Languages",
+        "type": "Concept",
+        "description": "The variety and variability of languages spoken around the world, which is considered an important aspect of human cultural heritage.;;;A system of communication used by humans, consisting of a set of sounds and written symbols that are combined in various ways to express thoughts and feelings.;;;A group of languages that are native to a particular region or community and often have historical significance.;;;Languages that are at risk of falling out of use, as their speakers die out or shift to using other languages.;;;A system of communication used by humans, consisting of spoken or written words combined in a structured and conventional way.;;;Systems of communication used by humans, consisting of spoken or written words with specific meanings and rules for combining them.;;;A system of communication used by humans, consisting of spoken or written words combined in a structured way.;;;A system of communication used by a particular community or country.;;;A person's native language; the language learned from birth and usually spoken at home.;;;Languages spoken by a smaller number of people within a larger community or region, often at risk due to lack of support and use.;;;Languages traditionally spoken by a group's ancestors and passed down through generations.",
+        "chunkid": "How Languages Die1;;;How Languages Die11;;;How Languages Die24;;;How Languages Die25;;;How Languages Die3;;;How Languages Die13;;;How Languages Die19;;;How Languages Die10;;;How Languages Die8"
+    },
+    "entity2": {
+        "name": "Human Culture",
+        "type": "Sociocultural Concept",
+        "description": "A body of accumulated knowledge, practices, and beliefs about the relationships between living beings (including humans) and their environment, passed from generation to generation within a community.;;;The collective customs, beliefs, arts, and other products of human thought and behavior characteristic of a community or society.;;;The legacy of physical artifacts and intangible attributes of a group or society that are inherited from past generations, maintained in the present, and preserved for future generations.",
+        "chunkid": "How Languages Die1;;;How Languages Die18;;;How Languages Die24"
+    },
+    "entity3": {
+        "name": "Identity",
+        "type": "Abstract Concept",
+        "description": "The characteristics determining who or what a person or thing is.;;;The characteristics determining who or what a person or thing is, often shaped by cultural, social, and personal factors.",
+        "chunkid": "How Languages Die1;;;How Languages Die19"
+    },
+    "entity4": {
+        "name": "Communication",
+        "type": "Process",
+        "description": "The process by which a language is passed from one generation to another.;;;The passing down of language from one generation to another within families and communities.;;;The exchange of information or news among people through speaking, writing, or using some other medium.",
+        "chunkid": "How Languages Die1;;;How Languages Die9;;;How Languages Die11"
+    },
+    "entity5": {
+        "name": "Expression",
+        "type": "Activity",
+        "description": "The action of conveying thoughts, feelings, or information in speech or writing.",
+        "chunkid": "How Languages Die1"
+    },
+    "entity6": {
+        "name": "Communities",
+        "type": "Social Group",
+        "description": "A group of people living in the same place or having a particular characteristic in common.;;;Groups of people living in the same area or sharing a common interest.",
+        "chunkid": "How Languages Die1;;;How Languages Die13"
+    },
+    "entity8": {
+        "name": "language extinction",
+        "type": "Phenomenon",
+        "description": "The process by which a language becomes extinct, usually due to the lack of speakers or use.;;;The process by which a language ceases to be spoken and used as a means of communication within a community.;;;The process by which a language ceases to be used as a living means of communication among its speakers.;;;A process where a language ceases to be used as a means of communication by its speakers.;;;The process by which a language ceases to be used as a living means of communication.",
+        "chunkid": "How Languages Die9;;;How Languages Die18;;;How Languages Die4;;;How Languages Die24;;;How Languages Die3;;;How Languages Die25;;;How Languages Die6"
+    },
+    "entity12": {
+        "name": "cultural assimilation",
+        "type": "Social Process",
+        "description": "A process where individuals or groups adopt the culture of another group, often leading to a loss of their original cultural identity.",
+        "chunkid": "How Languages Die6"
+    },
+    "entity13": {
+        "name": "globalization",
+        "type": "Economic and Social Trend",
+        "description": "The process by which businesses or other organizations develop international influence or start operating on an international scale, often associated with a reduction of cultural diversity.",
+        "chunkid": "How Languages Die6"
+    },
+    "entity14": {
+        "name": "English",
+        "type": "Language",
+        "description": "A West Germanic language that is the primary language of several countries and widely used as a lingua franca.",
+        "chunkid": "How Languages Die7"
+    },
+    "entity15": {
+        "name": "Spanish",
+        "type": "Language",
+        "description": "A Romance language originating from the Iberian Peninsula, spoken in Spain and many Latin American countries.",
+        "chunkid": "How Languages Die7"
+    },
+    "entity16": {
+        "name": "Mandarin",
+        "type": "Language",
+        "description": "The most widely spoken variety of Chinese, used as the official language of China and Taiwan.",
+        "chunkid": "How Languages Die7"
+    },
+    "entity20": {
+        "name": "younger generations",
+        "type": "Demographic Group",
+        "description": "A segment of the population that is younger in age, often contrasted with older or elderly groups.",
+        "chunkid": "How Languages Die10"
+    },
+    "entity23": {
+        "name": "urbanized settings",
+        "type": "Environment",
+        "description": "Areas characterized by high population density and the presence of urban infrastructure, such as cities or large towns.",
+        "chunkid": "How Languages Die11"
+    },
+    "entity25": {
+        "name": "schools",
+        "type": "Institution",
+        "description": "Educational institutions where children and adults learn various subjects, including language.",
+        "chunkid": "How Languages Die11"
+    },
+    "entity26": {
+        "name": "media",
+        "type": "Communication Channel",
+        "description": "Means of mass communication, such as television, radio, newspapers, and the internet, which can influence language use and transmission.",
+        "chunkid": "How Languages Die11"
+    },
+    "entity27": {
+        "name": "Environmental factors",
+        "type": "General Concept",
+        "description": "External conditions that can influence various aspects of life, including the survival and evolution of languages.",
+        "chunkid": "How Languages Die12"
+    },
+    "entity28": {
+        "name": "natural disasters",
+        "type": "Phenomenon",
+        "description": "Events such as earthquakes, floods, or hurricanes that occur in nature and can cause significant damage to human societies.",
+        "chunkid": "How Languages Die12"
+    },
+    "entity29": {
+        "name": "wars",
+        "type": "Conflict",
+        "description": "Armed conflicts between different groups, nations, or states that often result in widespread destruction and loss of life.",
+        "chunkid": "How Languages Die12"
+    },
+    "entity30": {
+        "name": "forced migration",
+        "type": "Social Phenomenon",
+        "description": "The involuntary movement of people from their homes due to conflict, natural disasters, or other external pressures.",
+        "chunkid": "How Languages Die12"
+    },
+    "entity33": {
+        "name": "dominant languages",
+        "type": "Linguistic Feature",
+        "description": "Languages that are widely used and have a significant influence in the new environment where displaced communities settle.",
+        "chunkid": "How Languages Die13"
+    },
+    "entity36": {
+        "name": "spiritual beliefs",
+        "type": "Cultural Heritage",
+        "description": "Beliefs or practices that relate to the spiritual aspect of life, often involving supernatural forces or entities and moral values.",
+        "chunkid": "How Languages Die18"
+    },
+    "entity37": {
+        "name": "social structures",
+        "type": "Societal Organization",
+        "description": "The patterned social arrangements in a society which persist over time that determine relationships between individuals or groups.",
+        "chunkid": "How Languages Die18"
+    },
+    "entity40": {
+        "name": "self-esteem",
+        "type": "Psychological Concept",
+        "description": "Confidence in one's own worth or abilities; self-respect.",
+        "chunkid": "How Languages Die19"
+    },
+    "entity41": {
+        "name": "well-being",
+        "type": "Concept",
+        "description": "The state of being comfortable, healthy, or happy.",
+        "chunkid": "How Languages Die19"
+    },
+    "entity43": {
+        "name": "Language revitalization programs",
+        "type": "Program/Initiative",
+        "description": "Programs aimed at reviving and maintaining endangered languages through various activities such as teaching, community engagement, and resource creation.",
+        "chunkid": "How Languages Die22"
+    },
+    "entity44": {
+        "name": "dictionaries",
+        "type": "Resource",
+        "description": "Books or online resources listing words with meanings, often used to support language learning and documentation.",
+        "chunkid": "How Languages Die22"
+    },
+    "entity45": {
+        "name": "grammars",
+        "type": "Resource",
+        "description": "Books or documents that describe the structure and rules of a language, aiding in its teaching and learning.;;;Educational resources such as textbooks, audio recordings, and digital content designed to facilitate language acquisition and use.",
+        "chunkid": "How Languages Die22"
+    }
+}

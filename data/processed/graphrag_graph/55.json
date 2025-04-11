@@ -1,0 +1,155 @@
+{
+  "entities": [
+    {
+      "name": "OLYMPIC GAMES",
+      "type": "EVENT",
+      "description": "One of the most prestigious and celebrated sporting events in the world, with a history dating back to ancient Greece, held in honor of the Greek god Zeus, and revived in the late 19th century by Pierre de Coubertin"
+    },
+    {
+      "name": "OLYMPIA",
+      "type": "GEO",
+      "description": "Ancient city in Greece where the Olympic Games were first held in 776 BC"
+    },
+    {
+      "name": "GREECE",
+      "type": "GEO",
+      "description": "Country where the ancient and modern Olympic Games have been held, including the first modern Games in Athens in 1896"
+    },
+    {
+      "name": "ZEUS",
+      "type": "PERSON",
+      "description": "Greek god for whom the ancient Olympic Games were held as a religious festival"
+    },
+    {
+      "name": "THEODOSIUS",
+      "type": "PERSON",
+      "description": "Roman Emperor who abolished the ancient Olympic Games in 393 AD, deeming them incompatible with Christianity"
+    },
+    {
+      "name": "PIERRE DE COUBERTIN",
+      "type": "PERSON",
+      "description": "French educator who founded the modern Olympic Games in 1894, inspired by the ancient Olympics and believing in the power of sport to promote peace and understanding"
+    },
+    {
+      "name": "ATHENS",
+      "type": "GEO",
+      "description": "City in Greece where the first modern Olympic Games were held in 1896"
+    },
+    {
+      "name": "BERLIN",
+      "type": "GEO",
+      "description": "City in Germany where the 1936 Olympics were held, used as a propaganda tool by Nazi Germany"
+    },
+    {
+      "name": "MOSCOW",
+      "type": "GEO",
+      "description": "City in the Soviet Union where the 1980 Olympics were held, boycotted by several Western countries in protest of the Soviet invasion of Afghanistan"
+    },
+    {
+      "name": "SOVIET UNION",
+      "type": "ORGANIZATION",
+      "description": "Country that hosted the 1980 Moscow Olympics and was involved in a political dispute leading to a boycott by several Western countries"
+    },
+    {
+      "name": "WESTERN COUNTRIES",
+      "type": "ORGANIZATION",
+      "description": "Group of countries that boycotted the 1980 Moscow Olympics in protest of the Soviet Union's invasion of Afghanistan"
+    },
+    {
+      "name": "AFGHANISTAN",
+      "type": "GEO",
+      "description": "Country invaded by the Soviet Union, leading to the boycott of the 1980 Moscow Olympics by several Western countries"
+    },
+    {
+      "name": "NAZI GERMANY",
+      "type": "",
+      "description": ""
+    }
+  ],
+  "relations": [
+    [
+      "OLYMPIC GAMES",
+      ":has_relation_with",
+      "OLYMPIA",
+      "The Olympic Games originated in Olympia, where they were held in honor of Zeus"
+    ],
+    [
+      "OLYMPIC GAMES",
+      ":has_relation_with",
+      "GREECE",
+      "The Olympic Games have strong ties to Greece, both in ancient and modern times"
+    ],
+    [
+      "OLYMPIC GAMES",
+      ":has_relation_with",
+      "ZEUS",
+      "The Olympic Games were originally held as a religious festival in honor of Zeus"
+    ],
+    [
+      "OLYMPIC GAMES",
+      ":has_relation_with",
+      "THEODOSIUS",
+      "The Olympic Games were abolished by Theodosius in 393 AD"
+    ],
+    [
+      "OLYMPIC GAMES",
+      ":has_relation_with",
+      "PIERRE DE COUBERTIN",
+      "Pierre de Coubertin founded the modern Olympic Games in 1894"
+    ],
+    [
+      "OLYMPIC GAMES",
+      ":has_relation_with",
+      "ATHENS",
+      "The first modern Olympic Games were held in Athens in 1896"
+    ],
+    [
+      "OLYMPIC GAMES",
+      ":has_relation_with",
+      "BERLIN",
+      "The 1936 Berlin Olympics were used as a propaganda tool by Nazi Germany"
+    ],
+    [
+      "OLYMPIC GAMES",
+      ":has_relation_with",
+      "MOSCOW",
+      "The 1980 Moscow Olympics were boycotted by several Western countries"
+    ],
+    [
+      "BERLIN",
+      ":has_relation_with",
+      "NAZI GERMANY",
+      "Nazi Germany used the 1936 Berlin Olympics as a propaganda tool"
+    ],
+    [
+      "MOSCOW",
+      ":has_relation_with",
+      "SOVIET UNION",
+      "The Soviet Union hosted the 1980 Moscow Olympics"
+    ],
+    [
+      "MOSCOW",
+      ":has_relation_with",
+      "WESTERN COUNTRIES",
+      "Several Western countries boycotted the 1980 Moscow Olympics in protest of the Soviet Union's actions"
+    ],
+    [
+      "MOSCOW",
+      ":has_relation_with",
+      "AFGHANISTAN",
+      "The Soviet Union's invasion of Afghanistan led to the boycott of the 1980 Moscow Olympics"
+    ],
+    [
+      "SOVIET UNION",
+      ":has_relation_with",
+      "WESTERN COUNTRIES",
+      "The Soviet Union's invasion of Afghanistan led to a boycott of the 1980 Moscow Olympics by several Western countries"
+    ],
+    [
+      "SOVIET UNION",
+      ":has_relation_with",
+      "AFGHANISTAN",
+      "The Soviet Union invaded Afghanistan, leading to international political disputes"
+    ]
+  ]
+}

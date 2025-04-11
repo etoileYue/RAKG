@@ -1,0 +1,302 @@
+{
+    "entity1": {
+        "name": "Clouds",
+        "type": "Natural Phenomenon",
+        "description": "A visible mass of condensed water vapor floating in the atmosphere, typically high above the ground.",
+        "chunkid": "How Clouds Form1"
+    },
+    "entity2": {
+        "name": "Sky",
+        "type": "Atmospheric Feature",
+        "description": "The atmosphere and outer space as viewed from Earth, appearing as a vast expanse overhead.",
+        "chunkid": "How Clouds Form1"
+    },
+    "entity3": {
+        "name": "temperature",
+        "type": "Physical Property",
+        "description": "A measure of the average kinetic energy of particles in a substance.",
+        "chunkid": "How Clouds Form2"
+    },
+    "entity4": {
+        "name": "humidity",
+        "type": "Atmospheric Condition",
+        "description": "The amount of water vapor present in the air.",
+        "chunkid": "How Clouds Form2"
+    },
+    "entity5": {
+        "name": "air currents",
+        "type": "Atmospheric Phenomenon",
+        "description": "Movements of air within the atmosphere, often caused by differences in temperature and pressure.",
+        "chunkid": "How Clouds Form2"
+    },
+    "entity6": {
+        "name": "clouds",
+        "type": "Natural Phenomenon",
+        "description": "Visible masses of water droplets or frozen crystals suspended in the atmosphere, typically visible as white or gray aggregates.",
+        "chunkid": "How Clouds Form3"
+    },
+    "entity7": {
+        "name": "Cloud formation",
+        "type": "Process",
+        "description": "The process by which clouds are created in the atmosphere.",
+        "chunkid": "How Clouds Form4"
+    },
+    "entity8": {
+        "name": "Earth's surface",
+        "type": "Geographical Feature",
+        "description": "The outer layer of the Earth, including land and water surfaces.",
+        "chunkid": "How Clouds Form4"
+    },
+    "entity9": {
+        "name": "Sun",
+        "type": "Celestial Body",
+        "description": "The star at the center of the solar system that provides light and energy to Earth.",
+        "chunkid": "How Clouds Form4"
+    },
+    "entity10": {
+        "name": "sun",
+        "type": "Astronomical Object",
+        "description": "The star at the center of the solar system, providing light and energy to Earth.",
+        "chunkid": "How Clouds Form5"
+    },
+    "entity11": {
+        "name": "ground",
+        "type": "Geographical Feature",
+        "description": "The surface of the earth, including soil, rock, and other materials.",
+        "chunkid": "How Clouds Form5"
+    },
+    "entity12": {
+        "name": "dew point",
+        "type": "Scientific Concept",
+        "description": "The temperature at which air becomes saturated with water vapor, causing condensation to occur.",
+        "chunkid": "How Clouds Form7"
+    },
+    "entity13": {
+        "name": "water vapor",
+        "type": "Chemical Substance",
+        "description": "A gaseous form of water that is present in the atmosphere and plays a significant role in weather and climate processes.",
+        "chunkid": "How Clouds Form7"
+    },
+    "entity14": {
+        "name": "dew point",
+        "type": "Scientific Concept",
+        "description": "The temperature at which water vapor in the air begins to condense into liquid water or ice.",
+        "chunkid": "How Clouds Form8"
+    },
+    "entity15": {
+        "name": "water vapor",
+        "type": "Chemical Substance",
+        "description": "Water in its gaseous state, present in the atmosphere and contributing to weather phenomena.",
+        "chunkid": "How Clouds Form8"
+    },
+    "entity16": {
+        "name": "condense",
+        "type": "Physical Process",
+        "description": "The process by which a substance changes from a gas into a liquid or solid, often due to cooling or increased pressure.",
+        "chunkid": "How Clouds Form8"
+    },
+    "entity17": {
+        "name": "water droplets",
+        "type": "Physical Form",
+        "description": "Small drops of water that form when water vapor condenses in the atmosphere or on surfaces.",
+        "chunkid": "How Clouds Form8"
+    },
+    "entity18": {
+        "name": "ice crystals",
+        "type": "Physical Form",
+        "description": "Solid forms of water with a crystalline structure, often formed by the freezing of water droplets in cold conditions.",
+        "chunkid": "How Clouds Form8"
+    },
+    "entity19": {
+        "name": "droplets",
+        "type": "Natural Phenomenon",
+        "description": "Small drops of liquid, typically water, that form in the atmosphere and contribute to cloud formation.",
+        "chunkid": "How Clouds Form9"
+    },
+    "entity20": {
+        "name": "crystals",
+        "type": "Natural Phenomenon",
+        "description": "Solid structures with a regular geometric arrangement of atoms or molecules, often forming in cold atmospheric conditions and contributing to cloud formation.",
+        "chunkid": "How Clouds Form9"
+    },
+    "entity21": {
+        "name": "clouds",
+        "type": "Atmospheric Feature",
+        "description": "Visible masses of water droplets or ice crystals suspended in the atmosphere above the surface of a planetary body, typically Earth.",
+        "chunkid": "How Clouds Form9"
+    },
+    "entity22": {
+        "name": "condensation",
+        "type": "Process",
+        "description": "A process in which water vapor changes into liquid form, contributing to cloud formation.",
+        "chunkid": "How Clouds Form10"
+    },
+    "entity23": {
+        "name": "cloud formation",
+        "type": "Phenomenon",
+        "description": "The process by which clouds are created through the condensation of water vapor in the atmosphere.",
+        "chunkid": "How Clouds Form10"
+    },
+    "entity24": {
+        "name": "water vapor",
+        "type": "Substance",
+        "description": "Water in its gaseous state, present in the Earth's atmosphere and a key component in cloud formation.",
+        "chunkid": "How Clouds Form10"
+    },
+    "entity25": {
+        "name": "temperature",
+        "type": "Physical Property",
+        "description": "A measure of the average kinetic energy of particles in a substance.",
+        "chunkid": "How Clouds Form11"
+    },
+    "entity26": {
+        "name": "humidity",
+        "type": "Atmospheric Condition",
+        "description": "The amount of water vapor present in the air.",
+        "chunkid": "How Clouds Form11"
+    },
+    "entity27": {
+        "name": "air currents",
+        "type": "Atmospheric Phenomenon",
+        "description": "Movements of air within the atmosphere, which can be horizontal or vertical.",
+        "chunkid": "How Clouds Form11"
+    },
+    "entity28": {
+        "name": "cloud formation",
+        "type": "Meteorological Process",
+        "description": "The process by which clouds are created in the atmosphere through the condensation of water vapor.",
+        "chunkid": "How Clouds Form11"
+    },
+    "entity29": {
+        "name": "cumulus",
+        "type": "Cloud Type",
+        "description": "A type of cloud that is dense and puffy, often resembling cotton balls.",
+        "chunkid": "How Clouds Form13"
+    },
+    "entity30": {
+        "name": "stratus",
+        "type": "Cloud Type",
+        "description": "A type of cloud that forms a uniform layer covering the sky, often resulting in overcast conditions.",
+        "chunkid": "How Clouds Form13"
+    },
+    "entity31": {
+        "name": "cirrus",
+        "type": "Cloud Type",
+        "description": "A type of high-altitude cloud composed of ice crystals, appearing thin and wispy.",
+        "chunkid": "How Clouds Form13"
+    },
+    "entity32": {
+        "name": "Cumulus clouds",
+        "type": "Cloud type",
+        "description": "Fluffy, white clouds that are often seen on a sunny day.",
+        "chunkid": "How Clouds Form14"
+    },
+    "entity33": {
+        "name": "cumulus clouds",
+        "type": "Natural Phenomenon",
+        "description": "A type of cloud characterized by a puffy, cotton-like appearance, often associated with fair weather but can also develop into storm clouds.",
+        "chunkid": "How Clouds Form15"
+    },
+    "entity34": {
+        "name": "Cumulus clouds",
+        "type": "Meteorological Phenomenon",
+        "description": "A type of cloud that is typically associated with fair weather, characterized by a puffy, cotton-like appearance.",
+        "chunkid": "How Clouds Form16"
+    },
+    "entity35": {
+        "name": "cumulonimbus clouds",
+        "type": "Meteorological Phenomenon",
+        "description": "A type of cloud that can develop from cumulus clouds and is associated with thunderstorms and heavy rain, characterized by a large vertical development.",
+        "chunkid": "How Clouds Form16"
+    },
+    "entity36": {
+        "name": "Stratus clouds",
+        "type": "Cloud type",
+        "description": "Low-lying clouds that form in a more uniform layer across the sky.",
+        "chunkid": "How Clouds Form17"
+    },
+    "entity37": {
+        "name": "Stratus clouds",
+        "type": "Meteorological Phenomenon",
+        "description": "A type of cloud characterized by a uniform, grayish appearance that often covers the entire sky and can lead to overcast conditions.",
+        "chunkid": "How Clouds Form19"
+    },
+    "entity38": {
+        "name": "Cirrus clouds",
+        "type": "Cloud type",
+        "description": "High, wispy clouds that are thin and delicate in appearance.",
+        "chunkid": "How Clouds Form20"
+    },
+    "entity39": {
+        "name": "Cirrus clouds",
+        "type": "Natural Phenomenon",
+        "description": "A type of cloud composed of ice crystals, often seen in the sky on clear days.",
+        "chunkid": "How Clouds Form22"
+    },
+    "entity40": {
+        "name": "ice crystals",
+        "type": "Physical Substance",
+        "description": "Small, solid pieces of water that form under cold conditions and are a component of cirrus clouds.",
+        "chunkid": "How Clouds Form22"
+    },
+    "entity41": {
+        "name": "mare's tails",
+        "type": "Phenomenon",
+        "description": "A term used to describe a type of cloud formation known for its wispy, hair-like appearance.",
+        "chunkid": "How Clouds Form23"
+    },
+    "entity42": {
+        "name": "clouds",
+        "type": "Natural Phenomenon",
+        "description": "Visible masses of condensed water vapor floating in the atmosphere, typically white or gray.",
+        "chunkid": "How Clouds Form24"
+    },
+    "entity43": {
+        "name": "condensation",
+        "type": "Physical Process",
+        "description": "The process by which a substance changes from a gas to a liquid; in meteorology, it refers to water vapor turning into liquid droplets or ice crystals.",
+        "chunkid": "How Clouds Form24"
+    },
+    "entity44": {
+        "name": "water vapor",
+        "type": "Chemical Substance",
+        "description": "The gaseous state of water, which is a key component in the Earth's atmosphere and plays a significant role in weather and climate processes.",
+        "chunkid": "How Clouds Form24"
+    },
+    "entity45": {
+        "name": "Temperature",
+        "type": "Physical Property",
+        "description": "A measure of the average kinetic energy of particles in a substance.",
+        "chunkid": "How Clouds Form25"
+    },
+    "entity46": {
+        "name": "Humidity",
+        "type": "Atmospheric Condition",
+        "description": "The amount of water vapor present in the air.",
+        "chunkid": "How Clouds Form25"
+    },
+    "entity47": {
+        "name": "Air Currents",
+        "type": "Atmospheric Phenomenon",
+        "description": "Movements of air within the atmosphere, which can be horizontal or vertical.",
+        "chunkid": "How Clouds Form25"
+    },
+    "entity48": {
+        "name": "Cloud Formation",
+        "type": "Meteorological Process",
+        "description": "The process by which clouds are created in the atmosphere through the condensation of water vapor.",
+        "chunkid": "How Clouds Form25"
+    },
+    "entity49": {
+        "name": "clouds",
+        "type": "Natural Phenomenon",
+        "description": "Visible masses of water droplets or frozen crystals suspended in the atmosphere above the surface of a planetary body.",
+        "chunkid": "How Clouds Form26"
+    },
+    "entity50": {
+        "name": "natural world",
+        "type": "Environment",
+        "description": "The physical world, including plants, animals, landscapes, and ecosystems, as opposed to human-made environments.",
+        "chunkid": "How Clouds Form26"
+    }
+}

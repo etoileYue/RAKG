@@ -1,0 +1,84 @@
+[
+  {
+    "correct_answer": "The wheel was invented around 3500 BC in Mesopotamia.",
+    "retrieved_context": "WHEEL The wheel was invented in Mesopotamia, an ancient region that significantly contributed to early technological advancements\nMesopotamia is the ancient region where the wheel was invented, significantly contributing to early technological advancements MESOPOTAMIA. STEAM ENGINE James Watt made significant improvements to the steam engine, contributing to its development and widespread use JAMES WATT. STEAM ENGINE Thomas Newcomen created the first practical steam engine, which was a precursor to the modern steam engine THOMAS NEWCOMEN. STEAM ENGINE The steam engine was a key invention that marked the beginning of the Industrial Revolution, driving the mechanization of industries and the mass production of goods INDUSTRIAL REVOLUTION.",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "The wheel revolutionized transportation and enabled the development of wheeled vehicles.",
+    "retrieved_context": "WHEEL The wheel was invented in Mesopotamia, an ancient region that significantly contributed to early technological advancements\nMesopotamia is the ancient region where the wheel was invented, significantly contributing to early technological advancements MESOPOTAMIA. STEAM ENGINE James Watt made significant improvements to the steam engine, contributing to its development and widespread use JAMES WATT. STEAM ENGINE Thomas Newcomen created the first practical steam engine, which was a precursor to the modern steam engine THOMAS NEWCOMEN. STEAM ENGINE The steam engine was a key invention that marked the beginning of the Industrial Revolution, driving the mechanization of industries and the mass production of goods INDUSTRIAL REVOLUTION. LIGHT BULB Thomas Edison invented the practical electric light bulb, which transformed indoor lighting and improved the quality of life for millions of people\nThomas Edison invented the practical electric light bulb, which revolutionized indoor lighting THOMAS EDISON. COMPUTER The invention of the computer ushered in the Digital Age, transforming various aspects of life through the rapid processing and sharing of information DIGITAL AGE. COMPUTER ENIAC was the first electronic digital computer, which laid the foundation for modern computing technologies ENIAC.",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "The printing press was invented by Johannes Gutenberg in the 15th century.",
+    "retrieved_context": null,
+    "evaluation": false,
+    "error": "invalid literal for int() with base 10: '\\\\\\n1'"
+  },
+  {
+    "correct_answer": "The printing press revolutionized the dissemination of information.",
+    "retrieved_context": "PRINTING PRESS Johannes Gutenberg is credited with inventing the printing press, which had a profound impact on the spread of knowledge and the democratization of information\nJohannes Gutenberg invented the printing press, which revolutionized the dissemination of information JOHANNES GUTENBERG. TELEPHONE Alexander Graham Bell is the inventor of the telephone, which revolutionized long-distance communication\nAlexander Graham Bell invented the telephone, which transformed communication over long distances ALEXANDER GRAHAM BELL. INTERNET Tim Berners-Lee is the inventor of the World Wide Web, a key component of the internet that has transformed global communication and information sharing\nTim Berners-Lee developed the World Wide Web, a key component of the internet that has transformed global communication and information sharing TIM BERNERS-LEE. INTERNET The invention of the internet is a cornerstone of the Digital Age, revolutionizing the way we access information, communicate, and conduct business DIGITAL AGE. COMPUTER The invention of the computer ushered in the Digital Age, transforming various aspects of life through the rapid processing and sharing of information DIGITAL AGE. COMPUTER ENIAC was the first electronic digital computer, which laid the foundation for modern computing technologies ENIAC.",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "The steam engine was invented in the 18th century.",
+    "retrieved_context": "STEAM ENGINE James Watt made significant improvements to the steam engine, contributing to its development and widespread use JAMES WATT. STEAM ENGINE Thomas Newcomen created the first practical steam engine, which was a precursor to the modern steam engine THOMAS NEWCOMEN. STEAM ENGINE The steam engine was a key invention that marked the beginning of the Industrial Revolution, driving the mechanization of industries and the mass production of goods INDUSTRIAL REVOLUTION. PRINTING PRESS Johannes Gutenberg is credited with inventing the printing press, which had a profound impact on the spread of knowledge and the democratization of information\nJohannes Gutenberg invented the printing press, which revolutionized the dissemination of information JOHANNES GUTENBERG. LIGHT BULB Thomas Edison invented the practical electric light bulb, which transformed indoor lighting and improved the quality of life for millions of people\nThomas Edison invented the practical electric light bulb, which revolutionized indoor lighting THOMAS EDISON.",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "The steam engine powered machinery and revolutionized manufacturing processes.",
+    "retrieved_context": "STEAM ENGINE James Watt made significant improvements to the steam engine, contributing to its development and widespread use JAMES WATT. STEAM ENGINE Thomas Newcomen created the first practical steam engine, which was a precursor to the modern steam engine THOMAS NEWCOMEN. STEAM ENGINE The steam engine was a key invention that marked the beginning of the Industrial Revolution, driving the mechanization of industries and the mass production of goods INDUSTRIAL REVOLUTION. PRINTING PRESS Johannes Gutenberg is credited with inventing the printing press, which had a profound impact on the spread of knowledge and the democratization of information\nJohannes Gutenberg invented the printing press, which revolutionized the dissemination of information JOHANNES GUTENBERG. WHEEL The wheel was invented in Mesopotamia, an ancient region that significantly contributed to early technological advancements\nMesopotamia is the ancient region where the wheel was invented, significantly contributing to early technological advancements MESOPOTAMIA. COMPUTER The invention of the computer ushered in the Digital Age, transforming various aspects of life through the rapid processing and sharing of information DIGITAL AGE. COMPUTER ENIAC was the first electronic digital computer, which laid the foundation for modern computing technologies ENIAC. LIGHT BULB Thomas Edison invented the practical electric light bulb, which transformed indoor lighting and improved the quality of life for millions of people\nThomas Edison invented the practical electric light bulb, which revolutionized indoor lighting THOMAS EDISON.",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "The telephone was invented by Alexander Graham Bell in the 19th century.",
+    "retrieved_context": null,
+    "evaluation": false,
+    "error": "invalid literal for int() with base 10: '\\\\\\n1'"
+  },
+  {
+    "correct_answer": "The telephone transformed communication over long distances.",
+    "retrieved_context": "TELEPHONE Alexander Graham Bell is the inventor of the telephone, which revolutionized long-distance communication\nAlexander Graham Bell invented the telephone, which transformed communication over long distances ALEXANDER GRAHAM BELL. INTERNET Tim Berners-Lee is the inventor of the World Wide Web, a key component of the internet that has transformed global communication and information sharing\nTim Berners-Lee developed the World Wide Web, a key component of the internet that has transformed global communication and information sharing TIM BERNERS-LEE. INTERNET The invention of the internet is a cornerstone of the Digital Age, revolutionizing the way we access information, communicate, and conduct business DIGITAL AGE. COMPUTER The invention of the computer ushered in the Digital Age, transforming various aspects of life through the rapid processing and sharing of information DIGITAL AGE. COMPUTER ENIAC was the first electronic digital computer, which laid the foundation for modern computing technologies ENIAC.",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "The light bulb was invented by Thomas Edison in the late 19th century.",
+    "retrieved_context": null,
+    "evaluation": false,
+    "error": "invalid literal for int() with base 10: '\\\\\\n1'"
+  },
+  {
+    "correct_answer": "The light bulb replaced gas lamps and candles as the primary source of lighting.",
+    "retrieved_context": "LIGHT BULB Thomas Edison invented the practical electric light bulb, which transformed indoor lighting and improved the quality of life for millions of people\nThomas Edison invented the practical electric light bulb, which revolutionized indoor lighting THOMAS EDISON. STEAM ENGINE James Watt made significant improvements to the steam engine, contributing to its development and widespread use JAMES WATT. STEAM ENGINE Thomas Newcomen created the first practical steam engine, which was a precursor to the modern steam engine THOMAS NEWCOMEN. STEAM ENGINE The steam engine was a key invention that marked the beginning of the Industrial Revolution, driving the mechanization of industries and the mass production of goods INDUSTRIAL REVOLUTION. INTERNET Tim Berners-Lee is the inventor of the World Wide Web, a key component of the internet that has transformed global communication and information sharing\nTim Berners-Lee developed the World Wide Web, a key component of the internet that has transformed global communication and information sharing TIM BERNERS-LEE. INTERNET The invention of the internet is a cornerstone of the Digital Age, revolutionizing the way we access information, communicate, and conduct business DIGITAL AGE. WHEEL The wheel was invented in Mesopotamia, an ancient region that significantly contributed to early technological advancements\nMesopotamia is the ancient region where the wheel was invented, significantly contributing to early technological advancements MESOPOTAMIA.",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "The computer was invented in the 20th century.",
+    "retrieved_context": null,
+    "evaluation": false,
+    "error": "invalid literal for int() with base 10: '\\\\\\n1'"
+  },
+  {
+    "correct_answer": "The computer ushered in the digital age and revolutionized various aspects of life.",
+    "retrieved_context": "COMPUTER The invention of the computer ushered in the Digital Age, transforming various aspects of life through the rapid processing and sharing of information DIGITAL AGE. COMPUTER ENIAC was the first electronic digital computer, which laid the foundation for modern computing technologies ENIAC. INTERNET Tim Berners-Lee is the inventor of the World Wide Web, a key component of the internet that has transformed global communication and information sharing\nTim Berners-Lee developed the World Wide Web, a key component of the internet that has transformed global communication and information sharing TIM BERNERS-LEE. INTERNET The invention of the internet is a cornerstone of the Digital Age, revolutionizing the way we access information, communicate, and conduct business DIGITAL AGE. TELEPHONE Alexander Graham Bell is the inventor of the telephone, which revolutionized long-distance communication\nAlexander Graham Bell invented the telephone, which transformed communication over long distances ALEXANDER GRAHAM BELL. PRINTING PRESS Johannes Gutenberg is credited with inventing the printing press, which had a profound impact on the spread of knowledge and the democratization of information\nJohannes Gutenberg invented the printing press, which revolutionized the dissemination of information JOHANNES GUTENBERG.",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "The internet was developed in the late 20th century.",
+    "retrieved_context": "INTERNET Tim Berners-Lee is the inventor of the World Wide Web, a key component of the internet that has transformed global communication and information sharing\nTim Berners-Lee developed the World Wide Web, a key component of the internet that has transformed global communication and information sharing TIM BERNERS-LEE. INTERNET The invention of the internet is a cornerstone of the Digital Age, revolutionizing the way we access information, communicate, and conduct business DIGITAL AGE. COMPUTER The invention of the computer ushered in the Digital Age, transforming various aspects of life through the rapid processing and sharing of information DIGITAL AGE. COMPUTER ENIAC was the first electronic digital computer, which laid the foundation for modern computing technologies ENIAC. TELEPHONE Alexander Graham Bell is the inventor of the telephone, which revolutionized long-distance communication\nAlexander Graham Bell invented the telephone, which transformed communication over long distances ALEXANDER GRAHAM BELL.",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "The internet revolutionized access to information and communication.",
+    "retrieved_context": "INTERNET Tim Berners-Lee is the inventor of the World Wide Web, a key component of the internet that has transformed global communication and information sharing\nTim Berners-Lee developed the World Wide Web, a key component of the internet that has transformed global communication and information sharing TIM BERNERS-LEE. INTERNET The invention of the internet is a cornerstone of the Digital Age, revolutionizing the way we access information, communicate, and conduct business DIGITAL AGE. TELEPHONE Alexander Graham Bell is the inventor of the telephone, which revolutionized long-distance communication\nAlexander Graham Bell invented the telephone, which transformed communication over long distances ALEXANDER GRAHAM BELL. COMPUTER The invention of the computer ushered in the Digital Age, transforming various aspects of life through the rapid processing and sharing of information DIGITAL AGE. COMPUTER ENIAC was the first electronic digital computer, which laid the foundation for modern computing technologies ENIAC.",
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Inventions have played a crucial role in shaping human history and driving progress.",
+    "retrieved_context": "WHEEL The wheel was invented in Mesopotamia, an ancient region that significantly contributed to early technological advancements\nMesopotamia is the ancient region where the wheel was invented, significantly contributing to early technological advancements MESOPOTAMIA. INTERNET Tim Berners-Lee is the inventor of the World Wide Web, a key component of the internet that has transformed global communication and information sharing\nTim Berners-Lee developed the World Wide Web, a key component of the internet that has transformed global communication and information sharing TIM BERNERS-LEE. INTERNET The invention of the internet is a cornerstone of the Digital Age, revolutionizing the way we access information, communicate, and conduct business DIGITAL AGE. COMPUTER The invention of the computer ushered in the Digital Age, transforming various aspects of life through the rapid processing and sharing of information DIGITAL AGE. COMPUTER ENIAC was the first electronic digital computer, which laid the foundation for modern computing technologies ENIAC.",
+    "evaluation": 1
+  },
+  {
+    "accuracy": "73.33%"
+  }
+]

@@ -1,0 +1,297 @@
+{
+  "entities": [
+    {
+      "name": "FORENSIC SCIENCE",
+      "type": "ORGANIZATION",
+      "description": "Forensic science is a field that applies scientific methods and techniques to solve crimes and legal issues, playing a crucial role in the criminal justice system by providing valuable evidence for investigations and prosecutions"
+    },
+    {
+      "name": "CRIMINAL JUSTICE SYSTEM",
+      "type": "ORGANIZATION",
+      "description": "The system that forensic science supports by providing evidence for the investigation and prosecution of crimes"
+    },
+    {
+      "name": "BIOLOGY",
+      "type": "ORGANIZATION",
+      "description": "One of the scientific disciplines used in forensic science to analyze biological evidence such as DNA samples"
+    },
+    {
+      "name": "CHEMISTRY",
+      "type": "ORGANIZATION",
+      "description": "One of the scientific disciplines used in forensic science to analyze chemical evidence such as drugs or toxins"
+    },
+    {
+      "name": "PHYSICS",
+      "type": "ORGANIZATION",
+      "description": "One of the scientific disciplines used in forensic science to analyze physical evidence such as tool marks or ballistics"
+    },
+    {
+      "name": "MATHEMATICS",
+      "type": "ORGANIZATION",
+      "description": "One of the scientific disciplines used in forensic science to analyze data and draw statistical conclusions"
+    },
+    {
+      "name": "FORENSIC SCIENTISTS",
+      "type": "PERSON",
+      "description": "Professionals who use scientific methods to analyze physical evidence and provide expert testimony in court"
+    },
+    {
+      "name": "COURT",
+      "type": "ORGANIZATION",
+      "description": "The legal institution where forensic scientists present their findings and testify as expert witnesses"
+    },
+    {
+      "name": "CRIME SCENE",
+      "type": "GEO",
+      "description": "The location where a crime has occurred, which forensic scientists must document and preserve for evidence collection"
+    },
+    {
+      "name": "SCANNING ELECTRON MICROSCOPES",
+      "type": "ORGANIZATION",
+      "description": "Advanced technology used by forensic scientists to examine trace evidence such as fibers or hair"
+    },
+    {
+      "name": "MASS SPECTROMETRY",
+      "type": "ORGANIZATION",
+      "description": "Advanced technology used by forensic scientists to identify and quantify drugs or toxins in a sample"
+    },
+    {
+      "name": "EVIDENCE ANALYSIS",
+      "type": "EVENT",
+      "description": "The process by which forensic scientists examine and interpret physical evidence to draw conclusions about a crime"
+    },
+    {
+      "name": "EXPERT TESTIMONY",
+      "type": "EVENT",
+      "description": "The act of forensic scientists providing specialized knowledge and analysis in court as expert witnesses"
+    },
+    {
+      "name": "DNA SAMPLES",
+      "type": "ORGANIZATION",
+      "description": "A type of biological evidence used in forensic science to identify individuals based on genetic material"
+    },
+    {
+      "name": "FIREARMS",
+      "type": "ORGANIZATION",
+      "description": "A type of physical evidence used in forensic science to analyze and identify weapons used in crimes"
+    },
+    {
+      "name": "TOOL MARKS",
+      "type": "ORGANIZATION",
+      "description": "A type of physical evidence used in forensic science to identify tools or instruments used in the commission of a crime"
+    },
+    {
+      "name": "MICROSCOPY",
+      "type": "ORGANIZATION",
+      "description": "A technique used in forensic science to examine small or detailed physical evidence"
+    },
+    {
+      "name": "SPECTROSCOPY",
+      "type": "ORGANIZATION",
+      "description": "A technique used in forensic science to analyze the composition of materials based on their interaction with light"
+    },
+    {
+      "name": "CHROMATOGRAPHY",
+      "type": "ORGANIZATION",
+      "description": "A technique used in forensic science to separate and identify components in a mixture"
+    },
+    {
+      "name": "DNA PROFILING",
+      "type": "ORGANIZATION",
+      "description": "A technique used in forensic science to identify individuals based on their unique DNA sequences"
+    },
+    {
+      "name": "TRACE EVIDENCE",
+      "type": "ORGANIZATION",
+      "description": "A type of physical evidence that includes small amounts of material such as fibers, hair, or soil"
+    },
+    {
+      "name": "DRUGS",
+      "type": "ORGANIZATION",
+      "description": "Substances that may be analyzed in forensic science to identify and quantify their presence in a sample"
+    },
+    {
+      "name": "TOXINS",
+      "type": "ORGANIZATION",
+      "description": "Substances that may be analyzed in forensic science to identify and quantify their presence in a sample"
+    },
+    {
+      "name": "LAW ENFORCEMENT AGENCIES",
+      "type": "ORGANIZATION",
+      "description": "Organizations that work with forensic scientists to investigate crimes and enforce the law"
+    },
+    {
+      "name": "LAWYERS",
+      "type": "PERSON",
+      "description": "Professionals who work with forensic scientists to understand and present evidence in court"
+    },
+    {
+      "name": "JUDGES",
+      "type": "PERSON",
+      "description": "Professionals who preside over court proceedings and may hear testimony from forensic scientists"
+    },
+    {
+      "name": "FINGERPRINTS",
+      "type": "",
+      "description": ""
+    }
+  ],
+  "relations": [
+    [
+      "FORENSIC SCIENCE",
+      ":has_relation_with",
+      "CRIMINAL JUSTICE SYSTEM",
+      "Forensic science provides essential evidence and support to the criminal justice system, aiding in the investigation and prosecution of crimes"
+    ],
+    [
+      "FORENSIC SCIENCE",
+      ":has_relation_with",
+      "BIOLOGY",
+      "Forensic science incorporates biological methods to analyze evidence such as DNA samples"
+    ],
+    [
+      "FORENSIC SCIENCE",
+      ":has_relation_with",
+      "CHEMISTRY",
+      "Forensic science uses chemical analysis to identify substances like drugs or toxins"
+    ],
+    [
+      "FORENSIC SCIENCE",
+      ":has_relation_with",
+      "PHYSICS",
+      "Forensic science applies physical principles to analyze evidence such as tool marks or ballistics"
+    ],
+    [
+      "FORENSIC SCIENCE",
+      ":has_relation_with",
+      "MATHEMATICS",
+      "Forensic science uses mathematical techniques to analyze data and draw statistical conclusions"
+    ],
+    [
+      "FORENSIC SCIENCE",
+      ":has_relation_with",
+      "FORENSIC SCIENTISTS",
+      "Forensic scientists are the professionals who practice forensic science, applying scientific methods to solve crimes"
+    ],
+    [
+      "FORENSIC SCIENCE",
+      ":has_relation_with",
+      "FINGERPRINTS",
+      "Fingerprints are a type of physical evidence used in forensic science to identify individuals"
+    ],
+    [
+      "FORENSIC SCIENCE",
+      ":has_relation_with",
+      "DNA SAMPLES",
+      "DNA samples are a type of biological evidence used in forensic science to identify individuals"
+    ],
+    [
+      "FORENSIC SCIENCE",
+      ":has_relation_with",
+      "FIREARMS",
+      "Firearms are a type of physical evidence used in forensic science to analyze and identify weapons used in crimes"
+    ],
+    [
+      "FORENSIC SCIENCE",
+      ":has_relation_with",
+      "TOOL MARKS",
+      "Tool marks are a type of physical evidence used in forensic science to identify tools or instruments used in crimes"
+    ],
+    [
+      "FORENSIC SCIENCE",
+      ":has_relation_with",
+      "MICROSCOPY",
+      "Microscopy is a technique used in forensic science to examine small or detailed physical evidence"
+    ],
+    [
+      "FORENSIC SCIENCE",
+      ":has_relation_with",
+      "SPECTROSCOPY",
+      "Spectroscopy is a technique used in forensic science to analyze the composition of materials"
+    ],
+    [
+      "FORENSIC SCIENCE",
+      ":has_relation_with",
+      "CHROMATOGRAPHY",
+      "Chromatography is a technique used in forensic science to separate and identify components in a mixture"
+    ],
+    [
+      "FORENSIC SCIENCE",
+      ":has_relation_with",
+      "DNA PROFILING",
+      "DNA profiling is a technique used in forensic science to identify individuals based on their unique DNA sequences"
+    ],
+    [
+      "FORENSIC SCIENCE",
+      ":has_relation_with",
+      "TRACE EVIDENCE",
+      "Trace evidence is a type of physical evidence that includes small amounts of material such as fibers, hair, or soil"
+    ],
+    [
+      "FORENSIC SCIENCE",
+      ":has_relation_with",
+      "DRUGS",
+      "Drugs are substances that may be analyzed in forensic science to identify and quantify their presence in a sample"
+    ],
+    [
+      "FORENSIC SCIENCE",
+      ":has_relation_with",
+      "TOXINS",
+      "Toxins are substances that may be analyzed in forensic science to identify and quantify their presence in a sample"
+    ],
+    [
+      "FORENSIC SCIENTISTS",
+      ":has_relation_with",
+      "COURT",
+      "Forensic scientists often testify in court as expert witnesses, explaining their analysis and conclusions"
+    ],
+    [
+      "FORENSIC SCIENTISTS",
+      ":has_relation_with",
+      "CRIME SCENE",
+      "Forensic scientists are responsible for documenting and preserving the crime scene and collecting evidence"
+    ],
+    [
+      "FORENSIC SCIENTISTS",
+      ":has_relation_with",
+      "SCANNING ELECTRON MICROSCOPES",
+      "Forensic scientists use scanning electron microscopes to examine trace evidence"
+    ],
+    [
+      "FORENSIC SCIENTISTS",
+      ":has_relation_with",
+      "MASS SPECTROMETRY",
+      "Forensic scientists use mass spectrometry to identify and quantify drugs or toxins in a sample"
+    ],
+    [
+      "FORENSIC SCIENTISTS",
+      ":has_relation_with",
+      "EVIDENCE ANALYSIS",
+      "Forensic scientists conduct evidence analysis to draw conclusions about a crime"
+    ],
+    [
+      "FORENSIC SCIENTISTS",
+      ":has_relation_with",
+      "EXPERT TESTIMONY",
+      "Forensic scientists provide expert testimony in court to explain their findings and conclusions"
+    ],
+    [
+      "FORENSIC SCIENTISTS",
+      ":has_relation_with",
+      "LAW ENFORCEMENT AGENCIES",
+      "Law enforcement agencies work with forensic scientists to investigate crimes and enforce the law"
+    ],
+    [
+      "FORENSIC SCIENTISTS",
+      ":has_relation_with",
+      "LAWYERS",
+      "Lawyers work with forensic scientists to understand and present evidence in court"
+    ],
+    [
+      "FORENSIC SCIENTISTS",
+      ":has_relation_with",
+      "JUDGES",
+      "Judges may hear testimony from forensic scientists in court proceedings"
+    ]
+  ]
+}
