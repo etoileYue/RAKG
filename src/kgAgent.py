@@ -1,22 +1,20 @@
-from langchain_ollama import OllamaLLM
 from langchain_core.prompts import ChatPromptTemplate
-from scripts.prompt import text2entity_en
-from scripts.prompt import extract_entiry_centric_kg_en_v2
-from scripts.prompt import judge_sim_entity_en
-from langchain_ollama import OllamaEmbeddings  
+from src.prompt import text2entity_en
+from src.prompt import extract_entiry_centric_kg_en_v2
+from src.prompt import judge_sim_entity_en
 from itertools import combinations
 import re
 import json
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
-from src.config import OLLAMA_BASE_URL, DEFAULT_MODEL, EMBEDDING_MODEL,SIMILARITY_MODEL
+from src.llm_provider import LLMProvider
 
 class NER_Agent():
-    def __init__(self, model=DEFAULT_MODEL):
-        self.model = model # Model for NER recognition
-        self.similarity_model = SIMILARITY_MODEL
-        self.embeddings = OllamaEmbeddings(model=EMBEDDING_MODEL, base_url=OLLAMA_BASE_URL)  
-
+    def __init__(self):
+        self.llm_provider = LLMProvider()
+        self.model = self.llm_provider.get_llm()
+        self.similarity_model = self.llm_provider.get_similarity_model()
+        self.embeddings = self.llm_provider.get_embedding_model()
     
     ## Add chunkid attribute
     def add_chunkid(self, ner_result, chunkid):
@@ -26,15 +24,14 @@ class NER_Agent():
             new_ner_result[entity_key] = entity_value
         return new_ner_result
     
-    
-    def extract_from_text_single(self, text_single, output_file ):
-        model = OllamaLLM(model=self.model, base_url=OLLAMA_BASE_URL, format='json', temperature=0)
+    def extract_from_text_single(self, text_single, output_file):
         prompt = ChatPromptTemplate.from_template(text2entity_en)
-        chain = prompt | model
+        chain = prompt | self.model
         result = chain.invoke({"text": text_single})
-        # print("result")
-        # print(result)
-        result_json = json.loads(result)
+        if hasattr(result, 'content'):
+            result_json = json.loads(result.content)
+        else:
+            result_json = json.loads(result)
         
         # Store text_single and result_json in a jsonl file
         with open(output_file, 'a') as f:
@@ -54,8 +51,6 @@ class NER_Agent():
             new_entities[new_key] = value
         return new_entities
     
-    
-    
     ## Implement named entity recognition for the entire text and add chunkid field to each entity
     def extract_from_text_multiply(self, text_list, sent_to_id,output_file):
         ner_result_for_all = {}
@@ -65,8 +60,6 @@ class NER_Agent():
             ## Add a check here - if ner_result has a state field, it means there's an issue with this chunk, so skip to the next iteration
             if 'State' in ner_result:
                 continue
-            # print("ner_result_ori")
-            # print(ner_result)
             # Get the number of entities in ner_result
             ner_result_num = len(ner_result)
             # Rewrite ner_result, entity numbering starts from entity_num, first entity is entity{entity_num}, subsequent entities increment
@@ -77,42 +70,48 @@ class NER_Agent():
             ner_result_for_all.update(ner_result_with_chunkid)
         return ner_result_for_all
     
-
-    def similarity_candidates(self,entities, threshold=0.60):
+    
+    def similarity_candidates(self, entities, threshold=0.60):
+        def get_embedding_vector(text):
+            result = self.embeddings.embed_documents([text])
+            if isinstance(result, list) and isinstance(result[0], list):
+                return result[0]
+            else:
+                return result
         entity_texts = {
             k: f"{v['name']} {v['type']}"
             for k, v in entities.items()
         }
-        vectors = {k: self.embeddings.embed_documents(text) for k, text in entity_texts.items()}
+        vectors = {
+            k: get_embedding_vector(text)
+            for k, text in entity_texts.items()
+        }
 
         keys = list(vectors.keys())
         sim_matrix = np.zeros((len(keys), len(keys)))
 
         for i, j in combinations(range(len(keys)), 2):
-            sim = cosine_similarity(vectors[keys[i]], vectors[keys[j]])
+            sim = cosine_similarity([vectors[keys[i]]], [vectors[keys[j]]])
+            # print(f"Similarity between {keys[i]} and {keys[j]}: {sim}")
             sim_matrix[i][j] = sim
-        # print(sim_matrix)
-        # Step 3: Identify candidate pairs
-        candidates = [(keys[i], keys[j]) 
-                    for i, j in zip(*np.where(sim_matrix > threshold))]
-        # print("Initial similarity groups")
-        # print(candidates)
+
+        candidates = [
+            (keys[i], keys[j])
+            for i, j in zip(*np.where(sim_matrix > threshold))
+        ]
         return candidates
 
-    ## Use LLM for entity disambiguation
+
     def similarity_llm_single(self, entity1, entity2):
-        model = OllamaLLM(model=self.similarity_model, base_url=OLLAMA_BASE_URL, format='json', temperature=0)
         prompt = ChatPromptTemplate.from_template(judge_sim_entity_en)
-        chain = prompt | model
-        result = chain.invoke({"entity1": str(entity1),"entity2": str(entity2)})
-        result_json = json.loads(result)
-        # Return {'result': True} for same entities
-        # Return {'result': False} for different entities
+        chain = prompt | self.similarity_model
+        result = chain.invoke({"entity1": str(entity1), "entity2": str(entity2)})
+        if hasattr(result, 'content'):
+            result_json = json.loads(result.content)
+        else:
+            result_json = json.loads(result)
         return result_json
-    
-    ## First use similarity_candidates for initial filtering of all entities, similarity_candidates returns: candidates = [('entity1', 'entity48'), ('entity3', 'entity68'), ('entity4', 'entity39')]
-    ## Then for each candidate in candidates, use similarity_llm_single to judge, if they are the same entity, keep the candidate, otherwise delete
-    ## Finally return new candidates_result
+
     def similartiy_result(self, entities):
         # Step 1: Use similarity_candidates for initial filtering
         candidates = self.similarity_candidates(entities)
@@ -136,7 +135,6 @@ class NER_Agent():
         
         # Step 3: Return final filtered candidate pairs
         return candidates_result
-
 
     ## Merge similar items
     def entity_Disambiguation(self, entity_dic, sim_entity_list):
@@ -255,28 +253,21 @@ class NER_Agent():
         return retriever_context
 
     def get_target_kg_sigle(self, entity_dic, entity_id, id_to_sentence, sentences, sentence_to_id, vectors, output_file):
-        model = OllamaLLM(model=self.model, base_url=OLLAMA_BASE_URL, format='json', temperature=0)
         chunk_text_list = self.get_sentences_for_entity(entity_dic, entity_id, id_to_sentence)
-        ## Add retriever context
         query = entity_dic[entity_id].get('name', '')
         context = self.get_retriever_context(query, sentences, sentence_to_id, vectors, top_k=5)
-        # print("context")
-        # print(context)
         sentences = [item[0] for item in context]
         unique_sentences = list(set(chunk_text_list + sentences))
         chunk_text = ", ".join(unique_sentences)
         prompt = ChatPromptTemplate.from_template(extract_entiry_centric_kg_en_v2)
-        chain = prompt | model
+        chain = prompt | self.model
         result = chain.invoke({"text": chunk_text, "target_entity": entity_dic[entity_id].get('name'), "related_kg": 'none'})
-        # print("context")
-        # print(chunk_text)
-        # print("entity")
-        # print(entity_dic[entity_id].get('name'))
-        print("kg")
-        result_json = json.loads(result)
-        print(result_json)
+        # Handle AIMessage response from OpenAI
+        if hasattr(result, 'content'):
+            result_json = json.loads(result.content)
+        else:
+            result_json = json.loads(result)
 
-        # Store chunk_text, entity, and kg in a jsonl file
         with open(output_file, 'a') as f:
             combined_data = {
                 "chunk_text": chunk_text,
@@ -286,7 +277,6 @@ class NER_Agent():
             f.write(json.dumps(combined_data) + '\n')
 
         return result_json
-    
     
     def get_target_kg_all(self, entity_dic, id_to_sentence,sentences,sentence_to_id,vectors,output_file):
         """
@@ -357,7 +347,6 @@ class NER_Agent():
 
         output["entities"] = list(entity_registry.values())
         return output
-
 
     def process(self):
         pass

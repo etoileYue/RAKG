@@ -1,37 +1,27 @@
-# RAKG
+# RAKG: Document-level Retrieval Augmented Knowledge Graph Construction
 
-RAKG is a knowledge graph construction framework that leverages large language models for automated knowledge graph generation.
+<h5 align="center"> If you find our project useful, please give us a star ⭐ on GitHub for the latest updates.</h5>
 
-## Table of Contents
-- [Quick Start](#quick-start)
-- [Configuration](#configuration)
-- [Environment Setup](#environment-setup)
-- [Usage Examples](#usage-examples)
-- [Evaluation](#evaluation)
+## 💡 Overview
 
-## Quick Start
+<table class="center">
+    <tr>
+        <td width=100% style="border: none"><img src="image\RAKG_flow.jpg" style="width:100%"></td>
+    </tr>
+    <tr>
+        <td width="100%" style="border: none; text-align: center; word-wrap: break-word">
+       RAKG is a knowledge graph construction framework that leverages large language models for automated knowledge graph generation. The framework processes documents through sentence segmentation and vectorization, extracts preliminary entities, and performs entity disambiguation and vectorization. The processed entities undergo Corpus Retrospective Retrieval to obtain relevant texts and Graph Structure Retrieval to get related KG. Subsequently, LLM is employed to integrate the retrieved information for constructing relation networks, which are merged for each entity. Finally, the newly built knowledge graph is combined with the original one.
+      </td>
+    </tr>
+</table>
 
-To get started with RAKG, follow the simple steps below:
+## 🔧 Installation
 
-1. Clone the repository
-2. Set up the environment
-3. Configure the necessary settings
-4. Run the examples
+### Prerequisites
+- Python 3.11
+- Conda (recommended)
 
-## Configuration
-
-### Ollama Configuration
-Edit `src/config.py` to configure your Ollama settings:
-
-- For local Ollama: Set `base_url` to `http://localhost:11434/v1/`
-- For server-based Ollama: Set `base_url` to `http://your_server_ip`
-
-Default model configurations:
-- Main model: qwen2.5:72b, requires good instruction following
-- Similarity check model: qwen2:7b, using smaller model for faster processing
-- embedding model: bge
-
-## Environment Setup
+### Environment Setup
 
 1. Clone the repository:
 ```bash
@@ -50,30 +40,54 @@ conda activate RAKG
 pip install -r requirements.txt
 ```
 
-## Usage Examples
+## 🏃 Quick Start
 
-### Text Input
+### Configuration
+
+#### Model Provider Configuration
+Edit `src/config.py` to configure your model provider settings:
+
+##### Ollama Configuration
+- For local Ollama: Set `base_url` to `http://localhost:11434/v1/`
+- For server-based Ollama: Set `base_url` to `http://your_server_ip`
+
+Default Ollama model configurations:
+- Main model: Qwen2.5-72B, requires good instruction following
+- Similarity check model: Qwen2-7B, using smaller model for faster processing
+- embedding model: BGE-M3
+
+##### OpenAI Configuration
+- Set your OpenAI API key in `OPENAI_API_KEY`
+- Configure model selection:
+  - Main model: Qwen2.5-72B-Instruct
+  - Similarity check model: Qwen2.5-14B-Instruct
+  - Embedding model: BGE-M3
+
+To switch between providers, set `USE_OPENAI = True` for OpenAI or `False` for Ollama.
+
+### Usage Examples
+
+#### Text Input
 To process text input:
 ```bash
 cd examples
 python RAKG_example.py --input "your input text" --output result/kg.json --topic "your_topic" --is-text
 ```
 
-### Document Input
+#### Document Input
 To process document input:
 ```bash
-python KGC_MINE_RAKG_withRA_withdes.py --input data/MINE.json --output result/kg.json
+python RAKG_example.py --input data/MINE.json --output result/kg.json
 ```
 
-### Reproducing Paper Results
+#### Reproducing Paper Results
 To reproduce the results from the paper:
 ```bash
 cd src/construct
 python RAKG.py
 ```
 
-
-## Evaluation
+## 📊 Evaluation
 
 ### LLM Evaluation
 ```bash
@@ -87,23 +101,29 @@ cd src/eval/MINE_eval
 python evaluate_MINE_RAKG.py
 ```
 
-### ideal_kg Evaluation
+### Ideal KG Evaluation
 ```bash
 cd src/eval/ideal_kg_eval
 python kg_eval.py
 ```
 
-
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-
-## Contributing
+## 🤝 Contributing
 
 We welcome contributions! Please read our contributing guidelines before submitting pull requests.
 
-## Contact
+## ❤️ Acknowledgement
 
-For questions and support, please open an issue in the GitHub repository.
+This repo benefits from:
+- [KGGen](https://github.com/stair-lab/kg-gen)
+- [Graphrag](https://github.com/microsoft/graphrag)
+- [Qwen](https://github.com/QwenLM/Qwen)
+- [BGE-M3](https://github.com/FlagOpen/FlagEmbedding)
+- [RARE](https://github.com/Open-DataFlow/RARE)
+
+Thanks for these wonderful works.
+
+## 📞 Contact
+
+For any questions or feedback, please:
+- Open an issue in the GitHub repository
+- Reach out to us at [2212855@mail.nankai.edu.cn](2212855@mail.nankai.edu.cn)
