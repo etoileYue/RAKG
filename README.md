@@ -109,7 +109,6 @@ python kg_eval.py
 
 ## 🤝 Contributing
 
-<<<<<<< HEAD
 We welcome contributions! Please read our contributing guidelines before submitting pull requests.
 
 ## ❤️ Acknowledgement
@@ -120,18 +119,11 @@ This repo benefits from:
 - [Qwen](https://github.com/QwenLM/Qwen)
 - [BGE-M3](https://github.com/FlagOpen/FlagEmbedding)
 - [RARE](https://github.com/Open-DataFlow/RARE)
-=======
-## Contributing
->>>>>>> 533de704c8e0bf58574dcc9894052d855bc87254
 
 Thanks for these wonderful works.
 
 ## 📞 Contact
 
-<<<<<<< HEAD
 For any questions or feedback, please:
 - Open an issue in the GitHub repository
 - Reach out to us at [2212855@mail.nankai.edu.cn](2212855@mail.nankai.edu.cn)
-=======
-For questions and support, please open an issue in the GitHub repository.
->>>>>>> 533de704c8e0bf58574dcc9894052d855bc87254
