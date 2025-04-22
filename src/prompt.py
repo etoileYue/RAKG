@@ -160,6 +160,92 @@ Requirements for you:
   }}
 """
 
+extract_entiry_centric_kg_cn_v2 = """
+    你是一个知识图谱提取助手，结合其他相关知识图谱的知识，负责从文本中抽取与指定实体有关的属性和关系，
+    文本：{text}
+    指定实体：{target_entity}
+    相关知识图谱：{related_kg}
+    对你的要求：
+    1、你应当综合整个文本，综合地抽取与指定实体有关的关系，针对指定实体建立一个子图谱
+    2、你应当抽取指定实体的属性和指定实体与其他实体的关系，
+        对于属性的抽取：属性是对指定实体特性的描述，例如：乔丹——性别：男，这里的性别就是属性
+        对于关系的抽取并且这个关系的头实体必须是指定实体，例如： “指定实体——拥有——其他实体”是合法的，“其他实体——被拥有——指定实体”是非法的
+    3、你应当分别什么时候把信息归类成关系、什么时候把信息归类成属性
+    4、对于其他相关知识图谱的知识，这些知识有助于你更全面的理解指定实体的特征，并且，你应该结合其他知识对指定实体的关系，反向建立关系，形成双向关系，例如：其他实体——妻子——指定实体，那么你就应该建立：指定实体——丈夫——其他实体，这个反向关系，使得知识图谱更加全面
+    5、最后的输出中，相同的attributes应当只保留一个，相同的relationships应当只保留一个
+    6、最后的输出格式应当为：
+        {{
+    "central_entity": {{
+        "name": "{{}}",
+        "type": "{{}}",
+        "description": "{{}}",
+        "attributes": "{{}}",
+        {{
+            "key": "{{}}",
+            "value": "{{}}"
+        }},
+            ...
+        {{
+            "key": "{{}}",
+            "value": "{{}}"
+        }}
+        ],
+        "relationships": [
+        {{
+            "relation": "{{}}",
+            "target_name": "{{}}",
+            "target_type": "{{}}"
+            "target_description": "{{}}"
+            "relation_description": "{{}}"
+        }},
+        ...
+        {{
+            "relation": "{{}}",
+            "target_name": "{{}}",
+            "target_type": "{{}}"
+            "target_description": "{{}}"
+            "relation_description": "{{}}"
+        }}
+        ]
+      }}
+    }}
+    例如：
+    {{
+  "central_entity": {{
+    "name": "阿尔伯特·爱因斯坦",
+    "type": "人物",
+    "description": "阿尔伯特·爱因斯坦被公认为是继牛顿之后最伟大的物理学家之一",
+    "attributes": [
+      {{
+        "key": "出生日期",
+        "value": "1879-03-14"
+      }},
+      {{
+        "key": "职业",
+        "value": "理论物理学家"
+      }}
+    ],
+    "relationships": [
+      {{
+        "relation": "提出理论",
+        "target_name": "相对论",
+        "target_type": "科学理论",
+        "target_description": "相对论是由爱因斯坦于 1905 年提出来的一种物理理论，它认为物体在运动过程中，其空间和时间的变换是相互关联的，而不是相互独立的。",
+        "relation_description": "爱因斯坦提出了相对论，这是现代物理学的重要理论"
+      }},
+      {{
+        "relation": "毕业于",
+        "target_name": "苏黎世联邦理工学院",
+        "target_type": "教育机构",
+        "target_description": "苏黎世联邦理工学院是一个位于苏黎世附近的大学",
+        "relation_description": "爱因斯坦曾就读于苏黎世联邦理工学院"
+      }}
+    ]
+  }}
+}}
+"""
+
+
 fewshot_for_extract_entiry_centric_kg = """
 assistant:
 user:
@@ -199,6 +285,37 @@ Notes:
     }}
 """
 
+text2entity_cn = """
+你是一个命名实体识别助手，负责从给定的文本中识别命名实体
+文本：{text}
+注意：
+1、首先你应当判断这个文本是否包含任何信息，如果只是没有意义的符号，那么直接输出:{{State : Fasle}}，如果文本中存在着信息，那么进行下一步
+2、你要综合考虑整个文本进行命名实体识别
+3、命名的实体需要由三个部分组成分别是：name、type、description
+    name是命名实体的主体
+    type是这个主体的类别
+    description是这个主体的描述，概括性的描述这个主体是什么
+4、由于一段文本中可能识别出多个命名实体，所以你需要以一定的格式来输出
+    输出的格式为：
+    {{
+        "entity1":{{
+            "name": "实体名称1",
+            "type": "实体类型1",
+            "description": "实体描述1"
+        }},
+        "entity2":{{
+            "name": "实体名称2",
+            "type": "实体类型2",
+            "description": "实体描述2"
+        }},
+        ...
+        "entityn":{{
+            "name": "实体名称n",
+            "type": "实体类型n",
+            "description": "实体描述n"
+        }}
+    }}
+"""
 
 fewshot_for_ext2entity = """
 
@@ -216,3 +333,15 @@ judge_sim_entity_en = """
     1. You should initially judge whether the two entities might be the same based on their names and types, and if they might be the same, analyze their descriptions in detail to determine if they are indeed the same.
     2. Your output format should be "yes" if you determine that they are the same entity, outputting: {{'result': True}}, and if you determine that they are not the same entity, outputting: {{'result': False}}.
 """
+
+judge_sim_entity_cn = '''
+    你是一个知识图谱实体消歧助手，负责判断两个实体本质上是否是同一个实体，例如：
+    实体1："name": "河南商报", "type": "媒体机构", "description": "河南省的一家商业报纸，提供新闻和信息报道。"和实体2："name": "顶端新闻·河南商报", "type": "组织名", "description": "一家位于河南省的新闻媒体机构，负责报道地方及全国的重要新闻和信息。
+    并且，不同实体，实体的复数、不同时态，都视为同一实体
+    本质上是同一个实体
+    实体1:{entity1}
+    实体2:{entity2}
+    注意：
+    1、你应当通过name和type大体判断这两个实体是否可能相同，并且在可能相同的情况下，通过description具体分析是否相同
+    2、你的输出格式应当为是，当判断确实是同一个实体时输出:{{'result':True}}，判断不是同一个实体时输出:{{'result':False}}
+'''
