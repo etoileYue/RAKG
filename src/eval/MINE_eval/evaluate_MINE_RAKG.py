@@ -282,10 +282,10 @@ def main():
     embedding_model = SentenceTransformer("all-MiniLM-L6-v2")
 
     for i in range(1, 106):
-        json_file = f"data/processed/RAKG_graph_v1/{i}.json"
+        json_file = f"data/processed/RAKG_graph_v2_1/{i}.json"
         questions_answers = all_questions_answers[i-1]
         # output_file = json_file.replace(".json", "_results.json")
-        output_file = f"data/processed/RAKG_graph_v1/{i}_results.json"
+        output_file = f"data/processed/RAKG_graph_v2_1/{i}_results.json"
         print(f"Processing file: {json_file}")
         G = load_graph_from_json(json_file)
         node_embeddings, _ = generate_embeddings(G, embedding_model)
