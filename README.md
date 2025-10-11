@@ -127,3 +127,18 @@ Thanks for these wonderful works.
 For any questions or feedback, please:
 - Open an issue in the GitHub repository
 - Reach out to us at [2212855@mail.nankai.edu.cn](2212855@mail.nankai.edu.cn)
+
+## Citation
+If you find our paper and codes useful, please kindly cite us via:
+
+```bibtex
+@misc{zhang2025rakgdocumentlevelretrievalaugmentedknowledge,
+      title={RAKG:Document-level Retrieval Augmented Knowledge Graph Construction}, 
+      author={Hairong Zhang and Jiaheng Si and Guohang Yan and Boyuan Qi and Pinlong Cai and Song Mao and Ding Wang and Botian Shi},
+      year={2025},
+      eprint={2504.09823},
+      archivePrefix={arXiv},
+      primaryClass={cs.IR},
+      url={https://arxiv.org/abs/2504.09823}, 
+}
+```
