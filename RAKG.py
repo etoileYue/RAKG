@@ -3,6 +3,14 @@ from src.kgAgent import NER_Agent
 import json
 import os
 
+def write_json(data, file_path):
+    with open(file_path, "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+def read_json(file_path):
+    with open(file_path, "r", encoding="utf-8") as f:
+        data = json.load(f)
+    return data 
+
 def convert_to_valid_json(data):
     def format_value(obj):
         """Recursively handle single quote issues in all values"""
@@ -47,17 +55,30 @@ def process_all_topics(json_path, output_dir):
             text = topic_data['content']
             topic = topic_data['topic']
 
-            # Split text
-            processor = TextProcessor(text, topic)
-            text_split = processor.process()
+            # # Split text
+            # processor = TextProcessor(text, topic)
+            # text_split = processor.process()
 
-            # Extract NER and knowledge graph
-            # Initial NER
-            ner_result = ner_agent.extract_from_text_multiply(text_split['sentences'], text_split['sentence_to_id'],output_file=f"data/processed/llmasjudge/ner_data/output_text_ner_{idx}.jsonl")
-            sim = ner_agent.similartiy_result(ner_result)
-            # NER with entity disambiguation
-            entity_list_process = ner_agent.entity_Disambiguation(ner_result, sim)
-            kg_result = ner_agent.get_target_kg_all(entity_list_process, text_split['id_to_sentence'],text_split['sentences'],text_split['sentence_to_id'],text_split['vectors'],output_file=f"data/processed/llmasjudge/rel_data/output_kg_{idx}.jsonl")
+            # write_json(text_split, "data/tmp/test_text_split.json")
+
+            # # Extract NER and knowledge graph
+            # # Initial NER
+            # ner_result = ner_agent.extract_from_text_multiply(text_split['sentences'], text_split['sentence_to_id'],output_file=f"data/processed/llmasjudge/ner_data/output_text_ner_{idx}.jsonl")
+            
+            # write_json(ner_result, "data/tmp/test_ner_result.json")
+
+            # text_split = read_json("data/tmp/test_text_split.json")
+            # ner_result = read_json("data/tmp/test_ner_result.json")
+
+            # sim = ner_agent.similartiy_result(ner_result)
+            # # NER with entity disambiguation
+            # entity_list_process = ner_agent.entity_Disambiguation(ner_result, sim)
+            # kg_result = ner_agent.get_target_kg_all(entity_list_process, text_split['id_to_sentence'],text_split['sentences'],text_split['sentence_to_id'],text_split['vectors'],output_file=f"data/processed/llmasjudge/rel_data/output_kg_{idx}.jsonl")
+            
+            # write_json(kg_result, "data/tmp/test_kg_result.json")
+
+            kg_result = read_json("data/tmp/test_kg_result.json")
+
             print("kg_result")
             print(kg_result)
             converted_kg = ner_agent.convert_knowledge_graph(kg_result)
