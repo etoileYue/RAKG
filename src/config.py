@@ -8,10 +8,10 @@ SIMILARITY_MODEL = "qwen2:7b"
 
 # OpenAI Configuration
 base_url="https://api.siliconflow.cn/v1" # https://api.siliconflow.cn/v1 for siliconflow
-OPENAI_API_KEY = "your_api_key"  # Set your OpenAI API key here
-OPENAI_MODEL = "Qwen/Qwen2.5-72B-Instruct"  # Default model
+OPENAI_API_KEY = "sk-mmqulwgspimiaevtxtikfywqmhwtqwmwladvxialnjkacobk"  # Set your OpenAI API key here
+OPENAI_MODEL = "Qwen/Qwen2.5-7B-Instruct"  # Default model
 OPENAI_EMBEDDING_MODEL = "BAAI/bge-m3"  # Default embedding model
-OPENAI_SIMILARITY_MODEL = "Qwen/Qwen2.5-14B-Instruct"  # Model for similarity checks
+OPENAI_SIMILARITY_MODEL = "Qwen/Qwen2.5-7B-Instruct"  # Model for similarity checks
 
 
 # Model Provider Selection

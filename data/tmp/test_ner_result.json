@@ -1,0 +1,38 @@
+{
+  "entity1": {
+    "name": "Butterfly",
+    "type": "Animal",
+    "description": "A fascinating creature that undergoes a remarkable transformation throughout its life cycle.",
+    "chunkid": "The Life Cycle of a Butterfly1"
+  },
+  "entity2": {
+    "name": "egg",
+    "type": "Life Stage",
+    "description": "The initial stage in the life cycle of a butterfly, from which the larva hatches.",
+    "chunkid": "The Life Cycle of a Butterfly2"
+  },
+  "entity3": {
+    "name": "larva",
+    "type": "Life Stage",
+    "description": "The second stage in the life cycle of a butterfly, also known as the caterpillar stage.",
+    "chunkid": "The Life Cycle of a Butterfly2"
+  },
+  "entity4": {
+    "name": "pupa",
+    "type": "Life Stage",
+    "description": "The third stage in the life cycle of a butterfly, during which the larva transforms into an adult butterfly.",
+    "chunkid": "The Life Cycle of a Butterfly2"
+  },
+  "entity5": {
+    "name": "adult butterfly",
+    "type": "Life Stage",
+    "description": "The final stage in the life cycle of a butterfly, characterized by its fully developed wings and ability to fly.",
+    "chunkid": "The Life Cycle of a Butterfly2"
+  },
+  "entity6": {
+    "name": "butterfly",
+    "type": "Animal",
+    "description": "A type of insect known for its life cycle stages and transformation from a larva to an adult.",
+    "chunkid": "The Life Cycle of a Butterfly3"
+  }
+}
