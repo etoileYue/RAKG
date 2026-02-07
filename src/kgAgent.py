@@ -9,6 +9,15 @@ import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
 from src.llm_provider import LLMProvider
 
+import logging
+from src.logger import get_logger
+import traceback
+from src.utils  import retry
+
+logger = get_logger(name="AgentLog",
+                    level=logging.INFO,
+                    log_file="Agent.log")
+
 class NER_Agent():
     def __init__(self):
         self.llm_provider = LLMProvider()
@@ -101,7 +110,7 @@ class NER_Agent():
         ]
         return candidates
 
-
+    @retry
     def similarity_llm_single(self, entity1, entity2):
         prompt = ChatPromptTemplate.from_template(judge_sim_entity_en)
         chain = prompt | self.similarity_model
@@ -112,7 +121,7 @@ class NER_Agent():
             result_json = json.loads(result)
         return result_json
 
-    def similartiy_result(self, entities):
+    def similarity_result(self, entities):
         # Step 1: Use similarity_candidates for initial filtering
         candidates = self.similarity_candidates(entities)
         
@@ -130,7 +139,8 @@ class NER_Agent():
                 if result.get('result', False):
                     candidates_result.append(ent_pair)
             except Exception as e:
-                print(f"Error processing entity pair {ent_pair}: {str(e)}")
+                logger.error(f"Error processing entity pair {ent_pair}: {traceback.format_exc()}")
+                # print(f"Error processing entity pair {ent_pair}: {traceback.format_exc()}")
                 continue  # Can log or raise exception as needed
         
         # Step 3: Return final filtered candidate pairs
@@ -221,7 +231,8 @@ class NER_Agent():
             if chunkid in id_to_sentence:
                 sentences.append(id_to_sentence[chunkid])
             else:
-                print(f"Warning: Chunk ID '{chunkid}' not found in id_to_sentence.")
+                logger.warning(f"Chunk ID '{chunkid}' not found in id_to_sentence.")
+                # print(f"Warning: Chunk ID '{chunkid}' not found in id_to_sentence.")
 
         return sentences
 
@@ -252,7 +263,7 @@ class NER_Agent():
 
         return retriever_context
 
-    def get_target_kg_sigle(self, entity_dic, entity_id, id_to_sentence, sentences, sentence_to_id, vectors, output_file):
+    def get_target_kg_single(self, entity_dic, entity_id, id_to_sentence, sentences, sentence_to_id, vectors, output_file):
         chunk_text_list = self.get_sentences_for_entity(entity_dic, entity_id, id_to_sentence)
         query = entity_dic[entity_id].get('name', '')
         context = self.get_retriever_context(query, sentences, sentence_to_id, vectors, top_k=5)
@@ -285,10 +296,11 @@ class NER_Agent():
         results = {}
         for entity_id in entity_dic:
             if entity_id in entity_dic:
-                result = self.get_target_kg_sigle(entity_dic, entity_id, id_to_sentence,sentences,sentence_to_id,vectors,output_file)
+                result = self.get_target_kg_single(entity_dic, entity_id, id_to_sentence,sentences,sentence_to_id,vectors,output_file)
                 results[entity_id] = result
             else:
-                print(f"Entity {entity_id} not found in entity_dic.")
+                logger.info(f"Entity {entity_id} not found in entity_dic.")
+                # print(f"Entity {entity_id} not found in entity_dic.")
         return results
 
     def convert_knowledge_graph(self, input_data):
