@@ -1,7 +1,7 @@
 import time
 import logging
 from functools import wraps
-from logger import get_logger
+from src.logger import get_logger
 import traceback
 
 logger = get_logger(name="AgentLog",
@@ -10,25 +10,36 @@ logger = get_logger(name="AgentLog",
 
 def retry(max_retries=3, delay=1):
     """
-    重试装饰器，报错信息包含函数名、参数和完整堆栈
+    适配类方法的重试装饰器（支持self参数）
+    报错信息包含函数名、参数和完整堆栈
     :param max_retries: 最大重试次数
     :param delay: 重试间隔（秒）
     """
     def decorator(func):
-        @wraps(func)  # 保留原函数的元信息（如函数名）
+        @wraps(func)  # 保留原函数的元信息（包括类方法的self）
         def wrapper(*args, **kwargs):
             # 遍历重试次数
             for attempt in range(max_retries):
                 try:
-                    # 执行原函数并返回结果
+                    # 执行原函数（自动传递self、entity1、entity2等参数）
                     return func(*args, **kwargs)
                 except Exception as e:
-                    # 获取函数名（保留原函数名，不受装饰器影响）
+                    # 获取函数名
                     func_name = func.__name__
-                    # 格式化参数信息：位置参数 + 关键字参数
-                    # 处理位置参数（args）：转换为字符串，避免打印复杂对象时过长
-                    args_str = ", ".join([str(arg) for arg in args])
-                    # 处理关键字参数（kwargs）：key=value 格式
+                    
+                    # 格式化参数信息（兼容类方法的self参数）
+                    # 处理位置参数：args[0]是self，args[1:]是业务参数
+                    # 优化：self参数只打印类型，避免打印整个对象的冗余信息
+                    args_str_parts = []
+                    for idx, arg in enumerate(args):
+                        if idx == 0 and hasattr(arg, '__class__'):
+                            # 是self参数：打印 "类名对象" 而非完整对象
+                            args_str_parts.append(f"<{arg.__class__.__name__} object>")
+                        else:
+                            args_str_parts.append(str(arg))
+                    args_str = ", ".join(args_str_parts)
+                    
+                    # 处理关键字参数
                     kwargs_str = ", ".join([f"{k}={v}" for k, v in kwargs.items()])
                     # 拼接完整参数字符串
                     params_str = ""
@@ -67,7 +78,7 @@ def retry(max_retries=3, delay=1):
 
 import json
 def get_ner_result_from_file(file_path, sent_to_id):
-    def rewrite(self, ner_result, entity_num):
+    def rewrite(ner_result, entity_num):
         new_entities = {}
         # Process in original dictionary key order, extract numbers after entity and renumber
         for idx, (old_key, value) in enumerate(ner_result.items(), start=1):
@@ -75,7 +86,7 @@ def get_ner_result_from_file(file_path, sent_to_id):
             new_entities[new_key] = value
         return new_entities
     
-    def add_chunkid(self, ner_result, chunkid):
+    def add_chunkid(ner_result, chunkid):
         new_ner_result = {}
         for entity_key, entity_value in ner_result.items():
             entity_value["chunkid"] = chunkid
