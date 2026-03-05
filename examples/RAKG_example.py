@@ -7,7 +7,7 @@ import argparse
 project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(project_root)
 
-from src.textPrcess import TextProcessor
+from src.textProcess import TextProcessor
 from src.kgAgent import NER_Agent
 
 def convert_to_valid_json(data):

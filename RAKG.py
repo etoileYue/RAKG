@@ -1,4 +1,4 @@
-from src.textPrcess import TextProcessor
+from src.textProcess import TextProcessor
 from src.kgAgent import NER_Agent
 import json
 import os

@@ -18,6 +18,10 @@ logger = get_logger(name="AgentLog",
                     level=logging.INFO,
                     log_file="Agent.log")
 
+debug_logger = get_logger(name="AgentDebugLog",
+                          level=logging.DEBUG,
+                          log_file="Debug.log")
+
 class NER_Agent():
     def __init__(self):
         self.llm_provider = LLMProvider()
@@ -37,6 +41,8 @@ class NER_Agent():
         prompt = ChatPromptTemplate.from_template(text2entity_en)
         chain = prompt | self.model
         result = chain.invoke({"text": text_single})
+        debug_logger.debug("-extract_from_text_single-")
+        debug_logger.debug(f"text_single={text_single}, result={result}")
         if hasattr(result, 'content'):
             result_json = json.loads(result.content)
         else:
@@ -110,11 +116,13 @@ class NER_Agent():
         ]
         return candidates
 
-    @retry
+    @retry()
     def similarity_llm_single(self, entity1, entity2):
         prompt = ChatPromptTemplate.from_template(judge_sim_entity_en)
         chain = prompt | self.similarity_model
         result = chain.invoke({"entity1": str(entity1), "entity2": str(entity2)})
+        debug_logger.debug("-similarity_llm_single-")
+        debug_logger.debug(f"entity1={entity1}, entity2={entity2}, result={result}")
         if hasattr(result, 'content'):
             result_json = json.loads(result.content)
         else:
@@ -273,6 +281,8 @@ class NER_Agent():
         prompt = ChatPromptTemplate.from_template(extract_entiry_centric_kg_en_v2)
         chain = prompt | self.model
         result = chain.invoke({"text": chunk_text, "target_entity": entity_dic[entity_id].get('name'), "related_kg": 'none'})
+        debug_logger.debug("-get_target_kg_single-")
+        debug_logger.debug(f"text={chunk_text}, target_entity={entity_dic[entity_id].get('name')}, related_kg=none, result={result}")
         # Handle AIMessage response from OpenAI
         if hasattr(result, 'content'):
             result_json = json.loads(result.content)
@@ -299,7 +309,7 @@ class NER_Agent():
                 result = self.get_target_kg_single(entity_dic, entity_id, id_to_sentence,sentences,sentence_to_id,vectors,output_file)
                 results[entity_id] = result
             else:
-                logger.info(f"Entity {entity_id} not found in entity_dic.")
+                logger.warning(f"Entity {entity_id} not found in entity_dic.")
                 # print(f"Entity {entity_id} not found in entity_dic.")
         return results
 
