@@ -13,6 +13,7 @@ import logging
 from src.logger import get_logger
 import traceback
 from src.utils  import retry
+from src.utils import parse_similarity_response
 
 logger = get_logger(name="AgentLog",
                     level=logging.INFO,
@@ -123,11 +124,7 @@ class NER_Agent():
         result = chain.invoke({"entity1": str(entity1), "entity2": str(entity2)})
         debug_logger.debug("-similarity_llm_single-")
         debug_logger.debug(f"entity1={entity1}, entity2={entity2}, result={result}")
-        if hasattr(result, 'content'):
-            result_json = json.loads(result.content)
-        else:
-            result_json = json.loads(result)
-        return result_json
+        return parse_similarity_response(result)
 
     def similarity_result(self, entities):
         # Step 1: Use similarity_candidates for initial filtering
