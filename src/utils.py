@@ -76,6 +76,71 @@ def retry(max_retries=3, delay=1):
         return wrapper
     return decorator
 
+import re
+def parse_similarity_response(resp):
+    raw = resp.content if hasattr(resp, 'content') else str(resp)
+    raw = "" if raw is None else str(raw)
+    text = raw.strip()
+
+    # Empty response fallback.
+    if not text:
+        logger.warning("similarity_llm_single received empty response. Fallback to False.")
+        return {"result": False}
+
+    # Direct yes/no fallback.
+    lowered = text.lower()
+    if lowered in {"yes", "true"}:
+        return {"result": True}
+    if lowered in {"no", "false"}:
+        return {"result": False}
+
+    # Remove markdown code fences if present.
+    fenced = re.match(r"^```(?:json)?\s*([\s\S]*?)\s*```$", text, flags=re.IGNORECASE)
+    if fenced:
+        text = fenced.group(1).strip()
+
+    # Prefer JSON object content if mixed with extra text.
+    match = re.search(r"\{[\s\S]*\}", text)
+    candidate = match.group(0).strip() if match else text
+
+    # Parse strategy 1: strict JSON.
+    try:
+        parsed = json.loads(candidate)
+    except Exception:
+        # Parse strategy 2: common LLM pseudo-JSON normalization.
+        normalized = candidate
+        normalized = re.sub(r"\bTrue\b", "true", normalized)
+        normalized = re.sub(r"\bFalse\b", "false", normalized)
+        normalized = re.sub(r"\bNone\b", "null", normalized)
+        normalized = normalized.replace("'", '"')
+        try:
+            parsed = json.loads(normalized)
+        except Exception:
+            logger.warning(
+                "similarity_llm_single could not parse response as JSON. "
+                f"raw={raw[:300]!r}. Fallback to False."
+            )
+            return {"result": False}
+
+    # Normalize output shape to {"result": bool}
+    if isinstance(parsed, dict):
+        value = parsed.get("result", False)
+        if isinstance(value, bool):
+            return {"result": value}
+        if isinstance(value, str):
+            return {"result": value.strip().lower() in {"true", "yes", "1"}}
+        if isinstance(value, (int, float)):
+            return {"result": bool(value)}
+        return {"result": False}
+
+    if isinstance(parsed, bool):
+        return {"result": parsed}
+    if isinstance(parsed, str):
+        return {"result": parsed.strip().lower() in {"true", "yes", "1"}}
+    if isinstance(parsed, (int, float)):
+        return {"result": bool(parsed)}
+    return {"result": False}
+
 import json
 def get_ner_result_from_file(file_path, sent_to_id):
     def rewrite(ner_result, entity_num):

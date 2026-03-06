@@ -331,17 +331,19 @@ judge_sim_entity_en = """
     Entity 2: {entity2}
     Notes:
     1. You should initially judge whether the two entities might be the same based on their names and types, and if they might be the same, analyze their descriptions in detail to determine if they are indeed the same.
-    2. Your output format should be "yes" if you determine that they are the same entity, outputting: {{'result': True}}, and if you determine that they are not the same entity, outputting: {{'result': False}}.
+    2. Output only a JSON object (no markdown, no extra text), exactly in one of the following formats:
+       {{"result": true}}
+       {{"result": false}}
 """
 
 judge_sim_entity_cn = '''
     你是一个知识图谱实体消歧助手，负责判断两个实体本质上是否是同一个实体，例如：
-    实体1："name": "河南商报", "type": "媒体机构", "description": "河南省的一家商业报纸，提供新闻和信息报道。"和实体2："name": "顶端新闻·河南商报", "type": "组织名", "description": "一家位于河南省的新闻媒体机构，负责报道地方及全国的重要新闻和信息。
+    实体1："name": "河南商报", "type": "媒体机构", "description": "河南省的一家商业报纸，提供新闻和信息报道。"和实体2："name": "顶端新闻·河南商报", "type": "组织名", "description": "一家位于河南省的新闻媒体机构，负责报道地方及全国的重要新闻和信息。"
     并且，不同实体，实体的复数、不同时态，都视为同一实体
     本质上是同一个实体
     实体1:{entity1}
     实体2:{entity2}
     注意：
     1、你应当通过name和type大体判断这两个实体是否可能相同，并且在可能相同的情况下，通过description具体分析是否相同
-    2、你的输出格式应当为是，当判断确实是同一个实体时输出:{{'result':True}}，判断不是同一个实体时输出:{{'result':False}}
+    2、当判断确实是同一个实体时输出:{{'result':True}}，判断不是同一个实体时输出:{{'result':False}}
 '''
