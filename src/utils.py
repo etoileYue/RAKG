@@ -3,6 +3,7 @@ import logging
 from functools import wraps
 from src.logger import get_logger
 import traceback
+import json
 
 logger = get_logger(name="AgentLog",
                     level=logging.INFO,
@@ -82,17 +83,26 @@ def parse_similarity_response(resp):
     raw = "" if raw is None else str(raw)
     text = raw.strip()
 
+    def build_result(value, parse_status, needs_review, reason):
+        return {
+            "result": bool(value),
+            "parse_status": parse_status,
+            "needs_review": needs_review,
+            "reason": reason,
+            "raw_excerpt": raw[:300],
+        }
+
     # Empty response fallback.
     if not text:
         logger.warning("similarity_llm_single received empty response. Fallback to False.")
-        return {"result": False}
+        return build_result(False, "fallback_empty", True, "empty_response")
 
     # Direct yes/no fallback.
     lowered = text.lower()
     if lowered in {"yes", "true"}:
-        return {"result": True}
+        return build_result(True, "ok_literal", False, "literal_true")
     if lowered in {"no", "false"}:
-        return {"result": False}
+        return build_result(False, "ok_literal", False, "literal_false")
 
     # Remove markdown code fences if present.
     fenced = re.match(r"^```(?:json)?\s*([\s\S]*?)\s*```$", text, flags=re.IGNORECASE)
@@ -120,28 +130,39 @@ def parse_similarity_response(resp):
                 "similarity_llm_single could not parse response as JSON. "
                 f"raw={raw[:300]!r}. Fallback to False."
             )
-            return {"result": False}
+            return build_result(False, "fallback_parse_failure", True, "json_parse_failed")
+
+    parse_status = "ok_json"
 
     # Normalize output shape to {"result": bool}
     if isinstance(parsed, dict):
         value = parsed.get("result", False)
         if isinstance(value, bool):
-            return {"result": value}
+            return build_result(value, parse_status, False, "dict_bool")
         if isinstance(value, str):
-            return {"result": value.strip().lower() in {"true", "yes", "1"}}
+            return build_result(
+                value.strip().lower() in {"true", "yes", "1"},
+                parse_status,
+                False,
+                "dict_str",
+            )
         if isinstance(value, (int, float)):
-            return {"result": bool(value)}
-        return {"result": False}
+            return build_result(bool(value), parse_status, False, "dict_number")
+        return build_result(False, "fallback_invalid_result_field", True, "dict_invalid_result")
 
     if isinstance(parsed, bool):
-        return {"result": parsed}
+        return build_result(parsed, parse_status, False, "root_bool")
     if isinstance(parsed, str):
-        return {"result": parsed.strip().lower() in {"true", "yes", "1"}}
+        return build_result(
+            parsed.strip().lower() in {"true", "yes", "1"},
+            parse_status,
+            False,
+            "root_str",
+        )
     if isinstance(parsed, (int, float)):
-        return {"result": bool(parsed)}
-    return {"result": False}
+        return build_result(bool(parsed), parse_status, False, "root_number")
+    return build_result(False, "fallback_unsupported_shape", True, "unsupported_shape")
 
-import json
 def get_ner_result_from_file(file_path, sent_to_id):
     def rewrite(ner_result, entity_num):
         new_entities = {}
@@ -168,10 +189,21 @@ def get_ner_result_from_file(file_path, sent_to_id):
             if not line:
                 continue
 
-            json_obj = json.loads(line)
+            try:
+                json_obj = json.loads(line)
+            except json.JSONDecodeError:
+                logger.warning("Skip invalid JSONL line %s in %s.", line_num, file_path)
+                continue
             text = json_obj.get('text')
             ner_result = json_obj.get('entities')
-            
+
+            if not text:
+                logger.warning("Skip JSONL line %s: missing text field.", line_num)
+                continue
+            if not isinstance(ner_result, dict):
+                logger.warning("Skip JSONL line %s: entities is not a dict.", line_num)
+                continue
+
             if 'State' in ner_result:
                 continue
             # Get the number of entities in ner_result
@@ -179,8 +211,12 @@ def get_ner_result_from_file(file_path, sent_to_id):
             # Rewrite ner_result, entity numbering starts from entity_num, first entity is entity{entity_num}, subsequent entities increment
             ner_result = rewrite(ner_result, entity_num)
 
+            chunkid = sent_to_id.get(text)
+            if chunkid is None:
+                logger.warning("Skip JSONL line %s: sentence not found in sentence_to_id mapping.", line_num)
+                continue
             entity_num += ner_result_num
-            ner_result_with_chunkid = add_chunkid(ner_result,sent_to_id[text])
+            ner_result_with_chunkid = add_chunkid(ner_result,chunkid)
             ner_result_for_all.update(ner_result_with_chunkid)
                 
 

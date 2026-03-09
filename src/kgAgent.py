@@ -3,11 +3,11 @@ from src.prompt import text2entity_en
 from src.prompt import extract_entiry_centric_kg_en_v2
 from src.prompt import judge_sim_entity_en
 from itertools import combinations
-import re
 import json
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
 from src.llm_provider import LLMProvider
+import os
 
 import logging
 from src.logger import get_logger
@@ -29,6 +29,29 @@ class NER_Agent():
         self.model = self.llm_provider.get_llm()
         self.similarity_model = self.llm_provider.get_similarity_model()
         self.embeddings = self.llm_provider.get_embedding_model()
+        self.last_disambiguation_gray_queue = []
+
+    def _ensure_parent_dir(self, output_file):
+        parent_dir = os.path.dirname(output_file)
+        if parent_dir:
+            os.makedirs(parent_dir, exist_ok=True)
+
+    def _append_jsonl(self, output_file, data):
+        self._ensure_parent_dir(output_file)
+        with open(output_file, 'a', encoding='utf-8') as f:
+            f.write(json.dumps(data, ensure_ascii=False) + '\n')
+
+    def _dedupe_preserve_order(self, items):
+        seen = set()
+        result = []
+        for item in items:
+            if item not in seen:
+                seen.add(item)
+                result.append(item)
+        return result
+
+    def _is_boundary_candidate(self, similarity_score, threshold, gray_margin):
+        return similarity_score <= (threshold + gray_margin)
     
     ## Add chunkid attribute
     def add_chunkid(self, ner_result, chunkid):
@@ -50,12 +73,11 @@ class NER_Agent():
             result_json = json.loads(result)
         
         # Store text_single and result_json in a jsonl file
-        with open(output_file, 'a') as f:
-            combined_data = {
-                "text": text_single,
-                "entities": result_json
-            }
-            f.write(json.dumps(combined_data) + '\n')
+        combined_data = {
+            "text": text_single,
+            "entities": result_json
+        }
+        self._append_jsonl(output_file, combined_data)
         
         return result_json
     
@@ -81,8 +103,12 @@ class NER_Agent():
             # Rewrite ner_result, entity numbering starts from entity_num, first entity is entity{entity_num}, subsequent entities increment
             ner_result = self.rewrite(ner_result, entity_num)
 
+            chunkid = sent_to_id.get(text)
+            if chunkid is None:
+                logger.warning("Sentence not found in sentence_to_id mapping, skipping chunk.")
+                continue
             entity_num += ner_result_num
-            ner_result_with_chunkid = self.add_chunkid(ner_result,sent_to_id[text])
+            ner_result_with_chunkid = self.add_chunkid(ner_result,chunkid)
             ner_result_for_all.update(ner_result_with_chunkid)
         return ner_result_for_all
     
@@ -107,12 +133,12 @@ class NER_Agent():
         sim_matrix = np.zeros((len(keys), len(keys)))
 
         for i, j in combinations(range(len(keys)), 2):
-            sim = cosine_similarity([vectors[keys[i]]], [vectors[keys[j]]])
+            sim = float(cosine_similarity([vectors[keys[i]]], [vectors[keys[j]]])[0][0])
             # print(f"Similarity between {keys[i]} and {keys[j]}: {sim}")
             sim_matrix[i][j] = sim
 
         candidates = [
-            (keys[i], keys[j])
+            (keys[i], keys[j], float(sim_matrix[i][j]))
             for i, j in zip(*np.where(sim_matrix > threshold))
         ]
         return candidates
@@ -126,29 +152,73 @@ class NER_Agent():
         debug_logger.debug(f"entity1={entity1}, entity2={entity2}, result={result}")
         return parse_similarity_response(result)
 
-    def similarity_result(self, entities):
+    def similarity_result(self, entities, threshold=0.60, gray_margin=0.05):
         # Step 1: Use similarity_candidates for initial filtering
-        candidates = self.similarity_candidates(entities)
-        
-        # Step 2: Fine-grained LLM judgment for each candidate pair
+        candidates = self.similarity_candidates(entities, threshold=threshold)
+
+        # Step 2: Fine-grained LLM judgment for each candidate pair, and queue gray samples
         candidates_result = []
+        gray_queue = []
         for ent_pair in candidates:
+            left_id, right_id, score = ent_pair
             # Extract entity objects from entities dictionary
-            entity1 = entities.get(ent_pair[0])
-            entity2 = entities.get(ent_pair[1])
-            
+            entity1 = entities.get(left_id)
+            entity2 = entities.get(right_id)
+
             # Call LLM for judgment
             try:
                 result = self.similarity_llm_single(entity1, entity2)
+                is_boundary = self._is_boundary_candidate(score, threshold, gray_margin)
+                needs_review = result.get("needs_review", False) or is_boundary
+
+                if needs_review:
+                    gray_queue.append({
+                        "pair": (left_id, right_id),
+                        "similarity_score": score,
+                        "reason": result.get("reason", "unknown"),
+                        "parse_status": result.get("parse_status", "unknown"),
+                        "first_pass_result": result,
+                    })
+                    continue
+
                 # Keep if LLM judges as same entity
                 if result.get('result', False):
-                    candidates_result.append(ent_pair)
+                    candidates_result.append((left_id, right_id))
             except Exception as e:
                 logger.error(f"Error processing entity pair {ent_pair}: {traceback.format_exc()}")
                 # print(f"Error processing entity pair {ent_pair}: {traceback.format_exc()}")
                 continue  # Can log or raise exception as needed
-        
-        # Step 3: Return final filtered candidate pairs
+
+        # Step 3: Re-check gray queue
+        resolved_by_second_pass = 0
+        for item in gray_queue:
+            left_id, right_id = item["pair"]
+            entity1 = entities.get(left_id)
+            entity2 = entities.get(right_id)
+            try:
+                # Reuse the original disambiguation prompt for second-pass review.
+                second_pass_result = self.similarity_llm_single(entity1, entity2)
+                if second_pass_result.get("result", False):
+                    candidates_result.append((left_id, right_id))
+                    resolved_by_second_pass += 1
+                item["second_pass_result"] = second_pass_result
+            except Exception:
+                logger.error(
+                    "Error in second-pass disambiguation for pair "
+                    f"{(left_id, right_id)}: {traceback.format_exc()}"
+                )
+
+        self.last_disambiguation_gray_queue = gray_queue
+        logger.info(
+            "Disambiguation summary: candidates=%s, gray_queue=%s, "
+            "resolved_by_second_pass=%s, merged_pairs=%s",
+            len(candidates),
+            len(gray_queue),
+            resolved_by_second_pass,
+            len(candidates_result),
+        )
+
+        # Step 4: Return final filtered candidate pairs
         return candidates_result
 
     ## Merge similar items
@@ -190,18 +260,20 @@ class NER_Agent():
 
             # Sort by appearance order, keep name/type of first entity
             main_entity = group[0]
-            descriptions = set()
-            chunkids = set()
+            descriptions = []
+            chunkids = []
 
             for e in group:
-                descriptions.add(entity_dic[e]['description'])
-                chunkids.add(entity_dic[e]['chunkid'])
+                descriptions.append(entity_dic[e]['description'])
+                chunkids.append(entity_dic[e]['chunkid'])
                 if e != main_entity:
                     del entity_dic[e]  # Remove merged entities
 
             # Merge fields
-            entity_dic[main_entity]['description'] = ';;;'.join(descriptions)
-            entity_dic[main_entity]['chunkid'] = ';;;'.join(chunkids)
+            dedup_descriptions = self._dedupe_preserve_order(descriptions)
+            dedup_chunkids = self._dedupe_preserve_order(chunkids)
+            entity_dic[main_entity]['description'] = ';;;'.join(dedup_descriptions)
+            entity_dic[main_entity]['chunkid'] = ';;;'.join(dedup_chunkids)
 
         # Step 4: Directly return merged entity dictionary
         return entity_dic
@@ -250,12 +322,19 @@ class NER_Agent():
         :return: list of tuples, each tuple contains (sentence, similarity, sentence_id)
         """
 
+        if not sentences or not vectors:
+            return []
+
         # Step 1: Convert query to vector
         query_vector = self.embeddings.embed_query(query)
 
         # Step 2: Calculate cosine similarity between query vector and sentence vectors
         sentence_vectors = np.array(vectors)
-        similarities = cosine_similarity([query_vector], sentence_vectors)[0]
+        try:
+            similarities = cosine_similarity([query_vector], sentence_vectors)[0]
+        except Exception:
+            logger.error("Failed to calculate sentence similarity: %s", traceback.format_exc())
+            return []
 
         # Step 3: Select top_k most similar sentences
         top_indices = np.argsort(similarities)[::-1][:top_k]  # Sort by similarity in descending order and take top_k
@@ -273,7 +352,7 @@ class NER_Agent():
         query = entity_dic[entity_id].get('name', '')
         context = self.get_retriever_context(query, sentences, sentence_to_id, vectors, top_k=5)
         sentences = [item[0] for item in context]
-        unique_sentences = list(set(chunk_text_list + sentences))
+        unique_sentences = self._dedupe_preserve_order(chunk_text_list + sentences)
         chunk_text = ", ".join(unique_sentences)
         prompt = ChatPromptTemplate.from_template(extract_entiry_centric_kg_en_v2)
         chain = prompt | self.model
@@ -286,13 +365,12 @@ class NER_Agent():
         else:
             result_json = json.loads(result)
 
-        with open(output_file, 'a') as f:
-            combined_data = {
-                "chunk_text": chunk_text,
-                "entity": entity_dic[entity_id],
-                "kg": result_json
-            }
-            f.write(json.dumps(combined_data) + '\n')
+        combined_data = {
+            "chunk_text": chunk_text,
+            "entity": entity_dic[entity_id],
+            "kg": result_json
+        }
+        self._append_jsonl(output_file, combined_data)
 
         return result_json
     
@@ -302,12 +380,16 @@ class NER_Agent():
         """
         results = {}
         for entity_id in entity_dic:
-            if entity_id in entity_dic:
-                result = self.get_target_kg_single(entity_dic, entity_id, id_to_sentence,sentences,sentence_to_id,vectors,output_file)
-                results[entity_id] = result
-            else:
-                logger.warning(f"Entity {entity_id} not found in entity_dic.")
-                # print(f"Entity {entity_id} not found in entity_dic.")
+            result = self.get_target_kg_single(
+                entity_dic,
+                entity_id,
+                id_to_sentence,
+                sentences,
+                sentence_to_id,
+                vectors,
+                output_file
+            )
+            results[entity_id] = result
         return results
 
     def convert_knowledge_graph(self, input_data):
@@ -320,13 +402,21 @@ class NER_Agent():
 
         # First pass: Process original entities
         for entity_key in input_data:
-            central_entity = input_data[entity_key]["central_entity"]
-            entity_name = central_entity["name"]
+            node_data = input_data.get(entity_key, {})
+            central_entity = node_data.get("central_entity")
+            if not isinstance(central_entity, dict):
+                logger.warning("Skip malformed kg node for %s: missing central_entity dict.", entity_key)
+                continue
+            entity_name = central_entity.get("name")
+            entity_type = central_entity.get("type", "Unknown")
+            if not entity_name:
+                logger.warning("Skip malformed central_entity for %s: missing name.", entity_key)
+                continue
             
             if entity_name not in entity_registry:
                 entity = {
                     "name": entity_name,
-                    "type": central_entity["type"],
+                    "type": entity_type,
                     "description": central_entity.get("description", ""),  # Add description field
                     "attributes": {}
                 }
@@ -337,10 +427,22 @@ class NER_Agent():
 
         # Second pass: Process relationships
         for entity_key in input_data:
-            central_entity = input_data[entity_key]["central_entity"]
+            node_data = input_data.get(entity_key, {})
+            central_entity = node_data.get("central_entity")
+            if not isinstance(central_entity, dict):
+                continue
+            source_name = central_entity.get("name")
+            if not source_name:
+                continue
             
             if "relationships" in central_entity:
                 for rel in central_entity["relationships"]:
+                    if not isinstance(rel, dict):
+                        logger.warning("Skip malformed relation for %s: relation is not a dict.", entity_key)
+                        continue
+                    if "target_name" not in rel or "target_type" not in rel or "relation" not in rel:
+                        logger.warning("Skip malformed relation for %s: missing required fields.", entity_key)
+                        continue
                     # Handle target entities that might be lists
                     target_names = rel["target_name"] if isinstance(rel["target_name"], list) else [rel["target_name"]]
                     target_type = rel["target_type"]
@@ -358,7 +460,7 @@ class NER_Agent():
                         # Add relationship quadruple (including relation_description)
                         relation_description = rel.get("relation_description", "")
                         output["relations"].append([
-                            central_entity["name"],
+                            source_name,
                             rel["relation"],
                             target_name,
                             relation_description
