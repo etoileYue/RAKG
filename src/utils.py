@@ -1,11 +1,15 @@
 import time
 import logging
+import os
 from functools import wraps
 from src.logger import get_logger
 import traceback
 import json
 
-logger = get_logger(name="AgentLog",
+LOG_NAME_ENV_KEY = "RAKG_LOGGER_NAME"
+DEFAULT_LOGGER_NAME = "AgentLog"
+
+logger = get_logger(name=os.getenv(LOG_NAME_ENV_KEY, DEFAULT_LOGGER_NAME),
                     level=logging.INFO,
                     log_file="Agent.log")
 

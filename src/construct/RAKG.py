@@ -1,5 +1,3 @@
-from src.textProcess import TextProcessor
-from src.kgAgent import NER_Agent
 import json
 import os
 from typing import Any
@@ -7,9 +5,18 @@ from typing import Any
 import logging
 from src.logger import get_logger
 import traceback
+
+LOG_NAME_ENV_KEY = "RAKG_LOGGER_NAME"
+DEFAULT_LOGGER_NAME = "AgentLog_test"
+
+# Let the entry point control the shared logger name used by dependent modules.
+os.environ.setdefault(LOG_NAME_ENV_KEY, DEFAULT_LOGGER_NAME)
+
+from src.textProcess import TextProcessor
+from src.kgAgent import NER_Agent
 from src.utils import get_ner_result_from_file
 
-logger = get_logger(name="AgentLog",
+logger = get_logger(name=os.getenv(LOG_NAME_ENV_KEY, DEFAULT_LOGGER_NAME),
                     level=logging.INFO,
                     log_file="Agent.log")
 
@@ -23,7 +30,7 @@ def _validate_json_serializable(data: Any) -> Any:
 def process_all_topics(
     json_path,
     output_dir,
-    done_offset=1,
+    done_offset=0,
     skip_ner_list=None,
     ner_output_dir=None,
     rel_output_dir=None,
@@ -132,14 +139,14 @@ def process_all_topics(
 
 # Example call
 if __name__ == "__main__":
-    json_path = "../../data/raw/MINE.json"  # Replace with your JSON file path
-    output_dir = "../../data/reproduce/processed/RAKG_graph_re"  # Output directory
-    skip_ner_list = [17]
+    json_path = "./data/raw/MINE_test.json"  # Replace with your JSON file path
+    output_dir = "./data/test/processed/RAKG_graph_re"  # Output directory
+    # skip_ner_list = [17]
     process_all_topics(
         json_path,
         output_dir,
-        done_offset=17,
-        skip_ner_list=skip_ner_list,
-        ner_output_dir="../../data/reproduce/processed/llmasjudge/ner_data",
-        rel_output_dir="../../data/reproduce/processed/llmasjudge/rel_data",
+        #done_offset=17,
+        #skip_ner_list=skip_ner_list,
+        ner_output_dir="./data/test/processed/llmasjudge/ner_data",
+        rel_output_dir="./data/test/processed/llmasjudge/rel_data",
     )
