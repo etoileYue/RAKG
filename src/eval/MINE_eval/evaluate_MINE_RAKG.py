@@ -129,7 +129,9 @@ def evaluate_accuracy(questions_answers, node_embeddings, model, graph, output_f
 
     for qa in questions_answers:
         try:
+            # 此处直接使用答案作为查询向量
             correct_answer = qa["answer"]
+            # 检索top8节点
             top_nodes = retrieve_relevant_nodes(correct_answer, node_embeddings, model)
             context = []
             for node, _ in top_nodes:

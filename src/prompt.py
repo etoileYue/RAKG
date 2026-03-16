@@ -347,3 +347,52 @@ judge_sim_entity_cn = '''
     1、你应当通过name和type大体判断这两个实体是否可能相同，并且在可能相同的情况下，通过description具体分析是否相同
     2、当判断确实是同一个实体时输出:{{'result':True}}，判断不是同一个实体时输出:{{'result':False}}
 '''
+
+question_entity_extract_prompt_cn = """
+你是问题检索助手。请从问题中抽取用于知识图谱检索的核心实体和关键词。
+问题：{question}
+
+输出要求：
+1. 只输出 JSON，不要输出 markdown 或额外解释。
+2. 输出格式：
+{{
+  "entities": ["实体1", "实体2"],
+  "keywords": ["关键词1", "关键词2"]
+}}
+3. entities 最多 8 个，按重要性排序。
+4. 如果问题中没有明确实体，entities 可以为空数组。
+"""
+
+kg_qa_answer_prompt_cn = """
+你是知识图谱问答助手。请基于给定的图谱上下文回答问题。
+
+问题：
+{question}
+
+检索上下文：
+{context}
+
+候选图谱路径：
+{graph_paths}
+
+请严格输出 JSON（不要 markdown）：
+{{
+  "answer": "最终答案",
+  "evidence_sources": [
+    {{
+      "source": "证据来源ID",
+      "quote": "证据片段"
+    }}
+  ],
+  "graph_paths": [
+    "路径1",
+    "路径2"
+  ]
+}}
+
+约束：
+1. 只基于给定上下文作答，不得编造。
+2. evidence_sources 至少给 1 条，source 必须来自上下文中的 source 字段。
+3. graph_paths 至少给 1 条，路径应来自候选图谱路径。
+4. 如果证据不足，answer 必须明确写出“根据现有图谱证据不足以得出确定结论”。
+"""
