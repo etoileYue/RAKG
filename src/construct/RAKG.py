@@ -141,12 +141,12 @@ def process_all_topics(
 if __name__ == "__main__":
     json_path = "./data/raw/MINE_test.json"  # Replace with your JSON file path
     output_dir = "./data/test/processed/RAKG_graph_re"  # Output directory
-    # skip_ner_list = [17]
+    skip_ner_list = [2]
     process_all_topics(
         json_path,
         output_dir,
-        #done_offset=17,
-        #skip_ner_list=skip_ner_list,
+        done_offset=2,
+        skip_ner_list=skip_ner_list,
         ner_output_dir="./data/test/processed/llmasjudge/ner_data",
         rel_output_dir="./data/test/processed/llmasjudge/rel_data",
     )
