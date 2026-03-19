@@ -228,11 +228,17 @@ class KnowledgeGraphQA:
         elif isinstance(attrs, list):
             attr_text = "; ".join([str(item) for item in attrs])
 
+        aliases = entity.get("aliases", [])
+        alias_text = ""
+        if isinstance(aliases, list):
+            alias_text = "; ".join([str(item) for item in aliases if str(item).strip()])
+
         text_parts = [
             entity.get("name", ""),
             entity.get("type", ""),
             entity.get("description", ""),
             attr_text,
+            alias_text,
         ]
         return " ".join([str(part) for part in text_parts if part]).strip()
 
@@ -277,12 +283,22 @@ class KnowledgeGraphQA:
             q_lower = q.lower()
 
             for name in node_names:
-                name_lower = name.lower()
                 string_score = 0.0
-                if q_lower == name_lower:
-                    string_score = 1.0
-                elif q_lower in name_lower or name_lower in q_lower:
-                    string_score = 0.90
+                entity_item = entity_lookup.get(name, {})
+                alias_candidates = [name]
+                aliases = entity_item.get("aliases", [])
+                if isinstance(aliases, list):
+                    alias_candidates.extend([str(alias) for alias in aliases if str(alias).strip()])
+
+                for alias_name in alias_candidates:
+                    alias_lower = alias_name.lower()
+                    alias_score = 0.0
+                    if q_lower == alias_lower:
+                        alias_score = 1.0 if alias_name == name else 0.95
+                    elif q_lower in alias_lower or alias_lower in q_lower:
+                        alias_score = 0.90 if alias_name == name else 0.85
+                    string_score = max(string_score, alias_score)
+
                 if string_score > score_map.get(name, -1):
                     score_map[name] = string_score
                     reason_map[name] = f"string_match:{q}"
