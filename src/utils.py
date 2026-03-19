@@ -18,6 +18,7 @@ logger = get_logger(
 
 
 def validate_json_serializable(data):
+    """加载json数据到data"""
     json.dumps(data, ensure_ascii=False)
     return data
 
@@ -34,7 +35,7 @@ def append_jsonl(output_file, data):
         f.write(json.dumps(data, ensure_ascii=False) + "\n")
 
 
-def dedupe_preserve_order(items):
+def dedupe_preserve_order(items)->list:
     seen = set()
     result = []
     for item in items:
