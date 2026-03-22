@@ -166,10 +166,12 @@ class NER_Agent(NERPipeline, KnowledgeGraphQA):
         topic_data,
         idx,
         total_topics,
-        output_dir,
         ner_output_dir,
         rel_output_dir,
+        sim_output_dir,
+        graph_output_dir,
         skip_ner_set=None,
+        skip_sim_set=None,
         existing_kg=None,
         enable_cross_doc_merge=True,
     ):
@@ -181,6 +183,7 @@ class NER_Agent(NERPipeline, KnowledgeGraphQA):
         split_pipeline.last_disambiguation_gray_queue = []
 
         skip_ner_set = skip_ner_set or set()
+        skip_sim_set = skip_sim_set or set()
         existing_kg = split_pipeline._normalize_graph_input(existing_kg)
 
         topic = topic_data.get("topic")
@@ -195,6 +198,7 @@ class NER_Agent(NERPipeline, KnowledgeGraphQA):
 
         ner_file_path = os.path.join(ner_output_dir, f"output_text_ner_{idx}.jsonl")
         rel_file_path = os.path.join(rel_output_dir, f"output_kg_{idx}.jsonl")
+        sim_file_path = os.path.join(sim_output_dir, f"output_entity_disambiguation_{idx}.json")
 
         if idx in skip_ner_set:
             if not os.path.exists(ner_file_path):
@@ -210,11 +214,28 @@ class NER_Agent(NERPipeline, KnowledgeGraphQA):
                 output_file=ner_file_path,
             )
 
-        sim = split_pipeline.similarity_result(ner_result) if ner_result else []
-        entity_list_process = split_pipeline.entity_Disambiguation(ner_result, sim) if ner_result else {}
-        entity_list_process = split_pipeline.ensure_entity_aliases(entity_list_process)
+        if idx in skip_sim_set:
+            if not os.path.exists(sim_file_path):
+                raise FileNotFoundError(
+                    f"SIM cache file does not exist for skipped index {idx}: {sim_file_path}"
+                )
+            with open(sim_file_path, "r", encoding="utf-8") as sim_file:
+                entity_list_process = json.load(sim_file)
+            logger.info("Skip sim during processing text%s", idx)
+        else:
+            sim = split_pipeline.similarity_result(ner_result) if ner_result else []
+            entity_list_process = split_pipeline.entity_Disambiguation(ner_result, sim) if ner_result else {}
+            # entity_list_process = split_pipeline.ensure_entity_aliases(entity_list_process)
 
-        alias_resolution = {}
+            with open(sim_file_path, "w", encoding="utf-8") as sim_file:
+                json.dump(
+                    validate_json_serializable(entity_list_process),
+                    sim_file,
+                    ensure_ascii=False,
+                    indent=4,
+                )
+
+        alias_resolution = {} # 别名解析表
         if enable_cross_doc_merge and existing_kg.get("entities"):
             entity_list_process, alias_resolution = split_pipeline.align_entities_to_existing_graph(
                 new_entities=entity_list_process,
@@ -222,6 +243,7 @@ class NER_Agent(NERPipeline, KnowledgeGraphQA):
             )
         else:
             entity_list_process = split_pipeline._collapse_entities_by_name(entity_list_process)
+            # 构建别名解析表
             for _, entity in entity_list_process.items():
                 alias_resolution[entity.get("name", "")] = entity.get("name", "")
                 for alias in entity.get("aliases", []):
@@ -269,7 +291,7 @@ class NER_Agent(NERPipeline, KnowledgeGraphQA):
             else current_doc_kg
         )
         kg_json = validate_json_serializable(merged_kg)
-        output_path = os.path.join(output_dir, f"{idx}.json")
+        output_path = os.path.join(graph_output_dir, f"{idx}.json")
         with open(output_path, "w", encoding="utf-8") as outfile:
             json.dump(kg_json, outfile, ensure_ascii=False, indent=4)
 
@@ -290,26 +312,30 @@ class NER_Agent(NERPipeline, KnowledgeGraphQA):
         output_dir,
         done_offset=0,
         skip_ner_list=None,
-        ner_output_dir=None,
-        rel_output_dir=None,
+        skip_sim_list=None,
         existing_kg_path=None,
         existing_kg=None,
-        merged_output_filename="merged_knowledge_graph.json",
         enable_cross_doc_merge=True,
     ):
         with open(json_path, "r", encoding="utf-8") as file:
             topics = json.load(file)
 
         skip_ner_set = set(skip_ner_list or [])
+        skip_sim_set = set(skip_sim_list or [])
         if not output_dir:
             raise ValueError("output_dir cannot be empty.")
 
-        ner_output_dir = ner_output_dir or os.path.join(output_dir, "ner_data")
-        rel_output_dir = rel_output_dir or os.path.join(output_dir, "rel_data")
+        ner_output_dir = os.path.join(output_dir, "ner_data")
+        rel_output_dir = os.path.join(output_dir, "rel_data")
+        sim_output_dir = os.path.join(output_dir, "sim_data")
+        graph_output_dir = os.path.join(output_dir, "RAKG_graph_re")
+
 
         os.makedirs(output_dir, exist_ok=True)
         os.makedirs(ner_output_dir, exist_ok=True)
         os.makedirs(rel_output_dir, exist_ok=True)
+        os.makedirs(sim_output_dir, exist_ok=True)
+        os.makedirs(graph_output_dir, exist_ok=True)
 
         global_kg = self._load_existing_kg(existing_kg=existing_kg, existing_kg_path=existing_kg_path)
         processed_count = 0
@@ -320,14 +346,16 @@ class NER_Agent(NERPipeline, KnowledgeGraphQA):
                 continue
 
             try:
-                result = self.process(
+                result = self.process_with_split_pipeline(
                     topic_data=topic_data,
                     idx=idx,
                     total_topics=len(topics),
-                    output_dir=output_dir,
                     ner_output_dir=ner_output_dir,
                     rel_output_dir=rel_output_dir,
+                    sim_output_dir=sim_output_dir,
+                    graph_output_dir=graph_output_dir,
                     skip_ner_set=skip_ner_set,
+                    skip_sim_set=skip_sim_set,
                     existing_kg=global_kg,
                     enable_cross_doc_merge=enable_cross_doc_merge,
                 )
@@ -350,7 +378,7 @@ class NER_Agent(NERPipeline, KnowledgeGraphQA):
 
         merged_output_path = None
         if enable_cross_doc_merge:
-            merged_output_path = os.path.join(output_dir, merged_output_filename)
+            merged_output_path = os.path.join(graph_output_dir, "merged_knowledge_graph.json")
             with open(merged_output_path, "w", encoding="utf-8") as merged_file:
                 json.dump(validate_json_serializable(global_kg), merged_file, ensure_ascii=False, indent=2)
             logger.info("Merged knowledge graph saved to %s", merged_output_path)

@@ -262,7 +262,7 @@ def get_ner_result_from_file(file_path, sent_to_id):
                 continue
 
             entity_num += ner_result_num
-            ner_result_with_chunkid = add_chunkid_to_entities(ner_result, chunkid)
+            ner_result_with_chunkid = add_chunkid_to_entities(ner_result, [chunkid])
             ner_result_for_all.update(ner_result_with_chunkid)
 
     return ner_result_for_all
