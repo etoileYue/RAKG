@@ -67,7 +67,7 @@ class PipelineEntityOpsMixin:
         return normalized
 
     def _collapse_entities_by_name(self, entity_dic)->dict:
-        # 合并同名实体
+        """合并同名实体"""
         grouped = {}
         for _, entity in (entity_dic or {}).items():
             if not isinstance(entity, dict):
@@ -82,7 +82,7 @@ class PipelineEntityOpsMixin:
                     "name": name,
                     "type": entity.get("type", "Unknown"),
                     "description": entity.get("description", ""),
-                    "chunkid": self._normalize_chunkids(entity.get("chunkid", [])),
+                    "chunkid": entity.get("chunkid", []),
                     "aliases": self._normalize_aliases(entity.get("aliases", []), name),
                 }
                 continue
@@ -98,13 +98,11 @@ class PipelineEntityOpsMixin:
                 current.get("description", ""), entity.get("description", "")
             )
             current["chunkid"] = self._dedupe_preserve_order(
-                current.get("chunkid", [])
-                + entity.get("chunkid", [])
+                current.get("chunkid", []) + entity.get("chunkid", [])
             )
             current["aliases"] = self._normalize_aliases(
-                current.get("aliases", []), name
-                + entity.get("aliases", []), name,
-                name,
+                current.get("aliases", []) + entity.get("aliases", []),
+                name
             )
 
         collapsed = {}

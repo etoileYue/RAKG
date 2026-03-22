@@ -10,18 +10,60 @@ from src.pipeline.shared import logger
 class PipelineRelationOpsMixin:
     """NER抽取与关系抽取方法集合。"""
 
+    @staticmethod
+    def _is_length_limit_error(exc):
+        text = str(exc)
+        return (
+            "LengthFinishReasonError" in text
+            or "length limit was reached" in text.lower()
+            or exc.__class__.__name__ == "LengthFinishReasonError"
+        )
+
+    @staticmethod
+    def _extract_partial_text_from_exception(exc):
+        completion = getattr(exc, "completion", None)
+        if completion and getattr(completion, "choices", None):
+            try:
+                partial = completion.choices[0].message.content
+                if partial is not None:
+                    return str(partial)
+            except Exception:
+                return None
+        return None
+
+    def _invoke_with_partial_fallback(self, chain, payload):
+        """Invoke LLM and return partial text if response is truncated by length."""
+        try:
+            return chain.invoke(payload)
+        except Exception as exc:
+            if not self._is_length_limit_error(exc):
+                raise
+            partial_text = self._extract_partial_text_from_exception(exc)
+            if partial_text:
+                logger.warning(
+                    "Captured truncated LLM content from LengthFinishReasonError (chars=%d).",
+                    len(partial_text),
+                )
+                return partial_text
+            raise
+
     def extract_from_text_single(self, text_single, output_file):
         """调用LLM提取实体"""
         prompt = ChatPromptTemplate.from_template(text2entity_en)
         chain = prompt | self.model
-        result = chain.invoke({"text": text_single})
+        result = self._invoke_with_partial_fallback(chain, {"text": text_single})
         debug_logger.debug("-extract_from_text_single-")
         debug_logger.debug(f"text_single={text_single}, result={result}")
 
-        if hasattr(result, "content"):
-            result_json = json.loads(result.content)
-        else:
-            result_json = json.loads(result)
+        raw_text = result.content if hasattr(result, "content") else str(result)
+        try:
+            result_json = json.loads(raw_text)
+        except json.JSONDecodeError:
+            logger.warning(
+                "NER output is truncated/non-JSON. Returning fallback with raw text. len=%d",
+                len(raw_text),
+            )
+            result_json = {"State": False, "_truncated_raw_text": raw_text}
 
         combined_data = {"text": text_single, "entities": result_json}
         self._append_jsonl(output_file, combined_data)
@@ -45,7 +87,7 @@ class PipelineRelationOpsMixin:
                 continue
 
             entity_num += ner_result_num
-            ner_result_with_chunkid = self.add_chunkid(ner_result, chunkid)
+            ner_result_with_chunkid = self.add_chunkid(ner_result, [chunkid])
             ner_result_for_all.update(ner_result_with_chunkid)
         return ner_result_for_all
 
@@ -73,12 +115,13 @@ class PipelineRelationOpsMixin:
 
         prompt = ChatPromptTemplate.from_template(extract_entiry_centric_kg_en_v2)
         chain = prompt | self.model
-        result = chain.invoke(
+        result = self._invoke_with_partial_fallback(
+            chain,
             {
                 "text": chunk_text,
                 "target_entity": entity_dic[entity_id].get("name"),
                 "related_kg": related_kg_payload,
-            }
+            },
         )
 
         debug_logger.debug("-get_target_kg_single-")
@@ -90,10 +133,24 @@ class PipelineRelationOpsMixin:
             result,
         )
 
-        if hasattr(result, "content"):
-            result_json = json.loads(result.content)
-        else:
-            result_json = json.loads(result)
+        raw_text = result.content if hasattr(result, "content") else str(result)
+        try:
+            result_json = json.loads(raw_text)
+        except json.JSONDecodeError:
+            logger.warning(
+                "KG output is truncated/non-JSON. Returning fallback with raw text. len=%d",
+                len(raw_text),
+            )
+            result_json = {
+                "central_entity": {
+                    "name": entity_dic[entity_id].get("name", ""),
+                    "type": entity_dic[entity_id].get("type", "Unknown"),
+                    "description": "",
+                    "attributes": [],
+                    "relationships": [],
+                },
+                "_truncated_raw_text": raw_text,
+            }
 
         combined_data = {"chunk_text": chunk_text, "entity": entity_dic[entity_id], "kg": result_json}
         self._append_jsonl(output_file, combined_data)

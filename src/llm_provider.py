@@ -3,7 +3,8 @@ from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 from src.config import (
     OLLAMA_BASE_URL, DEFAULT_MODEL, EMBEDDING_MODEL, SIMILARITY_MODEL,
     OPENAI_API_KEY, OPENAI_MODEL, OPENAI_EMBEDDING_MODEL, OPENAI_SIMILARITY_MODEL,
-    USE_OPENAI, base_url
+    USE_OPENAI, base_url,
+    OPENAI_MAX_TOKENS
 )
 
 class LLMProvider:
@@ -15,6 +16,8 @@ class LLMProvider:
                 api_key=OPENAI_API_KEY,
                 base_url=base_url,
                 temperature=0,
+                max_tokens=OPENAI_MAX_TOKENS,
+                # max_retries=3,
             ).bind(response_format={"type": "json_object"})
             self.embedding_model = OpenAIEmbeddings(
                 model=OPENAI_EMBEDDING_MODEL,
@@ -26,6 +29,8 @@ class LLMProvider:
                 api_key=OPENAI_API_KEY,
                 base_url=base_url,
                 temperature=0,
+                max_tokens=OPENAI_MAX_TOKENS,
+                # max_retries=3,
             ).bind(response_format={"type": "json_object"})
         else:
             # 使用 Ollama 模型

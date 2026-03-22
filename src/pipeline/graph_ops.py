@@ -68,13 +68,13 @@ class PipelineGraphOpsMixin:
         gray_margin=0.05,
     ):
         """将新实体对齐到已有图谱中的实体"""
-        new_entities = self.ensure_entity_aliases(new_entities)
+        # new_entities = self.ensure_entity_aliases(new_entities)
         if not new_entities:
             return {}, {}
 
         existing_entities = self._build_existing_entity_lookup(existing_graph)
-        if not existing_entities:
-            return self._collapse_entities_by_name(new_entities), {}
+        # if not existing_entities:
+        #     return self._collapse_entities_by_name(new_entities), {}
 
         matched_map = self.cross_similarity_result(
             left_entities=new_entities,
