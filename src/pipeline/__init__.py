@@ -6,7 +6,8 @@ from src.pipeline.io_ops import PipelineIOOpsMixin
 from src.pipeline.relation_ops import PipelineRelationOpsMixin
 from src.pipeline.retrieval_ops import PipelineRetrievalOpsMixin
 from src.pipeline.similarity_ops import PipelineSimilarityOpsMixin
-from src.pipeline.split_pipeline import SplitNERPipeline
+from src.pipeline.qa_pipeline import KnowledgeGraphQA
+from src.pipeline.nerpipeline import NERPipeline
 
 __all__ = [
     "PipelineIOOpsMixin",
@@ -15,5 +16,6 @@ __all__ = [
     "PipelineRetrievalOpsMixin",
     "PipelineRelationOpsMixin",
     "PipelineGraphOpsMixin",
-    "SplitNERPipeline",
+    "KnowledgeGraphQA",
+    "NERPipeline",
 ]

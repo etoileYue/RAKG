@@ -1,6 +1,5 @@
 """实体相似候选生成与两阶段判定能力。"""
 
-from itertools import combinations
 import traceback
 import numpy as np
 from langchain_core.prompts import ChatPromptTemplate
@@ -14,30 +13,6 @@ from src.pipeline.shared import logger
 class PipelineSimilarityOpsMixin:
     """实体相似候选生成与判定方法集合。"""
 
-    def similarity_candidates(self, entities, threshold=0.60):
-        """通过向量相似度判断entities列表中是否存在候选相似实体"""
-        def get_embedding_vector(text):
-            result = self.embeddings.embed_documents([text])
-            if isinstance(result, list) and isinstance(result[0], list):
-                return result[0]
-            return result
-
-        entity_texts = {k: f"{v['name']} {v['type']}" for k, v in entities.items()}
-        vectors = {k: get_embedding_vector(text) for k, text in entity_texts.items()}
-
-        keys = list(vectors.keys())
-        sim_matrix = np.zeros((len(keys), len(keys)))
-
-        for i, j in combinations(range(len(keys)), 2):
-            sim = float(cosine_similarity([vectors[keys[i]]], [vectors[keys[j]]])[0][0])
-            sim_matrix[i][j] = sim
-
-        candidates = [
-            (keys[i], keys[j], float(sim_matrix[i][j]))
-            for i, j in zip(*np.where(sim_matrix > threshold))
-        ]
-        return candidates
-
     @retry()
     def similarity_llm_single(self, entity1, entity2):
         """调用LLM判断两个相似实体是否为同一实体"""
@@ -45,7 +20,9 @@ class PipelineSimilarityOpsMixin:
         chain = prompt | self.similarity_model
         result = chain.invoke({"entity1": str(entity1), "entity2": str(entity2)})
         debug_logger.debug("-similarity_llm_single-")
-        debug_logger.debug(f"entity1={entity1}, entity2={entity2}, result={result}")
+        simple_entity1 = {k: entity1[k] for k in ["name", "type"]}
+        simple_entity2 = {k: entity2[k] for k in ["name", "type"]}
+        debug_logger.debug(f"entity1={simple_entity1}, entity2={simple_entity2}, result={result}")
         return parse_similarity_response(result)
 
     def _run_two_pass_similarity_disambiguation(
@@ -120,9 +97,13 @@ class PipelineSimilarityOpsMixin:
 
         return positives, gray_queue, resolved_by_second_pass
 
-    def similarity_result(self, entities, threshold=0.60, gray_margin=0.05)->list[tuple]:
+    def similarity_result(self, entities, threshold=0.50, gray_margin=0.05)->list[tuple]:
         """返回相似实体，两两一组"""
-        candidates = self.similarity_candidates(entities, threshold=threshold)
+        candidates = self.similarity_candidates(
+            left_entities=entities,
+            right_entities=None,
+            threshold=threshold,
+        )
         positives, gray_queue, resolved_by_second_pass = self._run_two_pass_similarity_disambiguation(
             candidates=candidates,
             left_entities=entities,
@@ -143,10 +124,15 @@ class PipelineSimilarityOpsMixin:
         )
         return candidates_result
 
-    def similarity_candidates_cross(self, left_entities, right_entities, threshold=0.60)->list[tuple]:
+    def similarity_candidates(self, left_entities, right_entities=None, threshold=0.60)->list[tuple]:
         """根据向量相似度判断新实体与已有实体之间是否存在相似实体，两两一组"""
-        if not left_entities or not right_entities:
+        if not left_entities:
             return []
+
+        if not right_entities:
+            right_entities = left_entities
+
+        same_side_compare = left_entities is right_entities
 
         left_keys = list(left_entities.keys())
         right_keys = list(right_entities.keys())
@@ -161,7 +147,10 @@ class PipelineSimilarityOpsMixin:
         sim_matrix = cosine_similarity(left_vectors, right_vectors)
 
         candidates = []
-        matched = np.argwhere(sim_matrix > threshold)
+        if same_side_compare:
+            matched = np.argwhere(np.triu(sim_matrix, k=1) > threshold)
+        else:
+            matched = np.argwhere(sim_matrix > threshold)
         for left_idx, right_idx in matched:
             candidates.append(
                 (
@@ -171,11 +160,13 @@ class PipelineSimilarityOpsMixin:
                 )
             )
         candidates.sort(key=lambda item: item[2], reverse=True)
+        debug_logger.debug("- similarity_candidates -")
+        debug_logger.debug(f"{candidates}")
         return candidates
 
     def cross_similarity_result(self, left_entities, right_entities, threshold=0.60, gray_margin=0.05):
         """在新旧实体之间找出高置信匹配，并为每个新实体选出一个最相似的已有实体作为对齐目标"""
-        candidates = self.similarity_candidates_cross(
+        candidates = self.similarity_candidates(
             left_entities=left_entities,
             right_entities=right_entities,
             threshold=threshold,

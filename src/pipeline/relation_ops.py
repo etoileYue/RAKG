@@ -74,17 +74,17 @@ class PipelineRelationOpsMixin:
         ner_result_for_all = {}
         entity_num = 1
         for text in text_list:
+            chunkid = sent_to_id.get(text)
+            if chunkid is None:
+                logger.warning("Sentence not found in sentence_to_id mapping, skipping chunk.")
+                continue
+
             ner_result = self.extract_from_text_single(text, output_file)
             if "State" in ner_result:
                 continue
 
             ner_result_num = len(ner_result)
             ner_result = self.rewrite(ner_result, entity_num)
-
-            chunkid = sent_to_id.get(text)
-            if chunkid is None:
-                logger.warning("Sentence not found in sentence_to_id mapping, skipping chunk.")
-                continue
 
             entity_num += ner_result_num
             ner_result_with_chunkid = self.add_chunkid(ner_result, [chunkid])

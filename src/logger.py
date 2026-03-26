@@ -53,8 +53,8 @@ class Logger:
         # 默认日志格式
         if log_format is None:
             self.log_format = (
-                '%(asctime)s - %(name)s - %(levelname)s - '
-                '%(filename)s:%(lineno)d - %(message)s'
+                '%(asctime)s - %(levelname)s - '
+                '%(message)s'
             )
         else:
             self.log_format = log_format
