@@ -17,6 +17,7 @@ class LLMProvider:
                 base_url=base_url,
                 temperature=0,
                 max_tokens=OPENAI_MAX_TOKENS,
+                extra_body={"enable_thinking": False},
                 # max_retries=3,
             ).bind(response_format={"type": "json_object"})
             self.embedding_model = OpenAIEmbeddings(
@@ -30,6 +31,7 @@ class LLMProvider:
                 base_url=base_url,
                 temperature=0,
                 max_tokens=OPENAI_MAX_TOKENS,
+                extra_body={"enable_thinking": False},
                 # max_retries=3,
             ).bind(response_format={"type": "json_object"})
         else:

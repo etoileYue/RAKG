@@ -8,7 +8,7 @@ from src.pipeline.retrieval_ops import PipelineRetrievalOpsMixin
 from src.pipeline.similarity_ops import PipelineSimilarityOpsMixin
 
 
-class SplitNERPipeline(
+class NERPipeline(
     PipelineIOOpsMixin,
     PipelineEntityOpsMixin,
     PipelineSimilarityOpsMixin,
