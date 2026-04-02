@@ -1,0 +1,343 @@
+{
+    "entity1": {
+        "name": "music",
+        "type": "Concept",
+        "description": "An art form and cultural activity involving sound, often used to express emotions and influence mood.;;;An art form involving organized sounds, often used for emotional expression and entertainment.;;;An art form involving organized sounds, often used for emotional expression and cultural communication.;;;A form of artistic expression involving sound and rhythm, often used for emotional and social purposes.;;;An art form involving organized sounds, often used for emotional expression and cultural purposes.;;;An art form involving organized sounds, often used for expression, entertainment, and emotional connection.;;;An art form consisting of sound and silence, often organized in time, which can affect human emotions and behavior.;;;A form of art that involves sound and rhythm, often used to express emotions and influence mood.;;;An art form involving sound, rhythm, and melody, often used to express emotions and influence mood.;;;An art form and cultural activity involving organized sounds and rhythms.;;;An art form and cultural activity involving organized sounds and rhythms, often used to express emotions and ideas.;;;An art form and cultural activity involving sound, often organized into rhythms and melodies.;;;An art form and cultural activity involving organized sounds, often used to express emotions and ideas.",
+        "chunkid": [
+            "How Music Influences Mood2",
+            "How Music Influences Mood3",
+            "How Music Influences Mood4",
+            "How Music Influences Mood7",
+            "How Music Influences Mood8",
+            "How Music Influences Mood13",
+            "How Music Influences Mood15",
+            "How Music Influences Mood16",
+            "How Music Influences Mood20",
+            "How Music Influences Mood22",
+            "How Music Influences Mood23",
+            "How Music Influences Mood24",
+            "How Music Influences Mood25",
+            "How Music Influences Mood26"
+        ],
+        "aliases": [
+            "Music"
+        ]
+    },
+    "entity3": {
+        "name": "mood",
+        "type": "Concept",
+        "description": "A temporary state of mind or emotion that can be influenced by various factors, including music.;;;The psychological condition or mood of an individual, influenced by various internal and external factors.;;;A psychological state or emotional condition that can be influenced by various factors, including music.;;;A temporary state of mind or feeling, often influenced by external factors like music.",
+        "chunkid": [
+            "How Music Influences Mood3",
+            "How Music Influences Mood8",
+            "How Music Influences Mood16",
+            "How Music Influences Mood20",
+            "How Music Influences Mood22",
+            "How Music Influences Mood25"
+        ],
+        "aliases": [
+            "emotional state"
+        ]
+    },
+    "entity4": {
+        "name": "phenomenon",
+        "type": "Concept",
+        "description": "An observable event or occurrence, in this case referring to the influence of music on mood.",
+        "chunkid": [
+            "How Music Influences Mood3"
+        ],
+        "aliases": []
+    },
+    "entity6": {
+        "name": "song",
+        "type": "object",
+        "description": "A piece of music that is associated with specific emotions or memories.;;;A musical composition, often with lyrics, that can influence a person's mood.",
+        "chunkid": [
+            "How Music Influences Mood6",
+            "How Music Influences Mood10"
+        ],
+        "aliases": []
+    },
+    "entity7": {
+        "name": "happy moment",
+        "type": "event",
+        "description": "A positive and joyful experience in someone's life.",
+        "chunkid": [
+            "How Music Influences Mood6"
+        ],
+        "aliases": []
+    },
+    "entity8": {
+        "name": "joy",
+        "type": "emotion",
+        "description": "A feeling of happiness and pleasure.",
+        "chunkid": [
+            "How Music Influences Mood6"
+        ],
+        "aliases": []
+    },
+    "entity9": {
+        "name": "nostalgia",
+        "type": "emotion",
+        "description": "A sentimental longing or wistful affection for a period in the past.",
+        "chunkid": [
+            "How Music Influences Mood6"
+        ],
+        "aliases": []
+    },
+    "entity10": {
+        "name": "sad event",
+        "type": "event",
+        "description": "An unfortunate or emotionally difficult experience in someone's life.",
+        "chunkid": [
+            "How Music Influences Mood6"
+        ],
+        "aliases": []
+    },
+    "entity11": {
+        "name": "sorrow",
+        "type": "emotion",
+        "description": "A feeling of deep distress caused by loss, disappointment, or other misfortunes.",
+        "chunkid": [
+            "How Music Influences Mood6"
+        ],
+        "aliases": []
+    },
+    "entity12": {
+        "name": "melancholy",
+        "type": "emotion",
+        "description": "A feeling of pensive sadness, typically with no obvious cause.",
+        "chunkid": [
+            "How Music Influences Mood6"
+        ],
+        "aliases": []
+    },
+    "entity15": {
+        "name": "heart rate",
+        "type": "Physiological Indicator",
+        "description": "The number of times the heart beats per minute, often used to measure physical and emotional states.;;;The number of times the heart beats per minute, often used as an indicator of physical exertion or emotional state.",
+        "chunkid": [
+            "How Music Influences Mood8",
+            "How Music Influences Mood9"
+        ],
+        "aliases": [
+            "Heart rate"
+        ]
+    },
+    "entity16": {
+        "name": "blood pressure",
+        "type": "Physiological Indicator",
+        "description": "The force exerted by blood against the walls of blood vessels, indicating cardiovascular health and stress levels.",
+        "chunkid": [
+            "How Music Influences Mood8"
+        ],
+        "aliases": []
+    },
+    "entity17": {
+        "name": "cortisol levels",
+        "type": "Physiological Indicator",
+        "description": "The concentration of cortisol, a hormone associated with stress, in the body.",
+        "chunkid": [
+            "How Music Influences Mood8"
+        ],
+        "aliases": []
+    },
+    "entity19": {
+        "name": "Upbeat and fast-paced music",
+        "type": "Concept",
+        "description": "A type of music characterized by a quick tempo and energetic rhythm, often associated with increased heart rate and energy levels.",
+        "chunkid": [
+            "How Music Influences Mood9"
+        ],
+        "aliases": []
+    },
+    "entity21": {
+        "name": "Energy levels",
+        "type": "Physiological Process",
+        "description": "The amount of physical and mental energy a person has, which can be influenced by various factors including music.",
+        "chunkid": [
+            "How Music Influences Mood9"
+        ],
+        "aliases": []
+    },
+    "entity22": {
+        "name": "Feelings of excitement and motivation",
+        "type": "Emotional State",
+        "description": "Positive emotional responses that can be triggered by certain stimuli, such as upbeat music.",
+        "chunkid": [
+            "How Music Influences Mood9"
+        ],
+        "aliases": []
+    },
+    "entity23": {
+        "name": "Slow, calming music",
+        "type": "Concept",
+        "description": "A type of music characterized by a slow tempo and soothing qualities, often associated with relaxation and reduced heart rate.",
+        "chunkid": [
+            "How Music Influences Mood9"
+        ],
+        "aliases": []
+    },
+    "entity24": {
+        "name": "Relaxation",
+        "type": "Emotional State",
+        "description": "A state of being free from tension and anxiety, often induced by calming music or other relaxing activities.",
+        "chunkid": [
+            "How Music Influences Mood9"
+        ],
+        "aliases": []
+    },
+    "entity26": {
+        "name": "empowering lyrics",
+        "type": "Concept",
+        "description": "Lyrics in songs that inspire strength, confidence, or motivation in the listeners.",
+        "chunkid": [
+            "How Music Influences Mood12"
+        ],
+        "aliases": []
+    },
+    "entity27": {
+        "name": "sad or melancholic lyrics",
+        "type": "Concept",
+        "description": "Lyrics in songs that express sorrow, sadness, or deep emotional reflection.",
+        "chunkid": [
+            "How Music Influences Mood12"
+        ],
+        "aliases": []
+    },
+    "entity28": {
+        "name": "feelings of empathy and introspection",
+        "type": "Emotional State",
+        "description": "Emotional responses where listeners feel compassion for others and engage in self-reflection.",
+        "chunkid": [
+            "How Music Influences Mood12"
+        ],
+        "aliases": []
+    },
+    "entity30": {
+        "name": "concert",
+        "type": "Event",
+        "description": "A public performance of music, typically involving a large audience.",
+        "chunkid": [
+            "How Music Influences Mood14"
+        ],
+        "aliases": []
+    },
+    "entity31": {
+        "name": "party",
+        "type": "Event",
+        "description": "A social gathering where people often listen to and enjoy music together.",
+        "chunkid": [
+            "How Music Influences Mood14"
+        ],
+        "aliases": []
+    },
+    "entity35": {
+        "name": "classical",
+        "type": "Music Genre",
+        "description": "A genre of music characterized by complex compositions and formal structures, often associated with orchestral and operatic works.;;;A genre of music characterized by its complexity, structure, and often associated with elegance and sophistication.",
+        "chunkid": [
+            "How Music Influences Mood17",
+            "How Music Influences Mood18"
+        ],
+        "aliases": [
+            "Classical music"
+        ]
+    },
+    "entity36": {
+        "name": "rock",
+        "type": "Music Genre",
+        "description": "A genre of music that typically features electric guitars, strong rhythms, and a focus on performance and energy.;;;A genre of music known for its energetic rhythms, rebellious themes, and intense sound.",
+        "chunkid": [
+            "How Music Influences Mood17",
+            "How Music Influences Mood18"
+        ],
+        "aliases": [
+            "Rock music"
+        ]
+    },
+    "entity37": {
+        "name": "pop",
+        "type": "Music Genre",
+        "description": "A genre of music that is popular among the general public, often characterized by catchy melodies and simple structures.",
+        "chunkid": [
+            "How Music Influences Mood17"
+        ],
+        "aliases": []
+    },
+    "entity38": {
+        "name": "jazz",
+        "type": "Music Genre",
+        "description": "A genre of music that originated in African American communities, known for improvisation, syncopation, and swing rhythms.",
+        "chunkid": [
+            "How Music Influences Mood17"
+        ],
+        "aliases": []
+    },
+    "entity39": {
+        "name": "electronic",
+        "type": "Music Genre",
+        "description": "A genre of music that uses electronic instruments and technology to create and produce sound.",
+        "chunkid": [
+            "How Music Influences Mood17"
+        ],
+        "aliases": []
+    },
+    "entity42": {
+        "name": "genres of music",
+        "type": "Cultural Concept",
+        "description": "Categories or types of music that distinguish different styles, themes, or characteristics.",
+        "chunkid": [
+            "How Music Influences Mood19"
+        ],
+        "aliases": []
+    },
+    "entity43": {
+        "name": "emotional needs",
+        "type": "Psychological Concept",
+        "description": "The internal requirements or desires related to emotions that influence a person's behavior or preferences.",
+        "chunkid": [
+            "How Music Influences Mood19"
+        ],
+        "aliases": []
+    },
+    "entity44": {
+        "name": "preferences",
+        "type": "Psychological Concept",
+        "description": "Personal inclinations or choices that individuals have for certain things, such as music genres.;;;Personal likes and dislikes that can affect how a person responds to music and its impact on their mood.",
+        "chunkid": [
+            "How Music Influences Mood19",
+            "How Music Influences Mood20"
+        ],
+        "aliases": [
+            "individual preferences"
+        ]
+    },
+    "entity48": {
+        "name": "past experiences",
+        "type": "Concept",
+        "description": "Previous events or memories that may shape a person's emotional response to music.",
+        "chunkid": [
+            "How Music Influences Mood20"
+        ],
+        "aliases": []
+    },
+    "entity49": {
+        "name": "cultural background",
+        "type": "Concept",
+        "description": "The cultural environment and traditions a person is exposed to, which can influence their perception and emotional response to music.",
+        "chunkid": [
+            "How Music Influences Mood20"
+        ],
+        "aliases": []
+    },
+    "entity56": {
+        "name": "emotional well-being",
+        "type": "Concept",
+        "description": "A state of being comfortable, healthy, and happy in terms of one's emotional health.",
+        "chunkid": [
+            "How Music Influences Mood25"
+        ],
+        "aliases": []
+    }
+}

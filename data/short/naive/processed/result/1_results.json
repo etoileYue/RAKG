@@ -1,0 +1,562 @@
+[
+  {
+    "correct_answer": "Butterflies undergo a remarkable transformation throughout their life cycle.",
+    "retrieved_context": "1. [sentence_id=The Life Cycle of a Butterfly1] ```The Life Cycle of a Butterfly\n\nButterflies are fascinating creatures that undergo a remarkable transformation throughout their life cycle. (score=0.8730)\n2. [sentence_id=The Life Cycle of a Butterfly21] Inside the chrysalis, the caterpillar undergoes a remarkable transformation known as metamorphosis. (score=0.7880)\n3. [sentence_id=The Life Cycle of a Butterfly22] During metamorphosis, the caterpillar's body undergoes significant changes as it develops into a butterfly. (score=0.7319)\n4. [sentence_id=The Life Cycle of a Butterfly4] The first stage of a butterfly's life cycle is the egg stage. (score=0.6835)\n5. [sentence_id=The Life Cycle of a Butterfly37] By understanding and appreciating the life cycle of butterflies, we gain a deeper appreciation for the intricate connections and processes that make up the natural world. (score=0.6477)",
+    "retrieved_items": [
+      {
+        "rank": 1,
+        "sentence": "```The Life Cycle of a Butterfly\n\nButterflies are fascinating creatures that undergo a remarkable transformation throughout their life cycle.",
+        "sentence_id": "The Life Cycle of a Butterfly1",
+        "score": 0.8730396208109716
+      },
+      {
+        "rank": 2,
+        "sentence": "Inside the chrysalis, the caterpillar undergoes a remarkable transformation known as metamorphosis.",
+        "sentence_id": "The Life Cycle of a Butterfly21",
+        "score": 0.787971494393814
+      },
+      {
+        "rank": 3,
+        "sentence": "During metamorphosis, the caterpillar's body undergoes significant changes as it develops into a butterfly.",
+        "sentence_id": "The Life Cycle of a Butterfly22",
+        "score": 0.731930036808118
+      },
+      {
+        "rank": 4,
+        "sentence": "The first stage of a butterfly's life cycle is the egg stage.",
+        "sentence_id": "The Life Cycle of a Butterfly4",
+        "score": 0.6835105480501628
+      },
+      {
+        "rank": 5,
+        "sentence": "By understanding and appreciating the life cycle of butterflies, we gain a deeper appreciation for the intricate connections and processes that make up the natural world.",
+        "sentence_id": "The Life Cycle of a Butterfly37",
+        "score": 0.6476759435081454
+      }
+    ],
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Female butterflies lay their eggs on specific host plants.",
+    "retrieved_context": "1. [sentence_id=The Life Cycle of a Butterfly33] Female butterflies lay their eggs on host plants, starting the cycle anew. (score=0.8555)\n2. [sentence_id=The Life Cycle of a Butterfly5] Female butterflies lay their eggs on specific host plants that will provide food for the emerging larvae. (score=0.8543)\n3. [sentence_id=The Life Cycle of a Butterfly23] Its organs dissolve into a soupy substance, and new tissues and structures, such as wings and antennae, begin to form. (score=0.6467)\n4. [sentence_id=The Life Cycle of a Butterfly34] Adult butterflies have a relatively short lifespan, ranging from a few days to a few weeks, depending on the species. (score=0.6355)\n5. [sentence_id=The Life Cycle of a Butterfly37] By understanding and appreciating the life cycle of butterflies, we gain a deeper appreciation for the intricate connections and processes that make up the natural world. (score=0.6238)",
+    "retrieved_items": [
+      {
+        "rank": 1,
+        "sentence": "Female butterflies lay their eggs on host plants, starting the cycle anew.",
+        "sentence_id": "The Life Cycle of a Butterfly33",
+        "score": 0.8555357013941557
+      },
+      {
+        "rank": 2,
+        "sentence": "Female butterflies lay their eggs on specific host plants that will provide food for the emerging larvae.",
+        "sentence_id": "The Life Cycle of a Butterfly5",
+        "score": 0.8543264317055436
+      },
+      {
+        "rank": 3,
+        "sentence": "Its organs dissolve into a soupy substance, and new tissues and structures, such as wings and antennae, begin to form.",
+        "sentence_id": "The Life Cycle of a Butterfly23",
+        "score": 0.6467285839604333
+      },
+      {
+        "rank": 4,
+        "sentence": "Adult butterflies have a relatively short lifespan, ranging from a few days to a few weeks, depending on the species.",
+        "sentence_id": "The Life Cycle of a Butterfly34",
+        "score": 0.6355106217586748
+      },
+      {
+        "rank": 5,
+        "sentence": "By understanding and appreciating the life cycle of butterflies, we gain a deeper appreciation for the intricate connections and processes that make up the natural world.",
+        "sentence_id": "The Life Cycle of a Butterfly37",
+        "score": 0.6237675730371994
+      }
+    ],
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Butterfly eggs are usually laid on the underside of leaves.",
+    "retrieved_context": "1. [sentence_id=The Life Cycle of a Butterfly8] Some eggs are round, while others are cylindrical or oval. (score=0.7074)\n2. [sentence_id=The Life Cycle of a Butterfly12] Caterpillars are voracious eaters and spend most of their time feeding on leaves and growing rapidly. (score=0.6756)\n3. [sentence_id=The Life Cycle of a Butterfly32] Throughout their adult stage, butterflies focus on finding a mate and reproducing to continue the life cycle. (score=0.6563)\n4. [sentence_id=The Life Cycle of a Butterfly27] The newly emerged butterfly has soft, wrinkled wings that it must pump full of fluid to expand and harden. (score=0.6519)\n5. [sentence_id=The Life Cycle of a Butterfly4] The first stage of a butterfly's life cycle is the egg stage. (score=0.6461)",
+    "retrieved_items": [
+      {
+        "rank": 1,
+        "sentence": "Some eggs are round, while others are cylindrical or oval.",
+        "sentence_id": "The Life Cycle of a Butterfly8",
+        "score": 0.7074039672689221
+      },
+      {
+        "rank": 2,
+        "sentence": "Caterpillars are voracious eaters and spend most of their time feeding on leaves and growing rapidly.",
+        "sentence_id": "The Life Cycle of a Butterfly12",
+        "score": 0.6756417347681873
+      },
+      {
+        "rank": 3,
+        "sentence": "Throughout their adult stage, butterflies focus on finding a mate and reproducing to continue the life cycle.",
+        "sentence_id": "The Life Cycle of a Butterfly32",
+        "score": 0.6562863747257516
+      },
+      {
+        "rank": 4,
+        "sentence": "The newly emerged butterfly has soft, wrinkled wings that it must pump full of fluid to expand and harden.",
+        "sentence_id": "The Life Cycle of a Butterfly27",
+        "score": 0.6519178459649175
+      },
+      {
+        "rank": 5,
+        "sentence": "The first stage of a butterfly's life cycle is the egg stage.",
+        "sentence_id": "The Life Cycle of a Butterfly4",
+        "score": 0.6460947142872371
+      }
+    ],
+    "evaluation": 0
+  },
+  {
+    "correct_answer": "The size, shape, and color of butterfly eggs vary depending on the species.",
+    "retrieved_context": "1. [sentence_id=The Life Cycle of a Butterfly7] The size, shape, and color of butterfly eggs vary depending on the species. (score=1.0000)\n2. [sentence_id=The Life Cycle of a Butterfly26] The fourth and final stage of the butterfly's life cycle is the adult stage. (score=0.5540)\n3. [sentence_id=The Life Cycle of a Butterfly6] The eggs are usually laid on the underside of leaves to protect them from predators. (score=0.5083)\n4. [sentence_id=The Life Cycle of a Butterfly11] The second stage of the butterfly's life cycle is the larva stage. (score=0.5051)\n5. [sentence_id=The Life Cycle of a Butterfly19] The third stage of the butterfly's life cycle is the pupa stage. (score=0.4929)",
+    "retrieved_items": [
+      {
+        "rank": 1,
+        "sentence": "The size, shape, and color of butterfly eggs vary depending on the species.",
+        "sentence_id": "The Life Cycle of a Butterfly7",
+        "score": 0.9999938858016633
+      },
+      {
+        "rank": 2,
+        "sentence": "The fourth and final stage of the butterfly's life cycle is the adult stage.",
+        "sentence_id": "The Life Cycle of a Butterfly26",
+        "score": 0.553971455115745
+      },
+      {
+        "rank": 3,
+        "sentence": "The eggs are usually laid on the underside of leaves to protect them from predators.",
+        "sentence_id": "The Life Cycle of a Butterfly6",
+        "score": 0.5083309905806579
+      },
+      {
+        "rank": 4,
+        "sentence": "The second stage of the butterfly's life cycle is the larva stage.",
+        "sentence_id": "The Life Cycle of a Butterfly11",
+        "score": 0.5050943539749388
+      },
+      {
+        "rank": 5,
+        "sentence": "The third stage of the butterfly's life cycle is the pupa stage.",
+        "sentence_id": "The Life Cycle of a Butterfly19",
+        "score": 0.4929496722127087
+      }
+    ],
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "After hatching, a tiny larva, known as a caterpillar, emerges.",
+    "retrieved_context": "1. [sentence_id=The Life Cycle of a Butterfly3] In this essay, we will explore the stages of the butterfly's life cycle and the incredible journey it takes to reach adulthood. (score=0.6265)\n2. [sentence_id=The Life Cycle of a Butterfly23] Its organs dissolve into a soupy substance, and new tissues and structures, such as wings and antennae, begin to form. (score=0.6119)\n3. [sentence_id=The Life Cycle of a Butterfly14] Each time they molt, they reveal a new, larger skin underneath. (score=0.5933)\n4. [sentence_id=The Life Cycle of a Butterfly4] The first stage of a butterfly's life cycle is the egg stage. (score=0.5668)\n5. [sentence_id=The Life Cycle of a Butterfly27] The newly emerged butterfly has soft, wrinkled wings that it must pump full of fluid to expand and harden. (score=0.5611)",
+    "retrieved_items": [
+      {
+        "rank": 1,
+        "sentence": "In this essay, we will explore the stages of the butterfly's life cycle and the incredible journey it takes to reach adulthood.",
+        "sentence_id": "The Life Cycle of a Butterfly3",
+        "score": 0.6265188640519647
+      },
+      {
+        "rank": 2,
+        "sentence": "Its organs dissolve into a soupy substance, and new tissues and structures, such as wings and antennae, begin to form.",
+        "sentence_id": "The Life Cycle of a Butterfly23",
+        "score": 0.6118744912944638
+      },
+      {
+        "rank": 3,
+        "sentence": "Each time they molt, they reveal a new, larger skin underneath.",
+        "sentence_id": "The Life Cycle of a Butterfly14",
+        "score": 0.5932719028735636
+      },
+      {
+        "rank": 4,
+        "sentence": "The first stage of a butterfly's life cycle is the egg stage.",
+        "sentence_id": "The Life Cycle of a Butterfly4",
+        "score": 0.5668180701588101
+      },
+      {
+        "rank": 5,
+        "sentence": "The newly emerged butterfly has soft, wrinkled wings that it must pump full of fluid to expand and harden.",
+        "sentence_id": "The Life Cycle of a Butterfly27",
+        "score": 0.561106049075418
+      }
+    ],
+    "evaluation": 0
+  },
+  {
+    "correct_answer": "Caterpillars are voracious eaters and spend most of their time feeding on leaves.",
+    "retrieved_context": "1. [sentence_id=The Life Cycle of a Butterfly12] Caterpillars are voracious eaters and spend most of their time feeding on leaves and growing rapidly. (score=0.9719)\n2. [sentence_id=The Life Cycle of a Butterfly4] The first stage of a butterfly's life cycle is the egg stage. (score=0.7257)\n3. [sentence_id=The Life Cycle of a Butterfly27] The newly emerged butterfly has soft, wrinkled wings that it must pump full of fluid to expand and harden. (score=0.7243)\n4. [sentence_id=The Life Cycle of a Butterfly38] Next time you see a butterfly fluttering by, take a moment to marvel at the incredible journey it has taken to reach that moment of beauty and grace.``` (score=0.7215)\n5. [sentence_id=The Life Cycle of a Butterfly18] As the caterpillar grows, it eventually reaches a point where it stops eating and begins to prepare for the next stage of its life cycle. (score=0.7141)",
+    "retrieved_items": [
+      {
+        "rank": 1,
+        "sentence": "Caterpillars are voracious eaters and spend most of their time feeding on leaves and growing rapidly.",
+        "sentence_id": "The Life Cycle of a Butterfly12",
+        "score": 0.9719212615018015
+      },
+      {
+        "rank": 2,
+        "sentence": "The first stage of a butterfly's life cycle is the egg stage.",
+        "sentence_id": "The Life Cycle of a Butterfly4",
+        "score": 0.7257321378703014
+      },
+      {
+        "rank": 3,
+        "sentence": "The newly emerged butterfly has soft, wrinkled wings that it must pump full of fluid to expand and harden.",
+        "sentence_id": "The Life Cycle of a Butterfly27",
+        "score": 0.7243277179646679
+      },
+      {
+        "rank": 4,
+        "sentence": "Next time you see a butterfly fluttering by, take a moment to marvel at the incredible journey it has taken to reach that moment of beauty and grace.```",
+        "sentence_id": "The Life Cycle of a Butterfly38",
+        "score": 0.7214562256666279
+      },
+      {
+        "rank": 5,
+        "sentence": "As the caterpillar grows, it eventually reaches a point where it stops eating and begins to prepare for the next stage of its life cycle.",
+        "sentence_id": "The Life Cycle of a Butterfly18",
+        "score": 0.7141325375238929
+      }
+    ],
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Caterpillars shed their skin several times as they grow.",
+    "retrieved_context": "1. [sentence_id=The Life Cycle of a Butterfly13] They shed their skin several times as they grow, a process known as molting. (score=0.7639)\n2. [sentence_id=The Life Cycle of a Butterfly12] Caterpillars are voracious eaters and spend most of their time feeding on leaves and growing rapidly. (score=0.6726)\n3. [sentence_id=The Life Cycle of a Butterfly15] Caterpillars come in a variety of shapes, sizes, and colors, depending on the species. (score=0.6513)\n4. [sentence_id=The Life Cycle of a Butterfly27] The newly emerged butterfly has soft, wrinkled wings that it must pump full of fluid to expand and harden. (score=0.6198)\n5. [sentence_id=The Life Cycle of a Butterfly37] By understanding and appreciating the life cycle of butterflies, we gain a deeper appreciation for the intricate connections and processes that make up the natural world. (score=0.6164)",
+    "retrieved_items": [
+      {
+        "rank": 1,
+        "sentence": "They shed their skin several times as they grow, a process known as molting.",
+        "sentence_id": "The Life Cycle of a Butterfly13",
+        "score": 0.7638514405002569
+      },
+      {
+        "rank": 2,
+        "sentence": "Caterpillars are voracious eaters and spend most of their time feeding on leaves and growing rapidly.",
+        "sentence_id": "The Life Cycle of a Butterfly12",
+        "score": 0.6725983975542648
+      },
+      {
+        "rank": 3,
+        "sentence": "Caterpillars come in a variety of shapes, sizes, and colors, depending on the species.",
+        "sentence_id": "The Life Cycle of a Butterfly15",
+        "score": 0.651277748942205
+      },
+      {
+        "rank": 4,
+        "sentence": "The newly emerged butterfly has soft, wrinkled wings that it must pump full of fluid to expand and harden.",
+        "sentence_id": "The Life Cycle of a Butterfly27",
+        "score": 0.6198117901338793
+      },
+      {
+        "rank": 5,
+        "sentence": "By understanding and appreciating the life cycle of butterflies, we gain a deeper appreciation for the intricate connections and processes that make up the natural world.",
+        "sentence_id": "The Life Cycle of a Butterfly37",
+        "score": 0.6164272020745225
+      }
+    ],
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Caterpillars come in a variety of shapes, sizes, and colors.",
+    "retrieved_context": "1. [sentence_id=The Life Cycle of a Butterfly15] Caterpillars come in a variety of shapes, sizes, and colors, depending on the species. (score=0.9472)\n2. [sentence_id=The Life Cycle of a Butterfly12] Caterpillars are voracious eaters and spend most of their time feeding on leaves and growing rapidly. (score=0.7077)\n3. [sentence_id=The Life Cycle of a Butterfly4] The first stage of a butterfly's life cycle is the egg stage. (score=0.6824)\n4. [sentence_id=The Life Cycle of a Butterfly27] The newly emerged butterfly has soft, wrinkled wings that it must pump full of fluid to expand and harden. (score=0.6761)\n5. [sentence_id=The Life Cycle of a Butterfly17] Despite their small size, caterpillars are essential to the ecosystem as they play a crucial role in pollination and maintaining the balance of plant populations. (score=0.6724)",
+    "retrieved_items": [
+      {
+        "rank": 1,
+        "sentence": "Caterpillars come in a variety of shapes, sizes, and colors, depending on the species.",
+        "sentence_id": "The Life Cycle of a Butterfly15",
+        "score": 0.9472098941684409
+      },
+      {
+        "rank": 2,
+        "sentence": "Caterpillars are voracious eaters and spend most of their time feeding on leaves and growing rapidly.",
+        "sentence_id": "The Life Cycle of a Butterfly12",
+        "score": 0.707682165850521
+      },
+      {
+        "rank": 3,
+        "sentence": "The first stage of a butterfly's life cycle is the egg stage.",
+        "sentence_id": "The Life Cycle of a Butterfly4",
+        "score": 0.6823668375727485
+      },
+      {
+        "rank": 4,
+        "sentence": "The newly emerged butterfly has soft, wrinkled wings that it must pump full of fluid to expand and harden.",
+        "sentence_id": "The Life Cycle of a Butterfly27",
+        "score": 0.6760851652271053
+      },
+      {
+        "rank": 5,
+        "sentence": "Despite their small size, caterpillars are essential to the ecosystem as they play a crucial role in pollination and maintaining the balance of plant populations.",
+        "sentence_id": "The Life Cycle of a Butterfly17",
+        "score": 0.6723608855526189
+      }
+    ],
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Caterpillars play a crucial role in pollination and maintaining plant populations.",
+    "retrieved_context": "1. [sentence_id=The Life Cycle of a Butterfly15] Caterpillars come in a variety of shapes, sizes, and colors, depending on the species. (score=0.7964)\n2. [sentence_id=The Life Cycle of a Butterfly17] Despite their small size, caterpillars are essential to the ecosystem as they play a crucial role in pollination and maintaining the balance of plant populations. (score=0.6800)\n3. [sentence_id=The Life Cycle of a Butterfly30] They play a crucial role in pollination by transferring pollen from one flower to another, helping plants reproduce. (score=0.6468)\n4. [sentence_id=The Life Cycle of a Butterfly12] Caterpillars are voracious eaters and spend most of their time feeding on leaves and growing rapidly. (score=0.6417)\n5. [sentence_id=The Life Cycle of a Butterfly24] This process can take anywhere from a few days to several weeks, depending on the species of butterfly. (score=0.6143)",
+    "retrieved_items": [
+      {
+        "rank": 1,
+        "sentence": "Caterpillars come in a variety of shapes, sizes, and colors, depending on the species.",
+        "sentence_id": "The Life Cycle of a Butterfly15",
+        "score": 0.7964372987700971
+      },
+      {
+        "rank": 2,
+        "sentence": "Despite their small size, caterpillars are essential to the ecosystem as they play a crucial role in pollination and maintaining the balance of plant populations.",
+        "sentence_id": "The Life Cycle of a Butterfly17",
+        "score": 0.679965246044754
+      },
+      {
+        "rank": 3,
+        "sentence": "They play a crucial role in pollination by transferring pollen from one flower to another, helping plants reproduce.",
+        "sentence_id": "The Life Cycle of a Butterfly30",
+        "score": 0.6468101897841042
+      },
+      {
+        "rank": 4,
+        "sentence": "Caterpillars are voracious eaters and spend most of their time feeding on leaves and growing rapidly.",
+        "sentence_id": "The Life Cycle of a Butterfly12",
+        "score": 0.6417378595891886
+      },
+      {
+        "rank": 5,
+        "sentence": "This process can take anywhere from a few days to several weeks, depending on the species of butterfly.",
+        "sentence_id": "The Life Cycle of a Butterfly24",
+        "score": 0.6143458476952244
+      }
+    ],
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "The caterpillar attaches itself to a leaf or stem and forms a chrysalis.",
+    "retrieved_context": "1. [sentence_id=The Life Cycle of a Butterfly20] The caterpillar attaches itself to a leaf or stem and forms a protective shell around itself called a chrysalis. (score=0.9312)\n2. [sentence_id=The Life Cycle of a Butterfly21] Inside the chrysalis, the caterpillar undergoes a remarkable transformation known as metamorphosis. (score=0.6722)\n3. [sentence_id=The Life Cycle of a Butterfly27] The newly emerged butterfly has soft, wrinkled wings that it must pump full of fluid to expand and harden. (score=0.6631)\n4. [sentence_id=The Life Cycle of a Butterfly15] Caterpillars come in a variety of shapes, sizes, and colors, depending on the species. (score=0.6602)\n5. [sentence_id=The Life Cycle of a Butterfly22] During metamorphosis, the caterpillar's body undergoes significant changes as it develops into a butterfly. (score=0.6546)",
+    "retrieved_items": [
+      {
+        "rank": 1,
+        "sentence": "The caterpillar attaches itself to a leaf or stem and forms a protective shell around itself called a chrysalis.",
+        "sentence_id": "The Life Cycle of a Butterfly20",
+        "score": 0.9311572091707578
+      },
+      {
+        "rank": 2,
+        "sentence": "Inside the chrysalis, the caterpillar undergoes a remarkable transformation known as metamorphosis.",
+        "sentence_id": "The Life Cycle of a Butterfly21",
+        "score": 0.6722199354812376
+      },
+      {
+        "rank": 3,
+        "sentence": "The newly emerged butterfly has soft, wrinkled wings that it must pump full of fluid to expand and harden.",
+        "sentence_id": "The Life Cycle of a Butterfly27",
+        "score": 0.6631458606671625
+      },
+      {
+        "rank": 4,
+        "sentence": "Caterpillars come in a variety of shapes, sizes, and colors, depending on the species.",
+        "sentence_id": "The Life Cycle of a Butterfly15",
+        "score": 0.6601819318599562
+      },
+      {
+        "rank": 5,
+        "sentence": "During metamorphosis, the caterpillar's body undergoes significant changes as it develops into a butterfly.",
+        "sentence_id": "The Life Cycle of a Butterfly22",
+        "score": 0.6546191270197661
+      }
+    ],
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Inside the chrysalis, the caterpillar undergoes metamorphosis.",
+    "retrieved_context": "1. [sentence_id=The Life Cycle of a Butterfly21] Inside the chrysalis, the caterpillar undergoes a remarkable transformation known as metamorphosis. (score=0.9648)\n2. [sentence_id=The Life Cycle of a Butterfly22] During metamorphosis, the caterpillar's body undergoes significant changes as it develops into a butterfly. (score=0.8566)\n3. [sentence_id=The Life Cycle of a Butterfly1] ```The Life Cycle of a Butterfly\n\nButterflies are fascinating creatures that undergo a remarkable transformation throughout their life cycle. (score=0.7231)\n4. [sentence_id=The Life Cycle of a Butterfly18] As the caterpillar grows, it eventually reaches a point where it stops eating and begins to prepare for the next stage of its life cycle. (score=0.7032)\n5. [sentence_id=The Life Cycle of a Butterfly17] Despite their small size, caterpillars are essential to the ecosystem as they play a crucial role in pollination and maintaining the balance of plant populations. (score=0.6876)",
+    "retrieved_items": [
+      {
+        "rank": 1,
+        "sentence": "Inside the chrysalis, the caterpillar undergoes a remarkable transformation known as metamorphosis.",
+        "sentence_id": "The Life Cycle of a Butterfly21",
+        "score": 0.9648231980716198
+      },
+      {
+        "rank": 2,
+        "sentence": "During metamorphosis, the caterpillar's body undergoes significant changes as it develops into a butterfly.",
+        "sentence_id": "The Life Cycle of a Butterfly22",
+        "score": 0.8566322572764108
+      },
+      {
+        "rank": 3,
+        "sentence": "```The Life Cycle of a Butterfly\n\nButterflies are fascinating creatures that undergo a remarkable transformation throughout their life cycle.",
+        "sentence_id": "The Life Cycle of a Butterfly1",
+        "score": 0.7230717863072857
+      },
+      {
+        "rank": 4,
+        "sentence": "As the caterpillar grows, it eventually reaches a point where it stops eating and begins to prepare for the next stage of its life cycle.",
+        "sentence_id": "The Life Cycle of a Butterfly18",
+        "score": 0.7031584719004336
+      },
+      {
+        "rank": 5,
+        "sentence": "Despite their small size, caterpillars are essential to the ecosystem as they play a crucial role in pollination and maintaining the balance of plant populations.",
+        "sentence_id": "The Life Cycle of a Butterfly17",
+        "score": 0.6876041349025341
+      }
+    ],
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "During metamorphosis, the caterpillar's body undergoes significant changes.",
+    "retrieved_context": "1. [sentence_id=The Life Cycle of a Butterfly22] During metamorphosis, the caterpillar's body undergoes significant changes as it develops into a butterfly. (score=0.9446)\n2. [sentence_id=The Life Cycle of a Butterfly21] Inside the chrysalis, the caterpillar undergoes a remarkable transformation known as metamorphosis. (score=0.8869)\n3. [sentence_id=The Life Cycle of a Butterfly1] ```The Life Cycle of a Butterfly\n\nButterflies are fascinating creatures that undergo a remarkable transformation throughout their life cycle. (score=0.7423)\n4. [sentence_id=The Life Cycle of a Butterfly18] As the caterpillar grows, it eventually reaches a point where it stops eating and begins to prepare for the next stage of its life cycle. (score=0.6556)\n5. [sentence_id=The Life Cycle of a Butterfly17] Despite their small size, caterpillars are essential to the ecosystem as they play a crucial role in pollination and maintaining the balance of plant populations. (score=0.6547)",
+    "retrieved_items": [
+      {
+        "rank": 1,
+        "sentence": "During metamorphosis, the caterpillar's body undergoes significant changes as it develops into a butterfly.",
+        "sentence_id": "The Life Cycle of a Butterfly22",
+        "score": 0.9446069282124552
+      },
+      {
+        "rank": 2,
+        "sentence": "Inside the chrysalis, the caterpillar undergoes a remarkable transformation known as metamorphosis.",
+        "sentence_id": "The Life Cycle of a Butterfly21",
+        "score": 0.8869089190211419
+      },
+      {
+        "rank": 3,
+        "sentence": "```The Life Cycle of a Butterfly\n\nButterflies are fascinating creatures that undergo a remarkable transformation throughout their life cycle.",
+        "sentence_id": "The Life Cycle of a Butterfly1",
+        "score": 0.7422546224422097
+      },
+      {
+        "rank": 4,
+        "sentence": "As the caterpillar grows, it eventually reaches a point where it stops eating and begins to prepare for the next stage of its life cycle.",
+        "sentence_id": "The Life Cycle of a Butterfly18",
+        "score": 0.6556487988875481
+      },
+      {
+        "rank": 5,
+        "sentence": "Despite their small size, caterpillars are essential to the ecosystem as they play a crucial role in pollination and maintaining the balance of plant populations.",
+        "sentence_id": "The Life Cycle of a Butterfly17",
+        "score": 0.6547364282101782
+      }
+    ],
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "The adult butterfly emerges from the chrysalis after metamorphosis is complete.",
+    "retrieved_context": "1. [sentence_id=The Life Cycle of a Butterfly6] The eggs are usually laid on the underside of leaves to protect them from predators. (score=0.5381)\n2. [sentence_id=The Life Cycle of a Butterfly29] Adult butterflies feed on nectar from flowers using their long, tubular mouthparts called proboscis. (score=0.5080)\n3. [sentence_id=The Life Cycle of a Butterfly26] The fourth and final stage of the butterfly's life cycle is the adult stage. (score=0.4998)\n4. [sentence_id=The Life Cycle of a Butterfly7] The size, shape, and color of butterfly eggs vary depending on the species. (score=0.4889)\n5. [sentence_id=The Life Cycle of a Butterfly28] Once its wings are fully developed, the butterfly is ready to take flight for the first time. (score=0.4821)",
+    "retrieved_items": [
+      {
+        "rank": 1,
+        "sentence": "The eggs are usually laid on the underside of leaves to protect them from predators.",
+        "sentence_id": "The Life Cycle of a Butterfly6",
+        "score": 0.5381287953717975
+      },
+      {
+        "rank": 2,
+        "sentence": "Adult butterflies feed on nectar from flowers using their long, tubular mouthparts called proboscis.",
+        "sentence_id": "The Life Cycle of a Butterfly29",
+        "score": 0.5080036177231424
+      },
+      {
+        "rank": 3,
+        "sentence": "The fourth and final stage of the butterfly's life cycle is the adult stage.",
+        "sentence_id": "The Life Cycle of a Butterfly26",
+        "score": 0.4997773898711297
+      },
+      {
+        "rank": 4,
+        "sentence": "The size, shape, and color of butterfly eggs vary depending on the species.",
+        "sentence_id": "The Life Cycle of a Butterfly7",
+        "score": 0.48889750153743705
+      },
+      {
+        "rank": 5,
+        "sentence": "Once its wings are fully developed, the butterfly is ready to take flight for the first time.",
+        "sentence_id": "The Life Cycle of a Butterfly28",
+        "score": 0.4820557658943475
+      }
+    ],
+    "evaluation": 0
+  },
+  {
+    "correct_answer": "Adult butterflies feed on nectar from flowers using their proboscis.",
+    "retrieved_context": "1. [sentence_id=The Life Cycle of a Butterfly29] Adult butterflies feed on nectar from flowers using their long, tubular mouthparts called proboscis. (score=0.8211)\n2. [sentence_id=The Life Cycle of a Butterfly6] The eggs are usually laid on the underside of leaves to protect them from predators. (score=0.6214)\n3. [sentence_id=The Life Cycle of a Butterfly19] The third stage of the butterfly's life cycle is the pupa stage. (score=0.4568)\n4. [sentence_id=The Life Cycle of a Butterfly28] Once its wings are fully developed, the butterfly is ready to take flight for the first time. (score=0.4388)\n5. [sentence_id=The Life Cycle of a Butterfly34] Adult butterflies have a relatively short lifespan, ranging from a few days to a few weeks, depending on the species. (score=0.4386)",
+    "retrieved_items": [
+      {
+        "rank": 1,
+        "sentence": "Adult butterflies feed on nectar from flowers using their long, tubular mouthparts called proboscis.",
+        "sentence_id": "The Life Cycle of a Butterfly29",
+        "score": 0.8210871121412666
+      },
+      {
+        "rank": 2,
+        "sentence": "The eggs are usually laid on the underside of leaves to protect them from predators.",
+        "sentence_id": "The Life Cycle of a Butterfly6",
+        "score": 0.6214445029050741
+      },
+      {
+        "rank": 3,
+        "sentence": "The third stage of the butterfly's life cycle is the pupa stage.",
+        "sentence_id": "The Life Cycle of a Butterfly19",
+        "score": 0.4567566328950786
+      },
+      {
+        "rank": 4,
+        "sentence": "Once its wings are fully developed, the butterfly is ready to take flight for the first time.",
+        "sentence_id": "The Life Cycle of a Butterfly28",
+        "score": 0.4388394274106298
+      },
+      {
+        "rank": 5,
+        "sentence": "Adult butterflies have a relatively short lifespan, ranging from a few days to a few weeks, depending on the species.",
+        "sentence_id": "The Life Cycle of a Butterfly34",
+        "score": 0.43855293235926185
+      }
+    ],
+    "evaluation": 1
+  },
+  {
+    "correct_answer": "Butterflies play a crucial role in pollination and serve as a food source for other animals.",
+    "retrieved_context": "1. [sentence_id=The Life Cycle of a Butterfly31] Butterflies also serve as a food source for birds, reptiles, and other insects, contributing to the overall biodiversity of their ecosystem. (score=0.8128)\n2. [sentence_id=The Life Cycle of a Butterfly38] Next time you see a butterfly fluttering by, take a moment to marvel at the incredible journey it has taken to reach that moment of beauty and grace.``` (score=0.6881)\n3. [sentence_id=The Life Cycle of a Butterfly17] Despite their small size, caterpillars are essential to the ecosystem as they play a crucial role in pollination and maintaining the balance of plant populations. (score=0.6828)\n4. [sentence_id=The Life Cycle of a Butterfly15] Caterpillars come in a variety of shapes, sizes, and colors, depending on the species. (score=0.6807)\n5. [sentence_id=The Life Cycle of a Butterfly12] Caterpillars are voracious eaters and spend most of their time feeding on leaves and growing rapidly. (score=0.6768)",
+    "retrieved_items": [
+      {
+        "rank": 1,
+        "sentence": "Butterflies also serve as a food source for birds, reptiles, and other insects, contributing to the overall biodiversity of their ecosystem.",
+        "sentence_id": "The Life Cycle of a Butterfly31",
+        "score": 0.8127571873644417
+      },
+      {
+        "rank": 2,
+        "sentence": "Next time you see a butterfly fluttering by, take a moment to marvel at the incredible journey it has taken to reach that moment of beauty and grace.```",
+        "sentence_id": "The Life Cycle of a Butterfly38",
+        "score": 0.6881315017384653
+      },
+      {
+        "rank": 3,
+        "sentence": "Despite their small size, caterpillars are essential to the ecosystem as they play a crucial role in pollination and maintaining the balance of plant populations.",
+        "sentence_id": "The Life Cycle of a Butterfly17",
+        "score": 0.6827784313301503
+      },
+      {
+        "rank": 4,
+        "sentence": "Caterpillars come in a variety of shapes, sizes, and colors, depending on the species.",
+        "sentence_id": "The Life Cycle of a Butterfly15",
+        "score": 0.680742490381039
+      },
+      {
+        "rank": 5,
+        "sentence": "Caterpillars are voracious eaters and spend most of their time feeding on leaves and growing rapidly.",
+        "sentence_id": "The Life Cycle of a Butterfly12",
+        "score": 0.6768248470729193
+      }
+    ],
+    "evaluation": 0
+  },
+  {
+    "total": 15,
+    "correct": 11,
+    "accuracy": "73.33%"
+  }
+]
