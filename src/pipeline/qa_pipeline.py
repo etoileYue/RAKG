@@ -15,14 +15,19 @@ from src.prompt import kg_qa_answer_prompt_cn
 from src.prompt import question_entity_extract_prompt_cn
 from src.utils import dedupe_preserve_order
 from src.utils import parse_json_like_response
+from src.utils import safe_embed_documents
 
 LOG_NAME_ENV_KEY = "RAKG_LOGGER_NAME"
 DEFAULT_LOGGER_NAME = "AgentLog"
 
+LOG_FILE_ENV_KEY = "RAKG_LOGGER_FILE"
+DEFAULT_LOGGER_FILE = "Agent.log"
+
+
 logger = get_logger(
     name=os.getenv(LOG_NAME_ENV_KEY, DEFAULT_LOGGER_NAME),
     level=logging.INFO,
-    log_file="Agent.log",
+    log_file=os.getenv(LOG_FILE_ENV_KEY, DEFAULT_LOGGER_FILE),
 )
 
 
@@ -138,7 +143,7 @@ class KnowledgeGraphQA:
         node_vectors = None
         if node_texts:
             try:
-                node_vectors = np.array(self.embeddings.embed_documents(node_texts))
+                node_vectors = np.array(safe_embed_documents(self.embeddings, node_texts))
             except Exception:
                 logger.warning(
                     "Failed to precompute node embeddings for graph index: %s",
@@ -263,7 +268,7 @@ class KnowledgeGraphQA:
             node_texts = [self._entity_to_retrieval_text(entity_lookup[name]) for name in node_names]
             node_vectors = None
             try:
-                node_vectors = np.array(self.embeddings.embed_documents(node_texts))
+                node_vectors = np.array(safe_embed_documents(self.embeddings, node_texts))
             except Exception:
                 logger.warning("Failed to compute entity embeddings: %s", traceback.format_exc())
 

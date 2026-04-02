@@ -151,8 +151,15 @@ class PipelineGraphOpsMixin:
                     "aliases": self._normalize_aliases(central_entity.get("aliases", []), entity_name),
                 }
                 if "attributes" in central_entity:
-                    for attr in central_entity["attributes"]:
-                        entity["attributes"][attr["key"]] = attr["value"]
+                    for attr_index, attr in enumerate(central_entity["attributes"]):
+                        try:
+                            entity["attributes"][attr["key"]] = attr["value"]
+                        except Exception as exc:
+                            raise ValueError(
+                                "Malformed central_entity.attributes item while converting knowledge graph: "
+                                f"entity_key={entity_key}, entity_name={entity_name}, "
+                                f"attr_index={attr_index}, attr={repr(attr)}"
+                            ) from exc
                 entity_registry[entity_name] = entity
             else:
                 existing_entity = entity_registry[entity_name]
@@ -165,12 +172,19 @@ class PipelineGraphOpsMixin:
                     entity_name,
                 )
                 if "attributes" in central_entity:
-                    for attr in central_entity["attributes"]:
-                        key = attr.get("key")
-                        value = attr.get("value")
-                        if key is None or value is None:
-                            continue
-                        existing_entity["attributes"].setdefault(key, value)
+                    for attr_index, attr in enumerate(central_entity["attributes"]):
+                        try:
+                            key = attr.get("key")
+                            value = attr.get("value")
+                            if key is None or value is None:
+                                continue
+                            existing_entity["attributes"].setdefault(key, value)
+                        except Exception as exc:
+                            raise ValueError(
+                                "Malformed central_entity.attributes item while merging knowledge graph entity: "
+                                f"entity_key={entity_key}, entity_name={entity_name}, "
+                                f"attr_index={attr_index}, attr={repr(attr)}"
+                            ) from exc
 
         for entity_key in input_data:
             node_data = input_data.get(entity_key, {})
