@@ -7,6 +7,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 from src.prompt import judge_sim_entity_en
 from src.utils import parse_similarity_response
 from src.utils import retry
+from src.utils import safe_embed_documents
 from src.pipeline.shared import debug_logger
 from src.pipeline.shared import logger
 
@@ -49,8 +50,9 @@ class PipelineSimilarityOpsMixin:
             entity2 = right_entities.get(right_id)
             try:
                 result = self.similarity_llm_single(entity1, entity2)
-                is_boundary = self._is_boundary_candidate(score, threshold, gray_margin)
-                needs_review = result.get("needs_review", False) or is_boundary
+                
+                # is_boundary = self._is_boundary_candidate(score, threshold, gray_margin)
+                needs_review = result.get("needs_review", False)#  or is_boundary
 
                 if needs_review:
                     gray_queue.append(
@@ -63,7 +65,7 @@ class PipelineSimilarityOpsMixin:
                         }
                     )
                     continue
-
+                
                 if result.get("result", False):
                     positives.append((left_id, right_id, score))
             except Exception:
@@ -142,8 +144,8 @@ class PipelineSimilarityOpsMixin:
             f"{right_entities[k].get('name', '')} {right_entities[k].get('type', '')}" for k in right_keys
         ]
 
-        left_vectors = np.array(self.embeddings.embed_documents(left_texts))
-        right_vectors = np.array(self.embeddings.embed_documents(right_texts))
+        left_vectors = np.array(safe_embed_documents(self.embeddings, left_texts))
+        right_vectors = np.array(safe_embed_documents(self.embeddings, right_texts))
         sim_matrix = cosine_similarity(left_vectors, right_vectors)
 
         candidates = []

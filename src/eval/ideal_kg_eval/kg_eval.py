@@ -6,6 +6,7 @@ from langchain_ollama import OllamaEmbeddings
 import json
 from collections import defaultdict
 from src.config import OLLAMA_BASE_URL, EMBEDDING_MODEL, DEFAULT_MODEL
+from src.utils import safe_embed_documents
 judge_sim_entity_en = """
 You are an expert in entity disambiguation. Please determine whether the following two entities refer to the same real-world entity based on their names, types, and descriptions. Consider possible abbreviations, synonyms, and contextual clues.
 
@@ -60,7 +61,7 @@ class KGEvaluator:
 
     def _get_embedding(self, text):
         """Get text embedding vector"""
-        return self.embedding_model.embed_documents(text)
+        return safe_embed_documents(self.embedding_model, text)
 
     def _find_candidate_matches(self, threshold=0.0):
         """Find all candidate matching entity pairs"""
@@ -245,5 +246,4 @@ if __name__ == "__main__":
 
             # Write results to JSONL file, one JSON object per line
             out_f.write(json.dumps(out_data, ensure_ascii=False) + "\n")
-
 

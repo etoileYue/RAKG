@@ -9,15 +9,20 @@ from src.pipeline import NERPipeline
 from src.pipeline import KnowledgeGraphQA
 from src.textProcess import TextProcessor
 from src.utils import get_ner_result_from_file
+from src.utils import get_kg_result_from_file
 from src.utils import validate_json_serializable
 
 LOG_NAME_ENV_KEY = "RAKG_LOGGER_NAME"
 DEFAULT_LOGGER_NAME = "AgentLog"
 
+LOG_FILE_ENV_KEY = "RAKG_LOGGER_FILE"
+DEFAULT_LOGGER_FILE = "Agent.log"
+
+
 logger = get_logger(
     name=os.getenv(LOG_NAME_ENV_KEY, DEFAULT_LOGGER_NAME),
     level=logging.INFO,
-    log_file="Agent.log",
+    log_file=os.getenv(LOG_FILE_ENV_KEY, DEFAULT_LOGGER_FILE),
 )
 
 
@@ -42,6 +47,7 @@ class NER_Agent(NERPipeline, KnowledgeGraphQA):
         graph_output_dir,
         skip_ner=False,
         skip_sim=False,
+        skip_rel=False,
         existing_kg=None,
     ):
         """使用 NERPipeline 执行单个 topic 的处理流程。"""
@@ -122,15 +128,23 @@ class NER_Agent(NERPipeline, KnowledgeGraphQA):
                 if related_context:
                     related_kg_map[entity_id] = related_context
 
-        kg_result = self.get_target_kg_all(
-            entity_list_process,
-            text_split["id_to_sentence"],
-            text_split["sentences"],
-            text_split["sentence_to_id"],
-            text_split["vectors"],
-            output_file=rel_file_path,
-            related_kg_map=related_kg_map,
-        )
+        if skip_rel:
+            if not os.path.exists(rel_file_path):
+                raise FileNotFoundError(
+                    f"kg_reuslt cache file does not exist for skipped index {idx}: {rel_file_path}"
+                )
+            kg_result = get_kg_result_from_file(rel_file_path)
+            logger.info("Skip rel during processing text%s", idx)
+        else:
+            kg_result = self.get_target_kg_all(
+                entity_list_process,
+                text_split["id_to_sentence"],
+                text_split["sentences"],
+                text_split["sentence_to_id"],
+                text_split["vectors"],
+                output_file=rel_file_path,
+                related_kg_map=related_kg_map,
+            )
 
         current_doc_kg = self.convert_knowledge_graph(kg_result)
         aliases_by_name = {}
@@ -173,9 +187,10 @@ class NER_Agent(NERPipeline, KnowledgeGraphQA):
         self,
         json_path,
         output_dir,
-        done_offset=0,
-        skip_cur_ner=False,
-        skip_cur_sim=False,
+        skip_construct=None,
+        skip_ner_set=None,
+        skip_sim_set=None,
+        skip_rel_set=None,
         existing_kg=None
     ):
         with open(json_path, "r", encoding="utf-8") as file:
@@ -203,7 +218,7 @@ class NER_Agent(NERPipeline, KnowledgeGraphQA):
         failed_topics = []
 
         for idx, topic_data in enumerate(topics, start=1):
-            if idx <= done_offset:
+            if idx in skip_construct:
                 continue
             
             cur_existing_kg = None
@@ -212,6 +227,10 @@ class NER_Agent(NERPipeline, KnowledgeGraphQA):
                     cur_existing_kg = global_kg
                 else:
                     cur_existing_kg = existing_kg.get(idx, None)
+
+            skip_cur_ner = idx in skip_ner_set
+            skip_cur_sim = idx in skip_sim_set
+            skip_cur_rel = idx in skip_rel_set
 
             try:
                 self.process(
@@ -224,23 +243,23 @@ class NER_Agent(NERPipeline, KnowledgeGraphQA):
                     graph_output_dir=graph_output_dir,
                     skip_ner=skip_cur_ner,
                     skip_sim=skip_cur_sim,
+                    skip_rel=skip_cur_rel,
                     existing_kg=cur_existing_kg,
                 )
-
-                skip_cur_ner = False
-                skip_cur_sim = False
-
                 processed_count += 1
             except Exception as e:
+                topic_name = topic_data.get("topic", "<unknown>")
                 logger.error(
-                    "Error generating knowledge graph for entry %s: %s",
+                    "Failed topic index=%s topic=%s error=%s",
                     idx,
-                    traceback.format_exc(),
+                    topic_name,
+                    str(e),
                 )
+                logger.error(traceback.format_exc())
                 failed_topics.append(
                     {
                         "index": idx,
-                        "topic": topic_data.get("topic", "<unknown>"),
+                        "topic": topic_name,
                         "error": str(e),
                     }
                 )

@@ -10,10 +10,14 @@ from src.logger import get_logger
 LOG_NAME_ENV_KEY = "RAKG_LOGGER_NAME"
 DEFAULT_LOGGER_NAME = "AgentLog"
 
+LOG_FILE_ENV_KEY = "RAKG_LOGGER_FILE"
+DEFAULT_LOGGER_FILE = "Agent.log"
+
+
 logger = get_logger(
     name=os.getenv(LOG_NAME_ENV_KEY, DEFAULT_LOGGER_NAME),
     level=logging.INFO,
-    log_file="Agent.log",
+    log_file=os.getenv(LOG_FILE_ENV_KEY, DEFAULT_LOGGER_FILE),
 )
 
 
@@ -222,6 +226,49 @@ def parse_similarity_response(resp):
     return build_result(False, "fallback_unsupported_shape", True, "unsupported_shape")
 
 
+def safe_embed_documents(embedding_model, texts, batch_size=64):
+    """Embed documents with bounded batch size and adaptive fallback for provider limits."""
+    if texts is None:
+        return []
+
+    items = list(texts)
+    if not items:
+        return []
+
+    if not isinstance(batch_size, int) or batch_size <= 0:
+        raise ValueError("batch_size must be a positive integer.")
+
+    vectors = []
+    idx = 0
+    cur_batch_size = min(batch_size, len(items))
+
+    while idx < len(items):
+        end = min(idx + cur_batch_size, len(items))
+        chunk = items[idx:end]
+        try:
+            chunk_vectors = embedding_model.embed_documents(chunk)
+            vectors.extend(chunk_vectors)
+            idx = end
+        except Exception as exc:
+            err_text = str(exc)
+            is_batch_limit_error = (
+                "input batch size" in err_text.lower()
+                and "maximum allowed batch size" in err_text.lower()
+            ) or "Error code: 413" in err_text
+
+            if not is_batch_limit_error or len(chunk) <= 1:
+                raise
+
+            cur_batch_size = max(1, len(chunk) // 2)
+            logger.warning(
+                "Embedding batch too large, retrying with smaller batch_size=%s (from chunk=%s).",
+                cur_batch_size,
+                len(chunk),
+            )
+
+    return vectors
+
+
 def get_ner_result_from_file(file_path, sent_to_id):
     ner_result_for_all = {}
     entity_num = 1
@@ -266,3 +313,49 @@ def get_ner_result_from_file(file_path, sent_to_id):
             ner_result_for_all.update(ner_result_with_chunkid)
 
     return ner_result_for_all
+
+
+def get_kg_result_from_file(file_path):
+    kg_result = {}
+    entity_num = 1
+
+    with open(file_path, "r", encoding="utf-8") as f:
+        for line_num, line in enumerate(f, 1):
+            line = line.strip()
+            if not line:
+                continue
+
+            try:
+                json_obj = json.loads(line)
+            except json.JSONDecodeError:
+                logger.warning("Skip invalid JSONL line %s in %s.", line_num, file_path)
+                continue
+
+            kg_node = json_obj.get("kg")
+            entity = json_obj.get("entity", {})
+
+            if not isinstance(kg_node, dict):
+                logger.warning("Skip JSONL line %s: kg is not a dict.", line_num)
+                continue
+            if "State" in kg_node:
+                continue
+
+            # 与 get_target_kg_all 的输出格式对齐: {entity_id: kg_dict}
+            if not isinstance(kg_node.get("central_entity"), dict):
+                kg_node["central_entity"] = {
+                    "name": entity.get("name", ""),
+                    "type": entity.get("type", "Unknown"),
+                    "description": entity.get("description", ""),
+                    "attributes": [],
+                    "relationships": [],
+                }
+
+            central_entity = kg_node.get("central_entity", {})
+            if "aliases" not in central_entity and isinstance(entity, dict):
+                central_entity["aliases"] = entity.get("aliases", [])
+
+            entity_id = f"entity{entity_num}"
+            kg_result[entity_id] = kg_node
+            entity_num += 1
+
+    return kg_result
