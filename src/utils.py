@@ -1,52 +1,119 @@
-import time
+import json
 import logging
 import os
+import re
+import time
+import traceback
 from functools import wraps
 from src.logger import get_logger
-import traceback
-import json
 
 LOG_NAME_ENV_KEY = "RAKG_LOGGER_NAME"
 DEFAULT_LOGGER_NAME = "AgentLog"
 
-logger = get_logger(name=os.getenv(LOG_NAME_ENV_KEY, DEFAULT_LOGGER_NAME),
-                    level=logging.INFO,
-                    log_file="Agent.log")
+LOG_FILE_ENV_KEY = "RAKG_LOGGER_FILE"
+DEFAULT_LOGGER_FILE = "Agent.log"
+
+
+logger = get_logger(
+    name=os.getenv(LOG_NAME_ENV_KEY, DEFAULT_LOGGER_NAME),
+    level=logging.INFO,
+    log_file=os.getenv(LOG_FILE_ENV_KEY, DEFAULT_LOGGER_FILE),
+)
+
+
+def validate_json_serializable(data):
+    """加载json数据到data"""
+    json.dumps(data, ensure_ascii=False)
+    return data
+
+
+def ensure_parent_dir(output_file):
+    parent_dir = os.path.dirname(output_file)
+    if parent_dir:
+        os.makedirs(parent_dir, exist_ok=True)
+
+
+def append_jsonl(output_file, data):
+    ensure_parent_dir(output_file)
+    with open(output_file, "a", encoding="utf-8") as f:
+        f.write(json.dumps(data, ensure_ascii=False) + "\n")
+
+
+def dedupe_preserve_order(items)->list:
+    seen = set()
+    result = []
+    for item in items:
+        if item not in seen:
+            seen.add(item)
+            result.append(item)
+    return result
+
+
+def renumber_entities(ner_result, entity_num):
+    new_entities = {}
+    for idx, (_, value) in enumerate(ner_result.items(), start=1):
+        new_key = f"entity{entity_num + idx - 1}"
+        new_entities[new_key] = value
+    return new_entities
+
+
+def add_chunkid_to_entities(ner_result, chunkid):
+    new_ner_result = {}
+    for entity_key, entity_value in ner_result.items():
+        entity_value["chunkid"] = chunkid
+        new_ner_result[entity_key] = entity_value
+    return new_ner_result
+
+
+def parse_json_like_response(response):
+    raw = response.content if hasattr(response, "content") else response
+    if isinstance(raw, (dict, list)):
+        return raw
+
+    text = "" if raw is None else str(raw).strip()
+    if not text:
+        return None
+
+    fenced = re.match(r"^```(?:json)?\s*([\s\S]*?)\s*```$", text, flags=re.IGNORECASE)
+    if fenced:
+        text = fenced.group(1).strip()
+
+    candidates = [text]
+    object_match = re.search(r"\{[\s\S]*\}", text)
+    if object_match:
+        candidates.append(object_match.group(0).strip())
+    array_match = re.search(r"\[[\s\S]*\]", text)
+    if array_match:
+        candidates.append(array_match.group(0).strip())
+
+    for candidate in candidates:
+        for normalized in (candidate, candidate.replace("'", '"')):
+            try:
+                return json.loads(normalized)
+            except Exception:
+                continue
+    return None
+
 
 def retry(max_retries=3, delay=1):
-    """
-    适配类方法的重试装饰器（支持self参数）
-    报错信息包含函数名、参数和完整堆栈
-    :param max_retries: 最大重试次数
-    :param delay: 重试间隔（秒）
-    """
     def decorator(func):
-        @wraps(func)  # 保留原函数的元信息（包括类方法的self）
+        @wraps(func)
         def wrapper(*args, **kwargs):
-            # 遍历重试次数
             for attempt in range(max_retries):
                 try:
-                    # 执行原函数（自动传递self、entity1、entity2等参数）
                     return func(*args, **kwargs)
                 except Exception as e:
-                    # 获取函数名
                     func_name = func.__name__
-                    
-                    # 格式化参数信息（兼容类方法的self参数）
-                    # 处理位置参数：args[0]是self，args[1:]是业务参数
-                    # 优化：self参数只打印类型，避免打印整个对象的冗余信息
+
                     args_str_parts = []
                     for idx, arg in enumerate(args):
-                        if idx == 0 and hasattr(arg, '__class__'):
-                            # 是self参数：打印 "类名对象" 而非完整对象
+                        if idx == 0 and hasattr(arg, "__class__"):
                             args_str_parts.append(f"<{arg.__class__.__name__} object>")
                         else:
                             args_str_parts.append(str(arg))
                     args_str = ", ".join(args_str_parts)
-                    
-                    # 处理关键字参数
+
                     kwargs_str = ", ".join([f"{k}={v}" for k, v in kwargs.items()])
-                    # 拼接完整参数字符串
                     params_str = ""
                     if args_str:
                         params_str += args_str
@@ -54,36 +121,34 @@ def retry(max_retries=3, delay=1):
                         if params_str:
                             params_str += ", "
                         params_str += kwargs_str
-                    
-                    # 判断是否是最后一次重试
+
                     if attempt == max_retries - 1:
-                        # 最后一次失败：打印完整信息（函数名+参数+异常类型+堆栈）
                         error_msg = (
-                            f"\n=== 重试{max_retries}次后仍失败 ==="
-                            f"\n函数名：{func_name}"
-                            f"\n调用参数：({params_str})"
-                            f"\n异常类型：{type(e).__name__}"
-                            f"\n异常内容：{str(e)}"
-                            f"\n完整堆栈：\n{traceback.format_exc()}"
+                            f"\n=== Retry failed after {max_retries} attempts ==="
+                            f"\nFunction: {func_name}"
+                            f"\nParams: ({params_str})"
+                            f"\nError type: {type(e).__name__}"
+                            f"\nError: {str(e)}"
+                            f"\nTraceback:\n{traceback.format_exc()}"
                         )
                         logger.error(error_msg)
-                        raise  # 抛出异常，让上层处理
-                    else:
-                        # 非最后一次失败：打印简化的重试信息
-                        retry_msg = (
-                            f"【重试提示】第{attempt + 1}次调用失败 - "
-                            f"函数：{func_name}，参数：({params_str})，"
-                            f"异常：{type(e).__name__} - {str(e)}，"
-                            f"{delay}秒后进行第{attempt + 2}次重试..."
-                        )
-                        logger.warning(retry_msg)
-                        time.sleep(delay)
+                        raise
+                    retry_msg = (
+                        f"Retry {attempt + 1}/{max_retries} failed - "
+                        f"Function: {func_name}({params_str}), "
+                        f"Error: {type(e).__name__} - {str(e)}. "
+                        f"Retrying in {delay}s..."
+                    )
+                    logger.warning(retry_msg)
+                    time.sleep(delay)
+
         return wrapper
+
     return decorator
 
-import re
+
 def parse_similarity_response(resp):
-    raw = resp.content if hasattr(resp, 'content') else str(resp)
+    raw = resp.content if hasattr(resp, "content") else str(resp)
     raw = "" if raw is None else str(raw)
     text = raw.strip()
 
@@ -96,32 +161,26 @@ def parse_similarity_response(resp):
             "raw_excerpt": raw[:300],
         }
 
-    # Empty response fallback.
     if not text:
         logger.warning("similarity_llm_single received empty response. Fallback to False.")
         return build_result(False, "fallback_empty", True, "empty_response")
 
-    # Direct yes/no fallback.
     lowered = text.lower()
     if lowered in {"yes", "true"}:
         return build_result(True, "ok_literal", False, "literal_true")
     if lowered in {"no", "false"}:
         return build_result(False, "ok_literal", False, "literal_false")
 
-    # Remove markdown code fences if present.
     fenced = re.match(r"^```(?:json)?\s*([\s\S]*?)\s*```$", text, flags=re.IGNORECASE)
     if fenced:
         text = fenced.group(1).strip()
 
-    # Prefer JSON object content if mixed with extra text.
     match = re.search(r"\{[\s\S]*\}", text)
     candidate = match.group(0).strip() if match else text
 
-    # Parse strategy 1: strict JSON.
     try:
         parsed = json.loads(candidate)
     except Exception:
-        # Parse strategy 2: common LLM pseudo-JSON normalization.
         normalized = candidate
         normalized = re.sub(r"\bTrue\b", "true", normalized)
         normalized = re.sub(r"\bFalse\b", "false", normalized)
@@ -138,7 +197,6 @@ def parse_similarity_response(resp):
 
     parse_status = "ok_json"
 
-    # Normalize output shape to {"result": bool}
     if isinstance(parsed, dict):
         value = parsed.get("result", False)
         if isinstance(value, bool):
@@ -167,29 +225,57 @@ def parse_similarity_response(resp):
         return build_result(bool(parsed), parse_status, False, "root_number")
     return build_result(False, "fallback_unsupported_shape", True, "unsupported_shape")
 
+
+def safe_embed_documents(embedding_model, texts, batch_size=64):
+    """Embed documents with bounded batch size and adaptive fallback for provider limits."""
+    if texts is None:
+        return []
+
+    items = list(texts)
+    if not items:
+        return []
+
+    if not isinstance(batch_size, int) or batch_size <= 0:
+        raise ValueError("batch_size must be a positive integer.")
+
+    vectors = []
+    idx = 0
+    cur_batch_size = min(batch_size, len(items))
+
+    while idx < len(items):
+        end = min(idx + cur_batch_size, len(items))
+        chunk = items[idx:end]
+        try:
+            chunk_vectors = embedding_model.embed_documents(chunk)
+            vectors.extend(chunk_vectors)
+            idx = end
+        except Exception as exc:
+            err_text = str(exc)
+            is_batch_limit_error = (
+                "input batch size" in err_text.lower()
+                and "maximum allowed batch size" in err_text.lower()
+            ) or "Error code: 413" in err_text
+
+            if not is_batch_limit_error or len(chunk) <= 1:
+                raise
+
+            cur_batch_size = max(1, len(chunk) // 2)
+            logger.warning(
+                "Embedding batch too large, retrying with smaller batch_size=%s (from chunk=%s).",
+                cur_batch_size,
+                len(chunk),
+            )
+
+    return vectors
+
+
 def get_ner_result_from_file(file_path, sent_to_id):
-    def rewrite(ner_result, entity_num):
-        new_entities = {}
-        # Process in original dictionary key order, extract numbers after entity and renumber
-        for idx, (old_key, value) in enumerate(ner_result.items(), start=1):
-            new_key = f"entity{entity_num + idx - 1}"
-            new_entities[new_key] = value
-        return new_entities
-    
-    def add_chunkid(ner_result, chunkid):
-        new_ner_result = {}
-        for entity_key, entity_value in ner_result.items():
-            entity_value["chunkid"] = chunkid
-            new_ner_result[entity_key] = entity_value
-        return new_ner_result
-    
     ner_result_for_all = {}
     entity_num = 1
 
-    with open(file_path, 'r', encoding='utf-8') as f:
+    with open(file_path, "r", encoding="utf-8") as f:
         for line_num, line in enumerate(f, 1):
             line = line.strip()
-
             if not line:
                 continue
 
@@ -198,8 +284,9 @@ def get_ner_result_from_file(file_path, sent_to_id):
             except json.JSONDecodeError:
                 logger.warning("Skip invalid JSONL line %s in %s.", line_num, file_path)
                 continue
-            text = json_obj.get('text')
-            ner_result = json_obj.get('entities')
+
+            text = json_obj.get("text")
+            ner_result = json_obj.get("entities")
 
             if not text:
                 logger.warning("Skip JSONL line %s: missing text field.", line_num)
@@ -207,21 +294,68 @@ def get_ner_result_from_file(file_path, sent_to_id):
             if not isinstance(ner_result, dict):
                 logger.warning("Skip JSONL line %s: entities is not a dict.", line_num)
                 continue
-
-            if 'State' in ner_result:
+            if "State" in ner_result:
                 continue
-            # Get the number of entities in ner_result
+
             ner_result_num = len(ner_result)
-            # Rewrite ner_result, entity numbering starts from entity_num, first entity is entity{entity_num}, subsequent entities increment
-            ner_result = rewrite(ner_result, entity_num)
+            ner_result = renumber_entities(ner_result, entity_num)
 
             chunkid = sent_to_id.get(text)
             if chunkid is None:
-                logger.warning("Skip JSONL line %s: sentence not found in sentence_to_id mapping.", line_num)
+                logger.warning(
+                    "Skip JSONL line %s: sentence not found in sentence_to_id mapping.",
+                    line_num,
+                )
                 continue
+
             entity_num += ner_result_num
-            ner_result_with_chunkid = add_chunkid(ner_result,chunkid)
+            ner_result_with_chunkid = add_chunkid_to_entities(ner_result, [chunkid])
             ner_result_for_all.update(ner_result_with_chunkid)
-                
 
     return ner_result_for_all
+
+
+def get_kg_result_from_file(file_path):
+    kg_result = {}
+    entity_num = 1
+
+    with open(file_path, "r", encoding="utf-8") as f:
+        for line_num, line in enumerate(f, 1):
+            line = line.strip()
+            if not line:
+                continue
+
+            try:
+                json_obj = json.loads(line)
+            except json.JSONDecodeError:
+                logger.warning("Skip invalid JSONL line %s in %s.", line_num, file_path)
+                continue
+
+            kg_node = json_obj.get("kg")
+            entity = json_obj.get("entity", {})
+
+            if not isinstance(kg_node, dict):
+                logger.warning("Skip JSONL line %s: kg is not a dict.", line_num)
+                continue
+            if "State" in kg_node:
+                continue
+
+            # 与 get_target_kg_all 的输出格式对齐: {entity_id: kg_dict}
+            if not isinstance(kg_node.get("central_entity"), dict):
+                kg_node["central_entity"] = {
+                    "name": entity.get("name", ""),
+                    "type": entity.get("type", "Unknown"),
+                    "description": entity.get("description", ""),
+                    "attributes": [],
+                    "relationships": [],
+                }
+
+            central_entity = kg_node.get("central_entity", {})
+            if "aliases" not in central_entity and isinstance(entity, dict):
+                central_entity["aliases"] = entity.get("aliases", [])
+
+            entity_id = f"entity{entity_num}"
+            kg_result[entity_id] = kg_node
+            entity_num += 1
+
+    return kg_result

@@ -44,7 +44,7 @@ def main():
     parser = argparse.ArgumentParser(description="QA retrieval entry for a built knowledge graph")
     parser.add_argument(
         "--kg-path",
-        default="./data/test/processed/RAKG_graph_re/1.json",
+        default="./data/short/processed/RAKG_graph_re/1.json",
         help="Path to KG JSON file (must contain 'entities' and 'relations').",
     )
     parser.add_argument("--max-hop", type=int, default=1, help="Neighbor expansion hop (1 or 2).")
