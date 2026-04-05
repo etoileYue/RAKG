@@ -3,6 +3,7 @@ import os
 from sklearn.metrics.pairwise import cosine_similarity
 import numpy as np
 from src.llm_provider import LLMProvider
+from src.utils import safe_embed_documents
 
 class TextProcessor:
     def __init__(self, text, name):
@@ -36,7 +37,7 @@ class TextProcessor:
             self.id_to_sentence[sent_id] = sent
         
         # Step 3: Vector storage
-        vectors = self.embeddings.embed_documents(sentences)
+        vectors = safe_embed_documents(self.embeddings, sentences)
         return {
             "sentences": sentences,
             "vectors": vectors,
@@ -44,5 +45,4 @@ class TextProcessor:
             "id_to_sentence": self.id_to_sentence
         }
     
-
 

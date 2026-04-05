@@ -2,6 +2,7 @@ import re
 import os
 import pdfplumber
 from src.llm_provider import LLMProvider
+from src.utils import safe_embed_documents
 
 class pdfProcessor:
     def __init__(self, pdf_path):
@@ -46,7 +47,7 @@ class pdfProcessor:
             self.sentence_to_id[sent] = sent_id
             self.id_to_sentence[sent_id] = sent
         
-        vectors = self.embeddings.embed_documents(sentences)
+        vectors = safe_embed_documents(self.embeddings, sentences)
         return {
             "sentences": sentences,
             "vectors": vectors,

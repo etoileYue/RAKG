@@ -1,22 +1,25 @@
 import json
 import networkx as nx
-from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
 import numpy as np
-from ollama import Client
-import os
 import traceback
-from src.config import OLLAMA_BASE_URL, DEFAULT_MODEL
+from src.llm_provider import LLMProvider
 
-client = Client(host=OLLAMA_BASE_URL) 
+llm_provider = LLMProvider()
+embedding_model = llm_provider.get_embedding_model()
+client = llm_provider.get_llm()
 
 def load_graph_from_json(file_path):
-    with open(file_path, "r",encoding='utf-8') as f:
-        data = f.read()
-    data = json.loads(data)
-    # print(type(data))
-    data = json.loads(data)
-    # print(type(data))
+    with open(file_path, "r", encoding="utf-8") as f:
+        data = json.load(f)
+
+    # 兼容历史数据：若文件内容是“JSON 字符串包裹 JSON”，则继续解码直到拿到 dict。
+    while isinstance(data, str):
+        data = json.loads(data)
+
+    if not isinstance(data, dict):
+        raise TypeError(f"Unexpected graph json type: {type(data)} from {file_path}")
+
     G = nx.DiGraph()
 
     # 添加带属性的实体节点
@@ -37,6 +40,19 @@ def load_graph_from_json(file_path):
 
     return G
 
+def embed_text(model, text):
+    """兼容 SentenceTransformer 与 LangChain Embeddings 接口。"""
+    if hasattr(model, "encode"):
+        vector = model.encode(text)
+    elif hasattr(model, "embed_query"):
+        vector = model.embed_query(text)
+    elif hasattr(model, "embed_documents"):
+        vector = model.embed_documents([text])[0]
+    else:
+        raise TypeError(f"Unsupported embedding model type: {type(model)}")
+
+    return np.array(vector, dtype=float)
+
 def generate_embeddings(graph, model):
     # 生成更丰富的节点表示
     node_embeddings = {}
@@ -48,18 +64,18 @@ def generate_embeddings(graph, model):
             f"{node_data['type']}",
         ]
         full_text = " ".join([part for part in text_parts if part])
-        node_embeddings[node] = model.encode(full_text).tolist()
+        node_embeddings[node] = embed_text(model, full_text).tolist()
 
     # 关系嵌入保持不变
     relation_embeddings = {
-        rel: model.encode(rel).tolist()
+        rel: embed_text(model, rel).tolist()
         for rel in set(edge[2]["relation"] for edge in graph.edges(data=True))
     }
     
     return node_embeddings, relation_embeddings
 
 def retrieve_relevant_nodes(query, node_embeddings, model, k=8):
-    query_embedding = model.encode(query).reshape(1, -1)
+    query_embedding = embed_text(model, query).reshape(1, -1)
     similarities = [(node, cosine_similarity(query_embedding, np.array(embed).reshape(1, -1))[0][0])
                     for node, embed in node_embeddings.items()]
     similarities = sorted(similarities, key=lambda x: x[1], reverse=True)
@@ -104,23 +120,48 @@ def gpt_evaluate_response(correct_answer, context):
 
     Task:
     Determine whether the context contains the information stated in the correct answer. \\
-    Respond with "1" if yes, and "0" if no. Do not provide any explanation, just the number.
+    Return JSON only, with this schema: {{"result": 1}} if yes, or {{"result": 0}} if no.
     """
-    response = client.chat(
-        model=DEFAULT_MODEL,  # 改为您本地的模型名称    
-        messages=[
-            {"role": "system", "content": "你是根据上下文信息推导正确答案的评估器"},
-            {"role": "user", "content": prompt}
-        ],
-        options={
-            'temperature': 0.0,
-            'num_predict': 2  # 相当于OpenAI的max_tokens
-        },
-        stream=False  # 关闭流式输出
+    system_instruction = (
+        "You are an evaluator who derives the correct answer based on contextual information."
+        "Only output a JSON object, and the 'result' field must be 0 or 1."
     )
-    content = response.message.content.strip()
-    # print(response)
-    return int(content)
+    response = client.invoke(f"{system_instruction}\n\n{prompt}")
+
+    raw = response.content if hasattr(response, "content") else str(response)
+    raw_text = str(raw).strip()
+
+    try:
+        parsed = json.loads(raw_text)
+    except Exception:
+        parsed = None
+
+    value = None
+    if isinstance(parsed, dict):
+        value = parsed.get("result")
+    elif isinstance(parsed, (int, float, bool)):
+        value = parsed
+    elif isinstance(parsed, str):
+        value = parsed.strip()
+    else:
+        value = raw_text
+
+    if isinstance(value, bool):
+        return int(value)
+    if isinstance(value, (int, float)):
+        return 1 if int(value) == 1 else 0
+    if isinstance(value, str):
+        lowered = value.strip().lower()
+        if lowered in {"1", "true", "yes"}:
+            return 1
+        if lowered in {"0", "false", "no"}:
+            return 0
+        if "1" in lowered and "0" not in lowered:
+            return 1
+        if "0" in lowered and "1" not in lowered:
+            return 0
+
+    raise ValueError(f"Unable to parse evaluation result from response: {raw_text}")
 
 # Evaluate accuracy
 def evaluate_accuracy(questions_answers, node_embeddings, model, graph, output_file):
@@ -281,13 +322,13 @@ def main():
 ,[{"answer": "Water is crucial for the development of civilization."}, {"answer": "Water is essential for human survival."}, {"answer": "Water is important for drinking."}, {"answer": "Water is important for cooking."}, {"answer": "Water is important for sanitation."}, {"answer": "Early human settlements were established near sources of water."}, {"answer": "Access to water was crucial for the survival of early civilizations."}, {"answer": "The availability of water determined the success of settlements."}, {"answer": "Water is vital for agriculture."}, {"answer": "Water is used to irrigate crops."}, {"answer": "Water allows societies to cultivate larger areas of land."}, {"answer": "Water has been essential for transportation and trade."}, {"answer": "Rivers and seas have served as natural highways for trade."}, {"answer": "Water has been a source of power for industry and innovation."}, {"answer": "Watermills and waterwheels were used in ancient times for various purposes."}]
 ]
     # Initialize embedding model
-    embedding_model = SentenceTransformer("all-MiniLM-L6-v2")
+    # embedding_model = SentenceTransformer("all-MiniLM-L6-v2")
 
-    for i in range(1, 106):
-        json_file = f"data/processed/RAKG_graph_v2_1/{i}.json"
+    for i in range(1, 11):
+        json_file = f"data/short/processed/RAKG_graph_re/{i}.json"
         questions_answers = all_questions_answers[i-1]
         # output_file = json_file.replace(".json", "_results.json")
-        output_file = f"data/processed/RAKG_graph_v2_1/{i}_results.json"
+        output_file = f"data/short/processed/RAKG_graph_re/result/{i}_results.json"
         print(f"Processing file: {json_file}")
         G = load_graph_from_json(json_file)
         node_embeddings, _ = generate_embeddings(G, embedding_model)
