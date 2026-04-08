@@ -22,6 +22,10 @@ class Settings:
         ).split(",")
         if item.strip()
     )
+    cors_origin_regex: str = os.getenv(
+        "RAKG_WEB_CORS_ORIGIN_REGEX",
+        r"^https?://(localhost|127\.0\.0\.1)(:\d+)?$",
+    )
 
 
 SETTINGS = Settings()
