@@ -7,7 +7,8 @@ import type {
   TaskListResponse,
 } from './types';
 
-const API_BASE = import.meta.env.VITE_API_BASE ?? 'http://127.0.0.1:8000/api/v1';
+// Dev 默认走 Vite 同源代理，避免跨域与端口漂移导致的 fetch 失败。
+const API_BASE = import.meta.env.VITE_API_BASE ?? '/api/v1';
 
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
   const response = await fetch(`${API_BASE}${path}`, {

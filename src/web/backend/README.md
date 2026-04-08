@@ -121,6 +121,7 @@ src/web/backend
 - `RAKG_WEB_DB_PATH`：SQLite 路径（默认 `src/web/backend/web_tasks.db`）
 - `RAKG_WEB_QUEUE_POLL_SEC`：队列轮询间隔（默认 `0.2`）
 - `RAKG_WEB_CORS_ORIGINS`：CORS 白名单（逗号分隔）
+- `RAKG_WEB_CORS_ORIGIN_REGEX`：CORS 正则白名单（默认放行 localhost/127.0.0.1 任意端口）
 - `RAKG_WEB_RELOAD`：是否启用 uvicorn reload（`run.py`）
 
 ## 8. 与主仓库算法层的耦合点
@@ -163,4 +164,3 @@ src/web/backend
 
 4. 强化可观测性
    - 增加任务耗时指标、topic 级耗时统计、失败分类统计
-
