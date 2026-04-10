@@ -37,6 +37,7 @@ class KGBuildService:
     ) -> KGBuildResult:
         output_dir = self._resolve_output_dir(task_id, payload.get("output_dir"))
         output_dir.mkdir(parents=True, exist_ok=True)
+        existing_kg_path = self._resolve_existing_kg_path(payload.get("existing_kg"))
 
         input_json_path = self._prepare_input_json(output_dir, payload)
         topics = self._load_topics(input_json_path)
@@ -75,7 +76,7 @@ class KGBuildService:
                     skip_ner=False,
                     skip_sim=False,
                     skip_rel=False,
-                    existing_kg=None,
+                    existing_kg=str(existing_kg_path) if existing_kg_path else None,
                 )
                 processed_topics += 1
                 produced_graph_paths.append(result["output_path"])
@@ -110,6 +111,7 @@ class KGBuildService:
             "graph_dir": str(graph_output_dir),
             "graph_paths": produced_graph_paths,
             "latest_graph_path": produced_graph_paths[-1] if produced_graph_paths else "",
+            "existing_kg": str(existing_kg_path) if existing_kg_path else "",
             "summary": summary,
         }
         on_progress(1.0, "completed")
@@ -147,6 +149,28 @@ class KGBuildService:
             return path
 
         raise ValueError(f"Unsupported input_type: {input_type}")
+
+    @staticmethod
+    def _resolve_existing_kg_path(existing_kg: Any) -> Path | None:
+        if existing_kg is None:
+            return None
+        raw = str(existing_kg).strip()
+        if not raw:
+            return None
+
+        candidate = Path(raw)
+        if not candidate.is_absolute():
+            candidate = (REPO_ROOT / candidate).resolve()
+        else:
+            candidate = candidate.resolve()
+
+        if candidate != REPO_ROOT and REPO_ROOT not in candidate.parents:
+            raise ValueError("existing_kg is outside repository")
+        if not candidate.exists() or not candidate.is_file():
+            raise FileNotFoundError(f"existing_kg does not exist: {candidate}")
+        if candidate.suffix.lower() != ".json":
+            raise ValueError("existing_kg must be a .json file path")
+        return candidate
 
     @staticmethod
     def _load_topics(path: Path) -> list[dict[str, Any]]:

@@ -63,3 +63,15 @@ export interface GraphData {
   entities?: Array<Record<string, unknown>>;
   relations?: Array<Record<string, unknown> | [string, string, string, string?]>;
 }
+
+export interface KGCandidate {
+  path: string;
+  source: 'seed' | 'task';
+  display_name: string;
+  task_id?: string | null;
+}
+
+export interface KGCandidateListResponse {
+  total: number;
+  items: KGCandidate[];
+}

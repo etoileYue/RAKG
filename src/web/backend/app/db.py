@@ -158,6 +158,34 @@ class Database:
             "items": [self._row_to_task(row) for row in rows],
         }
 
+    def list_tasks_by_filters(
+        self,
+        *,
+        task_type: str | None = None,
+        status: str | None = None,
+    ) -> list[dict[str, Any]]:
+        filters = []
+        values: list[Any] = []
+        if task_type:
+            filters.append("task_type = ?")
+            values.append(task_type)
+        if status:
+            filters.append("status = ?")
+            values.append(status)
+        where_clause = f"WHERE {' AND '.join(filters)}" if filters else ""
+
+        with self._connect() as conn:
+            rows = conn.execute(
+                f"""
+                SELECT * FROM tasks
+                {where_clause}
+                ORDER BY created_at DESC
+                """,
+                values,
+            ).fetchall()
+
+        return [self._row_to_task(row) for row in rows]
+
     def update_task_state(
         self,
         task_id: str,

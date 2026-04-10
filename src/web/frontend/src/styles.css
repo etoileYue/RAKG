@@ -184,6 +184,22 @@ button[disabled] {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+.checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.checkbox-row input[type='checkbox'] {
+  width: auto;
+}
+
+.checkbox-inline-label {
+  display: inline;
+  margin: 0;
+  color: var(--ink);
+}
+
 .error-text {
   color: var(--error);
   white-space: pre-wrap;
