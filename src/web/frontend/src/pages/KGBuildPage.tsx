@@ -1,8 +1,8 @@
-import { type FormEvent, useEffect, useMemo, useState } from 'react';
+import { type FormEvent, useCallback, useEffect, useMemo, useState } from 'react';
 
-import { cancelTask, createKGBuildTask, getTask, readGraphArtifact } from '../api';
+import { cancelTask, createKGBuildTask, getTask, listKGCandidates, readGraphArtifact } from '../api';
 import { GraphView } from '../components/GraphView';
-import type { GraphData, TaskDetail } from '../types';
+import type { GraphData, KGCandidate, TaskDetail } from '../types';
 
 const TERMINAL = new Set(['succeeded', 'failed', 'canceled']);
 
@@ -12,13 +12,39 @@ export function KGBuildPage() {
   const [text, setText] = useState('');
   const [jsonPath, setJsonPath] = useState('data/raw/MINE_short10.json');
   const [outputDir, setOutputDir] = useState('');
+  const [useExistingKg, setUseExistingKg] = useState(false);
+  const [selectedExistingKgPath, setSelectedExistingKgPath] = useState('');
+  const [kgCandidates, setKgCandidates] = useState<KGCandidate[]>([]);
 
   const [taskId, setTaskId] = useState('');
   const [task, setTask] = useState<TaskDetail | null>(null);
   const [graphData, setGraphData] = useState<GraphData | null>(null);
 
   const [loading, setLoading] = useState(false);
+  const [candidatesLoading, setCandidatesLoading] = useState(false);
   const [error, setError] = useState('');
+
+  const loadCandidates = useCallback(async (preferredPath?: string) => {
+    setCandidatesLoading(true);
+    try {
+      const response = await listKGCandidates();
+      setKgCandidates(response.items);
+      setSelectedExistingKgPath((current) => {
+        const available = new Set(response.items.map((item) => item.path));
+        if (preferredPath && available.has(preferredPath)) return preferredPath;
+        if (current && available.has(current)) return current;
+        return response.items[0]?.path ?? '';
+      });
+    } catch (err) {
+      setError(err instanceof Error ? err.message : String(err));
+    } finally {
+      setCandidatesLoading(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    loadCandidates();
+  }, [loadCandidates]);
 
   useEffect(() => {
     if (!taskId) return;
@@ -38,6 +64,7 @@ export function KGBuildPage() {
             const graph = await readGraphArtifact(latestPath);
             if (!stopped) setGraphData(graph.data);
           }
+          await loadCandidates(latestPath || undefined);
         }
 
         if (!TERMINAL.has(detail.status)) {
@@ -57,7 +84,7 @@ export function KGBuildPage() {
       stopped = true;
       if (timer) window.clearTimeout(timer);
     };
-  }, [taskId]);
+  }, [taskId, loadCandidates]);
 
   const progressText = useMemo(() => {
     if (!task) return '0%';
@@ -72,6 +99,11 @@ export function KGBuildPage() {
     setGraphData(null);
 
     try {
+      const existingKg = useExistingKg ? selectedExistingKgPath.trim() : '';
+      if (useExistingKg && !existingKg) {
+        throw new Error('请先选择已有 KG，再启用基于已有图谱构建。');
+      }
+
       const payload =
         inputType === 'text'
           ? {
@@ -79,11 +111,13 @@ export function KGBuildPage() {
               text,
               topic,
               output_dir: outputDir || undefined,
+              existing_kg: existingKg || undefined,
             }
           : {
               input_type: 'json_path' as const,
               json_path: jsonPath,
               output_dir: outputDir || undefined,
+              existing_kg: existingKg || undefined,
             };
 
       const created = await createKGBuildTask(payload);
@@ -106,12 +140,23 @@ export function KGBuildPage() {
     }
   };
 
-  const loadGraphFromPath = async () => {
+  const loadLatestGraphFromTask = async () => {
     if (!task) return;
     const latestPath = String(task.output_payload.latest_graph_path ?? '').trim();
     if (!latestPath) return;
     try {
       const graph = await readGraphArtifact(latestPath);
+      setGraphData(graph.data);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : String(err));
+    }
+  };
+
+  const loadSelectedExistingGraph = async () => {
+    const path = selectedExistingKgPath.trim();
+    if (!path) return;
+    try {
+      const graph = await readGraphArtifact(path);
       setGraphData(graph.data);
     } catch (err) {
       setError(err instanceof Error ? err.message : String(err));
@@ -163,6 +208,34 @@ export function KGBuildPage() {
             />
           </label>
 
+          <div className="checkbox-row">
+            <input
+              id="kg-existing-switch"
+              type="checkbox"
+              checked={useExistingKg}
+              onChange={(event) => setUseExistingKg(event.target.checked)}
+            />
+            <label htmlFor="kg-existing-switch" className="checkbox-inline-label">
+              在已有知识图谱基础上构建（existing_kg）
+            </label>
+          </div>
+
+          <label>
+            已有 KG 列表
+            <select
+              value={selectedExistingKgPath}
+              onChange={(event) => setSelectedExistingKgPath(event.target.value)}
+              disabled={candidatesLoading || kgCandidates.length === 0}
+            >
+              <option value="">{candidatesLoading ? '加载中...' : '请选择已有 KG'}</option>
+              {kgCandidates.map((candidate) => (
+                <option key={`${candidate.source}:${candidate.path}`} value={candidate.path}>
+                  {candidate.display_name}
+                </option>
+              ))}
+            </select>
+          </label>
+
           <div className="button-row">
             <button type="submit" disabled={loading}>
               {loading ? '提交中...' : '提交任务'}
@@ -170,8 +243,11 @@ export function KGBuildPage() {
             <button type="button" onClick={onCancel} disabled={!task || TERMINAL.has(task.status)}>
               取消任务
             </button>
-            <button type="button" onClick={loadGraphFromPath} disabled={!task}>
-              重新加载图谱
+            <button type="button" onClick={loadLatestGraphFromTask} disabled={!task}>
+              预览任务最新图谱
+            </button>
+            <button type="button" onClick={loadSelectedExistingGraph} disabled={!selectedExistingKgPath}>
+              预览选中已有图谱
             </button>
           </div>
         </form>

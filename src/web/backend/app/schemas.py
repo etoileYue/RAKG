@@ -14,6 +14,7 @@ class KGBuildRequest(BaseModel):
     topic: str = "web_topic"
     json_path: str | None = None
     output_dir: str | None = None
+    existing_kg: str | None = None
 
     @model_validator(mode="after")
     def validate_fields(self) -> "KGBuildRequest":
@@ -24,6 +25,14 @@ class KGBuildRequest(BaseModel):
             if not self.json_path or not self.json_path.strip():
                 raise ValueError("json_path input requires non-empty `json_path`")
         return self
+
+    @field_validator("existing_kg")
+    @classmethod
+    def normalize_existing_kg(cls, value: str | None) -> str | None:
+        if value is None:
+            return None
+        stripped = value.strip()
+        return stripped or None
 
 
 class TaskSummary(BaseModel):
@@ -97,3 +106,15 @@ class HealthResponse(BaseModel):
     healthy: bool
     queue: dict[str, Any]
     model_config_summary: dict[str, Any]
+
+
+class KGCandidateItem(BaseModel):
+    path: str
+    source: Literal["seed", "task"]
+    display_name: str
+    task_id: str | None = None
+
+
+class KGCandidateListResponse(BaseModel):
+    total: int
+    items: list[KGCandidateItem]

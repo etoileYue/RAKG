@@ -23,6 +23,8 @@ from app.schemas import (  # noqa: E402
     CancelTaskResponse,
     CreateTaskResponse,
     HealthResponse,
+    KGCandidateItem,
+    KGCandidateListResponse,
     KGBuildRequest,
     LogsResponse,
     QAQueryRequest,
@@ -38,6 +40,7 @@ from app.services.qa_service import QAService  # noqa: E402
 db = Database(SETTINGS.db_path)
 executor = SerialTaskExecutor(db=db, poll_interval_sec=SETTINGS.queue_poll_interval_sec)
 qa_service = QAService()
+SEED_KG_DIR = REPO_ROOT / "data" / "short" / "processed" / "RAKG_graph_re"
 
 
 @asynccontextmanager
@@ -63,7 +66,16 @@ app.add_middleware(
 
 @app.post(f"{SETTINGS.api_prefix}/tasks/kg-build", response_model=CreateTaskResponse)
 def create_kg_build_task(payload: KGBuildRequest) -> CreateTaskResponse:
-    task_id = executor.submit_kg_task(payload.model_dump())
+    serialized_payload = payload.model_dump()
+    if payload.existing_kg:
+        resolved_existing = _resolve_repo_path(payload.existing_kg)
+        if not resolved_existing.exists() or not resolved_existing.is_file():
+            raise HTTPException(status_code=400, detail=f"existing_kg not found: {resolved_existing}")
+        if resolved_existing.suffix.lower() != ".json":
+            raise HTTPException(status_code=400, detail="existing_kg must be a .json file path")
+        serialized_payload["existing_kg"] = str(resolved_existing)
+
+    task_id = executor.submit_kg_task(serialized_payload)
     return CreateTaskResponse(task_id=task_id)
 
 
@@ -168,6 +180,68 @@ def read_kg_artifact(path: str = Query(..., description="Absolute or repo-relati
         raise HTTPException(status_code=400, detail=f"invalid json artifact: {exc}") from exc
 
 
+@app.get(f"{SETTINGS.api_prefix}/artifacts/kg/candidates", response_model=KGCandidateListResponse)
+def list_kg_candidates() -> KGCandidateListResponse:
+    items: list[KGCandidateItem] = []
+    seen_paths: set[str] = set()
+
+    for path in _iter_seed_kg_paths():
+        canonical = str(path)
+        if canonical in seen_paths:
+            continue
+        seen_paths.add(canonical)
+        items.append(
+            KGCandidateItem(
+                path=canonical,
+                source="seed",
+                display_name=f"seed/{path.name}",
+            )
+        )
+
+    succeeded_tasks = db.list_tasks_by_filters(task_type="kg_build", status="succeeded")
+    for task in succeeded_tasks:
+        task_id = str(task.get("task_id", ""))
+        output_payload = task.get("output_payload", {})
+        if not isinstance(output_payload, dict):
+            continue
+
+        raw_paths: list[str] = []
+        graph_paths = output_payload.get("graph_paths")
+        if isinstance(graph_paths, list):
+            for candidate in graph_paths:
+                if candidate is None:
+                    continue
+                value = str(candidate).strip()
+                if value:
+                    raw_paths.append(value)
+
+        latest_graph_path = str(output_payload.get("latest_graph_path", "")).strip()
+        if latest_graph_path and latest_graph_path not in raw_paths:
+            raw_paths.append(latest_graph_path)
+
+        for raw_path in raw_paths:
+            resolved = _safe_resolve_repo_path(raw_path)
+            if resolved is None or not resolved.exists() or not resolved.is_file():
+                continue
+            if resolved.suffix.lower() != ".json":
+                continue
+
+            canonical = str(resolved)
+            if canonical in seen_paths:
+                continue
+            seen_paths.add(canonical)
+            items.append(
+                KGCandidateItem(
+                    path=canonical,
+                    source="task",
+                    display_name=f"task/{task_id}/{resolved.name}",
+                    task_id=task_id or None,
+                )
+            )
+
+    return KGCandidateListResponse(total=len(items), items=items)
+
+
 @app.get("/")
 def root() -> dict[str, str]:
     return {"message": "RAKG Web API is running"}
@@ -184,3 +258,23 @@ def _resolve_repo_path(raw_path: str) -> Path:
     if candidate != REPO_ROOT and REPO_ROOT not in candidate.parents:
         raise HTTPException(status_code=400, detail="path is outside repository")
     return candidate
+
+
+def _safe_resolve_repo_path(raw_path: str) -> Path | None:
+    try:
+        return _resolve_repo_path(raw_path)
+    except HTTPException:
+        return None
+
+
+def _iter_seed_kg_paths() -> list[Path]:
+    if not SEED_KG_DIR.exists() or not SEED_KG_DIR.is_dir():
+        return []
+
+    def sort_key(path: Path) -> tuple[int, int | str]:
+        stem = path.stem
+        if stem.isdigit():
+            return (0, int(stem))
+        return (1, path.name)
+
+    return sorted((item.resolve() for item in SEED_KG_DIR.glob("*.json") if item.is_file()), key=sort_key)

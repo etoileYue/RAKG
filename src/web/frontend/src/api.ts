@@ -1,6 +1,7 @@
 import type {
   GraphData,
   HealthResponse,
+  KGCandidateListResponse,
   LogsResponse,
   QAResponse,
   TaskDetail,
@@ -33,6 +34,7 @@ export async function createKGBuildTask(payload: {
   topic?: string;
   json_path?: string;
   output_dir?: string;
+  existing_kg?: string;
 }): Promise<{ task_id: string }> {
   return request('/tasks/kg-build', {
     method: 'POST',
@@ -98,4 +100,8 @@ export async function getHealth(): Promise<HealthResponse> {
 export async function readGraphArtifact(path: string): Promise<{ path: string; data: GraphData }> {
   const search = new URLSearchParams({ path });
   return request(`/artifacts/kg?${search.toString()}`);
+}
+
+export async function listKGCandidates(): Promise<KGCandidateListResponse> {
+  return request('/artifacts/kg/candidates');
 }
