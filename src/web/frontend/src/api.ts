@@ -8,7 +8,6 @@ import type {
   TaskListResponse,
 } from './types';
 
-// Dev 默认走 Vite 同源代理，避免跨域与端口漂移导致的 fetch 失败。
 const API_BASE = import.meta.env.VITE_API_BASE ?? '/api/v1';
 
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
@@ -21,11 +20,22 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
   });
 
   if (!response.ok) {
-    const text = await response.text();
-    throw new Error(text || `request failed: ${response.status}`);
+    const rawText = await response.text();
+    let message = rawText || `request failed: ${response.status}`;
+    try {
+      const parsed = JSON.parse(rawText) as { detail?: string };
+      if (parsed.detail) message = parsed.detail;
+    } catch {
+      // keep raw text
+    }
+    throw new Error(message);
   }
 
   return (await response.json()) as T;
+}
+
+export function getApiDocsUrl(): string {
+  return '/docs';
 }
 
 export async function createKGBuildTask(payload: {
