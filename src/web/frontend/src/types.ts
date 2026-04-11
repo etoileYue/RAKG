@@ -75,3 +75,20 @@ export interface KGCandidateListResponse {
   total: number;
   items: KGCandidate[];
 }
+
+export interface NormalizedGraphNode {
+  id: string;
+  label: string;
+  entityType: string;
+  description: string;
+  raw: Record<string, unknown>;
+}
+
+export interface NormalizedGraphEdge {
+  id: string;
+  source: string;
+  target: string;
+  relation: string;
+  description: string;
+  raw: Record<string, unknown>;
+}
