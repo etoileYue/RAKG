@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { SystemDrawer } from './components/SystemDrawer';
 import { ApiDocsPage } from './pages/ApiDocsPage';
@@ -26,8 +26,6 @@ export default function App() {
   const [activeTab, setActiveTab] = useState<TabKey>(resolveInitialTab);
   const [drawerOpen, setDrawerOpen] = useState(false);
 
-  const appVersion = useMemo(() => import.meta.env.VITE_APP_VERSION ?? 'v0.2.0', []);
-
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     params.set('tab', activeTab);
@@ -40,9 +38,8 @@ export default function App() {
       <header className="sticky top-0 z-30 border-b border-app-border bg-white/90 backdrop-blur">
         <div className="mx-auto flex w-[min(1480px,96vw)] flex-wrap items-center justify-between gap-3 px-2 py-2">
           <div className="flex min-w-0 items-center gap-2">
-            <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-50 text-emerald-600">LR</span>
             <div className="min-w-0">
-              <h1 className="m-0 truncate font-display text-xl font-semibold">LightRAG | My Graph KB</h1>
+              <h1 className="m-0 truncate font-display text-xl font-semibold">RAG + KG</h1>
             </div>
           </div>
 
@@ -59,11 +56,9 @@ export default function App() {
                 {tab.label}
               </button>
             ))}
-            <span className="rounded-md bg-amber-100 px-2 py-1 text-xs font-semibold text-amber-700">无需登陆</span>
           </nav>
 
           <div className="flex items-center gap-2">
-            <span className="text-sm text-app-muted">{appVersion}</span>
             <button type="button" className="soft-button" onClick={() => setDrawerOpen(true)}>
               日志/系统
             </button>
