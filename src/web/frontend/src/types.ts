@@ -9,6 +9,8 @@ export interface TaskSummary {
   created_at: string;
   started_at?: string | null;
   finished_at?: string | null;
+  topic_preview?: string | null;
+  topic_count?: number | null;
 }
 
 export interface TaskDetail extends TaskSummary {

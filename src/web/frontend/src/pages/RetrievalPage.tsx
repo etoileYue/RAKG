@@ -1,43 +1,42 @@
 import { FormEvent, useEffect, useState } from 'react';
 
-import { getTask, listTasks, qaQuery } from '../api';
-import type { QAResponse, TaskSummary } from '../types';
+import { listKGCandidates, qaQuery } from '../api';
+import type { KGCandidate, QAResponse } from '../types';
+
+function resolveDefaultGraphPath(items: KGCandidate[]): string {
+  if (!items.length) return '';
+  const recentTask = items.find((item) => item.source === 'task');
+  return recentTask?.path ?? items[0].path;
+}
 
 export function RetrievalPage() {
-  const [kgPath, setKgPath] = useState('');
+  const [kgCandidates, setKgCandidates] = useState<KGCandidate[]>([]);
+  const [selectedKgPath, setSelectedKgPath] = useState('');
   const [question, setQuestion] = useState('蝴蝶的生命周期包括哪四个主要阶段？');
   const [maxHop, setMaxHop] = useState(2);
   const [seedTopK, setSeedTopK] = useState(5);
   const [maxContextItems, setMaxContextItems] = useState(30);
 
-  const [taskOptions, setTaskOptions] = useState<TaskSummary[]>([]);
   const [result, setResult] = useState<QAResponse | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
-  const loadTaskOptions = async () => {
+  const loadKGCandidates = async () => {
     try {
-      const response = await listTasks({ page: 1, page_size: 100, task_type: 'kg_build', status: 'succeeded' });
-      setTaskOptions(response.items);
+      const response = await listKGCandidates();
+      setKgCandidates(response.items);
+      setSelectedKgPath((current) => {
+        if (current && response.items.some((item) => item.path === current)) return current;
+        return resolveDefaultGraphPath(response.items);
+      });
     } catch (err) {
       setError(err instanceof Error ? err.message : String(err));
     }
   };
 
   useEffect(() => {
-    void loadTaskOptions();
+    void loadKGCandidates();
   }, []);
-
-  const onLoadFromTask = async (taskId: string) => {
-    if (!taskId) return;
-    try {
-      const detail = await getTask(taskId);
-      const latest = String(detail.output_payload.latest_graph_path ?? '').trim();
-      if (latest) setKgPath(latest);
-    } catch (err) {
-      setError(err instanceof Error ? err.message : String(err));
-    }
-  };
 
   const onSubmit = async (event: FormEvent) => {
     event.preventDefault();
@@ -46,8 +45,11 @@ export function RetrievalPage() {
     setResult(null);
 
     try {
+      if (!selectedKgPath) {
+        throw new Error('请先选择一个可用图谱。');
+      }
       const data = await qaQuery({
-        kg_path: kgPath,
+        kg_path: selectedKgPath,
         question,
         max_hop: maxHop,
         seed_top_k: seedTopK,
@@ -64,24 +66,24 @@ export function RetrievalPage() {
   return (
     <div className="space-y-3">
       <section className="panel p-4">
-        <div className="mb-3">
-          <h2 className="m-0 font-display text-lg font-semibold">检索</h2>
-          <p className="m-0 mt-1 text-sm text-app-muted">基于指定知识图谱执行 QA 检索</p>
+        <div className="mb-3 flex items-center justify-between gap-3">
+          <div>
+            <h2 className="m-0 font-display text-lg font-semibold">检索</h2>
+            <p className="m-0 mt-1 text-sm text-app-muted">基于已有知识图谱执行 QA 检索</p>
+          </div>
+          <button type="button" className="soft-button" onClick={() => void loadKGCandidates()}>
+            刷新图谱源
+          </button>
         </div>
 
         <form onSubmit={onSubmit} className="space-y-3">
           <label className="block text-xs text-app-muted">
-            KG 文件路径
-            <input className="field mt-1" value={kgPath} onChange={(event) => setKgPath(event.target.value)} placeholder="/abs/path/to/kg.json" />
-          </label>
-
-          <label className="block text-xs text-app-muted">
-            从已完成任务回填（可选）
-            <select className="field mt-1" defaultValue="" onChange={(event) => void onLoadFromTask(event.target.value)}>
-              <option value="">请选择任务</option>
-              {taskOptions.map((task) => (
-                <option key={task.task_id} value={task.task_id}>
-                  {task.task_id}
+            可用图谱
+            <select className="field mt-1" value={selectedKgPath} onChange={(event) => setSelectedKgPath(event.target.value)}>
+              <option value="">请选择图谱</option>
+              {kgCandidates.map((candidate) => (
+                <option key={`${candidate.source}:${candidate.path}`} value={candidate.path}>
+                  {candidate.display_name}
                 </option>
               ))}
             </select>
@@ -130,7 +132,7 @@ export function RetrievalPage() {
             </label>
           </div>
 
-          <button type="submit" className="brand-button" disabled={loading}>
+          <button type="submit" className="brand-button" disabled={loading || !selectedKgPath}>
             {loading ? '检索中...' : '发起检索'}
           </button>
         </form>
@@ -144,9 +146,7 @@ export function RetrievalPage() {
           <p className="mt-2 text-sm text-app-muted">输入问题后展示结果</p>
         ) : (
           <div className="mt-3 space-y-3">
-            <article className="rounded-xl border border-app-border bg-slate-50 p-3 text-sm leading-6 text-slate-800">
-              {result.formatted_answer}
-            </article>
+            <article className="rounded-xl border border-app-border bg-slate-50 p-3 text-sm leading-6 text-slate-800">{result.formatted_answer}</article>
 
             <details>
               <summary className="cursor-pointer text-xs font-semibold text-app-muted">检索上下文</summary>

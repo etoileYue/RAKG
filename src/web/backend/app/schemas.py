@@ -44,6 +44,8 @@ class TaskSummary(BaseModel):
     created_at: str
     started_at: str | None = None
     finished_at: str | None = None
+    topic_preview: str | None = None
+    topic_count: int | None = None
 
 
 class TaskDetail(TaskSummary):

@@ -1,6 +1,6 @@
 import { FormEvent, useEffect, useMemo, useState } from 'react';
 
-import { cancelTask, createKGBuildTask, getTask, listKGCandidates, listTasks } from '../api';
+import { cancelTask, createKGBuildTaskUpload, getTask, listKGCandidates, listTasks } from '../api';
 import type { KGCandidate, TaskDetail, TaskStatus, TaskSummary } from '../types';
 
 const FILTERS: Array<{ key: 'all' | TaskStatus; label: string }> = [
@@ -14,11 +14,35 @@ const FILTERS: Array<{ key: 'all' | TaskStatus; label: string }> = [
 
 const TERMINAL = new Set<TaskStatus>(['succeeded', 'failed', 'canceled']);
 
+const JSON_TEXT_TEMPLATE = `[
+  {
+    "topic": "Example Topic",
+    "content": "Your content here..."
+  }
+]`;
+
+function formatDateTime(value?: string | null): string {
+  if (!value) return '-';
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return value;
+  return date.toLocaleString();
+}
+
+function shortTaskId(taskId: string): string {
+  return taskId.slice(0, 8);
+}
+
+function getTopicLabel(task: TaskSummary): string {
+  const topic = String(task.topic_preview || '').trim() || '未解析主题';
+  const count = typeof task.topic_count === 'number' && Number.isFinite(task.topic_count) ? Math.max(1, Math.floor(task.topic_count)) : 1;
+  if (count <= 1) return topic;
+  return `${topic} (+${count - 1})`;
+}
+
 export function DocumentsPage() {
-  const [inputType, setInputType] = useState<'text' | 'json_path'>('text');
-  const [topic, setTopic] = useState('web_topic');
-  const [text, setText] = useState('');
-  const [jsonPath, setJsonPath] = useState('data/raw/MINE_short10.json');
+  const [inputType, setInputType] = useState<'json_text' | 'json_file'>('json_text');
+  const [jsonText, setJsonText] = useState('');
+  const [jsonFile, setJsonFile] = useState<File | null>(null);
   const [outputDir, setOutputDir] = useState('');
   const [useExistingKg, setUseExistingKg] = useState(false);
 
@@ -121,23 +145,25 @@ export function DocumentsPage() {
         throw new Error('请先选择已有 KG，再启用 existing_kg。');
       }
 
-      const payload =
-        inputType === 'text'
-          ? {
-              input_type: 'text' as const,
-              text,
-              topic,
-              output_dir: outputDir || undefined,
-              existing_kg: existingKg || undefined,
-            }
-          : {
-              input_type: 'json_path' as const,
-              json_path: jsonPath,
-              output_dir: outputDir || undefined,
-              existing_kg: existingKg || undefined,
-            };
+      if (inputType === 'json_file' && !jsonFile) {
+        throw new Error('请先选择一个 JSON 文件。');
+      }
 
-      const created = await createKGBuildTask(payload);
+      const created =
+        inputType === 'json_text'
+          ? await createKGBuildTaskUpload({
+              input_type: 'json_text',
+              json_text: jsonText,
+              output_dir: outputDir || undefined,
+              existing_kg: existingKg || undefined,
+            })
+          : await createKGBuildTaskUpload({
+              input_type: 'json_file',
+              json_file: jsonFile ?? undefined,
+              output_dir: outputDir || undefined,
+              existing_kg: existingKg || undefined,
+            });
+
       setSelectedTaskId(created.task_id);
       await loadTasks();
     } catch (err) {
@@ -182,32 +208,34 @@ export function DocumentsPage() {
           <form className="mt-3 space-y-3" onSubmit={onSubmit}>
             <label className="block text-xs text-app-muted">
               输入类型
-              <select className="field mt-1" value={inputType} onChange={(event) => setInputType(event.target.value as 'text' | 'json_path')}>
-                <option value="text">文本输入</option>
-                <option value="json_path">JSON 文件路径</option>
+              <select className="field mt-1" value={inputType} onChange={(event) => setInputType(event.target.value as 'json_text' | 'json_file')}>
+                <option value="json_text">JSON 文本输入</option>
+                <option value="json_file">JSON 文件上传</option>
               </select>
             </label>
 
-            {inputType === 'text' ? (
+            {inputType === 'json_text' ? (
               <>
                 <label className="block text-xs text-app-muted">
-                  Topic
-                  <input className="field mt-1" value={topic} onChange={(event) => setTopic(event.target.value)} />
-                </label>
-                <label className="block text-xs text-app-muted">
-                  文本内容
+                  JSON 文本内容
                   <textarea
-                    className="field mt-1 min-h-36"
-                    value={text}
-                    onChange={(event) => setText(event.target.value)}
-                    placeholder="输入需要构建图谱的文本"
+                    className="field mt-1 min-h-44 font-mono"
+                    value={jsonText}
+                    onChange={(event) => setJsonText(event.target.value)}
+                    placeholder={JSON_TEXT_TEMPLATE}
                   />
                 </label>
               </>
             ) : (
               <label className="block text-xs text-app-muted">
-                JSON 路径
-                <input className="field mt-1" value={jsonPath} onChange={(event) => setJsonPath(event.target.value)} />
+                JSON 文件
+                <input
+                  className="field mt-1"
+                  type="file"
+                  accept=".json,application/json"
+                  onChange={(event) => setJsonFile(event.target.files?.[0] ?? null)}
+                />
+                <p className="m-0 mt-1 text-xs text-app-muted">{jsonFile ? `已选择: ${jsonFile.name}` : '请选择 .json 文件'}</p>
               </label>
             )}
 
@@ -283,15 +311,16 @@ export function DocumentsPage() {
                       onClick={() => setSelectedTaskId(task.task_id)}
                     >
                       <div className="flex items-center justify-between gap-2">
-                        <strong className="truncate text-sm">{task.task_id}</strong>
+                        <strong className="truncate text-sm">{getTopicLabel(task)}</strong>
                         <span className="text-xs text-app-muted">{task.status}</span>
                       </div>
+                      <p className="m-0 mt-1 text-xs text-app-muted">
+                        开始: {formatDateTime(task.started_at)} | 完成: {formatDateTime(task.finished_at)}
+                      </p>
+                      <p className="m-0 mt-1 truncate text-xs text-app-muted">任务ID: {shortTaskId(task.task_id)}</p>
                       <p className="m-0 mt-1 truncate text-xs text-app-muted">{task.message}</p>
                       <div className="mt-2 h-1.5 rounded-full bg-slate-200">
-                        <div
-                          className="h-full rounded-full bg-emerald-500"
-                          style={{ width: `${Math.round((task.progress ?? 0) * 100)}%` }}
-                        />
+                        <div className="h-full rounded-full bg-emerald-500" style={{ width: `${Math.round((task.progress ?? 0) * 100)}%` }} />
                       </div>
                     </button>
                   );
@@ -327,7 +356,11 @@ export function DocumentsPage() {
                     </div>
                   </div>
 
-                  <p className="mb-0 mt-2 text-xs text-app-muted">{selectedTask.message}</p>
+                  <p className="mb-0 mt-2 text-xs text-app-muted">Topic: {getTopicLabel(selectedTask)}</p>
+                  <p className="mb-0 mt-1 text-xs text-app-muted">Task ID: {selectedTask.task_id}</p>
+                  <p className="mb-0 mt-1 text-xs text-app-muted">开始: {formatDateTime(selectedTask.started_at)}</p>
+                  <p className="mb-0 mt-1 text-xs text-app-muted">完成: {formatDateTime(selectedTask.finished_at)}</p>
+                  <p className="mb-0 mt-1 text-xs text-app-muted">{selectedTask.message}</p>
 
                   <details className="mt-3">
                     <summary className="cursor-pointer text-xs font-semibold text-app-muted">输出 payload</summary>

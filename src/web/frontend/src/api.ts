@@ -11,12 +11,14 @@ import type {
 const API_BASE = import.meta.env.VITE_API_BASE ?? '/api/v1';
 
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
+  const headers = new Headers(init?.headers ?? {});
+  if (!(init?.body instanceof FormData) && !headers.has('Content-Type')) {
+    headers.set('Content-Type', 'application/json');
+  }
+
   const response = await fetch(`${API_BASE}${path}`, {
     ...init,
-    headers: {
-      'Content-Type': 'application/json',
-      ...(init?.headers ?? {}),
-    },
+    headers,
   });
 
   if (!response.ok) {
@@ -49,6 +51,29 @@ export async function createKGBuildTask(payload: {
   return request('/tasks/kg-build', {
     method: 'POST',
     body: JSON.stringify(payload),
+  });
+}
+
+export async function createKGBuildTaskUpload(payload: {
+  input_type: 'json_text' | 'json_file';
+  json_text?: string;
+  json_file?: File;
+  output_dir?: string;
+  existing_kg?: string;
+}): Promise<{ task_id: string }> {
+  const form = new FormData();
+  form.set('input_type', payload.input_type);
+  if (payload.input_type === 'json_text') {
+    form.set('json_text', payload.json_text ?? '');
+  } else if (payload.json_file) {
+    form.set('json_file', payload.json_file);
+  }
+  if (payload.output_dir) form.set('output_dir', payload.output_dir);
+  if (payload.existing_kg) form.set('existing_kg', payload.existing_kg);
+
+  return request('/tasks/kg-build/upload', {
+    method: 'POST',
+    body: form,
   });
 }
 
