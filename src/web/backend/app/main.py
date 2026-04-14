@@ -2,11 +2,12 @@ from __future__ import annotations
 
 import json
 import sys
+import uuid
 from contextlib import asynccontextmanager
 from pathlib import Path
 from typing import Any
 
-from fastapi import FastAPI, HTTPException, Query
+from fastapi import FastAPI, File, Form, HTTPException, Query, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 
 # Ensure project root is importable so backend can call existing src/* modules.
@@ -17,7 +18,7 @@ if str(_REPO_ROOT) not in sys.path:
 
 from src import config as rakg_config  # noqa: E402
 
-from app.config import REPO_ROOT, SETTINGS  # noqa: E402
+from app.config import DEFAULT_TASK_OUTPUT_ROOT, REPO_ROOT, SETTINGS  # noqa: E402
 from app.db import Database  # noqa: E402
 from app.schemas import (  # noqa: E402
     CancelTaskResponse,
@@ -67,14 +68,61 @@ app.add_middleware(
 @app.post(f"{SETTINGS.api_prefix}/tasks/kg-build", response_model=CreateTaskResponse)
 def create_kg_build_task(payload: KGBuildRequest) -> CreateTaskResponse:
     serialized_payload = payload.model_dump()
-    if payload.existing_kg:
-        resolved_existing = _resolve_repo_path(payload.existing_kg)
-        if not resolved_existing.exists() or not resolved_existing.is_file():
-            raise HTTPException(status_code=400, detail=f"existing_kg not found: {resolved_existing}")
-        if resolved_existing.suffix.lower() != ".json":
-            raise HTTPException(status_code=400, detail="existing_kg must be a .json file path")
-        serialized_payload["existing_kg"] = str(resolved_existing)
+    resolved_existing = _resolve_existing_kg_path(payload.existing_kg)
+    serialized_payload["existing_kg"] = str(resolved_existing) if resolved_existing else None
+    _enrich_task_topic_meta(serialized_payload)
 
+    task_id = executor.submit_kg_task(serialized_payload)
+    return CreateTaskResponse(task_id=task_id)
+
+
+@app.post(f"{SETTINGS.api_prefix}/tasks/kg-build/upload", response_model=CreateTaskResponse)
+async def create_kg_build_task_upload(
+    input_type: str = Form(...),
+    json_text: str | None = Form(default=None),
+    json_file: UploadFile | None = File(default=None),
+    output_dir: str | None = Form(default=None),
+    existing_kg: str | None = Form(default=None),
+) -> CreateTaskResponse:
+    input_kind = input_type.strip()
+    if input_kind not in {"json_text", "json_file"}:
+        raise HTTPException(status_code=400, detail="input_type must be one of: json_text, json_file")
+
+    if input_kind == "json_text":
+        raw_text = (json_text or "").strip()
+        if not raw_text:
+            raise HTTPException(status_code=400, detail="json_text is required when input_type=json_text")
+        try:
+            parsed = json.loads(raw_text)
+        except json.JSONDecodeError as exc:
+            raise HTTPException(status_code=400, detail=f"invalid json_text: {exc}") from exc
+    else:
+        if json_file is None:
+            raise HTTPException(status_code=400, detail="json_file is required when input_type=json_file")
+        filename = (json_file.filename or "").strip()
+        if filename and not filename.lower().endswith(".json"):
+            raise HTTPException(status_code=400, detail="json_file must be a .json file")
+        payload_bytes = await json_file.read()
+        try:
+            parsed = json.loads(payload_bytes.decode("utf-8"))
+        except UnicodeDecodeError as exc:
+            raise HTTPException(status_code=400, detail=f"json_file must be utf-8 text: {exc}") from exc
+        except json.JSONDecodeError as exc:
+            raise HTTPException(status_code=400, detail=f"invalid json_file: {exc}") from exc
+
+    topics = _normalize_topics_payload(parsed)
+    uploaded_json_path = _write_uploaded_topics_json(topics)
+    resolved_existing = _resolve_existing_kg_path(existing_kg)
+
+    serialized_payload: dict[str, Any] = {
+        "input_type": "json_path",
+        "json_path": str(uploaded_json_path),
+        "output_dir": (output_dir or "").strip() or None,
+        "existing_kg": str(resolved_existing) if resolved_existing else None,
+        "topic_preview": topics[0]["topic"],
+        "topic_count": len(topics),
+        "upload_source": input_kind,
+    }
     task_id = executor.submit_kg_task(serialized_payload)
     return CreateTaskResponse(task_id=task_id)
 
@@ -84,6 +132,7 @@ def get_task(task_id: str) -> TaskDetail:
     task = db.get_task(task_id)
     if not task:
         raise HTTPException(status_code=404, detail=f"task not found: {task_id}")
+    _enrich_task_topic_meta(task)
     return TaskDetail(**task)
 
 
@@ -95,6 +144,8 @@ def list_tasks(
     status: str | None = Query(default=None),
 ) -> TaskListResponse:
     result = db.list_tasks(page=page, page_size=page_size, task_type=task_type, status=status)
+    for item in result["items"]:
+        _enrich_task_topic_meta(item)
     return TaskListResponse(
         total=result["total"],
         page=result["page"],
@@ -245,6 +296,91 @@ def list_kg_candidates() -> KGCandidateListResponse:
 @app.get("/")
 def root() -> dict[str, str]:
     return {"message": "RAKG Web API is running"}
+
+
+def _resolve_existing_kg_path(raw_path: str | None) -> Path | None:
+    candidate_text = (raw_path or "").strip()
+    if not candidate_text:
+        return None
+
+    resolved = _resolve_repo_path(candidate_text)
+    if not resolved.exists() or not resolved.is_file():
+        raise HTTPException(status_code=400, detail=f"existing_kg not found: {resolved}")
+    if resolved.suffix.lower() != ".json":
+        raise HTTPException(status_code=400, detail="existing_kg must be a .json file path")
+    return resolved
+
+
+def _normalize_topics_payload(payload: Any) -> list[dict[str, str]]:
+    if isinstance(payload, dict):
+        candidates = [payload]
+    elif isinstance(payload, list):
+        candidates = payload
+    else:
+        raise HTTPException(status_code=400, detail="Input JSON must be an object or array of objects")
+
+    if not candidates:
+        raise HTTPException(status_code=400, detail="Input JSON must not be empty")
+
+    normalized: list[dict[str, str]] = []
+    for idx, item in enumerate(candidates, start=1):
+        if not isinstance(item, dict):
+            raise HTTPException(status_code=400, detail=f"Item {idx} must be an object")
+
+        topic = str(item.get("topic") or "").strip()
+        content = str(item.get("content") or "").strip()
+        if not topic:
+            raise HTTPException(status_code=400, detail=f"Item {idx} requires non-empty `topic`")
+        if not content:
+            raise HTTPException(status_code=400, detail=f"Item {idx} requires non-empty `content`")
+
+        normalized.append({"topic": topic, "content": content})
+    return normalized
+
+
+def _write_uploaded_topics_json(topics: list[dict[str, str]]) -> Path:
+    upload_dir = (DEFAULT_TASK_OUTPUT_ROOT / "uploads").resolve()
+    upload_dir.mkdir(parents=True, exist_ok=True)
+    file_path = upload_dir / f"{uuid.uuid4().hex}.json"
+    with file_path.open("w", encoding="utf-8") as handle:
+        json.dump(topics, handle, ensure_ascii=False, indent=2)
+    return file_path.resolve()
+
+
+def _enrich_task_topic_meta(container: dict[str, Any]) -> None:
+    payload: dict[str, Any]
+    input_payload = container.get("input_payload")
+    if isinstance(input_payload, dict):
+        payload = input_payload
+    else:
+        payload = container
+
+    topic_preview = str(payload.get("topic_preview") or "").strip()
+    raw_topic_count = payload.get("topic_count")
+    topic_count = int(raw_topic_count) if isinstance(raw_topic_count, (int, float)) and not isinstance(raw_topic_count, bool) else None
+    if topic_count is not None and topic_count <= 0:
+        topic_count = None
+
+    if not topic_preview or topic_count is None:
+        input_type = str(payload.get("input_type") or "").strip()
+        if input_type == "text":
+            topic_preview = topic_preview or (str(payload.get("topic") or "").strip() or None)
+            topic_count = topic_count or (1 if topic_preview else None)
+        elif input_type == "json_path":
+            raw_json_path = str(payload.get("json_path") or "").strip()
+            resolved = _safe_resolve_repo_path(raw_json_path) if raw_json_path else None
+            if resolved is not None and resolved.exists() and resolved.is_file():
+                try:
+                    with resolved.open("r", encoding="utf-8") as handle:
+                        topics = _normalize_topics_payload(json.load(handle))
+                    if topics:
+                        topic_preview = topic_preview or topics[0]["topic"]
+                        topic_count = topic_count or len(topics)
+                except Exception:  # noqa: BLE001
+                    pass
+
+    container["topic_preview"] = topic_preview or None
+    container["topic_count"] = topic_count if topic_count is not None else None
 
 
 def _resolve_repo_path(raw_path: str) -> Path:
