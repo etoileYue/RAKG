@@ -16,6 +16,133 @@ const ZOOM_MAX_RATIO = 2.2;
 const ZOOM_DURATION_MS = 180;
 const RESET_DURATION_MS = 250;
 
+type LayoutMode = 'circle' | 'grid' | 'type-cluster' | 'concentric';
+
+const LAYOUT_OPTIONS: Array<{ value: LayoutMode; label: string }> = [
+  { value: 'concentric', label: '同心层级' },
+  { value: 'type-cluster', label: '按类型分簇' },
+  { value: 'grid', label: '网格' },
+  { value: 'circle', label: '圆环' },
+];
+
+function getNodeDegrees(nodes: NormalizedGraphNode[], edges: Array<{ source: string; target: string }>): Map<string, number> {
+  const degreeMap = new Map<string, number>();
+  nodes.forEach((node) => degreeMap.set(node.id, 0));
+  edges.forEach((edge) => {
+    degreeMap.set(edge.source, (degreeMap.get(edge.source) ?? 0) + 1);
+    degreeMap.set(edge.target, (degreeMap.get(edge.target) ?? 0) + 1);
+  });
+  return degreeMap;
+}
+
+function buildCircleLayout(nodes: NormalizedGraphNode[]): Map<string, { x: number; y: number }> {
+  const positions = new Map<string, { x: number; y: number }>();
+  const radius = Math.max(12, 8 + nodes.length * 0.38);
+  nodes.forEach((node, index) => {
+    const angle = (2 * Math.PI * index) / Math.max(nodes.length, 1);
+    positions.set(node.id, { x: Math.cos(angle) * radius, y: Math.sin(angle) * radius });
+  });
+  return positions;
+}
+
+function buildGridLayout(nodes: NormalizedGraphNode[]): Map<string, { x: number; y: number }> {
+  const positions = new Map<string, { x: number; y: number }>();
+  const columns = Math.max(2, Math.ceil(Math.sqrt(nodes.length)));
+  const rows = Math.ceil(nodes.length / columns);
+  const gap = 7;
+
+  nodes.forEach((node, index) => {
+    const row = Math.floor(index / columns);
+    const col = index % columns;
+    const x = (col - (columns - 1) / 2) * gap;
+    const y = (row - (rows - 1) / 2) * gap;
+    positions.set(node.id, { x, y });
+  });
+
+  return positions;
+}
+
+function buildTypeClusterLayout(nodes: NormalizedGraphNode[]): Map<string, { x: number; y: number }> {
+  const positions = new Map<string, { x: number; y: number }>();
+  const groupMap = new Map<string, NormalizedGraphNode[]>();
+
+  nodes.forEach((node) => {
+    const key = node.entityType || 'Unknown';
+    const group = groupMap.get(key);
+    if (group) group.push(node);
+    else groupMap.set(key, [node]);
+  });
+
+  const groups = Array.from(groupMap.entries()).sort((a, b) => b[1].length - a[1].length || a[0].localeCompare(b[0]));
+  const clusterRadius = Math.max(10, 8 + groups.length * 2.2);
+
+  groups.forEach(([_, groupNodes], groupIndex) => {
+    const groupAngle = (2 * Math.PI * groupIndex) / Math.max(groups.length, 1);
+    const cx = Math.cos(groupAngle) * clusterRadius;
+    const cy = Math.sin(groupAngle) * clusterRadius;
+
+    if (groupNodes.length === 1) {
+      positions.set(groupNodes[0].id, { x: cx, y: cy });
+      return;
+    }
+
+    const localRadius = Math.max(3, 2.5 + groupNodes.length * 0.5);
+    groupNodes.forEach((node, nodeIndex) => {
+      const localAngle = (2 * Math.PI * nodeIndex) / groupNodes.length;
+      positions.set(node.id, {
+        x: cx + Math.cos(localAngle) * localRadius,
+        y: cy + Math.sin(localAngle) * localRadius,
+      });
+    });
+  });
+
+  return positions;
+}
+
+function buildConcentricLayout(nodes: NormalizedGraphNode[], edges: Array<{ source: string; target: string }>): Map<string, { x: number; y: number }> {
+  const positions = new Map<string, { x: number; y: number }>();
+  const degreeMap = getNodeDegrees(nodes, edges);
+  const sorted = [...nodes].sort((a, b) => (degreeMap.get(b.id) ?? 0) - (degreeMap.get(a.id) ?? 0) || a.id.localeCompare(b.id));
+
+  let ring = 0;
+  let indexInRing = 0;
+  let ringCapacity = 1;
+
+  sorted.forEach((node) => {
+    if (indexInRing >= ringCapacity) {
+      ring += 1;
+      indexInRing = 0;
+      ringCapacity = Math.max(6, ring * 8);
+    }
+
+    const radius = ring * 7;
+    if (radius === 0) {
+      positions.set(node.id, { x: 0, y: 0 });
+    } else {
+      const angle = (2 * Math.PI * indexInRing) / ringCapacity;
+      positions.set(node.id, {
+        x: Math.cos(angle) * radius,
+        y: Math.sin(angle) * radius,
+      });
+    }
+
+    indexInRing += 1;
+  });
+
+  return positions;
+}
+
+function buildNodePositions(
+  nodes: NormalizedGraphNode[],
+  edges: Array<{ source: string; target: string }>,
+  mode: LayoutMode
+): Map<string, { x: number; y: number }> {
+  if (mode === 'grid') return buildGridLayout(nodes);
+  if (mode === 'type-cluster') return buildTypeClusterLayout(nodes);
+  if (mode === 'concentric') return buildConcentricLayout(nodes, edges);
+  return buildCircleLayout(nodes);
+}
+
 export function SigmaGraphPanel({ data }: SigmaGraphPanelProps) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const sigmaRef = useRef<Sigma | null>(null);
@@ -28,6 +155,7 @@ export function SigmaGraphPanel({ data }: SigmaGraphPanelProps) {
   const [selectedNodeId, setSelectedNodeId] = useState<string | null>(null);
   const [searchText, setSearchText] = useState('');
   const [runtimeError, setRuntimeError] = useState('');
+  const [layoutMode, setLayoutMode] = useState<LayoutMode>('concentric');
 
   const selectedNode = useMemo(() => {
     if (!selectedNodeId) return null;
@@ -69,12 +197,12 @@ export function SigmaGraphPanel({ data }: SigmaGraphPanelProps) {
         if (canceled) return;
         const SigmaCtor = sigmaModule.default;
 
-        const radius = 14;
+        const positions = buildNodePositions(nodes, edges, layoutMode);
         nodes.forEach((node, index) => {
-          const angle = (2 * Math.PI * index) / nodes.length;
+          const position = positions.get(node.id) ?? { x: index, y: 0 };
           graph.addNode(node.id, {
-            x: Math.cos(angle) * radius,
-            y: Math.sin(angle) * radius,
+            x: position.x,
+            y: position.y,
             size: 6,
             label: node.label,
             color: getNodeColor(node.entityType),
@@ -153,7 +281,7 @@ export function SigmaGraphPanel({ data }: SigmaGraphPanelProps) {
       sigmaRef.current = null;
       initialCameraStateRef.current = null;
     };
-  }, [nodes, edges]);
+  }, [nodes, edges, layoutMode]);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -270,6 +398,13 @@ export function SigmaGraphPanel({ data }: SigmaGraphPanelProps) {
               onChange={(event) => setSearchText(event.target.value)}
               placeholder="页面内搜索节点..."
             />
+            <select className="field w-36" value={layoutMode} onChange={(event) => setLayoutMode(event.target.value as LayoutMode)}>
+              {LAYOUT_OPTIONS.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
             <button type="button" className="soft-button" onClick={resetView}>
               重置
             </button>
