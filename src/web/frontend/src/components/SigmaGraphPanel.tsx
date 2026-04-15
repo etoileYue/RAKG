@@ -9,11 +9,20 @@ interface SigmaGraphPanelProps {
   data: GraphData | null;
 }
 
+const FOCUS_LERP = 0.35;
+const FOCUS_DURATION_MS = 260;
+const ZOOM_MIN_RATIO = 0.05;
+const ZOOM_MAX_RATIO = 2.2;
+const ZOOM_DURATION_MS = 180;
+const RESET_DURATION_MS = 250;
+
 export function SigmaGraphPanel({ data }: SigmaGraphPanelProps) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const sigmaRef = useRef<Sigma | null>(null);
   const graphRef = useRef<MultiGraph | null>(null);
   const nodeMapRef = useRef<Map<string, NormalizedGraphNode>>(new Map());
+  const selectedNodeIdRef = useRef<string | null>(null);
+  const initialCameraStateRef = useRef<{ x: number; y: number; ratio: number; angle: number } | null>(null);
 
   const { nodes, edges } = useMemo(() => normalizeGraph(data), [data]);
   const [selectedNodeId, setSelectedNodeId] = useState<string | null>(null);
@@ -24,6 +33,10 @@ export function SigmaGraphPanel({ data }: SigmaGraphPanelProps) {
     if (!selectedNodeId) return null;
     return nodeMapRef.current.get(selectedNodeId) ?? null;
   }, [selectedNodeId, nodes]);
+
+  useEffect(() => {
+    selectedNodeIdRef.current = selectedNodeId;
+  }, [selectedNodeId]);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -42,6 +55,7 @@ export function SigmaGraphPanel({ data }: SigmaGraphPanelProps) {
 
     if (nodes.length === 0) {
       graphRef.current = graph;
+      initialCameraStateRef.current = null;
       setSelectedNodeId(null);
       return;
     }
@@ -92,15 +106,33 @@ export function SigmaGraphPanel({ data }: SigmaGraphPanelProps) {
           defaultEdgeType: 'line',
         });
 
+        const initialState = mountedSigma.getCamera().getState();
+        initialCameraStateRef.current = {
+          x: initialState.x,
+          y: initialState.y,
+          ratio: initialState.ratio,
+          angle: initialState.angle,
+        };
+
         mountedSigma.on('clickNode', ({ node }) => {
+          if (selectedNodeIdRef.current === node) return;
           setSelectedNodeId(node);
-          const attrs = graph.getNodeAttributes(node);
+          selectedNodeIdRef.current = node;
+
           const camera = mountedSigma?.getCamera();
-          if (!camera) return;
-          camera.animate({ x: attrs.x as number, y: attrs.y as number, ratio: 0.35 }, { duration: 300 });
+          const display = mountedSigma?.getNodeDisplayData(node);
+          if (!camera || !display) return;
+
+          const state = camera.getState();
+          const nextX = state.x + (display.x - state.x) * FOCUS_LERP;
+          const nextY = state.y + (display.y - state.y) * FOCUS_LERP;
+          camera.animate({ x: nextX, y: nextY, ratio: state.ratio }, { duration: FOCUS_DURATION_MS });
         });
 
-        mountedSigma.on('clickStage', () => setSelectedNodeId(null));
+        mountedSigma.on('clickStage', () => {
+          setSelectedNodeId(null);
+          selectedNodeIdRef.current = null;
+        });
 
         graphRef.current = graph;
         sigmaRef.current = mountedSigma;
@@ -119,8 +151,24 @@ export function SigmaGraphPanel({ data }: SigmaGraphPanelProps) {
         mountedSigma.kill();
       }
       sigmaRef.current = null;
+      initialCameraStateRef.current = null;
     };
   }, [nodes, edges]);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container || typeof ResizeObserver === 'undefined') return;
+
+    const observer = new ResizeObserver(() => {
+      const sigma = sigmaRef.current;
+      if (!sigma) return;
+      sigma.resize(true);
+      sigma.scheduleRefresh();
+    });
+
+    observer.observe(container);
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     const sigma = sigmaRef.current;
@@ -186,14 +234,16 @@ export function SigmaGraphPanel({ data }: SigmaGraphPanelProps) {
     if (!sigma) return;
     const camera = sigma.getCamera();
     const state = camera.getState();
-    camera.animate({ ratio: Math.max(0.05, Math.min(2.2, state.ratio * factor)) }, { duration: 180 });
+    camera.animate({ ratio: Math.max(ZOOM_MIN_RATIO, Math.min(ZOOM_MAX_RATIO, state.ratio * factor)) }, { duration: ZOOM_DURATION_MS });
   };
 
   const resetView = () => {
     const sigma = sigmaRef.current;
     if (!sigma) return;
     setSelectedNodeId(null);
-    sigma.getCamera().animate({ x: 0, y: 0, ratio: 1, angle: 0 }, { duration: 250 });
+    selectedNodeIdRef.current = null;
+    const initialState = initialCameraStateRef.current ?? { x: 0, y: 0, ratio: 1, angle: 0 };
+    sigma.getCamera().animate(initialState, { duration: RESET_DURATION_MS });
   };
 
   if (nodes.length === 0) {
