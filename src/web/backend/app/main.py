@@ -32,6 +32,7 @@ from app.schemas import (  # noqa: E402
     QAConversationDetailResponse,
     QAConversationListResponse,
     QAConversationSummary,
+    QADeleteConversationResponse,
     QAMessage,
     QAMessageCreateRequest,
     QAQueryRequest,
@@ -278,6 +279,15 @@ def send_qa_conversation_message(conversation_id: str, payload: QAMessageCreateR
         user_message=QAMessage(**user_message),
         assistant_message=QAMessage(**assistant_message),
     )
+
+
+@app.delete(f"{SETTINGS.api_prefix}/qa/conversations/{{conversation_id}}", response_model=QADeleteConversationResponse)
+def delete_qa_conversation(conversation_id: str) -> QADeleteConversationResponse:
+    deleted = db.delete_qa_conversation(conversation_id)
+    if not deleted:
+        raise HTTPException(status_code=404, detail=f"conversation not found: {conversation_id}")
+    db.log("INFO", "qa", f"Deleted QA conversation {conversation_id}")
+    return QADeleteConversationResponse(conversation_id=conversation_id, deleted=True)
 
 
 @app.get(f"{SETTINGS.api_prefix}/logs", response_model=LogsResponse)

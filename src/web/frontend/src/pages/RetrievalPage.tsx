@@ -2,6 +2,7 @@ import { FormEvent, useEffect, useMemo, useRef, useState } from 'react';
 
 import {
   createQAConversation,
+  deleteQAConversation,
   getQAConversation,
   listKGCandidates,
   listQAConversations,
@@ -31,6 +32,7 @@ export function RetrievalPage() {
   const [initializing, setInitializing] = useState(true);
   const [loadingConversation, setLoadingConversation] = useState(false);
   const [creatingConversation, setCreatingConversation] = useState(false);
+  const [deletingConversationId, setDeletingConversationId] = useState<string | null>(null);
   const [sending, setSending] = useState(false);
   const [error, setError] = useState('');
   const messageContainerRef = useRef<HTMLDivElement | null>(null);
@@ -137,6 +139,36 @@ export function RetrievalPage() {
     await loadConversationDetail(conversationId);
   };
 
+  const onDeleteConversation = async (conversationId: string) => {
+    const target = conversations.find((item) => item.id === conversationId);
+    if (!target) return;
+    const confirmed = window.confirm(`确认删除会话「${target.title || '新对话'}」？此操作不可恢复。`);
+    if (!confirmed) return;
+
+    setDeletingConversationId(conversationId);
+    setError('');
+    try {
+      await deleteQAConversation(conversationId);
+      const remaining = [...conversations]
+        .filter((item) => item.id !== conversationId)
+        .sort((a, b) => new Date(b.updated_at || b.created_at).getTime() - new Date(a.updated_at || a.created_at).getTime());
+      setConversations(remaining);
+
+      if (activeConversationId === conversationId) {
+        if (remaining[0]) {
+          await loadConversationDetail(remaining[0].id);
+        } else {
+          setActiveConversation(null);
+          setMessages([]);
+        }
+      }
+    } catch (err) {
+      setError(err instanceof Error ? err.message : String(err));
+    } finally {
+      setDeletingConversationId(null);
+    }
+  };
+
   const onSubmit = async (event: FormEvent) => {
     event.preventDefault();
     if (!activeConversationId) {
@@ -227,38 +259,40 @@ export function RetrievalPage() {
                   const rawContext = message.qa_response_snapshot.retrieved_context;
                   const rawIntermediate = message.qa_response_snapshot.intermediate;
                   return (
-                    <article key={message.id} className={isUser ? 'ml-auto max-w-[82%]' : 'mr-auto max-w-[88%]'}>
-                      <div
-                        className={
-                          isUser
-                            ? 'rounded-2xl rounded-tr-md bg-emerald-500 px-4 py-3 text-sm leading-6 text-white'
-                            : 'rounded-2xl rounded-tl-md border border-app-border bg-white px-4 py-3 text-sm leading-6 text-slate-800'
-                        }
-                      >
-                        {message.content}
+                    <article key={message.id} className={`flex ${isUser ? 'justify-end' : 'justify-start'}`}>
+                      <div className={isUser ? 'max-w-[82%]' : 'max-w-[88%]'}>
+                        <div
+                          className={
+                            isUser
+                              ? 'inline-block whitespace-pre-wrap break-words rounded-2xl rounded-tr-md bg-emerald-500 px-4 py-3 text-sm leading-6 text-white'
+                              : 'inline-block whitespace-pre-wrap break-words rounded-2xl rounded-tl-md border border-app-border bg-white px-4 py-3 text-sm leading-6 text-slate-800'
+                          }
+                        >
+                          {message.content}
+                        </div>
+                        <p className={isUser ? 'm-0 mt-1 text-right text-xs text-app-muted' : 'm-0 mt-1 text-xs text-app-muted'}>
+                          {formatDateTime(message.created_at)}
+                        </p>
+                        {!isUser ? (
+                          <details className="mt-1">
+                            <summary className="cursor-pointer text-xs font-semibold text-app-muted">检索详情</summary>
+                            <div className="mt-2 space-y-2">
+                              <details>
+                                <summary className="cursor-pointer text-xs text-app-muted">检索上下文</summary>
+                                <pre className="json-panel mt-1 max-h-72">
+                                  {JSON.stringify(rawContext ?? {}, null, 2)}
+                                </pre>
+                              </details>
+                              <details>
+                                <summary className="cursor-pointer text-xs text-app-muted">中间信息</summary>
+                                <pre className="json-panel mt-1 max-h-72">
+                                  {JSON.stringify(rawIntermediate ?? {}, null, 2)}
+                                </pre>
+                              </details>
+                            </div>
+                          </details>
+                        ) : null}
                       </div>
-                      <p className={isUser ? 'm-0 mt-1 text-right text-xs text-app-muted' : 'm-0 mt-1 text-xs text-app-muted'}>
-                        {formatDateTime(message.created_at)}
-                      </p>
-                      {!isUser ? (
-                        <details className="mt-1">
-                          <summary className="cursor-pointer text-xs font-semibold text-app-muted">检索详情</summary>
-                          <div className="mt-2 space-y-2">
-                            <details>
-                              <summary className="cursor-pointer text-xs text-app-muted">检索上下文</summary>
-                              <pre className="json-panel mt-1 max-h-72">
-                                {JSON.stringify(rawContext ?? {}, null, 2)}
-                              </pre>
-                            </details>
-                            <details>
-                              <summary className="cursor-pointer text-xs text-app-muted">中间信息</summary>
-                              <pre className="json-panel mt-1 max-h-72">
-                                {JSON.stringify(rawIntermediate ?? {}, null, 2)}
-                              </pre>
-                            </details>
-                          </div>
-                        </details>
-                      ) : null}
                     </article>
                   );
                 })
@@ -313,20 +347,30 @@ export function RetrievalPage() {
                   {sortedConversations.map((conversation) => {
                     const active = conversation.id === activeConversationId;
                     return (
-                      <button
+                      <article
                         key={conversation.id}
-                        type="button"
                         className={`w-full rounded-xl border px-3 py-2 text-left transition ${
                           active ? 'border-emerald-300 bg-emerald-50' : 'border-app-border bg-white hover:bg-slate-50'
                         }`}
-                        onClick={() => void onSwitchConversation(conversation.id)}
                       >
-                        <p className="m-0 truncate text-sm font-semibold text-app-text">{conversation.title || '新对话'}</p>
-                        <p className="m-0 mt-1 truncate text-xs text-app-muted">{conversation.last_message_preview || '暂无消息'}</p>
-                        <p className="m-0 mt-1 text-xs text-app-muted">
-                          {`${conversation.message_count} 条消息 · ${formatDateTime(conversation.updated_at || conversation.created_at)}`}
-                        </p>
-                      </button>
+                        <button type="button" className="w-full text-left" onClick={() => void onSwitchConversation(conversation.id)}>
+                          <p className="m-0 truncate text-sm font-semibold text-app-text">{conversation.title || '新对话'}</p>
+                          <p className="m-0 mt-1 truncate text-xs text-app-muted">{conversation.last_message_preview || '暂无消息'}</p>
+                          <p className="m-0 mt-1 text-xs text-app-muted">
+                            {`${conversation.message_count} 条消息 · ${formatDateTime(conversation.updated_at || conversation.created_at)}`}
+                          </p>
+                        </button>
+                        <div className="mt-2 flex justify-end">
+                          <button
+                            type="button"
+                            className="inline-flex items-center rounded-lg border border-rose-200 bg-rose-50 px-2.5 py-1 text-xs font-medium text-rose-600 transition hover:bg-rose-100 disabled:cursor-not-allowed disabled:opacity-60"
+                            onClick={() => void onDeleteConversation(conversation.id)}
+                            disabled={deletingConversationId === conversation.id}
+                          >
+                            {deletingConversationId === conversation.id ? '删除中...' : '删除会话'}
+                          </button>
+                        </div>
+                      </article>
                     );
                   })}
                 </div>
