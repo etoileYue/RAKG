@@ -97,6 +97,79 @@ class QAQueryResponse(BaseModel):
     intermediate: dict[str, Any]
 
 
+MessageRole = Literal["user", "assistant"]
+
+
+class QAConversationCreateRequest(BaseModel):
+    kg_path: str
+    title: str | None = None
+
+    @field_validator("kg_path")
+    @classmethod
+    def normalize_kg_path(cls, value: str) -> str:
+        if not value or not value.strip():
+            raise ValueError("kg_path must be non-empty")
+        return value.strip()
+
+    @field_validator("title")
+    @classmethod
+    def normalize_title(cls, value: str | None) -> str | None:
+        if value is None:
+            return None
+        stripped = value.strip()
+        return stripped or None
+
+
+class QAConversationSummary(BaseModel):
+    id: str
+    title: str
+    kg_path: str
+    created_at: str
+    updated_at: str
+    message_count: int = 0
+    last_message_preview: str | None = None
+
+
+class QAConversationListResponse(BaseModel):
+    total: int
+    items: list[QAConversationSummary]
+
+
+class QAMessageCreateRequest(BaseModel):
+    question: str
+    max_hop: int = Field(default=2, ge=1, le=3)
+    seed_top_k: int = Field(default=5, ge=1, le=20)
+    max_context_items: int = Field(default=30, ge=1, le=100)
+
+    @field_validator("question")
+    @classmethod
+    def normalize_question(cls, value: str) -> str:
+        if not value or not value.strip():
+            raise ValueError("question must be non-empty")
+        return value.strip()
+
+
+class QAMessage(BaseModel):
+    id: str
+    conversation_id: str
+    role: MessageRole
+    content: str
+    params_snapshot: dict[str, Any] = Field(default_factory=dict)
+    qa_response_snapshot: dict[str, Any] = Field(default_factory=dict)
+    created_at: str
+
+
+class QAConversationDetailResponse(BaseModel):
+    conversation: QAConversationSummary
+    messages: list[QAMessage]
+
+
+class QASendMessageResponse(BaseModel):
+    conversation: QAConversationSummary
+    user_message: QAMessage
+    assistant_message: QAMessage
+
+
 class LogsResponse(BaseModel):
     total: int
     page: int

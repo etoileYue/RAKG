@@ -28,8 +28,15 @@ from app.schemas import (  # noqa: E402
     KGCandidateListResponse,
     KGBuildRequest,
     LogsResponse,
+    QAConversationCreateRequest,
+    QAConversationDetailResponse,
+    QAConversationListResponse,
+    QAConversationSummary,
+    QAMessage,
+    QAMessageCreateRequest,
     QAQueryRequest,
     QAQueryResponse,
+    QASendMessageResponse,
     TaskDetail,
     TaskListResponse,
     TaskSummary,
@@ -181,6 +188,98 @@ def qa_query(payload: QAQueryRequest) -> QAQueryResponse:
         raise HTTPException(status_code=500, detail=f"QA failed: {exc}") from exc
 
 
+@app.get(f"{SETTINGS.api_prefix}/qa/conversations", response_model=QAConversationListResponse)
+def list_qa_conversations() -> QAConversationListResponse:
+    items = [_normalize_qa_conversation(item) for item in db.list_qa_conversations()]
+    return QAConversationListResponse(total=len(items), items=[QAConversationSummary(**item) for item in items])
+
+
+@app.post(f"{SETTINGS.api_prefix}/qa/conversations", response_model=QAConversationSummary)
+def create_qa_conversation(payload: QAConversationCreateRequest) -> QAConversationSummary:
+    resolved_kg_path = _resolve_existing_kg_path(payload.kg_path, field_name="kg_path")
+    if resolved_kg_path is None:
+        raise HTTPException(status_code=400, detail="kg_path is required")
+
+    created = db.create_qa_conversation(
+        conversation_id=uuid.uuid4().hex,
+        kg_path=str(resolved_kg_path),
+        title=payload.title,
+    )
+    db.log("INFO", "qa", f"Created QA conversation {created['id']}")
+    return QAConversationSummary(**_normalize_qa_conversation(created))
+
+
+@app.get(f"{SETTINGS.api_prefix}/qa/conversations/{{conversation_id}}", response_model=QAConversationDetailResponse)
+def get_qa_conversation(conversation_id: str) -> QAConversationDetailResponse:
+    conversation = db.get_qa_conversation(conversation_id)
+    if not conversation:
+        raise HTTPException(status_code=404, detail=f"conversation not found: {conversation_id}")
+
+    messages = db.list_qa_messages(conversation_id)
+    return QAConversationDetailResponse(
+        conversation=QAConversationSummary(**_normalize_qa_conversation(conversation)),
+        messages=[QAMessage(**item) for item in messages],
+    )
+
+
+@app.post(
+    f"{SETTINGS.api_prefix}/qa/conversations/{{conversation_id}}/messages",
+    response_model=QASendMessageResponse,
+)
+def send_qa_conversation_message(conversation_id: str, payload: QAMessageCreateRequest) -> QASendMessageResponse:
+    conversation = db.get_qa_conversation(conversation_id)
+    if not conversation:
+        raise HTTPException(status_code=404, detail=f"conversation not found: {conversation_id}")
+
+    params_snapshot = {
+        "max_hop": payload.max_hop,
+        "seed_top_k": payload.seed_top_k,
+        "max_context_items": payload.max_context_items,
+    }
+    try:
+        result = qa_service.ask(
+            kg_path=conversation["kg_path"],
+            question=payload.question,
+            max_hop=payload.max_hop,
+            seed_top_k=payload.seed_top_k,
+            max_context_items=payload.max_context_items,
+        )
+    except FileNotFoundError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+    except Exception as exc:  # noqa: BLE001
+        db.log("ERROR", "qa", f"QA failed in conversation {conversation_id}: {exc}")
+        raise HTTPException(status_code=500, detail=f"QA failed: {exc}") from exc
+
+    user_message = db.create_qa_message(
+        message_id=uuid.uuid4().hex,
+        conversation_id=conversation_id,
+        role="user",
+        content=payload.question,
+    )
+    assistant_message = db.create_qa_message(
+        message_id=uuid.uuid4().hex,
+        conversation_id=conversation_id,
+        role="assistant",
+        content=result.get("formatted_answer", ""),
+        params_snapshot=params_snapshot,
+        qa_response_snapshot=result,
+    )
+
+    if not user_message or not assistant_message:
+        raise HTTPException(status_code=404, detail=f"conversation not found: {conversation_id}")
+
+    updated_conversation = db.get_qa_conversation(conversation_id)
+    if not updated_conversation:
+        raise HTTPException(status_code=404, detail=f"conversation not found: {conversation_id}")
+
+    db.log("INFO", "qa", f"QA message executed in conversation {conversation_id}")
+    return QASendMessageResponse(
+        conversation=QAConversationSummary(**_normalize_qa_conversation(updated_conversation)),
+        user_message=QAMessage(**user_message),
+        assistant_message=QAMessage(**assistant_message),
+    )
+
+
 @app.get(f"{SETTINGS.api_prefix}/logs", response_model=LogsResponse)
 def get_logs(
     page: int = Query(default=1, ge=1),
@@ -298,16 +397,16 @@ def root() -> dict[str, str]:
     return {"message": "RAKG Web API is running"}
 
 
-def _resolve_existing_kg_path(raw_path: str | None) -> Path | None:
+def _resolve_existing_kg_path(raw_path: str | None, field_name: str = "existing_kg") -> Path | None:
     candidate_text = (raw_path or "").strip()
     if not candidate_text:
         return None
 
     resolved = _resolve_repo_path(candidate_text)
     if not resolved.exists() or not resolved.is_file():
-        raise HTTPException(status_code=400, detail=f"existing_kg not found: {resolved}")
+        raise HTTPException(status_code=400, detail=f"{field_name} not found: {resolved}")
     if resolved.suffix.lower() != ".json":
-        raise HTTPException(status_code=400, detail="existing_kg must be a .json file path")
+        raise HTTPException(status_code=400, detail=f"{field_name} must be a .json file path")
     return resolved
 
 
@@ -401,6 +500,15 @@ def _safe_resolve_repo_path(raw_path: str) -> Path | None:
         return _resolve_repo_path(raw_path)
     except HTTPException:
         return None
+
+
+def _normalize_qa_conversation(item: dict[str, Any]) -> dict[str, Any]:
+    normalized = dict(item)
+    title = str(normalized.get("title") or "").strip()
+    if not title:
+        title = "新对话"
+    normalized["title"] = title
+    return normalized
 
 
 def _iter_seed_kg_paths() -> list[Path]:
