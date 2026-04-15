@@ -415,6 +415,16 @@ class Database:
             ).fetchall()
         return [self._row_to_message(row) for row in rows]
 
+    def delete_qa_conversation(self, conversation_id: str) -> bool:
+        with self._write_lock, self._connect() as conn:
+            row = conn.execute("SELECT id FROM qa_conversations WHERE id = ?", (conversation_id,)).fetchone()
+            if row is None:
+                return False
+            conn.execute("DELETE FROM qa_messages WHERE conversation_id = ?", (conversation_id,))
+            conn.execute("DELETE FROM qa_conversations WHERE id = ?", (conversation_id,))
+            conn.commit()
+            return True
+
     def create_qa_message(
         self,
         *,

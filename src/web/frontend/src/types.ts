@@ -89,6 +89,11 @@ export interface QASendMessageResponse {
   assistant_message: QAMessage;
 }
 
+export interface QADeleteConversationResponse {
+  conversation_id: string;
+  deleted: boolean;
+}
+
 export interface HealthResponse {
   healthy: boolean;
   queue: {

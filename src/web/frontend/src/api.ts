@@ -1,6 +1,7 @@
 import type {
   GraphData,
   HealthResponse,
+  QADeleteConversationResponse,
   QAConversationSummary,
   QAConversationDetailResponse,
   QAConversationListResponse,
@@ -144,6 +145,12 @@ export async function sendQAConversationMessage(
   return request(`/qa/conversations/${conversationId}/messages`, {
     method: 'POST',
     body: JSON.stringify(payload),
+  });
+}
+
+export async function deleteQAConversation(conversationId: string): Promise<QADeleteConversationResponse> {
+  return request(`/qa/conversations/${conversationId}`, {
+    method: 'DELETE',
   });
 }
 

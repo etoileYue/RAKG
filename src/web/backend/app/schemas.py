@@ -170,6 +170,11 @@ class QASendMessageResponse(BaseModel):
     assistant_message: QAMessage
 
 
+class QADeleteConversationResponse(BaseModel):
+    conversation_id: str
+    deleted: bool
+
+
 class LogsResponse(BaseModel):
     total: int
     page: int
