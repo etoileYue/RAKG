@@ -57,7 +57,7 @@ export function KnowledgeGraphPage() {
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div>
             <h2 className="m-0 font-display text-lg font-semibold">知识图谱</h2>
-            <p className="m-0 mt-1 text-sm text-app-muted">Sigma.js 交互浏览（缩放、搜索、聚焦、属性）</p>
+            <p className="m-0 mt-1 text-sm text-app-muted">知识图谱预览</p>
           </div>
           <div className="flex items-center gap-2">
             <button type="button" className="soft-button" onClick={() => void loadCandidates()}>
@@ -82,8 +82,6 @@ export function KnowledgeGraphPage() {
             共 {candidates.length} 个可用图谱
           </div>
         </div>
-
-        {resolvedPath ? <p className="mb-0 mt-2 text-xs text-app-muted">当前路径: {resolvedPath}</p> : null}
       </section>
 
       {error ? <p className="rounded-lg bg-rose-50 px-3 py-2 text-sm text-rose-600">{error}</p> : null}
