@@ -1,9 +1,13 @@
 import type {
   GraphData,
   HealthResponse,
+  QAConversationSummary,
+  QAConversationDetailResponse,
+  QAConversationListResponse,
   KGCandidateListResponse,
   LogsResponse,
   QAResponse,
+  QASendMessageResponse,
   TaskDetail,
   TaskListResponse,
 } from './types';
@@ -108,6 +112,36 @@ export async function qaQuery(payload: {
   max_context_items: number;
 }): Promise<QAResponse> {
   return request('/qa/query', {
+    method: 'POST',
+    body: JSON.stringify(payload),
+  });
+}
+
+export async function listQAConversations(): Promise<QAConversationListResponse> {
+  return request('/qa/conversations');
+}
+
+export async function createQAConversation(payload: { kg_path: string; title?: string }): Promise<QAConversationSummary> {
+  return request('/qa/conversations', {
+    method: 'POST',
+    body: JSON.stringify(payload),
+  });
+}
+
+export async function getQAConversation(conversationId: string): Promise<QAConversationDetailResponse> {
+  return request(`/qa/conversations/${conversationId}`);
+}
+
+export async function sendQAConversationMessage(
+  conversationId: string,
+  payload: {
+    question: string;
+    max_hop: number;
+    seed_top_k: number;
+    max_context_items: number;
+  }
+): Promise<QASendMessageResponse> {
+  return request(`/qa/conversations/${conversationId}/messages`, {
     method: 'POST',
     body: JSON.stringify(payload),
   });

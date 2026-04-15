@@ -63,11 +63,37 @@ class Database:
                     created_at TEXT NOT NULL
                 );
 
+                CREATE TABLE IF NOT EXISTS qa_conversations (
+                    id TEXT PRIMARY KEY,
+                    title TEXT NOT NULL DEFAULT '',
+                    kg_path TEXT NOT NULL,
+                    auto_title INTEGER NOT NULL DEFAULT 1,
+                    created_at TEXT NOT NULL,
+                    updated_at TEXT NOT NULL
+                );
+
+                CREATE TABLE IF NOT EXISTS qa_messages (
+                    id TEXT PRIMARY KEY,
+                    conversation_id TEXT NOT NULL,
+                    role TEXT NOT NULL,
+                    content TEXT NOT NULL,
+                    params_snapshot TEXT NOT NULL DEFAULT '{}',
+                    qa_response_snapshot TEXT NOT NULL DEFAULT '{}',
+                    created_at TEXT NOT NULL,
+                    FOREIGN KEY(conversation_id) REFERENCES qa_conversations(id)
+                );
+
                 CREATE INDEX IF NOT EXISTS idx_tasks_status_created
                 ON tasks(status, created_at DESC);
 
                 CREATE INDEX IF NOT EXISTS idx_task_logs_task_created
                 ON task_logs(task_id, created_at DESC);
+
+                CREATE INDEX IF NOT EXISTS idx_qa_conversations_updated
+                ON qa_conversations(updated_at DESC);
+
+                CREATE INDEX IF NOT EXISTS idx_qa_messages_conversation_created
+                ON qa_messages(conversation_id, created_at ASC);
                 """
             )
             conn.commit()
@@ -279,6 +305,182 @@ class Database:
             "items": [dict(row) for row in rows],
         }
 
+    def create_qa_conversation(
+        self,
+        *,
+        conversation_id: str,
+        kg_path: str,
+        title: str | None = None,
+    ) -> dict[str, Any]:
+        now = utc_now_iso()
+        normalized_title = (title or "").strip()
+        auto_title = 0 if normalized_title else 1
+
+        with self._write_lock, self._connect() as conn:
+            conn.execute(
+                """
+                INSERT INTO qa_conversations(id, title, kg_path, auto_title, created_at, updated_at)
+                VALUES(?, ?, ?, ?, ?, ?)
+                """,
+                (conversation_id, normalized_title, kg_path, auto_title, now, now),
+            )
+            conn.commit()
+        return {
+            "id": conversation_id,
+            "title": normalized_title,
+            "kg_path": kg_path,
+            "auto_title": bool(auto_title),
+            "created_at": now,
+            "updated_at": now,
+            "message_count": 0,
+            "last_message_preview": None,
+        }
+
+    def list_qa_conversations(self) -> list[dict[str, Any]]:
+        with self._connect() as conn:
+            rows = conn.execute(
+                """
+                SELECT
+                    c.id,
+                    c.title,
+                    c.kg_path,
+                    c.auto_title,
+                    c.created_at,
+                    c.updated_at,
+                    (
+                        SELECT COUNT(1)
+                        FROM qa_messages m
+                        WHERE m.conversation_id = c.id
+                    ) AS message_count,
+                    (
+                        SELECT m.content
+                        FROM qa_messages m
+                        WHERE m.conversation_id = c.id
+                        ORDER BY m.created_at DESC
+                        LIMIT 1
+                    ) AS last_message_preview
+                FROM qa_conversations c
+                ORDER BY c.updated_at DESC
+                """
+            ).fetchall()
+        return [self._row_to_conversation(row) for row in rows]
+
+    def get_qa_conversation(self, conversation_id: str) -> dict[str, Any] | None:
+        with self._connect() as conn:
+            row = conn.execute(
+                """
+                SELECT
+                    c.id,
+                    c.title,
+                    c.kg_path,
+                    c.auto_title,
+                    c.created_at,
+                    c.updated_at,
+                    (
+                        SELECT COUNT(1)
+                        FROM qa_messages m
+                        WHERE m.conversation_id = c.id
+                    ) AS message_count,
+                    (
+                        SELECT m.content
+                        FROM qa_messages m
+                        WHERE m.conversation_id = c.id
+                        ORDER BY m.created_at DESC
+                        LIMIT 1
+                    ) AS last_message_preview
+                FROM qa_conversations c
+                WHERE c.id = ?
+                """,
+                (conversation_id,),
+            ).fetchone()
+        return self._row_to_conversation(row) if row else None
+
+    def list_qa_messages(self, conversation_id: str) -> list[dict[str, Any]]:
+        with self._connect() as conn:
+            rows = conn.execute(
+                """
+                SELECT
+                    id,
+                    conversation_id,
+                    role,
+                    content,
+                    params_snapshot,
+                    qa_response_snapshot,
+                    created_at
+                FROM qa_messages
+                WHERE conversation_id = ?
+                ORDER BY created_at ASC
+                """,
+                (conversation_id,),
+            ).fetchall()
+        return [self._row_to_message(row) for row in rows]
+
+    def create_qa_message(
+        self,
+        *,
+        message_id: str,
+        conversation_id: str,
+        role: str,
+        content: str,
+        params_snapshot: dict[str, Any] | None = None,
+        qa_response_snapshot: dict[str, Any] | None = None,
+    ) -> dict[str, Any] | None:
+        now = utc_now_iso()
+        params_payload = params_snapshot or {}
+        response_payload = qa_response_snapshot or {}
+
+        with self._write_lock, self._connect() as conn:
+            conversation_row = conn.execute(
+                "SELECT id, title, auto_title FROM qa_conversations WHERE id = ?",
+                (conversation_id,),
+            ).fetchone()
+            if conversation_row is None:
+                return None
+
+            conn.execute(
+                """
+                INSERT INTO qa_messages(
+                    id, conversation_id, role, content, params_snapshot, qa_response_snapshot, created_at
+                ) VALUES (?, ?, ?, ?, ?, ?, ?)
+                """,
+                (
+                    message_id,
+                    conversation_id,
+                    role,
+                    content,
+                    json.dumps(params_payload, ensure_ascii=False, default=str),
+                    json.dumps(response_payload, ensure_ascii=False, default=str),
+                    now,
+                ),
+            )
+
+            should_update_title = (
+                role == "user"
+                and bool(conversation_row["auto_title"])
+                and not str(conversation_row["title"] or "").strip()
+            )
+            if should_update_title:
+                conn.execute(
+                    "UPDATE qa_conversations SET title = ? WHERE id = ?",
+                    (self._build_conversation_title(content), conversation_id),
+                )
+
+            conn.execute(
+                "UPDATE qa_conversations SET updated_at = ? WHERE id = ?",
+                (now, conversation_id),
+            )
+            conn.commit()
+
+        return {
+            "id": message_id,
+            "conversation_id": conversation_id,
+            "role": role,
+            "content": content,
+            "params_snapshot": params_payload,
+            "qa_response_snapshot": response_payload,
+            "created_at": now,
+        }
+
     @staticmethod
     def _row_to_task(row: sqlite3.Row) -> dict[str, Any]:
         if row is None:
@@ -288,3 +490,31 @@ class Database:
         task["output_payload"] = json.loads(task.get("output_payload") or "{}")
         task["cancel_requested"] = bool(task.get("cancel_requested", 0))
         return task
+
+    @staticmethod
+    def _row_to_conversation(row: sqlite3.Row) -> dict[str, Any]:
+        if row is None:
+            return {}
+        conversation = dict(row)
+        conversation["auto_title"] = bool(conversation.get("auto_title", 0))
+        conversation["title"] = str(conversation.get("title") or "").strip()
+        conversation["message_count"] = int(conversation.get("message_count") or 0)
+        preview = conversation.get("last_message_preview")
+        conversation["last_message_preview"] = str(preview).strip() if preview else None
+        return conversation
+
+    @staticmethod
+    def _row_to_message(row: sqlite3.Row) -> dict[str, Any]:
+        if row is None:
+            return {}
+        message = dict(row)
+        message["params_snapshot"] = json.loads(message.get("params_snapshot") or "{}")
+        message["qa_response_snapshot"] = json.loads(message.get("qa_response_snapshot") or "{}")
+        return message
+
+    @staticmethod
+    def _build_conversation_title(content: str, max_len: int = 24) -> str:
+        normalized = " ".join(content.split()).strip()
+        if len(normalized) <= max_len:
+            return normalized
+        return f"{normalized[:max_len].rstrip()}..."

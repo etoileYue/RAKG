@@ -51,6 +51,44 @@ export interface QAResponse {
   intermediate: Record<string, unknown>;
 }
 
+export interface QAConversationSummary {
+  id: string;
+  title: string;
+  kg_path: string;
+  created_at: string;
+  updated_at: string;
+  message_count: number;
+  last_message_preview?: string | null;
+}
+
+export interface QAConversationListResponse {
+  total: number;
+  items: QAConversationSummary[];
+}
+
+export type QAMessageRole = 'user' | 'assistant';
+
+export interface QAMessage {
+  id: string;
+  conversation_id: string;
+  role: QAMessageRole;
+  content: string;
+  params_snapshot: Record<string, unknown>;
+  qa_response_snapshot: Record<string, unknown>;
+  created_at: string;
+}
+
+export interface QAConversationDetailResponse {
+  conversation: QAConversationSummary;
+  messages: QAMessage[];
+}
+
+export interface QASendMessageResponse {
+  conversation: QAConversationSummary;
+  user_message: QAMessage;
+  assistant_message: QAMessage;
+}
+
 export interface HealthResponse {
   healthy: boolean;
   queue: {
