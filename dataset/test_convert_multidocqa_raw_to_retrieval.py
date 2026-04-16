@@ -61,6 +61,53 @@ class ConvertMultiDocQARawToRetrievalTests(unittest.TestCase):
         self.assertEqual(stats.positive_removed_from_negatives, 1)
         self.assertEqual(stats.truncated_negative_rows, 1)
 
+    def test_convert_record_supports_nested_qa_and_docs(self):
+        record = {
+            "QA": [
+                {
+                    "question": "孩子为什么容易在手术前感到紧张或焦虑？",
+                    "answer": "因为不太容易理解复杂医学术语，而且医生不愿给 16 岁以下儿童开抗焦虑药物。",
+                }
+            ],
+            "positive_doc": [
+                {
+                    "content": "孩子们很容易在手术前感到紧张或焦虑，因为他们不太容易理解复杂的医学术语。",
+                    "text": "标题\n正文",
+                    "title": "标题",
+                }
+            ],
+            "negative_doc": [
+                {"content": "负例文档1", "text": "负例文档1"},
+                {"text": "负例文档2"},
+            ],
+        }
+        mapping = resolve_field_mapping(record.keys())
+        stats = ConversionStats()
+
+        sample = convert_record(
+            record=record,
+            mapping=mapping,
+            split="train",
+            row_index=1,
+            max_negatives=20,
+            dataset_name="yuyijiong/Multi-Doc-QA-Chinese",
+            data_dir="raw",
+            stats=stats,
+        )
+
+        self.assertEqual(mapping["query"], "QA")
+        self.assertEqual(mapping["answer"], "QA")
+        self.assertEqual(sample["query"], "孩子为什么容易在手术前感到紧张或焦虑？")
+        self.assertEqual(
+            sample["answer"],
+            "因为不太容易理解复杂医学术语，而且医生不愿给 16 岁以下儿童开抗焦虑药物。",
+        )
+        self.assertEqual(
+            sample["positives"],
+            ["孩子们很容易在手术前感到紧张或焦虑，因为他们不太容易理解复杂的医学术语。"],
+        )
+        self.assertEqual(sample["negatives"], ["负例文档1", "负例文档2"])
+
     def test_convert_record_filters_invalid_samples(self):
         mapping = resolve_field_mapping(
             ["question", "relevant_doc", "irrelevant_docs", "answer"]

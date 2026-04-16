@@ -26,6 +26,7 @@ FIELD_ALIASES = {
         "uid",
     ],
     "query": [
+        "qa",
         "question",
         "query",
         "prompt",
@@ -47,6 +48,7 @@ FIELD_ALIASES = {
         "doc",
     ],
     "negatives": [
+        "negative_doc",
         "negative_docs",
         "negative_documents",
         "negative_passages",
@@ -143,20 +145,62 @@ def clean_text(value: Any) -> str:
     return str(value).strip()
 
 
+def extract_qa_text(value: Any, key: str) -> str:
+    if value is None:
+        return ""
+    if isinstance(value, dict):
+        return clean_text(value.get(key))
+    if isinstance(value, Sequence) and not isinstance(value, (str, bytes, bytearray)):
+        for item in value:
+            if isinstance(item, dict):
+                text = clean_text(item.get(key))
+                if text:
+                    return text
+            else:
+                text = clean_text(item)
+                if text:
+                    return text
+        return ""
+    return clean_text(value)
+
+
+def extract_query_text(value: Any) -> str:
+    return extract_qa_text(value, "question")
+
+
+def extract_answer_text(value: Any) -> str:
+    return extract_qa_text(value, "answer")
+
+
+def normalize_doc_item(value: Any) -> str:
+    if value is None:
+        return ""
+    if isinstance(value, dict):
+        for key in ("content", "text", "title"):
+            text = clean_text(value.get(key))
+            if text:
+                return text
+        return ""
+    return clean_text(value)
+
+
 def normalize_doc_list(value: Any) -> list[str]:
     if value is None:
         return []
+    if isinstance(value, dict):
+        text = normalize_doc_item(value)
+        return [text] if text else []
     if isinstance(value, str):
         text = clean_text(value)
         return [text] if text else []
     if isinstance(value, Sequence) and not isinstance(value, (str, bytes, bytearray)):
         docs = []
         for item in value:
-            text = clean_text(item)
+            text = normalize_doc_item(item)
             if text:
                 docs.append(text)
         return docs
-    text = clean_text(value)
+    text = normalize_doc_item(value)
     return [text] if text else []
 
 
@@ -221,12 +265,21 @@ def resolve_field_mapping(
     used_fields: set[str] = set()
 
     mapping: dict[str, str | None] = {}
-    for field_name in ("id", "query", "positive", "negatives", "answer"):
+    for field_name in ("id", "query", "positive", "negatives"):
         provided = overrides.get(field_name)
         selected = pick_field(columns, field_name, provided=provided, used_fields=used_fields)
         mapping[field_name] = selected
         if selected:
             used_fields.add(selected)
+
+    mapping["answer"] = pick_field(
+        columns,
+        "answer",
+        provided=overrides.get("answer"),
+        used_fields=None,
+    )
+    if not mapping["answer"] and mapping["query"]:
+        mapping["answer"] = mapping["query"]
 
     if not mapping["query"] or not mapping["positive"] or not mapping["negatives"]:
         raise ValueError(
@@ -259,7 +312,7 @@ def convert_record(
 ) -> dict[str, Any] | None:
     stats.total_rows += 1
 
-    query = clean_text(record.get(mapping["query"])) if mapping["query"] else ""
+    query = extract_query_text(record.get(mapping["query"])) if mapping["query"] else ""
     if not query:
         stats.filtered_invalid_query += 1
         return None
@@ -292,7 +345,7 @@ def convert_record(
         stats.filtered_empty_negative += 1
         return None
 
-    answer = clean_text(record.get(mapping["answer"])) if mapping.get("answer") else ""
+    answer = extract_answer_text(record.get(mapping["answer"])) if mapping.get("answer") else ""
 
     stats.written_rows += 1
     stats.total_negative_count += len(filtered_negatives)
@@ -324,6 +377,12 @@ def write_jsonl(path: Path, rows: Iterable[dict[str, Any]]) -> int:
             file_obj.write(json.dumps(row, ensure_ascii=False) + "\n")
             count += 1
     return count
+
+
+def append_jsonl(path: Path, row: dict[str, Any]) -> None:
+    ensure_parent_dir(path)
+    with path.open("a", encoding="utf-8") as file_obj:
+        file_obj.write(json.dumps(row, ensure_ascii=False) + "\n")
 
 
 def preview_samples(rows: Sequence[dict[str, Any]], preview_count: int) -> None:
@@ -380,7 +439,7 @@ def convert_split(
     split_name: str,
     split_dataset: Sequence[dict[str, Any]],
     args: argparse.Namespace,
-) -> tuple[list[dict[str, Any]], ConversionStats, dict[str, str | None]]:
+) -> tuple[list[dict[str, Any]], ConversionStats, dict[str, str | None], int]:
     columns = list(split_dataset.column_names)
     print(f"[{split_name}] columns: {columns}")
 
@@ -397,7 +456,13 @@ def convert_split(
     print(f"[{split_name}] resolved field mapping: {mapping}")
 
     stats = ConversionStats()
-    converted_rows: list[dict[str, Any]] = []
+    preview_rows: list[dict[str, Any]] = []
+    written_count = 0
+    output_path = None if args.dry_run else resolve_output_path(args, split_name)
+    if output_path is not None:
+        ensure_parent_dir(output_path)
+        output_path.write_text("", encoding="utf-8")
+
     for row_index, record in enumerate(split_dataset, start=1):
         sample = convert_record(
             record=record,
@@ -410,9 +475,13 @@ def convert_split(
             stats=stats,
         )
         if sample is not None:
-            converted_rows.append(sample)
+            if len(preview_rows) < args.preview_count:
+                preview_rows.append(sample)
+            if output_path is not None:
+                append_jsonl(output_path, sample)
+                written_count += 1
 
-    return converted_rows, stats, mapping
+    return preview_rows, stats, mapping, written_count
 
 
 def main() -> None:
@@ -434,14 +503,13 @@ def main() -> None:
         target_splits = [args.split]
 
     for split_name in target_splits:
-        converted_rows, stats, _mapping = convert_split(split_name, dataset[split_name], args)
-        preview_samples(converted_rows, args.preview_count)
+        preview_rows, stats, _mapping, written_count = convert_split(split_name, dataset[split_name], args)
+        preview_samples(preview_rows, args.preview_count)
 
         if args.dry_run:
             print(f"[{split_name}] dry-run complete. No files written.")
         else:
             output_path = resolve_output_path(args, split_name)
-            written_count = write_jsonl(output_path, converted_rows)
             print(f"[{split_name}] wrote {written_count} rows to {output_path}")
 
         print(
