@@ -19,6 +19,7 @@ neo4j==5.28.1
 pandas==2.2.3
 numpy==1.26.4
 scikit-learn==1.6.1
+datasets>=2.19,<4
 
 # Web API
 fastapi==0.115.8
