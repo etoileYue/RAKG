@@ -227,8 +227,8 @@ export function RetrievalPage() {
       </section>
 
       <div className={sidebarOpen ? 'grid grid-cols-1 gap-3 xl:grid-cols-[minmax(0,1fr)_360px]' : 'grid grid-cols-1 gap-3'}>
-        <section className="panel flex min-h-[620px] flex-col overflow-hidden">
-          <header className="border-b border-app-border px-4 py-3">
+        <section className="panel flex h-[calc(100vh-220px)] min-h-[560px] flex-col overflow-hidden">
+          <header className="shrink-0 border-b border-app-border px-4 py-3">
             <p className="m-0 text-xs text-app-muted">当前对话</p>
             <h3 className="m-0 mt-1 text-base font-semibold">{activeConversationTitle}</h3>
             <p className="m-0 mt-1 truncate text-xs text-app-muted">
@@ -239,7 +239,10 @@ export function RetrievalPage() {
             ) : null}
           </header>
 
-          <div ref={messageContainerRef} className="custom-scrollbar flex-1 space-y-3 overflow-auto bg-slate-50/40 px-4 py-4">
+          <div
+            ref={messageContainerRef}
+            className="custom-scrollbar min-h-0 flex-1 space-y-3 overflow-auto bg-slate-50/40 px-4 py-4"
+          >
             {initializing || loadingConversation ? (
               <p className="m-0 text-sm text-app-muted">加载中...</p>
             ) : null}
@@ -299,7 +302,7 @@ export function RetrievalPage() {
               : null}
           </div>
 
-          <form onSubmit={onSubmit} className="border-t border-app-border bg-white p-4">
+          <form onSubmit={onSubmit} className="shrink-0 border-t border-app-border bg-white p-4">
             <label className="block text-xs text-app-muted">
               问题
               <textarea
@@ -319,8 +322,8 @@ export function RetrievalPage() {
         </section>
 
         {sidebarOpen ? (
-          <aside className="panel custom-scrollbar max-h-[80vh] space-y-4 overflow-auto p-4">
-            <section className="space-y-2">
+          <aside className="panel flex h-[calc(100vh-220px)] min-h-[560px] flex-col gap-4 overflow-hidden p-4">
+            <section className="shrink-0 space-y-2">
               <h3 className="m-0 text-sm font-semibold">新建对话</h3>
               <label className="block text-xs text-app-muted">
                 会话图谱（固定）
@@ -338,46 +341,48 @@ export function RetrievalPage() {
               </button>
             </section>
 
-            <section className="space-y-2">
+            <section className="flex min-h-0 flex-1 flex-col space-y-2">
               <h3 className="m-0 text-sm font-semibold">对话列表</h3>
-              {sortedConversations.length === 0 ? (
-                <div className="rounded-xl border border-dashed border-app-border bg-slate-50 px-3 py-4 text-sm text-app-muted">暂无对话</div>
-              ) : (
-                <div className="space-y-2">
-                  {sortedConversations.map((conversation) => {
-                    const active = conversation.id === activeConversationId;
-                    return (
-                      <article
-                        key={conversation.id}
-                        className={`w-full rounded-xl border px-3 py-2 text-left transition ${
-                          active ? 'border-emerald-300 bg-emerald-50' : 'border-app-border bg-white hover:bg-slate-50'
-                        }`}
-                      >
-                        <button type="button" className="w-full text-left" onClick={() => void onSwitchConversation(conversation.id)}>
-                          <p className="m-0 truncate text-sm font-semibold text-app-text">{conversation.title || '新对话'}</p>
-                          <p className="m-0 mt-1 truncate text-xs text-app-muted">{conversation.last_message_preview || '暂无消息'}</p>
-                          <p className="m-0 mt-1 text-xs text-app-muted">
-                            {`${conversation.message_count} 条消息 · ${formatDateTime(conversation.updated_at || conversation.created_at)}`}
-                          </p>
-                        </button>
-                        <div className="mt-2 flex justify-end">
-                          <button
-                            type="button"
-                            className="inline-flex items-center rounded-lg border border-rose-200 bg-rose-50 px-2.5 py-1 text-xs font-medium text-rose-600 transition hover:bg-rose-100 disabled:cursor-not-allowed disabled:opacity-60"
-                            onClick={() => void onDeleteConversation(conversation.id)}
-                            disabled={deletingConversationId === conversation.id}
-                          >
-                            {deletingConversationId === conversation.id ? '删除中...' : '删除会话'}
+              <div className="custom-scrollbar min-h-0 flex-1 overflow-auto pr-1">
+                {sortedConversations.length === 0 ? (
+                  <div className="rounded-xl border border-dashed border-app-border bg-slate-50 px-3 py-4 text-sm text-app-muted">暂无对话</div>
+                ) : (
+                  <div className="space-y-2">
+                    {sortedConversations.map((conversation) => {
+                      const active = conversation.id === activeConversationId;
+                      return (
+                        <article
+                          key={conversation.id}
+                          className={`w-full rounded-xl border px-3 py-2 text-left transition ${
+                            active ? 'border-emerald-300 bg-emerald-50' : 'border-app-border bg-white hover:bg-slate-50'
+                          }`}
+                        >
+                          <button type="button" className="w-full text-left" onClick={() => void onSwitchConversation(conversation.id)}>
+                            <p className="m-0 truncate text-sm font-semibold text-app-text">{conversation.title || '新对话'}</p>
+                            <p className="m-0 mt-1 truncate text-xs text-app-muted">{conversation.last_message_preview || '暂无消息'}</p>
+                            <p className="m-0 mt-1 text-xs text-app-muted">
+                              {`${conversation.message_count} 条消息 · ${formatDateTime(conversation.updated_at || conversation.created_at)}`}
+                            </p>
                           </button>
-                        </div>
-                      </article>
-                    );
-                  })}
-                </div>
-              )}
+                          <div className="mt-2 flex justify-end">
+                            <button
+                              type="button"
+                              className="inline-flex items-center rounded-lg border border-rose-200 bg-rose-50 px-2.5 py-1 text-xs font-medium text-rose-600 transition hover:bg-rose-100 disabled:cursor-not-allowed disabled:opacity-60"
+                              onClick={() => void onDeleteConversation(conversation.id)}
+                              disabled={deletingConversationId === conversation.id}
+                            >
+                              {deletingConversationId === conversation.id ? '删除中...' : '删除会话'}
+                            </button>
+                          </div>
+                        </article>
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
             </section>
 
-            <section className="space-y-2">
+            <section className="shrink-0 space-y-2">
               <h3 className="m-0 text-sm font-semibold">检索参数</h3>
               <label className="block text-xs text-app-muted">
                 当前会话图谱（只读）
