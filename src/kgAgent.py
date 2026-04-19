@@ -146,7 +146,10 @@ class NER_Agent(NERPipeline, KnowledgeGraphQA):
                 related_kg_map=related_kg_map,
             )
 
-        current_doc_kg = self.convert_knowledge_graph(kg_result)
+        current_doc_kg = self.convert_knowledge_graph(
+            kg_result,
+            chunk_map=text_split.get("id_to_sentence", {}),
+        )
         aliases_by_name = {}
         for _, entity in entity_list_process.items():
             canonical_name = entity.get("name")

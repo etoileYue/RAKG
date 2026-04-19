@@ -14,6 +14,46 @@ from src.utils import safe_embed_documents
 class PipelineQAGraphOpsMixin:
     """Knowledge graph indexing helpers for QA retrieval."""
 
+    def _normalize_chunk_ids(self, chunk_ids):
+        if chunk_ids is None:
+            return []
+        if isinstance(chunk_ids, list):
+            values = chunk_ids
+        elif isinstance(chunk_ids, (set, tuple)):
+            values = list(chunk_ids)
+        else:
+            text = str(chunk_ids).strip()
+            if not text:
+                return []
+            values = text.split(";;;") if ";;;" in text else [text]
+        normalized = []
+        for value in values:
+            chunk_id = str(value).strip()
+            if chunk_id:
+                normalized.append(chunk_id)
+        seen = set()
+        deduped = []
+        for value in normalized:
+            if value in seen:
+                continue
+            seen.add(value)
+            deduped.append(value)
+        return deduped
+
+    def _normalize_qa_provenance(self, provenance, legacy_chunk_ids=None):
+        if not isinstance(provenance, dict):
+            provenance = {}
+        chunk_ids = self._normalize_chunk_ids(provenance.get("chunk_ids", []))
+        chunk_ids = self._normalize_chunk_ids(chunk_ids + self._normalize_chunk_ids(legacy_chunk_ids))
+        normalized = {"chunk_ids": chunk_ids}
+        strategy = str(provenance.get("strategy", "")).strip()
+        if strategy:
+            normalized["strategy"] = strategy
+        return normalized
+
+    def _normalize_provenance(self, provenance, legacy_chunk_ids=None):
+        return self._normalize_qa_provenance(provenance, legacy_chunk_ids=legacy_chunk_ids)
+
     def _normalize_knowledge_graph(self, knowledge_graph):
         data = knowledge_graph
         if isinstance(data, str):
@@ -30,9 +70,18 @@ class PipelineQAGraphOpsMixin:
 
         entities = data.get("entities", [])
         relations = data.get("relations", [])
+        chunk_map = data.get("chunk_map", {})
         if not isinstance(entities, list) or not isinstance(relations, list):
             raise ValueError("knowledge_graph must contain list fields: entities and relations.")
-        return {"entities": entities, "relations": relations}
+        if not isinstance(chunk_map, dict):
+            chunk_map = {}
+        normalized_chunk_map = {}
+        for key, value in chunk_map.items():
+            chunk_id = str(key).strip()
+            sentence = str(value).strip() if value is not None else ""
+            if chunk_id and sentence and chunk_id not in normalized_chunk_map:
+                normalized_chunk_map[chunk_id] = sentence
+        return {"entities": entities, "relations": relations, "chunk_map": normalized_chunk_map}
 
     def _build_graph_indices(self, graph_data):
         entity_lookup = {}
@@ -42,7 +91,12 @@ class PipelineQAGraphOpsMixin:
             name = entity.get("name")
             if not name:
                 continue
-            entity_lookup[name] = entity
+            normalized_entity = dict(entity)
+            normalized_entity["provenance"] = self._normalize_qa_provenance(
+                entity.get("provenance", {}),
+                legacy_chunk_ids=entity.get("chunkid", []),
+            )
+            entity_lookup[name] = normalized_entity
 
         adjacency_out = {}
         adjacency_in = {}
@@ -53,16 +107,20 @@ class PipelineQAGraphOpsMixin:
             relation = None
             target = None
             rel_description = ""
+            rel_provenance = {}
 
             if isinstance(rel, (list, tuple)) and len(rel) >= 3:
                 source, relation, target = rel[0], rel[1], rel[2]
                 if len(rel) >= 4:
                     rel_description = rel[3] or ""
+                if len(rel) >= 5 and isinstance(rel[4], dict):
+                    rel_provenance = rel[4]
             elif isinstance(rel, dict):
                 source = rel.get("source")
                 relation = rel.get("relation")
                 target = rel.get("target")
                 rel_description = rel.get("description", "") or rel.get("rel_description", "")
+                rel_provenance = rel.get("provenance", {})
 
             if not source or not relation or not target:
                 continue
@@ -72,6 +130,7 @@ class PipelineQAGraphOpsMixin:
                 "relation": relation,
                 "target": target,
                 "description": rel_description,
+                "provenance": self._normalize_qa_provenance(rel_provenance),
             }
             normalized_relations.append(rel_item)
 
@@ -84,6 +143,8 @@ class PipelineQAGraphOpsMixin:
                     "type": "Unknown",
                     "description": "",
                     "attributes": {},
+                    "aliases": [],
+                    "provenance": {"chunk_ids": []},
                 }
             if target not in entity_lookup:
                 entity_lookup[target] = {
@@ -91,6 +152,8 @@ class PipelineQAGraphOpsMixin:
                     "type": "Unknown",
                     "description": "",
                     "attributes": {},
+                    "aliases": [],
+                    "provenance": {"chunk_ids": []},
                 }
 
         return entity_lookup, normalized_relations, adjacency_out, adjacency_in
@@ -139,6 +202,7 @@ class PipelineQAGraphOpsMixin:
             "node_names": node_names,
             "node_texts": node_texts,
             "node_vectors": node_vectors,
+            "chunk_map": normalized_graph.get("chunk_map", {}),
         }
         self._qa_default_graph_cache_key = cache_key
         return cache_key

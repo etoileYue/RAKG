@@ -10,6 +10,23 @@ from src.pipeline.shared import logger
 class PipelineRelationOpsMixin:
     """NER抽取与关系抽取方法集合。"""
 
+    def _normalize_chunk_ids(self, chunk_ids):
+        if chunk_ids is None:
+            return []
+        if isinstance(chunk_ids, list):
+            values = chunk_ids
+        else:
+            text = str(chunk_ids).strip()
+            if not text:
+                return []
+            values = text.split(";;;") if ";;;" in text else [text]
+        normalized = []
+        for item in values:
+            text = str(item).strip()
+            if text:
+                normalized.append(text)
+        return self._dedupe_preserve_order(normalized)
+
     @staticmethod
     def _is_length_limit_error(exc):
         text = str(exc)
@@ -104,9 +121,20 @@ class PipelineRelationOpsMixin:
     ):
         """调用LLM提取关系"""
         chunk_text_list = self.get_sentences_for_entity(entity_dic, entity_id, id_to_sentence)
+        entity_chunk_ids = self._normalize_chunk_ids(entity_dic[entity_id].get("chunkid", []))
         query = entity_dic[entity_id].get("name", "")
         context = self.get_retriever_context(query, sentences, sentence_to_id, vectors, top_k=5)
         retrieved_sentences = [item[0] for item in context]
+        retrieved_chunk_ids = self._normalize_chunk_ids(
+            [item[2] for item in context if isinstance(item, (list, tuple)) and len(item) >= 3]
+        )
+        candidate_chunk_ids = self._dedupe_preserve_order(entity_chunk_ids + retrieved_chunk_ids)
+        candidate_chunks = {}
+        for chunk_id in candidate_chunk_ids:
+            sentence = id_to_sentence.get(chunk_id)
+            if isinstance(sentence, str) and sentence.strip():
+                candidate_chunks[chunk_id] = sentence.strip()
+
         unique_sentences = self._dedupe_preserve_order(chunk_text_list + retrieved_sentences)
         chunk_text = ", ".join(unique_sentences)
         related_kg_payload = "none"
@@ -148,11 +176,36 @@ class PipelineRelationOpsMixin:
                     "description": "",
                     "attributes": [],
                     "relationships": [],
+                    "provenance": {"chunk_ids": entity_chunk_ids},
                 },
                 "_truncated_raw_text": raw_text,
             }
 
-        combined_data = {"chunk_text": chunk_text, "entity": entity_dic[entity_id], "kg": result_json}
+        if isinstance(result_json, dict):
+            provenance_meta = result_json.get("_provenance", {})
+            if not isinstance(provenance_meta, dict):
+                provenance_meta = {}
+            provenance_meta["entity_chunk_ids"] = entity_chunk_ids
+            provenance_meta["candidate_chunk_ids"] = candidate_chunk_ids
+            provenance_meta["candidate_chunks"] = candidate_chunks
+            result_json["_provenance"] = provenance_meta
+
+            central_entity = result_json.get("central_entity", {})
+            if isinstance(central_entity, dict):
+                central_prov = central_entity.get("provenance", {})
+                if not isinstance(central_prov, dict):
+                    central_prov = {}
+                central_ids = self._normalize_chunk_ids(central_prov.get("chunk_ids", []))
+                central_prov["chunk_ids"] = self._dedupe_preserve_order(central_ids + entity_chunk_ids)
+                central_entity["provenance"] = central_prov
+
+        combined_data = {
+            "chunk_text": chunk_text,
+            "entity": entity_dic[entity_id],
+            "kg": result_json,
+            "candidate_chunk_ids": candidate_chunk_ids,
+            "candidate_chunks": candidate_chunks,
+        }
         self._append_jsonl(output_file, combined_data)
         return result_json
 

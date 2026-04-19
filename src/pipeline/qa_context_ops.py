@@ -19,24 +19,59 @@ class PipelineQAContextOpsMixin:
             entity_lookup = graph_index.get("entity_lookup", {})
             adjacency_out = graph_index.get("adjacency_out", {})
             adjacency_in = graph_index.get("adjacency_in", {})
+            chunk_map = graph_index.get("chunk_map", {})
         else:
             if graph_data is None:
                 raise ValueError("Either graph_data or graph_index must be provided.")
             normalized_graph = self._normalize_knowledge_graph(graph_data)
             entity_lookup, _, adjacency_out, adjacency_in = self._build_graph_indices(normalized_graph)
+            chunk_map = normalized_graph.get("chunk_map", {})
 
+        if not isinstance(chunk_map, dict):
+            chunk_map = {}
         seed_nodes = seed_nodes or []
         hop_limit = 1 if max_hop <= 1 else 2
 
+        chunk_evidence = []
         entity_evidence = []
         relation_evidence = []
         graph_paths = []
         visited_path = set()
+        visited_chunk_source = set()
         visited_entity_source = set()
         visited_relation_source = set()
 
+        def add_chunk_evidence(chunk_ids, anchor, path="", hop=0):
+            normalized_chunk_ids = self._normalize_chunk_ids(chunk_ids)
+            for chunk_id in normalized_chunk_ids[:8]:
+                source = f"chunk:{chunk_id}"
+                if source in visited_chunk_source:
+                    continue
+                sentence = chunk_map.get(chunk_id, "")
+                if not isinstance(sentence, str) or not sentence.strip():
+                    continue
+                chunk_evidence.append(
+                    {
+                        "source": source,
+                        "text": sentence.strip(),
+                        "path": path,
+                        "hop": hop,
+                        "anchor": anchor,
+                    }
+                )
+                visited_chunk_source.add(source)
+
         def add_entity_evidence(node_name):
             entity = entity_lookup.get(node_name, {"name": node_name})
+            entity_prov = entity.get("provenance", {})
+            chunk_ids = entity_prov.get("chunk_ids", []) if isinstance(entity_prov, dict) else []
+            add_chunk_evidence(
+                chunk_ids=chunk_ids,
+                anchor=f"entity:{node_name}",
+                path=node_name,
+                hop=0,
+            )
+
             description = entity.get("description", "")
             if isinstance(description, str) and description.strip():
                 source = f"entity:{node_name}.description"
@@ -90,6 +125,14 @@ class PipelineQAContextOpsMixin:
 
                     rel_source = f"relation:{source}--[{relation}]-->{target}"
                     if rel_source not in visited_relation_source:
+                        rel_prov = rel.get("provenance", {})
+                        rel_chunk_ids = rel_prov.get("chunk_ids", []) if isinstance(rel_prov, dict) else []
+                        add_chunk_evidence(
+                            chunk_ids=rel_chunk_ids,
+                            anchor=rel_source,
+                            path=new_path,
+                            hop=current_depth + 1,
+                        )
                         relation_evidence.append(
                             {
                                 "source": rel_source,
@@ -122,6 +165,14 @@ class PipelineQAContextOpsMixin:
 
                     rel_source = f"relation:{source}--[{relation}]-->{target}"
                     if rel_source not in visited_relation_source:
+                        rel_prov = rel.get("provenance", {})
+                        rel_chunk_ids = rel_prov.get("chunk_ids", []) if isinstance(rel_prov, dict) else []
+                        add_chunk_evidence(
+                            chunk_ids=rel_chunk_ids,
+                            anchor=rel_source,
+                            path=new_path,
+                            hop=current_depth + 1,
+                        )
                         relation_evidence.append(
                             {
                                 "source": rel_source,
@@ -141,6 +192,7 @@ class PipelineQAContextOpsMixin:
                         queue.append((next_node, next_depth, new_path))
 
         return {
+            "chunk_evidence": chunk_evidence,
             "entity_evidence": entity_evidence,
             "relation_evidence": relation_evidence,
             "graph_paths": graph_paths[:max_paths],
@@ -179,6 +231,14 @@ class PipelineQAContextOpsMixin:
         )
 
         evidence_items = []
+        for item in expanded["chunk_evidence"]:
+            evidence_items.append(
+                {
+                    "source": item["source"],
+                    "text": item["text"],
+                    "path": item.get("path", ""),
+                }
+            )
         for item in expanded["entity_evidence"]:
             evidence_items.append({"source": item["source"], "text": item["text"], "path": ""})
         for item in expanded["relation_evidence"]:

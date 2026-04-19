@@ -319,6 +319,24 @@ def get_kg_result_from_file(file_path):
     kg_result = {}
     entity_num = 1
 
+    def normalize_chunk_ids(raw_chunk_ids):
+        if raw_chunk_ids is None:
+            return []
+        if isinstance(raw_chunk_ids, list):
+            values = raw_chunk_ids
+        else:
+            text = str(raw_chunk_ids).strip()
+            if not text:
+                return []
+            values = text.split(";;;") if ";;;" in text else [text]
+
+        normalized = []
+        for value in values:
+            chunk_id = str(value).strip()
+            if chunk_id:
+                normalized.append(chunk_id)
+        return dedupe_preserve_order(normalized)
+
     with open(file_path, "r", encoding="utf-8") as f:
         for line_num, line in enumerate(f, 1):
             line = line.strip()
@@ -353,6 +371,42 @@ def get_kg_result_from_file(file_path):
             central_entity = kg_node.get("central_entity", {})
             if "aliases" not in central_entity and isinstance(entity, dict):
                 central_entity["aliases"] = entity.get("aliases", [])
+
+            provenance_meta = kg_node.get("_provenance", {})
+            if not isinstance(provenance_meta, dict):
+                provenance_meta = {}
+
+            entity_chunk_ids = normalize_chunk_ids(entity.get("chunkid", [])) if isinstance(entity, dict) else []
+            meta_entity_chunk_ids = normalize_chunk_ids(provenance_meta.get("entity_chunk_ids", []))
+            candidate_chunk_ids = normalize_chunk_ids(provenance_meta.get("candidate_chunk_ids", []))
+            candidate_chunk_ids = dedupe_preserve_order(
+                candidate_chunk_ids + normalize_chunk_ids(json_obj.get("candidate_chunk_ids", []))
+            )
+
+            candidate_chunks = provenance_meta.get("candidate_chunks", {})
+            if not isinstance(candidate_chunks, dict):
+                candidate_chunks = {}
+            raw_candidate_chunks = json_obj.get("candidate_chunks", {})
+            if isinstance(raw_candidate_chunks, dict):
+                for key, value in raw_candidate_chunks.items():
+                    chunk_id = str(key).strip()
+                    sentence = str(value).strip()
+                    if chunk_id and sentence and chunk_id not in candidate_chunks:
+                        candidate_chunks[chunk_id] = sentence
+
+            central_provenance = central_entity.get("provenance", {})
+            if not isinstance(central_provenance, dict):
+                central_provenance = {}
+            central_chunk_ids = normalize_chunk_ids(central_provenance.get("chunk_ids", []))
+            central_provenance["chunk_ids"] = dedupe_preserve_order(
+                central_chunk_ids + meta_entity_chunk_ids + entity_chunk_ids
+            )
+            central_entity["provenance"] = central_provenance
+
+            provenance_meta["entity_chunk_ids"] = dedupe_preserve_order(meta_entity_chunk_ids + entity_chunk_ids)
+            provenance_meta["candidate_chunk_ids"] = candidate_chunk_ids
+            provenance_meta["candidate_chunks"] = candidate_chunks
+            kg_node["_provenance"] = provenance_meta
 
             entity_id = f"entity{entity_num}"
             kg_result[entity_id] = kg_node

@@ -392,7 +392,8 @@ kg_qa_answer_prompt_cn = """
 
 约束：
 1. 只基于给定上下文作答，不得编造。
-2. evidence_sources 至少给 1 条，source 必须来自上下文中的 source 字段。
-3. graph_paths 至少给 1 条，路径应来自候选图谱路径。
-4. 如果证据不足，answer 必须明确写出“根据现有图谱证据不足以得出确定结论”。
+2. 若上下文中存在 source 以 chunk: 开头的原文证据，优先使用这些原文证据支撑答案。
+3. evidence_sources 至少给 1 条，source 必须来自上下文中的 source 字段。
+4. graph_paths 至少给 1 条，路径应来自候选图谱路径。
+5. 如果证据不足，answer 必须明确写出“根据现有图谱证据不足以得出确定结论”。
 """
