@@ -49,6 +49,106 @@ def dedupe_preserve_order(items)->list:
     return result
 
 
+def normalize_chunk_ids(raw_chunk_ids)->list:
+    if raw_chunk_ids is None:
+        return []
+    if isinstance(raw_chunk_ids, (list, tuple, set)):
+        values = list(raw_chunk_ids)
+    else:
+        text = str(raw_chunk_ids).strip()
+        if not text:
+            return []
+        values = text.split(";;;") if ";;;" in text else [text]
+
+    normalized = []
+    for value in values:
+        chunk_id = str(value).strip()
+        if chunk_id:
+            normalized.append(chunk_id)
+    return dedupe_preserve_order(normalized)
+
+
+def normalize_chunk_map(chunk_map)->dict:
+    if not isinstance(chunk_map, dict):
+        return {}
+
+    normalized = {}
+    for key, value in chunk_map.items():
+        chunk_id = str(key).strip()
+        sentence = str(value).strip() if value is not None else ""
+        if chunk_id and sentence and chunk_id not in normalized:
+            normalized[chunk_id] = sentence
+    return normalized
+
+
+def normalize_relation_record(raw_relation):
+    source = None
+    relation = None
+    target = None
+    description = ""
+    provenance = {}
+
+    if isinstance(raw_relation, (list, tuple)) and len(raw_relation) >= 3:
+        source, relation, target = raw_relation[0], raw_relation[1], raw_relation[2]
+        if len(raw_relation) >= 4:
+            description = raw_relation[3] or ""
+        if len(raw_relation) >= 5 and isinstance(raw_relation[4], dict):
+            provenance = raw_relation[4]
+    elif isinstance(raw_relation, dict):
+        source = raw_relation.get("source")
+        relation = raw_relation.get("relation")
+        target = raw_relation.get("target")
+        description = raw_relation.get("description", "") or raw_relation.get("rel_description", "")
+        provenance = raw_relation.get("provenance", {})
+    else:
+        return None
+
+    source_text = str(source or "").strip()
+    relation_text = str(relation or "").strip()
+    target_text = str(target or "").strip()
+    if not source_text or not relation_text or not target_text:
+        return None
+
+    return {
+        "source": source_text,
+        "relation": relation_text,
+        "target": target_text,
+        "description": str(description or "").strip(),
+        "provenance": provenance if isinstance(provenance, dict) else {},
+    }
+
+
+def load_normalized_graph_data(graph_data)->dict:
+    """
+    加载 graph_data（dict/JSON字符串/JSON文件路径）并统一输出标准结构：
+    {"entities": list, "relations": list, "chunk_map": dict}
+    """
+    if graph_data is None:
+        return {"entities": [], "relations": [], "chunk_map": {}}
+
+    data = graph_data
+    if isinstance(data, str):
+        if os.path.exists(data):
+            with open(data, "r", encoding="utf-8") as f:
+                data = json.load(f)
+        else:
+            data = json.loads(data)
+
+    if not isinstance(data, dict):
+        raise ValueError("graph_data must be a dict, JSON string, or JSON file path.")
+
+    entities = data.get("entities", [])
+    relations = data.get("relations", [])
+    chunk_map = data.get("chunk_map", {})
+    if not isinstance(entities, list) or not isinstance(relations, list):
+        raise ValueError("graph_data must contain list fields: entities and relations.")
+    return {
+        "entities": entities,
+        "relations": relations,
+        "chunk_map": normalize_chunk_map(chunk_map),
+    }
+
+
 def renumber_entities(ner_result, entity_num):
     new_entities = {}
     for idx, (_, value) in enumerate(ner_result.items(), start=1):
@@ -318,24 +418,6 @@ def get_ner_result_from_file(file_path, sent_to_id):
 def get_kg_result_from_file(file_path):
     kg_result = {}
     entity_num = 1
-
-    def normalize_chunk_ids(raw_chunk_ids):
-        if raw_chunk_ids is None:
-            return []
-        if isinstance(raw_chunk_ids, list):
-            values = raw_chunk_ids
-        else:
-            text = str(raw_chunk_ids).strip()
-            if not text:
-                return []
-            values = text.split(";;;") if ";;;" in text else [text]
-
-        normalized = []
-        for value in values:
-            chunk_id = str(value).strip()
-            if chunk_id:
-                normalized.append(chunk_id)
-        return dedupe_preserve_order(normalized)
 
     with open(file_path, "r", encoding="utf-8") as f:
         for line_num, line in enumerate(f, 1):

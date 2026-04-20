@@ -1,10 +1,12 @@
 """图谱规范化、对齐与合并能力。"""
 
 from copy import deepcopy
-import json
-import os
 import re
 from src.pipeline.shared import logger
+from src.utils import load_normalized_graph_data
+from src.utils import normalize_chunk_ids
+from src.utils import normalize_chunk_map
+from src.utils import normalize_relation_record
 
 class PipelineGraphOpsMixin:
     """图谱规范化、对齐与合并方法集合。"""
@@ -19,36 +21,10 @@ class PipelineGraphOpsMixin:
         return " ".join(relation.split())
 
     def _normalize_chunk_ids(self, chunk_ids)->list:
-        if chunk_ids is None:
-            return []
-        if isinstance(chunk_ids, list):
-            values = chunk_ids
-        elif isinstance(chunk_ids, (set, tuple)):
-            values = list(chunk_ids)
-        else:
-            text = str(chunk_ids).strip()
-            if not text:
-                return []
-            values = text.split(";;;") if ";;;" in text else [text]
-
-        normalized = []
-        for value in values:
-            chunk_id = str(value).strip()
-            if chunk_id:
-                normalized.append(chunk_id)
-        return self._dedupe_preserve_order(normalized)
+        return normalize_chunk_ids(chunk_ids)
 
     def _normalize_chunk_map(self, chunk_map)->dict:
-        if not isinstance(chunk_map, dict):
-            return {}
-
-        normalized = {}
-        for key, value in chunk_map.items():
-            chunk_id = str(key).strip()
-            sentence = str(value).strip() if value is not None else ""
-            if chunk_id and sentence and chunk_id not in normalized:
-                normalized[chunk_id] = sentence
-        return normalized
+        return normalize_chunk_map(chunk_map)
 
     def _normalize_provenance(self, provenance)->dict:
         if not isinstance(provenance, dict):
@@ -150,30 +126,7 @@ class PipelineGraphOpsMixin:
         载入graph_data,如果是dict则返回,是文件路径则加载
         return {"entities": entities, "relations": relations}
         """
-        if graph_data is None:
-            return {"entities": [], "relations": [], "chunk_map": {}}
-
-        data = graph_data
-        if isinstance(data, str):
-            if os.path.exists(data):
-                with open(data, "r", encoding="utf-8") as f:
-                    data = json.load(f)
-            else:
-                data = json.loads(data)
-
-        if not isinstance(data, dict):
-            raise ValueError("graph_data must be a dict, JSON string, or JSON file path.")
-
-        entities = data.get("entities", [])
-        relations = data.get("relations", [])
-        chunk_map = data.get("chunk_map", {})
-        if not isinstance(entities, list) or not isinstance(relations, list):
-            raise ValueError("graph_data must contain list fields: entities and relations.")
-        return {
-            "entities": entities,
-            "relations": relations,
-            "chunk_map": self._normalize_chunk_map(chunk_map),
-        }
+        return load_normalized_graph_data(graph_data)
 
     def _build_existing_entity_lookup(self, existing_graph)->dict:
         """把已有图数据中的实体entities整理成一个“标准化 + 可索引”的查找字典"""
@@ -455,35 +408,17 @@ class PipelineGraphOpsMixin:
 
     def _iter_normalized_relations(self, graph_data):
         """逐条返回graph_data["relations"]"""
-        for rel in graph_data.get("relations", []):
-            source = None
-            relation = None
-            target = None
-            description = ""
-            provenance = {}
-
-            if isinstance(rel, (list, tuple)) and len(rel) >= 3:
-                source, relation, target = rel[0], rel[1], rel[2]
-                if len(rel) >= 4:
-                    description = rel[3] or ""
-                if len(rel) >= 5 and isinstance(rel[4], dict):
-                    provenance = rel[4]
-            elif isinstance(rel, dict):
-                source = rel.get("source")
-                relation = rel.get("relation")
-                target = rel.get("target")
-                description = rel.get("description", "") or rel.get("rel_description", "")
-                provenance = rel.get("provenance", {})
-
-            if not source or not relation or not target:
+        for raw_relation in graph_data.get("relations", []):
+            parsed = normalize_relation_record(raw_relation)
+            if not parsed:
                 continue
 
             yield {
-                "source": str(source).strip(),
-                "relation": str(relation).strip(),
-                "target": str(target).strip(),
-                "description": str(description or "").strip(),
-                "provenance": self._normalize_provenance(provenance),
+                "source": parsed["source"],
+                "relation": parsed["relation"],
+                "target": parsed["target"],
+                "description": parsed["description"],
+                "provenance": self._normalize_provenance(parsed.get("provenance", {})),
             }
 
     def _build_alias_to_canonical(self, entity_registry)->dict:

@@ -7,6 +7,7 @@ from src.prompt import extract_entiry_centric_kg_en_v2
 from src.prompt import text2entity_en
 from src.pipeline.shared import debug_logger
 from src.pipeline.shared import logger
+from src.utils import normalize_chunk_ids
 
 class PipelineRelationOpsMixin:
     """NER抽取与关系抽取方法集合。"""
@@ -25,21 +26,7 @@ class PipelineRelationOpsMixin:
         return str(value).strip().lower() in {"1", "true", "yes", "on"}
 
     def _normalize_chunk_ids(self, chunk_ids):
-        if chunk_ids is None:
-            return []
-        if isinstance(chunk_ids, list):
-            values = chunk_ids
-        else:
-            text = str(chunk_ids).strip()
-            if not text:
-                return []
-            values = text.split(";;;") if ";;;" in text else [text]
-        normalized = []
-        for item in values:
-            text = str(item).strip()
-            if text:
-                normalized.append(text)
-        return self._dedupe_preserve_order(normalized)
+        return normalize_chunk_ids(chunk_ids)
 
     @staticmethod
     def _is_length_limit_error(exc):

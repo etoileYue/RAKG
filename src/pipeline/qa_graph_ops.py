@@ -8,6 +8,9 @@ import traceback
 import numpy as np
 
 from src.pipeline.shared import logger
+from src.utils import load_normalized_graph_data
+from src.utils import normalize_chunk_ids
+from src.utils import normalize_relation_record
 from src.utils import safe_embed_documents
 
 
@@ -15,30 +18,7 @@ class PipelineQAGraphOpsMixin:
     """Knowledge graph indexing helpers for QA retrieval."""
 
     def _normalize_chunk_ids(self, chunk_ids):
-        if chunk_ids is None:
-            return []
-        if isinstance(chunk_ids, list):
-            values = chunk_ids
-        elif isinstance(chunk_ids, (set, tuple)):
-            values = list(chunk_ids)
-        else:
-            text = str(chunk_ids).strip()
-            if not text:
-                return []
-            values = text.split(";;;") if ";;;" in text else [text]
-        normalized = []
-        for value in values:
-            chunk_id = str(value).strip()
-            if chunk_id:
-                normalized.append(chunk_id)
-        seen = set()
-        deduped = []
-        for value in normalized:
-            if value in seen:
-                continue
-            seen.add(value)
-            deduped.append(value)
-        return deduped
+        return normalize_chunk_ids(chunk_ids)
 
     def _normalize_qa_provenance(self, provenance, legacy_chunk_ids=None):
         if not isinstance(provenance, dict):
@@ -55,33 +35,12 @@ class PipelineQAGraphOpsMixin:
         return self._normalize_qa_provenance(provenance, legacy_chunk_ids=legacy_chunk_ids)
 
     def _normalize_knowledge_graph(self, knowledge_graph):
-        data = knowledge_graph
-        if isinstance(data, str):
-            if os.path.exists(data):
-                with open(data, "r", encoding="utf-8") as f:
-                    data = json.load(f)
-            else:
-                data = json.loads(data)
-
-        if not isinstance(data, dict):
+        try:
+            return load_normalized_graph_data(knowledge_graph)
+        except ValueError as exc:
             raise ValueError(
                 "knowledge_graph must be a dict, JSON string, or a valid JSON file path."
-            )
-
-        entities = data.get("entities", [])
-        relations = data.get("relations", [])
-        chunk_map = data.get("chunk_map", {})
-        if not isinstance(entities, list) or not isinstance(relations, list):
-            raise ValueError("knowledge_graph must contain list fields: entities and relations.")
-        if not isinstance(chunk_map, dict):
-            chunk_map = {}
-        normalized_chunk_map = {}
-        for key, value in chunk_map.items():
-            chunk_id = str(key).strip()
-            sentence = str(value).strip() if value is not None else ""
-            if chunk_id and sentence and chunk_id not in normalized_chunk_map:
-                normalized_chunk_map[chunk_id] = sentence
-        return {"entities": entities, "relations": relations, "chunk_map": normalized_chunk_map}
+            ) from exc
 
     def _build_graph_indices(self, graph_data):
         entity_lookup = {}
@@ -102,53 +61,35 @@ class PipelineQAGraphOpsMixin:
         adjacency_in = {}
         normalized_relations = []
 
-        for rel in graph_data.get("relations", []):
-            source = None
-            relation = None
-            target = None
-            rel_description = ""
-            rel_provenance = {}
-
-            if isinstance(rel, (list, tuple)) and len(rel) >= 3:
-                source, relation, target = rel[0], rel[1], rel[2]
-                if len(rel) >= 4:
-                    rel_description = rel[3] or ""
-                if len(rel) >= 5 and isinstance(rel[4], dict):
-                    rel_provenance = rel[4]
-            elif isinstance(rel, dict):
-                source = rel.get("source")
-                relation = rel.get("relation")
-                target = rel.get("target")
-                rel_description = rel.get("description", "") or rel.get("rel_description", "")
-                rel_provenance = rel.get("provenance", {})
-
-            if not source or not relation or not target:
+        for raw_relation in graph_data.get("relations", []):
+            parsed = normalize_relation_record(raw_relation)
+            if not parsed:
                 continue
 
             rel_item = {
-                "source": source,
-                "relation": relation,
-                "target": target,
-                "description": rel_description,
-                "provenance": self._normalize_qa_provenance(rel_provenance),
+                "source": parsed["source"],
+                "relation": parsed["relation"],
+                "target": parsed["target"],
+                "description": parsed["description"],
+                "provenance": self._normalize_qa_provenance(parsed.get("provenance", {})),
             }
             normalized_relations.append(rel_item)
 
-            adjacency_out.setdefault(source, []).append(rel_item)
-            adjacency_in.setdefault(target, []).append(rel_item)
+            adjacency_out.setdefault(parsed["source"], []).append(rel_item)
+            adjacency_in.setdefault(parsed["target"], []).append(rel_item)
 
-            if source not in entity_lookup:
-                entity_lookup[source] = {
-                    "name": source,
+            if parsed["source"] not in entity_lookup:
+                entity_lookup[parsed["source"]] = {
+                    "name": parsed["source"],
                     "type": "Unknown",
                     "description": "",
                     "attributes": {},
                     "aliases": [],
                     "provenance": {"chunk_ids": []},
                 }
-            if target not in entity_lookup:
-                entity_lookup[target] = {
-                    "name": target,
+            if parsed["target"] not in entity_lookup:
+                entity_lookup[parsed["target"]] = {
+                    "name": parsed["target"],
                     "type": "Unknown",
                     "description": "",
                     "attributes": {},
