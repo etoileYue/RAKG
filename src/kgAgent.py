@@ -231,9 +231,9 @@ class NER_Agent(NERPipeline, KnowledgeGraphQA):
                 else:
                     cur_existing_kg = existing_kg.get(idx, None)
 
-            skip_cur_ner = idx in skip_ner_set
-            skip_cur_sim = idx in skip_sim_set
-            skip_cur_rel = idx in skip_rel_set
+            skip_cur_ner = idx in skip_ner_set if skip_ner_set else False
+            skip_cur_sim = idx in skip_sim_set if skip_sim_set else False
+            skip_cur_rel = idx in skip_rel_set if skip_rel_set else False
 
             try:
                 self.process(

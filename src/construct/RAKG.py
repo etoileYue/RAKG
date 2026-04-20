@@ -17,12 +17,12 @@ from src.kgAgent import NER_Agent
 
 if __name__ == "__main__":
     json_path = "./data/raw/MINE_short10.json"
-    output_dir = "./data/short/processed"
+    output_dir = "./data/new_test/processed"
 
-    skip_construct = set([2, 4, 7])
-    skip_ner_set = set([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
-    skip_sim_set = set([2, 3, 4, 7, 9])
-    skip_rel_set = set([2, 3, 4, 7, 9])
+    skip_construct = set([1,2, 5, 6, 7, 8, 10])
+    # skip_ner_set = set([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+    # skip_sim_set = set([2, 3, 4, 7, 9])
+    # skip_rel_set = set([2, 3, 4, 7, 9])
     # existing_kg = {1: "data/tmp/processed/RAKG_graph_re/1.json"}
 
     ner_agent = NER_Agent()
@@ -30,8 +30,8 @@ if __name__ == "__main__":
         json_path=json_path,
         output_dir=output_dir,
         skip_construct=skip_construct,
-        skip_ner_set=skip_ner_set,
-        skip_sim_set=skip_sim_set,
-        skip_rel_set=skip_rel_set,        
+        # skip_ner_set=skip_ner_set,
+        # skip_sim_set=skip_sim_set,
+        # skip_rel_set=skip_rel_set,        
         # existing_kg=existing_kg
     )
