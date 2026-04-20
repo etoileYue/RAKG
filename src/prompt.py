@@ -88,7 +88,13 @@ Requirements for you:
 3. You should determine when to classify information as a relationship and when to classify it as an attribute.
 4. Utilize knowledge from other relevant knowledge graphs to gain a more comprehensive understanding of the specified entity's characteristics. You should also establish reverse relationships based on other knowledge to form bidirectional relationships. For example, if there is a relationship like "Other Entity - Wife - Specified Entity," you should establish the reverse relationship: "Specified Entity - Husband - Other Entity" to make the knowledge graph more comprehensive.
 5. In the final output, duplicate attributes should be removed, and only one instance of each attribute should be retained. Similarly, duplicate relationships should also be removed, and only one instance of each relationship should be retained.
-6. The final output format should be:
+6. Evidence constraints:
+   - The text is formatted as evidence blocks with `chunk_id`. Each extracted relationship must be supported by evidence.
+   - For each relationship, you must provide `provenance.chunk_ids`, and every chunk id must exist in the provided evidence blocks.
+   - Optional: provide `provenance.confidence` as a float between 0 and 1.
+   - Pronouns must be resolved to explicit antecedents from evidence blocks before extracting relations.
+   - If a relation has no supporting evidence, do not output it.
+7. The final output format should be:
     {{
     "central_entity": {{
         "name": "{{}}",
@@ -109,17 +115,24 @@ Requirements for you:
         {{
             "relation": "{{}}",
             "target_name": "{{}}",
-            "target_type": "{{}}"
-            "target_description": "{{}}"
-            "relation_description": "{{}}"
+            "target_type": "{{}}",
+            "target_description": "{{}}",
+            "relation_description": "{{}}",
+            "provenance": {{
+                "chunk_ids": ["{{}}"],
+                "confidence": 0.0
+            }}
         }},
         ...
         {{
             "relation": "{{}}",
             "target_name": "{{}}",
-            "target_type": "{{}}"
-            "target_description": "{{}}"
-            "relation_description": "{{}}"
+            "target_type": "{{}}",
+            "target_description": "{{}}",
+            "relation_description": "{{}}",
+            "provenance": {{
+                "chunk_ids": ["{{}}"]
+            }}
         }}
         ]
       }}
@@ -146,14 +159,21 @@ Requirements for you:
           "target_name": "Theory of Relativity",
           "target_type": "Scientific Theory",
           "target_description": "The Theory of Relativity was proposed by Einstein in 1905. It suggests that space and time transformations are interrelated during the motion of objects, rather than being independent.",
-          "relation_description": "Einstein proposed the Theory of Relativity, which is an important theory in modern physics."
+          "relation_description": "Einstein proposed the Theory of Relativity, which is an important theory in modern physics.",
+          "provenance": {{
+            "chunk_ids": ["Einstein12", "Einstein13"],
+            "confidence": 0.94
+          }}
         }},
         {{
           "relation": "Graduated From",
           "target_name": "ETH Zurich",
           "target_type": "Educational Institution",
           "target_description": "ETH Zurich is a university located near Zurich.",
-          "relation_description": "Einstein studied at ETH Zurich."
+          "relation_description": "Einstein studied at ETH Zurich.",
+          "provenance": {{
+            "chunk_ids": ["Einstein08"]
+          }}
         }}
       ]
     }}

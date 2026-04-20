@@ -31,7 +31,84 @@ class PipelineRetrievalOpsMixin:
                 logger.warning("Chunk ID '%s' not found in id_to_sentence.", chunkid)
         return sentences
 
-    def get_retriever_context(self, query, sentences, sentence_to_id, vectors, top_k=5):
+    @staticmethod
+    def _normalize_text(text):
+        return " ".join(str(text or "").strip().lower().split())
+
+    @staticmethod
+    def _cosine_similarity(vec_a, vec_b):
+        norm_a = np.linalg.norm(vec_a)
+        norm_b = np.linalg.norm(vec_b)
+        if norm_a == 0 or norm_b == 0:
+            return 0.0
+        return float(np.dot(vec_a, vec_b) / (norm_a * norm_b))
+
+    def _passes_entity_constraint(
+        self,
+        sentence,
+        sentence_vector,
+        entity_terms,
+        entity_constraint_vector,
+        entity_constraint_min_similarity,
+    ):
+        if not entity_terms and entity_constraint_vector is None:
+            return True
+
+        sentence_text = self._normalize_text(sentence)
+        if entity_terms:
+            for term in entity_terms:
+                term_text = self._normalize_text(term)
+                if term_text and term_text in sentence_text:
+                    return True
+
+        if entity_constraint_vector is not None:
+            sim = self._cosine_similarity(sentence_vector, entity_constraint_vector)
+            if sim >= entity_constraint_min_similarity:
+                return True
+
+        return False
+
+    def _select_with_mmr(self, candidates, sentence_vectors, top_k, mmr_lambda):
+        if not candidates:
+            return []
+
+        selected = []
+        remaining = list(candidates)
+        while remaining and len(selected) < top_k:
+            best_candidate = None
+            best_score = float("-inf")
+            for candidate in remaining:
+                idx = candidate["idx"]
+                relevance = float(candidate["similarity"])
+                diversity_penalty = 0.0
+                if selected:
+                    diversity_penalty = max(
+                        self._cosine_similarity(sentence_vectors[idx], sentence_vectors[item["idx"]])
+                        for item in selected
+                    )
+                mmr_score = mmr_lambda * relevance - (1.0 - mmr_lambda) * diversity_penalty
+                if mmr_score > best_score:
+                    best_score = mmr_score
+                    best_candidate = candidate
+            selected.append(best_candidate)
+            remaining = [item for item in remaining if item["idx"] != best_candidate["idx"]]
+        return selected
+
+    def get_retriever_context(
+        self,
+        query,
+        sentences,
+        sentence_to_id,
+        vectors,
+        top_k=5,
+        min_similarity=0.0,
+        dedupe_threshold=0.97,
+        use_mmr=False,
+        mmr_lambda=0.75,
+        entity_terms=None,
+        entity_description="",
+        entity_constraint_min_similarity=0.2,
+    ):
         """
         根据query从一组句子中找出最相似的 Top-K 句子，并返回相关信息句子 + 相似度 + ID
         Args:
@@ -40,6 +117,13 @@ class PipelineRetrievalOpsMixin:
             sentence_to_id: 句子 → ID 映射
             vectors: 每个句子的向量表示embedding
             top_k: 返回最相似的前 K 条
+            min_similarity: 最低相似度阈值，低于阈值的句子将被过滤
+            dedupe_threshold: 句间冗余阈值（余弦相似度），过高重复句将被去重
+            use_mmr: 是否启用 MMR 去重
+            mmr_lambda: MMR 中相关性与多样性的平衡系数
+            entity_terms: 实体名/别名约束列表
+            entity_description: 实体描述（用于语义约束）
+            entity_constraint_min_similarity: 语义约束最小相似度
         Returns:
             str: 相关信息句子 + 相似度 + ID
         """
@@ -55,12 +139,69 @@ class PipelineRetrievalOpsMixin:
             logger.error("Failed to calculate sentence similarity: %s", traceback.format_exc())
             return []
 
-        top_indices = np.argsort(similarities)[::-1][:top_k]
-        retriever_context = []
-        for idx in top_indices:
+        entity_terms = entity_terms or []
+        entity_constraint_vector = None
+        constraint_text_parts = [str(item).strip() for item in entity_terms if str(item).strip()]
+        if str(entity_description or "").strip():
+            constraint_text_parts.append(str(entity_description).strip())
+        constraint_text = " ".join(constraint_text_parts).strip()
+        if constraint_text:
+            try:
+                entity_constraint_vector = np.array(self.embeddings.embed_query(constraint_text))
+            except Exception:
+                logger.warning("Failed to build entity constraint embedding, fallback to term matching.")
+
+        ranked_indices = np.argsort(similarities)[::-1]
+        candidates = []
+        for idx in ranked_indices:
             sentence = sentences[idx]
-            similarity = similarities[idx]
-            sentence_id = sentence_to_id[sentence]
+            similarity = float(similarities[idx])
+            if similarity < min_similarity:
+                continue
+            sentence_vector = sentence_vectors[idx]
+            if not self._passes_entity_constraint(
+                sentence=sentence,
+                sentence_vector=sentence_vector,
+                entity_terms=entity_terms,
+                entity_constraint_vector=entity_constraint_vector,
+                entity_constraint_min_similarity=entity_constraint_min_similarity,
+            ):
+                continue
+            candidates.append({"idx": int(idx), "sentence": sentence, "similarity": similarity})
+
+        if not candidates:
+            return []
+
+        if use_mmr:
+            selected_candidates = self._select_with_mmr(
+                candidates=candidates,
+                sentence_vectors=sentence_vectors,
+                top_k=top_k,
+                mmr_lambda=mmr_lambda,
+            )
+        else:
+            selected_candidates = []
+            for candidate in candidates:
+                if len(selected_candidates) >= top_k:
+                    break
+                idx = candidate["idx"]
+                is_redundant = False
+                for chosen in selected_candidates:
+                    sim = self._cosine_similarity(sentence_vectors[idx], sentence_vectors[chosen["idx"]])
+                    if sim >= dedupe_threshold:
+                        is_redundant = True
+                        break
+                if not is_redundant:
+                    selected_candidates.append(candidate)
+
+        retriever_context = []
+        for candidate in selected_candidates[:top_k]:
+            sentence = candidate["sentence"]
+            similarity = candidate["similarity"]
+            sentence_id = sentence_to_id.get(sentence)
+            if sentence_id is None:
+                logger.warning("Sentence not found in sentence_to_id mapping, skip retrieval hit.")
+                continue
             retriever_context.append((sentence, similarity, sentence_id))
 
         return retriever_context

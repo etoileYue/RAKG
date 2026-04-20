@@ -59,6 +59,16 @@ class PipelineGraphOpsMixin:
         strategy = str(provenance.get("strategy", "")).strip()
         if strategy:
             normalized["strategy"] = strategy
+        confidence = provenance.get("confidence", None)
+        if isinstance(confidence, (int, float)):
+            normalized["confidence"] = float(confidence)
+        elif isinstance(confidence, str):
+            text = confidence.strip()
+            if text:
+                try:
+                    normalized["confidence"] = float(text)
+                except ValueError:
+                    pass
         return normalized
 
     def _merge_provenance(self, left, right)->dict:
@@ -72,6 +82,10 @@ class PipelineGraphOpsMixin:
         strategy = str(right_norm.get("strategy") or left_norm.get("strategy") or "").strip()
         if strategy:
             merged["strategy"] = strategy
+        if "confidence" in right_norm:
+            merged["confidence"] = right_norm["confidence"]
+        elif "confidence" in left_norm:
+            merged["confidence"] = left_norm["confidence"]
         return merged
 
     def _extract_text_tokens(self, text, max_tokens=16)->list:
@@ -385,20 +399,26 @@ class PipelineGraphOpsMixin:
                 relation_description = rel.get("relation_description", "")
                 relation_name = rel["relation"]
                 relation_provenance_raw = rel.get("provenance", {})
+                relation_provenance_raw = (
+                    relation_provenance_raw if isinstance(relation_provenance_raw, dict) else {}
+                )
 
                 for target_name in target_names:
-                    relation_provenance = self._infer_relation_provenance(
-                        source_name=source_name,
-                        target_name=target_name,
-                        relation_text=relation_name,
-                        relation_description=relation_description,
-                        candidate_chunks=relation_candidates,
-                        fallback_chunk_ids=fallback_source_chunks,
-                    )
-                    relation_provenance = self._merge_provenance(
-                        relation_provenance,
-                        relation_provenance_raw,
-                    )
+                    llm_relation_provenance = self._normalize_provenance(relation_provenance_raw)
+                    if llm_relation_provenance.get("chunk_ids"):
+                        relation_provenance = dict(llm_relation_provenance)
+                        relation_provenance.setdefault("strategy", "llm_relation_provenance")
+                    else:
+                        relation_provenance = self._infer_relation_provenance(
+                            source_name=source_name,
+                            target_name=target_name,
+                            relation_text=relation_name,
+                            relation_description=relation_description,
+                            candidate_chunks=relation_candidates,
+                            fallback_chunk_ids=fallback_source_chunks,
+                        )
+                        if "confidence" in llm_relation_provenance:
+                            relation_provenance["confidence"] = llm_relation_provenance["confidence"]
 
                     if target_name not in entity_registry:
                         entity_registry[target_name] = {
