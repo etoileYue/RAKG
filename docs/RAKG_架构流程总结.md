@@ -1,270 +1,377 @@
 # RAKG 架构流程总结
+## 1. 总览：项目里已经落地的两条主链路
 
-本文档基于当前仓库实现整理，重点对应以下代码：
+当前仓库可以明确分成两条主链路。
 
-- 构图主入口：`src/kgAgent.py`
-- 构图能力拆分：`src/pipeline/`
-- 文本预处理：`src/textProcess.py`
-- 问答入口：`src/pipeline/qa_*`
+第一条是知识图谱构建链路：
 
-本文采用偏论文式概述，但所有结论均以当前代码为准，不把尚未落地的能力写成已实现特性。
+`TextProcessor -> 逐句 NER -> 文档内实体消歧 -> 与已有图谱对齐 -> 实体中心关系抽取 -> 图谱转换 -> 图谱合并`
 
-## 1. 整体架构概览
+第二条是图谱问答链路：
 
-RAKG 的核心思想是把“文本检索”与“图谱结构化建模”结合起来：
+`问题理解 -> 图节点匹配 -> 图邻域扩展 -> 证据上下文构建 -> LLM 作答`
 
-1. 在构图阶段，系统先把文档切分为句子并向量化，再由 LLM 抽取候选实体。
-2. 候选实体经过向量召回和 LLM 判定后完成实体消歧，形成文档级的标准实体集合。
-3. 之后系统以“实体为中心”回看原文和相关句子，并可结合已有知识图谱中的邻域信息，为每个实体生成一个局部子图。
-4. 所有实体中心子图被统一转换成 `entities + relations` 的结构，必要时再与已有图谱合并。
-5. 在问答阶段，系统先把问题映射到图中的种子节点，再沿图邻域扩展证据，将图谱证据整理成上下文，最后由 LLM 基于这些证据生成答案。
+这两条链路在代码里由同一个类 `NER_Agent` 对外统一暴露。`NER_Agent` 继承了 `NERPipeline` 与 `KnowledgeGraphQA`，因此既能做构图，也能做基于图谱的检索问答。
 
-从工程实现上看，项目分成两条主链路：
+## 2. 核心接口与统一数据结构
 
-- 知识图谱构建链路：`TextProcessor -> NER -> 实体消歧 -> 实体中心关系抽取 -> 图谱转换/合并`
-- 图谱问答链路：`问题理解 -> 图谱节点匹配 -> 邻域扩展 -> 证据上下文构建 -> 答案生成`
+当前主接口有四个：
 
-## 2. 构建知识图谱的过程
+- `NER_Agent.process(...)`
+- `NER_Agent.process_all_topics(...)`
+- `initialize_qa_graph_index(...)`
+- `answer_question_with_kg(...)`
 
-### 2.1 预处理
-
-预处理在 `src/textProcess.py` 的 `TextProcessor.process()` 中完成，主要包含三步：
-
-1. 句子切分  
-   `split_sentences()` 使用中英文标点规则对原文进行切句，得到 `sentences`。
-2. 句子编号  
-   每个句子会生成一个稳定的 `chunkid`，并建立：
-   - `sentence_to_id`
-   - `id_to_sentence`
-3. 向量化  
-   对所有句子调用 embedding 模型，生成句子向量 `vectors`。
-
-这一阶段的输出是后续所有操作的基础。它既支持“实体来自哪句话”的追踪，也支持后续基于向量相似度的句子回溯检索。
-
-### 2.2 实体抽取过程
-
-实体抽取的主流程位于 `src/kgAgent.py` 的 `NER_Agent.process()`，具体调用 `src/pipeline/relation_ops.py` 中的：
-
-- `extract_from_text_single()`
-- `extract_from_text_multiply()`
-
-抽取逻辑如下：
-
-1. 系统逐句处理文本，而不是一次性处理整篇文档。
-2. 对每个句子调用 `text2entity_en` prompt，请 LLM 输出一个 JSON，实体字段至少包含：
-   - `name`
-   - `type`
-   - `description`
-3. 如果某个句子不含有效信息，模型可返回 `{"State": false}`，该句不会进入后续实体集合。
-4. 多句抽取结果会通过 `rewrite()` 统一重编号，再由 `add_chunkid()` 给每个实体附上来源句子的 `chunkid`。
-
-因此，项目中的实体不是纯粹的字符串，而是带有语义类型、说明文本和来源位置的结构化对象。这个设计为后续消歧、对齐和关系抽取提供了足够上下文。
-
-### 2.3 实体对齐 / 消歧
-
-实体消歧由 `src/pipeline/similarity_ops.py` 和 `src/pipeline/entity_ops.py` 共同完成。
-
-#### 第一步：生成相似实体候选
-
-`similarity_candidates()` 先把实体表示为 `name + type` 的组合文本，再计算 embedding 相似度，筛出高于阈值的候选对。
-
-这一步的目标不是直接决定“是否同一实体”，而是把明显无关的实体过滤掉，把可能重复的实体送给后续精判。
-
-#### 第二步：LLM 两阶段判定
-
-`_run_two_pass_similarity_disambiguation()` 会对候选实体对调用 `similarity_llm_single()`：
-
-1. 第一次调用 LLM 判断两个实体是否本质相同。
-2. 对于解析不稳定或需要复核的“灰区样本”，再进行第二次判定。
-3. 最终保留高置信度的匹配对。
-
-这里的判定不仅看名称，也会结合 `type` 和 `description`。因此它不是简单字符串去重，而是“语义级实体归并”。
-
-#### 第三步：并查集合并
-
-`entity_Disambiguation()` 使用并查集把两两匹配对扩展成实体簇，然后对同簇实体进行合并：
-
-- 合并 `description`
-- 合并 `chunkid`
-- 合并 `aliases`
-- 保留一个主实体作为标准记录
-
-如果多个实体最终被判定为同一对象，系统会把它们整合为一个标准实体节点，从而减少图谱中的重复节点。
-
-### 2.4 关系抽取
-
-关系抽取不是直接在全文上一次性抽取整图，而是采用“实体中心子图”的方式逐个实体构建，核心函数为：
-
-- `get_target_kg_single()`
-- `get_target_kg_all()`
-
-对每个实体，系统会构建一份更聚焦的上下文，再交给 LLM 生成局部图谱。
-
-#### 2.4.1 上下文构建
-
-每个实体的关系抽取上下文由两部分组成：
-
-1. 实体原始命中句  
-   `get_sentences_for_entity()` 根据实体绑定的 `chunkid`，回收该实体原本出现的句子。
-2. 语义补充句  
-   `get_retriever_context()` 以实体名作为查询，在整篇文档的句子向量中检索 Top-K 相似句，用来补充上下文。
-
-最终上下文会将“实体原始句”和“相似检索句”去重后拼接，形成该实体的局部语料视图。
-
-#### 2.4.2 关系与属性联合抽取
-
-在 `extract_entiry_centric_kg_en_v2` prompt 中，模型被要求围绕指定实体输出：
-
-- `central_entity`
-- `description`
-- `attributes`
-- `relationships`
-
-其中：
-
-- `attributes` 描述实体自身特征
-- `relationships` 描述该实体与其他实体之间的边
-
-项目要求关系必须以“当前中心实体”为头实体，这样每次抽取得到的都是一个以该实体为中心的局部星型子图。
-
-#### 2.4.3 为什么采用实体中心抽取
-
-这种做法的优点是：
-
-- 避免在整篇长文档上直接抽整图，降低上下文复杂度
-- 每个实体的关系抽取更聚焦，便于利用该实体的局部检索上下文
-- 后续可以把多个实体中心子图再合并成统一图谱
-
-### 2.5 构建图谱
-
-局部子图生成后，需要统一转换为标准的图结构。这个过程由 `src/pipeline/graph_ops.py` 完成。
-
-#### 2.5.1 子图转换
-
-`convert_knowledge_graph()` 会把每个实体中心子图转成统一结构：
+其中，构图阶段最终统一落到一个标准图结构上：
 
 ```json
 {
   "entities": [
     {
-      "name": "...",
-      "type": "...",
-      "description": "...",
+      "name": "实体名",
+      "type": "实体类型",
+      "description": "实体描述",
       "attributes": {},
-      "aliases": []
+      "aliases": [],
+      "provenance": {
+        "chunk_ids": ["Topic1"]
+      }
     }
   ],
   "relations": [
-    ["source", "relation", "target", "description"]
-  ]
+    {
+      "source": "源实体",
+      "relation": "关系名",
+      "target": "目标实体",
+      "description": "关系描述",
+      "provenance": {
+        "chunk_ids": ["Topic1", "Topic2"],
+        "strategy": "heuristic_sentence_match"
+      }
+    }
+  ],
+  "chunk_map": {
+    "Topic1": "原始句子"
+  }
 }
 ```
 
-在这个过程中：
+也就是说，当前图谱接口不是“裸三元组列表”，而是 `entities + relations + chunk_map` 三部分并存：
 
-- 中心实体会被写入 `entities`
-- 关系中的目标实体如果尚不存在，也会补成实体节点
-- 关系被统一为 `[source, relation, target, description]`
+- `entities` 保存规范化后的实体节点
+- `relations` 保存带 provenance 的关系记录
+- `chunk_map` 保存 `chunk_id -> 原文句子` 的映射，供溯源与 QA 检索复用
 
-#### 2.5.2 图谱合并
+## 3. 构图全过程
 
-如果当前处理流程带有 `existing_kg`，则 `merge_knowledge_graphs()` 会继续把新图与已有图融合。融合包括：
+### 3.1 `NER_Agent.process()` 是单文档构图编排入口
 
-- 实体级合并：对齐标准名、合并别名、属性和描述
-- 关系级合并：按 `(source, normalized_relation, target)` 去重
-- 描述级合并：把来自不同来源的描述拼接保留
+`src/kgAgent.py` 中的 `NER_Agent.process()` 负责单个 topic 的完整执行。它的顺序很固定：
 
-因此，RAKG 最终得到的不是一堆松散的局部结果，而是一个统一的、可继续扩展和检索的知识图谱。
+1. 用 `TextProcessor.process()` 切句并生成句向量。
+2. 用 `extract_from_text_multiply()` 做逐句实体抽取。
+3. 用 `similarity_result()` 与 `entity_Disambiguation()` 做文档内实体消歧。
+4. 如果调用方传入 `existing_kg`，先执行 `align_entities_to_existing_graph()` 做跨图实体对齐。
+5. 对每个标准实体调用 `get_target_kg_all()` 做实体中心关系抽取。
+6. 用 `convert_knowledge_graph()` 把 LLM 子图转成统一图结构。
+7. 如存在 `existing_kg`，再用 `merge_knowledge_graphs()` 做增量融合。
 
-## 3. 跨文档构建知识图谱机制
+函数返回值里同时保留：
 
-### 3.1 核心思想
+- `knowledge_graph`：如果传入已有图谱，则这是合并后的图
+- `current_doc_kg`：仅当前文档抽出的图
+- `alias_resolution`：跨图对齐阶段生成的别名到标准名映射
 
-RAKG 的跨文档机制，本质上是“让新文档在构图时主动参考已有图谱，并把新知识继续融合回已有图谱”。
+### 3.2 `TextProcessor.process()`：切句、`chunk_id` 与句向量
 
-这套机制在 `NER_Agent.process(..., existing_kg=...)` 中落地，其核心不是简单拼接两个图，而是包含三层动作：
+预处理在 `src/textProcess.py` 的 `TextProcessor.process()` 中完成。
 
-1. 新实体对齐到已有图谱
-2. 已有图谱反向提供局部结构上下文
-3. 当前文档新抽出的子图再与已有图谱归并
+第一步是切句。`split_sentences()` 使用中英文句末标点规则分句，得到 `sentences`。
 
-### 3.2 跨图实体对齐
+第二步是给每个句子分配稳定 `chunk_id`。这里当前实现的规则不是“`topic + '_' + index`”，而是：
 
-`align_entities_to_existing_graph()` 会把新文档中的实体，与已有图中的实体进行跨图匹配：
+`chunk_id = base_name + (index + 1)`
 
-1. 先把已有图谱中的 `entities` 规范化成可检索实体表。
-2. 再通过 `cross_similarity_result()` 计算“新实体 vs 已有实体”的候选匹配。
-3. 候选匹配仍然经过 embedding 筛选和 LLM 判定。
-4. 如果匹配成功，新实体会被替换成已有图谱中的标准名，并继承已有实体的类型、描述和别名。
+其中 `base_name` 就是传入的 topic 名称。因此文档主题为 `Einstein` 时，句子 ID 会长成 `Einstein1`、`Einstein2` 这种形式。
 
-这个过程的作用是把不同文档中对同一实体的不同叫法、不同描述统一到一个标准节点上。
+第三步是向量化。`process()` 会对所有句子调用 embedding 模型，得到 `vectors`，并返回四项基础结果：
 
-### 3.3 别名解析与标准名统一
+- `sentences`
+- `vectors`
+- `sentence_to_id`
+- `id_to_sentence`
 
-在对齐阶段，系统会额外生成 `alias_resolution`，把别名映射到标准实体名。这样做有两个意义：
+后续 NER、关系抽取、图谱 provenance 和 QA 证据都依赖这套映射。
 
-1. 新文档内部如果使用了别名，后续构图时可以统一写回标准名。
-2. 图谱合并时可以减少“同实体多节点”的问题。
+### 3.3 `extract_from_text_multiply()`：逐句实体抽取与窗口补丁
 
-因此，跨文档融合并不是“后处理去重”，而是前置到关系抽取之前完成标准化。
+实体抽取落在 `src/pipeline/relation_ops.py` 的 `extract_from_text_multiply()`。
 
-### 3.4 已有图谱反哺当前文档
+这里的实现不是一次性对整篇文档做 NER，而是逐句调用 `extract_from_text_single()`。`extract_from_text_single()` 会把单句文本送入 `text2entity_en` prompt，请模型返回 JSON 结构的实体集合；如果输出被截断或不是合法 JSON，代码会回退为 `{"State": False, ...}` 的占位结构，而不是让整个流程中断。
 
-当新实体已经对齐到已有图谱中的某个标准节点后，`build_related_kg_context()` 会从已有图谱里抽取该实体的局部邻域，包括：
+逐句抽取之外，当前版本还有一个已经落地的“窗口补丁”机制：
 
-- 该实体的标准化信息
-- 与它直接相关的若干条关系
+- 开关：`RAKG_ENABLE_NER_WINDOW_PATCH`，默认开启
+- 触发条件：句子较短，且包含代词或指代词
+- 做法：把当前句与前后各一条句子拼成一个窗口，再额外调用一次 `extract_from_text_single()`
+- 合并方式：`_merge_ner_results()` 会按 `name + type + description` 去重并合并两次抽取结果
 
-这些信息会作为 `related_kg` 传入 `get_target_kg_single()` 的 prompt。也就是说，当前文档的关系抽取并不是只看当前文档文本，还会参考已有知识图谱的局部结构。
+这意味着当前实现已经显式处理“单句太短、指代信息不完整”的情况，而不是纯粹逐句盲抽。
 
-这种机制使系统具备两种能力：
+最终，`extract_from_text_multiply()` 还会做两件事：
 
-1. 利用旧图辅助理解当前文档中的实体
-2. 基于已有边建立反向关系或补充关系，使当前抽取得到的实体中心子图更完整
+- `rewrite()`：把实体重新编号成 `entity1`、`entity2` 这类内部 ID
+- `add_chunkid()`：给每个实体挂上来源 `chunkid`
 
-### 3.5 跨文档图谱合并
+因此，进入下一阶段的实体记录，至少具备：
 
-当当前文档的实体中心子图被转换成统一结构后，`merge_knowledge_graphs()` 会把它与 `existing_kg` 合成一个更大的图：
+- `name`
+- `type`
+- `description`
+- `chunkid`
 
-- 若实体名或别名可映射到已有节点，则合并到已有节点
-- 若关系三元组重复，则做归并，不重复建边
-- 若是全新实体或全新关系，则扩展到图中
+### 3.4 `similarity_result()` + `entity_Disambiguation()`：文档内实体消歧
 
-因此，从高层上看，跨文档构图不是“文档 A 构一张图、文档 B 再构一张图”，而是“文档 B 在已有图的上下文中构图，并把结果继续回灌到已有图”。
+文档内实体消歧分成“候选生成”和“实体簇合并”两步。
 
-### 3.6 当前实现边界
+第一步在 `src/pipeline/similarity_ops.py` 的 `similarity_result()`。它先调用 `similarity_candidates()`，把每个实体编码为 `name + type` 文本后做 embedding 相似度计算，筛出超过阈值的候选实体对。
 
-这里需要强调一个当前代码中的实现边界：
+第二步是两轮 LLM 判定。`similarity_result()` 内部调用 `_run_two_pass_similarity_disambiguation()`，对候选对执行：
 
-- 当前仓库已经实现了“新文档基于已有 KG 增量构图”的机制。
-- 但 `process_all_topics()` 并不会自动把本轮第 `i` 篇文档的输出，作为第 `i+1` 篇文档的 `existing_kg` 继续串行累积。
+1. 第一轮 `similarity_llm_single()` 判定是否同一实体
+2. 对 `needs_review` 的灰区样本再跑一轮同样的判定
+3. 保留最终正匹配的实体对
 
-也就是说，当前代码的跨文档能力主要体现为：
+这里的判定不是只看字符串相似，而是把实体整体对象传给 prompt，其中包含 `name`、`type`、`description`。
 
-- 传入一个外部已有图谱，作为当前文档的知识底座
-- 或由调用方自己把上一次输出继续作为下一次输入，实现增量式全局融合
+第三步在 `src/pipeline/entity_ops.py` 的 `entity_Disambiguation()`。它使用并查集把两两匹配对扩展成实体簇，然后按簇进行合并：
 
-如果调用方不显式传入和更新 `existing_kg`，那么默认行为更接近“每篇文档独立构图”。
+- 合并 `description`
+- 合并 `chunkid`
+- 把被吞并实体名写入 `aliases`
+- 保留簇中的一个主实体作为标准记录
 
-## 4. 检索问题过程
+如果没有传入 `existing_kg`，`NER_Agent.process()` 在这一步之后还会再调用 `_collapse_entities_by_name()`，继续合并同名实体并清洗别名。
 
-问答链路主要由以下模块组成：
+### 3.5 跨文档输入进入单文档流程的位置
 
-- `src/pipeline/qa_graph_ops.py`
-- `src/pipeline/qa_match_ops.py`
-- `src/pipeline/qa_context_ops.py`
-- `src/pipeline/qa_answer_ops.py`
+`existing_kg` 是当前增量构图的入口。`NER_Agent.process()` 一开始就会通过 `_normalize_graph_input()` 规范化它，然后在文档内消歧完成后进入跨图对齐阶段。
 
-对应统一入口是 `answer_question_with_kg()`。
+只要 `existing_kg` 中存在实体，当前 topic 的标准实体集合就不会直接进入关系抽取，而是先送到 `align_entities_to_existing_graph()`。
 
-### 4.1 问题预处理
+### 3.6 `align_entities_to_existing_graph()`：把新实体对齐到旧图标准名
 
-问题预处理由 `extract_question_entities()` 完成，核心目标是从自然语言问题中提取：
+`src/pipeline/graph_ops.py` 中的 `align_entities_to_existing_graph()` 做的是“新实体对齐到已有图谱的标准节点”，而不是简单把两张图拼接。
 
-- 核心实体
-- 检索关键词
+它的具体步骤是：
 
-它先调用 `question_entity_extract_prompt_cn` 让 LLM 输出：
+1. `_build_existing_entity_lookup()` 把已有图谱实体整理成可匹配表，保留 `name/type/description/aliases`
+2. `cross_similarity_result()` 在“新实体 vs 已有实体”之间跑 embedding 候选筛选 + 两轮 LLM 判定
+3. 对匹配成功的新实体，直接把 `name` 改写为已有图中的标准名
+4. 若旧图上的 `type` 更可靠，就覆盖新实体的类型
+5. 合并旧描述与新描述
+6. 把原名、旧别名和新别名统一折叠进 `aliases`
+
+这个函数还会生成 `alias_resolution`，把：
+
+- 新实体原名
+- 旧图已有别名
+- 新实体新增别名
+
+全部映射到标准名，并把它作为 `process()` 的返回值带出去。
+
+需要注意的是，当前代码里 `alias_resolution` 主要是“结果输出给调用方”和“表达这次对齐结论”；后续图谱真正的节点统一，仍主要依赖 `merge_knowledge_graphs()` 内部的别名解析与实体合并逻辑。
+
+### 3.7 `get_target_kg_all()`：实体中心关系抽取
+
+关系抽取采用“实体中心子图”模式，入口是 `src/pipeline/relation_ops.py` 的 `get_target_kg_all()`，它会遍历所有标准实体，并对每个实体调用 `get_target_kg_single()`。
+
+当前实现里，每个实体的关系抽取上下文由三块证据共同组成。
+
+第一块是实体原始命中句。`get_target_kg_single()` 会从实体记录里的 `chunkid` 出发，把这些句子视为核心证据。
+
+第二块是向量检索补充句。若 `RAKG_ENABLE_EVIDENCE_CONTEXT` 开启，`_build_relation_context()` 会调用 `get_retriever_context()`：
+
+- 用实体名作为主查询
+- 同时把实体别名、描述作为约束
+- 在整篇文档的句向量上做 Top-K 检索
+- 默认启用 MMR 去重
+
+第三块是邻近句补充。`_build_relation_context()` 不只保留命中句和检索句，还会把这些句子在原文顺序上的前后邻居句一起纳入候选证据。
+
+最终上下文会整理成带元信息的 evidence block 文本，其中每个 block 都标出：
+
+- `chunk_id`
+- `source`
+- `similarity`
+- `rank`
+
+这一步使得后续 prompt 可以直接引用 `chunk_id` 做关系 provenance。
+
+### 3.8 `build_related_kg_context()`：已有图谱如何反哺当前关系抽取
+
+如果 `process()` 收到了 `existing_kg`，那么在关系抽取前，还会为每个已对齐实体构造 `related_kg_map`。
+
+构造方式是调用 `src/pipeline/graph_ops.py` 的 `build_related_kg_context()`。它会：
+
+1. 把已有图谱实体和别名先规范化
+2. 用别名解析把当前实体名定位到已有图谱中的标准节点
+3. 抽出该节点本身的标准化实体信息
+4. 收集所有与该节点直接相连的关系，默认最多 20 条
+
+返回结果是：
+
+- `central_entity`
+- `related_relations`
+
+随后，`get_target_kg_single()` 会把这份结构序列化成 `related_kg` 传入 `extract_entiry_centric_kg_en_v2` prompt。
+
+因此，当前关系抽取的真实上下文不是只有“当前文档文本”，而是：
+
+- 当前实体的原文证据
+- 当前文档内的相似句与邻近句
+- 可选的已有图谱局部邻域
+
+### 3.9 Prompt 对关系输出的约束
+
+`src/prompt.py` 中的 `extract_entiry_centric_kg_en_v2` 明确要求模型：
+
+- 只围绕指定中心实体建子图
+- 关系头实体必须是当前中心实体
+- 每条关系都要给出 `provenance.chunk_ids`
+- `chunk_ids` 必须来自提供的 evidence blocks
+- 没有证据的关系不能输出
+- 遇到代词时要先在证据块里解析其指代对象
+
+因此，当前实现并不是“抽出关系就算完成”，而是显式要求关系绑定证据来源。
+
+### 3.10 `convert_knowledge_graph()`：把实体中心子图统一成标准图
+
+LLM 返回的是“一个中心实体对应一个局部子图”的结构，真正变成统一图结构是在 `src/pipeline/graph_ops.py` 的 `convert_knowledge_graph()`。
+
+它主要做四类整理：
+
+1. 把所有中心实体写入 `entities`
+2. 把 LLM 返回的候选句 `candidate_chunks` 回填到全局 `chunk_map`
+3. 把 `relationships` 转成标准关系记录对象
+4. 如果关系目标实体尚不存在，则补出目标实体节点
+
+这里关系记录的当前标准格式是：
+
+```json
+{
+  "source": "中心实体",
+  "relation": "关系名",
+  "target": "目标实体",
+  "description": "关系描述",
+  "provenance": {
+    "chunk_ids": ["Topic3"],
+    "strategy": "llm_relation_provenance"
+  }
+}
+```
+
+如果模型没有给出可用的 `provenance.chunk_ids`，`convert_knowledge_graph()` 不会直接丢弃这条边，而是调用 `_infer_relation_provenance()`，在候选句里用启发式规则补推来源句。
+
+### 3.11 `merge_knowledge_graphs()`：增量融合的最终落点
+
+`merge_knowledge_graphs()` 是当前统一图合并的总入口，它会同时处理：
+
+- `chunk_map` 合并
+- 实体合并
+- 关系合并
+
+实体合并时，它会先基于当前实体注册表构建 `alias_to_canonical`，然后按以下顺序找归宿：
+
+1. 实体名能否直接解析到已有标准名
+2. 实体别名能否解析到已有标准名
+3. 如果都不能，再作为新实体入图
+
+合并后会保留并整合：
+
+- `type`
+- `description`
+- `attributes`
+- `aliases`
+- `provenance`
+
+关系合并时，则以：
+
+`(source, normalized_relation, target)`
+
+作为去重键，同时合并：
+
+- `description`
+- `provenance`
+
+所以当前仓库里的“增量融合”不是简单追加列表，而是带别名解析、实体归并和关系 provenance 合并的结构化融合。
+
+## 4. 跨文档构图：当前实现机制与当前边界
+
+### 4.1 已实现的机制
+
+当前代码已经实现了“新文档在已有知识图谱基础上增量构图”的完整闭环，顺序是：
+
+1. 调用方把旧图作为 `existing_kg` 传入 `NER_Agent.process(...)`
+2. 新文档实体先做文档内消歧
+3. 再通过 `align_entities_to_existing_graph()` 对齐到旧图标准名
+4. 再通过 `build_related_kg_context()` 把旧图局部邻域反哺给当前关系抽取
+5. 当前文档子图生成后，最终通过 `merge_knowledge_graphs()` 并回旧图
+
+也就是说，跨文档能力已经不只是“最后把两张图并起来”，而是旧图会参与新文档的实体规范化与关系抽取。
+
+### 4.2 当前边界：`process_all_topics()` 默认不自动串行累积
+
+`src/kgAgent.py` 的 `process_all_topics()` 支持把 `existing_kg` 传给每个 topic，但它当前的行为边界也很明确：
+
+- 如果 `existing_kg` 带有 `global` 键，则每个 topic 都使用同一个全局已有图
+- 否则，它会按 `existing_kg.get(idx)` 为当前 topic 取一个外部指定图
+
+但它不会把第 `i` 篇 topic 刚生成的输出，自动更新成第 `i+1` 篇 topic 的输入。换句话说，当前默认流程不是“文档 1 输出自动喂给文档 2，再自动喂给文档 3”的串行全局累积。
+
+因此，跨文档全局累积在当前版本里需要调用方显式做两种事之一：
+
+- 传入一个固定的全局底座图 `existing_kg["global"]`
+- 或在外层循环里自己把上一次输出继续作为下一次的 `existing_kg`
+
+如果调用方什么都不传，默认行为仍然是“每篇文档独立构图”。
+
+## 5. 检索问答过程
+
+### 5.1 `initialize_qa_graph_index()`：图谱标准化、索引化与向量缓存
+
+问答前，代码会先通过 `src/pipeline/qa_graph_ops.py` 的 `initialize_qa_graph_index()` 建立 QA 图索引。
+
+这个函数会做三件事。
+
+第一件事是规范化图输入。无论传入的是 dict、JSON 字符串还是 JSON 文件路径，都会先转成统一图对象。
+
+第二件事是建立结构索引。`_build_graph_indices()` 会产出：
+
+- `entity_lookup`
+- `relations`
+- `adjacency_out`
+- `adjacency_in`
+
+其中实体和关系上的 `provenance` 都会被标准化成 `chunk_ids` 结构，兼容旧字段。
+
+第三件事是预计算节点向量。它会把每个实体转写成 `_entity_to_retrieval_text()`，其内容包含：
+
+- `name`
+- `type`
+- `description`
+- `attributes`
+- `aliases`
+
+然后统一计算 `node_vectors`，缓存到 `_qa_graph_index_cache`。
+
+因此，QA 阶段不是每次临时扫描原始图，而是基于“邻接表 + 实体查找表 + 节点向量”的索引来检索。
+
+### 5.2 `extract_question_entities()`：问题理解
+
+问题理解在 `src/pipeline/qa_match_ops.py` 的 `extract_question_entities()`。
+
+默认路径是调用 `question_entity_extract_prompt_cn`，要求模型输出：
 
 ```json
 {
@@ -273,124 +380,130 @@ RAKG 的跨文档机制，本质上是“让新文档在构图时主动参考已
 }
 ```
 
-如果 LLM 抽取失败，则退化为基于正则的关键词抽取。这个设计保证了即使 LLM 输出不稳定，问答流程仍然可以继续向下执行。
+代码会把 `entities` 与 `keywords` 合并、去重，并截到最多 8 个。
 
-### 4.2 检索图谱过程
+如果 LLM 解析失败，当前实现不会终止，而是退化为正则抽取中文片段或英数字 token。也就是说，“问题理解”是有容错回退的。
 
-检索图谱分为“建索引”和“命中种子节点”两步。
+### 5.3 `match_question_entities_to_graph()`：字符串匹配 + 向量相似匹配
 
-#### 4.2.1 图谱索引构建
+问题实体抽出后，`match_question_entities_to_graph()` 会把它们映射到图谱节点，形成 seed nodes。
 
-`initialize_qa_graph_index()` 会把知识图谱预处理成适合检索的结构，包括：
+当前实现是两段式匹配。
 
-- `entity_lookup`
-- `relations`
-- `adjacency_out`
-- `adjacency_in`
-- `node_names`
-- `node_vectors`
+第一段是字符串匹配，支持：
 
-其中，`node_vectors` 来自实体文本表示 `_entity_to_retrieval_text()` 的 embedding。实体文本表示不仅包含名称，还包含：
+- 标准名精确命中
+- 别名精确命中
+- 标准名或别名与问题实体的包含匹配
 
+第二段是语义匹配。如果已经预计算好 `node_vectors`，函数会对问题实体做 embedding，再与所有图节点向量做余弦相似度比较，保留超过阈值的节点。
+
+如果前面两段都没形成候选，并且节点向量可用，代码还会用“整个问题”再做一次语义 fallback，至少返回 Top-K 节点。
+
+返回值 `matched_nodes` 中会保留：
+
+- `name`
+- `score`
+- `reason`
 - `type`
 - `description`
-- `attributes`
-- `aliases`
 
-因此，QA 检索不是只按实体名搜，而是按“实体综合语义表征”搜。
+因此，种子节点不仅是命中结果，也带有“为什么命中”的解释信息。
 
-#### 4.2.2 种子节点匹配
+### 5.4 `expand_graph_neighbors()`：1 到 2 跳图邻域扩展
 
-`match_question_entities_to_graph()` 会把问题中的实体/关键词与图谱节点进行匹配，匹配方式有两类：
+真正把种子节点变成检索证据的是 `src/pipeline/qa_context_ops.py` 的 `expand_graph_neighbors()`。
 
-1. 字符串匹配  
-   包括标准名精确匹配、别名匹配、子串包含匹配。
-2. 语义匹配  
-   若字符串无法充分命中，则进一步计算问题实体与节点向量的相似度。
+它会围绕 seed nodes 做 BFS 风格扩展，并把最大跳数限制在 1 或 2 跳：
 
-最后会返回一组按得分排序的 `matched_nodes`，作为图遍历的种子节点。
+- `max_hop <= 1` 时实际只走 1 跳
+- 其他情况统一按 2 跳处理
 
-### 4.3 构建上下文过程
+扩展时同时遍历：
 
-上下文构建由 `build_qa_retrieval_context()` 完成，核心是“从种子节点向图邻域扩展证据”。
+- 出边 `adjacency_out`
+- 入边 `adjacency_in`
 
-#### 4.3.1 图邻域扩展
+在遍历过程中，它会收集四类结果。
 
-`expand_graph_neighbors()` 会围绕种子节点做图遍历，支持：
+第一类是 `chunk_evidence`。来源包括：
 
-- 出边扩展
-- 入边扩展
-- 1 跳或 2 跳邻域
+- 种子实体自身 provenance 指向的 `chunk_ids`
+- 关系 provenance 指向的 `chunk_ids`
 
-在扩展过程中，系统会收集三类信息：
+这些 `chunk_ids` 会再回到 `chunk_map` 中取原始句子。
 
-1. 实体描述证据  
-   如某个节点的 `description`
-2. 实体属性证据  
-   如 `属性 key: value`
-3. 关系证据  
-   如边描述，或 `source --[relation]-> target`
+第二类是 `entity_evidence`，即实体描述和前几个属性值。
 
-同时，系统还会记录图谱路径，例如：
+第三类是 `relation_evidence`，即边描述；如果边本身没有描述，就退化成 `source --[relation]-> target` 文本。
 
-- `A --[relation]-> B`
-- `A <-[relation]-- C`
+第四类是 `graph_paths`，例如：
 
-这些路径既能帮助解释答案来源，也能作为最终回答中的结构化证据。
+- `A --[r]-> B`
+- `A <-[r]-- C`
 
-#### 4.3.2 证据上下文拼接
+这些路径既是解释线索，也是后续回答 prompt 的输入。
 
-收集到的实体证据和关系证据会被整理成 `evidence_items`，再拼接为统一的 `context_text`，格式类似：
+### 5.5 `build_qa_retrieval_context()`：证据上下文拼装
 
-```text
-1. [source=entity:X.description] ...
-2. [source=entity:X.attribute:...] ...
-3. [source=relation:X--[r]-->Y] ... | path=X --[r]-> Y
-```
+`build_qa_retrieval_context()` 把前面几步串起来：
 
-这一步的本质是把图结构证据转写为 LLM 可直接消费的证据上下文，同时保留来源标识和图路径。
+1. `extract_question_entities()` 抽问题实体与关键词
+2. `match_question_entities_to_graph()` 匹配出 `matched_nodes`
+3. 取节点名形成 `seed_nodes`
+4. `expand_graph_neighbors()` 扩出图证据
+5. 把证据压平为 `evidence_items`
+6. 把证据格式化成 `context_text`
 
-### 4.4 回答问题过程
+`context_text` 当前是面向 LLM 的纯文本证据清单，每条都带 `source=` 标识，若有路径还会补 `path=`。这一步的作用是把图结构证据转写成模型可直接消费的检索上下文，同时保留证据来源 ID。
 
-在 `answer_question_with_kg()` 中，系统会把以下信息交给问答 prompt：
+### 5.6 `answer_question_with_kg()`：检索与最终作答是两个阶段
 
-- 原始问题 `question`
-- 检索上下文 `context_text`
-- 候选图路径 `graph_paths`
+`answer_question_with_kg()` 本身只负责两件事：
 
-随后 LLM 被要求严格输出 JSON，包括：
+1. 先调用 `build_qa_retrieval_context()` 完成图谱检索
+2. 再把 `question`、`context_text`、`graph_paths` 交给 `kg_qa_answer_prompt_cn` 生成答案
+
+也就是说，当前 QA 流程在工程上明确拆成两个阶段：
+
+- 第一阶段是图谱检索与证据组织
+- 第二阶段才是基于证据的 LLM 作答
+
+`kg_qa_answer_prompt_cn` 强制模型输出 JSON，字段包括：
 
 - `answer`
 - `evidence_sources`
 - `graph_paths`
 
-如果模型没有稳定输出 JSON，系统会回退到原始文本答案，并从检索结果中自动补足证据和图路径。
+并且 prompt 明确约束：
 
-### 4.5 QA 阶段的输出特点
+- 只能基于给定上下文作答
+- 优先引用 `chunk:` 开头的原文证据
+- `evidence_sources.source` 必须来自上下文
+- `graph_paths` 必须来自候选路径
+- 如果证据不足，答案必须写成“根据现有图谱证据不足以得出确定结论”
 
-最终答案并不是单一文本，而是一个带证据约束的结果对象。项目中会保留：
+代码侧还做了额外兜底：如果 LLM 没有稳定返回合法 JSON，就回退为原始文本答案，并自动从检索结果里补证据和路径。
 
+最终返回值会同时保留：
+
+- `retrieval`
+- `llm_output_raw`
 - `answer`
 - `evidence_sources`
 - `graph_paths`
 - `formatted_answer`
 
-其中 `formatted_answer` 会把答案、证据来源和图谱路径统一组织成面向用户展示的文本。
+所以，当前问答输出不是单一句子，而是“答案 + 证据来源 + 图路径”的组合结果。
 
-如果当前图谱证据不足，prompt 明确要求模型输出：
+## 6. 结论：当前仓库里真正实现的 RAKG 主链路
 
-`根据现有图谱证据不足以得出确定结论`
+如果只按当前代码事实来概括，RAKG 已经落地的是这样一条闭环：
 
-这体现出该项目的 QA 目标不是开放式生成，而是“基于图谱证据约束的回答”。
+首先，文本被切成有稳定 `chunk_id` 的句子，并生成句向量。接着系统逐句做实体抽取，对短句和代词句用窗口补丁补上下文，再通过 embedding 候选筛选和两轮 LLM 判定完成文档内实体消歧。
 
-## 5. 总结
+之后，标准实体会在需要时与已有图谱对齐到统一标准名，并带着当前文档证据和旧图局部邻域去做实体中心关系抽取。抽出的局部子图再被转换成统一的 `entities + relations + chunk_map` 图结构，并通过别名解析、实体归并和关系 provenance 合并，实现增量融合。
 
-从整体上看，RAKG 的流程可以概括为：
+在问答侧，系统先把知识图谱建成适合检索的邻接索引和节点向量索引，再把问题映射到图中的 seed nodes，扩展 1 到 2 跳邻域，拼出带 `source` 和 `path` 的证据上下文，最后才由 LLM 基于这些证据生成 JSON 化答案。
 
-1. 把原始文档切成可追踪、可向量检索的句子单元。
-2. 利用 LLM 抽取实体，再通过向量召回和 LLM 判定完成实体消歧。
-3. 围绕每个实体回溯原文与相似句，构建实体中心子图。
-4. 将多个子图合并为统一知识图谱，并在有 `existing_kg` 时实现增量式图谱融合。
-5. 在问答时，把问题映射到图中的种子节点，通过邻域扩展构建证据上下文，再由 LLM 生成带证据引用的答案。
-
-因此，RAKG 的关键不只是“把文本转成三元组”，而是通过“文本检索 + 图结构约束 + 增量融合”的组合方式，让知识图谱既能从文档中生长出来，也能反过来服务于 RAG 问答。
+因此，当前版本的 RAKG 不是“先抽三元组，再随便问答”的松耦合流程，而是一个已经把文本证据、实体规范化、图结构融合与证据约束问答连接起来的实现版本。同时，它的跨文档能力也有明确边界：增量融合机制已经具备，但多文档全局串行累积仍需调用方显式组织 `existing_kg` 的传递与更新。
