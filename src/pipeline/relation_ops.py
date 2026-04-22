@@ -3,8 +3,7 @@
 import json
 import os
 from langchain_core.prompts import ChatPromptTemplate
-from src.prompt import extract_entiry_centric_kg_en_v2
-from src.prompt import text2entity_en
+from src.prompt import get_prompt
 from src.pipeline.shared import debug_logger
 from src.pipeline.shared import logger
 from src.utils import normalize_chunk_ids
@@ -67,7 +66,7 @@ class PipelineRelationOpsMixin:
 
     def extract_from_text_single(self, text_single, output_file):
         """调用LLM提取实体"""
-        prompt = ChatPromptTemplate.from_template(text2entity_en)
+        prompt = ChatPromptTemplate.from_template(get_prompt("text2entity"))
         chain = prompt | self.model
         result = self._invoke_with_partial_fallback(chain, {"text": text_single})
         debug_logger.debug("-extract_from_text_single-")
@@ -405,7 +404,7 @@ class PipelineRelationOpsMixin:
         if related_kg:
             related_kg_payload = json.dumps(related_kg, ensure_ascii=False)
 
-        prompt = ChatPromptTemplate.from_template(extract_entiry_centric_kg_en_v2)
+        prompt = ChatPromptTemplate.from_template(get_prompt("entity_centric_kg"))
         chain = prompt | self.model
         result = self._invoke_with_partial_fallback(
             chain,

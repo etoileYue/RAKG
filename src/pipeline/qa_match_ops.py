@@ -8,7 +8,7 @@ from langchain_core.prompts import ChatPromptTemplate
 from sklearn.metrics.pairwise import cosine_similarity
 
 from src.pipeline.shared import logger
-from src.prompt import question_entity_extract_prompt_cn
+from src.prompt import get_prompt
 from src.utils import dedupe_preserve_order
 from src.utils import parse_json_like_response
 from src.utils import safe_embed_documents
@@ -18,7 +18,7 @@ class PipelineQAMatchOpsMixin:
     """Question understanding and node matching helpers for QA."""
 
     def extract_question_entities(self, question, max_entities=8):
-        prompt = ChatPromptTemplate.from_template(question_entity_extract_prompt_cn)
+        prompt = ChatPromptTemplate.from_template(get_prompt("qa_question_entity_extract"))
         chain = prompt | self.model
 
         entities = []

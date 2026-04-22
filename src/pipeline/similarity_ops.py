@@ -4,7 +4,7 @@ import traceback
 import numpy as np
 from langchain_core.prompts import ChatPromptTemplate
 from sklearn.metrics.pairwise import cosine_similarity
-from src.prompt import judge_sim_entity_en
+from src.prompt import get_prompt
 from src.utils import parse_similarity_response
 from src.utils import retry
 from src.utils import safe_embed_documents
@@ -17,7 +17,7 @@ class PipelineSimilarityOpsMixin:
     @retry()
     def similarity_llm_single(self, entity1, entity2):
         """调用LLM判断两个相似实体是否为同一实体"""
-        prompt = ChatPromptTemplate.from_template(judge_sim_entity_en)
+        prompt = ChatPromptTemplate.from_template(get_prompt("entity_similarity"))
         chain = prompt | self.similarity_model
         result = chain.invoke({"entity1": str(entity1), "entity2": str(entity2)})
         debug_logger.debug("-similarity_llm_single-")

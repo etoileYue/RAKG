@@ -20,3 +20,7 @@ OPENAI_MAX_TOKENS = 8192  # Max completion tokens for extraction calls
 
 # Model Provider Selection
 USE_OPENAI = True  # Set to True to use OpenAI, False to use Ollama
+
+# Prompt language used by the main runtime pipeline.
+# Supported values: "zh", "en"
+PROMPT_LANGUAGE = "zh"

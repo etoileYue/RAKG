@@ -2,7 +2,7 @@
 
 from langchain_core.prompts import ChatPromptTemplate
 
-from src.prompt import kg_qa_answer_prompt_cn
+from src.prompt import get_prompt
 from src.utils import parse_json_like_response
 
 
@@ -75,7 +75,7 @@ class PipelineQAAnswerOpsMixin:
         )
 
         graph_paths_text = "\n".join([f"- {path}" for path in retrieval["graph_paths"][:10]])
-        prompt = ChatPromptTemplate.from_template(kg_qa_answer_prompt_cn)
+        prompt = ChatPromptTemplate.from_template(get_prompt("qa_answer"))
         chain = prompt | self.model
         llm_result = chain.invoke(
             {
