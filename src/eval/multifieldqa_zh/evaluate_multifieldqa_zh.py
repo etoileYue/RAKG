@@ -1,0 +1,687 @@
+"""Stage-wise evaluation entrypoint for LongBench MultiFieldQA-ZH."""
+
+from __future__ import annotations
+
+import argparse
+import json
+import string
+import traceback
+from datetime import datetime
+from pathlib import Path
+from typing import Dict, Iterable, List, Optional
+
+from src.kgAgent import NER_Agent
+from src.llm_provider import LLMProvider
+from src.utils import parse_json_like_response
+
+
+DEFAULT_DATASET_PATH = "dataset/longbench/multifieldqa_zh/test.jsonl"
+DEFAULT_OUTPUT_ROOT = "data/eval/multifieldqa_zh"
+
+DEFAULT_MAX_HOP = 2
+DEFAULT_SEED_TOP_K = 5
+DEFAULT_MAX_CONTEXT_ITEMS = 30
+
+ANSWER_JUDGE_PROMPT = """
+你是中文问答自动评测器，需要判断模型答案是否与任一参考答案语义等价。
+
+问题：
+{question}
+
+参考答案列表：
+{answers}
+
+模型答案：
+{prediction}
+
+评测标准：
+1. 只要模型答案与任一参考答案表达的是同一核心事实，即判为 1。
+2. 若模型答案缺失关键事实、事实错误、答非所问，判为 0。
+3. 简洁表述、近义改写、同义替换、不同句式都算等价。
+4. 只输出 JSON，不要输出解释或 markdown。
+
+输出格式：
+{{"result": 1}}
+或
+{{"result": 0}}
+""".strip()
+
+RETRIEVAL_JUDGE_PROMPT = """
+你是中文检索自动评测器，需要判断检索上下文是否覆盖任一参考答案所需的关键信息。
+
+问题：
+{question}
+
+参考答案列表：
+{answers}
+
+检索上下文：
+{context}
+
+评测标准：
+1. 只要上下文中已经包含足以支持推出任一参考答案的关键信息，即判为 1。
+2. 若上下文缺失关键事实，无法支持得出任一参考答案，判为 0。
+3. 不要求逐字复现，但必须信息充分且不相互矛盾。
+4. 只输出 JSON，不要输出解释或 markdown。
+
+输出格式：
+{{"result": 1}}
+或
+{{"result": 0}}
+""".strip()
+
+
+def utc_timestamp() -> str:
+    return datetime.utcnow().replace(microsecond=0).isoformat() + "Z"
+
+
+def ensure_dir(path: Path) -> None:
+    path.mkdir(parents=True, exist_ok=True)
+
+
+def load_jsonl(path: Path) -> List[dict]:
+    if not path.exists():
+        return []
+
+    records = []
+    with path.open("r", encoding="utf-8") as handle:
+        for line_no, line in enumerate(handle, start=1):
+            text = line.strip()
+            if not text:
+                continue
+            try:
+                records.append(json.loads(text))
+            except json.JSONDecodeError as exc:
+                raise ValueError(f"Invalid JSONL at {path}:{line_no}") from exc
+    return records
+
+
+def write_jsonl(path: Path, records: Iterable[dict]) -> None:
+    ensure_dir(path.parent)
+    with path.open("w", encoding="utf-8") as handle:
+        for record in records:
+            handle.write(json.dumps(record, ensure_ascii=False) + "\n")
+
+
+def write_json(path: Path, payload: dict) -> None:
+    ensure_dir(path.parent)
+    with path.open("w", encoding="utf-8") as handle:
+        json.dump(payload, handle, ensure_ascii=False, indent=2)
+
+
+def coerce_answers(raw_answers) -> List[str]:
+    if raw_answers is None:
+        return []
+    if isinstance(raw_answers, list):
+        return [str(item) for item in raw_answers if str(item).strip()]
+    text = str(raw_answers).strip()
+    return [text] if text else []
+
+
+def load_dataset(dataset_path: Path) -> List[dict]:
+    samples = []
+    with dataset_path.open("r", encoding="utf-8") as handle:
+        for sample_index, line in enumerate(handle):
+            text = line.strip()
+            if not text:
+                continue
+            raw = json.loads(text)
+            sample_id = str(raw.get("_id") or sample_index)
+            samples.append(
+                {
+                    "sample_index": sample_index,
+                    "sample_id": sample_id,
+                    "question": str(raw.get("input", "")),
+                    "context": str(raw.get("context", "")),
+                    "answers": coerce_answers(raw.get("answers")),
+                    "length": raw.get("length"),
+                    "dataset": raw.get("dataset", "multifieldqa_zh"),
+                    "language": raw.get("language", "zh"),
+                    "all_classes": raw.get("all_classes"),
+                }
+            )
+    return samples
+
+
+def select_samples(samples: List[dict], start: int, end: Optional[int], limit: Optional[int]) -> List[dict]:
+    if start < 0:
+        raise ValueError("--start must be >= 0")
+    if end is not None and end < start:
+        raise ValueError("--end must be >= --start")
+    if limit is not None and limit < 0:
+        raise ValueError("--limit must be >= 0")
+
+    subset = samples[start:end]
+    if limit is not None:
+        subset = subset[:limit]
+    return subset
+
+
+def index_records_by_sample_id(records: Iterable[dict]) -> Dict[str, dict]:
+    indexed = {}
+    for record in records:
+        sample_id = str(record.get("sample_id", "")).strip()
+        if sample_id:
+            indexed[sample_id] = record
+    return indexed
+
+
+def sort_records(records: Iterable[dict]) -> List[dict]:
+    return sorted(
+        records,
+        key=lambda item: (
+            int(item.get("sample_index", 10**12))
+            if str(item.get("sample_index", "")).isdigit()
+            else 10**12,
+            str(item.get("sample_id", "")),
+        ),
+    )
+
+
+def resolve_output_paths(output_root: Path) -> dict:
+    return {
+        "output_root": output_root,
+        "graphs_dir": output_root / "graphs",
+        "build_manifest_path": output_root / "build_manifest.jsonl",
+        "build_summary_path": output_root / "build_summary.json",
+        "predictions_path": output_root / "predictions.jsonl",
+        "answer_summary_path": output_root / "answer_summary.json",
+        "scored_results_path": output_root / "scored_results.jsonl",
+        "score_summary_path": output_root / "score_summary.json",
+        "build_cache_root": output_root / "build_cache",
+    }
+
+
+def build_base_record(sample: dict) -> dict:
+    return {
+        "sample_id": sample["sample_id"],
+        "sample_index": sample["sample_index"],
+        "question": sample["question"],
+        "answers": sample["answers"],
+        "length": sample.get("length"),
+        "dataset": sample.get("dataset"),
+        "language": sample.get("language"),
+        "all_classes": sample.get("all_classes"),
+    }
+
+
+def build_error_record(sample: dict, phase: str, error: Exception) -> dict:
+    record = build_base_record(sample)
+    record.update(
+        {
+            "phase": phase,
+            "status": "error",
+            "error": str(error),
+            "traceback": traceback.format_exc(),
+            "updated_at": utc_timestamp(),
+        }
+    )
+    return record
+
+
+def is_build_complete(record: Optional[dict]) -> bool:
+    return bool(
+        record
+        and record.get("status") == "success"
+        and str(record.get("graph_path", "")).strip()
+        and Path(record["graph_path"]).exists()
+    )
+
+
+def is_answer_complete(record: Optional[dict]) -> bool:
+    return bool(record and record.get("status") == "success")
+
+
+def needs_score_work(
+    record: Optional[dict],
+    need_answer_judge: bool,
+    need_retrieval_judge: bool,
+) -> bool:
+    if not record or record.get("status") != "success":
+        return True
+    if "official_f1" not in record:
+        return True
+    if need_answer_judge and record.get("answer_judge") not in (0, 1):
+        return True
+    if need_retrieval_judge and record.get("retrieval_judge") not in (0, 1):
+        return True
+    return False
+
+
+def _get_jieba():
+    try:
+        import jieba  # type: ignore
+    except ImportError as exc:
+        raise RuntimeError(
+            "jieba is required for MultiFieldQA-ZH scoring. Install it before running `score`."
+        ) from exc
+    return jieba
+
+
+def normalize_zh_answer(text: str) -> str:
+    cn_punctuation = (
+        "！？｡。＂＃＄％＆＇（）＊＋，－／：；＜＝＞＠［＼］＾＿｀｛｜｝～"
+        "｟｠｢｣､、〃》「」『』〖〗〔〕〖〗〘〙〚〛〜〝〞〟〰〾〿–—‘’‛“”„‟…‧﹏."
+    )
+    all_punctuation = set(string.punctuation + cn_punctuation)
+    lowered = str(text or "").lower()
+    without_punc = "".join(ch for ch in lowered if ch not in all_punctuation)
+    return "".join(without_punc.split())
+
+
+def f1_score(prediction_tokens: List[str], ground_truth_tokens: List[str]) -> float:
+    from collections import Counter
+
+    common = Counter(prediction_tokens) & Counter(ground_truth_tokens)
+    num_same = sum(common.values())
+    if num_same == 0:
+        return 0.0
+    precision = num_same / len(prediction_tokens)
+    recall = num_same / len(ground_truth_tokens)
+    return (2 * precision * recall) / (precision + recall)
+
+
+def qa_f1_zh_score(prediction: str, ground_truth: str) -> float:
+    jieba = _get_jieba()
+    prediction_tokens = list(jieba.cut(str(prediction or ""), cut_all=False))
+    ground_truth_tokens = list(jieba.cut(str(ground_truth or ""), cut_all=False))
+    prediction_tokens = [normalize_zh_answer(token) for token in prediction_tokens]
+    ground_truth_tokens = [normalize_zh_answer(token) for token in ground_truth_tokens]
+    prediction_tokens = [token for token in prediction_tokens if token]
+    ground_truth_tokens = [token for token in ground_truth_tokens if token]
+    if not prediction_tokens or not ground_truth_tokens:
+        return 0.0
+    return f1_score(prediction_tokens, ground_truth_tokens)
+
+
+def max_qa_f1_zh_score(prediction: str, answers: List[str]) -> float:
+    scores = [qa_f1_zh_score(prediction, answer) for answer in answers]
+    return max(scores) if scores else 0.0
+
+
+def parse_binary_result(payload) -> int:
+    if isinstance(payload, dict):
+        payload = payload.get("result")
+    if isinstance(payload, bool):
+        return int(payload)
+    if isinstance(payload, (int, float)):
+        return 1 if int(payload) == 1 else 0
+    text = str(payload or "").strip().lower()
+    if text in {"1", "true", "yes"}:
+        return 1
+    if text in {"0", "false", "no"}:
+        return 0
+    raise ValueError(f"Unable to parse judge result from payload: {payload!r}")
+
+
+def invoke_binary_judge(model, prompt: str) -> int:
+    response = model.invoke(prompt)
+    parsed = parse_json_like_response(response)
+    if parsed is None:
+        raw = response.content if hasattr(response, "content") else str(response)
+        return parse_binary_result(raw)
+    return parse_binary_result(parsed)
+
+
+def build_stage(args) -> dict:
+    dataset_path = Path(args.dataset_path)
+    output_paths = resolve_output_paths(Path(args.output_root))
+    ensure_dir(output_paths["graphs_dir"])
+    ensure_dir(output_paths["build_cache_root"])
+
+    samples = load_dataset(dataset_path)
+    selected_samples = select_samples(samples, start=args.start, end=args.end, limit=args.limit)
+    existing_manifest = index_records_by_sample_id(load_jsonl(output_paths["build_manifest_path"]))
+
+    run_stats = {"selected_count": len(selected_samples), "skipped_count": 0, "success_count": 0, "error_count": 0}
+
+    agent = None
+    ner_output_dir = output_paths["build_cache_root"] / "ner_data"
+    rel_output_dir = output_paths["build_cache_root"] / "rel_data"
+    sim_output_dir = output_paths["build_cache_root"] / "sim_data"
+    ensure_dir(ner_output_dir)
+    ensure_dir(rel_output_dir)
+    ensure_dir(sim_output_dir)
+
+    for sample in selected_samples:
+        current_record = existing_manifest.get(sample["sample_id"])
+        if not args.force and is_build_complete(current_record):
+            run_stats["skipped_count"] += 1
+            continue
+
+        if agent is None:
+            agent = NER_Agent()
+
+        try:
+            result = agent.process(
+                topic_data={"topic": sample["sample_id"], "content": sample["context"]},
+                idx=sample["sample_index"],
+                total_topics=len(selected_samples),
+                ner_output_dir=str(ner_output_dir),
+                rel_output_dir=str(rel_output_dir),
+                sim_output_dir=str(sim_output_dir),
+                graph_output_dir=str(output_paths["graphs_dir"]),
+            )
+            record = build_base_record(sample)
+            record.update(
+                {
+                    "phase": "build",
+                    "status": "success",
+                    "topic": sample["sample_id"],
+                    "graph_path": str(Path(result["output_path"]).resolve()),
+                    "updated_at": utc_timestamp(),
+                }
+            )
+            existing_manifest[sample["sample_id"]] = record
+            run_stats["success_count"] += 1
+        except Exception as exc:
+            record = build_error_record(sample, phase="build", error=exc)
+            record.update(
+                {
+                    "graph_path": str((output_paths["graphs_dir"] / f"{sample['sample_index']}.json").resolve()),
+                }
+            )
+            existing_manifest[sample["sample_id"]] = record
+            run_stats["error_count"] += 1
+
+    manifest_records = sort_records(existing_manifest.values())
+    write_jsonl(output_paths["build_manifest_path"], manifest_records)
+
+    summary = {
+        "phase": "build",
+        "dataset_path": str(dataset_path.resolve()),
+        "output_root": str(output_paths["output_root"].resolve()),
+        "graphs_dir": str(output_paths["graphs_dir"].resolve()),
+        "manifest_path": str(output_paths["build_manifest_path"].resolve()),
+        "range": {"start": args.start, "end": args.end, "limit": args.limit},
+        "force": bool(args.force),
+        **run_stats,
+        "completed_count": sum(1 for record in manifest_records if record.get("status") == "success"),
+        "failed_count_total": sum(1 for record in manifest_records if record.get("status") == "error"),
+        "updated_at": utc_timestamp(),
+    }
+    write_json(output_paths["build_summary_path"], summary)
+    return summary
+
+
+def answer_stage(args) -> dict:
+    dataset_path = Path(args.dataset_path)
+    output_paths = resolve_output_paths(Path(args.output_root))
+    samples = load_dataset(dataset_path)
+    selected_samples = select_samples(samples, start=args.start, end=args.end, limit=args.limit)
+
+    existing_predictions = index_records_by_sample_id(load_jsonl(output_paths["predictions_path"]))
+    manifest_records = index_records_by_sample_id(load_jsonl(output_paths["build_manifest_path"]))
+    graphs_dir = output_paths["graphs_dir"]
+
+    run_stats = {"selected_count": len(selected_samples), "skipped_count": 0, "success_count": 0, "error_count": 0}
+    agent = None
+
+    for sample in selected_samples:
+        current_record = existing_predictions.get(sample["sample_id"])
+        if not args.force and is_answer_complete(current_record):
+            run_stats["skipped_count"] += 1
+            continue
+
+        manifest_record = manifest_records.get(sample["sample_id"], {})
+        graph_path = str(
+            Path(
+                manifest_record.get("graph_path")
+                or (graphs_dir / f"{sample['sample_index']}.json")
+            ).resolve()
+        )
+
+        base_record = build_base_record(sample)
+        base_record.update(
+            {
+                "phase": "answer",
+                "graph_path": graph_path,
+                "pred_answer": "",
+                "formatted_answer": "",
+                "graph_paths": [],
+                "retrieval": {
+                    "context_text": "",
+                    "evidence_items": [],
+                    "graph_paths": [],
+                    "matched_nodes": [],
+                    "seed_nodes": [],
+                },
+                "updated_at": utc_timestamp(),
+            }
+        )
+
+        try:
+            if not Path(graph_path).exists():
+                raise FileNotFoundError(f"Graph file not found: {graph_path}")
+
+            if agent is None:
+                agent = NER_Agent()
+
+            cache_key = f"multifieldqa_zh:{sample['sample_id']}"
+            try:
+                agent.initialize_qa_graph_index(graph_path, cache_key=cache_key, force_rebuild=True)
+                result = agent.answer_question_with_kg(
+                    question=sample["question"],
+                    cache_key=cache_key,
+                    max_hop=DEFAULT_MAX_HOP,
+                    seed_top_k=DEFAULT_SEED_TOP_K,
+                    max_context_items=DEFAULT_MAX_CONTEXT_ITEMS,
+                )
+            finally:
+                agent.clear_qa_graph_index(cache_key)
+
+            base_record.update(
+                {
+                    "status": "success",
+                    "pred_answer": result.get("answer", ""),
+                    "formatted_answer": result.get("formatted_answer", ""),
+                    "graph_paths": result.get("graph_paths", []),
+                    "retrieval": result.get("retrieval", {}),
+                    "llm_output_raw": result.get("llm_output_raw", ""),
+                    "updated_at": utc_timestamp(),
+                }
+            )
+            existing_predictions[sample["sample_id"]] = base_record
+            run_stats["success_count"] += 1
+        except Exception as exc:
+            base_record.update(
+                {
+                    "status": "error",
+                    "error": str(exc),
+                    "traceback": traceback.format_exc(),
+                    "updated_at": utc_timestamp(),
+                }
+            )
+            existing_predictions[sample["sample_id"]] = base_record
+            run_stats["error_count"] += 1
+
+    prediction_records = sort_records(existing_predictions.values())
+    write_jsonl(output_paths["predictions_path"], prediction_records)
+
+    summary = {
+        "phase": "answer",
+        "dataset_path": str(dataset_path.resolve()),
+        "predictions_path": str(output_paths["predictions_path"].resolve()),
+        "manifest_path": str(output_paths["build_manifest_path"].resolve()),
+        "range": {"start": args.start, "end": args.end, "limit": args.limit},
+        "force": bool(args.force),
+        "qa_defaults": {
+            "max_hop": DEFAULT_MAX_HOP,
+            "seed_top_k": DEFAULT_SEED_TOP_K,
+            "max_context_items": DEFAULT_MAX_CONTEXT_ITEMS,
+        },
+        **run_stats,
+        "completed_count": sum(1 for record in prediction_records if record.get("status") == "success"),
+        "failed_count_total": sum(1 for record in prediction_records if record.get("status") == "error"),
+        "updated_at": utc_timestamp(),
+    }
+    write_json(output_paths["answer_summary_path"], summary)
+    return summary
+
+
+def score_stage(args) -> dict:
+    output_paths = resolve_output_paths(Path(args.output_root))
+    prediction_records = load_jsonl(output_paths["predictions_path"])
+    prediction_map = index_records_by_sample_id(prediction_records)
+    samples = load_dataset(Path(args.dataset_path))
+    selected_samples = select_samples(samples, start=args.start, end=args.end, limit=args.limit)
+    existing_scored = index_records_by_sample_id(load_jsonl(output_paths["scored_results_path"]))
+
+    need_answer_judge = (not args.skip_llm_judge) and args.judge_model_mode in {"answer", "both"}
+    need_retrieval_judge = (not args.skip_llm_judge) and args.judge_model_mode in {"retrieval", "both"}
+    judge_model = None
+    if need_answer_judge or need_retrieval_judge:
+        judge_model = LLMProvider().get_llm()
+
+    run_stats = {"selected_count": len(selected_samples), "skipped_count": 0, "success_count": 0, "error_count": 0}
+
+    for sample in selected_samples:
+        current_record = existing_scored.get(sample["sample_id"])
+        if not args.force and not needs_score_work(current_record, need_answer_judge, need_retrieval_judge):
+            run_stats["skipped_count"] += 1
+            continue
+
+        prediction_record = prediction_map.get(sample["sample_id"], {})
+        retrieval = prediction_record.get("retrieval", {}) if isinstance(prediction_record.get("retrieval", {}), dict) else {}
+        pred_answer = str(prediction_record.get("pred_answer", ""))
+        context_text = str(retrieval.get("context_text", ""))
+
+        base_record = dict(current_record or {})
+        base_record.update(build_base_record(sample))
+        base_record.update(
+            {
+                "phase": "score",
+                "graph_path": prediction_record.get("graph_path", ""),
+                "graph_paths": prediction_record.get("graph_paths", []),
+                "pred_answer": pred_answer,
+                "formatted_answer": prediction_record.get("formatted_answer", ""),
+                "retrieval": retrieval,
+                "official_f1": max_qa_f1_zh_score(pred_answer, sample["answers"]),
+                "updated_at": utc_timestamp(),
+            }
+        )
+
+        try:
+            if need_answer_judge:
+                if pred_answer.strip():
+                    prompt = ANSWER_JUDGE_PROMPT.format(
+                        question=sample["question"],
+                        answers=json.dumps(sample["answers"], ensure_ascii=False),
+                        prediction=pred_answer,
+                    )
+                    base_record["answer_judge"] = invoke_binary_judge(judge_model, prompt)
+                else:
+                    base_record["answer_judge"] = 0
+
+            if need_retrieval_judge:
+                if context_text.strip():
+                    prompt = RETRIEVAL_JUDGE_PROMPT.format(
+                        question=sample["question"],
+                        answers=json.dumps(sample["answers"], ensure_ascii=False),
+                        context=context_text,
+                    )
+                    base_record["retrieval_judge"] = invoke_binary_judge(judge_model, prompt)
+                else:
+                    base_record["retrieval_judge"] = 0
+
+            base_record["status"] = "success"
+            existing_scored[sample["sample_id"]] = base_record
+            run_stats["success_count"] += 1
+        except Exception as exc:
+            base_record["status"] = "error"
+            base_record["error"] = str(exc)
+            base_record["traceback"] = traceback.format_exc()
+            existing_scored[sample["sample_id"]] = base_record
+            run_stats["error_count"] += 1
+
+    scored_records = sort_records(existing_scored.values())
+    write_jsonl(output_paths["scored_results_path"], scored_records)
+
+    f1_values = [float(record.get("official_f1", 0.0)) for record in scored_records]
+    answer_judge_values = []
+    retrieval_judge_values = []
+    if need_answer_judge:
+        answer_judge_values = [
+            record["answer_judge"] for record in scored_records if record.get("answer_judge") in (0, 1)
+        ]
+    if need_retrieval_judge:
+        retrieval_judge_values = [
+            record["retrieval_judge"] for record in scored_records if record.get("retrieval_judge") in (0, 1)
+        ]
+
+    summary = {
+        "phase": "score",
+        "predictions_path": str(output_paths["predictions_path"].resolve()),
+        "scored_results_path": str(output_paths["scored_results_path"].resolve()),
+        "range": {"start": args.start, "end": args.end, "limit": args.limit},
+        "force": bool(args.force),
+        "skip_llm_judge": bool(args.skip_llm_judge),
+        "judge_model_mode": args.judge_model_mode,
+        "count": len(scored_records),
+        "avg_f1": (sum(f1_values) / len(f1_values)) if f1_values else 0.0,
+        "answer_judge_accuracy": (
+            sum(answer_judge_values) / len(answer_judge_values) if answer_judge_values else None
+        ),
+        "retrieval_judge_accuracy": (
+            sum(retrieval_judge_values) / len(retrieval_judge_values) if retrieval_judge_values else None
+        ),
+        "error_count": sum(1 for record in scored_records if record.get("status") == "error"),
+        **run_stats,
+        "updated_at": utc_timestamp(),
+    }
+    write_json(output_paths["score_summary_path"], summary)
+    return summary
+
+
+def build_parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(description="Stage-wise evaluation for LongBench MultiFieldQA-ZH.")
+    subparsers = parser.add_subparsers(dest="command", required=True)
+
+    def add_common_arguments(subparser: argparse.ArgumentParser) -> None:
+        subparser.add_argument("--dataset-path", default=DEFAULT_DATASET_PATH, help="Path to MultiFieldQA-ZH JSONL.")
+        subparser.add_argument("--output-root", default=DEFAULT_OUTPUT_ROOT, help="Evaluation output directory.")
+        subparser.add_argument("--start", type=int, default=0, help="Inclusive dataset row start index.")
+        subparser.add_argument("--end", type=int, default=None, help="Exclusive dataset row end index.")
+        subparser.add_argument("--limit", type=int, default=None, help="Maximum number of samples after slicing.")
+        subparser.add_argument("--force", action="store_true", help="Re-run selected samples even if already completed.")
+
+    build_parser_cmd = subparsers.add_parser("build", help="Build a graph for each sample context.")
+    add_common_arguments(build_parser_cmd)
+    build_parser_cmd.set_defaults(handler=build_stage)
+
+    answer_parser_cmd = subparsers.add_parser("answer", help="Answer each question using the built graph.")
+    add_common_arguments(answer_parser_cmd)
+    answer_parser_cmd.set_defaults(handler=answer_stage)
+
+    score_parser_cmd = subparsers.add_parser("score", help="Score predictions with official F1 and optional LLM judges.")
+    add_common_arguments(score_parser_cmd)
+    score_parser_cmd.add_argument(
+        "--skip-llm-judge",
+        action="store_true",
+        help="Only compute official LongBench F1 without LLM judges.",
+    )
+    score_parser_cmd.add_argument(
+        "--judge-model-mode",
+        choices=["answer", "retrieval", "both"],
+        default="both",
+        help="Which LLM judge to run when LLM judging is enabled.",
+    )
+    score_parser_cmd.set_defaults(handler=score_stage)
+
+    return parser
+
+
+def main(argv: Optional[List[str]] = None) -> dict:
+    parser = build_parser()
+    args = parser.parse_args(argv)
+    return args.handler(args)
+
+
+def cli(argv: Optional[List[str]] = None) -> int:
+    summary = main(argv)
+    print(json.dumps(summary, ensure_ascii=False, indent=2))
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(cli())

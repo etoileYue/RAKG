@@ -1,6 +1,8 @@
 import unittest
 from unittest import mock
 
+from langchain_core.prompts import ChatPromptTemplate
+
 import src.config as config_module
 import src.prompt as prompt_module
 from src.pipeline.qa_answer_ops import PipelineQAAnswerOpsMixin
@@ -123,6 +125,17 @@ class PromptSelectorTests(unittest.TestCase):
     def test_get_prompt_raises_on_unknown_prompt_key(self):
         with self.assertRaisesRegex(ValueError, "Unknown prompt key"):
             prompt_module.get_prompt("not_a_real_prompt", prompt_language="zh")
+
+    def test_text2entity_prompt_escapes_state_literal_for_langchain_templates(self):
+        rendered_en = ChatPromptTemplate.from_template(prompt_module.text2entity_en).format(
+            text="alpha"
+        )
+        rendered_zh = ChatPromptTemplate.from_template(prompt_module.text2entity_zh).format(
+            text="测试"
+        )
+
+        self.assertIn('{"State": false}', rendered_en)
+        self.assertIn('{"State": false}', rendered_zh)
 
 
 class RuntimePromptSwitchingTests(unittest.TestCase):
