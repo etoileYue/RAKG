@@ -53,3 +53,36 @@ python dataset/convert_multidocqa_raw_to_retrieval.py --dry-run
 ```bash
 python -m unittest dataset/test_convert_multidocqa_raw_to_retrieval.py
 ```
+
+## LongBench 子集下载到本地
+
+将 LongBench 的指定子集下载到仓库内，便于先查看原始样本结构。
+
+默认会下载以下两个中文子集：
+
+- `dureader`
+- `multifieldqa_zh`
+
+输出目录默认是 `data/raw/longbench/<subset>/test.jsonl`。
+
+### 运行方式
+
+```bash
+python dataset/download_longbench_subsets.py
+```
+
+显式指定子集：
+
+```bash
+python dataset/download_longbench_subsets.py \
+  --subsets dureader multifieldqa_zh
+```
+
+修改输出目录：
+
+```bash
+python dataset/download_longbench_subsets.py \
+  --output-root /path/to/longbench
+```
+
+脚本会同时打印每个子集的字段、样本数估计以及前几条样本预览，便于快速检查数据格式。
