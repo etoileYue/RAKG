@@ -150,8 +150,9 @@ class PipelineGraphOpsMixin:
         self,
         new_entities,
         existing_graph,
-        threshold=0.60,
+        threshold=None,
         gray_margin=0.05,
+        disambiguation_config=None,
     ):
         """将新实体对齐到已有图谱中的实体"""
         # new_entities = self.ensure_entity_aliases(new_entities)
@@ -167,6 +168,7 @@ class PipelineGraphOpsMixin:
             right_entities=existing_entities,
             threshold=threshold,
             gray_margin=gray_margin,
+            disambiguation_config=disambiguation_config,
         )
 
         aligned_entities = {}
