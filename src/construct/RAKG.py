@@ -18,6 +18,7 @@ from src.kgAgent import NER_Agent
 if __name__ == "__main__":
     json_path = "./data/raw/MINE_short10.json"
     output_dir = "./data/new_test/processed"
+    force_rebuild = False
 
     skip_construct = set([1,2, 5, 6, 7, 8, 10])
     # skip_ner_set = set([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
@@ -29,6 +30,7 @@ if __name__ == "__main__":
     ner_agent.process_all_topics(
         json_path=json_path,
         output_dir=output_dir,
+        force_rebuild=force_rebuild,
         skip_construct=skip_construct,
         # skip_ner_set=skip_ner_set,
         # skip_sim_set=skip_sim_set,

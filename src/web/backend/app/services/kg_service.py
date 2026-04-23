@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import json
-import traceback
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Callable
@@ -40,8 +39,7 @@ class KGBuildService:
         existing_kg_path = self._resolve_existing_kg_path(payload.get("existing_kg"))
 
         input_json_path = self._prepare_input_json(output_dir, payload)
-        topics = self._load_topics(input_json_path)
-        total_topics = len(topics)
+        self._load_topics(input_json_path)
 
         ner_output_dir = output_dir / "ner_data"
         rel_output_dir = output_dir / "rel_data"
@@ -52,56 +50,42 @@ class KGBuildService:
 
         agent = NER_Agent()
 
-        processed_topics = 0
-        failed_topics: list[dict[str, Any]] = []
         produced_graph_paths: list[str] = []
 
-        for idx, topic_data in enumerate(topics, start=1):
-            if is_cancel_requested():
-                raise TaskCanceledError("Task canceled by user")
+        def _on_topic_start(idx: int, total: int, topic_name: str) -> None:
+            on_progress((idx - 1) / max(total, 1), f"processing {idx}/{total}: {topic_name}")
+            on_log("INFO", f"Start processing topic {idx}/{total}: {topic_name}")
 
-            topic_name = topic_data.get("topic", f"topic_{idx}")
-            on_progress((idx - 1) / max(total_topics, 1), f"processing {idx}/{total_topics}: {topic_name}")
-            on_log("INFO", f"Start processing topic {idx}/{total_topics}: {topic_name}")
+        def _on_topic_success(idx: int, total: int, _: str, result: dict[str, Any]) -> None:
+            output_path = str(result.get("output_path", "")).strip()
+            if output_path:
+                produced_graph_paths.append(output_path)
+            on_log("INFO", f"Topic {idx}/{total} finished. graph={output_path}")
 
-            try:
-                result = agent.process(
-                    topic_data=topic_data,
-                    idx=idx,
-                    total_topics=total_topics,
-                    ner_output_dir=str(ner_output_dir),
-                    rel_output_dir=str(rel_output_dir),
-                    sim_output_dir=str(sim_output_dir),
-                    graph_output_dir=str(graph_output_dir),
-                    skip_ner=False,
-                    skip_sim=False,
-                    skip_rel=False,
-                    existing_kg=str(existing_kg_path) if existing_kg_path else None,
-                )
-                processed_topics += 1
-                produced_graph_paths.append(result["output_path"])
-                on_log("INFO", f"Topic {idx} finished. graph={result['output_path']}")
-            except Exception as exc:  # noqa: BLE001
-                failed_topics.append(
-                    {
-                        "index": idx,
-                        "topic": topic_name,
-                        "error": str(exc),
-                        "traceback": traceback.format_exc(),
-                    }
-                )
-                on_log("ERROR", f"Topic {idx} failed: {exc}")
+        def _on_topic_failed(idx: int, total: int, topic_name: str, exc: Exception) -> None:
+            on_log("ERROR", f"Topic {idx}/{total} failed ({topic_name}): {exc}")
 
-        summary = {
-            "total_topics": total_topics,
-            "processed_topics": processed_topics,
-            "failed_topics_count": len(failed_topics),
-            "failed_topics": failed_topics,
-        }
+        try:
+            summary = agent.process_all_topics(
+                json_path=str(input_json_path),
+                output_dir=str(output_dir),
+                existing_kg=str(existing_kg_path) if existing_kg_path else None,
+                force_rebuild=bool(payload.get("force_rebuild", False)),
+                on_topic_start=_on_topic_start,
+                on_topic_success=_on_topic_success,
+                on_topic_failed=_on_topic_failed,
+                is_cancel_requested=is_cancel_requested,
+            )
+        except InterruptedError as exc:
+            raise TaskCanceledError(str(exc)) from exc
 
         summary_path = output_dir / "process_summary.json"
-        with summary_path.open("w", encoding="utf-8") as handle:
-            json.dump(summary, handle, ensure_ascii=False, indent=2)
+        if not produced_graph_paths:
+            produced_graph_paths = [
+                str(path)
+                for path in summary.get("graph_paths", [])
+                if isinstance(path, str) and path.strip()
+            ]
 
         # V1 提供图谱目录与最后一个图谱路径，便于前端直接加载。
         output_payload = {

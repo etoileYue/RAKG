@@ -15,6 +15,7 @@ class KGBuildRequest(BaseModel):
     json_path: str | None = None
     output_dir: str | None = None
     existing_kg: str | None = None
+    force_rebuild: bool = False
 
     @model_validator(mode="after")
     def validate_fields(self) -> "KGBuildRequest":

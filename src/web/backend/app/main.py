@@ -91,6 +91,7 @@ async def create_kg_build_task_upload(
     json_file: UploadFile | None = File(default=None),
     output_dir: str | None = Form(default=None),
     existing_kg: str | None = Form(default=None),
+    force_rebuild: bool = Form(default=False),
 ) -> CreateTaskResponse:
     input_kind = input_type.strip()
     if input_kind not in {"json_text", "json_file"}:
@@ -127,6 +128,7 @@ async def create_kg_build_task_upload(
         "json_path": str(uploaded_json_path),
         "output_dir": (output_dir or "").strip() or None,
         "existing_kg": str(resolved_existing) if resolved_existing else None,
+        "force_rebuild": bool(force_rebuild),
         "topic_preview": topics[0]["topic"],
         "topic_count": len(topics),
         "upload_source": input_kind,

@@ -52,6 +52,7 @@ export async function createKGBuildTask(payload: {
   json_path?: string;
   output_dir?: string;
   existing_kg?: string;
+  force_rebuild?: boolean;
 }): Promise<{ task_id: string }> {
   return request('/tasks/kg-build', {
     method: 'POST',
@@ -65,6 +66,7 @@ export async function createKGBuildTaskUpload(payload: {
   json_file?: File;
   output_dir?: string;
   existing_kg?: string;
+  force_rebuild?: boolean;
 }): Promise<{ task_id: string }> {
   const form = new FormData();
   form.set('input_type', payload.input_type);
@@ -75,6 +77,7 @@ export async function createKGBuildTaskUpload(payload: {
   }
   if (payload.output_dir) form.set('output_dir', payload.output_dir);
   if (payload.existing_kg) form.set('existing_kg', payload.existing_kg);
+  if (payload.force_rebuild) form.set('force_rebuild', String(payload.force_rebuild));
 
   return request('/tasks/kg-build/upload', {
     method: 'POST',

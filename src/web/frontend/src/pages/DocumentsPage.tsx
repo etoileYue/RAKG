@@ -44,6 +44,7 @@ export function DocumentsPage() {
   const [jsonText, setJsonText] = useState('');
   const [jsonFile, setJsonFile] = useState<File | null>(null);
   const [outputDir, setOutputDir] = useState('');
+  const [forceRebuild, setForceRebuild] = useState(false);
   const [useExistingKg, setUseExistingKg] = useState(false);
 
   const [kgCandidates, setKgCandidates] = useState<KGCandidate[]>([]);
@@ -156,12 +157,14 @@ export function DocumentsPage() {
               json_text: jsonText,
               output_dir: outputDir || undefined,
               existing_kg: existingKg || undefined,
+              force_rebuild: forceRebuild,
             })
           : await createKGBuildTaskUpload({
               input_type: 'json_file',
               json_file: jsonFile ?? undefined,
               output_dir: outputDir || undefined,
               existing_kg: existingKg || undefined,
+              force_rebuild: forceRebuild,
             });
 
       setSelectedTaskId(created.task_id);
@@ -252,6 +255,11 @@ export function DocumentsPage() {
             <label className="flex items-center gap-2 text-xs text-app-muted">
               <input type="checkbox" checked={useExistingKg} onChange={(event) => setUseExistingKg(event.target.checked)} />
               在已有知识图谱基础上构建（existing_kg）
+            </label>
+
+            <label className="flex items-center gap-2 text-xs text-app-muted">
+              <input type="checkbox" checked={forceRebuild} onChange={(event) => setForceRebuild(event.target.checked)} />
+              强制全量重跑（忽略 checkpoint）
             </label>
 
             <label className="block text-xs text-app-muted">

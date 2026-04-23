@@ -99,7 +99,7 @@ class PipelineSimilarityOpsMixin:
 
         return positives, gray_queue, resolved_by_second_pass
 
-    def similarity_result(self, entities, threshold=0.50, gray_margin=0.05)->list[tuple]:
+    def similarity_result(self, entities, threshold=0.60, gray_margin=0.05)->list[tuple]:
         """返回相似实体，两两一组"""
         candidates = self.similarity_candidates(
             left_entities=entities,
