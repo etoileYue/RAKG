@@ -40,7 +40,7 @@ class _DynamicPrompt:
 class _DummySimilarityPipeline(PipelineSimilarityOpsMixin):
     def __init__(self):
         self.similarity_model = object()
-        self.disambiguation_config = self.set_disambiguation_config(None)
+        self.disambiguation_config = self.set_disambiguation_config()
         self.reset_disambiguation_runtime_state()
 
 

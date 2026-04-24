@@ -71,7 +71,6 @@ class KGBuildService:
                 output_dir=str(output_dir),
                 existing_kg=str(existing_kg_path) if existing_kg_path else None,
                 force_rebuild=bool(payload.get("force_rebuild", False)),
-                disambiguation_config=payload.get("disambiguation_config"),
                 on_topic_start=_on_topic_start,
                 on_topic_success=_on_topic_success,
                 on_topic_failed=_on_topic_failed,

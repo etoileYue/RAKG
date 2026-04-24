@@ -5,8 +5,7 @@ import unittest
 from pathlib import Path
 from unittest import mock
 
-from pydantic import ValidationError
-
+import src.config as config_module
 from src.kgAgent import NER_Agent
 from src.web.backend.app.schemas import KGBuildRequest
 
@@ -29,28 +28,22 @@ class _DummyLLMProvider:
 
 
 class DisambiguationConfigInterfaceTests(unittest.TestCase):
-    def test_kg_build_request_disambiguation_config_validation(self):
+    def test_kg_build_request_ignores_removed_disambiguation_config_field(self):
         req = KGBuildRequest(
-            input_type="text",
-            text="hello",
-            disambiguation_config={
-                "similarity_threshold": 0.55,
-                "per_entity_top_k": 5,
-                "description_max_chars": 120,
-            },
+            **{
+                "input_type": "text",
+                "text": "hello",
+                "disambiguation_config": {
+                    "similarity_threshold": 0.55,
+                    "per_entity_top_k": 5,
+                },
+            }
         )
-        self.assertIsNotNone(req.disambiguation_config)
-        self.assertEqual(req.disambiguation_config.per_entity_top_k, 5)
-        self.assertAlmostEqual(req.disambiguation_config.similarity_threshold, 0.55)
 
-        with self.assertRaises(ValidationError):
-            KGBuildRequest(
-                input_type="text",
-                text="hello",
-                disambiguation_config={"similarity_threshold": 1.2},
-            )
+        dumped = req.model_dump()
+        self.assertNotIn("disambiguation_config", dumped)
 
-    def test_process_all_topics_passes_resolved_disambiguation_config(self):
+    def test_process_all_topics_uses_global_disambiguation_config(self):
         with tempfile.TemporaryDirectory() as tmpdir:
             tmp_path = Path(tmpdir)
             input_path = tmp_path / "topics.json"
@@ -66,7 +59,8 @@ class DisambiguationConfigInterfaceTests(unittest.TestCase):
             captured = {}
 
             def fake_process(**kwargs):
-                captured["disambiguation_config"] = kwargs.get("disambiguation_config")
+                captured["kwargs"] = kwargs
+                captured["resolved_config"] = agent.get_disambiguation_config()
                 return {
                     "index": 1,
                     "topic": "t1",
@@ -78,18 +72,16 @@ class DisambiguationConfigInterfaceTests(unittest.TestCase):
 
             agent.process = fake_process  # type: ignore[method-assign]
 
-            custom_config = {
-                "similarity_threshold": 0.72,
-                "per_entity_top_k": 3,
-                "description_max_chars": 90,
-            }
-            agent.process_all_topics(
-                json_path=str(input_path),
-                output_dir=str(output_dir),
-                disambiguation_config=custom_config,
-            )
+            with mock.patch.object(config_module, "DISAMBIGUATION_SIMILARITY_THRESHOLD", 0.72):
+                with mock.patch.object(config_module, "DISAMBIGUATION_PER_ENTITY_TOP_K", 3):
+                    with mock.patch.object(config_module, "DISAMBIGUATION_DESCRIPTION_MAX_CHARS", 90):
+                        agent.process_all_topics(
+                            json_path=str(input_path),
+                            output_dir=str(output_dir),
+                        )
 
-            passed = captured.get("disambiguation_config")
+            self.assertNotIn("disambiguation_config", captured["kwargs"])
+            passed = captured["resolved_config"]
             self.assertIsInstance(passed, dict)
             self.assertEqual(passed["similarity_threshold"], 0.72)
             self.assertEqual(passed["per_entity_top_k"], 3)
@@ -97,7 +89,7 @@ class DisambiguationConfigInterfaceTests(unittest.TestCase):
             self.assertTrue(passed["type_gate_enabled"])
             self.assertTrue(passed["direct_merge_enabled"])
 
-    def test_kg_service_run_forwards_disambiguation_config(self):
+    def test_kg_service_run_does_not_forward_removed_disambiguation_config(self):
         with tempfile.TemporaryDirectory() as tmpdir:
             tmp_path = Path(tmpdir)
             output_dir = tmp_path / "kg_out"
@@ -120,10 +112,7 @@ class DisambiguationConfigInterfaceTests(unittest.TestCase):
                 "topic": "web_topic",
                 "output_dir": str(output_dir),
                 "force_rebuild": False,
-                "disambiguation_config": {
-                    "similarity_threshold": 0.66,
-                    "per_entity_top_k": 4,
-                },
+                "disambiguation_config": {"similarity_threshold": 0.66},
             }
 
             with mock.patch("app.services.kg_service.NER_Agent", return_value=DummyAgent()):
@@ -136,8 +125,7 @@ class DisambiguationConfigInterfaceTests(unittest.TestCase):
                     is_cancel_requested=lambda: False,
                 )
 
-            passed = captured["kwargs"]["disambiguation_config"]
-            self.assertEqual(passed, payload["disambiguation_config"])
+            self.assertNotIn("disambiguation_config", captured["kwargs"])
 
 
 if __name__ == "__main__":

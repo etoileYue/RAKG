@@ -8,14 +8,6 @@ from pydantic import BaseModel, Field, field_validator, model_validator
 TaskStatus = Literal["queued", "running", "succeeded", "failed", "canceled"]
 
 
-class DisambiguationConfig(BaseModel):
-    similarity_threshold: float | None = Field(default=None, ge=0.0, le=1.0)
-    type_gate_enabled: bool | None = None
-    per_entity_top_k: int | None = Field(default=None, ge=1, le=200)
-    description_max_chars: int | None = Field(default=None, ge=1, le=10000)
-    direct_merge_enabled: bool | None = None
-
-
 class KGBuildRequest(BaseModel):
     input_type: Literal["text", "json_path"]
     text: str | None = None
@@ -24,7 +16,6 @@ class KGBuildRequest(BaseModel):
     output_dir: str | None = None
     existing_kg: str | None = None
     force_rebuild: bool = False
-    disambiguation_config: DisambiguationConfig | None = None
 
     @model_validator(mode="after")
     def validate_fields(self) -> "KGBuildRequest":

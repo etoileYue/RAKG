@@ -21,9 +21,9 @@
 - 文档内：`similarity_result -> entity_Disambiguation(并查集)` 完成实体合并。
 - 跨图：`cross_similarity_result` 从正例里给每个新实体选一个最佳旧实体（最高分）做对齐。
 
-5. 配置与透传
-- 配置入口在 [kgAgent.py](/home/etoile/code/RAKG/src/kgAgent.py) 的 `process/process_all_topics`：`disambiguation_config`（可选）。
-- Web 请求可传同名配置字段，定义在 [schemas.py](/home/etoile/code/RAKG/src/web/backend/app/schemas.py) 并由 backend 透传到构图流程。
+5. 配置来源
+- 消歧配置统一定义在 [config.py](/home/etoile/code/RAKG/src/config.py)。
+- 运行时不再接受按调用传入的 `disambiguation_config` 覆盖。
 
 6. 观测指标（日志）
 - 现在会记录：`raw_candidates`, `after_type_gate`, `after_topk`, `direct_merged`, `llm_calls`, `llm_calls_saved`, `final_merged_pairs`。
@@ -40,6 +40,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 from src.llm_executor import LLMExecutor
 from src.llm_executor import LLMTask
 from src.llm_executor import LLMTaskError
+from src import config as app_config
 from src.prompt import get_prompt
 from src.utils import parse_similarity_response
 from src.utils import retry
@@ -51,7 +52,7 @@ from src.pipeline.shared import logger
 class PipelineSimilarityOpsMixin:
     """实体相似候选生成与判定方法集合。"""
 
-    DEFAULT_DISAMBIGUATION_CONFIG = {
+    FALLBACK_DISAMBIGUATION_CONFIG = {
         "similarity_threshold": 0.60,
         "type_gate_enabled": True,
         "per_entity_top_k": 8,
@@ -156,9 +157,42 @@ class PipelineSimilarityOpsMixin:
         ),
     }
 
+    @classmethod
+    def _load_global_disambiguation_config(cls) -> dict[str, Any]:
+        fallback = cls.FALLBACK_DISAMBIGUATION_CONFIG
+        return {
+            "similarity_threshold": getattr(
+                app_config,
+                "DISAMBIGUATION_SIMILARITY_THRESHOLD",
+                fallback["similarity_threshold"],
+            ),
+            "type_gate_enabled": getattr(
+                app_config,
+                "DISAMBIGUATION_TYPE_GATE_ENABLED",
+                fallback["type_gate_enabled"],
+            ),
+            "per_entity_top_k": getattr(
+                app_config,
+                "DISAMBIGUATION_PER_ENTITY_TOP_K",
+                fallback["per_entity_top_k"],
+            ),
+            "description_max_chars": getattr(
+                app_config,
+                "DISAMBIGUATION_DESCRIPTION_MAX_CHARS",
+                fallback["description_max_chars"],
+            ),
+            "direct_merge_enabled": getattr(
+                app_config,
+                "DISAMBIGUATION_DIRECT_MERGE_ENABLED",
+                fallback["direct_merge_enabled"],
+            ),
+        }
+
     def _ensure_disambiguation_runtime_state(self) -> None:
         if not isinstance(getattr(self, "disambiguation_config", None), dict):
-            self.disambiguation_config = dict(self.DEFAULT_DISAMBIGUATION_CONFIG)
+            self.disambiguation_config = self._normalize_disambiguation_config(
+                self._load_global_disambiguation_config()
+            )
 
         if not isinstance(getattr(self, "_similarity_pair_cache", None), dict):
             self._similarity_pair_cache = {}
@@ -210,49 +244,42 @@ class PipelineSimilarityOpsMixin:
             return default
         return coerced
 
-    def _resolve_disambiguation_config(
-        self,
-        override_config: dict[str, Any] | None = None,
-    ) -> dict[str, Any]:
-        self._ensure_disambiguation_runtime_state()
-        base = dict(self.DEFAULT_DISAMBIGUATION_CONFIG)
-        base.update(self.disambiguation_config)
+    def _normalize_disambiguation_config(self, base: dict[str, Any]) -> dict[str, Any]:
+        fallback = self.FALLBACK_DISAMBIGUATION_CONFIG
 
-        if isinstance(override_config, dict):
-            for key, value in override_config.items():
-                if value is not None:
-                    base[key] = value
-
-        resolved = {
+        return {
             "similarity_threshold": self._coerce_float(
                 base.get("similarity_threshold"),
-                self.DEFAULT_DISAMBIGUATION_CONFIG["similarity_threshold"],
+                fallback["similarity_threshold"],
                 minimum=0.0,
                 maximum=1.0,
             ),
             "type_gate_enabled": self._coerce_bool(
                 base.get("type_gate_enabled"),
-                self.DEFAULT_DISAMBIGUATION_CONFIG["type_gate_enabled"],
+                fallback["type_gate_enabled"],
             ),
             "per_entity_top_k": self._coerce_int(
                 base.get("per_entity_top_k"),
-                self.DEFAULT_DISAMBIGUATION_CONFIG["per_entity_top_k"],
+                fallback["per_entity_top_k"],
                 minimum=1,
             ),
             "description_max_chars": self._coerce_int(
                 base.get("description_max_chars"),
-                self.DEFAULT_DISAMBIGUATION_CONFIG["description_max_chars"],
+                fallback["description_max_chars"],
                 minimum=1,
             ),
             "direct_merge_enabled": self._coerce_bool(
                 base.get("direct_merge_enabled"),
-                self.DEFAULT_DISAMBIGUATION_CONFIG["direct_merge_enabled"],
+                fallback["direct_merge_enabled"],
             ),
         }
-        return resolved
 
-    def set_disambiguation_config(self, disambiguation_config: dict[str, Any] | None) -> dict[str, Any]:
-        resolved = self._resolve_disambiguation_config(disambiguation_config)
+    def _resolve_disambiguation_config(self) -> dict[str, Any]:
+        self._ensure_disambiguation_runtime_state()
+        return self._normalize_disambiguation_config(self._load_global_disambiguation_config())
+
+    def set_disambiguation_config(self) -> dict[str, Any]:
+        resolved = self._resolve_disambiguation_config()
         self.disambiguation_config = resolved
         return dict(resolved)
 
@@ -727,10 +754,9 @@ class PipelineSimilarityOpsMixin:
         entities,
         threshold=None,
         gray_margin=0.05,
-        disambiguation_config=None,
     )->list[tuple]:
         """返回相似实体，两两一组"""
-        resolved_config = self._resolve_disambiguation_config(disambiguation_config)
+        resolved_config = self._resolve_disambiguation_config()
         if threshold is None:
             threshold = resolved_config["similarity_threshold"]
 
@@ -819,10 +845,9 @@ class PipelineSimilarityOpsMixin:
         right_entities,
         threshold=None,
         gray_margin=0.05,
-        disambiguation_config=None,
     ):
         """在新旧实体之间找出高置信匹配，并为每个新实体选出一个最相似的已有实体作为对齐目标"""
-        resolved_config = self._resolve_disambiguation_config(disambiguation_config)
+        resolved_config = self._resolve_disambiguation_config()
         if threshold is None:
             threshold = resolved_config["similarity_threshold"]
 

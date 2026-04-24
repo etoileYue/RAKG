@@ -23,7 +23,6 @@ from app.db import Database  # noqa: E402
 from app.schemas import (  # noqa: E402
     CancelTaskResponse,
     CreateTaskResponse,
-    DisambiguationConfig,
     HealthResponse,
     KGCandidateItem,
     KGCandidateListResponse,
@@ -93,7 +92,6 @@ async def create_kg_build_task_upload(
     output_dir: str | None = Form(default=None),
     existing_kg: str | None = Form(default=None),
     force_rebuild: bool = Form(default=False),
-    disambiguation_config: str | None = Form(default=None),
 ) -> CreateTaskResponse:
     input_kind = input_type.strip()
     if input_kind not in {"json_text", "json_file"}:
@@ -124,21 +122,6 @@ async def create_kg_build_task_upload(
     topics = _normalize_topics_payload(parsed)
     uploaded_json_path = _write_uploaded_topics_json(topics)
     resolved_existing = _resolve_existing_kg_path(existing_kg)
-    parsed_disambiguation_config = None
-    raw_disambiguation_config = (disambiguation_config or "").strip()
-    if raw_disambiguation_config:
-        try:
-            parsed_disambiguation_payload = json.loads(raw_disambiguation_config)
-        except json.JSONDecodeError as exc:
-            raise HTTPException(status_code=400, detail=f"invalid disambiguation_config: {exc}") from exc
-        if not isinstance(parsed_disambiguation_payload, dict):
-            raise HTTPException(status_code=400, detail="disambiguation_config must be a JSON object")
-        try:
-            parsed_disambiguation_config = DisambiguationConfig.model_validate(
-                parsed_disambiguation_payload
-            ).model_dump(exclude_none=True)
-        except Exception as exc:  # noqa: BLE001
-            raise HTTPException(status_code=400, detail=f"invalid disambiguation_config: {exc}") from exc
 
     serialized_payload: dict[str, Any] = {
         "input_type": "json_path",
@@ -146,7 +129,6 @@ async def create_kg_build_task_upload(
         "output_dir": (output_dir or "").strip() or None,
         "existing_kg": str(resolved_existing) if resolved_existing else None,
         "force_rebuild": bool(force_rebuild),
-        "disambiguation_config": parsed_disambiguation_config,
         "topic_preview": topics[0]["topic"],
         "topic_count": len(topics),
         "upload_source": input_kind,

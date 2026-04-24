@@ -43,7 +43,7 @@ class NER_Agent(NERPipeline, KnowledgeGraphQA):
         self.model = self.llm_provider.get_llm()
         self.similarity_model = self.llm_provider.get_similarity_model()
         self.embeddings = self.llm_provider.get_embedding_model()
-        self.disambiguation_config = self.set_disambiguation_config(None)
+        self.disambiguation_config = self.set_disambiguation_config()
         self.reset_disambiguation_runtime_state()
         self.last_disambiguation_gray_queue = []
         self._qa_graph_index_cache = {}
@@ -262,12 +262,11 @@ class NER_Agent(NERPipeline, KnowledgeGraphQA):
         checkpoint_state=None,
         checkpoint_path=None,
         auto_resume=True,
-        disambiguation_config=None,
     ):
         """使用 NERPipeline 执行单个 topic 的处理流程。"""
         existing_kg = self._normalize_graph_input(existing_kg)
         has_existing_kg = bool(existing_kg.get("entities"))
-        resolved_disambiguation_config = self.set_disambiguation_config(disambiguation_config)
+        resolved_disambiguation_config = self.set_disambiguation_config()
         self.reset_disambiguation_runtime_state()
         similarity_threshold = resolved_disambiguation_config["similarity_threshold"]
 
@@ -420,7 +419,6 @@ class NER_Agent(NERPipeline, KnowledgeGraphQA):
                     self.similarity_result(
                         ner_result,
                         threshold=similarity_threshold,
-                        disambiguation_config=resolved_disambiguation_config,
                     )
                     if ner_result
                     else []
@@ -457,7 +455,6 @@ class NER_Agent(NERPipeline, KnowledgeGraphQA):
                 new_entities=entity_list_process,
                 existing_graph=existing_kg,
                 threshold=similarity_threshold,
-                disambiguation_config=resolved_disambiguation_config,
             )
             logger.info(f"During processing topic{idx}: {topic}, merge the KG into existing KG.")
         else:
@@ -601,7 +598,6 @@ class NER_Agent(NERPipeline, KnowledgeGraphQA):
         on_topic_success: Callable[[int, int, str, dict[str, Any]], None] | None = None,
         on_topic_failed: Callable[[int, int, str, Exception], None] | None = None,
         is_cancel_requested: Callable[[], bool] | None = None,
-        disambiguation_config: dict[str, Any] | None = None,
     ):
         with open(json_path, "r", encoding="utf-8") as file:
             topics = json.load(file)
@@ -636,7 +632,7 @@ class NER_Agent(NERPipeline, KnowledgeGraphQA):
         skip_sim_set = skip_sim_set or set()
         skip_rel_set = skip_rel_set or set()
         auto_resume = (not force_rebuild) and checkpoint_loaded
-        resolved_disambiguation_config = self.set_disambiguation_config(disambiguation_config)
+        self.set_disambiguation_config()
 
         has_existing_kg = bool(existing_kg)
         global_kg = None
@@ -694,7 +690,6 @@ class NER_Agent(NERPipeline, KnowledgeGraphQA):
                     checkpoint_state=checkpoint_state,
                     checkpoint_path=checkpoint_path,
                     auto_resume=auto_resume,
-                    disambiguation_config=resolved_disambiguation_config,
                 )
                 processed_count += 1
                 produced_graph_paths.append(result["output_path"])

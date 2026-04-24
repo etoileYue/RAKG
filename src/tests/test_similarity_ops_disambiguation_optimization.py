@@ -1,6 +1,7 @@
 import unittest
 from unittest import mock
 
+import src.config as config_module
 from src.pipeline.similarity_ops import PipelineSimilarityOpsMixin
 
 
@@ -32,7 +33,7 @@ class FakePrompt:
 class DummySimilarityPipeline(PipelineSimilarityOpsMixin):
     def __init__(self):
         self.similarity_model = object()
-        self.disambiguation_config = self.set_disambiguation_config(None)
+        self.disambiguation_config = self.set_disambiguation_config()
         self.reset_disambiguation_runtime_state()
 
 
@@ -51,14 +52,15 @@ class SimilarityDisambiguationOptimizationTests(unittest.TestCase):
             ("e1", "e4", 0.94),
         ]
 
-        config = pipeline._resolve_disambiguation_config({"per_entity_top_k": 1})
-        optimized = pipeline._optimize_similarity_candidates(
-            candidates=candidates,
-            left_entities=entities,
-            right_entities=entities,
-            same_side_compare=True,
-            disambiguation_config=config,
-        )
+        with mock.patch.object(config_module, "DISAMBIGUATION_PER_ENTITY_TOP_K", 1):
+            config = pipeline.set_disambiguation_config()
+            optimized = pipeline._optimize_similarity_candidates(
+                candidates=candidates,
+                left_entities=entities,
+                right_entities=entities,
+                same_side_compare=True,
+                disambiguation_config=config,
+            )
 
         self.assertEqual(optimized["raw_candidates"], 3)
         self.assertEqual(optimized["after_type_gate"], 2)
@@ -69,25 +71,26 @@ class SimilarityDisambiguationOptimizationTests(unittest.TestCase):
 
     def test_similarity_llm_single_truncates_description_payload(self):
         pipeline = DummySimilarityPipeline()
-        pipeline.set_disambiguation_config({"description_max_chars": 8})
         recorder = {}
 
-        with mock.patch(
-            "src.pipeline.similarity_ops.ChatPromptTemplate.from_template",
-            return_value=FakePrompt('{"result": true}', recorder),
-        ):
-            result = pipeline.similarity_llm_single(
-                {
-                    "name": "EntityA",
-                    "type": "Person",
-                    "description": "123456789012345",
-                },
-                {
-                    "name": "EntityB",
-                    "type": "Person",
-                    "description": "abcdefghijk",
-                },
-            )
+        with mock.patch.object(config_module, "DISAMBIGUATION_DESCRIPTION_MAX_CHARS", 8):
+            pipeline.set_disambiguation_config()
+            with mock.patch(
+                "src.pipeline.similarity_ops.ChatPromptTemplate.from_template",
+                return_value=FakePrompt('{"result": true}', recorder),
+            ):
+                result = pipeline.similarity_llm_single(
+                    {
+                        "name": "EntityA",
+                        "type": "Person",
+                        "description": "123456789012345",
+                    },
+                    {
+                        "name": "EntityB",
+                        "type": "Person",
+                        "description": "abcdefghijk",
+                    },
+                )
 
         self.assertTrue(result["result"])
         self.assertEqual(recorder["payload"]["entity1"]["description"], "12345678")
@@ -118,6 +121,18 @@ class SimilarityDisambiguationOptimizationTests(unittest.TestCase):
         self.assertEqual(metrics["llm_calls"], 1)
         self.assertEqual(metrics["llm_calls_saved"], 1)
         self.assertEqual(recorder.get("invoke_count"), 1)
+
+    def test_invalid_global_disambiguation_config_falls_back(self):
+        pipeline = DummySimilarityPipeline()
+
+        with mock.patch.object(config_module, "DISAMBIGUATION_SIMILARITY_THRESHOLD", 1.5):
+            with mock.patch.object(config_module, "DISAMBIGUATION_PER_ENTITY_TOP_K", 0):
+                with mock.patch.object(config_module, "DISAMBIGUATION_DESCRIPTION_MAX_CHARS", -10):
+                    resolved = pipeline.set_disambiguation_config()
+
+        self.assertEqual(resolved["similarity_threshold"], 0.60)
+        self.assertEqual(resolved["per_entity_top_k"], 8)
+        self.assertEqual(resolved["description_max_chars"], 160)
 
 
 if __name__ == "__main__":
