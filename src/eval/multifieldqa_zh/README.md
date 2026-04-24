@@ -36,8 +36,11 @@ python -m src.eval.multifieldqa_zh.evaluate_multifieldqa_zh build --force --limi
 - `data/eval/multifieldqa_zh/build_manifest.jsonl`
 - `data/eval/multifieldqa_zh/build_summary.json`
 - `data/eval/multifieldqa_zh/build_cache/`
+- `data/eval/multifieldqa_zh/build_cache/checkpoint_state.json`
 
 `build_manifest.jsonl` 以 `sample_id` 为主键记录每条样本的构图状态、图文件路径和错误信息。
+`checkpoint_state.json` 记录每条样本的 NER / SIM / REL 阶段状态和缓存文件路径。构图中断后再次运行 `build` 时，会在输入数据一致且未使用 `--force` 的情况下复用已完成阶段的缓存。
+若 checkpoint 机制加入前已经留下 `build_cache/ner_data`、`build_cache/sim_data` 或 `build_cache/rel_data` 阶段缓存，`build` 会在首次生成 checkpoint 时自动开启兼容续跑；若旧图文件已存在但 manifest 缺失，也会自动回填 manifest 并跳过该样本。
 
 ### 2. answer
 
@@ -125,7 +128,7 @@ python -m src.eval.multifieldqa_zh.evaluate_multifieldqa_zh score --judge-model-
 
 ## 断点续跑语义
 
-- `build`：若 `build_manifest.jsonl` 中该 `sample_id` 已是成功状态，且图文件仍存在，则默认跳过。
+- `build`：若 `build_manifest.jsonl` 中该 `sample_id` 已是成功状态，且图文件仍存在，则默认跳过；若图文件已存在但 manifest 缺失，会先回填成功记录；若某条样本上次只完成了部分构图阶段，则根据 `build_cache/checkpoint_state.json` 和对应缓存文件从已完成阶段后继续。对没有 checkpoint 的旧阶段缓存，首次运行也会检测并启用续跑。
 - `answer`：若 `predictions.jsonl` 中该 `sample_id` 已是成功状态，则默认跳过。
 - `score`：若 `scored_results.jsonl` 中该 `sample_id` 已经具备当前请求需要的评分字段，则默认跳过。
 - 使用 `--force` 可以覆盖以上跳过逻辑。

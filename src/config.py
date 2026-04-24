@@ -14,7 +14,7 @@ OPENAI_MODEL = "Qwen/Qwen3-32B"  # Default model
 OPENAI_EMBEDDING_MODEL = "BAAI/bge-m3"  # Default embedding model
 # OPENAI_SIMILARITY_MODEL = "Qwen/Qwen2.5-14B-Instruct"  # Model for similarity checks
 OPENAI_SIMILARITY_MODEL = "Qwen/Qwen3-32B"
-OPENAI_MAX_TOKENS = 8192  # Max completion tokens for extraction calls
+OPENAI_MAX_TOKENS = 32768  # Max completion tokens for extraction calls
 # OPENAI_SIMILARITY_MAX_TOKENS = 1024  # Similarity calls do not need long outputs
 
 
@@ -26,8 +26,8 @@ USE_OPENAI = True  # Set to True to use OpenAI, False to use Ollama
 PROMPT_LANGUAGE = "zh"
 
 # Unified LLM batch execution controls.
-LLM_PARALLEL_ENABLED = False
-LLM_PARALLEL_MAX_WORKERS = 4
+LLM_PARALLEL_ENABLED = True
+LLM_PARALLEL_MAX_WORKERS = 2
 
 # Entity disambiguation configuration.
 DISAMBIGUATION_SIMILARITY_THRESHOLD = 0.60

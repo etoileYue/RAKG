@@ -173,6 +173,7 @@ class NER_Agent(NERPipeline, KnowledgeGraphQA):
         *,
         output_dir: str,
         topics: list[dict[str, Any]],
+        topic_indices: list[int] | None = None,
         ner_output_dir: str,
         rel_output_dir: str,
         sim_output_dir: str,
@@ -212,7 +213,15 @@ class NER_Agent(NERPipeline, KnowledgeGraphQA):
             checkpoint_state["input_fingerprint"] = fingerprint
             checkpoint_state.setdefault("topics", {})
 
-        for idx, topic_data in enumerate(topics, start=1):
+        if topic_indices is not None and len(topic_indices) != len(topics):
+            raise ValueError("topic_indices must have the same length as topics.")
+
+        indexed_topics = (
+            zip(topic_indices, topics)
+            if topic_indices is not None
+            else enumerate(topics, start=1)
+        )
+        for idx, topic_data in indexed_topics:
             topic_name = str(topic_data.get("topic", ""))
             ner_file_path = os.path.join(ner_output_dir, f"output_text_ner_{idx}.jsonl")
             rel_file_path = os.path.join(rel_output_dir, f"output_kg_{idx}.jsonl")

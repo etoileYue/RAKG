@@ -37,11 +37,57 @@ class FakeProvider:
 
 
 class FakeAgent:
+    CHECKPOINT_FILE_NAME = "checkpoint_state.json"
     build_fail_ids = set()
     answer_fail_ids = set()
+    prepare_calls = []
+    process_calls = []
 
     def __init__(self):
         self.current_graph_path = None
+
+    def _prepare_checkpoint_state(
+        self,
+        *,
+        output_dir,
+        topics,
+        topic_indices=None,
+        ner_output_dir,
+        rel_output_dir,
+        sim_output_dir,
+        graph_output_dir,
+        force_rebuild=False,
+    ):
+        checkpoint_path = Path(output_dir) / self.CHECKPOINT_FILE_NAME
+        checkpoint_loaded = checkpoint_path.exists() and not force_rebuild
+        checkpoint_path.parent.mkdir(parents=True, exist_ok=True)
+        if checkpoint_loaded:
+            checkpoint_state = json.loads(checkpoint_path.read_text(encoding="utf-8"))
+        else:
+            checkpoint_state = {"version": 1, "input_fingerprint": "fake", "topics": {}}
+
+        resolved_indices = topic_indices or list(range(1, len(topics) + 1))
+        for idx, topic in zip(resolved_indices, topics):
+            checkpoint_state["topics"].setdefault(
+                str(idx),
+                {
+                    "topic_name": topic["topic"],
+                    "stages": {"ner": "pending", "sim": "pending", "rel": "pending"},
+                },
+            )
+        checkpoint_path.write_text(
+            json.dumps(checkpoint_state, ensure_ascii=False),
+            encoding="utf-8",
+        )
+        self.prepare_calls.append(
+            {
+                "output_dir": output_dir,
+                "topic_indices": list(resolved_indices),
+                "force_rebuild": force_rebuild,
+                "checkpoint_loaded": checkpoint_loaded,
+            }
+        )
+        return checkpoint_state, str(checkpoint_path), checkpoint_loaded
 
     def process(
         self,
@@ -54,6 +100,9 @@ class FakeAgent:
         graph_output_dir,
         **kwargs,
     ):
+        self.process_calls.append(
+            {"topic": topic_data["topic"], "idx": idx, "kwargs": kwargs}
+        )
         if topic_data["topic"] in self.build_fail_ids:
             raise RuntimeError("build failed")
         graph_path = Path(graph_output_dir) / f"{idx}.json"
@@ -101,6 +150,10 @@ class MultiFieldQAZHEvalTests(unittest.TestCase):
     def setUp(self):
         self.temp_dir = tempfile.TemporaryDirectory()
         self.root = Path(self.temp_dir.name)
+        FakeAgent.build_fail_ids = set()
+        FakeAgent.answer_fail_ids = set()
+        FakeAgent.prepare_calls = []
+        FakeAgent.process_calls = []
         self.dataset_path = self.root / "test.jsonl"
         rows = [
             {
@@ -151,6 +204,13 @@ class MultiFieldQAZHEvalTests(unittest.TestCase):
             record_by_id = mfq.index_records_by_sample_id(manifest_records)
             self.assertEqual(record_by_id["s1"]["status"], "success")
             self.assertEqual(record_by_id["s2"]["status"], "error")
+            self.assertTrue((output_root / "build_cache" / "checkpoint_state.json").exists())
+            self.assertEqual(FakeAgent.prepare_calls[0]["topic_indices"], [0, 1])
+            self.assertEqual(
+                FakeAgent.process_calls[0]["kwargs"]["checkpoint_path"],
+                str(output_root / "build_cache" / "checkpoint_state.json"),
+            )
+            self.assertFalse(FakeAgent.process_calls[0]["kwargs"]["auto_resume"])
 
             summary_second = mfq.main(
                 [
@@ -163,6 +223,65 @@ class MultiFieldQAZHEvalTests(unittest.TestCase):
             )
             self.assertEqual(summary_second["skipped_count"], 1)
             self.assertEqual(summary_second["error_count"], 1)
+            self.assertTrue(summary_second["checkpoint_loaded"])
+            self.assertTrue(summary_second["auto_resume"])
+
+    def test_build_stage_backfills_manifest_from_existing_graph(self):
+        output_root = self.root / "out_existing_graph"
+        graph_dir = output_root / "graphs"
+        graph_dir.mkdir(parents=True)
+        (graph_dir / "0.json").write_text(
+            json.dumps({"entities": [], "relations": []}, ensure_ascii=False),
+            encoding="utf-8",
+        )
+
+        with mock.patch.object(mfq, "NER_Agent", FakeAgent):
+            summary = mfq.main(
+                [
+                    "build",
+                    "--dataset-path",
+                    str(self.dataset_path),
+                    "--output-root",
+                    str(output_root),
+                    "--limit",
+                    "1",
+                ]
+            )
+
+        self.assertEqual(summary["backfilled_manifest_count"], 1)
+        self.assertEqual(summary["skipped_count"], 1)
+        self.assertEqual(FakeAgent.process_calls, [])
+        manifest_records = mfq.load_jsonl(output_root / "build_manifest.jsonl")
+        self.assertEqual(manifest_records[0]["sample_id"], "s1")
+        self.assertTrue(manifest_records[0]["recovered_from_existing_graph"])
+
+    def test_build_stage_auto_resumes_when_legacy_stage_cache_exists(self):
+        output_root = self.root / "out_legacy_stage_cache"
+        ner_dir = output_root / "build_cache" / "ner_data"
+        ner_dir.mkdir(parents=True)
+        (ner_dir / "output_text_ner_0.jsonl").write_text(
+            json.dumps({"text": "上下文1", "entities": {}}, ensure_ascii=False) + "\n",
+            encoding="utf-8",
+        )
+
+        with mock.patch.object(mfq, "NER_Agent", FakeAgent):
+            summary = mfq.main(
+                [
+                    "build",
+                    "--dataset-path",
+                    str(self.dataset_path),
+                    "--output-root",
+                    str(output_root),
+                    "--limit",
+                    "1",
+                ]
+            )
+
+        self.assertFalse(summary["checkpoint_loaded"])
+        self.assertTrue(summary["auto_resume"])
+        self.assertEqual(summary["existing_stage_cache_count"], 1)
+        self.assertEqual(summary["existing_stage_caches"][0]["stages"], ["ner"])
+        self.assertTrue(FakeAgent.process_calls[0]["kwargs"]["auto_resume"])
 
     def test_answer_stage_writes_prediction_fields(self):
         output_root = self.root / "out_answer"

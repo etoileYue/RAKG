@@ -219,6 +219,88 @@ def build_error_record(sample: dict, phase: str, error: Exception) -> dict:
     return record
 
 
+def build_checkpoint_topics(samples: List[dict]) -> List[dict]:
+    return [
+        {"topic": sample["sample_id"], "content": sample["context"]}
+        for sample in samples
+    ]
+
+
+def build_checkpoint_indices(samples: List[dict]) -> List[int]:
+    return [int(sample["sample_index"]) for sample in samples]
+
+
+def build_graph_path(output_paths: dict, sample: dict) -> Path:
+    return output_paths["graphs_dir"] / f"{sample['sample_index']}.json"
+
+
+def build_stage_cache_paths(output_paths: dict, sample: dict) -> Dict[str, Path]:
+    cache_root = output_paths["build_cache_root"]
+    idx = sample["sample_index"]
+    return {
+        "ner": cache_root / "ner_data" / f"output_text_ner_{idx}.jsonl",
+        "sim": cache_root / "sim_data" / f"output_sim_{idx}.json",
+        "rel": cache_root / "rel_data" / f"output_kg_{idx}.jsonl",
+    }
+
+
+def path_has_content(path: Path) -> bool:
+    return path.exists() and path.is_file() and path.stat().st_size > 0
+
+
+def backfill_manifest_from_existing_graphs(
+    samples: List[dict],
+    existing_manifest: Dict[str, dict],
+    output_paths: dict,
+    checkpoint_path: str,
+) -> int:
+    backfilled_count = 0
+    for sample in samples:
+        current_record = existing_manifest.get(sample["sample_id"])
+        if is_build_complete(current_record):
+            continue
+
+        graph_path = build_graph_path(output_paths, sample)
+        if not path_has_content(graph_path):
+            continue
+
+        record = build_base_record(sample)
+        record.update(
+            {
+                "phase": "build",
+                "status": "success",
+                "topic": sample["sample_id"],
+                "graph_path": str(graph_path.resolve()),
+                "checkpoint_path": str(Path(checkpoint_path).resolve()) if checkpoint_path else "",
+                "updated_at": utc_timestamp(),
+                "recovered_from_existing_graph": True,
+            }
+        )
+        existing_manifest[sample["sample_id"]] = record
+        backfilled_count += 1
+    return backfilled_count
+
+
+def discover_existing_stage_caches(samples: List[dict], output_paths: dict) -> List[dict]:
+    cache_records = []
+    for sample in samples:
+        existing_stages = {
+            stage: str(path.resolve())
+            for stage, path in build_stage_cache_paths(output_paths, sample).items()
+            if path_has_content(path)
+        }
+        if existing_stages:
+            cache_records.append(
+                {
+                    "sample_id": sample["sample_id"],
+                    "sample_index": sample["sample_index"],
+                    "stages": sorted(existing_stages),
+                    "paths": existing_stages,
+                }
+            )
+    return cache_records
+
+
 def is_build_complete(record: Optional[dict]) -> bool:
     return bool(
         record
@@ -332,35 +414,69 @@ def build_stage(args) -> dict:
     samples = load_dataset(dataset_path)
     selected_samples = select_samples(samples, start=args.start, end=args.end, limit=args.limit)
     existing_manifest = index_records_by_sample_id(load_jsonl(output_paths["build_manifest_path"]))
+    checkpoint_path = str(output_paths["build_cache_root"] / NER_Agent.CHECKPOINT_FILE_NAME)
+    backfilled_manifest_count = backfill_manifest_from_existing_graphs(
+        selected_samples,
+        existing_manifest,
+        output_paths,
+        checkpoint_path,
+    )
 
-    run_stats = {"selected_count": len(selected_samples), "skipped_count": 0, "success_count": 0, "error_count": 0}
+    run_stats = {
+        "selected_count": len(selected_samples),
+        "skipped_count": 0,
+        "success_count": 0,
+        "error_count": 0,
+    }
+    pending_samples = []
+    for sample in selected_samples:
+        current_record = existing_manifest.get(sample["sample_id"])
+        if not args.force and is_build_complete(current_record):
+            run_stats["skipped_count"] += 1
+        else:
+            pending_samples.append(sample)
 
     agent = None
+    checkpoint_state = None
+    checkpoint_loaded = False
+    auto_resume = False
     ner_output_dir = output_paths["build_cache_root"] / "ner_data"
     rel_output_dir = output_paths["build_cache_root"] / "rel_data"
     sim_output_dir = output_paths["build_cache_root"] / "sim_data"
     ensure_dir(ner_output_dir)
     ensure_dir(rel_output_dir)
     ensure_dir(sim_output_dir)
+    existing_stage_cache_records = discover_existing_stage_caches(pending_samples, output_paths)
 
-    for sample in selected_samples:
-        current_record = existing_manifest.get(sample["sample_id"])
-        if not args.force and is_build_complete(current_record):
-            run_stats["skipped_count"] += 1
-            continue
+    if pending_samples:
+        agent = NER_Agent()
+        checkpoint_state, checkpoint_path, checkpoint_loaded = agent._prepare_checkpoint_state(
+            output_dir=str(output_paths["build_cache_root"]),
+            topics=build_checkpoint_topics(samples),
+            topic_indices=build_checkpoint_indices(samples),
+            ner_output_dir=str(ner_output_dir),
+            rel_output_dir=str(rel_output_dir),
+            sim_output_dir=str(sim_output_dir),
+            graph_output_dir=str(output_paths["graphs_dir"]),
+            force_rebuild=bool(args.force),
+        )
+        auto_resume = (not args.force) and (
+            checkpoint_loaded or bool(existing_stage_cache_records)
+        )
 
-        if agent is None:
-            agent = NER_Agent()
-
+    for sample in pending_samples:
         try:
             result = agent.process(
                 topic_data={"topic": sample["sample_id"], "content": sample["context"]},
                 idx=sample["sample_index"],
-                total_topics=len(selected_samples),
+                total_topics=len(samples),
                 ner_output_dir=str(ner_output_dir),
                 rel_output_dir=str(rel_output_dir),
                 sim_output_dir=str(sim_output_dir),
                 graph_output_dir=str(output_paths["graphs_dir"]),
+                checkpoint_state=checkpoint_state,
+                checkpoint_path=checkpoint_path,
+                auto_resume=auto_resume,
             )
             record = build_base_record(sample)
             record.update(
@@ -369,6 +485,7 @@ def build_stage(args) -> dict:
                     "status": "success",
                     "topic": sample["sample_id"],
                     "graph_path": str(Path(result["output_path"]).resolve()),
+                    "checkpoint_path": str(Path(checkpoint_path).resolve()) if checkpoint_path else "",
                     "updated_at": utc_timestamp(),
                 }
             )
@@ -378,7 +495,10 @@ def build_stage(args) -> dict:
             record = build_error_record(sample, phase="build", error=exc)
             record.update(
                 {
-                    "graph_path": str((output_paths["graphs_dir"] / f"{sample['sample_index']}.json").resolve()),
+                    "graph_path": str(
+                        (output_paths["graphs_dir"] / f"{sample['sample_index']}.json").resolve()
+                    ),
+                    "checkpoint_path": str(Path(checkpoint_path).resolve()) if checkpoint_path else "",
                 }
             )
             existing_manifest[sample["sample_id"]] = record
@@ -393,6 +513,12 @@ def build_stage(args) -> dict:
         "output_root": str(output_paths["output_root"].resolve()),
         "graphs_dir": str(output_paths["graphs_dir"].resolve()),
         "manifest_path": str(output_paths["build_manifest_path"].resolve()),
+        "checkpoint_path": str(Path(checkpoint_path).resolve()) if checkpoint_path else "",
+        "checkpoint_loaded": bool(checkpoint_loaded),
+        "auto_resume": bool(auto_resume),
+        "backfilled_manifest_count": backfilled_manifest_count,
+        "existing_stage_cache_count": len(existing_stage_cache_records),
+        "existing_stage_caches": existing_stage_cache_records,
         "range": {"start": args.start, "end": args.end, "limit": args.limit},
         "force": bool(args.force),
         **run_stats,
