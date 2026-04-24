@@ -6,10 +6,12 @@ import traceback
 from datetime import datetime, timezone
 from typing import Any, Callable
 
+import src.config as config_module
 from src.llm_provider import LLMProvider
 from src.logger import get_logger
 from src.pipeline import NERPipeline
 from src.pipeline import KnowledgeGraphQA
+from src.pipeline.shared import debug_logger
 from src.textProcess import TextProcessor
 from src.utils import get_ner_result_from_file
 from src.utils import get_kg_result_from_file
@@ -246,6 +248,94 @@ class NER_Agent(NERPipeline, KnowledgeGraphQA):
             return None, False
         return sim_data, True
 
+    def _get_runtime_model_names(self) -> dict[str, str]:
+        if hasattr(self.llm_provider, "get_model_names"):
+            model_names = self.llm_provider.get_model_names()
+            if isinstance(model_names, dict):
+                return {
+                    "main_model": str(model_names.get("main_model", "")),
+                    "similarity_model": str(model_names.get("similarity_model", "")),
+                    "embedding_model": str(model_names.get("embedding_model", "")),
+                }
+        return {
+            "main_model": "",
+            "similarity_model": "",
+            "embedding_model": "",
+        }
+
+    def _log_runtime_configuration(
+        self,
+        *,
+        total_topics: int,
+        existing_kg: Any,
+        force_rebuild: bool,
+        auto_resume: bool,
+    ) -> None:
+        model_names = self._get_runtime_model_names()
+        disambiguation = self.get_disambiguation_config()
+        logger.info(
+            "Run config: total_topics=%s main_model=%s similarity_model=%s embedding_model=%s",
+            total_topics,
+            model_names["main_model"],
+            model_names["similarity_model"],
+            model_names["embedding_model"],
+        )
+        logger.info(
+            "Run config: prompt_language=%s use_openai=%s llm_parallel_enabled=%s llm_parallel_max_workers=%s",
+            getattr(config_module, "PROMPT_LANGUAGE", "zh"),
+            bool(getattr(config_module, "USE_OPENAI", False)),
+            bool(getattr(config_module, "LLM_PARALLEL_ENABLED", False)),
+            int(getattr(config_module, "LLM_PARALLEL_MAX_WORKERS", 0)),
+        )
+        logger.info(
+            "Run config: similarity_threshold=%s type_gate_enabled=%s per_entity_top_k=%s description_max_chars=%s direct_merge_enabled=%s existing_kg=%s force_rebuild=%s auto_resume=%s",
+            disambiguation["similarity_threshold"],
+            disambiguation["type_gate_enabled"],
+            disambiguation["per_entity_top_k"],
+            disambiguation["description_max_chars"],
+            disambiguation["direct_merge_enabled"],
+            bool(existing_kg),
+            bool(force_rebuild),
+            bool(auto_resume),
+        )
+
+    def _build_similarity_stage_plan(
+        self,
+        entities: dict[str, Any],
+        *,
+        threshold: float,
+    ) -> dict[str, Any]:
+        if not entities:
+            return {
+                "candidates": [],
+                "optimized": {
+                    "raw_candidates": 0,
+                    "after_type_gate": 0,
+                    "after_topk": 0,
+                    "direct_merged": 0,
+                    "direct_pairs": [],
+                    "llm_candidates": [],
+                },
+            }
+
+        resolved_config = self.get_disambiguation_config()
+        candidates = self.similarity_candidates(
+            left_entities=entities,
+            right_entities=None,
+            threshold=threshold,
+        )
+        optimized = self._optimize_similarity_candidates(
+            candidates=candidates,
+            left_entities=entities,
+            right_entities=entities,
+            same_side_compare=True,
+            disambiguation_config=resolved_config,
+        )
+        return {
+            "candidates": candidates,
+            "optimized": optimized,
+        }
+
     def process(
         self,
         topic_data,
@@ -275,7 +365,7 @@ class NER_Agent(NERPipeline, KnowledgeGraphQA):
         if not topic or not text:
             raise ValueError("topic_data must contain non-empty 'topic' and 'content'.")
 
-        logger.info("Processing topic %s/%s with NERPipeline: %s", idx, total_topics, topic)
+        logger.info("Topic %s/%s started: %s", idx, total_topics, topic)
 
         processor = TextProcessor(text, topic)
         text_split = processor.process()
@@ -318,7 +408,7 @@ class NER_Agent(NERPipeline, KnowledgeGraphQA):
             ner_result = get_ner_result_from_file(ner_file_path, text_split["sentence_to_id"]) if os.path.exists(ner_file_path) else {}
             if ner_result:
                 ner_reused = True
-                logger.info("Reuse NER cache during processing text%s", idx)
+                logger.info("NER stage: reuse cache, skip stage")
                 self._update_stage_checkpoint(
                     checkpoint_state,
                     checkpoint_path,
@@ -346,6 +436,7 @@ class NER_Agent(NERPipeline, KnowledgeGraphQA):
 
         if not ner_reused:
             try:
+                logger.info("NER stage: tasks=%s", len(text_split["sentences"]))
                 self._update_stage_checkpoint(
                     checkpoint_state,
                     checkpoint_path,
@@ -356,6 +447,7 @@ class NER_Agent(NERPipeline, KnowledgeGraphQA):
                 ner_result = self.extract_from_text_multiply(
                     text_split["sentences"], text_split["sentence_to_id"], output_file=ner_file_path
                 )
+                logger.info("NER stage finished: extracted_entities=%s", len(ner_result))
                 self._update_stage_checkpoint(
                     checkpoint_state,
                     checkpoint_path,
@@ -381,7 +473,6 @@ class NER_Agent(NERPipeline, KnowledgeGraphQA):
             if sim_valid and cached_sim is not None:
                 entity_list_process = cached_sim
                 sim_reused = True
-                logger.info("Reuse SIM cache during processing text%s", idx)
                 self._update_stage_checkpoint(
                     checkpoint_state,
                     checkpoint_path,
@@ -408,6 +499,17 @@ class NER_Agent(NERPipeline, KnowledgeGraphQA):
 
         if not sim_reused:
             try:
+                sim_plan = self._build_similarity_stage_plan(
+                    ner_result,
+                    threshold=similarity_threshold,
+                )
+                optimized = sim_plan["optimized"]
+                logger.info(
+                    "SIM stage: raw_candidates=%s llm_candidates=%s direct_merged=%s",
+                    optimized["raw_candidates"],
+                    len(optimized["llm_candidates"]),
+                    optimized["direct_merged"],
+                )
                 self._update_stage_checkpoint(
                     checkpoint_state,
                     checkpoint_path,
@@ -419,11 +521,17 @@ class NER_Agent(NERPipeline, KnowledgeGraphQA):
                     self.similarity_result(
                         ner_result,
                         threshold=similarity_threshold,
+                        prepared_run=sim_plan,
                     )
                     if ner_result
                     else []
                 )
                 entity_list_process = self.entity_Disambiguation(ner_result, sim) if ner_result else {}
+                logger.info(
+                    "SIM stage finished: input_entities=%s merged_entities=%s",
+                    len(ner_result),
+                    len(entity_list_process),
+                )
 
                 with open(sim_file_path, "w", encoding="utf-8") as sim_file:
                     json.dump(
@@ -448,6 +556,8 @@ class NER_Agent(NERPipeline, KnowledgeGraphQA):
                     status=self.STAGE_FAILED,
                 )
                 raise
+        else:
+            logger.info("SIM stage: 复用缓存，跳过本阶段")
 
         alias_resolution = {} # 别名解析表
         if has_existing_kg:
@@ -480,7 +590,7 @@ class NER_Agent(NERPipeline, KnowledgeGraphQA):
             kg_result = get_kg_result_from_file(rel_file_path) if os.path.exists(rel_file_path) else {}
             if kg_result:
                 rel_reused = True
-                logger.info("Reuse REL cache during processing text%s", idx)
+                logger.info("REL stage: 复用缓存，跳过本阶段")
                 self._update_stage_checkpoint(
                     checkpoint_state,
                     checkpoint_path,
@@ -508,6 +618,7 @@ class NER_Agent(NERPipeline, KnowledgeGraphQA):
 
         if not rel_reused:
             try:
+                logger.info("REL stage: tasks=%s", len(entity_list_process))
                 self._update_stage_checkpoint(
                     checkpoint_state,
                     checkpoint_path,
@@ -524,6 +635,7 @@ class NER_Agent(NERPipeline, KnowledgeGraphQA):
                     output_file=rel_file_path,
                     related_kg_map=related_kg_map,
                 )
+                logger.info("REL stage finished: extracted_entities=%s", len(kg_result))
                 self._update_stage_checkpoint(
                     checkpoint_state,
                     checkpoint_path,
@@ -573,8 +685,7 @@ class NER_Agent(NERPipeline, KnowledgeGraphQA):
             topic_checkpoint["updated_at"] = self._now_iso()
             self._write_checkpoint_state(checkpoint_path, checkpoint_state)
 
-        # self.last_disambiguation_gray_queue = self.last_disambiguation_gray_queue
-        logger.info("Saved KG for topic %s to %s", topic, output_path)
+        logger.info("Topic %s/%s completed: %s -> %s", idx, total_topics, topic, output_path)
         return {
             "index": idx,
             "topic": topic,
@@ -633,6 +744,12 @@ class NER_Agent(NERPipeline, KnowledgeGraphQA):
         skip_rel_set = skip_rel_set or set()
         auto_resume = (not force_rebuild) and checkpoint_loaded
         self.set_disambiguation_config()
+        self._log_runtime_configuration(
+            total_topics=len(topics),
+            existing_kg=existing_kg,
+            force_rebuild=force_rebuild,
+            auto_resume=auto_resume,
+        )
 
         has_existing_kg = bool(existing_kg)
         global_kg = None
@@ -702,7 +819,7 @@ class NER_Agent(NERPipeline, KnowledgeGraphQA):
                     topic_name,
                     str(e),
                 )
-                logger.error(traceback.format_exc())
+                debug_logger.error("Topic failure traceback:\n%s", traceback.format_exc())
                 failed_topics.append(
                     {
                         "index": idx,

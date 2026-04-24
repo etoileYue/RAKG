@@ -83,7 +83,7 @@ class PipelineRelationOpsMixin:
                 task_result.metadata,
                 task_result.message,
             )
-            logger.debug("LLM task traceback:\n%s", task_result.traceback_text)
+            debug_logger.error("LLM task traceback:\n%s", task_result.traceback_text)
             task_result.reraise()
         return task_result
 
@@ -631,7 +631,12 @@ class PipelineRelationOpsMixin:
                 )
             )
 
-        batch_results = executor.invoke_batch([self._build_relation_task(request) for request in requests])
+        batch_results = executor.invoke_batch(
+            [self._build_relation_task(request) for request in requests],
+            progress_label="REL",
+            progress_total=len(requests),
+            progress_enabled=bool(requests),
+        )
         for request, task_result in zip(requests, batch_results):
             result = self._require_task_result(task_result)
             self._append_relation_record(output_file, request, result)

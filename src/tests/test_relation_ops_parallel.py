@@ -52,6 +52,15 @@ class _DummyRelationPipeline(PipelineIOOpsMixin, PipelineRelationOpsMixin):
         }
 
 
+class _RecordingExecutor:
+    def __init__(self):
+        self.calls = []
+
+    def invoke_batch(self, tasks, **kwargs):
+        self.calls.append(kwargs)
+        return [task.invoke_fn(task.payload) for task in tasks]
+
+
 class RelationOpsParallelTests(unittest.TestCase):
     def _run_extract(self, parallel_enabled):
         pipeline = _DummyRelationPipeline()
@@ -153,6 +162,53 @@ class RelationOpsParallelTests(unittest.TestCase):
             ["Alice", "Acme"],
         )
         self.assertEqual(parallel_pipeline.appended, sequential_pipeline.appended)
+
+    def test_get_target_kg_all_passes_rel_progress_metadata(self):
+        pipeline = _DummyRelationPipeline()
+        pipeline._llm_executor = _RecordingExecutor()
+        entity_dic = {
+            "entity1": {
+                "name": "Alice",
+                "type": "Person",
+                "description": "Founder",
+                "chunkid": ["c1"],
+            },
+            "entity2": {
+                "name": "Acme",
+                "type": "Org",
+                "description": "Company",
+                "chunkid": ["c2"],
+            },
+        }
+        response_map = {
+            "Alice context": '{"central_entity": {"name": "Alice", "type": "Person", "description": "Founder", "attributes": [], "relationships": []}}',
+            "Acme context": '{"central_entity": {"name": "Acme", "type": "Org", "description": "Company", "attributes": [], "relationships": []}}',
+        }
+
+        with mock.patch(
+            "src.pipeline.relation_ops.ChatPromptTemplate.from_template",
+            return_value=_DynamicPrompt(response_map, {}),
+        ):
+            result = pipeline.get_target_kg_all(
+                entity_dic=entity_dic,
+                id_to_sentence={"c1": "Alice context", "c2": "Acme context"},
+                sentences=["Alice context", "Acme context"],
+                sentence_to_id={"Alice context": "c1", "Acme context": "c2"},
+                vectors=[[1.0, 0.0], [0.0, 1.0]],
+                output_file="/tmp/relation_parallel.jsonl",
+            )
+
+        self.assertEqual(list(result.keys()), ["entity1", "entity2"])
+        self.assertEqual(
+            pipeline._llm_executor.calls,
+            [
+                {
+                    "progress_label": "REL",
+                    "progress_total": 2,
+                    "progress_enabled": True,
+                }
+            ],
+        )
 
 
 if __name__ == "__main__":

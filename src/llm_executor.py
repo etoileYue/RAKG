@@ -4,9 +4,11 @@ from __future__ import annotations
 
 import logging
 import os
+import sys
 import time
 import traceback
 from concurrent.futures import ThreadPoolExecutor, as_completed
+from contextlib import AbstractContextManager
 from dataclasses import dataclass, field
 from typing import Any, Callable
 
@@ -26,6 +28,58 @@ logger = get_logger(
 
 
 DEFAULT_MAX_WORKERS = 4
+
+
+class _NoopProgressReporter(AbstractContextManager):
+    def update(self, _count: int = 1) -> None:
+        return None
+
+    def close(self) -> None:
+        return None
+
+    def __exit__(self, exc_type, exc, exc_tb) -> bool:
+        self.close()
+        return False
+
+
+class _TextProgressReporter(_NoopProgressReporter):
+    def __init__(self, label: str, total: int):
+        self.label = label
+        self.total = max(int(total), 0)
+        self.completed = 0
+        self._last_reported = 0
+        self._step = max(1, self.total // 10) if self.total else 1
+        if self.total:
+            sys.stderr.write(f"{self.label}: 0/{self.total}\n")
+            sys.stderr.flush()
+
+    def update(self, count: int = 1) -> None:
+        if self.total <= 0:
+            return
+        self.completed = min(self.total, self.completed + max(int(count), 0))
+        should_report = (
+            self.completed == self.total
+            or self.completed == 1
+            or (self.completed - self._last_reported) >= self._step
+        )
+        if should_report:
+            self._last_reported = self.completed
+            sys.stderr.write(f"{self.label}: {self.completed}/{self.total}\n")
+            sys.stderr.flush()
+
+
+def _create_progress_reporter(label: str | None, total: int, enabled: bool):
+    if not enabled or not label or total <= 0:
+        return _NoopProgressReporter()
+
+    try:
+        from tqdm.auto import tqdm  # type: ignore
+    except Exception:
+        tqdm = None
+
+    if tqdm is not None:
+        return tqdm(total=total, desc=label, dynamic_ncols=True, leave=False)
+    return _TextProgressReporter(label, total)
 
 
 @dataclass(frozen=True)
@@ -114,6 +168,10 @@ class LLMExecutor:
         enable_parallel: bool | None = None,
         max_workers: int | None = None,
         preserve_order: bool = True,
+        progress_label: str | None = None,
+        progress_total: int | None = None,
+        progress_enabled: bool = False,
+        progress_callback: Callable[[int, int, str | None], None] | None = None,
     ) -> list[Any | LLMTaskError]:
         """Execute a batch of independent tasks with stable result alignment."""
         if not tasks:
@@ -125,36 +183,59 @@ class LLMExecutor:
         actual_max_workers = min(normalized_max_workers, len(tasks))
         should_parallelize = requested_parallel and len(tasks) > 1 and actual_max_workers > 1
         task_kind = ",".join(sorted({str(task.kind or "unknown") for task in tasks}))
+        if progress_total is None:
+            normalized_progress_total = len(tasks)
+        else:
+            try:
+                normalized_progress_total = max(int(progress_total), 0)
+            except (TypeError, ValueError):
+                normalized_progress_total = len(tasks)
+        completed_count = 0
+
+        def record_progress() -> None:
+            nonlocal completed_count
+            completed_count += 1
+            if progress_callback is not None:
+                progress_callback(completed_count, normalized_progress_total, progress_label)
+            progress_reporter.update(1)
 
         if preserve_order:
             results: list[Any | LLMTaskError] = [None] * len(tasks)
         else:
             results = []
 
-        if should_parallelize:
-            with ThreadPoolExecutor(max_workers=actual_max_workers) as pool:
-                future_map = {
-                    pool.submit(self._execute_task, task): idx for idx, task in enumerate(tasks)
-                }
-                for future in as_completed(future_map):
-                    idx = future_map[future]
-                    result = future.result()
+        with _create_progress_reporter(
+            label=progress_label,
+            total=normalized_progress_total,
+            enabled=progress_enabled,
+        ) as progress_reporter:
+            if should_parallelize:
+                with ThreadPoolExecutor(max_workers=actual_max_workers) as pool:
+                    future_map = {
+                        pool.submit(self._execute_task, task): idx for idx, task in enumerate(tasks)
+                    }
+                    for future in as_completed(future_map):
+                        idx = future_map[future]
+                        result = future.result()
+                        if preserve_order:
+                            results[idx] = result
+                        else:
+                            results.append(result)
+                        record_progress()
+            else:
+                for idx, task in enumerate(tasks):
+                    result = self._execute_task(task)
                     if preserve_order:
                         results[idx] = result
                     else:
                         results.append(result)
-        else:
-            for idx, task in enumerate(tasks):
-                result = self._execute_task(task)
-                if preserve_order:
-                    results[idx] = result
-                else:
-                    results.append(result)
+                    record_progress()
 
         success_count = sum(1 for item in results if not isinstance(item, LLMTaskError))
         failure_count = len(results) - success_count
         logger.info(
-            "LLM batch finished: kind=%s tasks=%s parallel=%s max_workers=%s success=%s failure=%s elapsed=%.3fs",
+            "LLM batch finished: label=%s kind=%s tasks=%s parallel=%s max_workers=%s success=%s failure=%s elapsed=%.3fs",
+            progress_label or task_kind,
             task_kind,
             len(tasks),
             should_parallelize,

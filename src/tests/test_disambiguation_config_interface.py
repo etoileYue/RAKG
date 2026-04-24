@@ -1,4 +1,5 @@
 import json
+import logging
 import sys
 import tempfile
 import unittest
@@ -88,6 +89,47 @@ class DisambiguationConfigInterfaceTests(unittest.TestCase):
             self.assertEqual(passed["description_max_chars"], 90)
             self.assertTrue(passed["type_gate_enabled"])
             self.assertTrue(passed["direct_merge_enabled"])
+
+    def test_process_all_topics_logs_runtime_config_summary(self):
+        with tempfile.TemporaryDirectory() as tmpdir:
+            tmp_path = Path(tmpdir)
+            input_path = tmp_path / "topics.json"
+            output_dir = tmp_path / "out"
+            input_path.write_text(
+                json.dumps([{"topic": "t1", "content": "sample"}], ensure_ascii=False),
+                encoding="utf-8",
+            )
+
+            with mock.patch("src.kgAgent.LLMProvider", return_value=_DummyLLMProvider()):
+                agent = NER_Agent()
+
+            agent.process = lambda **_kwargs: {  # type: ignore[method-assign]
+                "index": 1,
+                "topic": "t1",
+                "output_path": str(output_dir / "RAKG_graph_re" / "1.json"),
+                "knowledge_graph": {},
+                "current_doc_kg": {},
+                "alias_resolution": {},
+            }
+
+            logger_name = logging.getLogger("AgentLog").name
+            with self.assertLogs(logger_name, level="INFO") as captured:
+                agent.process_all_topics(
+                    json_path=str(input_path),
+                    output_dir=str(output_dir),
+                    existing_kg={"entities": [{"name": "legacy"}]},
+                    force_rebuild=True,
+                )
+
+            joined = "\n".join(captured.output)
+            self.assertIn("Run config: total_topics=1 main_model=", joined)
+            self.assertIn("similarity_model=", joined)
+            self.assertIn("embedding_model=", joined)
+            self.assertIn("prompt_language=", joined)
+            self.assertIn("llm_parallel_enabled=", joined)
+            self.assertIn("similarity_threshold=", joined)
+            self.assertIn("existing_kg=True", joined)
+            self.assertIn("force_rebuild=True", joined)
 
     def test_kg_service_run_does_not_forward_removed_disambiguation_config(self):
         with tempfile.TemporaryDirectory() as tmpdir:

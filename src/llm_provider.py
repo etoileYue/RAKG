@@ -61,3 +61,16 @@ class LLMProvider:
 
     def get_similarity_model(self):
         return self.similarity_model
+
+    def get_model_names(self):
+        if USE_OPENAI:
+            return {
+                "main_model": OPENAI_MODEL,
+                "similarity_model": OPENAI_SIMILARITY_MODEL,
+                "embedding_model": OPENAI_EMBEDDING_MODEL,
+            }
+        return {
+            "main_model": DEFAULT_MODEL,
+            "similarity_model": SIMILARITY_MODEL,
+            "embedding_model": EMBEDDING_MODEL,
+        }

@@ -44,6 +44,15 @@ class _DummySimilarityPipeline(PipelineSimilarityOpsMixin):
         self.reset_disambiguation_runtime_state()
 
 
+class _RecordingExecutor:
+    def __init__(self):
+        self.calls = []
+
+    def invoke_batch(self, tasks, **kwargs):
+        self.calls.append(kwargs)
+        return [task.invoke_fn(task.payload) for task in tasks]
+
+
 class SimilarityOpsParallelTests(unittest.TestCase):
     def test_parallel_first_pass_preserves_positive_order(self):
         pipeline = _DummySimilarityPipeline()
@@ -82,6 +91,62 @@ class SimilarityOpsParallelTests(unittest.TestCase):
         self.assertEqual(metrics["llm_calls"], 2)
         self.assertEqual(metrics["llm_calls_saved"], 0)
         self.assertEqual(recorder["invoke_count"], 2)
+
+    def test_similarity_progress_metadata_uses_pass_specific_task_counts(self):
+        entities = {
+            "e1": {"name": "Alpha", "type": "Person", "description": "d1"},
+            "e2": {"name": "Beta", "type": "Person", "description": "d2"},
+            "e3": {"name": "Gamma", "type": "Person", "description": "d3"},
+        }
+        response_map = {
+            ("Alpha", "Beta"): '{"result": true}',
+            ("Alpha", "Gamma"): '{"result": true}',
+        }
+
+        with mock.patch(
+            "src.pipeline.similarity_ops.ChatPromptTemplate.from_template",
+            return_value=_DynamicPrompt(response_map, {}, {}),
+        ):
+            first_pass_pipeline = _DummySimilarityPipeline()
+            first_pass_pipeline._llm_executor = _RecordingExecutor()
+            first_pass_pipeline._run_similarity_batch(
+                pairs=[("e1", "e2", 0.91), ("e1", "e3", 0.82)],
+                left_entities=entities,
+                right_entities=entities,
+                scope_label="entity",
+                pass_label="first-pass",
+            )
+
+            second_pass_pipeline = _DummySimilarityPipeline()
+            second_pass_pipeline._llm_executor = _RecordingExecutor()
+            second_pass_pipeline._run_similarity_batch(
+                pairs=[("e1", "e2", 0.91)],
+                left_entities=entities,
+                right_entities=entities,
+                scope_label="entity",
+                pass_label="second-pass",
+            )
+
+        self.assertEqual(
+            first_pass_pipeline._llm_executor.calls,
+            [
+                {
+                    "progress_label": "SIM first-pass",
+                    "progress_total": 2,
+                    "progress_enabled": True,
+                }
+            ],
+        )
+        self.assertEqual(
+            second_pass_pipeline._llm_executor.calls,
+            [
+                {
+                    "progress_label": "SIM second-pass",
+                    "progress_total": 1,
+                    "progress_enabled": True,
+                }
+            ],
+        )
 
 
 if __name__ == "__main__":

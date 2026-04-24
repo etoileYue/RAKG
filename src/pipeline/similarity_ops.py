@@ -580,6 +580,13 @@ class PipelineSimilarityOpsMixin:
             pass_label,
             scope_label,
             task_error.metadata.get("pair"),
+            task_error.message,
+        )
+        debug_logger.error(
+            "Similarity task traceback (%s %s pair=%s):\n%s",
+            pass_label,
+            scope_label,
+            task_error.metadata.get("pair"),
             task_error.traceback_text,
         )
 
@@ -633,7 +640,10 @@ class PipelineSimilarityOpsMixin:
 
         if pending_specs:
             task_results = self._get_llm_executor().invoke_batch(
-                [spec["task"] for spec in pending_specs]
+                [spec["task"] for spec in pending_specs],
+                progress_label=f"SIM {pass_label}",
+                progress_total=len(pending_specs),
+                progress_enabled=bool(pending_specs),
             )
             for spec, task_result in zip(pending_specs, task_results):
                 if isinstance(task_result, LLMTaskError):
@@ -754,24 +764,29 @@ class PipelineSimilarityOpsMixin:
         entities,
         threshold=None,
         gray_margin=0.05,
+        prepared_run=None,
     )->list[tuple]:
         """返回相似实体，两两一组"""
         resolved_config = self._resolve_disambiguation_config()
         if threshold is None:
             threshold = resolved_config["similarity_threshold"]
 
-        candidates = self.similarity_candidates(
-            left_entities=entities,
-            right_entities=None,
-            threshold=threshold,
-        )
-        optimized = self._optimize_similarity_candidates(
-            candidates=candidates,
-            left_entities=entities,
-            right_entities=entities,
-            same_side_compare=True,
-            disambiguation_config=resolved_config,
-        )
+        if isinstance(prepared_run, dict):
+            candidates = list(prepared_run.get("candidates", []))
+            optimized = dict(prepared_run.get("optimized", {}))
+        else:
+            candidates = self.similarity_candidates(
+                left_entities=entities,
+                right_entities=None,
+                threshold=threshold,
+            )
+            optimized = self._optimize_similarity_candidates(
+                candidates=candidates,
+                left_entities=entities,
+                right_entities=entities,
+                same_side_compare=True,
+                disambiguation_config=resolved_config,
+            )
         positives, gray_queue, resolved_by_second_pass, run_metrics = self._run_two_pass_similarity_disambiguation(
             candidates=optimized["llm_candidates"],
             left_entities=entities,
