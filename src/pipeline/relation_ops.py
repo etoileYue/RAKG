@@ -3,6 +3,9 @@
 import json
 import os
 from langchain_core.prompts import ChatPromptTemplate
+from src.llm_executor import LLMExecutor
+from src.llm_executor import LLMTask
+from src.llm_executor import LLMTaskError
 from src.prompt import get_prompt
 from src.pipeline.shared import debug_logger
 from src.pipeline.shared import logger
@@ -64,43 +67,84 @@ class PipelineRelationOpsMixin:
                 return partial_text
             raise
 
-    def extract_from_text_single(self, text_single, output_file):
-        """调用LLM提取实体"""
+    def _get_llm_executor(self):
+        executor = getattr(self, "_llm_executor", None)
+        if executor is None:
+            executor = LLMExecutor()
+            self._llm_executor = executor
+        return executor
+
+    @staticmethod
+    def _require_task_result(task_result):
+        if isinstance(task_result, LLMTaskError):
+            logger.error(
+                "LLM task failed: kind=%s metadata=%s error=%s",
+                task_result.kind,
+                task_result.metadata,
+                task_result.message,
+            )
+            logger.debug("LLM task traceback:\n%s", task_result.traceback_text)
+            task_result.reraise()
+        return task_result
+
+    def _invoke_text2entity_payload(self, payload):
         prompt = ChatPromptTemplate.from_template(get_prompt("text2entity"))
         chain = prompt | self.model
-        result = self._invoke_with_partial_fallback(chain, {"text": text_single})
+        return self._invoke_with_partial_fallback(chain, payload)
+
+    def _parse_ner_response(self, text_single, result):
         debug_logger.debug("-extract_from_text_single-")
-        debug_logger.debug(f"text_single={text_single}, result={result}")
+        debug_logger.debug("text_single=%s, result=%s", text_single, result)
 
         raw_text = result.content if hasattr(result, "content") else str(result)
         try:
-            result_json = json.loads(raw_text)
+            return json.loads(raw_text)
         except json.JSONDecodeError:
             logger.warning(
                 "NER output is truncated/non-JSON. Returning fallback with raw text. len=%d",
                 len(raw_text),
             )
-            result_json = {"State": False, "_truncated_raw_text": raw_text}
+            return {"State": False, "_truncated_raw_text": raw_text}
 
-        combined_data = {"text": text_single, "entities": result_json}
-        self._append_jsonl(output_file, combined_data)
+    def _append_ner_record(self, output_file, text, entities):
+        self._append_jsonl(output_file, {"text": text, "entities": entities})
+
+    def _build_ner_task(self, text_single, *, metadata=None):
+        return LLMTask(
+            kind="ner",
+            payload={"text": text_single},
+            invoke_fn=self._invoke_text2entity_payload,
+            parser=lambda result, text=text_single: self._parse_ner_response(text, result),
+            metadata=metadata or {},
+        )
+
+    def extract_from_text_single(self, text_single, output_file):
+        """调用LLM提取实体"""
+        task = self._build_ner_task(text_single, metadata={"phase": "single"})
+        result_json = self._require_task_result(self._get_llm_executor().invoke(task))
+        self._append_ner_record(output_file, text_single, result_json)
         return result_json
 
     def extract_from_text_multiply(self, text_list, sent_to_id, output_file):
         """调用LLM对多文本提取实体"""
+        executor = self._get_llm_executor()
         ner_result_for_all = {}
         entity_num = 1
+        primary_specs = []
+        patch_specs = []
+
         for idx, text in enumerate(text_list):
             chunkid = sent_to_id.get(text)
             if chunkid is None:
                 logger.warning("Sentence not found in sentence_to_id mapping, skipping chunk.")
                 continue
 
-            chunk_ids_for_entity = [chunkid]
-            ner_result = self.extract_from_text_single(text, output_file)
-            merged_ner_result = {}
-            if isinstance(ner_result, dict) and "State" not in ner_result:
-                merged_ner_result = dict(ner_result)
+            spec = {
+                "idx": idx,
+                "text": text,
+                "chunk_ids_for_entity": [chunkid],
+            }
+            primary_specs.append(spec)
 
             if self._is_feature_enabled("RAKG_ENABLE_NER_WINDOW_PATCH", True) and self._should_enable_ner_window_patch(text):
                 window_text, window_chunk_ids = self._build_ner_window_patch_context(
@@ -109,10 +153,50 @@ class PipelineRelationOpsMixin:
                     center_index=idx,
                     window_size=1,
                 )
-                chunk_ids_for_entity = self._dedupe_preserve_order(chunk_ids_for_entity + window_chunk_ids)
+                spec["chunk_ids_for_entity"] = self._dedupe_preserve_order(spec["chunk_ids_for_entity"] + window_chunk_ids)
                 if window_text and window_text != text:
-                    patched_ner_result = self.extract_from_text_single(window_text, output_file)
-                    merged_ner_result = self._merge_ner_results(merged_ner_result, patched_ner_result)
+                    patch_specs.append(
+                        {
+                            "idx": idx,
+                            "text": window_text,
+                        }
+                    )
+
+        primary_results = executor.invoke_batch(
+            [
+                self._build_ner_task(
+                    spec["text"],
+                    metadata={"phase": "primary", "index": spec["idx"]},
+                )
+                for spec in primary_specs
+            ]
+        )
+        patch_results = executor.invoke_batch(
+            [
+                self._build_ner_task(
+                    spec["text"],
+                    metadata={"phase": "window_patch", "index": spec["idx"]},
+                )
+                for spec in patch_specs
+            ]
+        )
+        patch_results_by_index = {}
+        patch_text_by_index = {}
+        for spec, task_result in zip(patch_specs, patch_results):
+            patch_text_by_index[spec["idx"]] = spec["text"]
+            patch_results_by_index[spec["idx"]] = self._require_task_result(task_result)
+
+        for spec, task_result in zip(primary_specs, primary_results):
+            ner_result = self._require_task_result(task_result)
+            self._append_ner_record(output_file, spec["text"], ner_result)
+            merged_ner_result = {}
+            if isinstance(ner_result, dict) and "State" not in ner_result:
+                merged_ner_result = dict(ner_result)
+
+            patched_ner_result = patch_results_by_index.get(spec["idx"])
+            if patched_ner_result is not None:
+                self._append_ner_record(output_file, patch_text_by_index[spec["idx"]], patched_ner_result)
+                merged_ner_result = self._merge_ner_results(merged_ner_result, patched_ner_result)
 
             if not merged_ner_result:
                 continue
@@ -121,7 +205,7 @@ class PipelineRelationOpsMixin:
             ner_result = self.rewrite(merged_ner_result, entity_num)
 
             entity_num += ner_result_num
-            ner_result_with_chunkid = self.add_chunkid(ner_result, chunk_ids_for_entity)
+            ner_result_with_chunkid = self.add_chunkid(ner_result, spec["chunk_ids_for_entity"])
             ner_result_for_all.update(ner_result_with_chunkid)
         return ner_result_for_all
 
@@ -361,7 +445,7 @@ class PipelineRelationOpsMixin:
             "chunk_text": ", ".join(unique_sentences),
         }
 
-    def get_target_kg_single(
+    def _prepare_relation_request(
         self,
         entity_dic,
         entity_id,
@@ -369,10 +453,8 @@ class PipelineRelationOpsMixin:
         sentences,
         sentence_to_id,
         vectors,
-        output_file,
         related_kg=None,
     ):
-        """调用LLM提取关系"""
         entity_chunk_ids = self._normalize_chunk_ids(entity_dic[entity_id].get("chunkid", []))
         if self._is_feature_enabled("RAKG_ENABLE_EVIDENCE_CONTEXT", True):
             relation_context = self._build_relation_context(
@@ -396,31 +478,39 @@ class PipelineRelationOpsMixin:
                 sentence_to_id=sentence_to_id,
                 vectors=vectors,
             )
-        candidate_chunk_ids = relation_context.get("candidate_chunk_ids", [])
-        candidate_chunks = relation_context.get("candidate_chunks", {})
-        evidence_blocks = relation_context.get("evidence_blocks", [])
-        chunk_text = relation_context.get("chunk_text", "")
+
         related_kg_payload = "none"
         if related_kg:
             related_kg_payload = json.dumps(related_kg, ensure_ascii=False)
 
-        prompt = ChatPromptTemplate.from_template(get_prompt("entity_centric_kg"))
-        chain = prompt | self.model
-        result = self._invoke_with_partial_fallback(
-            chain,
-            {
-                "text": chunk_text,
+        return {
+            "entity_id": entity_id,
+            "entity": entity_dic[entity_id],
+            "entity_chunk_ids": entity_chunk_ids,
+            "candidate_chunk_ids": relation_context.get("candidate_chunk_ids", []),
+            "candidate_chunks": relation_context.get("candidate_chunks", {}),
+            "evidence_blocks": relation_context.get("evidence_blocks", []),
+            "chunk_text": relation_context.get("chunk_text", ""),
+            "payload": {
+                "text": relation_context.get("chunk_text", ""),
                 "target_entity": entity_dic[entity_id].get("name"),
                 "related_kg": related_kg_payload,
             },
-        )
+            "related_kg_payload": related_kg_payload,
+        }
 
+    def _invoke_entity_centric_kg_payload(self, payload):
+        prompt = ChatPromptTemplate.from_template(get_prompt("entity_centric_kg"))
+        chain = prompt | self.model
+        return self._invoke_with_partial_fallback(chain, payload)
+
+    def _parse_relation_response(self, request, result):
         debug_logger.debug("-get_target_kg_single-")
         debug_logger.debug(
             "text=%s, target_entity=%s, related_kg=%s, result=%s",
-            chunk_text,
-            entity_dic[entity_id].get("name"),
-            related_kg_payload,
+            request["chunk_text"],
+            request["entity"].get("name"),
+            request["related_kg_payload"],
             result,
         )
 
@@ -434,12 +524,12 @@ class PipelineRelationOpsMixin:
             )
             result_json = {
                 "central_entity": {
-                    "name": entity_dic[entity_id].get("name", ""),
-                    "type": entity_dic[entity_id].get("type", "Unknown"),
+                    "name": request["entity"].get("name", ""),
+                    "type": request["entity"].get("type", "Unknown"),
                     "description": "",
                     "attributes": [],
                     "relationships": [],
-                    "provenance": {"chunk_ids": entity_chunk_ids},
+                    "provenance": {"chunk_ids": request["entity_chunk_ids"]},
                 },
                 "_truncated_raw_text": raw_text,
             }
@@ -448,10 +538,10 @@ class PipelineRelationOpsMixin:
             provenance_meta = result_json.get("_provenance", {})
             if not isinstance(provenance_meta, dict):
                 provenance_meta = {}
-            provenance_meta["entity_chunk_ids"] = entity_chunk_ids
-            provenance_meta["candidate_chunk_ids"] = candidate_chunk_ids
-            provenance_meta["candidate_chunks"] = candidate_chunks
-            provenance_meta["evidence_blocks"] = evidence_blocks
+            provenance_meta["entity_chunk_ids"] = request["entity_chunk_ids"]
+            provenance_meta["candidate_chunk_ids"] = request["candidate_chunk_ids"]
+            provenance_meta["candidate_chunks"] = request["candidate_chunks"]
+            provenance_meta["evidence_blocks"] = request["evidence_blocks"]
             result_json["_provenance"] = provenance_meta
 
             central_entity = result_json.get("central_entity", {})
@@ -460,17 +550,57 @@ class PipelineRelationOpsMixin:
                 if not isinstance(central_prov, dict):
                     central_prov = {}
                 central_ids = self._normalize_chunk_ids(central_prov.get("chunk_ids", []))
-                central_prov["chunk_ids"] = self._dedupe_preserve_order(central_ids + entity_chunk_ids)
+                central_prov["chunk_ids"] = self._dedupe_preserve_order(central_ids + request["entity_chunk_ids"])
                 central_entity["provenance"] = central_prov
 
-        combined_data = {
-            "chunk_text": chunk_text,
-            "entity": entity_dic[entity_id],
-            "kg": result_json,
-            "candidate_chunk_ids": candidate_chunk_ids,
-            "candidate_chunks": candidate_chunks,
-        }
-        self._append_jsonl(output_file, combined_data)
+        return result_json
+
+    def _append_relation_record(self, output_file, request, result_json):
+        self._append_jsonl(
+            output_file,
+            {
+                "chunk_text": request["chunk_text"],
+                "entity": request["entity"],
+                "kg": result_json,
+                "candidate_chunk_ids": request["candidate_chunk_ids"],
+                "candidate_chunks": request["candidate_chunks"],
+            },
+        )
+
+    def _build_relation_task(self, request):
+        return LLMTask(
+            kind="relation",
+            payload=request["payload"],
+            invoke_fn=self._invoke_entity_centric_kg_payload,
+            parser=lambda result, relation_request=request: self._parse_relation_response(relation_request, result),
+            metadata={"entity_id": request["entity_id"], "target_entity": request["entity"].get("name")},
+        )
+
+    def get_target_kg_single(
+        self,
+        entity_dic,
+        entity_id,
+        id_to_sentence,
+        sentences,
+        sentence_to_id,
+        vectors,
+        output_file,
+        related_kg=None,
+    ):
+        """调用LLM提取关系"""
+        request = self._prepare_relation_request(
+            entity_dic,
+            entity_id,
+            id_to_sentence,
+            sentences,
+            sentence_to_id,
+            vectors,
+            related_kg=related_kg,
+        )
+        result_json = self._require_task_result(
+            self._get_llm_executor().invoke(self._build_relation_task(request))
+        )
+        self._append_relation_record(output_file, request, result_json)
         return result_json
 
     def get_target_kg_all(
@@ -484,18 +614,26 @@ class PipelineRelationOpsMixin:
         related_kg_map=None,
     ):
         """调用LLM对多文本提取关系"""
+        executor = self._get_llm_executor()
         results = {}
         related_kg_map = related_kg_map or {}
+        requests = []
         for entity_id in entity_dic:
-            result = self.get_target_kg_single(
-                entity_dic,
-                entity_id,
-                id_to_sentence,
-                sentences,
-                sentence_to_id,
-                vectors,
-                output_file,
-                related_kg=related_kg_map.get(entity_id),
+            requests.append(
+                self._prepare_relation_request(
+                    entity_dic,
+                    entity_id,
+                    id_to_sentence,
+                    sentences,
+                    sentence_to_id,
+                    vectors,
+                    related_kg=related_kg_map.get(entity_id),
+                )
             )
-            results[entity_id] = result
+
+        batch_results = executor.invoke_batch([self._build_relation_task(request) for request in requests])
+        for request, task_result in zip(requests, batch_results):
+            result = self._require_task_result(task_result)
+            self._append_relation_record(output_file, request, result)
+            results[request["entity_id"]] = result
         return results

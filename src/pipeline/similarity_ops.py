@@ -30,7 +30,6 @@
 """
 
 import re
-import traceback
 from copy import deepcopy
 from typing import Any
 
@@ -38,6 +37,9 @@ import numpy as np
 from langchain_core.prompts import ChatPromptTemplate
 from sklearn.metrics.pairwise import cosine_similarity
 
+from src.llm_executor import LLMExecutor
+from src.llm_executor import LLMTask
+from src.llm_executor import LLMTaskError
 from src.prompt import get_prompt
 from src.utils import parse_similarity_response
 from src.utils import retry
@@ -492,43 +494,21 @@ class PipelineSimilarityOpsMixin:
 
         return tuple(sorted([_pack(payload1), _pack(payload2)]))
 
+    def _get_llm_executor(self):
+        executor = getattr(self, "_llm_executor", None)
+        if executor is None:
+            executor = LLMExecutor()
+            self._llm_executor = executor
+        return executor
+
     @retry()
-    def similarity_llm_single(self, entity1, entity2):
-        """调用LLM判断两个相似实体是否为同一实体"""
-        self._ensure_disambiguation_runtime_state()
-        disambiguation_config = self._resolve_disambiguation_config()
-        description_max_chars = disambiguation_config["description_max_chars"]
-        cache_key = self._build_similarity_pair_cache_key(
-            entity1,
-            entity2,
-            description_max_chars=description_max_chars,
-        )
-        cached = self._similarity_pair_cache.get(cache_key)
-        if cached is not None:
-            self._similarity_runtime_stats["llm_calls_saved"] += 1
-            return deepcopy(cached)
-
-        entity1_payload = self._build_similarity_prompt_entity(
-            entity1,
-            description_max_chars=description_max_chars,
-        )
-        entity2_payload = self._build_similarity_prompt_entity(
-            entity2,
-            description_max_chars=description_max_chars,
-        )
-
+    def _invoke_similarity_llm_payload(self, payload):
+        entity1_payload = payload.get("entity1", {})
+        entity2_payload = payload.get("entity2", {})
         prompt = ChatPromptTemplate.from_template(get_prompt("entity_similarity"))
         chain = prompt | self.similarity_model
-        result = chain.invoke(
-            {
-                "entity1": entity1_payload,
-                "entity2": entity2_payload,
-            }
-        )
-
-        self._similarity_runtime_stats["llm_calls"] += 1
+        result = chain.invoke(payload)
         parsed_result = parse_similarity_response(result)
-        self._similarity_pair_cache[cache_key] = deepcopy(parsed_result)
 
         debug_logger.debug("-similarity_llm_single-")
         debug_logger.debug(
@@ -537,6 +517,130 @@ class PipelineSimilarityOpsMixin:
             {k: entity2_payload.get(k) for k in ("name", "type")},
             parsed_result,
         )
+        return parsed_result
+
+    def _prepare_similarity_pair_request(
+        self,
+        entity1: dict[str, Any] | None,
+        entity2: dict[str, Any] | None,
+        *,
+        description_max_chars: int,
+    ) -> dict[str, Any]:
+        entity1_payload = self._build_similarity_prompt_entity(
+            entity1,
+            description_max_chars=description_max_chars,
+        )
+        entity2_payload = self._build_similarity_prompt_entity(
+            entity2,
+            description_max_chars=description_max_chars,
+        )
+        return {
+            "cache_key": self._build_similarity_pair_cache_key(
+                entity1,
+                entity2,
+                description_max_chars=description_max_chars,
+            ),
+            "payload": {
+                "entity1": entity1_payload,
+                "entity2": entity2_payload,
+            },
+        }
+
+    @staticmethod
+    def _log_similarity_task_error(task_error, scope_label, pass_label):
+        logger.error(
+            "Error in %s %s disambiguation for pair %s: %s",
+            pass_label,
+            scope_label,
+            task_error.metadata.get("pair"),
+            task_error.traceback_text,
+        )
+
+    def _run_similarity_batch(
+        self,
+        pairs,
+        left_entities,
+        right_entities,
+        *,
+        scope_label,
+        pass_label,
+    ):
+        self._ensure_disambiguation_runtime_state()
+        description_max_chars = self._resolve_disambiguation_config()["description_max_chars"]
+        resolved_results = [None] * len(pairs)
+        pending_specs = []
+        cache_hits = 0
+
+        for idx, (left_id, right_id, _score) in enumerate(pairs):
+            entity1 = left_entities.get(left_id)
+            entity2 = right_entities.get(right_id)
+            request = self._prepare_similarity_pair_request(
+                entity1,
+                entity2,
+                description_max_chars=description_max_chars,
+            )
+            cached = self._similarity_pair_cache.get(request["cache_key"])
+            if cached is not None:
+                resolved_results[idx] = deepcopy(cached)
+                cache_hits += 1
+                continue
+
+            pending_specs.append(
+                {
+                    "index": idx,
+                    "cache_key": request["cache_key"],
+                    "task": LLMTask(
+                        kind="similarity",
+                        payload=request["payload"],
+                        invoke_fn=self._invoke_similarity_llm_payload,
+                        metadata={
+                            "pair": (left_id, right_id),
+                            "scope_label": scope_label,
+                            "pass_label": pass_label,
+                        },
+                    ),
+                }
+            )
+
+        self._similarity_runtime_stats["llm_calls_saved"] += cache_hits
+
+        if pending_specs:
+            task_results = self._get_llm_executor().invoke_batch(
+                [spec["task"] for spec in pending_specs]
+            )
+            for spec, task_result in zip(pending_specs, task_results):
+                if isinstance(task_result, LLMTaskError):
+                    self._log_similarity_task_error(task_result, scope_label, pass_label)
+                    resolved_results[spec["index"]] = task_result
+                    continue
+                self._similarity_pair_cache[spec["cache_key"]] = deepcopy(task_result)
+                resolved_results[spec["index"]] = task_result
+
+            self._similarity_runtime_stats["llm_calls"] += sum(
+                1 for item in task_results if not isinstance(item, LLMTaskError)
+            )
+
+        return resolved_results
+
+    @retry()
+    def similarity_llm_single(self, entity1, entity2):
+        """调用LLM判断两个相似实体是否为同一实体"""
+        self._ensure_disambiguation_runtime_state()
+        disambiguation_config = self._resolve_disambiguation_config()
+        request = self._prepare_similarity_pair_request(
+            entity1,
+            entity2,
+            description_max_chars=disambiguation_config["description_max_chars"],
+        )
+        cache_key = request["cache_key"]
+        cached = self._similarity_pair_cache.get(cache_key)
+        if cached is not None:
+            self._similarity_runtime_stats["llm_calls_saved"] += 1
+            return deepcopy(cached)
+
+        parsed_result = self._invoke_similarity_llm_payload(request["payload"])
+        self._similarity_runtime_stats["llm_calls"] += 1
+        self._similarity_pair_cache[cache_key] = deepcopy(parsed_result)
         return parsed_result
 
     def _run_two_pass_similarity_disambiguation(
@@ -562,57 +666,53 @@ class PipelineSimilarityOpsMixin:
 
         positives = []
         gray_queue = []
-        for left_id, right_id, score in candidates:
-            entity1 = left_entities.get(left_id)
-            entity2 = right_entities.get(right_id)
-            try:
-                result = self.similarity_llm_single(entity1, entity2)
-                
-                # is_boundary = self._is_boundary_candidate(score, threshold, gray_margin)
-                needs_review = result.get("needs_review", False)#  or is_boundary
+        first_pass_results = self._run_similarity_batch(
+            candidates,
+            left_entities,
+            right_entities,
+            scope_label=scope_label,
+            pass_label="first-pass",
+        )
+        for (left_id, right_id, score), result in zip(candidates, first_pass_results):
+            if isinstance(result, LLMTaskError):
+                continue
 
-                if needs_review:
-                    gray_queue.append(
-                        {
-                            "pair": (left_id, right_id),
-                            "similarity_score": score,
-                            "reason": result.get("reason", "unknown"),
-                            "parse_status": result.get("parse_status", "unknown"),
-                            "first_pass_result": result,
-                        }
-                    )
-                    continue
-                
-                if result.get("result", False):
-                    positives.append((left_id, right_id, score))
-            except Exception:
-                logger.error(
-                    "Error processing %s pair (%s, %s): %s",
-                    scope_label,
-                    left_id,
-                    right_id,
-                    traceback.format_exc(),
+            needs_review = result.get("needs_review", False)
+            if needs_review:
+                gray_queue.append(
+                    {
+                        "pair": (left_id, right_id),
+                        "similarity_score": score,
+                        "reason": result.get("reason", "unknown"),
+                        "parse_status": result.get("parse_status", "unknown"),
+                        "first_pass_result": result,
+                    }
                 )
+                continue
+
+            if result.get("result", False):
+                positives.append((left_id, right_id, score))
 
         resolved_by_second_pass = 0
-        for item in gray_queue:
-            left_id, right_id = item["pair"]
-            entity1 = left_entities.get(left_id)
-            entity2 = right_entities.get(right_id)
-            try:
-                second_pass_result = self.similarity_llm_single(entity1, entity2)
-                if second_pass_result.get("result", False):
-                    positives.append((left_id, right_id, item["similarity_score"]))
-                    resolved_by_second_pass += 1
-                item["second_pass_result"] = second_pass_result
-            except Exception:
-                logger.error(
-                    "Error in second-pass %s disambiguation for pair (%s, %s): %s",
-                    scope_label,
-                    left_id,
-                    right_id,
-                    traceback.format_exc(),
-                )
+        second_pass_pairs = [
+            (item["pair"][0], item["pair"][1], item["similarity_score"])
+            for item in gray_queue
+        ]
+        second_pass_results = self._run_similarity_batch(
+            second_pass_pairs,
+            left_entities,
+            right_entities,
+            scope_label=scope_label,
+            pass_label="second-pass",
+        )
+        for item, second_pass_result in zip(gray_queue, second_pass_results):
+            if isinstance(second_pass_result, LLMTaskError):
+                continue
+            if second_pass_result.get("result", False):
+                left_id, right_id = item["pair"]
+                positives.append((left_id, right_id, item["similarity_score"]))
+                resolved_by_second_pass += 1
+            item["second_pass_result"] = second_pass_result
 
         llm_calls_after = int(self._similarity_runtime_stats.get("llm_calls", 0))
         llm_saved_after = int(self._similarity_runtime_stats.get("llm_calls_saved", 0))

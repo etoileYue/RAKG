@@ -24,3 +24,7 @@ USE_OPENAI = True  # Set to True to use OpenAI, False to use Ollama
 # Prompt language used by the main runtime pipeline.
 # Supported values: "zh", "en"
 PROMPT_LANGUAGE = "zh"
+
+# Unified LLM batch execution controls.
+LLM_PARALLEL_ENABLED = False
+LLM_PARALLEL_MAX_WORKERS = 4
