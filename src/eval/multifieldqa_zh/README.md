@@ -8,6 +8,10 @@
 
 `src/eval/multifieldqa_zh/evaluate_multifieldqa_zh.py`
 
+NaiveRAG baseline 脚本：
+
+`src/eval/multifieldqa_zh/evaluate_multifieldqa_zh_naiverag.py`
+
 ## 设计目标
 
 - 把 `build / answer / score` 三个阶段拆开执行，避免 200 条长文本一次性重跑。
@@ -150,3 +154,99 @@ python -m src.eval.multifieldqa_zh.evaluate_multifieldqa_zh score --limit 1 --sk
 ```
 
 确认输出结构无误后，再跑全量。
+
+## NaiveRAG baseline
+
+NaiveRAG baseline 用仓库现有 `src.navieRAG.NaiveRAGAgent` 对每条样本的 `context` 构建普通向量检索索引，再基于 top-k 检索结果生成答案。
+
+默认数据集仍为：
+
+`dataset/longbench/multifieldqa_zh/test.jsonl`
+
+默认输出根目录固定为：
+
+`data/eval/naiveRAG`
+
+### 子命令
+
+NaiveRAG 脚本支持 `build / answer / score / all` 四个子命令：
+
+```bash
+python -m src.eval.multifieldqa_zh.evaluate_multifieldqa_zh_naiverag build
+python -m src.eval.multifieldqa_zh.evaluate_multifieldqa_zh_naiverag answer
+python -m src.eval.multifieldqa_zh.evaluate_multifieldqa_zh_naiverag score --skip-llm-judge
+python -m src.eval.multifieldqa_zh.evaluate_multifieldqa_zh_naiverag all --limit 1 --skip-llm-judge
+```
+
+- `build`：将每条样本 `context` 构建为 NaiveRAG index。
+- `answer`：读取 index，对样本 `input` 执行普通向量检索 RAG 问答。
+- `score`：计算官方中文 F1，并可选执行 answer/retrieval LLM judge。
+- `all`：按 `build -> answer -> score` 顺序跑完整流程。
+
+### NaiveRAG 参数
+
+除公共参数外，NaiveRAG 脚本还支持：
+
+- `--top-k`
+  检索返回数量，默认 `5`。
+- `--skip-llm-judge`
+  仅 `score` 和 `all` 支持；只计算官方中文 F1。
+- `--judge-model-mode`
+  仅 `score` 和 `all` 支持；可选 `answer`、`retrieval`、`both`，默认 `both`。
+
+公共参数与 RAKG 主脚本一致：
+
+- `--dataset-path`
+- `--output-root`
+- `--start`
+- `--end`
+- `--limit`
+- `--force`
+
+### NaiveRAG 输出
+
+默认输出文件：
+
+- `data/eval/naiveRAG/index/{sample_index}.json`
+- `data/eval/naiveRAG/summary/build_manifest.jsonl`
+- `data/eval/naiveRAG/summary/build_summary.json`
+- `data/eval/naiveRAG/result/predictions.jsonl`
+- `data/eval/naiveRAG/summary/answer_summary.json`
+- `data/eval/naiveRAG/result/scored_results.jsonl`
+- `data/eval/naiveRAG/summary/score_summary.json`
+
+`predictions.jsonl` 每行包含：
+
+- `sample_id`
+- `sample_index`
+- `question`
+- `answers`
+- `index_path`
+- `pred_answer`
+- `formatted_answer`
+- `retrieval.context_text`
+- `retrieval.items`
+- `evidence_sources`
+- `llm_output_raw`
+- `status`
+- `updated_at`
+
+`scored_results.jsonl` 会在 prediction 字段基础上增加：
+
+- `official_f1`
+- `answer_judge`，启用 answer judge 时存在
+- `retrieval_judge`，启用 retrieval judge 时存在
+
+### NaiveRAG 推荐最小流程
+
+先用 1 条样本做冒烟，且跳过 LLM judge：
+
+```bash
+python -m src.eval.multifieldqa_zh.evaluate_multifieldqa_zh_naiverag all --limit 1 --skip-llm-judge
+```
+
+需要同时运行 LLM judge 时：
+
+```bash
+python -m src.eval.multifieldqa_zh.evaluate_multifieldqa_zh_naiverag all --top-k 5
+```

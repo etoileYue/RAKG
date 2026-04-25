@@ -1,7 +1,7 @@
 import argparse
 import os
 
-from src.navieRAG import NaiveRAGAgent
+from src.naiveRAG import NaiveRAGAgent
 
 LOG_NAME_ENV_KEY = "RAKG_LOGGER_NAME"
 DEFAULT_LOGGER_NAME = "NaiveRAGIndex"

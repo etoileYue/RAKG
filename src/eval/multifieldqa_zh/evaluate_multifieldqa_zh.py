@@ -103,6 +103,29 @@ def write_jsonl(path: Path, records: Iterable[dict]) -> None:
             handle.write(json.dumps(record, ensure_ascii=False) + "\n")
 
 
+def append_jsonl(path: Path, records: Iterable[dict]) -> int:
+    records = list(records)
+    if not records:
+        return 0
+
+    ensure_dir(path.parent)
+    appended_count = 0
+    if path.exists() and path.stat().st_size > 0:
+        with path.open("rb") as handle:
+            handle.seek(-1, 2)
+            needs_leading_newline = handle.read(1) != b"\n"
+    else:
+        needs_leading_newline = False
+
+    with path.open("a", encoding="utf-8") as handle:
+        if needs_leading_newline:
+            handle.write("\n")
+        for record in records:
+            handle.write(json.dumps(record, ensure_ascii=False) + "\n")
+            appended_count += 1
+    return appended_count
+
+
 def write_json(path: Path, payload: dict) -> None:
     ensure_dir(path.parent)
     with path.open("w", encoding="utf-8") as handle:
@@ -545,6 +568,7 @@ def answer_stage(args) -> dict:
     graphs_dir = output_paths["graphs_dir"]
 
     run_stats = {"selected_count": len(selected_samples), "skipped_count": 0, "success_count": 0, "error_count": 0}
+    appended_records = []
     agent = None
 
     for sample in selected_samples:
@@ -612,6 +636,7 @@ def answer_stage(args) -> dict:
                 }
             )
             existing_predictions[sample["sample_id"]] = base_record
+            appended_records.append(base_record)
             run_stats["success_count"] += 1
         except Exception as exc:
             base_record.update(
@@ -623,10 +648,11 @@ def answer_stage(args) -> dict:
                 }
             )
             existing_predictions[sample["sample_id"]] = base_record
+            appended_records.append(base_record)
             run_stats["error_count"] += 1
 
     prediction_records = sort_records(existing_predictions.values())
-    write_jsonl(output_paths["predictions_path"], prediction_records)
+    appended_count = append_jsonl(output_paths["predictions_path"], appended_records)
 
     summary = {
         "phase": "answer",
@@ -640,6 +666,7 @@ def answer_stage(args) -> dict:
             "seed_top_k": DEFAULT_SEED_TOP_K,
             "max_context_items": DEFAULT_MAX_CONTEXT_ITEMS,
         },
+        "appended_count": appended_count,
         **run_stats,
         "completed_count": sum(1 for record in prediction_records if record.get("status") == "success"),
         "failed_count_total": sum(1 for record in prediction_records if record.get("status") == "error"),
@@ -664,6 +691,7 @@ def score_stage(args) -> dict:
         judge_model = LLMProvider().get_llm()
 
     run_stats = {"selected_count": len(selected_samples), "skipped_count": 0, "success_count": 0, "error_count": 0}
+    appended_records = []
 
     for sample in selected_samples:
         current_record = existing_scored.get(sample["sample_id"])
@@ -716,16 +744,18 @@ def score_stage(args) -> dict:
 
             base_record["status"] = "success"
             existing_scored[sample["sample_id"]] = base_record
+            appended_records.append(base_record)
             run_stats["success_count"] += 1
         except Exception as exc:
             base_record["status"] = "error"
             base_record["error"] = str(exc)
             base_record["traceback"] = traceback.format_exc()
             existing_scored[sample["sample_id"]] = base_record
+            appended_records.append(base_record)
             run_stats["error_count"] += 1
 
     scored_records = sort_records(existing_scored.values())
-    write_jsonl(output_paths["scored_results_path"], scored_records)
+    appended_count = append_jsonl(output_paths["scored_results_path"], appended_records)
 
     f1_values = [float(record.get("official_f1", 0.0)) for record in scored_records]
     answer_judge_values = []
@@ -748,6 +778,7 @@ def score_stage(args) -> dict:
         "skip_llm_judge": bool(args.skip_llm_judge),
         "judge_model_mode": args.judge_model_mode,
         "count": len(scored_records),
+        "appended_count": appended_count,
         "avg_f1": (sum(f1_values) / len(f1_values)) if f1_values else 0.0,
         "answer_judge_accuracy": (
             sum(answer_judge_values) / len(answer_judge_values) if answer_judge_values else None

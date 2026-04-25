@@ -3,7 +3,7 @@ import json
 import os
 from typing import List
 
-from src.navieRAG import NaiveRAGAgent
+from src.naiveRAG import NaiveRAGAgent
 
 PRESET_QUESTIONS = [
     "蝴蝶的生命周期包括哪四个主要阶段？",
