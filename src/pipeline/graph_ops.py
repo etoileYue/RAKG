@@ -128,6 +128,40 @@ class PipelineGraphOpsMixin:
         """
         return load_normalized_graph_data(graph_data)
 
+    def _iter_valid_entity_attributes(
+        self,
+        attributes,
+        *,
+        entity_key,
+        entity_name,
+        phase,
+    ):
+        if attributes is None:
+            return
+        if not isinstance(attributes, list):
+            logger.warning(
+                "Skip malformed central_entity.attributes while %s knowledge graph entity: "
+                "entity_key=%s, entity_name=%s, attributes=%r",
+                phase,
+                entity_key,
+                entity_name,
+                attributes,
+            )
+            return
+        for attr_index, attr in enumerate(attributes):
+            if not isinstance(attr, dict):
+                logger.warning(
+                    "Skip non-dict central_entity.attributes item while %s knowledge graph entity: "
+                    "entity_key=%s, entity_name=%s, attr_index=%s, attr=%r",
+                    phase,
+                    entity_key,
+                    entity_name,
+                    attr_index,
+                    attr,
+                )
+                continue
+            yield attr_index, attr
+
     def _build_existing_entity_lookup(self, existing_graph)->dict:
         """把已有图数据中的实体entities整理成一个“标准化 + 可索引”的查找字典"""
         graph = self._normalize_graph_input(existing_graph)
@@ -257,15 +291,17 @@ class PipelineGraphOpsMixin:
                     "provenance": entity_provenance,
                 }
                 if "attributes" in central_entity:
-                    for attr_index, attr in enumerate(central_entity["attributes"]):
-                        try:
-                            entity["attributes"][attr["key"]] = attr["value"]
-                        except Exception as exc:
-                            raise ValueError(
-                                "Malformed central_entity.attributes item while converting knowledge graph: "
-                                f"entity_key={entity_key}, entity_name={entity_name}, "
-                                f"attr_index={attr_index}, attr={repr(attr)}"
-                            ) from exc
+                    for _, attr in self._iter_valid_entity_attributes(
+                        central_entity["attributes"],
+                        entity_key=entity_key,
+                        entity_name=entity_name,
+                        phase="converting",
+                    ):
+                        key = attr.get("key")
+                        value = attr.get("value")
+                        if key is None or value is None:
+                            continue
+                        entity["attributes"][key] = value
                 entity_registry[entity_name] = entity
             else:
                 existing_entity = entity_registry[entity_name]
@@ -282,19 +318,17 @@ class PipelineGraphOpsMixin:
                     entity_provenance,
                 )
                 if "attributes" in central_entity:
-                    for attr_index, attr in enumerate(central_entity["attributes"]):
-                        try:
-                            key = attr.get("key")
-                            value = attr.get("value")
-                            if key is None or value is None:
-                                continue
-                            existing_entity["attributes"].setdefault(key, value)
-                        except Exception as exc:
-                            raise ValueError(
-                                "Malformed central_entity.attributes item while merging knowledge graph entity: "
-                                f"entity_key={entity_key}, entity_name={entity_name}, "
-                                f"attr_index={attr_index}, attr={repr(attr)}"
-                            ) from exc
+                    for _, attr in self._iter_valid_entity_attributes(
+                        central_entity["attributes"],
+                        entity_key=entity_key,
+                        entity_name=entity_name,
+                        phase="merging",
+                    ):
+                        key = attr.get("key")
+                        value = attr.get("value")
+                        if key is None or value is None:
+                            continue
+                        existing_entity["attributes"].setdefault(key, value)
 
         for entity_key in input_data:
             node_data = input_data.get(entity_key, {})

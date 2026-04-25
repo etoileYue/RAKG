@@ -27,7 +27,7 @@ PROMPT_LANGUAGE = "zh"
 
 # Unified LLM batch execution controls.
 LLM_PARALLEL_ENABLED = True
-LLM_PARALLEL_MAX_WORKERS = 2
+LLM_PARALLEL_MAX_WORKERS = 3
 
 # Entity disambiguation configuration.
 DISAMBIGUATION_SIMILARITY_THRESHOLD = 0.60

@@ -178,6 +178,42 @@ class ContextRetrievalGraphTests(unittest.TestCase):
         self.assertEqual(relation["provenance"]["chunk_ids"], ["c2"])
         self.assertEqual(relation["provenance"]["strategy"], "heuristic_sentence_match")
 
+    def test_convert_knowledge_graph_skips_and_logs_non_dict_attributes(self):
+        input_data = {
+            "entity1": {
+                "central_entity": {
+                    "name": "Alice",
+                    "type": "Person",
+                    "description": "",
+                    "attributes": [
+                        {"key": "role", "value": "engineer"},
+                        "relationships",
+                    ],
+                    "provenance": {"chunk_ids": ["c1"]},
+                    "relationships": [],
+                },
+                "_provenance": {
+                    "entity_chunk_ids": ["c1"],
+                    "candidate_chunk_ids": ["c1"],
+                    "candidate_chunks": {"c1": "Alice profile."},
+                },
+            }
+        }
+
+        with self.assertLogs("AgentLog", level="WARNING") as logs:
+            converted = self.graph_pipeline.convert_knowledge_graph(input_data)
+
+        self.assertEqual(converted["entities"][0]["attributes"], {"role": "engineer"})
+        self.assertTrue(
+            any(
+                "Skip non-dict central_entity.attributes item" in message
+                and "entity_key=entity1" in message
+                and "attr_index=1" in message
+                and "'relationships'" in message
+                for message in logs.output
+            )
+        )
+
 
 if __name__ == "__main__":
     unittest.main()
