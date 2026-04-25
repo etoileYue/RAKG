@@ -33,8 +33,8 @@ python -m src.eval.multifieldqa_zh.evaluate_multifieldqa_zh build --force --limi
 默认输出：
 
 - `data/eval/multifieldqa_zh/graphs/{sample_index}.json`
-- `data/eval/multifieldqa_zh/build_manifest.jsonl`
-- `data/eval/multifieldqa_zh/build_summary.json`
+- `data/eval/multifieldqa_zh/summary/build_manifest.jsonl`
+- `data/eval/multifieldqa_zh/summary/build_summary.json`
 - `data/eval/multifieldqa_zh/build_cache/`
 - `data/eval/multifieldqa_zh/build_cache/checkpoint_state.json`
 
@@ -62,8 +62,8 @@ python -m src.eval.multifieldqa_zh.evaluate_multifieldqa_zh answer --force --sta
 
 默认输出：
 
-- `data/eval/multifieldqa_zh/predictions.jsonl`
-- `data/eval/multifieldqa_zh/answer_summary.json`
+- `data/eval/multifieldqa_zh/result/predictions.jsonl`
+- `data/eval/multifieldqa_zh/summary/answer_summary.json`
 
 `predictions.jsonl` 每行至少包含：
 
@@ -79,7 +79,7 @@ python -m src.eval.multifieldqa_zh.evaluate_multifieldqa_zh answer --force --sta
 
 ### 3. score
 
-基于 `predictions.jsonl` 做自动评分。
+基于 `result/predictions.jsonl` 做自动评分。
 
 包含三类分数：
 
@@ -98,8 +98,8 @@ python -m src.eval.multifieldqa_zh.evaluate_multifieldqa_zh score --judge-model-
 
 默认输出：
 
-- `data/eval/multifieldqa_zh/scored_results.jsonl`
-- `data/eval/multifieldqa_zh/score_summary.json`
+- `data/eval/multifieldqa_zh/result/scored_results.jsonl`
+- `data/eval/multifieldqa_zh/summary/score_summary.json`
 
 `score_summary.json` 至少包含：
 
@@ -128,9 +128,9 @@ python -m src.eval.multifieldqa_zh.evaluate_multifieldqa_zh score --judge-model-
 
 ## 断点续跑语义
 
-- `build`：若 `build_manifest.jsonl` 中该 `sample_id` 已是成功状态，且图文件仍存在，则默认跳过；若图文件已存在但 manifest 缺失，会先回填成功记录；若某条样本上次只完成了部分构图阶段，则根据 `build_cache/checkpoint_state.json` 和对应缓存文件从已完成阶段后继续。对没有 checkpoint 的旧阶段缓存，首次运行也会检测并启用续跑。
-- `answer`：若 `predictions.jsonl` 中该 `sample_id` 已是成功状态，则默认跳过。
-- `score`：若 `scored_results.jsonl` 中该 `sample_id` 已经具备当前请求需要的评分字段，则默认跳过。
+- `build`：若 `summary/build_manifest.jsonl` 中该 `sample_id` 已是成功状态，且图文件仍存在，则默认跳过；若图文件已存在但 manifest 缺失，会先回填成功记录；若某条样本上次只完成了部分构图阶段，则根据 `build_cache/checkpoint_state.json` 和对应缓存文件从已完成阶段后继续。对没有 checkpoint 的旧阶段缓存，首次运行也会检测并启用续跑。
+- `answer`：若 `result/predictions.jsonl` 中该 `sample_id` 已是成功状态，则默认跳过。
+- `score`：若 `result/scored_results.jsonl` 中该 `sample_id` 已经具备当前请求需要的评分字段，则默认跳过。
 - 使用 `--force` 可以覆盖以上跳过逻辑。
 
 ## 依赖说明

@@ -179,15 +179,19 @@ def sort_records(records: Iterable[dict]) -> List[dict]:
 
 
 def resolve_output_paths(output_root: Path) -> dict:
+    summary_dir = output_root / "summary"
+    result_dir = output_root / "result"
     return {
         "output_root": output_root,
         "graphs_dir": output_root / "graphs",
-        "build_manifest_path": output_root / "build_manifest.jsonl",
-        "build_summary_path": output_root / "build_summary.json",
-        "predictions_path": output_root / "predictions.jsonl",
-        "answer_summary_path": output_root / "answer_summary.json",
-        "scored_results_path": output_root / "scored_results.jsonl",
-        "score_summary_path": output_root / "score_summary.json",
+        "summary_dir": summary_dir,
+        "result_dir": result_dir,
+        "build_manifest_path": summary_dir / "build_manifest.jsonl",
+        "build_summary_path": summary_dir / "build_summary.json",
+        "predictions_path": result_dir / "predictions.jsonl",
+        "answer_summary_path": summary_dir / "answer_summary.json",
+        "scored_results_path": result_dir / "scored_results.jsonl",
+        "score_summary_path": summary_dir / "score_summary.json",
         "build_cache_root": output_root / "build_cache",
     }
 

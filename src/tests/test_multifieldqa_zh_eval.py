@@ -182,6 +182,17 @@ class MultiFieldQAZHEvalTests(unittest.TestCase):
     def tearDown(self):
         self.temp_dir.cleanup()
 
+    def test_resolve_output_paths_groups_summary_and_result_files(self):
+        output_root = self.root / "out_paths"
+        paths = mfq.resolve_output_paths(output_root)
+
+        self.assertEqual(paths["build_manifest_path"], output_root / "summary" / "build_manifest.jsonl")
+        self.assertEqual(paths["build_summary_path"], output_root / "summary" / "build_summary.json")
+        self.assertEqual(paths["answer_summary_path"], output_root / "summary" / "answer_summary.json")
+        self.assertEqual(paths["score_summary_path"], output_root / "summary" / "score_summary.json")
+        self.assertEqual(paths["predictions_path"], output_root / "result" / "predictions.jsonl")
+        self.assertEqual(paths["scored_results_path"], output_root / "result" / "scored_results.jsonl")
+
     def test_build_stage_records_success_and_error_and_skips_completed(self):
         output_root = self.root / "out"
         FakeAgent.build_fail_ids = {"s2"}
@@ -200,7 +211,7 @@ class MultiFieldQAZHEvalTests(unittest.TestCase):
             self.assertEqual(summary["success_count"], 1)
             self.assertEqual(summary["error_count"], 1)
 
-            manifest_records = mfq.load_jsonl(output_root / "build_manifest.jsonl")
+            manifest_records = mfq.load_jsonl(output_root / "summary" / "build_manifest.jsonl")
             record_by_id = mfq.index_records_by_sample_id(manifest_records)
             self.assertEqual(record_by_id["s1"]["status"], "success")
             self.assertEqual(record_by_id["s2"]["status"], "error")
@@ -251,7 +262,7 @@ class MultiFieldQAZHEvalTests(unittest.TestCase):
         self.assertEqual(summary["backfilled_manifest_count"], 1)
         self.assertEqual(summary["skipped_count"], 1)
         self.assertEqual(FakeAgent.process_calls, [])
-        manifest_records = mfq.load_jsonl(output_root / "build_manifest.jsonl")
+        manifest_records = mfq.load_jsonl(output_root / "summary" / "build_manifest.jsonl")
         self.assertEqual(manifest_records[0]["sample_id"], "s1")
         self.assertTrue(manifest_records[0]["recovered_from_existing_graph"])
 
@@ -310,7 +321,7 @@ class MultiFieldQAZHEvalTests(unittest.TestCase):
             )
 
         self.assertEqual(summary["success_count"], 1)
-        predictions = mfq.load_jsonl(output_root / "predictions.jsonl")
+        predictions = mfq.load_jsonl(output_root / "result" / "predictions.jsonl")
         self.assertEqual(len(predictions), 1)
         record = predictions[0]
         self.assertEqual(record["sample_id"], "s1")
@@ -351,7 +362,7 @@ class MultiFieldQAZHEvalTests(unittest.TestCase):
                 "status": "success",
             },
         ]
-        mfq.write_jsonl(output_root / "predictions.jsonl", predictions)
+        mfq.write_jsonl(output_root / "result" / "predictions.jsonl", predictions)
 
         fake_jieba = mock.Mock()
         fake_jieba.cut.side_effect = lambda text, cut_all=False: list(text)
@@ -374,7 +385,7 @@ class MultiFieldQAZHEvalTests(unittest.TestCase):
         self.assertEqual(summary["answer_judge_accuracy"], 0.5)
         self.assertEqual(summary["retrieval_judge_accuracy"], 0.0)
 
-        scored = mfq.load_jsonl(output_root / "scored_results.jsonl")
+        scored = mfq.load_jsonl(output_root / "result" / "scored_results.jsonl")
         scored_by_id = mfq.index_records_by_sample_id(scored)
         self.assertEqual(scored_by_id["s1"]["official_f1"], 1.0)
         self.assertEqual(scored_by_id["s1"]["answer_judge"], 1)
@@ -385,7 +396,7 @@ class MultiFieldQAZHEvalTests(unittest.TestCase):
         output_root = self.root / "out_score_skip"
         output_root.mkdir(parents=True, exist_ok=True)
         mfq.write_jsonl(
-            output_root / "predictions.jsonl",
+            output_root / "result" / "predictions.jsonl",
             [
                 {
                     "sample_id": "s1",
@@ -419,7 +430,7 @@ class MultiFieldQAZHEvalTests(unittest.TestCase):
 
         self.assertEqual(summary["answer_judge_accuracy"], None)
         self.assertEqual(summary["retrieval_judge_accuracy"], None)
-        scored = mfq.load_jsonl(output_root / "scored_results.jsonl")
+        scored = mfq.load_jsonl(output_root / "result" / "scored_results.jsonl")
         self.assertNotIn("answer_judge", scored[0])
 
     def test_cli_prints_summary_json(self):
