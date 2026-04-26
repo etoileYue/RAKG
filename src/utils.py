@@ -3,8 +3,6 @@ import logging
 import os
 import re
 import time
-import traceback
-from functools import wraps
 from src.logger import get_logger
 
 LOG_NAME_ENV_KEY = "RAKG_LOGGER_NAME"
@@ -19,6 +17,98 @@ logger = get_logger(
     level=logging.INFO,
     log_file=os.getenv(LOG_FILE_ENV_KEY, DEFAULT_LOGGER_FILE),
 )
+
+
+def _exception_chain(exc):
+    seen = set()
+    stack = [exc]
+    while stack:
+        current = stack.pop()
+        if current is None or id(current) in seen:
+            continue
+        seen.add(id(current))
+        yield current
+        stack.extend(
+            child
+            for child in (
+                getattr(current, "__cause__", None),
+                getattr(current, "__context__", None),
+            )
+            if child is not None
+        )
+
+
+def is_rate_limit_error(exc)->bool:
+    """Return True when an exception chain looks like an API rate-limit failure."""
+    for current in _exception_chain(exc):
+        class_name = current.__class__.__name__.lower()
+        message = str(current).lower()
+        combined = f"{class_name} {message}"
+        if (
+            "ratelimiterror" in class_name
+            or "rate_limit" in combined
+            or "rate limit" in combined
+            or "too many requests" in combined
+            or " 429" in combined
+            or "429:" in combined
+            or "status code: 429" in combined
+        ):
+            return True
+    return False
+
+
+def _summarize_exception(exc)->str:
+    text = str(exc).replace("\n", " ").strip()
+    if len(text) > 300:
+        text = text[:297] + "..."
+    return f"{exc.__class__.__name__}: {text}" if text else exc.__class__.__name__
+
+
+def run_with_rate_limit_retry(
+    callable_fn,
+    *,
+    label,
+    max_retries=8,
+    initial_wait_seconds=30.0,
+    max_wait_seconds=300.0,
+    sleep_fn=None,
+):
+    """
+    Run a callable and retry only rate-limit failures with exponential backoff.
+
+    max_retries is the number of retries after the initial attempt.
+    """
+    if max_retries < 0:
+        raise ValueError("max_retries must be >= 0")
+    if initial_wait_seconds < 0:
+        raise ValueError("initial_wait_seconds must be >= 0")
+    if max_wait_seconds < 0:
+        raise ValueError("max_wait_seconds must be >= 0")
+
+    sleep = sleep_fn or time.sleep
+    attempt = 0
+    while True:
+        try:
+            return callable_fn()
+        except Exception as exc:
+            if not is_rate_limit_error(exc) or attempt >= max_retries:
+                raise
+
+            wait_seconds = min(
+                float(max_wait_seconds),
+                float(initial_wait_seconds) * (2 ** attempt),
+            )
+            attempt += 1
+            logger.warning(
+                "Rate limit encountered for %s; retrying after %.2fs "
+                "(attempt %s/%s). error=%s",
+                label,
+                wait_seconds,
+                attempt,
+                max_retries,
+                _summarize_exception(exc),
+            )
+            sleep(wait_seconds)
 
 
 def validate_json_serializable(data):
@@ -193,58 +283,6 @@ def parse_json_like_response(response):
             except Exception:
                 continue
     return None
-
-
-def retry(max_retries=3, delay=1):
-    def decorator(func):
-        @wraps(func)
-        def wrapper(*args, **kwargs):
-            for attempt in range(max_retries):
-                try:
-                    return func(*args, **kwargs)
-                except Exception as e:
-                    func_name = func.__name__
-
-                    args_str_parts = []
-                    for idx, arg in enumerate(args):
-                        if idx == 0 and hasattr(arg, "__class__"):
-                            args_str_parts.append(f"<{arg.__class__.__name__} object>")
-                        else:
-                            args_str_parts.append(str(arg))
-                    args_str = ", ".join(args_str_parts)
-
-                    kwargs_str = ", ".join([f"{k}={v}" for k, v in kwargs.items()])
-                    params_str = ""
-                    if args_str:
-                        params_str += args_str
-                    if kwargs_str:
-                        if params_str:
-                            params_str += ", "
-                        params_str += kwargs_str
-
-                    if attempt == max_retries - 1:
-                        error_msg = (
-                            f"\n=== Retry failed after {max_retries} attempts ==="
-                            f"\nFunction: {func_name}"
-                            f"\nParams: ({params_str})"
-                            f"\nError type: {type(e).__name__}"
-                            f"\nError: {str(e)}"
-                            f"\nTraceback:\n{traceback.format_exc()}"
-                        )
-                        logger.error(error_msg)
-                        raise
-                    retry_msg = (
-                        f"Retry {attempt + 1}/{max_retries} failed - "
-                        f"Function: {func_name}({params_str}), "
-                        f"Error: {type(e).__name__} - {str(e)}. "
-                        f"Retrying in {delay}s..."
-                    )
-                    logger.warning(retry_msg)
-                    time.sleep(delay)
-
-        return wrapper
-
-    return decorator
 
 
 def parse_similarity_response(resp):

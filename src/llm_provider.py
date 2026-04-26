@@ -18,7 +18,7 @@ class LLMProvider:
                 temperature=0,
                 max_tokens=OPENAI_MAX_TOKENS,
                 extra_body={"enable_thinking": False},
-                # max_retries=3,
+                max_retries=3,
             ).bind(response_format={"type": "json_object"})
             self.embedding_model = OpenAIEmbeddings(
                 model=OPENAI_EMBEDDING_MODEL,
@@ -32,7 +32,7 @@ class LLMProvider:
                 temperature=0,
                 max_tokens=OPENAI_MAX_TOKENS,
                 extra_body={"enable_thinking": False},
-                # max_retries=3,
+                max_retries=3,
             ).bind(response_format={"type": "json_object"})
         else:
             # 使用 Ollama 模型

@@ -5,7 +5,12 @@ from io import StringIO
 from pathlib import Path
 from unittest import mock
 
+from src import utils
 from src.eval.multifieldqa_zh import evaluate_multifieldqa_zh as mfq
+
+
+class RateLimitError(RuntimeError):
+    pass
 
 
 class DummyResponse:
@@ -14,13 +19,17 @@ class DummyResponse:
 
 
 class FakeJudgeModel:
-    def __init__(self, answer_result=1, retrieval_result=1):
+    def __init__(self, answer_result=1, retrieval_result=1, rate_limit_once=False):
         self.answer_result = answer_result
         self.retrieval_result = retrieval_result
+        self.rate_limit_once = rate_limit_once
         self.prompts = []
 
     def invoke(self, prompt):
         self.prompts.append(prompt)
+        if self.rate_limit_once:
+            self.rate_limit_once = False
+            raise RateLimitError("rate limit exceeded")
         if "检索上下文" in prompt:
             return DummyResponse(json.dumps({"result": self.retrieval_result}, ensure_ascii=False))
         if "完全不同" in prompt:
@@ -39,9 +48,15 @@ class FakeProvider:
 class FakeAgent:
     CHECKPOINT_FILE_NAME = "checkpoint_state.json"
     build_fail_ids = set()
+    build_rate_limit_once_ids = set()
+    build_rate_limit_seen_ids = set()
     answer_fail_ids = set()
+    answer_rate_limit_once_stems = set()
+    answer_rate_limit_seen_stems = set()
     prepare_calls = []
     process_calls = []
+    answer_calls = []
+    clear_calls = []
 
     def __init__(self):
         self.current_graph_path = None
@@ -103,6 +118,12 @@ class FakeAgent:
         self.process_calls.append(
             {"topic": topic_data["topic"], "idx": idx, "kwargs": kwargs}
         )
+        if (
+            topic_data["topic"] in self.build_rate_limit_once_ids
+            and topic_data["topic"] not in self.build_rate_limit_seen_ids
+        ):
+            self.build_rate_limit_seen_ids.add(topic_data["topic"])
+            raise RateLimitError("RateLimitError: too many requests")
         if topic_data["topic"] in self.build_fail_ids:
             raise RuntimeError("build failed")
         graph_path = Path(graph_output_dir) / f"{idx}.json"
@@ -125,9 +146,16 @@ class FakeAgent:
 
     def answer_question_with_kg(self, question, cache_key=None, **kwargs):
         graph_path = str(self.current_graph_path)
+        sample_name = Path(graph_path).stem
+        self.answer_calls.append({"question": question, "graph_path": graph_path, "kwargs": kwargs})
+        if (
+            sample_name in self.answer_rate_limit_once_stems
+            and sample_name not in self.answer_rate_limit_seen_stems
+        ):
+            self.answer_rate_limit_seen_stems.add(sample_name)
+            raise RateLimitError("429 rate limit")
         if "fail-answer" in graph_path:
             raise RuntimeError("answer failed")
-        sample_name = Path(graph_path).stem
         return {
             "answer": f"预测答案-{sample_name}",
             "formatted_answer": f"答案：预测答案-{sample_name}",
@@ -143,6 +171,7 @@ class FakeAgent:
         }
 
     def clear_qa_graph_index(self, cache_key=None):
+        self.clear_calls.append(cache_key)
         self.current_graph_path = None
 
 
@@ -151,9 +180,15 @@ class MultiFieldQAZHEvalTests(unittest.TestCase):
         self.temp_dir = tempfile.TemporaryDirectory()
         self.root = Path(self.temp_dir.name)
         FakeAgent.build_fail_ids = set()
+        FakeAgent.build_rate_limit_once_ids = set()
+        FakeAgent.build_rate_limit_seen_ids = set()
         FakeAgent.answer_fail_ids = set()
+        FakeAgent.answer_rate_limit_once_stems = set()
+        FakeAgent.answer_rate_limit_seen_stems = set()
         FakeAgent.prepare_calls = []
         FakeAgent.process_calls = []
+        FakeAgent.answer_calls = []
+        FakeAgent.clear_calls = []
         self.dataset_path = self.root / "test.jsonl"
         rows = [
             {
@@ -236,6 +271,81 @@ class MultiFieldQAZHEvalTests(unittest.TestCase):
             self.assertEqual(summary_second["error_count"], 1)
             self.assertTrue(summary_second["checkpoint_loaded"])
             self.assertTrue(summary_second["auto_resume"])
+
+    def test_build_stage_retries_rate_limit_error_and_succeeds(self):
+        output_root = self.root / "out_build_retry"
+        FakeAgent.build_rate_limit_once_ids = {"s1"}
+
+        with mock.patch.object(mfq, "NER_Agent", FakeAgent):
+            summary = mfq.main(
+                [
+                    "build",
+                    "--dataset-path",
+                    str(self.dataset_path),
+                    "--output-root",
+                    str(output_root),
+                    "--limit",
+                    "1",
+                    "--rate-limit-initial-wait",
+                    "0",
+                ]
+            )
+
+        self.assertEqual(summary["success_count"], 1)
+        self.assertEqual(summary["error_count"], 0)
+        self.assertEqual(len(FakeAgent.process_calls), 2)
+        manifest_records = mfq.load_jsonl(output_root / "summary" / "build_manifest.jsonl")
+        self.assertEqual(manifest_records[0]["status"], "success")
+
+    def test_rate_limit_retry_uses_exponential_backoff(self):
+        waits = []
+        calls = {"count": 0}
+
+        def flaky_call():
+            calls["count"] += 1
+            if calls["count"] < 3:
+                raise RateLimitError("rate limit")
+            return "ok"
+
+        result = utils.run_with_rate_limit_retry(
+            flaky_call,
+            label="unit-test",
+            max_retries=3,
+            initial_wait_seconds=1.5,
+            max_wait_seconds=10.0,
+            sleep_fn=waits.append,
+        )
+
+        self.assertEqual(result, "ok")
+        self.assertEqual(waits, [1.5, 3.0])
+        self.assertEqual(calls["count"], 3)
+
+    def test_non_rate_limit_error_is_not_retried(self):
+        output_root = self.root / "out_build_no_retry"
+        FakeAgent.build_fail_ids = {"s1"}
+
+        with mock.patch.object(mfq, "NER_Agent", FakeAgent):
+            summary = mfq.main(
+                [
+                    "build",
+                    "--dataset-path",
+                    str(self.dataset_path),
+                    "--output-root",
+                    str(output_root),
+                    "--limit",
+                    "1",
+                    "--rate-limit-max-retries",
+                    "3",
+                    "--rate-limit-initial-wait",
+                    "0",
+                ]
+            )
+
+        self.assertEqual(summary["success_count"], 0)
+        self.assertEqual(summary["error_count"], 1)
+        self.assertEqual(len(FakeAgent.process_calls), 1)
+        manifest_records = mfq.load_jsonl(output_root / "summary" / "build_manifest.jsonl")
+        self.assertEqual(manifest_records[0]["status"], "error")
 
     def test_build_stage_backfills_manifest_from_existing_graph(self):
         output_root = self.root / "out_existing_graph"
@@ -331,6 +441,44 @@ class MultiFieldQAZHEvalTests(unittest.TestCase):
         self.assertIn("context_text", record["retrieval"])
         self.assertEqual(record["status"], "success")
 
+    def test_answer_stage_retries_rate_limit_error_and_clears_index(self):
+        output_root = self.root / "out_answer_retry"
+        FakeAgent.answer_rate_limit_once_stems = {"0"}
+
+        with mock.patch.object(mfq, "NER_Agent", FakeAgent):
+            mfq.main(
+                [
+                    "build",
+                    "--dataset-path",
+                    str(self.dataset_path),
+                    "--output-root",
+                    str(output_root),
+                    "--limit",
+                    "1",
+                ]
+            )
+            summary = mfq.main(
+                [
+                    "answer",
+                    "--dataset-path",
+                    str(self.dataset_path),
+                    "--output-root",
+                    str(output_root),
+                    "--limit",
+                    "1",
+                    "--rate-limit-initial-wait",
+                    "0",
+                ]
+            )
+
+        self.assertEqual(summary["success_count"], 1)
+        self.assertEqual(summary["error_count"], 0)
+        self.assertEqual(len(FakeAgent.answer_calls), 2)
+        self.assertEqual(len(FakeAgent.clear_calls), 2)
+        predictions = mfq.load_jsonl(output_root / "result" / "predictions.jsonl")
+        self.assertEqual(predictions[0]["status"], "success")
+        self.assertEqual(predictions[0]["pred_answer"], "预测答案-0")
+
     def test_score_stage_uses_max_reference_f1_and_optional_judges(self):
         output_root = self.root / "out_score"
         ensure = output_root.mkdir(parents=True, exist_ok=True)
@@ -391,6 +539,54 @@ class MultiFieldQAZHEvalTests(unittest.TestCase):
         self.assertEqual(scored_by_id["s1"]["answer_judge"], 1)
         self.assertEqual(scored_by_id["s1"]["retrieval_judge"], 0)
         self.assertEqual(scored_by_id["s2"]["retrieval_judge"], 0)
+
+    def test_score_stage_retries_rate_limited_judge_call(self):
+        output_root = self.root / "out_score_retry"
+        output_root.mkdir(parents=True, exist_ok=True)
+        mfq.write_jsonl(
+            output_root / "result" / "predictions.jsonl",
+            [
+                {
+                    "sample_id": "s1",
+                    "sample_index": 0,
+                    "question": "问题1",
+                    "answers": ["预测答案-0"],
+                    "pred_answer": "预测答案-0",
+                    "formatted_answer": "答案：预测答案-0",
+                    "graph_path": "/tmp/0.json",
+                    "graph_paths": ["path-0"],
+                    "retrieval": {"context_text": "证据-0", "evidence_items": []},
+                    "status": "success",
+                }
+            ],
+        )
+
+        fake_jieba = mock.Mock()
+        fake_jieba.cut.side_effect = lambda text, cut_all=False: list(text)
+        judge_model = FakeJudgeModel(answer_result=1, retrieval_result=1, rate_limit_once=True)
+
+        with mock.patch.object(mfq, "_get_jieba", return_value=fake_jieba):
+            with mock.patch.object(mfq, "LLMProvider", return_value=FakeProvider(judge_model)):
+                summary = mfq.main(
+                    [
+                        "score",
+                        "--dataset-path",
+                        str(self.dataset_path),
+                        "--output-root",
+                        str(output_root),
+                        "--limit",
+                        "1",
+                        "--rate-limit-initial-wait",
+                        "0",
+                    ]
+                )
+
+        self.assertEqual(summary["success_count"], 1)
+        self.assertEqual(summary["error_count"], 0)
+        self.assertEqual(len(judge_model.prompts), 3)
+        scored = mfq.load_jsonl(output_root / "result" / "scored_results.jsonl")
+        self.assertEqual(scored[0]["answer_judge"], 1)
+        self.assertEqual(scored[0]["retrieval_judge"], 1)
 
     def test_score_stage_can_skip_llm_judges(self):
         output_root = self.root / "out_score_skip"

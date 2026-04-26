@@ -12,7 +12,7 @@ from typing import Dict, Iterable, List, Optional
 
 from src.kgAgent import NER_Agent
 from src.llm_provider import LLMProvider
-from src.utils import parse_json_like_response
+from src.utils import parse_json_like_response, run_with_rate_limit_retry
 
 
 DEFAULT_DATASET_PATH = "dataset/longbench/multifieldqa_zh/test.jsonl"
@@ -432,6 +432,15 @@ def invoke_binary_judge(model, prompt: str) -> int:
     return parse_binary_result(parsed)
 
 
+def rate_limit_retry_kwargs(args, label: str) -> dict:
+    return {
+        "label": label,
+        "max_retries": args.rate_limit_max_retries,
+        "initial_wait_seconds": args.rate_limit_initial_wait,
+        "max_wait_seconds": args.rate_limit_max_wait,
+    }
+
+
 def build_stage(args) -> dict:
     dataset_path = Path(args.dataset_path)
     output_paths = resolve_output_paths(Path(args.output_root))
@@ -493,17 +502,20 @@ def build_stage(args) -> dict:
 
     for sample in pending_samples:
         try:
-            result = agent.process(
-                topic_data={"topic": sample["sample_id"], "content": sample["context"]},
-                idx=sample["sample_index"],
-                total_topics=len(samples),
-                ner_output_dir=str(ner_output_dir),
-                rel_output_dir=str(rel_output_dir),
-                sim_output_dir=str(sim_output_dir),
-                graph_output_dir=str(output_paths["graphs_dir"]),
-                checkpoint_state=checkpoint_state,
-                checkpoint_path=checkpoint_path,
-                auto_resume=auto_resume,
+            result = run_with_rate_limit_retry(
+                lambda: agent.process(
+                    topic_data={"topic": sample["sample_id"], "content": sample["context"]},
+                    idx=sample["sample_index"],
+                    total_topics=len(samples),
+                    ner_output_dir=str(ner_output_dir),
+                    rel_output_dir=str(rel_output_dir),
+                    sim_output_dir=str(sim_output_dir),
+                    graph_output_dir=str(output_paths["graphs_dir"]),
+                    checkpoint_state=checkpoint_state,
+                    checkpoint_path=checkpoint_path,
+                    auto_resume=auto_resume,
+                ),
+                **rate_limit_retry_kwargs(args, f"build sample {sample['sample_id']}"),
             )
             record = build_base_record(sample)
             record.update(
@@ -612,17 +624,24 @@ def answer_stage(args) -> dict:
                 agent = NER_Agent()
 
             cache_key = f"multifieldqa_zh:{sample['sample_id']}"
-            try:
-                agent.initialize_qa_graph_index(graph_path, cache_key=cache_key, force_rebuild=True)
-                result = agent.answer_question_with_kg(
-                    question=sample["question"],
-                    cache_key=cache_key,
-                    max_hop=DEFAULT_MAX_HOP,
-                    seed_top_k=DEFAULT_SEED_TOP_K,
-                    max_context_items=DEFAULT_MAX_CONTEXT_ITEMS,
-                )
-            finally:
-                agent.clear_qa_graph_index(cache_key)
+
+            def answer_attempt():
+                try:
+                    agent.initialize_qa_graph_index(graph_path, cache_key=cache_key, force_rebuild=True)
+                    return agent.answer_question_with_kg(
+                        question=sample["question"],
+                        cache_key=cache_key,
+                        max_hop=DEFAULT_MAX_HOP,
+                        seed_top_k=DEFAULT_SEED_TOP_K,
+                        max_context_items=DEFAULT_MAX_CONTEXT_ITEMS,
+                    )
+                finally:
+                    agent.clear_qa_graph_index(cache_key)
+
+            result = run_with_rate_limit_retry(
+                answer_attempt,
+                **rate_limit_retry_kwargs(args, f"answer sample {sample['sample_id']}"),
+            )
 
             base_record.update(
                 {
@@ -727,7 +746,10 @@ def score_stage(args) -> dict:
                         answers=json.dumps(sample["answers"], ensure_ascii=False),
                         prediction=pred_answer,
                     )
-                    base_record["answer_judge"] = invoke_binary_judge(judge_model, prompt)
+                    base_record["answer_judge"] = run_with_rate_limit_retry(
+                        lambda: invoke_binary_judge(judge_model, prompt),
+                        **rate_limit_retry_kwargs(args, f"answer judge sample {sample['sample_id']}"),
+                    )
                 else:
                     base_record["answer_judge"] = 0
 
@@ -738,7 +760,10 @@ def score_stage(args) -> dict:
                         answers=json.dumps(sample["answers"], ensure_ascii=False),
                         context=context_text,
                     )
-                    base_record["retrieval_judge"] = invoke_binary_judge(judge_model, prompt)
+                    base_record["retrieval_judge"] = run_with_rate_limit_retry(
+                        lambda: invoke_binary_judge(judge_model, prompt),
+                        **rate_limit_retry_kwargs(args, f"retrieval judge sample {sample['sample_id']}"),
+                    )
                 else:
                     base_record["retrieval_judge"] = 0
 
@@ -805,6 +830,24 @@ def build_parser() -> argparse.ArgumentParser:
         subparser.add_argument("--end", type=int, default=None, help="Exclusive dataset row end index.")
         subparser.add_argument("--limit", type=int, default=None, help="Maximum number of samples after slicing.")
         subparser.add_argument("--force", action="store_true", help="Re-run selected samples even if already completed.")
+        subparser.add_argument(
+            "--rate-limit-max-retries",
+            type=int,
+            default=8,
+            help="Maximum retries for rate-limit errors after the initial attempt.",
+        )
+        subparser.add_argument(
+            "--rate-limit-initial-wait",
+            type=float,
+            default=30.0,
+            help="Initial wait in seconds before retrying rate-limit errors.",
+        )
+        subparser.add_argument(
+            "--rate-limit-max-wait",
+            type=float,
+            default=300.0,
+            help="Maximum wait in seconds between rate-limit retries.",
+        )
 
     build_parser_cmd = subparsers.add_parser("build", help="Build a graph for each sample context.")
     add_common_arguments(build_parser_cmd)

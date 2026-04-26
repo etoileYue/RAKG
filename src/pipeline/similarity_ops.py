@@ -30,6 +30,7 @@
 """
 
 import re
+import traceback
 from copy import deepcopy
 from typing import Any
 
@@ -43,7 +44,6 @@ from src.llm_executor import LLMTaskError
 from src import config as app_config
 from src.prompt import get_prompt
 from src.utils import parse_similarity_response
-from src.utils import retry
 from src.utils import safe_embed_documents
 from src.pipeline.shared import debug_logger
 from src.pipeline.shared import logger
@@ -528,7 +528,6 @@ class PipelineSimilarityOpsMixin:
             self._llm_executor = executor
         return executor
 
-    @retry()
     def _invoke_similarity_llm_payload(self, payload):
         entity1_payload = payload.get("entity1", {})
         entity2_payload = payload.get("entity2", {})
@@ -659,7 +658,6 @@ class PipelineSimilarityOpsMixin:
 
         return resolved_results
 
-    @retry()
     def similarity_llm_single(self, entity1, entity2):
         """调用LLM判断两个相似实体是否为同一实体"""
         self._ensure_disambiguation_runtime_state()
@@ -675,7 +673,20 @@ class PipelineSimilarityOpsMixin:
             self._similarity_runtime_stats["llm_calls_saved"] += 1
             return deepcopy(cached)
 
-        parsed_result = self._invoke_similarity_llm_payload(request["payload"])
+        try:
+            parsed_result = self._invoke_similarity_llm_payload(request["payload"])
+        except Exception as exc:
+            entity1_payload = request["payload"].get("entity1", {})
+            entity2_payload = request["payload"].get("entity2", {})
+            logger.error(
+                "similarity_llm_single failed: entity1=%s entity2=%s error_type=%s error=%s\nTraceback:\n%s",
+                {k: entity1_payload.get(k) for k in ("name", "type")},
+                {k: entity2_payload.get(k) for k in ("name", "type")},
+                type(exc).__name__,
+                str(exc),
+                traceback.format_exc(),
+            )
+            raise
         self._similarity_runtime_stats["llm_calls"] += 1
         self._similarity_pair_cache[cache_key] = deepcopy(parsed_result)
         return parsed_result
