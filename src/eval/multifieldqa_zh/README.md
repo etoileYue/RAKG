@@ -18,7 +18,7 @@ NaiveRAG baseline 脚本：
 
 - 把 `build / answer / score` 三个阶段拆开执行，避免 200 条长文本一次性重跑。
 - `build` 仍按原始 200 篇文本构图或建索引；`answer` 和 `score` 默认按扩展 QA 集评测。
-- `answer` / `score` 按 `qa_id` 增量续跑，已完成问答自动跳过。
+- `answer` / `score` 按内部唯一 `qa_id` 增量续跑，已完成问答自动跳过。
 - 支持 `--start` / `--end` / `--limit` 只跑局部样本。
 - 单条样本失败不会中断整批任务，错误会落盘到结果文件。
 
@@ -38,7 +38,7 @@ python -m src.eval.multifieldqa_zh.evaluate_multifieldqa_zh answer
 python -m src.eval.multifieldqa_zh.evaluate_multifieldqa_zh score --skip-llm-judge
 ```
 
-`--dataset-path` 指原始文本 JSONL，用于 `build` 找到 `context` 并产出 `{sample_index}.json` 图文件；`--qa-dataset-path` 指 QA 级 JSONL，用于 `answer` 和 `score` 读取多个 `qa_id`。扩展 QA 记录通过 `source_sample_id/source_sample_index` 映射回原始文本级 build 产物。
+`--dataset-path` 指原始文本 JSONL，用于 `build` 找到 `context` 并产出 `{sample_index}.json` 图文件；`--qa-dataset-path` 指按原始样本分组的扩展 QA JSONL，用于 `answer` 和 `score` 读取多个问答。读取器会把样本内短 `qa_id` 展开成 `{source_sample_index}:{qa_id}`，并通过 `source_sample_index` 复用同一份图或 index。
 
 ## 三个子命令
 
@@ -96,7 +96,6 @@ python -m src.eval.multifieldqa_zh.evaluate_multifieldqa_zh answer \
 `predictions.jsonl` 每行至少包含：
 
 - `qa_id`
-- `source_sample_id`
 - `source_sample_index`
 - `qa_source`
 - `sample_id`
@@ -166,7 +165,7 @@ python -m src.eval.multifieldqa_zh.evaluate_multifieldqa_zh score \
 `answer` 和 `score` 还支持：
 
 - `--qa-dataset-path`
-  默认 `data/multifieldqa_zh/expanded_qa.jsonl`。该文件每行是一条 QA，主键为 `qa_id`，并通过 `source_sample_id/source_sample_index` 指向原始文本。
+  默认 `data/multifieldqa_zh/expanded_qa.jsonl`。该文件每行是一条原始样本，内部 `qa_pairs` 使用样本内短 `qa_id`；读取时会合成 `{source_sample_index}:{qa_id}` 作为续跑主键。
 
 ## 断点续跑语义
 
@@ -306,7 +305,6 @@ python -m src.eval.multifieldqa_zh.evaluate_multifieldqa_zh_naiverag answer \
 `predictions.jsonl` 每行包含：
 
 - `qa_id`
-- `source_sample_id`
 - `source_sample_index`
 - `qa_source`
 - `sample_id`

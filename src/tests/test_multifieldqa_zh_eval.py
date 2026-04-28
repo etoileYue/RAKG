@@ -448,22 +448,26 @@ class MultiFieldQAZHEvalTests(unittest.TestCase):
             qa_dataset_path,
             [
                 {
-                    "qa_id": "s1#gen001",
-                    "source_sample_id": "s1",
                     "source_sample_index": 0,
-                    "question": "生成问题1",
-                    "answers": ["预测答案-0"],
-                    "qa_source": "generated",
-                    "evidence": "上下文1",
-                },
-                {
-                    "qa_id": "s1#original",
-                    "source_sample_id": "s1",
-                    "source_sample_index": 0,
-                    "question": "问题1",
-                    "answers": ["错误答案"],
-                    "qa_source": "original",
-                    "evidence": "",
+                    "length": 100,
+                    "dataset": "multifieldqa_zh",
+                    "language": "zh",
+                    "qa_pairs": [
+                        {
+                            "qa_id": "0",
+                            "question": "问题1",
+                            "answers": ["错误答案"],
+                            "qa_source": "original",
+                            "evidence": "",
+                        },
+                        {
+                            "qa_id": "1",
+                            "question": "生成问题1",
+                            "answers": ["预测答案-0"],
+                            "qa_source": "generated",
+                            "evidence": "上下文1",
+                        },
+                    ],
                 },
             ],
         )
@@ -511,15 +515,15 @@ class MultiFieldQAZHEvalTests(unittest.TestCase):
         self.assertEqual(answer_summary["success_count"], 2)
         self.assertEqual(score_summary["count"], 2)
         predictions = mfq.load_jsonl(output_root / "result" / "predictions.jsonl")
-        self.assertEqual([record["qa_id"] for record in predictions], ["s1#gen001", "s1#original"])
+        self.assertEqual([record["qa_id"] for record in predictions], ["0:0", "0:1"])
         self.assertEqual({record["source_sample_index"] for record in predictions}, {0})
         self.assertTrue(all(record["graph_path"].endswith("/graphs/0.json") for record in predictions))
         self.assertEqual([call["graph_path"] for call in FakeAgent.answer_calls], [str(output_root / "graphs" / "0.json")] * 2)
 
         scored = mfq.load_jsonl(output_root / "result" / "scored_results.jsonl")
         scored_by_id = mfq.index_records_by_qa_or_sample_id(scored)
-        self.assertEqual(scored_by_id["s1#gen001"]["official_f1"], 1.0)
-        self.assertEqual(scored_by_id["s1#original"]["qa_source"], "original")
+        self.assertEqual(scored_by_id["0:1"]["official_f1"], 1.0)
+        self.assertEqual(scored_by_id["0:0"]["qa_source"], "original")
 
     def test_answer_stage_retries_rate_limit_error_and_clears_index(self):
         output_root = self.root / "out_answer_retry"

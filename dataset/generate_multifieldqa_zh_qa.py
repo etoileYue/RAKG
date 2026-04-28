@@ -7,7 +7,7 @@ import json
 import sys
 from datetime import datetime
 from pathlib import Path
-from typing import Iterable, List, Optional
+from typing import Dict, Iterable, List, Optional, Tuple
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 if str(PROJECT_ROOT) not in sys.path:
@@ -71,6 +71,10 @@ def coerce_answers(raw_answers) -> List[str]:
         return [str(item).strip() for item in raw_answers if str(item).strip()]
     text = str(raw_answers).strip()
     return [text] if text else []
+
+
+def normalize_text(value) -> str:
+    return "".join(str(value or "").strip().split())
 
 
 def load_input_samples(path: Path) -> List[dict]:
@@ -141,36 +145,76 @@ def write_json(path: Path, payload: dict) -> None:
         json.dump(payload, handle, ensure_ascii=False, indent=2)
 
 
-def build_original_record(sample: dict) -> dict:
+def build_original_qa_pair(sample: dict) -> dict:
     return {
-        "qa_id": f"{sample['source_sample_id']}#original",
-        "source_sample_id": sample["source_sample_id"],
-        "source_sample_index": sample["source_sample_index"],
+        "qa_id": "0",
         "question": sample["question"],
         "answers": sample["answers"],
         "qa_source": "original",
         "evidence": "",
+    }
+
+
+def build_group_record(sample: dict, qa_pairs: Iterable[dict]) -> dict:
+    return {
+        "source_sample_index": sample["source_sample_index"],
         "length": sample.get("length"),
         "dataset": sample.get("dataset"),
         "language": sample.get("language"),
         "all_classes": sample.get("all_classes"),
+        "qa_pairs": assign_qa_ids(qa_pairs),
     }
 
 
-def add_original_qa_pairs(samples: Iterable[dict], records: Iterable[dict]) -> List[dict]:
-    """Return records with one original QA record per source sample, without duplicates."""
+def qa_pair_from_record(record: dict) -> dict:
+    return {
+        "qa_id": str(record.get("qa_id", "")).strip(),
+        "question": str(record.get("question") or record.get("input") or "").strip(),
+        "answers": coerce_answers(record.get("answers") or record.get("answer")),
+        "qa_source": str(record.get("qa_source") or ("original" if "qa_id" not in record else "generated")),
+        "evidence": str(record.get("evidence", "")).strip(),
+    }
 
-    merged = {}
-    for record in records:
-        qa_id = str(record.get("qa_id", "")).strip()
-        if qa_id:
-            merged[qa_id] = dict(record)
 
-    for sample in samples:
-        original = build_original_record(sample)
-        merged.setdefault(original["qa_id"], original)
+def assign_qa_ids(qa_pairs: Iterable[dict]) -> List[dict]:
+    normalized_pairs = []
+    for pair in qa_pairs:
+        normalized_pairs.append(
+            {
+                "qa_id": str(pair.get("qa_id", "")).strip(),
+                "question": str(pair.get("question", "")).strip(),
+                "answers": coerce_answers(pair.get("answers") or pair.get("answer")),
+                "qa_source": str(pair.get("qa_source") or "generated"),
+                "evidence": str(pair.get("evidence", "")).strip(),
+            }
+        )
 
-    return sort_records(merged.values())
+    def sort_key(item: dict) -> Tuple[int, str]:
+        return (
+            0 if item.get("qa_source") == "original" else 1,
+            str(item.get("qa_id", "")),
+        )
+
+    ordered = sorted(normalized_pairs, key=sort_key)
+    for index, pair in enumerate(ordered):
+        pair["qa_id"] = str(index)
+    return ordered
+
+
+def ensure_original_qa_pair(sample: dict, group: dict) -> dict:
+    qa_pairs = list(group.get("qa_pairs") or [])
+    original = build_original_qa_pair(sample)
+    existing_original_index = next(
+        (idx for idx, pair in enumerate(qa_pairs) if pair.get("qa_source") == "original"),
+        None,
+    )
+    if existing_original_index is None:
+        qa_pairs.insert(0, original)
+    else:
+        qa_pairs[existing_original_index] = original
+
+    updated = build_group_record(sample, qa_pairs)
+    return updated
 
 
 def build_generation_prompt(sample: dict, qa_count: int) -> str:
@@ -209,65 +253,76 @@ def validate_generated_pair(pair: dict, context: str) -> Optional[dict]:
     question = str(pair.get("question", "")).strip()
     answer = str(pair.get("answer", "")).strip()
     evidence = str(pair.get("evidence", "")).strip()
-    if not question or not answer or not evidence:
-        return None
-    if evidence not in context:
-        return None
-    if answer not in context:
+    if not question or not answer:
         return None
     return {"question": question, "answer": answer, "evidence": evidence}
 
 
-def build_generated_record(sample: dict, pair: dict, sequence_number: int) -> dict:
+def build_generated_qa_pair(pair: dict) -> dict:
     return {
-        "qa_id": f"{sample['source_sample_id']}#gen{sequence_number:03d}",
-        "source_sample_id": sample["source_sample_id"],
-        "source_sample_index": sample["source_sample_index"],
+        "qa_id": "",
         "question": pair["question"],
         "answers": [pair["answer"]],
         "qa_source": "generated",
         "evidence": pair["evidence"],
-        "length": sample.get("length"),
-        "dataset": sample.get("dataset"),
-        "language": sample.get("language"),
-        "all_classes": sample.get("all_classes"),
     }
 
 
-def generate_records_for_sample(model, sample: dict, qa_count: int) -> tuple[List[dict], dict]:
+def qa_duplicate_keys(qa_pairs: Iterable[dict]) -> set[Tuple[str, str]]:
+    keys = set()
+    for pair in qa_pairs:
+        question_key = normalize_text(pair.get("question", ""))
+        for answer in coerce_answers(pair.get("answers") or pair.get("answer")):
+            answer_key = normalize_text(answer)
+            if question_key and answer_key:
+                keys.add((question_key, answer_key))
+    return keys
+
+
+def generate_qa_pairs_for_sample(
+    model,
+    sample: dict,
+    qa_count: int,
+    existing_pairs: Iterable[dict],
+) -> tuple[List[dict], dict]:
     prompt = build_generation_prompt(sample, qa_count)
     response = model.invoke(prompt)
     raw_pairs = parse_qa_generation_response(response)
 
-    records = []
+    qa_pairs = []
     invalid_count = 0
-    seen_questions = {sample.get("question", "").strip()}
-    seen_answers = set()
+    unmatched_answer_count = 0
+    unmatched_evidence_count = 0
+    seen_pairs = qa_duplicate_keys(existing_pairs)
     for pair in raw_pairs:
         valid_pair = validate_generated_pair(pair, sample["context"])
         if valid_pair is None:
             invalid_count += 1
             continue
-        duplicate_key = (valid_pair["question"], valid_pair["answer"])
-        if valid_pair["question"] in seen_questions or duplicate_key in seen_answers:
+        duplicate_key = (normalize_text(valid_pair["question"]), normalize_text(valid_pair["answer"]))
+        if duplicate_key in seen_pairs:
             invalid_count += 1
             continue
-        seen_questions.add(valid_pair["question"])
-        seen_answers.add(duplicate_key)
-        records.append(build_generated_record(sample, valid_pair, len(records) + 1))
-        if len(records) >= qa_count:
+        seen_pairs.add(duplicate_key)
+        if valid_pair["answer"] not in sample["context"]:
+            unmatched_answer_count += 1
+        if valid_pair["evidence"] and valid_pair["evidence"] not in sample["context"]:
+            unmatched_evidence_count += 1
+        qa_pairs.append(build_generated_qa_pair(valid_pair))
+        if len(qa_pairs) >= qa_count:
             break
 
     stats = {
-        "source_sample_id": sample["source_sample_id"],
         "source_sample_index": sample["source_sample_index"],
         "requested_count": qa_count,
         "raw_count": len(raw_pairs),
-        "valid_count": len(records),
+        "valid_count": len(qa_pairs),
         "invalid_count": invalid_count,
-        "shortfall": max(0, qa_count - len(records)),
+        "unmatched_answer_count": unmatched_answer_count,
+        "unmatched_evidence_count": unmatched_evidence_count,
+        "shortfall": max(0, qa_count - len(qa_pairs)),
     }
-    return records, stats
+    return qa_pairs, stats
 
 
 def sort_records(records: Iterable[dict]) -> List[dict]:
@@ -275,9 +330,63 @@ def sort_records(records: Iterable[dict]) -> List[dict]:
         records,
         key=lambda record: (
             int(record.get("source_sample_index", record.get("sample_index", 10**12))),
-            str(record.get("qa_id", "")),
         ),
     )
+
+
+def normalize_existing_groups(records: Iterable[dict], samples: Iterable[dict]) -> Dict[int, dict]:
+    sample_by_index = {int(sample["source_sample_index"]): sample for sample in samples}
+    grouped: Dict[int, dict] = {}
+
+    for fallback_index, record in enumerate(records):
+        source_sample_index = int(record.get("source_sample_index", record.get("sample_index", fallback_index)))
+        sample = sample_by_index.get(
+            source_sample_index,
+            {
+                "source_sample_index": source_sample_index,
+                "length": record.get("length"),
+                "dataset": record.get("dataset", "multifieldqa_zh"),
+                "language": record.get("language", "zh"),
+                "all_classes": record.get("all_classes"),
+                "question": "",
+                "answers": [],
+            },
+        )
+        current = grouped.get(source_sample_index)
+        if current is None:
+            current = build_group_record(sample, [])
+            grouped[source_sample_index] = current
+
+        if isinstance(record.get("qa_pairs"), list):
+            current["qa_pairs"].extend(record.get("qa_pairs") or [])
+        else:
+            current["qa_pairs"].append(qa_pair_from_record(record))
+
+    for source_sample_index, group in list(grouped.items()):
+        sample = sample_by_index.get(
+            source_sample_index,
+            {
+                "source_sample_index": source_sample_index,
+                "length": group.get("length"),
+                "dataset": group.get("dataset", "multifieldqa_zh"),
+                "language": group.get("language", "zh"),
+                "all_classes": group.get("all_classes"),
+                "question": "",
+                "answers": [],
+            },
+        )
+        grouped[source_sample_index] = build_group_record(sample, group.get("qa_pairs") or [])
+    return grouped
+
+
+def count_generated_pairs(group: Optional[dict]) -> int:
+    if not group:
+        return 0
+    return sum(1 for pair in group.get("qa_pairs", []) if pair.get("qa_source") == "generated")
+
+
+def count_total_qa_pairs(groups: Iterable[dict]) -> int:
+    return sum(len(group.get("qa_pairs") or []) for group in groups)
 
 
 def rate_limit_retry_kwargs(args, label: str) -> dict:
@@ -296,67 +405,119 @@ def run_generation(args) -> dict:
 
     samples = load_input_samples(input_path)
     selected_samples = select_samples(samples, start=args.start, end=args.end, limit=args.limit)
-    existing_records = [] if args.force else read_jsonl(output_path)
-    record_by_id = {
-        str(record.get("qa_id")): record
-        for record in existing_records
-        if str(record.get("qa_id", "")).strip()
-    }
+    existing_records = read_jsonl(output_path)
+    grouped_records = normalize_existing_groups(existing_records, samples)
+    selected_indices = {int(sample["source_sample_index"]) for sample in selected_samples}
+    if args.force:
+        for source_sample_index in selected_indices:
+            grouped_records.pop(source_sample_index, None)
 
-    model = LLMProvider().get_llm() if selected_samples else None
-    generated_records = []
+    model = None
+    generated_count = 0
     per_sample_stats = []
 
-    for sample in selected_samples:
-        missing_ids = [
-            f"{sample['source_sample_id']}#gen{idx:03d}"
-            for idx in range(1, args.qa_count + 1)
-            if f"{sample['source_sample_id']}#gen{idx:03d}" not in record_by_id
-        ]
-        if not args.force and not missing_ids:
+    print(
+        "MultiFieldQA-ZH QA generation started: "
+        f"input={input_path} output={output_path} summary={summary_path} "
+        f"total_samples={len(samples)} selected={len(selected_samples)} "
+        f"qa_count={args.qa_count} force={bool(args.force)}"
+    )
+
+    for offset, sample in enumerate(selected_samples, start=1):
+        source_sample_index = int(sample["source_sample_index"])
+        group = ensure_original_qa_pair(
+            sample,
+            grouped_records.get(source_sample_index) or build_group_record(sample, []),
+        )
+        grouped_records[source_sample_index] = group
+        existing_generated_count = count_generated_pairs(group)
+        missing_count = max(0, args.qa_count - existing_generated_count)
+        print(
+            f"[{offset}/{len(selected_samples)}] source_sample_index={source_sample_index} "
+            f"existing_generated={existing_generated_count} missing={missing_count}"
+        )
+
+        if not args.force and missing_count == 0:
+            print(
+                f"[{offset}/{len(selected_samples)}] skip "
+                f"source_sample_index={source_sample_index} generated={existing_generated_count}"
+            )
             per_sample_stats.append(
                 {
-                    "source_sample_id": sample["source_sample_id"],
                     "source_sample_index": sample["source_sample_index"],
                     "requested_count": args.qa_count,
                     "raw_count": 0,
-                    "valid_count": args.qa_count,
+                    "valid_count": 0,
                     "invalid_count": 0,
+                    "unmatched_answer_count": 0,
+                    "unmatched_evidence_count": 0,
                     "shortfall": 0,
                     "skipped_existing": True,
                 }
             )
             continue
 
-        records, stats = run_with_rate_limit_retry(
-            lambda sample=sample: generate_records_for_sample(model, sample, args.qa_count),
-            **rate_limit_retry_kwargs(args, f"generate QA for {sample['source_sample_id']}"),
+        existing_pairs = group.get("qa_pairs") or []
+        if model is None:
+            model = LLMProvider().get_llm()
+        qa_pairs, stats = run_with_rate_limit_retry(
+            lambda sample=sample, existing_pairs=existing_pairs, missing_count=missing_count: generate_qa_pairs_for_sample(
+                model,
+                sample,
+                missing_count,
+                existing_pairs,
+            ),
+            **rate_limit_retry_kwargs(args, f"generate QA for sample index {source_sample_index}"),
         )
-        for record in records:
-            record_by_id[record["qa_id"]] = record
-        generated_records.extend(records)
+        merged_pairs = list(existing_pairs) + qa_pairs
+        grouped_records[source_sample_index] = build_group_record(sample, merged_pairs)
+        generated_count += len(qa_pairs)
         per_sample_stats.append(stats)
+        print(
+            f"[{offset}/{len(selected_samples)}] generate "
+            f"source_sample_index={source_sample_index} raw={stats['raw_count']} "
+            f"valid={stats['valid_count']} invalid={stats['invalid_count']} "
+            f"unmatched_answer={stats['unmatched_answer_count']} "
+            f"unmatched_evidence={stats['unmatched_evidence_count']} "
+            f"shortfall={stats['shortfall']}"
+        )
 
-    merged_records = add_original_qa_pairs(selected_samples, record_by_id.values())
+    merged_records = sort_records(grouped_records.values())
     write_jsonl(output_path, merged_records)
+    total_qa_count = count_total_qa_pairs(merged_records)
 
     summary = {
         "phase": "generate_multifieldqa_zh_qa",
         "input_path": str(input_path.resolve()),
         "output_path": str(output_path.resolve()),
         "selected_count": len(selected_samples),
+        "total_sample_count": len(samples),
         "qa_count": args.qa_count,
         "force": bool(args.force),
         "existing_count": len(existing_records),
-        "generated_count": len(generated_records),
-        "original_count": sum(1 for record in merged_records if record.get("qa_source") == "original"),
-        "total_count": len(merged_records),
+        "generated_count": generated_count,
+        "original_count": sum(
+            1
+            for record in merged_records
+            for pair in record.get("qa_pairs", [])
+            if pair.get("qa_source") == "original"
+        ),
+        "total_count": total_qa_count,
+        "group_count": len(merged_records),
         "shortfall_count": sum(int(item.get("shortfall", 0)) for item in per_sample_stats),
+        "invalid_count": sum(int(item.get("invalid_count", 0)) for item in per_sample_stats),
+        "unmatched_answer_count": sum(int(item.get("unmatched_answer_count", 0)) for item in per_sample_stats),
+        "unmatched_evidence_count": sum(int(item.get("unmatched_evidence_count", 0)) for item in per_sample_stats),
         "range": {"start": args.start, "end": args.end, "limit": args.limit},
         "samples": per_sample_stats,
         "updated_at": utc_timestamp(),
     }
     write_json(summary_path, summary)
+    print(
+        "MultiFieldQA-ZH QA generation finished: "
+        f"generated={generated_count} total_qa={total_qa_count} "
+        f"output={output_path} summary={summary_path}"
+    )
     return summary
 
 

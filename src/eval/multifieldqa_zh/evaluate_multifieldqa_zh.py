@@ -175,6 +175,40 @@ def load_qa_dataset(qa_dataset_path: Path) -> List[dict]:
             if not text:
                 continue
             raw = json.loads(text)
+            if isinstance(raw.get("qa_pairs"), list):
+                source_sample_index = int(raw.get("source_sample_index", raw.get("sample_index", qa_index)))
+                source_sample_id = str(
+                    raw.get("source_sample_id")
+                    or raw.get("_id")
+                    or raw.get("sample_id")
+                    or source_sample_index
+                )
+                for pair in raw.get("qa_pairs") or []:
+                    short_qa_id = str(pair.get("qa_id", len(qa_samples))).strip()
+                    qa_id = f"{source_sample_index}:{short_qa_id}"
+                    qa_source = pair.get("qa_source")
+                    if qa_source is None:
+                        qa_source = "original" if short_qa_id == "0" else "generated"
+                    qa_samples.append(
+                        {
+                            "qa_id": qa_id,
+                            "qa_index": len(qa_samples),
+                            "sample_id": source_sample_id,
+                            "sample_index": source_sample_index,
+                            "source_sample_id": source_sample_id,
+                            "source_sample_index": source_sample_index,
+                            "question": str(pair.get("question") or pair.get("input") or ""),
+                            "answers": coerce_answers(pair.get("answers") or pair.get("answer")),
+                            "qa_source": qa_source,
+                            "evidence": str(pair.get("evidence", "")),
+                            "length": raw.get("length"),
+                            "dataset": raw.get("dataset", "multifieldqa_zh"),
+                            "language": raw.get("language", "zh"),
+                            "all_classes": raw.get("all_classes"),
+                        }
+                    )
+                continue
+
             source_sample_index = int(raw.get("source_sample_index", raw.get("sample_index", qa_index)))
             source_sample_id = str(
                 raw.get("source_sample_id")
@@ -209,11 +243,13 @@ def load_qa_dataset(qa_dataset_path: Path) -> List[dict]:
 
 def resolve_qa_dataset_path(args) -> Path:
     requested_path = getattr(args, "qa_dataset_path", DEFAULT_QA_DATASET_PATH)
+    dataset_path = Path(args.dataset_path)
+    if requested_path == DEFAULT_QA_DATASET_PATH and str(dataset_path) != DEFAULT_DATASET_PATH:
+        return dataset_path
     qa_dataset_path = Path(requested_path)
     if qa_dataset_path.exists():
         return qa_dataset_path
     if requested_path == DEFAULT_QA_DATASET_PATH:
-        dataset_path = Path(args.dataset_path)
         if dataset_path.exists():
             return dataset_path
     return qa_dataset_path

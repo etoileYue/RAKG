@@ -189,22 +189,41 @@ class NaiveRAGMultiFieldQAZHEvalTests(unittest.TestCase):
             qa_dataset_path,
             [
                 {
-                    "qa_id": "s1#gen001",
-                    "source_sample_id": "s1",
                     "source_sample_index": 0,
-                    "question": "生成问题1",
-                    "answers": ["预测答案-0"],
-                    "qa_source": "generated",
-                    "evidence": "上下文1",
+                    "length": 100,
+                    "dataset": "multifieldqa_zh",
+                    "language": "zh",
+                    "qa_pairs": [
+                        {
+                            "qa_id": "1",
+                            "question": "生成问题1",
+                            "answers": ["预测答案-0"],
+                            "qa_source": "generated",
+                            "evidence": "上下文1",
+                        },
+                        {
+                            "qa_id": "2",
+                            "question": "生成问题2",
+                            "answers": ["预测答案-0"],
+                            "qa_source": "generated",
+                            "evidence": "上下文1",
+                        },
+                    ],
                 },
                 {
-                    "qa_id": "s1#gen002",
-                    "source_sample_id": "s1",
-                    "source_sample_index": 0,
-                    "question": "生成问题2",
-                    "answers": ["预测答案-0"],
-                    "qa_source": "generated",
-                    "evidence": "上下文1",
+                    "source_sample_index": 1,
+                    "length": 200,
+                    "dataset": "multifieldqa_zh",
+                    "language": "zh",
+                    "qa_pairs": [
+                        {
+                            "qa_id": "1",
+                            "question": "另一个样本的生成问题",
+                            "answers": ["预测答案-1"],
+                            "qa_source": "generated",
+                            "evidence": "上下文2",
+                        }
+                    ],
                 },
             ],
         )
@@ -217,8 +236,6 @@ class NaiveRAGMultiFieldQAZHEvalTests(unittest.TestCase):
                     str(self.dataset_path),
                     "--output-root",
                     str(output_root),
-                    "--limit",
-                    "1",
                 ]
             )
             summary = naive_mfq.main(
@@ -244,13 +261,16 @@ class NaiveRAGMultiFieldQAZHEvalTests(unittest.TestCase):
                 ]
             )
 
-        self.assertEqual(summary["success_count"], 2)
-        self.assertEqual(second_summary["skipped_count"], 2)
-        self.assertEqual(len(FakeNaiveRAGAgent.answer_calls), 2)
-        self.assertEqual({Path(call["index_input"]).name for call in FakeNaiveRAGAgent.answer_calls}, {"0.json"})
+        self.assertEqual(summary["success_count"], 3)
+        self.assertEqual(second_summary["skipped_count"], 3)
+        self.assertEqual(len(FakeNaiveRAGAgent.answer_calls), 3)
+        self.assertEqual(
+            [Path(call["index_input"]).name for call in FakeNaiveRAGAgent.answer_calls],
+            ["0.json", "0.json", "1.json"],
+        )
         predictions = naive_mfq.load_jsonl(output_root / "result" / "predictions.jsonl")
-        self.assertEqual([record["qa_id"] for record in predictions], ["s1#gen001", "s1#gen002"])
-        self.assertEqual({record["source_sample_id"] for record in predictions}, {"s1"})
+        self.assertEqual([record["qa_id"] for record in predictions], ["0:1", "0:2", "1:1"])
+        self.assertEqual({record["source_sample_index"] for record in predictions}, {0, 1})
 
     def test_score_stage_uses_max_reference_f1_and_can_skip_llm_judge(self):
         output_root = self.root / "out_score"

@@ -89,7 +89,7 @@ python dataset/download_longbench_subsets.py \
 
 ## MultiFieldQA-ZH 扩展问答生成
 
-`dataset/generate_multifieldqa_zh_qa.py` 会读取原始 MultiFieldQA-ZH 文本，为每篇 `context` 额外生成问答对，并把原始数据集自带问答合并到同一个 QA 级 JSONL。
+`dataset/generate_multifieldqa_zh_qa.py` 会读取原始 MultiFieldQA-ZH 文本，为每篇 `context` 额外生成问答对，并把原始数据集自带问答合并到同一个按样本分组的 JSONL。
 
 默认路径：
 
@@ -107,24 +107,38 @@ python dataset/generate_multifieldqa_zh_qa.py --limit 1
 
 - `--qa-count`：每篇文本新增生成问答数，默认 `9`；原始问答会额外合并，因此默认每篇最多 10 条。
 - `--start` / `--end` / `--limit`：按原始文本行号切片。
-- `--force`：重写目标范围内记录。
+- `--force`：重新生成目标范围内记录。
 - `--rate-limit-max-retries` / `--rate-limit-initial-wait` / `--rate-limit-max-wait`：LLM 限流重试参数。
 
 输出 schema：
 
 ```json
 {
-  "qa_id": "sample-id#gen001",
-  "source_sample_id": "sample-id",
   "source_sample_index": 0,
-  "question": "问题",
-  "answers": ["答案"],
-  "qa_source": "generated",
-  "evidence": "原文证据片段"
+  "length": 9593,
+  "dataset": "multifieldqa_zh",
+  "language": "zh",
+  "all_classes": null,
+  "qa_pairs": [
+    {
+      "qa_id": "0",
+      "question": "原始问题",
+      "answers": ["原始答案"],
+      "qa_source": "original",
+      "evidence": ""
+    },
+    {
+      "qa_id": "1",
+      "question": "生成问题",
+      "answers": ["生成答案"],
+      "qa_source": "generated",
+      "evidence": "模型给出的证据"
+    }
+  ]
 }
 ```
 
-原始问答记录使用 `qa_id={source_sample_id}#original`、`qa_source=original`。生成问答要求 `answer` 和 `evidence` 都能在原文中逐字定位；校验失败的问答会被丢弃，并在 summary 的 `shortfall_count` 和逐样本统计中记录。
+每行对应一条原始样本，不再输出 `source_sample_id`。`qa_id` 仅在样本内唯一，`"0"` 固定为原始问答，生成问答从 `"1"` 递增。生成问答只会因空 `question`、空答案或重复问答被丢弃；`answer` 或 `evidence` 未在原文中逐字出现时仍会保留，并在 summary 的 `unmatched_answer_count`、`unmatched_evidence_count`、`shortfall_count` 和逐样本统计中记录。
 
 自检：
 
