@@ -2,7 +2,9 @@
 
 这个目录提供 LongBench `multifieldqa_zh` 的分阶段评测入口，默认面向：
 
-`dataset/longbench/multifieldqa_zh/test.jsonl`
+原始文本：`data/multifieldqa_zh/test.jsonl`
+
+扩展问答：`data/multifieldqa_zh/expanded_qa.jsonl`
 
 主脚本：
 
@@ -15,9 +17,28 @@ NaiveRAG baseline 脚本：
 ## 设计目标
 
 - 把 `build / answer / score` 三个阶段拆开执行，避免 200 条长文本一次性重跑。
-- 默认按 `sample_id` 增量续跑，已完成样本自动跳过。
+- `build` 仍按原始 200 篇文本构图或建索引；`answer` 和 `score` 默认按扩展 QA 集评测。
+- `answer` / `score` 按 `qa_id` 增量续跑，已完成问答自动跳过。
 - 支持 `--start` / `--end` / `--limit` 只跑局部样本。
 - 单条样本失败不会中断整批任务，错误会落盘到结果文件。
+
+## 推荐流程
+
+先生成扩展问答集：
+
+```bash
+python dataset/generate_multifieldqa_zh_qa.py
+```
+
+再按阶段运行：
+
+```bash
+python -m src.eval.multifieldqa_zh.evaluate_multifieldqa_zh build
+python -m src.eval.multifieldqa_zh.evaluate_multifieldqa_zh answer
+python -m src.eval.multifieldqa_zh.evaluate_multifieldqa_zh score --skip-llm-judge
+```
+
+`--dataset-path` 指原始文本 JSONL，用于 `build` 找到 `context` 并产出 `{sample_index}.json` 图文件；`--qa-dataset-path` 指 QA 级 JSONL，用于 `answer` 和 `score` 读取多个 `qa_id`。扩展 QA 记录通过 `source_sample_id/source_sample_index` 映射回原始文本级 build 产物。
 
 ## 三个子命令
 
@@ -48,7 +69,7 @@ python -m src.eval.multifieldqa_zh.evaluate_multifieldqa_zh build --force --limi
 
 ### 2. answer
 
-基于已构好的图，对每条 `input` 执行 RAKG 问答。
+基于已构好的图，对扩展 QA 集中的每条 `question` 执行 RAKG 问答。
 
 当前固定 QA 参数：
 
@@ -62,6 +83,9 @@ python -m src.eval.multifieldqa_zh.evaluate_multifieldqa_zh build --force --limi
 python -m src.eval.multifieldqa_zh.evaluate_multifieldqa_zh answer
 python -m src.eval.multifieldqa_zh.evaluate_multifieldqa_zh answer --limit 1
 python -m src.eval.multifieldqa_zh.evaluate_multifieldqa_zh answer --force --start 0 --end 10
+python -m src.eval.multifieldqa_zh.evaluate_multifieldqa_zh answer \
+  --dataset-path data/multifieldqa_zh/test.jsonl \
+  --qa-dataset-path data/multifieldqa_zh/expanded_qa.jsonl
 ```
 
 默认输出：
@@ -71,6 +95,10 @@ python -m src.eval.multifieldqa_zh.evaluate_multifieldqa_zh answer --force --sta
 
 `predictions.jsonl` 每行至少包含：
 
+- `qa_id`
+- `source_sample_id`
+- `source_sample_index`
+- `qa_source`
 - `sample_id`
 - `question`
 - `answers`
@@ -98,6 +126,9 @@ python -m src.eval.multifieldqa_zh.evaluate_multifieldqa_zh score
 python -m src.eval.multifieldqa_zh.evaluate_multifieldqa_zh score --skip-llm-judge
 python -m src.eval.multifieldqa_zh.evaluate_multifieldqa_zh score --judge-model-mode answer
 python -m src.eval.multifieldqa_zh.evaluate_multifieldqa_zh score --judge-model-mode retrieval
+python -m src.eval.multifieldqa_zh.evaluate_multifieldqa_zh score \
+  --qa-dataset-path data/multifieldqa_zh/expanded_qa.jsonl \
+  --skip-llm-judge
 ```
 
 默认输出：
@@ -113,12 +144,14 @@ python -m src.eval.multifieldqa_zh.evaluate_multifieldqa_zh score --judge-model-
 - `retrieval_judge_accuracy`
 - `error_count`
 
+其中 `count` 表示已评分问答条数，不再表示原始文本条数。
+
 ## 公共参数
 
 三个子命令都支持：
 
 - `--dataset-path`
-  默认 `dataset/longbench/multifieldqa_zh/test.jsonl`
+  默认 `data/multifieldqa_zh/test.jsonl`。`build` 使用它读取原始文本；`answer`/`score` 只用它定位 build manifest 和兼容旧流程。
 - `--output-root`
   默认 `data/eval/multifieldqa_zh`
 - `--start`
@@ -130,11 +163,16 @@ python -m src.eval.multifieldqa_zh.evaluate_multifieldqa_zh score --judge-model-
 - `--force`
   关闭跳过逻辑，强制重跑目标范围
 
+`answer` 和 `score` 还支持：
+
+- `--qa-dataset-path`
+  默认 `data/multifieldqa_zh/expanded_qa.jsonl`。该文件每行是一条 QA，主键为 `qa_id`，并通过 `source_sample_id/source_sample_index` 指向原始文本。
+
 ## 断点续跑语义
 
 - `build`：若 `summary/build_manifest.jsonl` 中该 `sample_id` 已是成功状态，且图文件仍存在，则默认跳过；若图文件已存在但 manifest 缺失，会先回填成功记录；若某条样本上次只完成了部分构图阶段，则根据 `build_cache/checkpoint_state.json` 和对应缓存文件从已完成阶段后继续。对没有 checkpoint 的旧阶段缓存，首次运行也会检测并启用续跑。
-- `answer`：若 `result/predictions.jsonl` 中该 `sample_id` 已是成功状态，则默认跳过。
-- `score`：若 `result/scored_results.jsonl` 中该 `sample_id` 已经具备当前请求需要的评分字段，则默认跳过。
+- `answer`：若 `result/predictions.jsonl` 中该 `qa_id` 已是成功状态，则默认跳过。
+- `score`：若 `result/scored_results.jsonl` 中该 `qa_id` 已经具备当前请求需要的评分字段，则默认跳过。
 - 使用 `--force` 可以覆盖以上跳过逻辑。
 
 ## 结果分析与可视化
@@ -188,6 +226,7 @@ python -m src.eval.multifieldqa_zh.analyze_results \
 先用 1 条样本做冒烟：
 
 ```bash
+python dataset/generate_multifieldqa_zh_qa.py --limit 1
 python -m src.eval.multifieldqa_zh.evaluate_multifieldqa_zh build --limit 1
 python -m src.eval.multifieldqa_zh.evaluate_multifieldqa_zh answer --limit 1
 python -m src.eval.multifieldqa_zh.evaluate_multifieldqa_zh score --limit 1 --skip-llm-judge
@@ -197,11 +236,15 @@ python -m src.eval.multifieldqa_zh.evaluate_multifieldqa_zh score --limit 1 --sk
 
 ## NaiveRAG baseline
 
-NaiveRAG baseline 用仓库现有 `src.navieRAG.NaiveRAGAgent` 对每条样本的 `context` 构建普通向量检索索引，再基于 top-k 检索结果生成答案。
+NaiveRAG baseline 用仓库现有 `src.naiveRAG.NaiveRAGAgent` 对每条样本的 `context` 构建普通向量检索索引，再基于 top-k 检索结果生成答案。
 
-默认数据集仍为：
+默认原始文本为：
 
-`dataset/longbench/multifieldqa_zh/test.jsonl`
+`data/multifieldqa_zh/test.jsonl`
+
+默认扩展问答集为：
+
+`data/multifieldqa_zh/expanded_qa.jsonl`
 
 默认输出根目录固定为：
 
@@ -216,10 +259,13 @@ python -m src.eval.multifieldqa_zh.evaluate_multifieldqa_zh_naiverag build
 python -m src.eval.multifieldqa_zh.evaluate_multifieldqa_zh_naiverag answer
 python -m src.eval.multifieldqa_zh.evaluate_multifieldqa_zh_naiverag score --skip-llm-judge
 python -m src.eval.multifieldqa_zh.evaluate_multifieldqa_zh_naiverag all --limit 1 --skip-llm-judge
+python -m src.eval.multifieldqa_zh.evaluate_multifieldqa_zh_naiverag answer \
+  --dataset-path data/multifieldqa_zh/test.jsonl \
+  --qa-dataset-path data/multifieldqa_zh/expanded_qa.jsonl
 ```
 
 - `build`：将每条样本 `context` 构建为 NaiveRAG index。
-- `answer`：读取 index，对样本 `input` 执行普通向量检索 RAG 问答。
+- `answer`：读取 index，对扩展 QA 集中的 `question` 执行普通向量检索 RAG 问答。
 - `score`：计算官方中文 F1，并可选执行 answer/retrieval LLM judge。
 - `all`：按 `build -> answer -> score` 顺序跑完整流程。
 
@@ -229,6 +275,8 @@ python -m src.eval.multifieldqa_zh.evaluate_multifieldqa_zh_naiverag all --limit
 
 - `--top-k`
   检索返回数量，默认 `5`。
+- `--qa-dataset-path`
+  `answer`、`score` 和 `all` 支持；默认 `data/multifieldqa_zh/expanded_qa.jsonl`。
 - `--skip-llm-judge`
   仅 `score` 和 `all` 支持；只计算官方中文 F1。
 - `--judge-model-mode`
@@ -257,6 +305,10 @@ python -m src.eval.multifieldqa_zh.evaluate_multifieldqa_zh_naiverag all --limit
 
 `predictions.jsonl` 每行包含：
 
+- `qa_id`
+- `source_sample_id`
+- `source_sample_index`
+- `qa_source`
 - `sample_id`
 - `sample_index`
 - `question`
@@ -282,6 +334,7 @@ python -m src.eval.multifieldqa_zh.evaluate_multifieldqa_zh_naiverag all --limit
 先用 1 条样本做冒烟，且跳过 LLM judge：
 
 ```bash
+python dataset/generate_multifieldqa_zh_qa.py --limit 1
 python -m src.eval.multifieldqa_zh.evaluate_multifieldqa_zh_naiverag all --limit 1 --skip-llm-judge
 ```
 

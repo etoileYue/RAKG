@@ -10,16 +10,20 @@ from typing import List, Optional
 
 from src.eval.multifieldqa_zh.evaluate_multifieldqa_zh import (
     ANSWER_JUDGE_PROMPT,
+    DEFAULT_QA_DATASET_PATH,
     RETRIEVAL_JUDGE_PROMPT,
     build_base_record,
     build_error_record,
     ensure_dir,
+    index_records_by_qa_or_sample_id,
     index_records_by_sample_id,
     invoke_binary_judge,
     load_dataset,
     load_jsonl,
+    load_qa_dataset,
     max_qa_f1_zh_score,
     needs_score_work,
+    resolve_qa_dataset_path,
     select_samples,
     sort_records,
     utc_timestamp,
@@ -30,7 +34,7 @@ from src.llm_provider import LLMProvider
 from src.naiveRAG import NaiveRAGAgent
 
 
-DEFAULT_DATASET_PATH = "dataset/longbench/multifieldqa_zh/test.jsonl"
+DEFAULT_DATASET_PATH = "data/multifieldqa_zh/test.jsonl"
 DEFAULT_OUTPUT_ROOT = "data/eval/naiveRAG"
 DEFAULT_TOP_K = 5
 
@@ -179,27 +183,31 @@ def build_stage(args) -> dict:
 
 def answer_stage(args) -> dict:
     dataset_path = Path(args.dataset_path)
+    qa_dataset_path = resolve_qa_dataset_path(args)
     output_paths = resolve_output_paths(Path(args.output_root))
-    samples = load_dataset(dataset_path)
+    samples = load_qa_dataset(qa_dataset_path)
     selected_samples = select_samples(samples, start=args.start, end=args.end, limit=args.limit)
 
-    existing_predictions = index_records_by_sample_id(load_jsonl(output_paths["predictions_path"]))
+    existing_predictions = index_records_by_qa_or_sample_id(load_jsonl(output_paths["predictions_path"]))
     manifest_records = index_records_by_sample_id(load_jsonl(output_paths["build_manifest_path"]))
 
     run_stats = {"selected_count": len(selected_samples), "skipped_count": 0, "success_count": 0, "error_count": 0}
     agent = None
 
     for sample in selected_samples:
-        current_record = existing_predictions.get(sample["sample_id"])
+        record_id = str(sample.get("qa_id") or sample["sample_id"])
+        current_record = existing_predictions.get(record_id)
         if not args.force and is_answer_complete(current_record):
             run_stats["skipped_count"] += 1
             continue
 
-        manifest_record = manifest_records.get(sample["sample_id"], {})
+        source_sample_id = str(sample.get("source_sample_id", sample["sample_id"]))
+        source_sample_index = int(sample.get("source_sample_index", sample["sample_index"]))
+        manifest_record = manifest_records.get(source_sample_id, {})
         index_path = str(
             Path(
                 manifest_record.get("index_path")
-                or build_index_path(output_paths, sample)
+                or (output_paths["index_dir"] / f"{source_sample_index}.json")
             ).resolve()
         )
 
@@ -248,7 +256,7 @@ def answer_stage(args) -> dict:
                     "updated_at": utc_timestamp(),
                 }
             )
-            existing_predictions[sample["sample_id"]] = base_record
+            existing_predictions[record_id] = base_record
             run_stats["success_count"] += 1
         except Exception as exc:
             base_record.update(
@@ -259,7 +267,7 @@ def answer_stage(args) -> dict:
                     "updated_at": utc_timestamp(),
                 }
             )
-            existing_predictions[sample["sample_id"]] = base_record
+            existing_predictions[record_id] = base_record
             run_stats["error_count"] += 1
 
     prediction_records = sort_records(existing_predictions.values())
@@ -268,6 +276,7 @@ def answer_stage(args) -> dict:
     summary = {
         "phase": "answer",
         "dataset_path": str(dataset_path.resolve()),
+        "qa_dataset_path": str(qa_dataset_path.resolve()),
         "predictions_path": str(output_paths["predictions_path"].resolve()),
         "manifest_path": str(output_paths["build_manifest_path"].resolve()),
         "range": {"start": args.start, "end": args.end, "limit": args.limit},
@@ -285,10 +294,11 @@ def answer_stage(args) -> dict:
 def score_stage(args) -> dict:
     output_paths = resolve_output_paths(Path(args.output_root))
     prediction_records = load_jsonl(output_paths["predictions_path"])
-    prediction_map = index_records_by_sample_id(prediction_records)
-    samples = load_dataset(Path(args.dataset_path))
+    prediction_map = index_records_by_qa_or_sample_id(prediction_records)
+    qa_dataset_path = resolve_qa_dataset_path(args)
+    samples = load_qa_dataset(qa_dataset_path)
     selected_samples = select_samples(samples, start=args.start, end=args.end, limit=args.limit)
-    existing_scored = index_records_by_sample_id(load_jsonl(output_paths["scored_results_path"]))
+    existing_scored = index_records_by_qa_or_sample_id(load_jsonl(output_paths["scored_results_path"]))
 
     need_answer_judge = (not args.skip_llm_judge) and args.judge_model_mode in {"answer", "both"}
     need_retrieval_judge = (not args.skip_llm_judge) and args.judge_model_mode in {"retrieval", "both"}
@@ -299,12 +309,13 @@ def score_stage(args) -> dict:
     run_stats = {"selected_count": len(selected_samples), "skipped_count": 0, "success_count": 0, "error_count": 0}
 
     for sample in selected_samples:
-        current_record = existing_scored.get(sample["sample_id"])
+        record_id = str(sample.get("qa_id") or sample["sample_id"])
+        current_record = existing_scored.get(record_id)
         if not args.force and not needs_score_work(current_record, need_answer_judge, need_retrieval_judge):
             run_stats["skipped_count"] += 1
             continue
 
-        prediction_record = prediction_map.get(sample["sample_id"], {})
+        prediction_record = prediction_map.get(record_id, {})
         retrieval = prediction_record.get("retrieval", {})
         if not isinstance(retrieval, dict):
             retrieval = {}
@@ -351,13 +362,13 @@ def score_stage(args) -> dict:
                     base_record["retrieval_judge"] = 0
 
             base_record["status"] = "success"
-            existing_scored[sample["sample_id"]] = base_record
+            existing_scored[record_id] = base_record
             run_stats["success_count"] += 1
         except Exception as exc:
             base_record["status"] = "error"
             base_record["error"] = str(exc)
             base_record["traceback"] = traceback.format_exc()
-            existing_scored[sample["sample_id"]] = base_record
+            existing_scored[record_id] = base_record
             run_stats["error_count"] += 1
 
     scored_records = sort_records(existing_scored.values())
@@ -377,6 +388,7 @@ def score_stage(args) -> dict:
 
     summary = {
         "phase": "score",
+        "qa_dataset_path": str(qa_dataset_path.resolve()),
         "predictions_path": str(output_paths["predictions_path"].resolve()),
         "scored_results_path": str(output_paths["scored_results_path"].resolve()),
         "range": {"start": args.start, "end": args.end, "limit": args.limit},
@@ -427,6 +439,13 @@ def build_parser() -> argparse.ArgumentParser:
     def add_top_k_argument(subparser: argparse.ArgumentParser) -> None:
         subparser.add_argument("--top-k", type=int, default=DEFAULT_TOP_K, help="Top-k retrieval size.")
 
+    def add_qa_dataset_argument(subparser: argparse.ArgumentParser) -> None:
+        subparser.add_argument(
+            "--qa-dataset-path",
+            default=DEFAULT_QA_DATASET_PATH,
+            help="Path to expanded QA JSONL for answer/score stages.",
+        )
+
     def add_judge_arguments(subparser: argparse.ArgumentParser) -> None:
         subparser.add_argument(
             "--skip-llm-judge",
@@ -447,17 +466,20 @@ def build_parser() -> argparse.ArgumentParser:
 
     answer_parser_cmd = subparsers.add_parser("answer", help="Answer each question using NaiveRAG retrieval.")
     add_common_arguments(answer_parser_cmd)
+    add_qa_dataset_argument(answer_parser_cmd)
     add_top_k_argument(answer_parser_cmd)
     answer_parser_cmd.set_defaults(handler=answer_stage)
 
     score_parser_cmd = subparsers.add_parser("score", help="Score predictions with official F1 and optional LLM judges.")
     add_common_arguments(score_parser_cmd)
+    add_qa_dataset_argument(score_parser_cmd)
     add_top_k_argument(score_parser_cmd)
     add_judge_arguments(score_parser_cmd)
     score_parser_cmd.set_defaults(handler=score_stage)
 
     all_parser_cmd = subparsers.add_parser("all", help="Run build, answer, and score in order.")
     add_common_arguments(all_parser_cmd)
+    add_qa_dataset_argument(all_parser_cmd)
     add_top_k_argument(all_parser_cmd)
     add_judge_arguments(all_parser_cmd)
     all_parser_cmd.set_defaults(handler=all_stage)

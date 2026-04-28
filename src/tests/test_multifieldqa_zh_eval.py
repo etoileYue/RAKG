@@ -441,6 +441,86 @@ class MultiFieldQAZHEvalTests(unittest.TestCase):
         self.assertIn("context_text", record["retrieval"])
         self.assertEqual(record["status"], "success")
 
+    def test_answer_and_score_use_expanded_qa_ids_with_source_graph(self):
+        output_root = self.root / "out_expanded_qa"
+        qa_dataset_path = self.root / "expanded_qa.jsonl"
+        mfq.write_jsonl(
+            qa_dataset_path,
+            [
+                {
+                    "qa_id": "s1#gen001",
+                    "source_sample_id": "s1",
+                    "source_sample_index": 0,
+                    "question": "生成问题1",
+                    "answers": ["预测答案-0"],
+                    "qa_source": "generated",
+                    "evidence": "上下文1",
+                },
+                {
+                    "qa_id": "s1#original",
+                    "source_sample_id": "s1",
+                    "source_sample_index": 0,
+                    "question": "问题1",
+                    "answers": ["错误答案"],
+                    "qa_source": "original",
+                    "evidence": "",
+                },
+            ],
+        )
+
+        fake_jieba = mock.Mock()
+        fake_jieba.cut.side_effect = lambda text, cut_all=False: list(text)
+
+        with mock.patch.object(mfq, "NER_Agent", FakeAgent):
+            mfq.main(
+                [
+                    "build",
+                    "--dataset-path",
+                    str(self.dataset_path),
+                    "--output-root",
+                    str(output_root),
+                    "--limit",
+                    "1",
+                ]
+            )
+            answer_summary = mfq.main(
+                [
+                    "answer",
+                    "--dataset-path",
+                    str(self.dataset_path),
+                    "--qa-dataset-path",
+                    str(qa_dataset_path),
+                    "--output-root",
+                    str(output_root),
+                ]
+            )
+        with mock.patch.object(mfq, "_get_jieba", return_value=fake_jieba):
+            score_summary = mfq.main(
+                [
+                    "score",
+                    "--dataset-path",
+                    str(self.dataset_path),
+                    "--qa-dataset-path",
+                    str(qa_dataset_path),
+                    "--output-root",
+                    str(output_root),
+                    "--skip-llm-judge",
+                ]
+            )
+
+        self.assertEqual(answer_summary["success_count"], 2)
+        self.assertEqual(score_summary["count"], 2)
+        predictions = mfq.load_jsonl(output_root / "result" / "predictions.jsonl")
+        self.assertEqual([record["qa_id"] for record in predictions], ["s1#gen001", "s1#original"])
+        self.assertEqual({record["source_sample_index"] for record in predictions}, {0})
+        self.assertTrue(all(record["graph_path"].endswith("/graphs/0.json") for record in predictions))
+        self.assertEqual([call["graph_path"] for call in FakeAgent.answer_calls], [str(output_root / "graphs" / "0.json")] * 2)
+
+        scored = mfq.load_jsonl(output_root / "result" / "scored_results.jsonl")
+        scored_by_id = mfq.index_records_by_qa_or_sample_id(scored)
+        self.assertEqual(scored_by_id["s1#gen001"]["official_f1"], 1.0)
+        self.assertEqual(scored_by_id["s1#original"]["qa_source"], "original")
+
     def test_answer_stage_retries_rate_limit_error_and_clears_index(self):
         output_root = self.root / "out_answer_retry"
         FakeAgent.answer_rate_limit_once_stems = {"0"}

@@ -182,6 +182,76 @@ class NaiveRAGMultiFieldQAZHEvalTests(unittest.TestCase):
         self.assertEqual(record["evidence_sources"][0]["source"], "s0")
         self.assertEqual(len(FakeNaiveRAGAgent.answer_calls), 1)
 
+    def test_expanded_qa_reuses_same_index_and_skips_by_qa_id(self):
+        output_root = self.root / "out_expanded"
+        qa_dataset_path = self.root / "expanded_qa.jsonl"
+        naive_mfq.write_jsonl(
+            qa_dataset_path,
+            [
+                {
+                    "qa_id": "s1#gen001",
+                    "source_sample_id": "s1",
+                    "source_sample_index": 0,
+                    "question": "生成问题1",
+                    "answers": ["预测答案-0"],
+                    "qa_source": "generated",
+                    "evidence": "上下文1",
+                },
+                {
+                    "qa_id": "s1#gen002",
+                    "source_sample_id": "s1",
+                    "source_sample_index": 0,
+                    "question": "生成问题2",
+                    "answers": ["预测答案-0"],
+                    "qa_source": "generated",
+                    "evidence": "上下文1",
+                },
+            ],
+        )
+
+        with mock.patch.object(naive_mfq, "NaiveRAGAgent", FakeNaiveRAGAgent):
+            naive_mfq.main(
+                [
+                    "build",
+                    "--dataset-path",
+                    str(self.dataset_path),
+                    "--output-root",
+                    str(output_root),
+                    "--limit",
+                    "1",
+                ]
+            )
+            summary = naive_mfq.main(
+                [
+                    "answer",
+                    "--dataset-path",
+                    str(self.dataset_path),
+                    "--qa-dataset-path",
+                    str(qa_dataset_path),
+                    "--output-root",
+                    str(output_root),
+                ]
+            )
+            second_summary = naive_mfq.main(
+                [
+                    "answer",
+                    "--dataset-path",
+                    str(self.dataset_path),
+                    "--qa-dataset-path",
+                    str(qa_dataset_path),
+                    "--output-root",
+                    str(output_root),
+                ]
+            )
+
+        self.assertEqual(summary["success_count"], 2)
+        self.assertEqual(second_summary["skipped_count"], 2)
+        self.assertEqual(len(FakeNaiveRAGAgent.answer_calls), 2)
+        self.assertEqual({Path(call["index_input"]).name for call in FakeNaiveRAGAgent.answer_calls}, {"0.json"})
+        predictions = naive_mfq.load_jsonl(output_root / "result" / "predictions.jsonl")
+        self.assertEqual([record["qa_id"] for record in predictions], ["s1#gen001", "s1#gen002"])
+        self.assertEqual({record["source_sample_id"] for record in predictions}, {"s1"})
+
     def test_score_stage_uses_max_reference_f1_and_can_skip_llm_judge(self):
         output_root = self.root / "out_score"
         output_root.mkdir(parents=True, exist_ok=True)

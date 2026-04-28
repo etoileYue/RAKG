@@ -15,7 +15,8 @@ from src.llm_provider import LLMProvider
 from src.utils import parse_json_like_response, run_with_rate_limit_retry
 
 
-DEFAULT_DATASET_PATH = "dataset/longbench/multifieldqa_zh/test.jsonl"
+DEFAULT_DATASET_PATH = "data/multifieldqa_zh/test.jsonl"
+DEFAULT_QA_DATASET_PATH = "data/multifieldqa_zh/expanded_qa.jsonl"
 DEFAULT_OUTPUT_ROOT = "data/eval/multifieldqa_zh"
 
 DEFAULT_MAX_HOP = 2
@@ -166,6 +167,58 @@ def load_dataset(dataset_path: Path) -> List[dict]:
     return samples
 
 
+def load_qa_dataset(qa_dataset_path: Path) -> List[dict]:
+    qa_samples = []
+    with qa_dataset_path.open("r", encoding="utf-8") as handle:
+        for qa_index, line in enumerate(handle):
+            text = line.strip()
+            if not text:
+                continue
+            raw = json.loads(text)
+            source_sample_index = int(raw.get("source_sample_index", raw.get("sample_index", qa_index)))
+            source_sample_id = str(
+                raw.get("source_sample_id")
+                or raw.get("_id")
+                or raw.get("sample_id")
+                or source_sample_index
+            )
+            qa_id = str(raw.get("qa_id") or raw.get("sample_id") or source_sample_id)
+            qa_source = raw.get("qa_source")
+            if qa_source is None:
+                qa_source = "original" if "qa_id" not in raw else "generated"
+            qa_samples.append(
+                {
+                    "qa_id": qa_id,
+                    "qa_index": qa_index,
+                    "sample_id": source_sample_id,
+                    "sample_index": source_sample_index,
+                    "source_sample_id": source_sample_id,
+                    "source_sample_index": source_sample_index,
+                    "question": str(raw.get("question") or raw.get("input") or ""),
+                    "answers": coerce_answers(raw.get("answers") or raw.get("answer")),
+                    "qa_source": qa_source,
+                    "evidence": str(raw.get("evidence", "")),
+                    "length": raw.get("length"),
+                    "dataset": raw.get("dataset", "multifieldqa_zh"),
+                    "language": raw.get("language", "zh"),
+                    "all_classes": raw.get("all_classes"),
+                }
+            )
+    return qa_samples
+
+
+def resolve_qa_dataset_path(args) -> Path:
+    requested_path = getattr(args, "qa_dataset_path", DEFAULT_QA_DATASET_PATH)
+    qa_dataset_path = Path(requested_path)
+    if qa_dataset_path.exists():
+        return qa_dataset_path
+    if requested_path == DEFAULT_QA_DATASET_PATH:
+        dataset_path = Path(args.dataset_path)
+        if dataset_path.exists():
+            return dataset_path
+    return qa_dataset_path
+
+
 def select_samples(samples: List[dict], start: int, end: Optional[int], limit: Optional[int]) -> List[dict]:
     if start < 0:
         raise ValueError("--start must be >= 0")
@@ -189,13 +242,26 @@ def index_records_by_sample_id(records: Iterable[dict]) -> Dict[str, dict]:
     return indexed
 
 
+def index_records_by_qa_or_sample_id(records: Iterable[dict]) -> Dict[str, dict]:
+    indexed = {}
+    for record in records:
+        record_id = str(record.get("qa_id") or record.get("sample_id") or "").strip()
+        if record_id:
+            indexed[record_id] = record
+    return indexed
+
+
 def sort_records(records: Iterable[dict]) -> List[dict]:
     return sorted(
         records,
         key=lambda item: (
-            int(item.get("sample_index", 10**12))
-            if str(item.get("sample_index", "")).isdigit()
+            int(item.get("source_sample_index", item.get("sample_index", 10**12)))
+            if str(item.get("source_sample_index", item.get("sample_index", ""))).isdigit()
             else 10**12,
+            int(item.get("qa_index", 10**12))
+            if str(item.get("qa_index", "")).isdigit()
+            else 10**12,
+            str(item.get("qa_id", "")),
             str(item.get("sample_id", "")),
         ),
     )
@@ -220,7 +286,7 @@ def resolve_output_paths(output_root: Path) -> dict:
 
 
 def build_base_record(sample: dict) -> dict:
-    return {
+    record = {
         "sample_id": sample["sample_id"],
         "sample_index": sample["sample_index"],
         "question": sample["question"],
@@ -230,6 +296,18 @@ def build_base_record(sample: dict) -> dict:
         "language": sample.get("language"),
         "all_classes": sample.get("all_classes"),
     }
+    if sample.get("qa_id"):
+        record.update(
+            {
+                "qa_id": sample["qa_id"],
+                "qa_index": sample.get("qa_index"),
+                "source_sample_id": sample.get("source_sample_id", sample["sample_id"]),
+                "source_sample_index": sample.get("source_sample_index", sample["sample_index"]),
+                "qa_source": sample.get("qa_source"),
+                "evidence": sample.get("evidence", ""),
+            }
+        )
+    return record
 
 
 def build_error_record(sample: dict, phase: str, error: Exception) -> dict:
@@ -571,11 +649,12 @@ def build_stage(args) -> dict:
 
 def answer_stage(args) -> dict:
     dataset_path = Path(args.dataset_path)
+    qa_dataset_path = resolve_qa_dataset_path(args)
     output_paths = resolve_output_paths(Path(args.output_root))
-    samples = load_dataset(dataset_path)
+    samples = load_qa_dataset(qa_dataset_path)
     selected_samples = select_samples(samples, start=args.start, end=args.end, limit=args.limit)
 
-    existing_predictions = index_records_by_sample_id(load_jsonl(output_paths["predictions_path"]))
+    existing_predictions = index_records_by_qa_or_sample_id(load_jsonl(output_paths["predictions_path"]))
     manifest_records = index_records_by_sample_id(load_jsonl(output_paths["build_manifest_path"]))
     graphs_dir = output_paths["graphs_dir"]
 
@@ -584,16 +663,19 @@ def answer_stage(args) -> dict:
     agent = None
 
     for sample in selected_samples:
-        current_record = existing_predictions.get(sample["sample_id"])
+        record_id = str(sample.get("qa_id") or sample["sample_id"])
+        current_record = existing_predictions.get(record_id)
         if not args.force and is_answer_complete(current_record):
             run_stats["skipped_count"] += 1
             continue
 
-        manifest_record = manifest_records.get(sample["sample_id"], {})
+        source_sample_id = str(sample.get("source_sample_id", sample["sample_id"]))
+        source_sample_index = int(sample.get("source_sample_index", sample["sample_index"]))
+        manifest_record = manifest_records.get(source_sample_id, {})
         graph_path = str(
             Path(
                 manifest_record.get("graph_path")
-                or (graphs_dir / f"{sample['sample_index']}.json")
+                or (graphs_dir / f"{source_sample_index}.json")
             ).resolve()
         )
 
@@ -623,7 +705,7 @@ def answer_stage(args) -> dict:
             if agent is None:
                 agent = NER_Agent()
 
-            cache_key = f"multifieldqa_zh:{sample['sample_id']}"
+            cache_key = f"multifieldqa_zh:{record_id}"
 
             def answer_attempt():
                 try:
@@ -640,7 +722,7 @@ def answer_stage(args) -> dict:
 
             result = run_with_rate_limit_retry(
                 answer_attempt,
-                **rate_limit_retry_kwargs(args, f"answer sample {sample['sample_id']}"),
+                **rate_limit_retry_kwargs(args, f"answer sample {record_id}"),
             )
 
             base_record.update(
@@ -654,7 +736,7 @@ def answer_stage(args) -> dict:
                     "updated_at": utc_timestamp(),
                 }
             )
-            existing_predictions[sample["sample_id"]] = base_record
+            existing_predictions[record_id] = base_record
             appended_records.append(base_record)
             run_stats["success_count"] += 1
         except Exception as exc:
@@ -666,7 +748,7 @@ def answer_stage(args) -> dict:
                     "updated_at": utc_timestamp(),
                 }
             )
-            existing_predictions[sample["sample_id"]] = base_record
+            existing_predictions[record_id] = base_record
             appended_records.append(base_record)
             run_stats["error_count"] += 1
 
@@ -676,6 +758,7 @@ def answer_stage(args) -> dict:
     summary = {
         "phase": "answer",
         "dataset_path": str(dataset_path.resolve()),
+        "qa_dataset_path": str(qa_dataset_path.resolve()),
         "predictions_path": str(output_paths["predictions_path"].resolve()),
         "manifest_path": str(output_paths["build_manifest_path"].resolve()),
         "range": {"start": args.start, "end": args.end, "limit": args.limit},
@@ -698,10 +781,11 @@ def answer_stage(args) -> dict:
 def score_stage(args) -> dict:
     output_paths = resolve_output_paths(Path(args.output_root))
     prediction_records = load_jsonl(output_paths["predictions_path"])
-    prediction_map = index_records_by_sample_id(prediction_records)
-    samples = load_dataset(Path(args.dataset_path))
+    prediction_map = index_records_by_qa_or_sample_id(prediction_records)
+    qa_dataset_path = resolve_qa_dataset_path(args)
+    samples = load_qa_dataset(qa_dataset_path)
     selected_samples = select_samples(samples, start=args.start, end=args.end, limit=args.limit)
-    existing_scored = index_records_by_sample_id(load_jsonl(output_paths["scored_results_path"]))
+    existing_scored = index_records_by_qa_or_sample_id(load_jsonl(output_paths["scored_results_path"]))
 
     need_answer_judge = (not args.skip_llm_judge) and args.judge_model_mode in {"answer", "both"}
     need_retrieval_judge = (not args.skip_llm_judge) and args.judge_model_mode in {"retrieval", "both"}
@@ -713,12 +797,13 @@ def score_stage(args) -> dict:
     appended_records = []
 
     for sample in selected_samples:
-        current_record = existing_scored.get(sample["sample_id"])
+        record_id = str(sample.get("qa_id") or sample["sample_id"])
+        current_record = existing_scored.get(record_id)
         if not args.force and not needs_score_work(current_record, need_answer_judge, need_retrieval_judge):
             run_stats["skipped_count"] += 1
             continue
 
-        prediction_record = prediction_map.get(sample["sample_id"], {})
+        prediction_record = prediction_map.get(record_id, {})
         retrieval = prediction_record.get("retrieval", {}) if isinstance(prediction_record.get("retrieval", {}), dict) else {}
         pred_answer = str(prediction_record.get("pred_answer", ""))
         context_text = str(retrieval.get("context_text", ""))
@@ -748,7 +833,7 @@ def score_stage(args) -> dict:
                     )
                     base_record["answer_judge"] = run_with_rate_limit_retry(
                         lambda: invoke_binary_judge(judge_model, prompt),
-                        **rate_limit_retry_kwargs(args, f"answer judge sample {sample['sample_id']}"),
+                        **rate_limit_retry_kwargs(args, f"answer judge sample {record_id}"),
                     )
                 else:
                     base_record["answer_judge"] = 0
@@ -762,20 +847,20 @@ def score_stage(args) -> dict:
                     )
                     base_record["retrieval_judge"] = run_with_rate_limit_retry(
                         lambda: invoke_binary_judge(judge_model, prompt),
-                        **rate_limit_retry_kwargs(args, f"retrieval judge sample {sample['sample_id']}"),
+                        **rate_limit_retry_kwargs(args, f"retrieval judge sample {record_id}"),
                     )
                 else:
                     base_record["retrieval_judge"] = 0
 
             base_record["status"] = "success"
-            existing_scored[sample["sample_id"]] = base_record
+            existing_scored[record_id] = base_record
             appended_records.append(base_record)
             run_stats["success_count"] += 1
         except Exception as exc:
             base_record["status"] = "error"
             base_record["error"] = str(exc)
             base_record["traceback"] = traceback.format_exc()
-            existing_scored[sample["sample_id"]] = base_record
+            existing_scored[record_id] = base_record
             appended_records.append(base_record)
             run_stats["error_count"] += 1
 
@@ -796,6 +881,7 @@ def score_stage(args) -> dict:
 
     summary = {
         "phase": "score",
+        "qa_dataset_path": str(qa_dataset_path.resolve()),
         "predictions_path": str(output_paths["predictions_path"].resolve()),
         "scored_results_path": str(output_paths["scored_results_path"].resolve()),
         "range": {"start": args.start, "end": args.end, "limit": args.limit},
@@ -855,10 +941,20 @@ def build_parser() -> argparse.ArgumentParser:
 
     answer_parser_cmd = subparsers.add_parser("answer", help="Answer each question using the built graph.")
     add_common_arguments(answer_parser_cmd)
+    answer_parser_cmd.add_argument(
+        "--qa-dataset-path",
+        default=DEFAULT_QA_DATASET_PATH,
+        help="Path to expanded QA JSONL for answer stage.",
+    )
     answer_parser_cmd.set_defaults(handler=answer_stage)
 
     score_parser_cmd = subparsers.add_parser("score", help="Score predictions with official F1 and optional LLM judges.")
     add_common_arguments(score_parser_cmd)
+    score_parser_cmd.add_argument(
+        "--qa-dataset-path",
+        default=DEFAULT_QA_DATASET_PATH,
+        help="Path to expanded QA JSONL for score stage.",
+    )
     score_parser_cmd.add_argument(
         "--skip-llm-judge",
         action="store_true",
