@@ -137,11 +137,51 @@ python -m src.eval.multifieldqa_zh.evaluate_multifieldqa_zh score --judge-model-
 - `score`：若 `result/scored_results.jsonl` 中该 `sample_id` 已经具备当前请求需要的评分字段，则默认跳过。
 - 使用 `--force` 可以覆盖以上跳过逻辑。
 
+## 结果分析与可视化
+
+完成本项目架构和 NaiveRAG baseline 的 `score` 阶段后，可以运行分析脚本对前 30 条样本生成对比图：
+
+```bash
+python -m src.eval.multifieldqa_zh.analyze_results
+```
+
+默认输入：
+
+- 本项目架构：`data/eval/multifieldqa_zh/result/scored_results.jsonl`
+- NaiveRAG：`data/eval/naiveRAG/result/scored_results.jsonl`
+
+默认输出目录：
+
+- `data/eval/multifieldqa_zh/analysis_figures/`
+
+输出文件：
+
+- `official_f1_line.png`：官方 F1 分数逐样本折线对比。
+- `answer_judge_line.png`：答案正确性 judge 逐样本折线对比。
+- `retrieval_judge_line.png`：检索覆盖性 judge 逐样本折线对比。
+- `metrics_overview_bar.png`：官方 F1、答案 judge、检索 judge 三项指标的平均值柱状对比。
+- `win_loss_by_sample.png`：按样本展示本项目架构相对 NaiveRAG 的官方 F1 差值。
+- `judge_heatmap.png`：答案 judge 与检索 judge 的逐样本热力图，用于快速定位失败样本。
+- `analysis_summary.json`：记录共同成功样本数、各指标均值、均值差值，以及官方 F1 的胜负平样本数。
+
+脚本会按 `sample_index` 对齐两套结果，只比较共同存在且 `status=success` 的样本，并在控制台输出跳过的非成功记录数量。可通过参数覆盖默认路径和样本数量：
+
+```bash
+python -m src.eval.multifieldqa_zh.analyze_results \
+  --sample-count 30 \
+  --rakg-results data/eval/multifieldqa_zh/result/scored_results.jsonl \
+  --naive-results data/eval/naiveRAG/result/scored_results.jsonl \
+  --output-dir data/eval/multifieldqa_zh/analysis_figures
+```
+
+如果运行环境没有系统级中文字体，可通过 `--font-path` 指定字体文件，例如 `NotoSansCJK-Regular.ttc`。
+
 ## 依赖说明
 
 - `build` 和 `answer` 依赖仓库现有的 RAKG 构图与 QA 运行环境。
 - `score` 的官方中文 F1 依赖 `jieba` 分词。
 - 如果启用 LLM judge，`score` 还依赖当前仓库配置的 LLM 提供方。
+- 结果分析与可视化依赖 `matplotlib`、`numpy`。如果当前环境缺少 `matplotlib`，需要先补充安装。
 
 ## 推荐最小流程
 

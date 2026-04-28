@@ -1,0 +1,2161 @@
+{
+    "entities": [
+        {
+            "name": "哈尔滨大庆市杜蒙县",
+            "type": "行政区划",
+            "description": "哈尔滨大庆市杜蒙县是一个位于中国东北部的县，近期发生了一起与毒品相关的案件，涉及一个名为邓某的嫌疑人。",
+            "attributes": {
+                "地理位置": "位于哈尔滨大庆市，靠近火车站",
+                "案件类型": "制贩毒案件",
+                "案件时间": "2023年12月4日告破"
+            },
+            "aliases": [
+                "杜蒙县"
+            ],
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ]
+            }
+        },
+        {
+            "name": "杜蒙县火车站",
+            "type": "地点",
+            "description": "杜蒙县火车站是位于杜蒙县公路旁的一个交通枢纽，其附近的公厕因毒品交易活动而变得异常热闹。",
+            "attributes": {
+                "位置": "杜蒙县公路旁",
+                "周边环境": "附近除了几处民房之外，都是荒野",
+                "夜间活动": "公厕在夜间人来人往，异常热闹"
+            },
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ]
+            }
+        },
+        {
+            "name": "太阳镇",
+            "type": "地点",
+            "description": "太阳镇是位于杜蒙县的一个区域，邓某曾在此居住，后因涉毒活动迁至一个偏僻的平房。;;;邓某原本居住的镇，位于杜蒙县内。;;;邓某原本居住的区域，后因案件迁至偏僻平房。;;;太阳镇是杜蒙县内的一个镇。;;;邓某原本居住的地点，位于杜蒙县内。",
+            "attributes": {
+                "地理位置": "杜蒙县",
+                "类型": "镇"
+            },
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ]
+            }
+        },
+        {
+            "name": "大庆市",
+            "type": "城市",
+            "description": "大庆市是黑龙江省的一个城市，文中提到其与哈尔滨市、杜蒙县一起成为一起制贩毒案件的涉及地区。;;;与杜蒙县相邻的城市，邓某的毒品通过公厕交易后被下线散播至此。;;;黑龙江省的一个城市，本案中与哈尔滨市一样，是毒品交易的扩散区域。;;;邓某毒品交易网络的扩散区域之一。;;;大庆市是冰毒通过邓某的下线被散播到的地区之一。;;;大庆市是黑龙江省的一个地级市，本案涉及多个区域，包括大庆市。;;;大庆市是中国黑龙江省的一个地级市，案件中毒品被散播至此。;;;黑龙江省下辖的地级市，案件涉及区域之一。;;;大庆市是毒品交易网络中的一个下线散毒地点。",
+            "attributes": {
+                "地理位置": "黑龙江省",
+                "案件涉及": "毒品交易和制毒活动"
+            },
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ]
+            }
+        },
+        {
+            "name": "哈尔滨市",
+            "type": "城市",
+            "description": "哈尔滨市是中国黑龙江省的省会城市，本案中涉及毒品交易和制毒活动的区域之一。;;;与杜蒙县相邻的城市，邓某的毒品通过公厕交易后被下线散播至此。;;;黑龙江省的一个城市，文中提到毒品通过下线人员从杜蒙县扩散至此。;;;邓某毒品交易网络的扩散区域之一。;;;哈尔滨市是冰毒通过邓某的下线被散播到的地区之一。;;;哈尔滨市是黑龙江省的省会城市，本案涉及多个区域，包括哈尔滨市。;;;哈尔滨市是中国黑龙江省的省会，案件中毒品被散播至此。;;;黑龙江省省会，案件涉及区域之一。;;;哈尔滨市是毒品交易网络中的一个下线散毒地点。",
+            "attributes": {
+                "地理位置": "黑龙江省",
+                "案件涉及区域": "杜蒙县"
+            },
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ]
+            }
+        },
+        {
+            "name": "邓某",
+            "type": "人物",
+            "description": "邓某是一名涉嫌制贩毒的犯罪嫌疑人，其活动范围主要在杜蒙县一带。;;;一名小学文化程度的嫌疑人，曾因故意伤害罪入狱，后接触毒品并学习制毒技术，通过公厕进行毒品交易。;;;邓某是本案的涉毒嫌疑人，曾因故意伤害罪入狱，后因网络赌博和毒品问题再次陷入犯罪。;;;本案中的主要犯罪嫌疑人，通过荒野中的公厕进行毒品交易，并在出租屋内制毒。;;;邓某是一名小学文化程度的制贩毒人员，曾因故意伤害罪入狱，后通过狱友接触毒品，并因网络赌博陷入困境。;;;邓某是案件中的主要嫌疑人，因毒品交易和制毒行为被警方抓获。;;;邓某是本案涉及的犯罪嫌疑人，曾因故意伤害罪被判处有期徒刑。;;;邓某是杜蒙县人，因网络赌博负债后接触毒品，并学会制毒技术，最终被警方抓获。;;;邓某是本案的主犯，涉嫌制毒和贩毒，居住在杜蒙县火车站附近。;;;案件中的主要嫌疑人，被指控制造和贩卖毒品。;;;邓某是案件中的主要嫌疑人，曾因故意伤害罪入狱，后接触毒品并学习制毒技术。;;;邓某是案件中的主要嫌疑人，涉嫌制造和贩卖毒品。;;;邓某是与公厕毒品交易有关的嫌疑人，被警方抓获并确认其制毒行为。;;;邓某是毒品交易的主谋，曾因故意伤害罪入狱，出狱后接触毒品并学习制毒技术。",
+            "attributes": {
+                "文化程度": "小学",
+                "犯罪记录": "未成年时因故意伤害罪被判处有期徒刑",
+                "涉毒原因": "通过狱友接触毒品，网络赌博输钱后陷入毒瘾",
+                "制毒技术来源": "偶然机会学到了研制冰毒的技术",
+                "制毒地点": "杜蒙县火车站附近公路旁的出租屋",
+                "毒品交易地点": "杜蒙县火车站附近公路旁的偏僻公厕",
+                "毒品类型": "液态冰毒",
+                "毒品交易方式": "通过公厕进行‘埋雷’式交易",
+                "毒品扩散范围": "大庆、哈尔滨等地",
+                "缴获毒品数量": "11.04克"
+            },
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ]
+            }
+        },
+        {
+            "name": "冰毒",
+            "type": "毒品",
+            "description": "冰毒是一种非法毒品，被邓某在出租屋内制造并通过公厕进行交易。",
+            "attributes": {
+                "形态": "液态",
+                "数量": "11.04克"
+            },
+            "aliases": [
+                "11.04克液态冰毒",
+                "液态冰毒"
+            ],
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ]
+            }
+        },
+        {
+            "name": "铲车",
+            "type": "物品",
+            "description": "铲车是案件中涉及的一个关键地点，位于杜蒙县某歌厅附近的停车场，被用于毒品交易过程中的短暂停留和碰头。",
+            "attributes": {
+                "位置": "杜蒙县某歌厅附近的停车场",
+                "用途": "毒品交易碰头地点",
+                "停留时间": "约4分钟"
+            },
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152"
+                ]
+            }
+        },
+        {
+            "name": "故意伤害罪",
+            "type": "罪名",
+            "description": "故意伤害罪是一种刑事犯罪，指行为人故意非法损害他人身体健康的行为。",
+            "attributes": {
+                "涉及人物": "邓某"
+            },
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ]
+            }
+        },
+        {
+            "name": "网络赌博",
+            "type": "活动",
+            "description": "网络赌博是一种通过互联网进行的非法赌博活动，常与毒品犯罪等违法行为交织。;;;邓某通过网络赌博输掉近二十万元，成为其涉毒的重要诱因。",
+            "attributes": {
+                "参与者": "邓某",
+                "影响": "导致邓某负债并接触毒品",
+                "金额": "近二十万元"
+            },
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ]
+            }
+        },
+        {
+            "name": "12月4日",
+            "type": "时间",
+            "description": "12月4日是警方在杜蒙县成功实施抓捕行动并破获制贩毒案件的关键日期。",
+            "attributes": {
+                "事件": "警方在杜蒙县、大庆市以及哈尔滨市抓获了制贩毒团伙成员十一人",
+                "缴获物": "制毒工具、制毒原料，以及11.04克液态冰毒",
+                "抓捕时机": "邓某妻子送饭时"
+            },
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ]
+            }
+        },
+        {
+            "name": "制毒工具",
+            "type": "物品",
+            "description": "用于制造毒品的工具，通常与制毒窝点相关联。;;;用于制造毒品的工具，被警方在邓某的出租屋中缴获。;;;用于制造毒品的工具，通常包括化学实验设备等。;;;用于制毒的设备和器具，与制毒原料一同被缴获。;;;用于制造毒品的工具，被警方在窝点中缴获。;;;在邓某的出租屋内缴获的用于制造毒品的工具。",
+            "attributes": {
+                "数量": "未明确提及",
+                "用途": "制造冰毒",
+                "查获地点": "邓某的制毒窝点"
+            },
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ]
+            }
+        },
+        {
+            "name": "制毒原料",
+            "type": "物品",
+            "description": "用于制造毒品的化学原料，通常与制毒窝点和毒品交易活动相关。;;;用于制造毒品的原料，被警方在邓某的出租屋中缴获。;;;用于制造毒品的化学原料，通常具有危险性。;;;用于制造毒品的化学原料，通常与制毒工具一同被查获。;;;在邓某的出租屋内缴获的用于制造毒品的原料。",
+            "attributes": {
+                "数量": "未明确提及",
+                "状态": "与制毒工具和毒品一同被缴获"
+            },
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ]
+            }
+        },
+        {
+            "name": "制毒窝点",
+            "type": "地点",
+            "description": "邓某在杜蒙县一个偏僻的出租屋内设立的制毒地点，该窝点被警方查获，内有制毒工具和原料。;;;邓某租住的隐秘平房，被用作制毒场所。",
+            "attributes": {
+                "位置": "杜蒙县火车站附近公路旁，距离公厕约100米的平房",
+                "设立时间": "前段时间（案件发生前）",
+                "查获时间": "2023年12月4日",
+                "查获毒品数量": "11.04克液态冰毒",
+                "是否被警方确认": "是"
+            },
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ]
+            }
+        },
+        {
+            "name": "十一人",
+            "type": "团伙",
+            "description": "十一人是与邓某有关的制贩毒团伙成员，于2023年12月4日晚被侦查员在杜蒙县、大庆市以及哈尔滨市抓获。",
+            "attributes": {
+                "人数": "11",
+                "活动范围": "杜蒙县、大庆市、哈尔滨市",
+                "涉及罪行": "制贩毒"
+            },
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ]
+            }
+        },
+        {
+            "name": "公厕",
+            "type": "地点",
+            "description": "位于杜蒙县火车站附近公路旁的一个偏僻公厕，因夜间频繁有人出入而引起警方注意，成为毒品交易的地点。;;;位于杜蒙县火车站附近公路旁的偏僻公厕，被用作毒品交易的中转点。",
+            "attributes": {
+                "位置": "杜蒙县火车站附近公路旁",
+                "周边环境": "附近除了几处民房之外，都是荒野",
+                "使用时间": "夜间",
+                "使用人群": "吸毒人员",
+                "异常现象": "平时人少，但夜间人来人往，有人放东西、有人取东西"
+            },
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151"
+                ]
+            }
+        },
+        {
+            "name": "毒品交易",
+            "type": "犯罪活动",
+            "description": "毒品交易是指非法买卖毒品的行为，文中描述的是在杜蒙县一个偏僻公厕附近进行的毒品交易活动。;;;毒品交易是案件的核心犯罪行为，通过公厕和铲车附近的碰头完成。;;;毒品交易是通过公厕进行的，由邓某组织并实施。;;;毒品交易是通过公厕进行的非法活动。",
+            "attributes": {
+                "地点": "杜蒙县火车站附近公路旁的偏僻公厕",
+                "时间": "夜间",
+                "方式": "通过公厕进行物品放置和取用",
+                "毒品类型": "液态冰毒",
+                "毒品数量": "11.04克"
+            },
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151"
+                ]
+            }
+        },
+        {
+            "name": "邓某制贩毒案件",
+            "type": "案件",
+            "description": "邓某在杜蒙县租住平房并利用附近公厕进行毒品交易，最终被警方抓获。",
+            "attributes": {},
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ]
+            }
+        },
+        {
+            "name": "杜蒙县火车站附近公路旁的公厕",
+            "type": "地点",
+            "description": "一个偏僻的公厕，夜间频繁有人出入，成为毒品交易的地点。;;;位于杜蒙县火车站附近公路旁的一个偏僻公厕，夜间频繁有人来往，成为毒品交易的地点。;;;位于杜蒙县火车站附近公路旁的一个偏僻公厕，被用作毒品交易地点。;;;该公厕位于杜蒙县火车站附近公路旁，周围是荒野，平时人很少，但夜间频繁有人出入。;;;位于杜蒙县火车站附近公路旁的一个偏僻公厕，周围多为荒野。",
+            "attributes": {},
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ]
+            }
+        },
+        {
+            "name": "杜蒙县歌厅",
+            "type": "地点",
+            "description": "邓某与他人碰头的地点，监控录像在此拍下关键线索。;;;监控录像拍摄到毒品交易相关人员碰头的地点。",
+            "attributes": {},
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ]
+            }
+        },
+        {
+            "name": "出租屋",
+            "type": "地点",
+            "description": "邓某租住的隐秘地点，被怀疑为制毒窝点。;;;邓某租住的平房，距离公厕约100米，被怀疑是其制毒窝点。",
+            "attributes": {},
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ]
+            }
+        },
+        {
+            "name": "杜蒙县",
+            "type": "行政区划",
+            "description": "杜蒙县是中国黑龙江省大庆市下辖的一个县。;;;位于大庆市附近的一个县，文中提到毒品交易活动主要发生在该县的一个偏僻公厕。;;;邓某的主要活动区域，警方在此地进行调查和抓捕。;;;杜蒙县是案件发生的主要区域，位于哈尔滨大庆市。;;;杜蒙县是位于黑龙江省大庆市下辖的一个县，是本案的主要发生地。;;;案件发生地，位于黑龙江省大庆市下辖。;;;毒品交易活动的主要发生地，警方在该县内进行抓捕。",
+            "attributes": {},
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152"
+                ]
+            }
+        },
+        {
+            "name": "偏僻公厕",
+            "type": "地点",
+            "description": "一个位于杜蒙县火车站附近的偏僻公厕，被用作毒品交易的地点。",
+            "attributes": {},
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ]
+            }
+        },
+        {
+            "name": "毒品交易活动",
+            "type": "事件",
+            "description": "毒品交易活动通过杜蒙县火车站附近的公厕进行，由邓某团伙组织。",
+            "attributes": {},
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ]
+            }
+        },
+        {
+            "name": "制贩毒案件",
+            "type": "案件",
+            "description": "一起涉及毒品制造和交易的犯罪案件，主要活动地点在杜蒙县，毒品通过公厕进行交易，并扩散至大庆市和哈尔滨市。;;;邓某被警方调查并最终抓获的制毒和贩毒案件。",
+            "attributes": {},
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152"
+                ]
+            }
+        },
+        {
+            "name": "杜蒙县火车站附近公路旁的平房",
+            "type": "地点",
+            "description": "位于杜蒙县火车站附近公路旁的一间平房，被邓某租住。",
+            "attributes": {},
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ]
+            }
+        },
+        {
+            "name": "吸毒人员",
+            "type": "人物",
+            "description": "与邓某有密切接触的社会吸毒人员。;;;与邓某接触密切的吸毒人员，频繁光顾公厕进行毒品交易。",
+            "attributes": {},
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ]
+            }
+        },
+        {
+            "name": "11.04克液态冰毒",
+            "type": "物品",
+            "description": "邓某在制毒窝点中制造的毒品，被警方缴获。;;;一种非法毒品，具有高度成瘾性和危害性。",
+            "attributes": {},
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ]
+            }
+        },
+        {
+            "name": "两个人",
+            "type": "人物",
+            "description": "与邓某在歌厅附近碰头的两个人，疑似毒品交易的下线。",
+            "attributes": {},
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ]
+            }
+        },
+        {
+            "name": "狱友",
+            "type": "人物",
+            "description": "邓某出狱后通过接触狱友而接触到毒品。",
+            "attributes": {},
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ]
+            }
+        },
+        {
+            "name": "邓某的妻子",
+            "type": "人物",
+            "description": "邓某的妻子，曾于12月4日晚送饭时被警方利用进行抓捕。;;;邓某的妻子，负责在夜间送饭，成为警方抓捕的时机。",
+            "attributes": {},
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ]
+            }
+        },
+        {
+            "name": "深夜荒地公厕",
+            "type": "地点",
+            "description": "位于杜蒙县火车站附近公路旁的一个偏僻公厕，夜间频繁有人来往，成为毒品交易的地点。",
+            "attributes": {},
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ]
+            }
+        },
+        {
+            "name": "侦查员",
+            "type": "执法机构人员",
+            "description": "侦查员通过长期调查成功破获了邓某的制贩毒案件，并在制毒窝点缴获了冰毒。;;;负责调查案件的侦查人员，通过长期追踪和监控成功查获制毒窝点。;;;侦查员是负责调查和破获案件的执法人员。;;;负责调查毒品交易活动的警方人员，成功破获案件。",
+            "attributes": {},
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152"
+                ]
+            }
+        },
+        {
+            "name": "接触毒品",
+            "type": "行为",
+            "description": "通过狱友或其他渠道接触毒品，是邓某走上贩毒道路的重要原因之一。",
+            "attributes": {},
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ]
+            }
+        },
+        {
+            "name": "负债",
+            "type": "经济状况",
+            "description": "邓某因参与网络赌博而输掉近二十万元，陷入经济困境。",
+            "attributes": {},
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ]
+            }
+        },
+        {
+            "name": "团伙成员",
+            "type": "人物",
+            "description": "与邓某有频繁接触的下线人员，参与毒品交易活动。",
+            "attributes": {},
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ]
+            }
+        },
+        {
+            "name": "邓某的制毒窝点",
+            "type": "地点",
+            "description": "邓某租住的隐秘出租屋，被警方认定为制毒地点。;;;邓某租住的隐秘平房，被警方认定为制毒窝点。;;;邓某租住的平房被怀疑是其制毒窝点，位于公厕附近。",
+            "attributes": {},
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ]
+            }
+        },
+        {
+            "name": "冰毒制造",
+            "type": "活动",
+            "description": "非法制造冰毒的行为，通常在隐蔽地点进行。",
+            "attributes": {},
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ]
+            }
+        },
+        {
+            "name": "液态冰毒",
+            "type": "毒品",
+            "description": "一种非法毒品，由邓某在出租屋内制造，重量为11.04克。;;;在邓某的出租屋内缴获的毒品，重量为11.04克。",
+            "attributes": {},
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ]
+            }
+        },
+        {
+            "name": "公厕附近",
+            "type": "地点",
+            "description": "一个偏僻的公厕，位于杜蒙县火车站附近公路旁。",
+            "attributes": {},
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ]
+            }
+        },
+        {
+            "name": "制毒",
+            "type": "活动",
+            "description": "邓某在窝点内进行冰毒的制造活动。",
+            "attributes": {},
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ]
+            }
+        },
+        {
+            "name": "毒品原料",
+            "type": "物品",
+            "description": "用于制造毒品的化学原料，被警方在窝点中缴获。",
+            "attributes": {},
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ]
+            }
+        },
+        {
+            "name": "制贩毒团伙",
+            "type": "犯罪组织",
+            "description": "制贩毒团伙是一个非法制造和贩卖毒品的犯罪组织。",
+            "attributes": {},
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ]
+            }
+        },
+        {
+            "name": "停车场",
+            "type": "地点",
+            "description": "位于杜蒙县歌厅附近，邓某曾在此与人碰头。",
+            "attributes": {},
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ]
+            }
+        },
+        {
+            "name": "歌厅",
+            "type": "地点",
+            "description": "邓某与他人碰头的地点之一，位于杜蒙县。",
+            "attributes": {},
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ]
+            }
+        },
+        {
+            "name": "邓某的出租屋",
+            "type": "地点",
+            "description": "位于公厕附近的一间平房，被用作制毒窝点。",
+            "attributes": {},
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ]
+            }
+        }
+    ],
+    "relations": [
+        {
+            "source": "哈尔滨大庆市杜蒙县",
+            "relation": "发生案件",
+            "target": "邓某制贩毒案件",
+            "description": "哈尔滨大庆市杜蒙县发生了一起由邓某主导的制贩毒案件。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.95,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "哈尔滨大庆市杜蒙县",
+            "relation": "涉及地点",
+            "target": "杜蒙县火车站附近公路旁的公厕",
+            "description": "哈尔滨大庆市杜蒙县涉及一起毒品交易活动的地点，即火车站附近公路旁的公厕。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.93,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "哈尔滨大庆市杜蒙县",
+            "relation": "涉及人物",
+            "target": "邓某",
+            "description": "哈尔滨大庆市杜蒙县与邓某的制贩毒活动密切相关。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.96,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "哈尔滨大庆市杜蒙县",
+            "relation": "涉及地点",
+            "target": "太阳镇",
+            "description": "哈尔滨大庆市杜蒙县包含太阳镇，邓某曾在此居住。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.89,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "哈尔滨大庆市杜蒙县",
+            "relation": "涉及地点",
+            "target": "大庆市",
+            "description": "哈尔滨大庆市杜蒙县与大庆市存在毒品交易的关联。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.92,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "哈尔滨大庆市杜蒙县",
+            "relation": "涉及地点",
+            "target": "哈尔滨市",
+            "description": "哈尔滨大庆市杜蒙县与哈尔滨市存在毒品交易的关联。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.92,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "哈尔滨大庆市杜蒙县",
+            "relation": "涉及地点",
+            "target": "杜蒙县歌厅",
+            "description": "哈尔滨大庆市杜蒙县涉及一起毒品交易活动的地点，即杜蒙县歌厅附近。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.9,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "哈尔滨大庆市杜蒙县",
+            "relation": "涉及地点",
+            "target": "出租屋",
+            "description": "哈尔滨大庆市杜蒙县涉及一起毒品案件的地点，即邓某租住的出租屋。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.94,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "杜蒙县火车站",
+            "relation": "位于",
+            "target": "杜蒙县",
+            "description": "杜蒙县火车站位于杜蒙县境内。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "杜蒙县火车站",
+            "relation": "附近存在",
+            "target": "偏僻公厕",
+            "description": "杜蒙县火车站附近存在一个偏僻的公厕，该公厕成为毒品交易的场所。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "杜蒙县火车站",
+            "relation": "涉及",
+            "target": "毒品交易活动",
+            "description": "杜蒙县火车站附近的公厕被用于毒品交易活动，涉及邓某团伙的犯罪行为。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "太阳镇",
+            "relation": "原居住地",
+            "target": "邓某",
+            "description": "邓某原本居住在太阳镇内的楼房中，后搬至一个偏僻的平房。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.85,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "大庆市",
+            "relation": "涉及案件",
+            "target": "制贩毒案件",
+            "description": "大庆市是该制贩毒案件的涉及地区之一，毒品通过下线人员扩散至此。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.85,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "大庆市",
+            "relation": "毒品扩散至",
+            "target": "哈尔滨市",
+            "description": "大庆市是毒品通过下线人员扩散的地区之一，毒品最初由杜蒙县制毒窝点流出。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.85,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "大庆市",
+            "relation": "毒品扩散至",
+            "target": "杜蒙县",
+            "description": "大庆市是毒品通过下线人员扩散的地区之一，毒品最初由杜蒙县制毒窝点流出。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.85,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "哈尔滨市",
+            "relation": "涉及毒品交易",
+            "target": "杜蒙县火车站附近公路旁的公厕",
+            "description": "哈尔滨市杜蒙县的一个偏僻公厕被用作毒品交易的地点。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.95,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "哈尔滨市",
+            "relation": "涉及毒品交易",
+            "target": "大庆市",
+            "description": "哈尔滨市与大庆市共同成为邓某毒品交易网络的覆盖区域。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.95,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "哈尔滨市",
+            "relation": "涉及毒品交易",
+            "target": "邓某",
+            "description": "哈尔滨市是邓某毒品交易网络的一部分，其毒品通过该市进行扩散。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.95,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "哈尔滨市",
+            "relation": "涉及毒品交易",
+            "target": "太阳镇",
+            "description": "哈尔滨市杜蒙县太阳镇是邓某曾经的居住地，与本案存在关联。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.9,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "哈尔滨市",
+            "relation": "涉及毒品交易",
+            "target": "制毒窝点",
+            "description": "哈尔滨市杜蒙县的一个隐秘出租屋被用作邓某的制毒窝点。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.9,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "邓某",
+            "relation": "居住于",
+            "target": "杜蒙县火车站附近公路旁的平房",
+            "description": "邓某租住在杜蒙县火车站附近公路旁的一间平房中。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.95,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "邓某",
+            "relation": "进行毒品交易",
+            "target": "杜蒙县火车站附近公路旁的公厕",
+            "description": "邓某通过位于杜蒙县火车站附近公路旁的公厕进行毒品交易。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.98,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "邓某",
+            "relation": "接触",
+            "target": "吸毒人员",
+            "description": "邓某经常与社会上的吸毒人员接触。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.96,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "邓某",
+            "relation": "拥有",
+            "target": "制毒工具",
+            "description": "邓某在出租屋中拥有制毒工具。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.97,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "邓某",
+            "relation": "拥有",
+            "target": "制毒原料",
+            "description": "邓某在出租屋中拥有制毒原料。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.97,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "邓某",
+            "relation": "拥有",
+            "target": "11.04克液态冰毒",
+            "description": "邓某在制毒窝点中制造并拥有11.04克液态冰毒。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.97,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "邓某",
+            "relation": "与...碰头",
+            "target": "两个人",
+            "description": "邓某与两个人在歌厅附近碰头，疑似进行毒品交易。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.95,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "邓某",
+            "relation": "与...接触",
+            "target": "狱友",
+            "description": "邓某通过狱友接触到了毒品。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.94,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "邓某",
+            "relation": "妻子",
+            "target": "邓某的妻子",
+            "description": "邓某的妻子在案件中负责送饭，警方借此机会进行抓捕。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.96,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "邓某",
+            "relation": "活动范围",
+            "target": "杜蒙县",
+            "description": "邓某的主要活动范围在杜蒙县。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.95,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "邓某",
+            "relation": "活动范围",
+            "target": "大庆市",
+            "description": "邓某的毒品通过下线扩散到大庆市。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.95,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "邓某",
+            "relation": "活动范围",
+            "target": "哈尔滨市",
+            "description": "邓某的毒品通过下线扩散到哈尔滨市。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.95,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "邓某",
+            "relation": "涉及",
+            "target": "制贩毒案件",
+            "description": "邓某涉及一起制贩毒案件，被警方成功告破。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.98,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "邓某",
+            "relation": "使用",
+            "target": "网络赌博",
+            "description": "邓某因网络赌博输钱而陷入毒品交易。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.94,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "冰毒",
+            "relation": "被制造",
+            "target": "邓某",
+            "description": "冰毒是由邓某在出租屋内制造的。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.98,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "冰毒",
+            "relation": "被交易",
+            "target": "深夜荒地公厕",
+            "description": "冰毒通过深夜荒地公厕进行交易。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.95,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "冰毒",
+            "relation": "被散播",
+            "target": "大庆市",
+            "description": "冰毒通过邓某的下线被散播到大庆市。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.92,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "冰毒",
+            "relation": "被散播",
+            "target": "哈尔滨市",
+            "description": "冰毒通过邓某的下线被散播到哈尔滨市。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.92,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "冰毒",
+            "relation": "被缴获",
+            "target": "侦查员",
+            "description": "侦查员在邓某的制毒窝点缴获了冰毒。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.97,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "铲车",
+            "relation": "涉及",
+            "target": "邓某",
+            "description": "铲车是邓某与他人进行毒品交易碰头时所涉及的物品。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.85,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "铲车",
+            "relation": "涉及",
+            "target": "毒品交易",
+            "description": "铲车是毒品交易过程中碰头和短暂停留的地点之一。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.85,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "铲车",
+            "relation": "位于",
+            "target": "杜蒙县",
+            "description": "铲车位于杜蒙县某歌厅附近的停车场。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.9,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "故意伤害罪",
+            "relation": "被判处",
+            "target": "邓某",
+            "description": "邓某因故意伤害罪被判处有期徒刑，这是他未成年时的犯罪记录。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "网络赌博",
+            "relation": "导致",
+            "target": "接触毒品",
+            "description": "邓某因玩网络赌博而负债，进而接触毒品，最终走上制贩毒道路。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.95,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "网络赌博",
+            "relation": "导致",
+            "target": "负债",
+            "description": "网络赌博使邓某负债近二十万元，成为其从事毒品犯罪的诱因之一。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.95,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "网络赌博",
+            "relation": "参与者",
+            "target": "邓某",
+            "description": "邓某参与了网络赌博活动，导致其经济状况恶化并接触毒品。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.95,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "12月4日",
+            "relation": "发生抓捕行动",
+            "target": "杜蒙县",
+            "description": "12月4日，警方在杜蒙县实施了抓捕行动。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.95,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "12月4日",
+            "relation": "发生抓捕行动",
+            "target": "大庆市",
+            "description": "12月4日，警方在大庆市实施了抓捕行动。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.95,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "12月4日",
+            "relation": "发生抓捕行动",
+            "target": "哈尔滨市",
+            "description": "12月4日，警方在哈尔滨市实施了抓捕行动。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.95,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "12月4日",
+            "relation": "抓获",
+            "target": "邓某",
+            "description": "12月4日，警方在邓某的制毒窝点将其抓获。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.95,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "12月4日",
+            "relation": "抓获",
+            "target": "团伙成员",
+            "description": "12月4日，警方在杜蒙县、大庆市以及哈尔滨市抓获了十一人团伙成员。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.95,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "12月4日",
+            "relation": "缴获",
+            "target": "制毒工具",
+            "description": "12月4日，警方在邓某的制毒窝点缴获了制毒工具。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.95,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "12月4日",
+            "relation": "缴获",
+            "target": "制毒原料",
+            "description": "12月4日，警方在邓某的制毒窝点缴获了制毒原料。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.95,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "12月4日",
+            "relation": "缴获",
+            "target": "11.04克液态冰毒",
+            "description": "12月4日，警方在邓某的制毒窝点缴获了11.04克液态冰毒。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.95,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "制毒工具",
+            "relation": "被缴获于",
+            "target": "邓某的制毒窝点",
+            "description": "制毒工具在邓某的制毒窝点中被警方缴获。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.95,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "制毒工具",
+            "relation": "用于",
+            "target": "冰毒制造",
+            "description": "制毒工具被用于非法制造冰毒的活动。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.9,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "制毒工具",
+            "relation": "与相关",
+            "target": "制毒原料",
+            "description": "制毒工具与制毒原料一同出现在邓某的制毒窝点中。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.85,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "制毒工具",
+            "relation": "与相关",
+            "target": "邓某",
+            "description": "制毒工具与邓某的制毒窝点和活动密切相关。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.95,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "制毒原料",
+            "relation": "被缴获于",
+            "target": "邓某的制毒窝点",
+            "description": "制毒原料在邓某的制毒窝点中被警方缴获。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.95,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "制毒原料",
+            "relation": "用于制造",
+            "target": "液态冰毒",
+            "description": "制毒原料被用于制造液态冰毒。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.95,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "制毒原料",
+            "relation": "与相关",
+            "target": "制毒工具",
+            "description": "制毒原料与制毒工具一同出现在邓某的制毒窝点中。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.95,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "制毒窝点",
+            "relation": "位于",
+            "target": "杜蒙县",
+            "description": "制毒窝点位于杜蒙县。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.98,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "制毒窝点",
+            "relation": "位于",
+            "target": "太阳镇",
+            "description": "邓某原本居住在太阳镇内的楼房，后来搬至制毒窝点。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.95,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "制毒窝点",
+            "relation": "位于",
+            "target": "公厕附近",
+            "description": "制毒窝点位于公厕附近，距离约100米。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.97,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "制毒窝点",
+            "relation": "由",
+            "target": "邓某",
+            "description": "制毒窝点由邓某设立并使用。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.99,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "制毒窝点",
+            "relation": "用于",
+            "target": "毒品交易",
+            "description": "制毒窝点用于毒品交易，毒品通过公厕传递。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.96,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "制毒窝点",
+            "relation": "用于",
+            "target": "制毒",
+            "description": "制毒窝点用于制毒，邓某在窝点内制造冰毒。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.98,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "制毒窝点",
+            "relation": "被查获",
+            "target": "侦查员",
+            "description": "制毒窝点被侦查员查获，内有制毒工具和原料。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.99,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "制毒窝点",
+            "relation": "与",
+            "target": "毒品原料",
+            "description": "制毒窝点与毒品原料相关，原料被用于制毒。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.97,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "制毒窝点",
+            "relation": "与",
+            "target": "制毒工具",
+            "description": "制毒窝点与制毒工具相关，工具被用于制毒过程。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.97,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "制毒窝点",
+            "relation": "与",
+            "target": "大庆市",
+            "description": "制毒窝点与大庆市相关，毒品通过窝点交易后散播至此。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.96,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "制毒窝点",
+            "relation": "与",
+            "target": "哈尔滨市",
+            "description": "制毒窝点与哈尔滨市相关，毒品通过窝点交易后散播至此。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.96,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "制毒窝点",
+            "relation": "与",
+            "target": "公厕",
+            "description": "制毒窝点与公厕相关，毒品通过公厕进行交易。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.98,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "十一人",
+            "relation": "被抓获",
+            "target": "侦查员",
+            "description": "十一人被侦查员在2023年12月4日晚成功抓获。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.95,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "十一人",
+            "relation": "属于",
+            "target": "制贩毒团伙",
+            "description": "十一人是制贩毒团伙的成员。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.9,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "十一人",
+            "relation": "与接触",
+            "target": "邓某",
+            "description": "十一人与邓某有频繁接触，是其团伙成员。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.85,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "十一人",
+            "relation": "毒品交易地点",
+            "target": "杜蒙县火车站附近公路旁的公厕",
+            "description": "十一人通过该公厕进行毒品交易。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.88,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "十一人",
+            "relation": "毒品来源",
+            "target": "邓某的制毒窝点",
+            "description": "十一人所交易的毒品来源于邓某的制毒窝点。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.92,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "公厕",
+            "relation": "被用于",
+            "target": "毒品交易",
+            "description": "该公厕被用作毒品交易的地点，毒品由邓某通过此地进行分发。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.95,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "公厕",
+            "relation": "关联人物",
+            "target": "邓某",
+            "description": "邓某通过该公厕进行毒品交易，是案件的核心人物。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.98,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "公厕",
+            "relation": "关联地点",
+            "target": "出租屋",
+            "description": "该公厕与邓某的出租屋地理位置接近，是其毒品交易的中转点。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.96,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "公厕",
+            "relation": "关联地点",
+            "target": "杜蒙县",
+            "description": "该公厕位于杜蒙县，是毒品交易活动的中心地点。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.97,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "公厕",
+            "relation": "关联地点",
+            "target": "大庆市",
+            "description": "该公厕位于大庆市杜蒙县，毒品交易活动影响到大庆市范围。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.97,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "公厕",
+            "relation": "关联地点",
+            "target": "哈尔滨市",
+            "description": "该公厕的毒品交易活动影响到哈尔滨市范围。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.97,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "公厕",
+            "relation": "关联地点",
+            "target": "太阳镇",
+            "description": "邓某曾居住在太阳镇，后搬至公厕附近的平房。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.95,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "公厕",
+            "relation": "关联地点",
+            "target": "停车场",
+            "description": "邓某在公厕附近的停车场与他人碰头，疑似进行毒品交易。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.94,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "公厕",
+            "relation": "关联地点",
+            "target": "歌厅",
+            "description": "邓某与他人在歌厅附近碰头，疑似进行毒品交易活动。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74152",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.93,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "毒品交易",
+            "relation": "发生地点",
+            "target": "杜蒙县火车站附近公路旁的公厕",
+            "description": "毒品交易活动主要发生在该公厕附近。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.95,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "毒品交易",
+            "relation": "涉及人员",
+            "target": "邓某",
+            "description": "邓某是毒品交易活动的核心人物，负责制毒和组织交易。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.98,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "毒品交易",
+            "relation": "涉及地点",
+            "target": "邓某的出租屋",
+            "description": "毒品交易所涉及的毒品是在邓某的出租屋内制造的。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.96,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "毒品交易",
+            "relation": "涉及人员",
+            "target": "吸毒人员",
+            "description": "毒品交易涉及与邓某有密切联系的吸毒人员。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.92,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "毒品交易",
+            "relation": "涉及人员",
+            "target": "邓某的妻子",
+            "description": "毒品交易活动与邓某的妻子有关，她参与了日常活动。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.9,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "毒品交易",
+            "relation": "涉及地点",
+            "target": "大庆市",
+            "description": "毒品通过公厕交易后，被下线人员散到大庆市。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.88,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "毒品交易",
+            "relation": "涉及地点",
+            "target": "哈尔滨市",
+            "description": "毒品通过公厕交易后，被下线人员散到哈尔滨市。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.88,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "毒品交易",
+            "relation": "涉及地点",
+            "target": "杜蒙县",
+            "description": "毒品交易活动主要发生在杜蒙县，并在该县内进行抓捕。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.9,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "毒品交易",
+            "relation": "涉及人员",
+            "target": "侦查员",
+            "description": "侦查员通过长期调查，成功告破毒品交易案件。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.95,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "毒品交易",
+            "relation": "涉及地点",
+            "target": "杜蒙县歌厅",
+            "description": "毒品交易相关人员曾在杜蒙县歌厅附近碰头。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.85,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "毒品交易",
+            "relation": "涉及物品",
+            "target": "制毒工具",
+            "description": "毒品交易所涉及的毒品是在制毒工具的帮助下制造的。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.9,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "毒品交易",
+            "relation": "涉及物品",
+            "target": "制毒原料",
+            "description": "毒品交易所涉及的毒品是通过制毒原料制造的。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.9,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "毒品交易",
+            "relation": "涉及物品",
+            "target": "液态冰毒",
+            "description": "毒品交易中涉及的毒品类型为液态冰毒。",
+            "provenance": {
+                "chunk_ids": [
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74151",
+                    "b86406918eaf3274cab9cf5032d98faa011b752087bb74153"
+                ],
+                "confidence": 0.95,
+                "strategy": "llm_relation_provenance"
+            }
+        }
+    ],
+    "chunk_map": {
+        "b86406918eaf3274cab9cf5032d98faa011b752087bb74151": "原标题：深夜荒地公厕却很“热闹” 里面竟藏着一个秘密。前段时间，在哈尔滨大庆市杜蒙县一个偏僻的公厕出现了奇怪的现象，平时人都很少的地方，一到晚上就突然变得热闹起来。这是位于杜蒙县火车站附近公路旁的一个公厕，附近除了几处民房之外，都是荒野，到了夜间很少有人经过。但前段时间，这个偏僻的公厕却突然热闹起来，到了夜间人来人往，甚至还有人大老远的开车过来。知道的是公厕，不知道的还以为是哪个著名旅游景点呢！这个公厕到底为什么会吸引这么多的人来呢？有人放东西，还有人取东西，这总不能是快递中转站吧。侦查员通过调查掌握，一个叫做邓某的人经常与社会上一些吸毒人员接触密切，这些人频繁光顾这个厕所，极有可能是在进行毒品交易！邓某住在离公厕一百米左右的平房，几乎每晚都会往返公厕一次，侦查员分析，他这是在“埋雷”。通过对邓某的继续追踪，一个新发现，更加证实了侦查员关于邓某贩毒的猜测。这是杜蒙县一歌厅附近监控录像拍下的画面，两个人和邓某碰头后，三人一起走到停车场的一辆铲车旁，大约逗留了4分钟左右，三人分头离开。这时，侦查员断定邓某就是在进行毒品交易。通过调查，侦查员还掌握了与邓某频繁接触的下线人员，可奇怪的是，邓某很少外出，而且也没有邮寄过包裹，那么毒品是从哪来的呢？侦查员围绕邓某做了进一步的调查，这个邓某是杜蒙县人，原来居住在太阳镇内的楼房内。可前段时间，邓某却偏偏在这个荒凉的地方租下了一间平房居住，而这个不合常理的出租屋，似乎隐藏着什么秘密！警方猜测，这个隐秘的出租屋是不是邓某制毒的窝点呢？侦查员伪装成出租车司机从出租屋附近经过，试图从邓某丢弃的生活垃圾中寻找一些蛛丝马迹。在丢弃的垃圾中，侦查员一无所获。不过这时，侦查员经过两个月的调查，已经掌握了邓某大概出没的规律。12月4日晚，侦查员决定在邓某妻子送饭时，寻找时机进行抓捕。当天侦查员在杜蒙县、大庆市以及哈尔滨市，抓获了团伙成员十一人，并在邓某的制毒窝点缴获了制毒工具、制毒原料，以及11.04克液态冰毒。而侦查员将邓某抓获时，邓某似乎正在屋内制毒。对于一些专业的化学名词，邓某脱口而出。但殊不知，邓某只有小学文化。邓某未成年的时候曾因故意伤害罪被判处有期徒刑，出狱后通过狱友接触到了毒品，再加上玩网络赌博输了近二十万元，从此就一发不可收拾。偶然一次机会，邓某学到了研制冰毒的技术。由于不具备相关的化学常识，在最初实验的过程中，邓某还差点将一间出租屋引燃。而邓某在出租屋里研究出来的毒品，都是通过这个荒野中的厕所进行交易，由下线散到大庆、哈尔滨等地。侦查员经过大量工作，终于将这个制贩毒案件成功告破。如果邓某当初把这些精力放在正经的地方，应该也会有所作为吧，如今，就算是后悔也来不及了。原标题：深夜荒地公厕却很“热闹” 里面竟藏着一个秘密前段时间，在哈尔滨大庆市杜蒙县一个偏僻的公厕出现了奇怪的现象，平时人都很少的地方，一到晚上就突然变得热闹起来。这是位于杜蒙县火车站附近公路旁的一个公厕，附近除了几处民房之外，都是荒野，到了夜间很少有人经过。但前段时间，这个偏僻的公厕却突然热闹起来，到了夜间人来人往，甚至还有人大老远的开车过来。知道的是公厕，不知道的还以为是哪个著名旅游景点呢！这个公厕到底为什么会吸引这么多的人来呢？有人放东西，还有人取东西，这总不能是快递中转站吧。侦查员通过调查掌握，一个叫做邓某的人经常与社会上一些吸毒人员接触密切，这些人频繁光顾这个厕所，极有可能是在进行毒品交易！邓某住在离公厕一百米左右的平房，几乎每晚都会往返公厕一次，侦查员分析，他这是在“埋雷”。通过对邓某的继续追踪，一个新发现，更加证实了侦查员关于邓某贩毒的猜测。这是杜蒙县一歌厅附近监控录像拍下的画面，两个人和邓某碰头后，三人一起走到停车场的一辆铲车旁，大约逗留了4分钟左右，三人分头离开。这时，侦查员断定邓某就是在进行毒品交易。通过调查，侦查员还掌握了与邓某频繁接触的下线人员，可奇怪的是，邓某很少外出，而且也没有邮寄过包裹，那么毒品是从哪来的呢？侦查员围绕邓某做了进一步的调查，这个邓某是杜蒙县人，原来居住在太阳镇内的楼房内。可前段时间，邓某却偏偏在这个荒凉的地方租下了一间平房居住，而这个不合常理的出租屋，似乎隐藏着什么秘密！警方猜测，这个隐秘的出租屋是不是邓某制毒的窝点呢？侦查员伪装成出租车司机从出租屋附近经过，试图从邓某丢弃的生活垃圾中寻找一些蛛丝马迹。在丢弃的垃圾中，侦查员一无所获。不过这时，侦查员经过两个月的调查，已经掌握了邓某大概出没的规律。12月4日晚，侦查员决定在邓某妻子送饭时，寻找时机进行抓捕。当天侦查员在杜蒙县、大庆市以及哈尔滨市，抓获了团伙成员十一人，并在邓某的制毒窝点缴获了制毒工具、制毒原料，以及11.04克液态冰毒。而侦查员将邓某抓获时，邓某似乎正在屋内制毒。对于一些专业的化学名词，邓某脱口而出。但殊不知，邓某只有小学文化。邓某未成年的时候曾因故意伤害罪被判处有期徒刑，出狱后通过狱友接触到了毒品，再加上玩网络赌博输了近二十万元，从此就一发不可收拾。偶然一次机会，邓某学到了研制冰毒的技术。由于不具备相关的化学常识，在最初实验的过程中，邓某还差点将一间出租屋引燃。而邓某在出租屋里研究出来的毒品，都是通过这个荒野中的厕所进行交易，由下线散到大庆、哈尔滨等地。侦查员经过大量工作，终于将这个制贩毒案件成功告破。如果邓某当初把这些精力放在正经的地方，应该也会有所作为吧，如今，就算是后悔也来不及了。原标题：深夜荒地公厕却很“热闹” 里面竟藏着一个秘密前段时间，在哈尔滨大庆市杜蒙县一个偏僻的公厕出现了奇怪的现象，平时人都很少的地方，一到晚上就突然变得热闹起来。这是位于杜蒙县火车站附近公路旁的一个公厕，附近除了几处民房之外，都是荒野，到了夜间很少有人经过。但前段时间，这个偏僻的公厕却突然热闹起来，到了夜间人来人往，甚至还有人大老远的开车过来。知道的是公厕，不知道的还以为是哪个著名旅游景点呢！这个公厕到底为什么会吸引这么多的人来呢？有人放东西，还有人取东西，这总不能是快递中转站吧。侦查员通过调查掌握，一个叫做邓某的人经常与社会上一些吸毒人员接触密切，这些人频繁光顾这个厕所，极有可能是在进行毒品交易！邓某住在离公厕一百米左右的平房，几乎每晚都会往返公厕一次，侦查员分析，他这是在“埋雷”。通过对邓某的继续追踪，一个新发现，更加证实了侦查员关于邓某贩毒的猜测。这是杜蒙县一歌厅附近监控录像拍下的画面，两个人和邓某碰头后，三人一起走到停车场的一辆铲车旁，大约逗留了4分钟左右，三人分头离开。这时，侦查员断定邓某就是在进行毒品交易。通过调查，侦查员还掌握了与邓某频繁接触的下线人员，可奇怪的是，邓某很少外出，而且也没有邮寄过包裹，那么毒品是从哪来的呢？侦查员围绕邓某做了进一步的调查，这个邓某是杜蒙县人，原来居住在太阳镇内的楼房内。可前段时间，邓某却偏偏在这个荒凉的地方租下了一间平房居住，而这个不合常理的出租屋，似乎隐藏着什么秘密！警方猜测，这个隐秘的出租屋是不是邓某制毒的窝点呢？侦查员伪装成出租车司机从出租屋附近经过，试图从邓某丢弃的生活垃圾中寻找一些蛛丝马迹。在丢弃的垃圾中，侦查员一无所获。不过这时，侦查员经过两个月的调查，已经掌握了邓某大概出没的规律。12月4日晚，侦查员决定在邓某妻子送饭时，寻找时机进行抓捕。当天侦查员在杜蒙县、大庆市以及哈尔滨市，抓获了团伙成员十一人，并在邓某的制毒窝点缴获了制毒工具、制毒原料，以及11.04克液态冰毒。而侦查员将邓某抓获时，邓某似乎正在屋内制毒。对于一些专业的化学名词，邓某脱口而出。但殊不知，邓某只有小学文化。邓某未成年的时候曾因故意伤害罪被判处有期徒刑，出狱后通过狱友接触到了毒品，再加上玩网络赌博输了近二十万元，从此就一发不可收拾。偶然一次机会，邓某学到了研制冰毒的技术。由于不具备相关的化学常识，在最初实验的过程中，邓某还差点将一间出租屋引燃。而邓某在出租屋里研究出来的毒品，都是通过这个荒野中的厕所进行交易，由下线散到大庆、哈尔滨等地。侦查员经过大量工作，终于将这个制贩毒案件成功告破。如果邓某当初把这些精力放在正经的地方，应该也会有所作为吧，如今，就算是后悔也来不及了。",
+        "b86406918eaf3274cab9cf5032d98faa011b752087bb74152": "原标题：深夜荒地公厕却很“热闹” 里面竟藏着一个秘密前段时间，在哈尔滨大庆市杜蒙县一个偏僻的公厕出现了奇怪的现象，平时人都很少的地方，一到晚上就突然变得热闹起来。这是位于杜蒙县火车站附近公路旁的一个公厕，附近除了几处民房之外，都是荒野，到了夜间很少有人经过。但前段时间，这个偏僻的公厕却突然热闹起来，到了夜间人来人往，甚至还有人大老远的开车过来。知道的是公厕，不知道的还以为是哪个著名旅游景点呢！这个公厕到底为什么会吸引这么多的人来呢？有人放东西，还有人取东西，这总不能是快递中转站吧。侦查员通过调查掌握，一个叫做邓某的人经常与社会上一些吸毒人员接触密切，这些人频繁光顾这个厕所，极有可能是在进行毒品交易！邓某住在离公厕一百米左右的平房，几乎每晚都会往返公厕一次，侦查员分析，他这是在“埋雷”。通过对邓某的继续追踪，一个新发现，更加证实了侦查员关于邓某贩毒的猜测。这是杜蒙县一歌厅附近监控录像拍下的画面，两个人和邓某碰头后，三人一起走到停车场的一辆铲车旁，大约逗留了4分钟左右，三人分头离开。这时，侦查员断定邓某就是在进行毒品交易。通过调查，侦查员还掌握了与邓某频繁接触的下线人员，可奇怪的是，邓某很少外出，而且也没有邮寄过包裹，那么毒品是从哪来的呢？侦查员围绕邓某做了进一步的调查，这个邓某是杜蒙县人，原来居住在太阳镇内的楼房内。可前段时间，邓某却偏偏在这个荒凉的地方租下了一间平房居住，而这个不合常理的出租屋，似乎隐藏着什么秘密！警方猜测，这个隐秘的出租屋是不是邓某制毒的窝点呢？侦查员伪装成出租车司机从出租屋附近经过，试图从邓某丢弃的生活垃圾中寻找一些蛛丝马迹。在丢弃的垃圾中，侦查员一无所获。不过这时，侦查员经过两个月的调查，已经掌握了邓某大概出没的规律。12月4日晚，侦查员决定在邓某妻子送饭时，寻找时机进行抓捕。当天侦查员在杜蒙县、大庆市以及哈尔滨市，抓获了团伙成员十一人，并在邓某的制毒窝点缴获了制毒工具、制毒原料，以及11.04克液态冰毒。而侦查员将邓某抓获时，邓某似乎正在屋内制毒。对于一些专业的化学名词，邓某脱口而出。但殊不知，邓某只有小学文化。邓某未成年的时候曾因故意伤害罪被判处有期徒刑，出狱后通过狱友接触到了毒品，再加上玩网络赌博输了近二十万元，从此就一发不可收拾。偶然一次机会，邓某学到了研制冰毒的技术。由于不具备相关的化学常识，在最初实验的过程中，邓某还差点将一间出租屋引燃。而邓某在出租屋里研究出来的毒品，都是通过这个荒野中的厕所进行交易，由下线散到大庆、哈尔滨等地。侦查员经过大量工作，终于将这个制贩毒案件成功告破。如果邓某当初把这些精力放在正经的地方，应该也会有所作为吧，如今，就算是后悔也来不及了。网上真人娱乐取款 原标题：深夜荒地公厕却很“热闹” 里面竟藏着一个秘密前段时间，在哈尔滨大庆市杜蒙县一个偏僻的公厕出现了奇怪的现象，平时人都很少的地方，一到晚上就突然变得热闹起来。这是位于杜蒙县火车站附近公路旁的一个公厕，附近除了几处民房之外，都是荒野，到了夜间很少有人经过。但前段时间，这个偏僻的公厕却突然热闹起来，到了夜间人来人往，甚至还有人大老远的开车过来。知道的是公厕，不知道的还以为是哪个著名旅游景点呢！这个公厕到底为什么会吸引这么多的人来呢？有人放东西，还有人取东西，这总不能是快递中转站吧。侦查员通过调查掌握，一个叫做邓某的人经常与社会上一些吸毒人员接触密切，这些人频繁光顾这个厕所，极有可能是在进行毒品交易！邓某住在离公厕一百米左右的平房，几乎每晚都会往返公厕一次，侦查员分析，他这是在“埋雷”。通过对邓某的继续追踪，一个新发现，更加证实了侦查员关于邓某贩毒的猜测。这是杜蒙县一歌厅附近监控录像拍下的画面，两个人和邓某碰头后，三人一起走到停车场的一辆铲车旁，大约逗留了4分钟左右，三人分头离开。这时，侦查员断定邓某就是在进行毒品交易。通过调查，侦查员还掌握了与邓某频繁接触的下线人员，可奇怪的是，邓某很少外出，而且也没有邮寄过包裹，那么毒品是从哪来的呢？侦查员围绕邓某做了进一步的调查，这个邓某是杜蒙县人，原来居住在太阳镇内的楼房内。可前段时间，邓某却偏偏在这个荒凉的地方租下了一间平房居住，而这个不合常理的出租屋，似乎隐藏着什么秘密！警方猜测，这个隐秘的出租屋是不是邓某制毒的窝点呢？侦查员伪装成出租车司机从出租屋附近经过，试图从邓某丢弃的生活垃圾中寻找一些蛛丝马迹。在丢弃的垃圾中，侦查员一无所获。不过这时，侦查员经过两个月的调查，已经掌握了邓某大概出没的规律。12月4日晚，侦查员决定在邓某妻子送饭时，寻找时机进行抓捕。当天侦查员在杜蒙县、大庆市以及哈尔滨市，抓获了团伙成员十一人，并在邓某的制毒窝点缴获了制毒工具、制毒原料，以及11.04克液态冰毒。而侦查员将邓某抓获时，邓某似乎正在屋内制毒。对于一些专业的化学名词，邓某脱口而出。但殊不知，邓某只有小学文化。邓某未成年的时候曾因故意伤害罪被判处有期徒刑，出狱后通过狱友接触到了毒品，再加上玩网络赌博输了近二十万元，从此就一发不可收拾。偶然一次机会，邓某学到了研制冰毒的技术。由于不具备相关的化学常识，在最初实验的过程中，邓某还差点将一间出租屋引燃。而邓某在出租屋里研究出来的毒品，都是通过这个荒野中的厕所进行交易，由下线散到大庆、哈尔滨等地。侦查员经过大量工作，终于将这个制贩毒案件成功告破。如果邓某当初把这些精力放在正经的地方，应该也会有所作为吧，如今，就算是后悔也来不及了。",
+        "b86406918eaf3274cab9cf5032d98faa011b752087bb74153": "原标题：深夜荒地公厕却很“热闹” 里面竟藏着一个秘密前段时间，在哈尔滨大庆市杜蒙县一个偏僻的公厕出现了奇怪的现象，平时人都很少的地方，一到晚上就突然变得热闹起来。这是位于杜蒙县火车站附近公路旁的一个公厕，附近除了几处民房之外，都是荒野，到了夜间很少有人经过。但前段时间，这个偏僻的公厕却突然热闹起来，到了夜间人来人往，甚至还有人大老远的开车过来。知道的是公厕，不知道的还以为是哪个著名旅游景点呢！这个公厕到底为什么会吸引这么多的人来呢？有人放东西，还有人取东西，这总不能是快递中转站吧。侦查员通过调查掌握，一个叫做邓某的人经常与社会上一些吸毒人员接触密切，这些人频繁光顾这个厕所，极有可能是在进行毒品交易！邓某住在离公厕一百米左右的平房，几乎每晚都会往返公厕一次，侦查员分析，他这是在“埋雷”。通过对邓某的继续追踪，一个新发现，更加证实了侦查员关于邓某贩毒的猜测。这是杜蒙县一歌厅附近监控录像拍下的画面，两个人和邓某碰头后，三人一起走到停车场的一辆铲车旁，大约逗留了4分钟左右，三人分头离开。这时，侦查员断定邓某就是在进行毒品交易。通过调查，侦查员还掌握了与邓某频繁接触的下线人员，可奇怪的是，邓某很少外出，而且也没有邮寄过包裹，那么毒品是从哪来的呢？侦查员围绕邓某做了进一步的调查，这个邓某是杜蒙县人，原来居住在太阳镇内的楼房内。可前段时间，邓某却偏偏在这个荒凉的地方租下了一间平房居住，而这个不合常理的出租屋，似乎隐藏着什么秘密！警方猜测，这个隐秘的出租屋是不是邓某制毒的窝点呢？侦查员伪装成出租车司机从出租屋附近经过，试图从邓某丢弃的生活垃圾中寻找一些蛛丝马迹。在丢弃的垃圾中，侦查员一无所获。不过这时，侦查员经过两个月的调查，已经掌握了邓某大概出没的规律。12月4日晚，侦查员决定在邓某妻子送饭时，寻找时机进行抓捕。当天侦查员在杜蒙县、大庆市以及哈尔滨市，抓获了团伙成员十一人，并在邓某的制毒窝点缴获了制毒工具、制毒原料，以及11.04克液态冰毒。而侦查员将邓某抓获时，邓某似乎正在屋内制毒。对于一些专业的化学名词，邓某脱口而出。但殊不知，邓某只有小学文化。邓某未成年的时候曾因故意伤害罪被判处有期徒刑，出狱后通过狱友接触到了毒品，再加上玩网络赌博输了近二十万元，从此就一发不可收拾。偶然一次机会，邓某学到了研制冰毒的技术。由于不具备相关的化学常识，在最初实验的过程中，邓某还差点将一间出租屋引燃。而邓某在出租屋里研究出来的毒品，都是通过这个荒野中的厕所进行交易，由下线散到大庆、哈尔滨等地。侦查员经过大量工作，终于将这个制贩毒案件成功告破。如果邓某当初把这些精力放在正经的地方，应该也会有所作为吧，如今，就算是后悔也来不及了。九五至尊糖果派对单机游戏原标题：深夜荒地公厕却很“热闹” 里面竟藏着一个秘密前段时间，在哈尔滨大庆市杜蒙县一个偏僻的公厕出现了奇怪的现象，平时人都很少的地方，一到晚上就突然变得热闹起来。这是位于杜蒙县火车站附近公路旁的一个公厕，附近除了几处民房之外，都是荒野，到了夜间很少有人经过。但前段时间，这个偏僻的公厕却突然热闹起来，到了夜间人来人往，甚至还有人大老远的开车过来。知道的是公厕，不知道的还以为是哪个著名旅游景点呢！这个公厕到底为什么会吸引这么多的人来呢？有人放东西，还有人取东西，这总不能是快递中转站吧。侦查员通过调查掌握，一个叫做邓某的人经常与社会上一些吸毒人员接触密切，这些人频繁光顾这个厕所，极有可能是在进行毒品交易！邓某住在离公厕一百米左右的平房，几乎每晚都会往返公厕一次，侦查员分析，他这是在“埋雷”。通过对邓某的继续追踪，一个新发现，更加证实了侦查员关于邓某贩毒的猜测。这是杜蒙县一歌厅附近监控录像拍下的画面，两个人和邓某碰头后，三人一起走到停车场的一辆铲车旁，大约逗留了4分钟左右，三人分头离开。这时，侦查员断定邓某就是在进行毒品交易。通过调查，侦查员还掌握了与邓某频繁接触的下线人员，可奇怪的是，邓某很少外出，而且也没有邮寄过包裹，那么毒品是从哪来的呢？侦查员围绕邓某做了进一步的调查，这个邓某是杜蒙县人，原来居住在太阳镇内的楼房内。可前段时间，邓某却偏偏在这个荒凉的地方租下了一间平房居住，而这个不合常理的出租屋，似乎隐藏着什么秘密！警方猜测，这个隐秘的出租屋是不是邓某制毒的窝点呢？侦查员伪装成出租车司机从出租屋附近经过，试图从邓某丢弃的生活垃圾中寻找一些蛛丝马迹。在丢弃的垃圾中，侦查员一无所获。不过这时，侦查员经过两个月的调查，已经掌握了邓某大概出没的规律。12月4日晚，侦查员决定在邓某妻子送饭时，寻找时机进行抓捕。当天侦查员在杜蒙县、大庆市以及哈尔滨市，抓获了团伙成员十一人，并在邓某的制毒窝点缴获了制毒工具、制毒原料，以及11.04克液态冰毒。而侦查员将邓某抓获时，邓某似乎正在屋内制毒。对于一些专业的化学名词，邓某脱口而出。但殊不知，邓某只有小学文化。邓某未成年的时候曾因故意伤害罪被判处有期徒刑，出狱后通过狱友接触到了毒品，再加上玩网络赌博输了近二十万元，从此就一发不可收拾。偶然一次机会，邓某学到了研制冰毒的技术。由于不具备相关的化学常识，在最初实验的过程中，邓某还差点将一间出租屋引燃。而邓某在出租屋里研究出来的毒品，都是通过这个荒野中的厕所进行交易，由下线散到大庆、哈尔滨等地。侦查员经过大量工作，终于将这个制贩毒案件成功告破。如果邓某当初把这些精力放在正经的地方，应该也会有所作为吧，如今，就算是后悔也来不及了。原标题：深夜荒地公厕却很“热闹” 里面竟藏着一个秘密前段时间，在哈尔滨大庆市杜蒙县一个偏僻的公厕出现了奇怪的现象，平时人都很少的地方，一到晚上就突然变得热闹起来。这是位于杜蒙县火车站附近公路旁的一个公厕，附近除了几处民房之外，都是荒野，到了夜间很少有人经过。但前段时间，这个偏僻的公厕却突然热闹起来，到了夜间人来人往，甚至还有人大老远的开车过来。知道的是公厕，不知道的还以为是哪个著名旅游景点呢！这个公厕到底为什么会吸引这么多的人来呢？有人放东西，还有人取东西，这总不能是快递中转站吧。侦查员通过调查掌握，一个叫做邓某的人经常与社会上一些吸毒人员接触密切，这些人频繁光顾这个厕所，极有可能是在进行毒品交易！邓某住在离公厕一百米左右的平房，几乎每晚都会往返公厕一次，侦查员分析，他这是在“埋雷”。通过对邓某的继续追踪，一个新发现，更加证实了侦查员关于邓某贩毒的猜测。这是杜蒙县一歌厅附近监控录像拍下的画面，两个人和邓某碰头后，三人一起走到停车场的一辆铲车旁，大约逗留了4分钟左右，三人分头离开。这时，侦查员断定邓某就是在进行毒品交易。通过调查，侦查员还掌握了与邓某频繁接触的下线人员，可奇怪的是，邓某很少外出，而且也没有邮寄过包裹，那么毒品是从哪来的呢？侦查员围绕邓某做了进一步的调查，这个邓某是杜蒙县人，原来居住在太阳镇内的楼房内。可前段时间，邓某却偏偏在这个荒凉的地方租下了一间平房居住，而这个不合常理的出租屋，似乎隐藏着什么秘密！警方猜测，这个隐秘的出租屋是不是邓某制毒的窝点呢？侦查员伪装成出租车司机从出租屋附近经过，试图从邓某丢弃的生活垃圾中寻找一些蛛丝马迹。在丢弃的垃圾中，侦查员一无所获。不过这时，侦查员经过两个月的调查，已经掌握了邓某大概出没的规律。12月4日晚，侦查员决定在邓某妻子送饭时，寻找时机进行抓捕。当天侦查员在杜蒙县、大庆市以及哈尔滨市，抓获了团伙成员十一人，并在邓某的制毒窝点缴获了制毒工具、制毒原料，以及11.04克液态冰毒。而侦查员将邓某抓获时，邓某似乎正在屋内制毒。对于一些专业的化学名词，邓某脱口而出。但殊不知，邓某只有小学文化。邓某未成年的时候曾因故意伤害罪被判处有期徒刑，出狱后通过狱友接触到了毒品，再加上玩网络赌博输了近二十万元，从此就一发不可收拾。偶然一次机会，邓某学到了研制冰毒的技术。由于不具备相关的化学常识，在最初实验的过程中，邓某还差点将一间出租屋引燃。而邓某在出租屋里研究出来的毒品，都是通过这个荒野中的厕所进行交易，由下线散到大庆、哈尔滨等地。侦查员经过大量工作，终于将这个制贩毒案件成功告破。如果邓某当初把这些精力放在正经的地方，应该也会有所作为吧，如今，就算是后悔也来不及了。"
+    }
+}
