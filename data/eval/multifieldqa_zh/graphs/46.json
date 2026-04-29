@@ -1,0 +1,2783 @@
+{
+    "entities": [
+        {
+            "name": "VPN",
+            "type": "网络服务",
+            "description": "VPN 是为满足师生在家通过电信宽带等接入访问校内图书馆数字资源而专门设计的解决方案。;;;VPN 是为师生提供访问校内数字资源的虚拟专用网络服务。",
+            "attributes": {
+                "使用方式": "Web 方式和客户端方式",
+                "Web 方式特点": "适合临时使用，无需安装客户端程序，操作简便",
+                "客户端方式特点": "适合固定使用，首次安装和设置较复杂，但后续使用方便",
+                "登录标识": "红色字母 A（Windows 系统）",
+                "连接成功状态标识": "Status 状态为 Connected（Mac/Android 系统）",
+                "登录凭证": "学校邮箱的用户名和密码",
+                "学生用户名": "10 位校园卡卡号",
+                "教师用户名": "学校邮箱名称",
+                "默认端口": "443",
+                "支持平台": "Windows、Mac OS、iOS、Android"
+            },
+            "aliases": [
+                "vpn"
+            ],
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a1",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a2",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a5",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a6",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7"
+                ]
+            }
+        },
+        {
+            "name": "Web 方式",
+            "type": "技术方法",
+            "description": "Web 方式是一种通过浏览器访问的临时性 VPN 使用方法，适合在不同设备上临时使用，无需安装客户端程序。;;;一种无需安装客户端程序的临时使用方式。;;;Web 方式是通过浏览器访问的临时性 VPN 登录方式，适合在任意设备上使用。;;;Web 方式是一种无需安装客户端程序即可通过浏览器访问校内资源的使用方式。;;;Web 方式是一种无需安装客户端程序的临时使用方式。",
+            "attributes": {
+                "适用场景": "临时在某台机器上使用",
+                "是否需要安装客户端": "不需要",
+                "操作复杂度": "简便"
+            },
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a1",
+                    "792f26d086a06374cef8563d1d85ffcfcd3b5c82574555a1",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a5",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a2"
+                ]
+            }
+        },
+        {
+            "name": "客户端方式",
+            "type": "技术方法",
+            "description": "客户端方式是师生通过安装和配置专用软件来访问校内图书馆数字资源的 VPN 使用方法。;;;客户端方式是一种需要安装软件的固定设备使用方法，适合长期使用。;;;一种适合长期使用的客户端程序方式。;;;一种适合长期使用的访问方式，需安装客户端程序。;;;客户端方式是通过安装专用软件进行的固定设备上的 VPN 登录方式。;;;客户端方式是师生固定在一台机器上使用 VPN 时的推荐方式。;;;客户端方式是一种需要安装专用软件以实现稳定连接的使用方式。;;;客户端方式是一种适合长期使用的 vpn 使用方式，需要安装客户端程序。",
+            "attributes": {
+                "适用场景": "固定在一台机器上使用",
+                "首次使用要求": "需要安装客户端程序和设置",
+                "后续使用要求": "只需运行客户端程序并输入用户名和密码",
+                "优点": "首次设置复杂但后续使用方便",
+                "建议使用场景": "在家长期使用"
+            },
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a1",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a3",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a5",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a6",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a4"
+                ]
+            }
+        },
+        {
+            "name": "https://vpn.shnu.edu.cn",
+            "type": "网络服务",
+            "description": "https://vpn.shnu.edu.cn 是上海师范大学为师生提供访问校内图书馆数字资源的虚拟私人网络服务登录界面。;;;这是上海师范大学提供的 Web 方式登录界面。",
+            "attributes": {
+                "用途": "访问校内图书馆数字资源",
+                "目标用户": "上海师范大学师生",
+                "支持的接入方式": "Web 方式、客户端方式、Mac OS 系统、iOS 智能终端、Android 智能终端",
+                "认证方式": "学校邮箱的用户名和密码"
+            },
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a1"
+                ]
+            }
+        },
+        {
+            "name": "AchiveX 控件",
+            "type": "软件组件",
+            "description": "AchiveX 控件是在使用 Web 方式登录 VPN 成功后需要安装的插件，用于支持校内数字资源的访问。;;;AchiveX 控件是用于支持 Web 方式登录的插件。;;;AchiveX 控件是 Web 方式登录后需要安装的插件。;;;用于 Web 方式登录后访问校内资源的控件。;;;AchiveX 控件是 Web 方式登录后需要安装的插件，用于支持 VPN 连接。;;;用于 Web 方式登录的控件。",
+            "attributes": {
+                "用途": "支持通过 Web 方式访问校内数字资源",
+                "安装位置": "在登录 https://vpn.shnu.edu.cn 后安装",
+                "安装后标识": "任务托盘处出现红色字母 A"
+            },
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a1",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a5"
+                ]
+            }
+        },
+        {
+            "name": "学校邮箱",
+            "type": "系统/服务",
+            "description": "学校邮箱是上海师范大学为师生提供的统一身份认证邮箱，用于访问校内资源，包括通过VPN连接校内图书馆数字资源。;;;学校邮箱是教职工在校内系统中的唯一身份标识。;;;教职工使用学校邮箱的用户名和密码登录VPN。;;;学校邮箱是教职工在连接时需要输入的用户名来源。;;;学校邮箱是上海师范大学为师生提供的官方电子邮件账户。",
+            "attributes": {
+                "用途": "用于通过VPN访问校内图书馆数字资源",
+                "登录方式": "用户名为邮箱的帐户名，密码为邮箱的密码"
+            },
+            "aliases": [
+                "教师邮箱帐号"
+            ],
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a1",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a6",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a3",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a9",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a5",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a8"
+                ]
+            }
+        },
+        {
+            "name": "学校数字资源",
+            "type": "数字资源",
+            "description": "学校数字资源是通过特定网络技术（如VPN）供师生访问的图书馆及其他学术资源。",
+            "attributes": {
+                "访问方式": "Web方式和客户端方式",
+                "适用对象": "师生",
+                "访问条件": "通过VPN连接",
+                "登录凭证": "学校邮箱的用户名和密码",
+                "连接状态标识": "电脑任务托盘或手机右上角显示红色字母A或VPN图标"
+            },
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a2"
+                ]
+            }
+        },
+        {
+            "name": "test@shnu.edu.cn",
+            "type": "用户账户",
+            "description": "test@shnu.edu.cn 是上海师范大学提供的学校邮箱账户，用于师生通过 VPN 访问校内数字资源。",
+            "attributes": {
+                "账户类型": "学校邮箱",
+                "用途": "通过 VPN 访问校内数字资源",
+                "用户身份": "师生"
+            },
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a5"
+                ]
+            }
+        },
+        {
+            "name": "test",
+            "type": "用户账户",
+            "description": "test 是一个用于示例的学校邮箱账户，用于演示如何通过 Web 方式登录和使用 VPN。",
+            "attributes": {
+                "邮箱域名": "shnu.edu.cn",
+                "账户类型": "学校邮箱"
+            },
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a5"
+                ]
+            }
+        },
+        {
+            "name": "配置文件",
+            "type": "技术组件",
+            "description": "配置文件是在使用 VPN 客户端时用于存储连接信息和用户凭证的文件。;;;配置文件是客户端方式中用于存储连接信息的设置项。",
+            "attributes": {
+                "用途": "存储 VPN 连接信息和用户凭证",
+                "创建方式": "通过客户端界面手动创建",
+                "保存内容": "用户名、密码、连接地址等"
+            },
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a5",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a3"
+                ]
+            }
+        },
+        {
+            "name": "创建",
+            "type": "动作",
+            "description": "创建是指在使用 VPN 客户端时，用户需要进行配置文件的设置，以便后续连接和使用。",
+            "attributes": {
+                "操作对象": "VPN 客户端配置文件",
+                "操作步骤": "点击“配置文件”--“创建”，填写相关信息后点击“确定”保存设置",
+                "操作目的": "设置并保存用户信息，以便后续快速连接"
+            },
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a5"
+                ]
+            }
+        },
+        {
+            "name": "确定",
+            "type": "操作",
+            "description": "‘确定’是用户在使用 VPN 客户端进行设置或登录时需要执行的一个操作步骤，用于确认输入的信息或完成连接。",
+            "attributes": {
+                "操作类型": "确认操作",
+                "使用场景": "在客户端方式设置或登录时使用"
+            },
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a5"
+                ]
+            }
+        },
+        {
+            "name": "连接",
+            "type": "操作",
+            "description": "连接是用户通过 VPN 客户端或 Web 方式与校内数字资源建立网络通道的过程。",
+            "attributes": {
+                "成功标识": "电脑任务托盘或手机屏幕右上角显示红色字母 A 或 VPN 图标",
+                "操作方式": "Web 方式或客户端方式",
+                "适用平台": "Windows、Mac OS、iOS 和 Android",
+                "首次使用要求": "需要安装客户端程序并进行配置",
+                "后续使用要求": "只需运行客户端程序并输入用户名和密码"
+            },
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a5"
+                ]
+            }
+        },
+        {
+            "name": "MotionPro",
+            "type": "软件",
+            "description": "MotionPro 是一款用于连接上海师范大学（shnu.edu.cn）提供的虚拟私人网络（VPN）的客户端软件，适用于 Mac OS 和 Android 智能终端。;;;MotionPro 是用于 Mac OS 和 Android 系统的官方版 VPN 客户端。;;;MotionPro 是用于 Mac OS 和 Android 系统的官方版 VPN 客户端软件。;;;安卓平台的官方版客户端软件，由华耀(中国)科技有限公司提供。;;;适用于Mac OS和Android系统的VPN客户端软件。;;;MotionPro 是 Android 智能终端上使用的官方版 VPN 客户端软件。;;;MotionPro 是安卓系统上用于连接校内资源的官方版 VPN 客户端软件。;;;MotionPro 是用于 Mac OS 和 Android 平台的 vpn 客户端软件。;;;用于 Mac OS 和 Android 平台的官方版客户端软件。;;;MotionPro 是安卓系统上用于连接 VPN 的客户端软件。;;;MotionPro 是 Mac OS 系统上用于连接学校 VPN 的客户端软件。",
+            "attributes": {
+                "适用平台": "Mac OS 和 Android",
+                "开发商": "Array Networks（苹果系统）；华耀(中国)科技有限公司（安卓平台）",
+                "版本": "1.2.7（iOS）；2.3.4（Android）",
+                "功能": "连接校内图书馆数字资源的 VPN"
+            },
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a6",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a8",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a9",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7"
+                ]
+            }
+        },
+        {
+            "name": "上师大 vpn",
+            "type": "网络服务",
+            "description": "上师大 vpn 是为满足师生在家通过电信宽带等接入访问校内图书馆数字资源而专门设计的解决方案。;;;上师大 vpn 是为上海师范大学师生提供访问校内数字资源的虚拟私人网络服务。",
+            "attributes": {
+                "使用方式": "Web 方式和客户端方式",
+                "登录验证方式": "学校邮箱的用户名和密码",
+                "连接成功标识": "电脑任务托盘或手机右上角显示红色字母 A 或 vpn 图标",
+                "支持平台": "Windows、Mac OS、iOS 和 Android",
+                "登录地址": "https://vpn.shnu.edu.cn",
+                "客户端名称": "MotionPro（Mac/Android）和 MotionPro Plus（iOS）",
+                "默认端口": "443"
+            },
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a6"
+                ]
+            }
+        },
+        {
+            "name": "vpn.shnu.edu.cn",
+            "type": "网络服务",
+            "description": "vpn.shnu.edu.cn 是上海师范大学提供的虚拟私人网络服务，用于师生通过电信宽带等接入方式访问校内图书馆数字资源。;;;这是上海师范大学提供的用于连接 VPN 的服务器地址。;;;这是上海师范大学提供的用于连接的 VPN 服务器地址。;;;上海师范大学提供的用于连接其数字资源的 VPN 服务器地址。",
+            "attributes": {
+                "用途": "访问校内图书馆数字资源",
+                "目标用户": "上海师范大学师生",
+                "登录方式": "Web 方式和客户端方式",
+                "登录凭证": "学校邮箱的用户名和密码",
+                "连接标识": "电脑任务托盘或手机右上角显示红色字母 A 或 VPN 图标",
+                "支持平台": "Windows、Mac OS、iOS 和 Android"
+            },
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a6",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a9"
+                ]
+            }
+        },
+        {
+            "name": "AppStore",
+            "type": "软件平台",
+            "description": "AppStore 是苹果公司提供的一个用于下载和安装应用程序的官方平台。;;;AppStore 是苹果设备上用于下载和安装应用程序的官方平台。;;;AppStore 是苹果公司提供的官方应用程序下载平台。;;;AppStore 是苹果公司提供的官方软件下载平台。",
+            "attributes": {
+                "所属公司": "苹果公司",
+                "支持系统": "iOS"
+            },
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a6",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7"
+                ]
+            }
+        },
+        {
+            "name": "Mac OS 系统",
+            "type": "操作系统",
+            "description": "Mac OS 系统是苹果公司开发的用于其 Mac 电脑的操作系统，支持多种网络连接方式，包括通过特定客户端进行的 VPN 连接。;;;Mac OS 是苹果公司开发的计算机操作系统。;;;苹果公司的操作系统，版本 10.11.0 及以上。",
+            "attributes": {
+                "最低支持版本": "10.11.0"
+            },
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a6"
+                ]
+            }
+        },
+        {
+            "name": "校园卡卡号",
+            "type": "身份标识",
+            "description": "校园卡卡号是学生在校内系统中进行身份认证的重要数字标识。;;;校园卡卡号是学生在校内系统中的唯一身份标识。;;;校园卡卡号是学生在连接时需要输入的 10 位数字身份标识。;;;校园卡卡号是学生在校内系统中的唯一身份标识，用于登录和连接校内网络服务。;;;校园卡卡号是上海师范大学学生用于身份识别的10位数字编号。",
+            "attributes": {
+                "位数": "10"
+            },
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a6",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a8",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a9"
+                ]
+            }
+        },
+        {
+            "name": "统一身份认证密码",
+            "type": "凭证",
+            "description": "统一身份认证密码是上海师范大学师生用于登录 VPN 客户端或进行身份验证的密码。;;;统一身份认证密码是学校为师生提供的用于登录各类系统的统一密码。;;;统一身份认证密码是学校为师生提供的统一登录凭证。;;;统一身份认证密码是上海师范大学师生用于登录校内各类系统的统一密码。",
+            "attributes": {
+                "初始密码规则": "学生初始密码为8位生日",
+                "使用场景": "用于登录VPN客户端或进行身份验证"
+            },
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a6",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a8"
+                ]
+            }
+        },
+        {
+            "name": "MotionProPlus",
+            "type": "软件",
+            "description": "MotionProPlus 是苹果系统上用于连接上海师范大学 VPN 的客户端软件。;;;MotionProPlus 是用于 iOS 系统的官方版 VPN 客户端软件。;;;MotionProPlus 是 iOS 智能终端上使用的官方版 VPN 客户端软件。;;;MotionProPlus 是苹果系统上用于连接校内资源的官方版 VPN 客户端软件。;;;MotionProPlus 是苹果系统上用于连接 VPN 的客户端软件。;;;MotionProPlus 是 Array Networks 开发的 iOS 平台上的 VPN 客户端软件。",
+            "attributes": {
+                "平台": "IOS",
+                "开发商": "Array Networks",
+                "版本": "1.2.7",
+                "图标特征": "右下方有个“+”的图标"
+            },
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a8"
+                ]
+            }
+        },
+        {
+            "name": "1.2.7",
+            "type": "软件版本",
+            "description": "1.2.7 是苹果系统中 MotionPro Plus 软件的一个版本。",
+            "attributes": {
+                "平台": "IOS",
+                "软件名称": "MotionPro Plus",
+                "开发商": "Array Networks"
+            },
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7"
+                ]
+            }
+        },
+        {
+            "name": "Array Networks",
+            "type": "公司/组织",
+            "description": "Array Networks 是一家提供 VPN 客户端软件的开发商，其开发的 MotionProPlus 被用于 iOS 平台的上海师范大学 VPN 连接。",
+            "attributes": {
+                "开发的软件": "MotionProPlus",
+                "软件用途": "用于 iOS 平台的上海师范大学 VPN 连接"
+            },
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7"
+                ]
+            }
+        },
+        {
+            "name": "443",
+            "type": "端口号",
+            "description": "443 是一种常用于安全网络通信的端口号，通常与 HTTPS 协议相关联。;;;用于建立安全连接的默认端口号。",
+            "attributes": {
+                "用途": "用于安全网络通信",
+                "协议": "HTTPS"
+            },
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a9"
+                ]
+            }
+        },
+        {
+            "name": "校内图书馆数字资源",
+            "type": "数字资源",
+            "description": "校内图书馆数字资源是学校为师生提供的在线学术资料和数据库。;;;校内图书馆数字资源是学校为师生提供的在线学术资源。",
+            "attributes": {},
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a1",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a5"
+                ]
+            }
+        },
+        {
+            "name": "客户端程序",
+            "type": "软件",
+            "description": "客户端程序是用于在固定设备上连接 VPN 的软件。",
+            "attributes": {},
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a3"
+                ]
+            }
+        },
+        {
+            "name": "iOS 智能终端",
+            "type": "移动设备",
+            "description": "iOS 是苹果公司开发的移动操作系统，用于 iPhone、iPad 等设备。;;;苹果公司的移动操作系统，支持 MotionPro Plus 客户端。;;;iOS 是苹果公司开发的移动设备操作系统。",
+            "attributes": {},
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7"
+                ]
+            }
+        },
+        {
+            "name": "Android 智能终端",
+            "type": "移动设备",
+            "description": "Android 是谷歌开发的移动操作系统，广泛用于智能手机和平板电脑。;;;安卓平台，支持 MotionPro 客户端。;;;Android 是谷歌开发的移动设备操作系统。",
+            "attributes": {},
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a8"
+                ]
+            }
+        },
+        {
+            "name": "MotionPro Plus",
+            "type": "客户端软件",
+            "description": "MotionPro Plus 是用于 iOS 系统的官方版 VPN 客户端。;;;iOS 智能终端的官方版客户端软件，由 Array Networks 提供。;;;适用于iOS系统的官方版VPN客户端软件。;;;MotionPro Plus 是用于 iOS 平台的 vpn 客户端软件。;;;用于 iOS 平台的官方版客户端软件。",
+            "attributes": {},
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a8"
+                ]
+            }
+        },
+        {
+            "name": "VPN 使用方式",
+            "type": "技术分类",
+            "description": "VPN 使用方式是访问校内数字资源的两种主要方法之一。",
+            "attributes": {},
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a1"
+                ]
+            }
+        },
+        {
+            "name": "师生",
+            "type": "用户群体",
+            "description": "师生是校内数字资源的主要使用者。;;;师生是学校中使用数字资源的主要用户。",
+            "attributes": {},
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a1",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a3"
+                ]
+            }
+        },
+        {
+            "name": "学校邮箱的用户名和密码",
+            "type": "认证信息",
+            "description": "学校邮箱的用户名和密码是访问校内资源的认证凭证。;;;用于登录校内系统的统一身份认证信息。",
+            "attributes": {},
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a1"
+                ]
+            }
+        },
+        {
+            "name": "用户名",
+            "type": "信息字段",
+            "description": "用户名是用于登录校内系统的唯一标识。;;;用于登录校内系统的用户标识，通常为邮箱名或校园卡号。;;;用户名是用户登录系统时的身份标识。;;;用户名是用户在连接时需要输入的登录凭证，通常为邮箱名或校园卡号。;;;用户名是用户在系统中用于身份识别的唯一标识。",
+            "attributes": {},
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a5",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a3",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a1",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a8"
+                ]
+            }
+        },
+        {
+            "name": "密码",
+            "type": "信息字段",
+            "description": "密码是用于验证用户身份的保密信息。;;;用于登录校内系统的密码，通常为统一身份认证密码。;;;密码是用户登录系统时的认证信息。;;;密码是用户在连接时需要输入的登录凭证，通常为统一身份认证密码。;;;密码是用户在系统中用于身份验证的保密信息。",
+            "attributes": {},
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a5",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a3",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a1",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a8"
+                ]
+            }
+        },
+        {
+            "name": "VPN 客户端",
+            "type": "客户端软件",
+            "description": "用于固定机器上长期使用 VPN 的客户端程序。;;;用于连接校内数字资源的虚拟专用网络客户端。",
+            "attributes": {},
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a3"
+                ]
+            }
+        },
+        {
+            "name": "Web 方式登录的系统",
+            "type": "系统/平台",
+            "description": "通过浏览器访问的校内 VPN 登录方式。",
+            "attributes": {},
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a2"
+                ]
+            }
+        },
+        {
+            "name": "校内数字资源访问",
+            "type": "服务",
+            "description": "通过 VPN 访问学校图书馆等数字资源的服务。",
+            "attributes": {},
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a1"
+                ]
+            }
+        },
+        {
+            "name": "Web方式VPN",
+            "type": "服务",
+            "description": "Web方式是通过浏览器访问的临时性VPN使用方式，适合在任意设备上使用。",
+            "attributes": {},
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a1"
+                ]
+            }
+        },
+        {
+            "name": "客户端方式VPN",
+            "type": "服务",
+            "description": "客户端方式是通过安装专用软件进行的固定设备上的VPN使用方式。",
+            "attributes": {},
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a3",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a5"
+                ]
+            }
+        },
+        {
+            "name": "Mac OS系统VPN",
+            "type": "服务",
+            "description": "Mac OS系统中通过MotionPro客户端实现的VPN服务，适用于10.11.0以上版本。",
+            "attributes": {},
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a6"
+                ]
+            }
+        },
+        {
+            "name": "iOS智能终端VPN",
+            "type": "服务",
+            "description": "iOS设备上通过MotionPro Plus客户端实现的VPN服务，用于访问校内数字资源。",
+            "attributes": {},
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7"
+                ]
+            }
+        },
+        {
+            "name": "Android智能终端VPN",
+            "type": "服务",
+            "description": "Android设备上通过MotionPro客户端实现的VPN服务，用于访问校内数字资源。",
+            "attributes": {},
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a8"
+                ]
+            }
+        },
+        {
+            "name": "Web方式",
+            "type": "访问方式",
+            "description": "一种无需安装客户端程序的临时访问方式。",
+            "attributes": {},
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a1",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a2"
+                ]
+            }
+        },
+        {
+            "name": "统一身份认证系统",
+            "type": "认证系统",
+            "description": "用于验证用户身份的系统，师生需使用其密码登录VPN。;;;统一身份认证系统是学校用于管理用户身份和权限的系统。",
+            "attributes": {},
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a6",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a9",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a5",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a8"
+                ]
+            }
+        },
+        {
+            "name": "校园卡",
+            "type": "身份凭证",
+            "description": "学生使用10位校园卡卡号作为用户名登录VPN。",
+            "attributes": {},
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a9"
+                ]
+            }
+        },
+        {
+            "name": "AchiveX控件",
+            "type": "软件组件",
+            "description": "Web方式登录后需要安装的控件，用于支持数字资源访问。",
+            "attributes": {},
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a2"
+                ]
+            }
+        },
+        {
+            "name": "电信宽带",
+            "type": "网络接入方式",
+            "description": "师生在家通过电信宽带等网络接入方式访问校内资源。",
+            "attributes": {},
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a1"
+                ]
+            }
+        },
+        {
+            "name": "上海师范大学",
+            "type": "教育机构",
+            "description": "上海师范大学是一所位于上海的综合性大学，提供多种数字资源服务。;;;一所位于上海的综合性大学。",
+            "attributes": {},
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a1",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a5"
+                ]
+            }
+        },
+        {
+            "name": "Web 方式登录",
+            "type": "操作方式",
+            "description": "Web 方式是一种无需安装客户端即可通过浏览器登录的 VPN 使用方式。",
+            "attributes": {},
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a5"
+                ]
+            }
+        },
+        {
+            "name": "上师大 vpnHost",
+            "type": "服务器地址",
+            "description": "上海师范大学的 VPN 服务器地址，用于连接校内资源。",
+            "attributes": {},
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a6"
+                ]
+            }
+        },
+        {
+            "name": "端口",
+            "type": "网络参数",
+            "description": "用于连接服务器的通信端口，通常为 443。",
+            "attributes": {},
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7"
+                ]
+            }
+        },
+        {
+            "name": "标题",
+            "type": "标识信息",
+            "description": "配置文件的名称或标题，用于用户识别。",
+            "attributes": {},
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7"
+                ]
+            }
+        },
+        {
+            "name": "客户端方式使用说明",
+            "type": "说明文档",
+            "description": "客户端方式使用说明是关于如何通过安装和配置客户端程序来使用 VPN 的指导。",
+            "attributes": {},
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a3"
+                ]
+            }
+        },
+        {
+            "name": "学校邮箱帐号",
+            "type": "身份标识",
+            "description": "学校邮箱帐号是教职工在校内系统中的唯一身份标识。;;;学校邮箱帐号是教职工在校内系统中的唯一身份标识，用于登录和连接校内网络服务。",
+            "attributes": {},
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a6"
+                ]
+            }
+        },
+        {
+            "name": "客户端方式设置",
+            "type": "操作流程",
+            "description": "客户端方式设置是师生在家固定使用 VPN 时需要进行的初始配置步骤。",
+            "attributes": {},
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a3"
+                ]
+            }
+        },
+        {
+            "name": "iOS 系统添加 VPN 连接",
+            "type": "操作流程",
+            "description": "iOS 系统添加 VPN 连接是用户在苹果设备上配置 MotionPro Plus 客户端的过程。",
+            "attributes": {},
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7"
+                ]
+            }
+        },
+        {
+            "name": "Android 系统添加 VPN 连接",
+            "type": "操作流程",
+            "description": "Android 系统添加 VPN 连接是用户在安卓设备上配置 MotionPro 客户端的过程。",
+            "attributes": {},
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a9"
+                ]
+            }
+        },
+        {
+            "name": "保存设置",
+            "type": "操作",
+            "description": "保存设置是用户在输入完必要的信息后，将配置信息存储到客户端中的操作。",
+            "attributes": {},
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a3"
+                ]
+            }
+        },
+        {
+            "name": "连接请求",
+            "type": "操作",
+            "description": "连接请求是用户在 Android 系统中尝试连接到 VPN 服务时触发的确认提示。",
+            "attributes": {},
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a9"
+                ]
+            }
+        },
+        {
+            "name": "校内数字资源",
+            "type": "资源",
+            "description": "校内数字资源是师生通过连接可以访问的图书馆等内部网络资源。",
+            "attributes": {},
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a1"
+                ]
+            }
+        },
+        {
+            "name": "华为应用市场",
+            "type": "应用商店",
+            "description": "华为应用市场是安卓设备上用于下载和安装应用程序的平台之一。;;;华为应用市场是华为公司提供的安卓应用下载平台。",
+            "attributes": {},
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a8",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a9"
+                ]
+            }
+        },
+        {
+            "name": "360 手机助手",
+            "type": "应用商店",
+            "description": "360 手机助手是安卓设备上用于下载和安装应用程序的平台之一。;;;360 手机助手是一款安卓平台上的第三方应用下载工具。",
+            "attributes": {},
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a8",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a9"
+                ]
+            }
+        },
+        {
+            "name": "上海师范大学图书馆数字资源",
+            "type": "数字资源",
+            "description": "上海师范大学图书馆提供的数字资源，包括电子书籍、数据库等。",
+            "attributes": {},
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a6",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a9"
+                ]
+            }
+        },
+        {
+            "name": "学生",
+            "type": "用户类型",
+            "description": "使用校园卡卡号作为用户名的用户类型。",
+            "attributes": {},
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a9"
+                ]
+            }
+        },
+        {
+            "name": "教职工",
+            "type": "用户类型",
+            "description": "使用学校邮箱账号作为用户名的用户类型。",
+            "attributes": {},
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a9"
+                ]
+            }
+        },
+        {
+            "name": "Web方式登录",
+            "type": "操作方式",
+            "description": "Web方式是通过浏览器访问特定网址进行的临时性VPN登录方式。",
+            "attributes": {},
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a3"
+                ]
+            }
+        },
+        {
+            "name": "客户端方式登录",
+            "type": "操作方式",
+            "description": "客户端方式是通过安装专用软件进行的固定设备上的VPN登录方式。",
+            "attributes": {},
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a3",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a5"
+                ]
+            }
+        },
+        {
+            "name": "移动智能终端登录",
+            "type": "操作方式",
+            "description": "移动智能终端登录是通过手机等移动设备进行的VPN连接方式。",
+            "attributes": {},
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a9"
+                ]
+            }
+        },
+        {
+            "name": "上海师范大学VPN",
+            "type": "网络服务",
+            "description": "上海师范大学VPN是为师生提供访问校内数字资源的虚拟专用网络服务。",
+            "attributes": {},
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a8"
+                ]
+            }
+        },
+        {
+            "name": "红色 vpn 图标",
+            "type": "状态标识",
+            "description": "红色 vpn 图标表示设备已成功连接到指定的 vpn 服务。",
+            "attributes": {},
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a9"
+                ]
+            }
+        },
+        {
+            "name": "IOS 智能终端",
+            "type": "设备类型",
+            "description": "IOS 智能终端是苹果公司开发的移动设备操作系统平台。",
+            "attributes": {},
+            "aliases": [],
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7"
+                ]
+            }
+        }
+    ],
+    "relations": [
+        {
+            "source": "VPN",
+            "relation": "提供访问",
+            "target": "校内图书馆数字资源",
+            "description": "VPN 为师生提供访问校内图书馆数字资源的网络通道。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a1"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "VPN",
+            "relation": "使用",
+            "target": "AchiveX 控件",
+            "description": "在 Web 方式登录成功后，需要安装 AchiveX 控件以正常使用 VPN。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a1"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "VPN",
+            "relation": "需要安装",
+            "target": "客户端程序",
+            "description": "客户端方式需要安装客户端程序以实现连接。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a3"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "VPN",
+            "relation": "支持",
+            "target": "Mac OS 系统",
+            "description": "VPN 支持 Mac OS 系统，需通过 AppStore 下载 MotionPro 客户端。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a6"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "VPN",
+            "relation": "支持",
+            "target": "iOS 智能终端",
+            "description": "VPN 支持 iOS 智能终端，需下载 MotionPro Plus 客户端。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "VPN",
+            "relation": "支持",
+            "target": "Android 智能终端",
+            "description": "VPN 支持 Android 智能终端，需下载 MotionPro 客户端。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a8"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "VPN",
+            "relation": "使用",
+            "target": "MotionPro",
+            "description": "MotionPro 是用于连接校内图书馆数字资源的官方版客户端软件。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a6",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a8"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "VPN",
+            "relation": "使用",
+            "target": "MotionPro Plus",
+            "description": "MotionPro Plus 是 iOS 系统上连接校内图书馆数字资源的官方版客户端软件。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "VPN",
+            "relation": "连接",
+            "target": "vpn.shnu.edu.cn",
+            "description": "师生通过连接 vpn.shnu.edu.cn 来访问校内数字资源。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a6",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "VPN",
+            "relation": "使用",
+            "target": "统一身份认证密码",
+            "description": "师生在登录 VPN 时需要输入统一身份认证密码。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a6",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a8"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "Web 方式",
+            "relation": "属于",
+            "target": "VPN 使用方式",
+            "description": "Web 方式是 VPN 使用方式的一种。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a1"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "Web 方式",
+            "relation": "对比",
+            "target": "客户端方式",
+            "description": "Web 方式与客户端方式是两种不同的 VPN 使用方法。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a1"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "Web 方式",
+            "relation": "使用",
+            "target": "师生",
+            "description": "Web 方式适合师生临时使用。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a1"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "Web 方式",
+            "relation": "需要输入",
+            "target": "学校邮箱的用户名和密码",
+            "description": "使用 Web 方式时需要输入学校邮箱的用户名和密码。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a1"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "Web 方式",
+            "relation": "需要访问",
+            "target": "https://vpn.shnu.edu.cn",
+            "description": "Web 方式需要访问 https://vpn.shnu.edu.cn 登录界面。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a1"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "Web 方式",
+            "relation": "需要安装",
+            "target": "AchiveX 控件",
+            "description": "使用 Web 方式登录后需要安装 AchiveX 控件。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a1"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "客户端方式",
+            "relation": "使用",
+            "target": "师生",
+            "description": "客户端方式是为师生设计的固定设备上的 VPN 使用方法。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a3",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a1"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "客户端方式",
+            "relation": "需要安装",
+            "target": "MotionPro",
+            "description": "客户端方式需要安装 MotionPro 软件以完成连接设置。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a6",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a8"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "客户端方式",
+            "relation": "需要安装",
+            "target": "MotionProPlus",
+            "description": "客户端方式在 iOS 系统上需要安装 MotionProPlus 软件。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "客户端方式",
+            "relation": "需要输入",
+            "target": "用户名",
+            "description": "客户端方式需要输入用户名以完成连接设置。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a5",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "客户端方式",
+            "relation": "需要输入",
+            "target": "密码",
+            "description": "客户端方式需要输入密码以完成连接设置。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a5",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "客户端方式",
+            "relation": "连接",
+            "target": "校内图书馆数字资源",
+            "description": "客户端方式通过连接校内图书馆数字资源，实现远程访问。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a1"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "客户端方式",
+            "relation": "使用",
+            "target": "校园卡卡号",
+            "description": "客户端方式中，学生需要使用 10 位校园卡卡号作为用户名。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a8"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "客户端方式",
+            "relation": "使用",
+            "target": "学校邮箱",
+            "description": "客户端方式中，教职工需要使用学校邮箱作为用户名。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a1",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "客户端方式",
+            "relation": "连接",
+            "target": "vpn.shnu.edu.cn",
+            "description": "客户端方式需要连接到 vpn.shnu.edu.cn 服务器以访问校内资源。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a6"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "https://vpn.shnu.edu.cn",
+            "relation": "提供",
+            "target": "Web 方式",
+            "description": "https://vpn.shnu.edu.cn 提供 Web 方式供用户访问校内资源。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a1"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "https://vpn.shnu.edu.cn",
+            "relation": "提供",
+            "target": "客户端方式",
+            "description": "https://vpn.shnu.edu.cn 提供客户端方式供用户访问校内资源。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a3"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "https://vpn.shnu.edu.cn",
+            "relation": "支持",
+            "target": "Mac OS 系统",
+            "description": "https://vpn.shnu.edu.cn 支持在 Mac OS 系统上使用。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a6"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "https://vpn.shnu.edu.cn",
+            "relation": "支持",
+            "target": "iOS 智能终端",
+            "description": "https://vpn.shnu.edu.cn 支持在 iOS 智能终端上使用。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "https://vpn.shnu.edu.cn",
+            "relation": "支持",
+            "target": "Android 智能终端",
+            "description": "https://vpn.shnu.edu.cn 支持在 Android 智能终端上使用。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a8"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "https://vpn.shnu.edu.cn",
+            "relation": "需要安装",
+            "target": "AchiveX 控件",
+            "description": "https://vpn.shnu.edu.cn 在 Web 方式登录后需要安装 AchiveX 控件。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a1"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "https://vpn.shnu.edu.cn",
+            "relation": "需要安装",
+            "target": "MotionPro",
+            "description": "https://vpn.shnu.edu.cn 在 Android 智能终端上需要安装 MotionPro 客户端。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a8"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "https://vpn.shnu.edu.cn",
+            "relation": "需要安装",
+            "target": "MotionPro Plus",
+            "description": "https://vpn.shnu.edu.cn 在 iOS 智能终端上需要安装 MotionPro Plus 客户端。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "https://vpn.shnu.edu.cn",
+            "relation": "需要安装",
+            "target": "VPN 客户端",
+            "description": "https://vpn.shnu.edu.cn 在客户端方式下需要安装对应的客户端程序。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a3"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "AchiveX 控件",
+            "relation": "被安装于",
+            "target": "Web 方式登录的系统",
+            "description": "AchiveX 控件需要在 Web 方式登录的系统中安装，以实现对校内数字资源的访问。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a2"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "AchiveX 控件",
+            "relation": "用于",
+            "target": "校内数字资源访问",
+            "description": "AchiveX 控件用于支持校内数字资源的访问。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a1"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "AchiveX 控件",
+            "relation": "依赖",
+            "target": "学校邮箱的用户名和密码",
+            "description": "AchiveX 控件的安装和使用依赖于学校邮箱的用户名和密码。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a1"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "学校邮箱",
+            "relation": "用于登录",
+            "target": "Web方式VPN",
+            "description": "学校邮箱的用户名和密码可用于登录Web方式的VPN服务。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a1"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "学校邮箱",
+            "relation": "用于登录",
+            "target": "客户端方式VPN",
+            "description": "学校邮箱的用户名和密码可用于登录客户端方式的VPN服务。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a3",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a5"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "学校邮箱",
+            "relation": "用于登录",
+            "target": "Mac OS系统VPN",
+            "description": "学校邮箱的用户名和密码可用于登录Mac OS系统的VPN服务。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a6"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "学校邮箱",
+            "relation": "用于登录",
+            "target": "iOS智能终端VPN",
+            "description": "学校邮箱的用户名和密码可用于登录iOS智能终端的VPN服务。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "学校邮箱",
+            "relation": "用于登录",
+            "target": "Android智能终端VPN",
+            "description": "学校邮箱的用户名和密码可用于登录Android智能终端的VPN服务。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a8"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "学校数字资源",
+            "relation": "通过",
+            "target": "Web方式",
+            "description": "学校数字资源可以通过Web方式进行访问。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a1",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a2"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "学校数字资源",
+            "relation": "通过",
+            "target": "客户端方式",
+            "description": "学校数字资源可以通过客户端方式进行访问。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a3",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a5",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a6"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "学校数字资源",
+            "relation": "通过",
+            "target": "MotionPro",
+            "description": "学校数字资源可以通过MotionPro客户端进行访问。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a6",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a9"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "学校数字资源",
+            "relation": "通过",
+            "target": "MotionPro Plus",
+            "description": "学校数字资源可以通过MotionPro Plus客户端进行访问。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a8"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "学校数字资源",
+            "relation": "依赖",
+            "target": "统一身份认证系统",
+            "description": "学校数字资源的访问依赖于统一身份认证系统的密码验证。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a6",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a9"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "学校数字资源",
+            "relation": "依赖",
+            "target": "校园卡",
+            "description": "学校数字资源的访问依赖于校园卡卡号作为学生身份凭证。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a9"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "学校数字资源",
+            "relation": "依赖",
+            "target": "学校邮箱",
+            "description": "学校数字资源的访问依赖于学校邮箱的用户名和密码作为教职工身份凭证。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a1",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a3",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a6",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a9"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "学校数字资源",
+            "relation": "依赖",
+            "target": "AchiveX控件",
+            "description": "学校数字资源的访问依赖于AchiveX控件的安装。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a2"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "学校数字资源",
+            "relation": "依赖",
+            "target": "电信宽带",
+            "description": "学校数字资源的访问依赖于电信宽带等网络接入方式。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a1"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "test@shnu.edu.cn",
+            "relation": "用于登录",
+            "target": "Web 方式",
+            "description": "test@shnu.edu.cn 邮箱账户可用于 Web 方式登录 VPN。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d85ffcfcd3b5c82574555a1",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a5"
+                ],
+                "confidence": 0.65,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "test@shnu.edu.cn",
+            "relation": "用于登录",
+            "target": "客户端方式",
+            "description": "test@shnu.edu.cn 邮箱账户可用于客户端方式登录 VPN。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a5"
+                ],
+                "confidence": 0.55,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "test@shnu.edu.cn",
+            "relation": "关联到",
+            "target": "上海师范大学",
+            "description": "test@shnu.edu.cn 是上海师范大学提供的邮箱账户。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a1",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a5"
+                ],
+                "confidence": 0.9,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "test@shnu.edu.cn",
+            "relation": "关联到",
+            "target": "AchiveX 控件",
+            "description": "test@shnu.edu.cn 邮箱账户在 Web 方式登录后需要安装 AchiveX 控件。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a1"
+                ],
+                "confidence": 0.35,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "test@shnu.edu.cn",
+            "relation": "关联到",
+            "target": "MotionPro",
+            "description": "test@shnu.edu.cn 邮箱账户可用于 MotionPro 客户端的登录。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a8"
+                ],
+                "confidence": 0.52,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "test@shnu.edu.cn",
+            "relation": "关联到",
+            "target": "MotionProPlus",
+            "description": "test@shnu.edu.cn 邮箱账户可用于 MotionProPlus 客户端的登录。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7"
+                ],
+                "confidence": 0.52,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "test@shnu.edu.cn",
+            "relation": "关联到",
+            "target": "统一身份认证系统",
+            "description": "test@shnu.edu.cn 邮箱账户与统一身份认证系统相关联，用于验证用户身份。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a5",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a8"
+                ],
+                "confidence": 0.75,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "test",
+            "relation": "用于演示",
+            "target": "Web 方式登录",
+            "description": "test 账户用于演示如何通过 Web 方式登录和使用 VPN。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a5"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "test",
+            "relation": "用于演示",
+            "target": "AchiveX 控件",
+            "description": "test 账户用于演示在 Web 方式登录后如何安装 AchiveX 控件。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a5"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "配置文件",
+            "relation": "属于",
+            "target": "VPN 客户端",
+            "description": "配置文件是 VPN 客户端的一部分，用于保存连接设置。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a3"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "配置文件",
+            "relation": "需要填写",
+            "target": "用户名",
+            "description": "在创建配置文件时，需要填写用户名。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a3"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "配置文件",
+            "relation": "需要填写",
+            "target": "密码",
+            "description": "在创建配置文件时，需要填写密码。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a3"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "配置文件",
+            "relation": "需要填写",
+            "target": "上师大 vpnHost",
+            "description": "在创建配置文件时，需要填写上师大 vpnHost。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a6"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "配置文件",
+            "relation": "需要填写",
+            "target": "端口",
+            "description": "在创建配置文件时，需要填写默认端口 443。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "配置文件",
+            "relation": "需要填写",
+            "target": "标题",
+            "description": "在创建配置文件时，需要填写标题。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "创建",
+            "relation": "用于",
+            "target": "客户端方式",
+            "description": "创建配置文件是客户端方式使用过程中的必要步骤。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a3"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "创建",
+            "relation": "需要输入",
+            "target": "用户名",
+            "description": "在创建配置文件时，需要输入用户名。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a3"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "创建",
+            "relation": "需要输入",
+            "target": "密码",
+            "description": "在创建配置文件时，需要输入密码。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a3"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "创建",
+            "relation": "属于",
+            "target": "客户端方式使用说明",
+            "description": "创建配置文件是客户端方式使用说明中的一个步骤。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a3"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "创建",
+            "relation": "涉及",
+            "target": "校园卡卡号",
+            "description": "在创建配置文件时，学生需要输入 10 位校园卡卡号作为用户名。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "创建",
+            "relation": "涉及",
+            "target": "学校邮箱帐号",
+            "description": "在创建配置文件时，教师需要输入学校邮箱帐号作为用户名。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "确定",
+            "relation": "用于",
+            "target": "客户端方式设置",
+            "description": "‘确定’操作用于完成客户端方式设置中的信息保存。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a3"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "确定",
+            "relation": "用于",
+            "target": "iOS 系统添加 VPN 连接",
+            "description": "‘确定’操作用于保存 iOS 系统中添加的 VPN 连接信息。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "确定",
+            "relation": "用于",
+            "target": "Android 系统添加 VPN 连接",
+            "description": "‘确定’操作用于保存 Android 系统中添加的 VPN 连接信息。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a9"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "确定",
+            "relation": "触发",
+            "target": "保存设置",
+            "description": "执行‘确定’操作后，系统会触发保存设置。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a3"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "确定",
+            "relation": "触发",
+            "target": "连接请求",
+            "description": "执行‘确定’操作后，系统会触发连接请求。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a9"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "连接",
+            "relation": "通过",
+            "target": "Web 方式",
+            "description": "连接可以通过 Web 方式实现。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a1",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a2"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "连接",
+            "relation": "通过",
+            "target": "客户端方式",
+            "description": "连接可以通过客户端方式实现。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a3",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a4",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a5",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a6"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "连接",
+            "relation": "通过",
+            "target": "MotionProPlus",
+            "description": "连接可以通过 MotionProPlus 软件实现。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a8"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "连接",
+            "relation": "通过",
+            "target": "MotionPro",
+            "description": "连接可以通过 MotionPro 软件实现。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a8"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "连接",
+            "relation": "需要输入",
+            "target": "用户名",
+            "description": "连接需要输入用户名。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a1",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a5",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a8"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "连接",
+            "relation": "需要输入",
+            "target": "密码",
+            "description": "连接需要输入密码。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a1",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a5",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a8"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "连接",
+            "relation": "需要配置",
+            "target": "配置文件",
+            "description": "连接需要配置配置文件。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a3"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "连接",
+            "relation": "需要访问",
+            "target": "校内数字资源",
+            "description": "连接需要访问校内数字资源。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a1"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "连接",
+            "relation": "需要登录",
+            "target": "统一身份认证系统",
+            "description": "连接需要登录统一身份认证系统。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a8"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "连接",
+            "relation": "需要使用",
+            "target": "校园卡卡号",
+            "description": "连接需要使用校园卡卡号。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a8"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "连接",
+            "relation": "需要使用",
+            "target": "学校邮箱",
+            "description": "连接需要使用学校邮箱。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a1",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a5",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a8"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "连接",
+            "relation": "需要访问",
+            "target": "AppStore",
+            "description": "连接需要访问 AppStore 以下载 MotionProPlus。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "连接",
+            "relation": "需要访问",
+            "target": "华为应用市场",
+            "description": "连接需要访问华为应用市场以下载 MotionPro。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a8"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "连接",
+            "relation": "需要访问",
+            "target": "360 手机助手",
+            "description": "连接需要访问 360 手机助手以下载 MotionPro。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a8"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "MotionPro",
+            "relation": "下载渠道",
+            "target": "AppStore",
+            "description": "MotionPro（iOS 版本）可以通过 AppStore 下载安装。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "MotionPro",
+            "relation": "下载渠道",
+            "target": "华为应用市场",
+            "description": "MotionPro（Android 版本）可以通过华为应用市场下载安装。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a9"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "MotionPro",
+            "relation": "下载渠道",
+            "target": "360 手机助手",
+            "description": "MotionPro（Android 版本）可以通过 360 手机助手下载安装。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a9"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "MotionPro",
+            "relation": "用于连接",
+            "target": "上海师范大学图书馆数字资源",
+            "description": "MotionPro 被用于连接上海师范大学图书馆的数字资源。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a6",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a9"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "MotionPro",
+            "relation": "支持用户类型",
+            "target": "学生",
+            "description": "MotionPro 支持学生用户类型，学生需使用 10 位校园卡卡号作为用户名。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a9"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "MotionPro",
+            "relation": "支持用户类型",
+            "target": "教职工",
+            "description": "MotionPro 支持教职工用户类型，教职工需使用学校邮箱名称作为用户名。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a9"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "MotionPro",
+            "relation": "连接地址",
+            "target": "vpn.shnu.edu.cn",
+            "description": "MotionPro 通过 vpn.shnu.edu.cn 地址连接到上海师范大学的数字资源。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a6",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a9"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "MotionPro",
+            "relation": "连接端口",
+            "target": "443",
+            "description": "MotionPro 默认使用 443 端口连接到 vpn.shnu.edu.cn。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a9"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "上师大 vpn",
+            "relation": "提供访问",
+            "target": "校内图书馆数字资源",
+            "description": "上师大 vpn 为师生提供访问校内图书馆数字资源的通道。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a1",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a5"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "上师大 vpn",
+            "relation": "使用",
+            "target": "Web 方式",
+            "description": "上师大 vpn 提供 Web 方式供师生临时使用。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a1"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "上师大 vpn",
+            "relation": "使用",
+            "target": "客户端方式",
+            "description": "上师大 vpn 提供客户端方式供师生长期使用。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a1",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a3"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "上师大 vpn",
+            "relation": "需要安装",
+            "target": "MotionPro",
+            "description": "上师大 vpn 在 Mac OS 和 Android 平台上需要安装 MotionPro 客户端。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a6"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "上师大 vpn",
+            "relation": "需要安装",
+            "target": "MotionPro Plus",
+            "description": "上师大 vpn 在 iOS 平台上需要安装 MotionPro Plus 客户端。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "上师大 vpn",
+            "relation": "支持",
+            "target": "Mac OS 系统",
+            "description": "上师大 vpn 支持 Mac OS 系统的使用。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a6"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "上师大 vpn",
+            "relation": "支持",
+            "target": "iOS 智能终端",
+            "description": "上师大 vpn 支持 iOS 智能终端的使用。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "上师大 vpn",
+            "relation": "支持",
+            "target": "Android 智能终端",
+            "description": "上师大 vpn 支持 Android 智能终端的使用。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a8"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "上师大 vpn",
+            "relation": "需要验证",
+            "target": "统一身份认证密码",
+            "description": "上师大 vpn 需要使用统一身份认证密码进行登录验证。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a8"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "上师大 vpn",
+            "relation": "需要验证",
+            "target": "校园卡卡号",
+            "description": "上师大 vpn 需要学生使用 10 位校园卡卡号进行验证。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a8"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "上师大 vpn",
+            "relation": "需要验证",
+            "target": "学校邮箱",
+            "description": "上师大 vpn 需要教职工使用学校邮箱进行验证。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a1",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "vpn.shnu.edu.cn",
+            "relation": "提供",
+            "target": "Web 方式",
+            "description": "vpn.shnu.edu.cn 提供 Web 方式供用户临时访问校内资源。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a1"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "vpn.shnu.edu.cn",
+            "relation": "提供",
+            "target": "客户端方式",
+            "description": "vpn.shnu.edu.cn 提供客户端方式供用户长期访问校内资源。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a3"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "vpn.shnu.edu.cn",
+            "relation": "支持",
+            "target": "MotionPro",
+            "description": "vpn.shnu.edu.cn 支持 MotionPro 客户端软件进行连接。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a6",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a8"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "vpn.shnu.edu.cn",
+            "relation": "支持",
+            "target": "MotionPro Plus",
+            "description": "vpn.shnu.edu.cn 支持 MotionPro Plus 客户端软件进行连接。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "vpn.shnu.edu.cn",
+            "relation": "需要",
+            "target": "AchiveX 控件",
+            "description": "通过 Web 方式登录 vpn.shnu.edu.cn 时需要安装 AchiveX 控件。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a1"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "vpn.shnu.edu.cn",
+            "relation": "关联",
+            "target": "上海师范大学",
+            "description": "vpn.shnu.edu.cn 是上海师范大学提供的网络服务。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a1"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "AppStore",
+            "relation": "提供下载",
+            "target": "MotionProPlus",
+            "description": "AppStore 提供 MotionProPlus 软件的下载。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "AppStore",
+            "relation": "提供下载",
+            "target": "MotionPro",
+            "description": "AppStore 提供 MotionPro 软件的下载。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "Mac OS 系统",
+            "relation": "需要下载",
+            "target": "MotionPro",
+            "description": "在 Mac OS 系统上使用学校提供的 VPN 服务时，需要前往 AppStore 下载 MotionPro 客户端。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a6"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "Mac OS 系统",
+            "relation": "支持连接",
+            "target": "上师大 vpn",
+            "description": "Mac OS 系统可以通过 MotionPro 客户端连接上师大 vpn。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a6"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "Mac OS 系统",
+            "relation": "需要设置",
+            "target": "校园卡卡号",
+            "description": "在 Mac OS 系统上配置上师大 vpn 时，需要输入学生的 10 位校园卡卡号作为用户名。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a6"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "Mac OS 系统",
+            "relation": "需要设置",
+            "target": "学校邮箱帐号",
+            "description": "在 Mac OS 系统上配置上师大 vpn 时，需要输入教职工的学校邮箱帐号作为用户名。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a6"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "Mac OS 系统",
+            "relation": "需要设置",
+            "target": "统一身份认证密码",
+            "description": "在 Mac OS 系统上连接上师大 vpn 时，需要输入统一身份认证密码进行登录。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a6"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "校园卡卡号",
+            "relation": "用于登录",
+            "target": "VPN",
+            "description": "学生可以通过 10 位校园卡卡号登录学校的 VPN 服务。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a6",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "统一身份认证密码",
+            "relation": "关联",
+            "target": "校园卡卡号",
+            "description": "统一身份认证密码与校园卡卡号共同用于学生身份验证。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a9"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "统一身份认证密码",
+            "relation": "关联",
+            "target": "学校邮箱",
+            "description": "统一身份认证密码与学校邮箱的用户名共同用于教职工的VPN登录验证。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a3",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "统一身份认证密码",
+            "relation": "用于",
+            "target": "Web方式登录",
+            "description": "统一身份认证密码用于Web方式登录时的身份验证。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a3"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "统一身份认证密码",
+            "relation": "用于",
+            "target": "客户端方式登录",
+            "description": "统一身份认证密码用于客户端方式登录时的身份验证。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a3",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a5"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "统一身份认证密码",
+            "relation": "用于",
+            "target": "移动智能终端登录",
+            "description": "统一身份认证密码用于移动智能终端登录时的身份验证。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a9"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "MotionProPlus",
+            "relation": "下载来源",
+            "target": "AppStore",
+            "description": "MotionProPlus 可以通过 AppStore 下载安装。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "MotionProPlus",
+            "relation": "用于连接",
+            "target": "上海师范大学VPN",
+            "description": "MotionProPlus 用于连接上海师范大学的 VPN 服务。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a8"
+                ],
+                "confidence": 0.85,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "MotionProPlus",
+            "relation": "需要输入",
+            "target": "用户名",
+            "description": "MotionProPlus 在连接时需要输入用户名，学生使用 10 位校园卡卡号，教师使用学校邮箱名称。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a8"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "MotionProPlus",
+            "relation": "需要输入",
+            "target": "密码",
+            "description": "MotionProPlus 在连接时需要输入统一身份认证密码，学生初始密码为 8 位生日。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7",
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a8"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "MotionProPlus",
+            "relation": "连接成功标识",
+            "target": "红色 vpn 图标",
+            "description": "MotionProPlus 连接成功后，手机屏幕右上角会显示红色 vpn 图标。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a9"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "1.2.7",
+            "relation": "用于",
+            "target": "IOS 智能终端",
+            "description": "1.2.7 版本的 MotionPro Plus 软件用于 IOS 智能终端的 VPN 连接。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "1.2.7",
+            "relation": "下载来源",
+            "target": "AppStore",
+            "description": "1.2.7 版本的 MotionPro Plus 可以通过 AppStore 下载安装。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "Array Networks",
+            "relation": "开发",
+            "target": "MotionProPlus",
+            "description": "Array Networks 开发了 MotionProPlus 软件，用于 iOS 平台的上海师范大学 VPN 连接。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7"
+                ],
+                "confidence": 0.8,
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "443",
+            "relation": "使用",
+            "target": "MotionProPlus",
+            "description": "443 端口被 MotionProPlus 软件用于连接 VPN。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        },
+        {
+            "source": "443",
+            "relation": "使用",
+            "target": "MotionPro",
+            "description": "443 端口被 MotionPro 软件用于连接 VPN。",
+            "provenance": {
+                "chunk_ids": [
+                    "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a9"
+                ],
+                "strategy": "llm_relation_provenance"
+            }
+        }
+    ],
+    "chunk_map": {
+        "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a1": "'VPN 使用说明VPN 是为满足师生在家通过电信宽带等接入访问校内图书馆数字资源而专 门设计的解决方案。现提供两种 VPN 的使用方式：Web 方式和客户端方式。Web 方式适合师生临时在某台机器上使用 VPN 时使用，师生只需在界面上 输入学校邮箱的用户名和密码，按提示操作(详细见下面 Web 方式操作说明)， 不需要安装客户端程序和设置，操作简便。客户端方式适合师生固定在一台机器上使用 VPN 时使用，第一次使用需要 安装客户端程序和设置，以后每次使用 VPN，只需要运行客户端程序，输入用 户名和密码即可。建议师生在家使用客户端方式，首次使用安装和设置复杂一 些，以后每次使用都十分方便。一、Web 方式使用说明1、打开 https://vpn.shnu.edu.cn 登录界面，出现 VPN 登录页面，请输入 学校邮箱的帐户名和密码进行登录。2、输入正确的帐号和密码登录成功后，请点击安装 AchiveX 控件。",
+        "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a2": "3、安装好后出现如图所示，同时在任务托盘处出现红色字母 A，说明你已 成功登录 vpn，可以正常使用学校数字资源。4、使用结束后请点击右上方的“注销”按钮，断开连接。",
+        "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a3": "二、客户端方式使用说明1、下载“VPN 客户端”后，进行解压缩，点击安装文件进行安装，点击 “下一步”，选择“我接受”后进行客户端的安装。",
+        "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a4": "2、点击“完成”按钮，弹出连接对话框。",
+        "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a5": "3、点击“配置文件”--“创建”，请按照以下信息填写后，点击“确定” 保存设置。说明：输入的用户名和密码即学校邮件的用户名和密码。上面以 test@shnu.edu.cn 邮箱为例。在用户名中请输入邮箱的帐户名即为 test，密码 中请输入邮箱的密码。4、设置完成并保存后，点击“连接”，即可登录 VPN。",
+        "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a6": "5、登录成功后，电脑屏幕的右下端出现红色字母 A，红色为连接成功，灰 色为断开连接 。请在使用结束后，双击红色字母 A 后，断开连接，退出客户端。6、以上是第一次使用 VPN 的操作，以后每次使用只需要运行桌面上的 VPN 客户端程序 ，点击连接，即可登录 VPN。三、Mac OS 系统 VPN 使用方法1、Mac OS 系统（版本 10.11.0 以上的操作系统）安装 vpn 首先需前往 AppStore 中下载客户端 MotionPro，打开 AppStore 后可在右上角搜索框中搜索 MotionPro；也可以点击此处下载客户端2、客户端 MotionPro 下载完成后点击安装；\n3、客户端安装完成后点击打开，将会弹出如下窗口，请右键窗口内空白处 选择 Add，添加 vpn 帐号信息；4、按照如下信息进行设置：SiteName 为自选命名，可以填写为：上师大 vpnHost 请填写：vpn.shnu.edu.cnUsername：如果是学生请填写 10 位校园卡卡号，如果是教职工请填写学校 教师邮箱帐号Save Password：请先勾选保存密码，然后输入统一身份认证密码（学生初 始密码为 8 位生日）填写完毕后点击 OK\n5、点击 OK 后将会在空白处出现连接选项，如下图，请双击名称为上师大 vpn 的选项；6、当 Status 状态为 Connected 时，表示 VPN 连接成功。",
+        "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a7": "四、移动智能终端 VPN 使用方法（一）IOS 智能终端 VPN 操作说明1、下载并安装 VPN 客户端软件（苹果系统 VPN 客户端名称为 MotionProPlus，可以通过 AppStore 软件平台下载安装官方版软件，目前版本是 1.2.7， 图标右下方有个“+”的 APP，开发商：Array Networks，如下图：\n2、安装完成后打开 MotionPro Plus，选择左下角的“网关”选项再点击 右上角的“+”号添加 VPN 连接，如下图：3、按照下图输入标题、网关、用户名等信息（注意：学生用户名为 10 位 校园卡卡号，教师用户名为学校邮箱名称，端口默认 443，证书不需要填写）。",
+        "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a8": "信息输入后点击右上角的“存储”，如下图：\n4、点击“登录”，输入统一身份认证密码，再点击“登录”，如下图：5、连接成功后，手机屏幕右上角显示 vpn 图标，如下图：（二）Android 智能终端 VPN 操作说明1、下载并安装 VPN 客户端软件（安卓平台 VPN 客户端名称为 MotionPro， \n可以通过国内的华为应用市场、360 手机助手下载安装官方版软件，目前版本 是 2.3.4，其在国内的厂商名称：华耀(中国)科技有限公司），如下图：2、安装成功后打开客户端，选择“网关”选项右上角的“+”号添加 VPN 连接，如下图：3、按照下图输入标题、网关、用户名等信息（注意：学生用户名为 10 位 校园卡卡号，教师用户名为学校邮箱名称，端口默认 443，证书不需要填写）。",
+        "792f26d086a06374cef8563d1d858ffcfcd3b5c82574555a9": "信息输入后点击“确定”，如下图：4、点击“登录”，输入统一身份认证密码，再点击“登录”，如下图：5、弹出“连接请求”提示框，点击“确定”后，连接成功，如下图：\n\n'"
+    }
+}
