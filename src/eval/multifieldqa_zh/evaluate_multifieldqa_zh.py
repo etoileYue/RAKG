@@ -11,6 +11,7 @@ from pathlib import Path
 from typing import Dict, Iterable, List, Optional
 
 from src.kgAgent import NER_Agent
+from src.llm_executor import LLMExecutor, LLMTask, LLMTaskError
 from src.llm_provider import LLMProvider
 from src.utils import parse_json_like_response, run_with_rate_limit_retry
 
@@ -360,6 +361,20 @@ def build_error_record(sample: dict, phase: str, error: Exception) -> dict:
     return record
 
 
+def build_task_error_record(sample: dict, phase: str, task_error: LLMTaskError) -> dict:
+    record = build_base_record(sample)
+    record.update(
+        {
+            "phase": phase,
+            "status": "error",
+            "error": task_error.message,
+            "traceback": task_error.traceback_text,
+            "updated_at": utc_timestamp(),
+        }
+    )
+    return record
+
+
 def build_checkpoint_topics(samples: List[dict]) -> List[dict]:
     return [
         {"topic": sample["sample_id"], "content": sample["context"]}
@@ -696,7 +711,7 @@ def answer_stage(args) -> dict:
 
     run_stats = {"selected_count": len(selected_samples), "skipped_count": 0, "success_count": 0, "error_count": 0}
     appended_records = []
-    agent = None
+    pending_payloads = []
 
     for sample in selected_samples:
         record_id = str(sample.get("qa_id") or sample["sample_id"])
@@ -733,14 +748,25 @@ def answer_stage(args) -> dict:
                 "updated_at": utc_timestamp(),
             }
         )
+        pending_payloads.append(
+            {
+                "sample": sample,
+                "record_id": record_id,
+                "graph_path": graph_path,
+                "base_record": base_record,
+            }
+        )
 
+    def answer_one(payload: dict) -> dict:
+        sample = payload["sample"]
+        record_id = payload["record_id"]
+        graph_path = payload["graph_path"]
+        base_record = dict(payload["base_record"])
         try:
             if not Path(graph_path).exists():
                 raise FileNotFoundError(f"Graph file not found: {graph_path}")
 
-            if agent is None:
-                agent = NER_Agent()
-
+            agent = NER_Agent()
             cache_key = f"multifieldqa_zh:{record_id}"
 
             def answer_attempt():
@@ -772,9 +798,6 @@ def answer_stage(args) -> dict:
                     "updated_at": utc_timestamp(),
                 }
             )
-            existing_predictions[record_id] = base_record
-            appended_records.append(base_record)
-            run_stats["success_count"] += 1
         except Exception as exc:
             base_record.update(
                 {
@@ -784,8 +807,56 @@ def answer_stage(args) -> dict:
                     "updated_at": utc_timestamp(),
                 }
             )
-            existing_predictions[record_id] = base_record
-            appended_records.append(base_record)
+        return {"record_id": record_id, "record": base_record}
+
+    tasks = [
+        LLMTask(
+            kind="multifieldqa_zh_answer",
+            payload=payload,
+            invoke_fn=answer_one,
+            metadata={
+                "record_id": payload["record_id"],
+                "sample": payload["sample"],
+                "graph_path": payload["graph_path"],
+            },
+        )
+        for payload in pending_payloads
+    ]
+    task_results = LLMExecutor().invoke_batch(
+        tasks,
+        progress_enabled=True,
+        progress_label="MFQA-ZH answer",
+    )
+    for result in task_results:
+        if isinstance(result, LLMTaskError):
+            sample = result.metadata.get("sample", {})
+            record_id = str(result.metadata.get("record_id") or sample.get("qa_id") or sample.get("sample_id") or "")
+            record = build_task_error_record(sample, phase="answer", task_error=result)
+            graph_path = str(result.metadata.get("graph_path", ""))
+            record.update(
+                {
+                    "graph_path": graph_path,
+                    "pred_answer": "",
+                    "formatted_answer": "",
+                    "graph_paths": [],
+                    "retrieval": {
+                        "context_text": "",
+                        "evidence_items": [],
+                        "graph_paths": [],
+                        "matched_nodes": [],
+                        "seed_nodes": [],
+                    },
+                }
+            )
+        else:
+            record_id = result["record_id"]
+            record = result["record"]
+
+        existing_predictions[record_id] = record
+        appended_records.append(record)
+        if record.get("status") == "success":
+            run_stats["success_count"] += 1
+        else:
             run_stats["error_count"] += 1
 
     prediction_records = sort_records(existing_predictions.values())
@@ -831,6 +902,7 @@ def score_stage(args) -> dict:
 
     run_stats = {"selected_count": len(selected_samples), "skipped_count": 0, "success_count": 0, "error_count": 0}
     appended_records = []
+    pending_payloads = []
 
     for sample in selected_samples:
         record_id = str(sample.get("qa_id") or sample["sample_id"])
@@ -858,7 +930,23 @@ def score_stage(args) -> dict:
                 "updated_at": utc_timestamp(),
             }
         )
+        pending_payloads.append(
+            {
+                "sample": sample,
+                "record_id": record_id,
+                "prediction_record": prediction_record,
+                "pred_answer": pred_answer,
+                "context_text": context_text,
+                "base_record": base_record,
+            }
+        )
 
+    def score_one(payload: dict) -> dict:
+        sample = payload["sample"]
+        record_id = payload["record_id"]
+        pred_answer = payload["pred_answer"]
+        context_text = payload["context_text"]
+        base_record = dict(payload["base_record"])
         try:
             if need_answer_judge:
                 if pred_answer.strip():
@@ -889,15 +977,40 @@ def score_stage(args) -> dict:
                     base_record["retrieval_judge"] = 0
 
             base_record["status"] = "success"
-            existing_scored[record_id] = base_record
-            appended_records.append(base_record)
-            run_stats["success_count"] += 1
         except Exception as exc:
             base_record["status"] = "error"
             base_record["error"] = str(exc)
             base_record["traceback"] = traceback.format_exc()
-            existing_scored[record_id] = base_record
-            appended_records.append(base_record)
+        return {"record_id": record_id, "record": base_record}
+
+    tasks = [
+        LLMTask(
+            kind="multifieldqa_zh_score",
+            payload=payload,
+            invoke_fn=score_one,
+            metadata={"record_id": payload["record_id"], "sample": payload["sample"]},
+        )
+        for payload in pending_payloads
+    ]
+    task_results = LLMExecutor().invoke_batch(
+        tasks,
+        progress_enabled=True,
+        progress_label="MFQA-ZH score",
+    )
+    for result in task_results:
+        if isinstance(result, LLMTaskError):
+            sample = result.metadata.get("sample", {})
+            record_id = str(result.metadata.get("record_id") or sample.get("qa_id") or sample.get("sample_id") or "")
+            record = build_task_error_record(sample, phase="score", task_error=result)
+        else:
+            record_id = result["record_id"]
+            record = result["record"]
+
+        existing_scored[record_id] = record
+        appended_records.append(record)
+        if record.get("status") == "success":
+            run_stats["success_count"] += 1
+        else:
             run_stats["error_count"] += 1
 
     scored_records = sort_records(existing_scored.values())

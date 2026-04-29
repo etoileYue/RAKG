@@ -45,6 +45,14 @@ class FakeProvider:
         return self.model
 
 
+class RecordingLLMExecutor:
+    calls = []
+
+    def invoke_batch(self, tasks, **kwargs):
+        self.calls.append({"tasks": list(tasks), "kwargs": dict(kwargs)})
+        return [task.invoke_fn(task.payload) for task in tasks]
+
+
 class FakeAgent:
     CHECKPOINT_FILE_NAME = "checkpoint_state.json"
     build_fail_ids = set()
@@ -441,6 +449,41 @@ class MultiFieldQAZHEvalTests(unittest.TestCase):
         self.assertIn("context_text", record["retrieval"])
         self.assertEqual(record["status"], "success")
 
+    def test_answer_stage_uses_llm_executor_progress(self):
+        output_root = self.root / "out_answer_executor"
+        RecordingLLMExecutor.calls = []
+        with mock.patch.object(mfq, "NER_Agent", FakeAgent):
+            mfq.main(
+                [
+                    "build",
+                    "--dataset-path",
+                    str(self.dataset_path),
+                    "--output-root",
+                    str(output_root),
+                    "--limit",
+                    "1",
+                ]
+            )
+            with mock.patch.object(mfq, "LLMExecutor", RecordingLLMExecutor):
+                summary = mfq.main(
+                    [
+                        "answer",
+                        "--dataset-path",
+                        str(self.dataset_path),
+                        "--output-root",
+                        str(output_root),
+                        "--limit",
+                        "1",
+                    ]
+                )
+
+        self.assertEqual(summary["success_count"], 1)
+        self.assertEqual(len(RecordingLLMExecutor.calls), 1)
+        call = RecordingLLMExecutor.calls[0]
+        self.assertEqual(len(call["tasks"]), 1)
+        self.assertTrue(call["kwargs"]["progress_enabled"])
+        self.assertEqual(call["kwargs"]["progress_label"], "MFQA-ZH answer")
+
     def test_answer_and_score_use_expanded_qa_ids_with_source_graph(self):
         output_root = self.root / "out_expanded_qa"
         qa_dataset_path = self.root / "expanded_qa.jsonl"
@@ -623,6 +666,54 @@ class MultiFieldQAZHEvalTests(unittest.TestCase):
         self.assertEqual(scored_by_id["s1"]["answer_judge"], 1)
         self.assertEqual(scored_by_id["s1"]["retrieval_judge"], 0)
         self.assertEqual(scored_by_id["s2"]["retrieval_judge"], 0)
+
+    def test_score_stage_uses_llm_executor_progress(self):
+        output_root = self.root / "out_score_executor"
+        output_root.mkdir(parents=True, exist_ok=True)
+        mfq.write_jsonl(
+            output_root / "result" / "predictions.jsonl",
+            [
+                {
+                    "sample_id": "s1",
+                    "sample_index": 0,
+                    "question": "问题1",
+                    "answers": ["预测答案-0"],
+                    "pred_answer": "预测答案-0",
+                    "formatted_answer": "答案：预测答案-0",
+                    "graph_path": "/tmp/0.json",
+                    "graph_paths": ["path-0"],
+                    "retrieval": {"context_text": "证据-0", "evidence_items": []},
+                    "status": "success",
+                }
+            ],
+        )
+
+        fake_jieba = mock.Mock()
+        fake_jieba.cut.side_effect = lambda text, cut_all=False: list(text)
+        judge_model = FakeJudgeModel(answer_result=1, retrieval_result=1)
+        RecordingLLMExecutor.calls = []
+
+        with mock.patch.object(mfq, "_get_jieba", return_value=fake_jieba):
+            with mock.patch.object(mfq, "LLMProvider", return_value=FakeProvider(judge_model)):
+                with mock.patch.object(mfq, "LLMExecutor", RecordingLLMExecutor):
+                    summary = mfq.main(
+                        [
+                            "score",
+                            "--dataset-path",
+                            str(self.dataset_path),
+                            "--output-root",
+                            str(output_root),
+                            "--limit",
+                            "1",
+                        ]
+                    )
+
+        self.assertEqual(summary["success_count"], 1)
+        self.assertEqual(len(RecordingLLMExecutor.calls), 1)
+        call = RecordingLLMExecutor.calls[0]
+        self.assertEqual(len(call["tasks"]), 1)
+        self.assertTrue(call["kwargs"]["progress_enabled"])
+        self.assertEqual(call["kwargs"]["progress_label"], "MFQA-ZH score")
 
     def test_score_stage_retries_rate_limited_judge_call(self):
         output_root = self.root / "out_score_retry"

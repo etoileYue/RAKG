@@ -8,6 +8,14 @@ from src.eval.multifieldqa_zh import evaluate_multifieldqa_zh as mfq
 from src.eval.multifieldqa_zh import evaluate_multifieldqa_zh_naiverag as naive_mfq
 
 
+class RecordingLLMExecutor:
+    calls = []
+
+    def invoke_batch(self, tasks, **kwargs):
+        self.calls.append({"tasks": list(tasks), "kwargs": dict(kwargs)})
+        return [task.invoke_fn(task.payload) for task in tasks]
+
+
 class FakeNaiveRAGAgent:
     build_fail_ids = set()
     answer_fail_stems = set()
@@ -182,6 +190,41 @@ class NaiveRAGMultiFieldQAZHEvalTests(unittest.TestCase):
         self.assertEqual(record["evidence_sources"][0]["source"], "s0")
         self.assertEqual(len(FakeNaiveRAGAgent.answer_calls), 1)
 
+    def test_answer_stage_uses_llm_executor_progress(self):
+        output_root = self.root / "out_answer_executor"
+        RecordingLLMExecutor.calls = []
+        with mock.patch.object(naive_mfq, "NaiveRAGAgent", FakeNaiveRAGAgent):
+            naive_mfq.main(
+                [
+                    "build",
+                    "--dataset-path",
+                    str(self.dataset_path),
+                    "--output-root",
+                    str(output_root),
+                    "--limit",
+                    "1",
+                ]
+            )
+            with mock.patch.object(naive_mfq, "LLMExecutor", RecordingLLMExecutor):
+                summary = naive_mfq.main(
+                    [
+                        "answer",
+                        "--dataset-path",
+                        str(self.dataset_path),
+                        "--output-root",
+                        str(output_root),
+                        "--limit",
+                        "1",
+                    ]
+                )
+
+        self.assertEqual(summary["success_count"], 1)
+        self.assertEqual(len(RecordingLLMExecutor.calls), 1)
+        call = RecordingLLMExecutor.calls[0]
+        self.assertEqual(len(call["tasks"]), 1)
+        self.assertTrue(call["kwargs"]["progress_enabled"])
+        self.assertEqual(call["kwargs"]["progress_label"], "NaiveRAG MFQA-ZH answer")
+
     def test_expanded_qa_reuses_same_index_and_skips_by_qa_id(self):
         output_root = self.root / "out_expanded"
         qa_dataset_path = self.root / "expanded_qa.jsonl"
@@ -332,6 +375,54 @@ class NaiveRAGMultiFieldQAZHEvalTests(unittest.TestCase):
         self.assertEqual(scored_by_id["s1"]["official_f1"], 1.0)
         self.assertNotIn("answer_judge", scored_by_id["s1"])
         self.assertEqual(scored_by_id["s1"]["index_path"], "/tmp/0.json")
+
+    def test_score_stage_uses_llm_executor_progress(self):
+        output_root = self.root / "out_score_executor"
+        output_root.mkdir(parents=True, exist_ok=True)
+        naive_mfq.write_jsonl(
+            output_root / "result" / "predictions.jsonl",
+            [
+                {
+                    "sample_id": "s1",
+                    "sample_index": 0,
+                    "question": "问题1",
+                    "answers": ["预测答案-0"],
+                    "index_path": "/tmp/0.json",
+                    "pred_answer": "预测答案-0",
+                    "formatted_answer": "答案：预测答案-0",
+                    "retrieval": {"context_text": "证据-0", "items": []},
+                    "evidence_sources": [],
+                    "llm_output_raw": "",
+                    "status": "success",
+                }
+            ],
+        )
+
+        fake_jieba = mock.Mock()
+        fake_jieba.cut.side_effect = lambda text, cut_all=False: list(text)
+        RecordingLLMExecutor.calls = []
+
+        with mock.patch.object(mfq, "_get_jieba", return_value=fake_jieba):
+            with mock.patch.object(naive_mfq, "LLMExecutor", RecordingLLMExecutor):
+                summary = naive_mfq.main(
+                    [
+                        "score",
+                        "--dataset-path",
+                        str(self.dataset_path),
+                        "--output-root",
+                        str(output_root),
+                        "--limit",
+                        "1",
+                        "--skip-llm-judge",
+                    ]
+                )
+
+        self.assertEqual(summary["success_count"], 1)
+        self.assertEqual(len(RecordingLLMExecutor.calls), 1)
+        call = RecordingLLMExecutor.calls[0]
+        self.assertEqual(len(call["tasks"]), 1)
+        self.assertTrue(call["kwargs"]["progress_enabled"])
+        self.assertEqual(call["kwargs"]["progress_label"], "NaiveRAG MFQA-ZH score")
 
     def test_all_stage_runs_build_answer_and_score(self):
         output_root = self.root / "out_all"

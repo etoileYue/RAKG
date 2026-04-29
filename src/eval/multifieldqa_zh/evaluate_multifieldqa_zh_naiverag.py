@@ -14,6 +14,7 @@ from src.eval.multifieldqa_zh.evaluate_multifieldqa_zh import (
     RETRIEVAL_JUDGE_PROMPT,
     build_base_record,
     build_error_record,
+    build_task_error_record,
     ensure_dir,
     index_records_by_qa_or_sample_id,
     index_records_by_sample_id,
@@ -30,6 +31,7 @@ from src.eval.multifieldqa_zh.evaluate_multifieldqa_zh import (
     write_json,
     write_jsonl,
 )
+from src.llm_executor import LLMExecutor, LLMTask, LLMTaskError
 from src.llm_provider import LLMProvider
 from src.naiveRAG import NaiveRAGAgent
 
@@ -192,7 +194,7 @@ def answer_stage(args) -> dict:
     manifest_records = index_records_by_sample_id(load_jsonl(output_paths["build_manifest_path"]))
 
     run_stats = {"selected_count": len(selected_samples), "skipped_count": 0, "success_count": 0, "error_count": 0}
-    agent = None
+    pending_payloads = []
 
     for sample in selected_samples:
         record_id = str(sample.get("qa_id") or sample["sample_id"])
@@ -224,14 +226,25 @@ def answer_stage(args) -> dict:
                 "updated_at": utc_timestamp(),
             }
         )
+        pending_payloads.append(
+            {
+                "sample": sample,
+                "record_id": record_id,
+                "index_path": index_path,
+                "base_record": base_record,
+            }
+        )
 
+    def answer_one(payload: dict) -> dict:
+        sample = payload["sample"]
+        record_id = payload["record_id"]
+        index_path = payload["index_path"]
+        base_record = dict(payload["base_record"])
         try:
             if not Path(index_path).exists():
                 raise FileNotFoundError(f"NaiveRAG index file not found: {index_path}")
 
-            if agent is None:
-                agent = NaiveRAGAgent()
-
+            agent = NaiveRAGAgent()
             result = agent.answer_question(
                 question=sample["question"],
                 index_input=index_path,
@@ -256,8 +269,6 @@ def answer_stage(args) -> dict:
                     "updated_at": utc_timestamp(),
                 }
             )
-            existing_predictions[record_id] = base_record
-            run_stats["success_count"] += 1
         except Exception as exc:
             base_record.update(
                 {
@@ -267,7 +278,49 @@ def answer_stage(args) -> dict:
                     "updated_at": utc_timestamp(),
                 }
             )
-            existing_predictions[record_id] = base_record
+        return {"record_id": record_id, "record": base_record}
+
+    tasks = [
+        LLMTask(
+            kind="naiverag_multifieldqa_zh_answer",
+            payload=payload,
+            invoke_fn=answer_one,
+            metadata={
+                "record_id": payload["record_id"],
+                "sample": payload["sample"],
+                "index_path": payload["index_path"],
+            },
+        )
+        for payload in pending_payloads
+    ]
+    task_results = LLMExecutor().invoke_batch(
+        tasks,
+        progress_enabled=True,
+        progress_label="NaiveRAG MFQA-ZH answer",
+    )
+    for result in task_results:
+        if isinstance(result, LLMTaskError):
+            sample = result.metadata.get("sample", {})
+            record_id = str(result.metadata.get("record_id") or sample.get("qa_id") or sample.get("sample_id") or "")
+            record = build_task_error_record(sample, phase="answer", task_error=result)
+            record.update(
+                {
+                    "index_path": str(result.metadata.get("index_path", "")),
+                    "pred_answer": "",
+                    "formatted_answer": "",
+                    "retrieval": {"context_text": "", "items": []},
+                    "evidence_sources": [],
+                    "llm_output_raw": "",
+                }
+            )
+        else:
+            record_id = result["record_id"]
+            record = result["record"]
+
+        existing_predictions[record_id] = record
+        if record.get("status") == "success":
+            run_stats["success_count"] += 1
+        else:
             run_stats["error_count"] += 1
 
     prediction_records = sort_records(existing_predictions.values())
@@ -307,6 +360,7 @@ def score_stage(args) -> dict:
         judge_model = LLMProvider().get_llm()
 
     run_stats = {"selected_count": len(selected_samples), "skipped_count": 0, "success_count": 0, "error_count": 0}
+    pending_payloads = []
 
     for sample in selected_samples:
         record_id = str(sample.get("qa_id") or sample["sample_id"])
@@ -337,7 +391,22 @@ def score_stage(args) -> dict:
                 "updated_at": utc_timestamp(),
             }
         )
+        pending_payloads.append(
+            {
+                "sample": sample,
+                "record_id": record_id,
+                "pred_answer": pred_answer,
+                "context_text": context_text,
+                "base_record": base_record,
+            }
+        )
 
+    def score_one(payload: dict) -> dict:
+        sample = payload["sample"]
+        record_id = payload["record_id"]
+        pred_answer = payload["pred_answer"]
+        context_text = payload["context_text"]
+        base_record = dict(payload["base_record"])
         try:
             if need_answer_judge:
                 if pred_answer.strip():
@@ -362,13 +431,39 @@ def score_stage(args) -> dict:
                     base_record["retrieval_judge"] = 0
 
             base_record["status"] = "success"
-            existing_scored[record_id] = base_record
-            run_stats["success_count"] += 1
         except Exception as exc:
             base_record["status"] = "error"
             base_record["error"] = str(exc)
             base_record["traceback"] = traceback.format_exc()
-            existing_scored[record_id] = base_record
+        return {"record_id": record_id, "record": base_record}
+
+    tasks = [
+        LLMTask(
+            kind="naiverag_multifieldqa_zh_score",
+            payload=payload,
+            invoke_fn=score_one,
+            metadata={"record_id": payload["record_id"], "sample": payload["sample"]},
+        )
+        for payload in pending_payloads
+    ]
+    task_results = LLMExecutor().invoke_batch(
+        tasks,
+        progress_enabled=True,
+        progress_label="NaiveRAG MFQA-ZH score",
+    )
+    for result in task_results:
+        if isinstance(result, LLMTaskError):
+            sample = result.metadata.get("sample", {})
+            record_id = str(result.metadata.get("record_id") or sample.get("qa_id") or sample.get("sample_id") or "")
+            record = build_task_error_record(sample, phase="score", task_error=result)
+        else:
+            record_id = result["record_id"]
+            record = result["record"]
+
+        existing_scored[record_id] = record
+        if record.get("status") == "success":
+            run_stats["success_count"] += 1
+        else:
             run_stats["error_count"] += 1
 
     scored_records = sort_records(existing_scored.values())
