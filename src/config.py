@@ -9,9 +9,9 @@ SIMILARITY_MODEL = "qwen2:7b"
 # OpenAI Configuration
 base_url="https://api.siliconflow.cn/v1" # https://api.siliconflow.cn/v1 for siliconflow
 OPENAI_API_KEY = "sk-mmqulwgspimiaevtxtikfywqmhwtqwmwladvxialnjkacobk"  # Set your OpenAI API key here
-# OPENAI_MODEL = "Qwen/Qwen3-32B"  # Default model
+OPENAI_MODEL = "Qwen/Qwen3-32B"  # Default model
 # OPENAI_MODEL = "Qwen/Qwen2.5-7B-Instruct"
-OPENAI_MODEL = "deepseek-ai/DeepSeek-V4-Flash"
+# OPENAI_MODEL = "deepseek-ai/DeepSeek-V4-Flash"
 OPENAI_EMBEDDING_MODEL = "BAAI/bge-m3"  # Default embedding model
 # OPENAI_SIMILARITY_MODEL = "Qwen/Qwen2.5-14B-Instruct"  # Model for similarity checks
 OPENAI_SIMILARITY_MODEL = "Qwen/Qwen3-32B"
@@ -28,7 +28,7 @@ PROMPT_LANGUAGE = "zh"
 
 # Unified LLM batch execution controls.
 LLM_PARALLEL_ENABLED = True
-LLM_PARALLEL_MAX_WORKERS = 4
+LLM_PARALLEL_MAX_WORKERS = 2
 
 # Entity disambiguation configuration.
 DISAMBIGUATION_SIMILARITY_THRESHOLD = 0.60

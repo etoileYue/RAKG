@@ -25,6 +25,7 @@ DEFAULT_MAX_HOP = 1
 DEFAULT_SEED_TOP_K = 5
 DEFAULT_MAX_CONTEXT_ITEMS = 30
 ANSWER_CHECKPOINT_FILE_NAME = "checkpoint_state.json"
+SCORE_CHECKPOINT_FILE_NAME = "checkpoint_state.json"
 
 ANSWER_JUDGE_PROMPT = """
 你是中文问答自动评测器，需要判断模型答案是否与任一参考答案语义等价。
@@ -364,6 +365,8 @@ def resolve_output_paths(output_root: Path) -> dict:
         "build_cache_root": output_root / "build_cache",
         "answer_cache_root": output_root / "answer_cache",
         "answer_checkpoint_path": output_root / "answer_cache" / ANSWER_CHECKPOINT_FILE_NAME,
+        "score_cache_root": output_root / "score_cache",
+        "score_checkpoint_path": output_root / "score_cache" / SCORE_CHECKPOINT_FILE_NAME,
     }
 
 
@@ -515,13 +518,13 @@ def is_answer_complete(record: Optional[dict]) -> bool:
     return bool(record and record.get("status") == "success")
 
 
-def load_answer_checkpoint(path: Path) -> dict:
+def load_record_checkpoint(path: Path, phase: str) -> dict:
     if not path.exists():
-        return {"version": 1, "phase": "answer", "records": {}}
+        return {"version": 1, "phase": phase, "records": {}}
     with path.open("r", encoding="utf-8") as handle:
         checkpoint = json.load(handle)
     if not isinstance(checkpoint, dict):
-        raise ValueError(f"Invalid answer checkpoint at {path}: root must be a JSON object")
+        raise ValueError(f"Invalid {phase} checkpoint at {path}: root must be a JSON object")
     records = checkpoint.get("records")
     if not isinstance(records, dict):
         checkpoint["records"] = {}
@@ -532,8 +535,30 @@ def load_answer_checkpoint(path: Path) -> dict:
             if isinstance(record, dict)
         }
     checkpoint.setdefault("version", 1)
-    checkpoint.setdefault("phase", "answer")
+    checkpoint.setdefault("phase", phase)
     return checkpoint
+
+
+def load_answer_checkpoint(path: Path) -> dict:
+    return load_record_checkpoint(path, "answer")
+
+
+def load_score_checkpoint(path: Path) -> dict:
+    return load_record_checkpoint(path, "score")
+
+
+def checkpoint_stage_record(
+    checkpoint_state: dict,
+    checkpoint_path: Path,
+    phase: str,
+    record_id: str,
+    record: dict,
+) -> None:
+    checkpoint_state.setdefault("version", 1)
+    checkpoint_state.setdefault("phase", phase)
+    checkpoint_state.setdefault("records", {})[record_id] = record
+    checkpoint_state["updated_at"] = utc_timestamp()
+    write_json_atomic(checkpoint_path, checkpoint_state)
 
 
 def checkpoint_answer_record(
@@ -542,11 +567,16 @@ def checkpoint_answer_record(
     record_id: str,
     record: dict,
 ) -> None:
-    checkpoint_state.setdefault("version", 1)
-    checkpoint_state.setdefault("phase", "answer")
-    checkpoint_state.setdefault("records", {})[record_id] = record
-    checkpoint_state["updated_at"] = utc_timestamp()
-    write_json_atomic(checkpoint_path, checkpoint_state)
+    checkpoint_stage_record(checkpoint_state, checkpoint_path, "answer", record_id, record)
+
+
+def checkpoint_score_record(
+    checkpoint_state: dict,
+    checkpoint_path: Path,
+    record_id: str,
+    record: dict,
+) -> None:
+    checkpoint_stage_record(checkpoint_state, checkpoint_path, "score", record_id, record)
 
 
 def needs_score_work(
@@ -1015,6 +1045,10 @@ def score_stage(args) -> dict:
     samples = load_qa_dataset(qa_dataset_path)
     selected_samples = select_qa_samples(samples, start=args.start, end=args.end, limit=args.limit)
     existing_scored = index_records_by_qa_or_sample_id(load_jsonl(output_paths["scored_results_path"]))
+    score_checkpoint_path = output_paths["score_checkpoint_path"]
+    score_checkpoint_loaded = score_checkpoint_path.exists()
+    score_checkpoint_state = load_score_checkpoint(score_checkpoint_path)
+    score_checkpoint_records = score_checkpoint_state.get("records", {})
 
     need_answer_judge = (not args.skip_llm_judge) and args.judge_model_mode in {"answer", "both"}
     need_retrieval_judge = (not args.skip_llm_judge) and args.judge_model_mode in {"retrieval", "both"}
@@ -1025,10 +1059,23 @@ def score_stage(args) -> dict:
     run_stats = {"selected_count": len(selected_samples), "skipped_count": 0, "success_count": 0, "error_count": 0}
     appended_records = []
     pending_payloads = []
+    restored_from_checkpoint_count = 0
 
     for sample in selected_samples:
         record_id = str(sample.get("qa_id") or sample["sample_id"])
         current_record = existing_scored.get(record_id)
+        checkpoint_record = score_checkpoint_records.get(record_id)
+        if (
+            not args.force
+            and needs_score_work(current_record, need_answer_judge, need_retrieval_judge)
+            and not needs_score_work(checkpoint_record, need_answer_judge, need_retrieval_judge)
+        ):
+            restored_record = dict(checkpoint_record)
+            restored_record["recovered_from_score_checkpoint"] = True
+            existing_scored[record_id] = restored_record
+            current_record = restored_record
+            restored_from_checkpoint_count += 1
+
         if not args.force and not needs_score_work(current_record, need_answer_judge, need_retrieval_judge):
             run_stats["skipped_count"] += 1
             continue
@@ -1043,6 +1090,7 @@ def score_stage(args) -> dict:
         base_record.update(
             {
                 "phase": "score",
+                "checkpoint_path": str(score_checkpoint_path.resolve()),
                 "graph_path": prediction_record.get("graph_path", ""),
                 "graph_paths": prediction_record.get("graph_paths", []),
                 "pred_answer": pred_answer,
@@ -1062,6 +1110,21 @@ def score_stage(args) -> dict:
                 "base_record": base_record,
             }
         )
+
+    score_checkpoint_state.update(
+        {
+            "version": 1,
+            "phase": "score",
+            "qa_dataset_path": str(qa_dataset_path.resolve()),
+            "output_root": str(output_paths["output_root"].resolve()),
+            "predictions_path": str(output_paths["predictions_path"].resolve()),
+            "scored_results_path": str(output_paths["scored_results_path"].resolve()),
+            "skip_llm_judge": bool(args.skip_llm_judge),
+            "judge_model_mode": args.judge_model_mode,
+            "updated_at": utc_timestamp(),
+        }
+    )
+    score_checkpoint_lock = threading.Lock()
 
     def score_one(payload: dict) -> dict:
         sample = payload["sample"]
@@ -1103,6 +1166,14 @@ def score_stage(args) -> dict:
             base_record["status"] = "error"
             base_record["error"] = str(exc)
             base_record["traceback"] = traceback.format_exc()
+        base_record["updated_at"] = utc_timestamp()
+        with score_checkpoint_lock:
+            checkpoint_score_record(
+                score_checkpoint_state,
+                score_checkpoint_path,
+                record_id,
+                base_record,
+            )
         return {"record_id": record_id, "record": base_record}
 
     tasks = [
@@ -1128,6 +1199,13 @@ def score_stage(args) -> dict:
             record_id = result["record_id"]
             record = result["record"]
 
+        with score_checkpoint_lock:
+            checkpoint_score_record(
+                score_checkpoint_state,
+                score_checkpoint_path,
+                record_id,
+                record,
+            )
         existing_scored[record_id] = record
         appended_records.append(record)
         if record.get("status") == "success":
@@ -1156,6 +1234,9 @@ def score_stage(args) -> dict:
         "qa_dataset_path": str(qa_dataset_path.resolve()),
         "predictions_path": str(output_paths["predictions_path"].resolve()),
         "scored_results_path": str(output_paths["scored_results_path"].resolve()),
+        "checkpoint_path": str(score_checkpoint_path.resolve()),
+        "checkpoint_loaded": bool(score_checkpoint_loaded),
+        "restored_from_checkpoint_count": restored_from_checkpoint_count,
         "range": {"start": args.start, "end": args.end, "limit": args.limit},
         "force": bool(args.force),
         "skip_llm_judge": bool(args.skip_llm_judge),
