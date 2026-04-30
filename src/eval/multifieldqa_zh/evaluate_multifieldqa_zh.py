@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import json
 import string
+import threading
 import traceback
 from datetime import datetime
 from pathlib import Path
@@ -20,9 +21,10 @@ DEFAULT_DATASET_PATH = "data/multifieldqa_zh/test.jsonl"
 DEFAULT_QA_DATASET_PATH = "data/multifieldqa_zh/expanded_qa.jsonl"
 DEFAULT_OUTPUT_ROOT = "data/eval/multifieldqa_zh"
 
-DEFAULT_MAX_HOP = 2
+DEFAULT_MAX_HOP = 1
 DEFAULT_SEED_TOP_K = 5
 DEFAULT_MAX_CONTEXT_ITEMS = 30
+ANSWER_CHECKPOINT_FILE_NAME = "checkpoint_state.json"
 
 ANSWER_JUDGE_PROMPT = """
 你是中文问答自动评测器，需要判断模型答案是否与任一参考答案语义等价。
@@ -132,6 +134,15 @@ def write_json(path: Path, payload: dict) -> None:
     ensure_dir(path.parent)
     with path.open("w", encoding="utf-8") as handle:
         json.dump(payload, handle, ensure_ascii=False, indent=2)
+
+
+def write_json_atomic(path: Path, payload: dict) -> None:
+    ensure_dir(path.parent)
+    tmp_path = path.with_name(f".{path.name}.tmp")
+    with tmp_path.open("w", encoding="utf-8") as handle:
+        json.dump(payload, handle, ensure_ascii=False, indent=2)
+        handle.write("\n")
+    tmp_path.replace(path)
 
 
 def coerce_answers(raw_answers) -> List[str]:
@@ -256,7 +267,7 @@ def resolve_qa_dataset_path(args) -> Path:
     return qa_dataset_path
 
 
-def select_samples(samples: List[dict], start: int, end: Optional[int], limit: Optional[int]) -> List[dict]:
+def validate_range(start: int, end: Optional[int], limit: Optional[int]) -> None:
     if start < 0:
         raise ValueError("--start must be >= 0")
     if end is not None and end < start:
@@ -264,10 +275,42 @@ def select_samples(samples: List[dict], start: int, end: Optional[int], limit: O
     if limit is not None and limit < 0:
         raise ValueError("--limit must be >= 0")
 
+
+def select_samples(samples: List[dict], start: int, end: Optional[int], limit: Optional[int]) -> List[dict]:
+    validate_range(start, end, limit)
     subset = samples[start:end]
     if limit is not None:
         subset = subset[:limit]
     return subset
+
+
+def get_source_sample_index(sample: dict) -> int:
+    raw_index = sample.get("source_sample_index", sample.get("sample_index"))
+    try:
+        return int(raw_index)
+    except (TypeError, ValueError) as exc:
+        raise ValueError(f"QA sample missing numeric source_sample_index/sample_index: {sample!r}") from exc
+
+
+def select_qa_samples(samples: List[dict], start: int, end: Optional[int], limit: Optional[int]) -> List[dict]:
+    """Select expanded QA rows by their original source sample index."""
+    validate_range(start, end, limit)
+    selected = []
+    selected_source_indices = set()
+
+    for sample in samples:
+        source_sample_index = get_source_sample_index(sample)
+        if source_sample_index < start:
+            continue
+        if end is not None and source_sample_index >= end:
+            continue
+        if limit is not None and source_sample_index not in selected_source_indices:
+            if len(selected_source_indices) >= limit:
+                continue
+            selected_source_indices.add(source_sample_index)
+        selected.append(sample)
+
+    return selected
 
 
 def index_records_by_sample_id(records: Iterable[dict]) -> Dict[str, dict]:
@@ -319,6 +362,8 @@ def resolve_output_paths(output_root: Path) -> dict:
         "scored_results_path": result_dir / "scored_results.jsonl",
         "score_summary_path": summary_dir / "score_summary.json",
         "build_cache_root": output_root / "build_cache",
+        "answer_cache_root": output_root / "answer_cache",
+        "answer_checkpoint_path": output_root / "answer_cache" / ANSWER_CHECKPOINT_FILE_NAME,
     }
 
 
@@ -468,6 +513,40 @@ def is_build_complete(record: Optional[dict]) -> bool:
 
 def is_answer_complete(record: Optional[dict]) -> bool:
     return bool(record and record.get("status") == "success")
+
+
+def load_answer_checkpoint(path: Path) -> dict:
+    if not path.exists():
+        return {"version": 1, "phase": "answer", "records": {}}
+    with path.open("r", encoding="utf-8") as handle:
+        checkpoint = json.load(handle)
+    if not isinstance(checkpoint, dict):
+        raise ValueError(f"Invalid answer checkpoint at {path}: root must be a JSON object")
+    records = checkpoint.get("records")
+    if not isinstance(records, dict):
+        checkpoint["records"] = {}
+    else:
+        checkpoint["records"] = {
+            str(record_id): record
+            for record_id, record in records.items()
+            if isinstance(record, dict)
+        }
+    checkpoint.setdefault("version", 1)
+    checkpoint.setdefault("phase", "answer")
+    return checkpoint
+
+
+def checkpoint_answer_record(
+    checkpoint_state: dict,
+    checkpoint_path: Path,
+    record_id: str,
+    record: dict,
+) -> None:
+    checkpoint_state.setdefault("version", 1)
+    checkpoint_state.setdefault("phase", "answer")
+    checkpoint_state.setdefault("records", {})[record_id] = record
+    checkpoint_state["updated_at"] = utc_timestamp()
+    write_json_atomic(checkpoint_path, checkpoint_state)
 
 
 def needs_score_work(
@@ -703,19 +782,36 @@ def answer_stage(args) -> dict:
     qa_dataset_path = resolve_qa_dataset_path(args)
     output_paths = resolve_output_paths(Path(args.output_root))
     samples = load_qa_dataset(qa_dataset_path)
-    selected_samples = select_samples(samples, start=args.start, end=args.end, limit=args.limit)
+    selected_samples = select_qa_samples(samples, start=args.start, end=args.end, limit=args.limit)
 
     existing_predictions = index_records_by_qa_or_sample_id(load_jsonl(output_paths["predictions_path"]))
+    answer_checkpoint_path = output_paths["answer_checkpoint_path"]
+    answer_checkpoint_loaded = answer_checkpoint_path.exists()
+    answer_checkpoint_state = load_answer_checkpoint(answer_checkpoint_path)
+    answer_checkpoint_records = answer_checkpoint_state.get("records", {})
     manifest_records = index_records_by_sample_id(load_jsonl(output_paths["build_manifest_path"]))
     graphs_dir = output_paths["graphs_dir"]
 
     run_stats = {"selected_count": len(selected_samples), "skipped_count": 0, "success_count": 0, "error_count": 0}
     appended_records = []
     pending_payloads = []
+    restored_from_checkpoint_count = 0
 
     for sample in selected_samples:
         record_id = str(sample.get("qa_id") or sample["sample_id"])
         current_record = existing_predictions.get(record_id)
+        checkpoint_record = answer_checkpoint_records.get(record_id)
+        if (
+            not args.force
+            and not is_answer_complete(current_record)
+            and is_answer_complete(checkpoint_record)
+        ):
+            restored_record = dict(checkpoint_record)
+            restored_record["recovered_from_answer_checkpoint"] = True
+            existing_predictions[record_id] = restored_record
+            current_record = restored_record
+            restored_from_checkpoint_count += 1
+
         if not args.force and is_answer_complete(current_record):
             run_stats["skipped_count"] += 1
             continue
@@ -735,6 +831,7 @@ def answer_stage(args) -> dict:
             {
                 "phase": "answer",
                 "graph_path": graph_path,
+                "checkpoint_path": str(answer_checkpoint_path.resolve()),
                 "pred_answer": "",
                 "formatted_answer": "",
                 "graph_paths": [],
@@ -756,6 +853,19 @@ def answer_stage(args) -> dict:
                 "base_record": base_record,
             }
         )
+
+    answer_checkpoint_state.update(
+        {
+            "version": 1,
+            "phase": "answer",
+            "dataset_path": str(dataset_path.resolve()),
+            "qa_dataset_path": str(qa_dataset_path.resolve()),
+            "output_root": str(output_paths["output_root"].resolve()),
+            "predictions_path": str(output_paths["predictions_path"].resolve()),
+            "updated_at": utc_timestamp(),
+        }
+    )
+    answer_checkpoint_lock = threading.Lock()
 
     def answer_one(payload: dict) -> dict:
         sample = payload["sample"]
@@ -807,6 +917,13 @@ def answer_stage(args) -> dict:
                     "updated_at": utc_timestamp(),
                 }
             )
+        with answer_checkpoint_lock:
+            checkpoint_answer_record(
+                answer_checkpoint_state,
+                answer_checkpoint_path,
+                record_id,
+                base_record,
+            )
         return {"record_id": record_id, "record": base_record}
 
     tasks = [
@@ -836,6 +953,7 @@ def answer_stage(args) -> dict:
             record.update(
                 {
                     "graph_path": graph_path,
+                    "checkpoint_path": str(answer_checkpoint_path.resolve()),
                     "pred_answer": "",
                     "formatted_answer": "",
                     "graph_paths": [],
@@ -860,7 +978,8 @@ def answer_stage(args) -> dict:
             run_stats["error_count"] += 1
 
     prediction_records = sort_records(existing_predictions.values())
-    appended_count = append_jsonl(output_paths["predictions_path"], appended_records)
+    appended_count = len(appended_records)
+    write_jsonl(output_paths["predictions_path"], prediction_records)
 
     summary = {
         "phase": "answer",
@@ -868,6 +987,9 @@ def answer_stage(args) -> dict:
         "qa_dataset_path": str(qa_dataset_path.resolve()),
         "predictions_path": str(output_paths["predictions_path"].resolve()),
         "manifest_path": str(output_paths["build_manifest_path"].resolve()),
+        "checkpoint_path": str(answer_checkpoint_path.resolve()),
+        "checkpoint_loaded": bool(answer_checkpoint_loaded),
+        "restored_from_checkpoint_count": restored_from_checkpoint_count,
         "range": {"start": args.start, "end": args.end, "limit": args.limit},
         "force": bool(args.force),
         "qa_defaults": {
@@ -891,7 +1013,7 @@ def score_stage(args) -> dict:
     prediction_map = index_records_by_qa_or_sample_id(prediction_records)
     qa_dataset_path = resolve_qa_dataset_path(args)
     samples = load_qa_dataset(qa_dataset_path)
-    selected_samples = select_samples(samples, start=args.start, end=args.end, limit=args.limit)
+    selected_samples = select_qa_samples(samples, start=args.start, end=args.end, limit=args.limit)
     existing_scored = index_records_by_qa_or_sample_id(load_jsonl(output_paths["scored_results_path"]))
 
     need_answer_judge = (not args.skip_llm_judge) and args.judge_model_mode in {"answer", "both"}
@@ -1014,7 +1136,8 @@ def score_stage(args) -> dict:
             run_stats["error_count"] += 1
 
     scored_records = sort_records(existing_scored.values())
-    appended_count = append_jsonl(output_paths["scored_results_path"], appended_records)
+    appended_count = len(appended_records)
+    write_jsonl(output_paths["scored_results_path"], scored_records)
 
     f1_values = [float(record.get("official_f1", 0.0)) for record in scored_records]
     answer_judge_values = []
@@ -1061,9 +1184,9 @@ def build_parser() -> argparse.ArgumentParser:
     def add_common_arguments(subparser: argparse.ArgumentParser) -> None:
         subparser.add_argument("--dataset-path", default=DEFAULT_DATASET_PATH, help="Path to MultiFieldQA-ZH JSONL.")
         subparser.add_argument("--output-root", default=DEFAULT_OUTPUT_ROOT, help="Evaluation output directory.")
-        subparser.add_argument("--start", type=int, default=0, help="Inclusive dataset row start index.")
-        subparser.add_argument("--end", type=int, default=None, help="Exclusive dataset row end index.")
-        subparser.add_argument("--limit", type=int, default=None, help="Maximum number of samples after slicing.")
+        subparser.add_argument("--start", type=int, default=0, help="Inclusive source dataset row start index.")
+        subparser.add_argument("--end", type=int, default=None, help="Exclusive source dataset row end index.")
+        subparser.add_argument("--limit", type=int, default=None, help="Maximum number of source samples after slicing.")
         subparser.add_argument("--force", action="store_true", help="Re-run selected samples even if already completed.")
         subparser.add_argument(
             "--rate-limit-max-retries",

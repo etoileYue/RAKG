@@ -176,7 +176,7 @@ python -m src.eval.multifieldqa_zh.evaluate_multifieldqa_zh score \
 
 ## 结果分析与可视化
 
-完成本项目架构和 NaiveRAG baseline 的 `score` 阶段后，可以运行分析脚本对前 30 条样本生成对比图：
+完成本项目架构和 NaiveRAG baseline 的 `score` 阶段后，可以运行分析脚本对前 30 篇原始文本生成对比图：
 
 ```bash
 python -m src.eval.multifieldqa_zh.analyze_results
@@ -193,15 +193,17 @@ python -m src.eval.multifieldqa_zh.analyze_results
 
 输出文件：
 
-- `official_f1_line.png`：官方 F1 分数逐样本折线对比。
-- `answer_judge_line.png`：答案正确性 judge 逐样本折线对比。
-- `retrieval_judge_line.png`：检索覆盖性 judge 逐样本折线对比。
-- `metrics_overview_bar.png`：官方 F1、答案 judge、检索 judge 三项指标的平均值柱状对比。
-- `win_loss_by_sample.png`：按样本展示本项目架构相对 NaiveRAG 的官方 F1 差值。
-- `judge_heatmap.png`：答案 judge 与检索 judge 的逐样本热力图，用于快速定位失败样本。
-- `analysis_summary.json`：记录共同成功样本数、各指标均值、均值差值，以及官方 F1 的胜负平样本数。
+- `official_f1_line.png`：官方 F1 的逐文本折线对比。横轴是原始文本编号，纵轴是该文本内多个 QA 的 F1 平均值。
+- `answer_judge_line.png`：答案正确性 judge 的逐文本折线对比。纵轴是该文本内 QA 的平均通过比例。
+- `retrieval_judge_line.png`：检索覆盖性 judge 的逐文本折线对比。纵轴是该文本内 QA 的平均通过比例。
+- `metrics_overview_bar.png`：官方 F1、答案 judge、检索 judge 三项指标的总体柱状对比。该图先在每篇文本内对 QA 求平均，再对共同文本求平均，因此每篇原始文本等权。
+- `win_loss_by_sample.png`：按原始文本展示本项目架构相对 NaiveRAG 的平均官方 F1 差值。
+- `judge_heatmap.png`：答案 judge 与检索 judge 的逐文本平均热力图，颜色从 0 到 1 表示该文本内 QA 的通过比例。
+- `analysis_summary.json`：记录共同成功原始文本数、共同文本编号、每篇文本参与平均的 QA 数、各指标文本级均值的总体平均、均值差值、官方 F1 的胜负平文本数，以及非成功记录、缺失文本索引、重复 `qa_id` 覆盖、旧版单 QA 记录忽略等统计。
 
-脚本会按 `sample_index` 对齐两套结果，只比较共同存在且 `status=success` 的样本，并在控制台输出跳过的非成功记录数量。可通过参数覆盖默认路径和样本数量：
+脚本会优先按 `source_sample_index` 对齐两套结果，并兼容回退到 `sample_index`。只比较共同存在且 `status=success` 的原始文本；同一文本内先按唯一 `qa_id` 去重，保留结果文件中最后一次出现的记录，再对该文本的 QA 指标求平均。若结果中混有旧版无 `qa_id` 单 QA 记录和新版扩展 QA 记录，同一文本优先使用新版扩展 QA，旧版记录会被忽略并写入摘要统计。
+
+扩展 QA 后，默认每篇原始文本对应 10 个 QA。脚本不会强制要求每篇都有 10 条，但会在 `analysis_summary.json` 的 `qa_count_by_text` 中记录实际参与平均的 QA 数。`--sample-count` 表示原始文本数量，不是 QA 条数。可通过参数覆盖默认路径和文本数量：
 
 ```bash
 python -m src.eval.multifieldqa_zh.analyze_results \

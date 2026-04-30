@@ -62,9 +62,13 @@ PREFERRED_CJK_FONT_PATHS = [
 
 @dataclass(frozen=True)
 class LoadedResults:
-    records: dict[int, dict[str, Any]]
+    records_by_text: dict[int, list[dict[str, Any]]]
+    qa_count_by_text: dict[int, int]
+    metric_means_by_text: dict[int, dict[str, float]]
     skipped_non_success: int
-    skipped_missing_index: int
+    skipped_missing_text_index: int
+    duplicate_qa_overwrites: int
+    ignored_legacy_records: int
 
 
 def configure_matplotlib(font_path: Path | None = None) -> None:
@@ -118,7 +122,7 @@ def parse_args() -> argparse.Namespace:
         "--sample-count",
         type=int,
         default=30,
-        help="从 sample_index=0 开始分析的样本数量，默认 30。",
+        help="从 source_sample_index=0 开始分析的原始文本数量，默认 30。",
     )
     parser.add_argument(
         "--font-path",
@@ -129,35 +133,81 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
+def parse_text_index(record: dict[str, Any]) -> int | None:
+    raw_index = record.get("source_sample_index", record.get("sample_index"))
+    if raw_index is None:
+        return None
+    try:
+        return int(raw_index)
+    except (TypeError, ValueError):
+        return None
+
+
 def load_jsonl(path: Path, sample_count: int) -> LoadedResults:
-    records: dict[int, dict[str, Any]] = {}
+    expanded_by_text: dict[int, dict[str, dict[str, Any]]] = {}
+    legacy_by_text: dict[int, dict[str, Any]] = {}
+    legacy_count_by_text: dict[int, int] = {}
     skipped_non_success = 0
-    skipped_missing_index = 0
+    skipped_missing_text_index = 0
+    duplicate_qa_overwrites = 0
+    ignored_legacy_records = 0
 
     with path.open("r", encoding="utf-8") as handle:
-        for line_number, line in enumerate(handle, start=1):
+        for line in handle:
             line = line.strip()
             if not line:
                 continue
             record = json.loads(line)
-            sample_index = record.get("sample_index")
-            if sample_index is None:
-                skipped_missing_index += 1
+            text_index = parse_text_index(record)
+            if text_index is None:
+                skipped_missing_text_index += 1
                 continue
-            sample_index = int(sample_index)
-            if sample_index < 0 or sample_index >= sample_count:
+            if text_index < 0 or text_index >= sample_count:
                 continue
             if record.get("status") != "success":
                 skipped_non_success += 1
                 continue
-            if sample_index in records:
-                print(f"警告：{path} 第 {line_number} 行覆盖了 sample_index={sample_index} 的旧记录。")
-            records[sample_index] = record
+
+            qa_id = str(record.get("qa_id") or "").strip()
+            if qa_id:
+                records_for_text = expanded_by_text.setdefault(text_index, {})
+                if qa_id in records_for_text:
+                    duplicate_qa_overwrites += 1
+                records_for_text[qa_id] = record
+            else:
+                legacy_by_text[text_index] = record
+                legacy_count_by_text[text_index] = legacy_count_by_text.get(text_index, 0) + 1
+
+    records_by_text: dict[int, list[dict[str, Any]]] = {}
+    for text_index in sorted(set(expanded_by_text) | set(legacy_by_text)):
+        qa_records = expanded_by_text.get(text_index)
+        if qa_records:
+            if text_index in legacy_by_text:
+                ignored_legacy_records += legacy_count_by_text[text_index]
+            records_by_text[text_index] = [
+                qa_records[qa_id]
+                for qa_id in sorted(qa_records)
+            ]
+        else:
+            records_by_text[text_index] = [legacy_by_text[text_index]]
+
+    qa_count_by_text = {text_index: len(records) for text_index, records in records_by_text.items()}
+    metric_means_by_text = {
+        text_index: {
+            metric: mean_or_nan(np.array([metric_value(record, metric) for record in records], dtype=float))
+            for metric in METRICS
+        }
+        for text_index, records in records_by_text.items()
+    }
 
     return LoadedResults(
-        records=dict(sorted(records.items())),
+        records_by_text=records_by_text,
+        qa_count_by_text=qa_count_by_text,
+        metric_means_by_text=metric_means_by_text,
         skipped_non_success=skipped_non_success,
-        skipped_missing_index=skipped_missing_index,
+        skipped_missing_text_index=skipped_missing_text_index,
+        duplicate_qa_overwrites=duplicate_qa_overwrites,
+        ignored_legacy_records=ignored_legacy_records,
     )
 
 
@@ -173,7 +223,7 @@ def collect_metric(
     sample_indices: list[int],
     metric: str,
 ) -> np.ndarray:
-    return np.array([metric_value(loaded.records[index], metric) for index in sample_indices], dtype=float)
+    return np.array([loaded.metric_means_by_text[index].get(metric, float("nan")) for index in sample_indices], dtype=float)
 
 
 def mean_or_nan(values: np.ndarray) -> float:
@@ -184,7 +234,7 @@ def mean_or_nan(values: np.ndarray) -> float:
 
 def setup_axes(ax: plt.Axes, title: str, ylabel: str, sample_indices: list[int]) -> None:
     ax.set_title(title)
-    ax.set_xlabel("样本编号")
+    ax.set_xlabel("原始文本编号")
     ax.set_ylabel(ylabel)
     ax.set_xticks(sample_indices)
     ax.grid(True, axis="y", linestyle="--", linewidth=0.6, alpha=0.45)
@@ -207,7 +257,7 @@ def plot_line(
     fig, ax = plt.subplots(figsize=(13, 5.4))
     ax.plot(sample_indices, rakg_values, marker="o", linewidth=2, label=METHOD_NAMES["rakg"])
     ax.plot(sample_indices, naive_values, marker="s", linewidth=2, label=METHOD_NAMES["naive"])
-    setup_axes(ax, f"{METRICS[metric]}逐样本对比", METRICS[metric], sample_indices)
+    setup_axes(ax, f"{METRICS[metric]}逐文本 QA 平均值对比", f"{METRICS[metric]}平均值", sample_indices)
     ax.set_ylim(-0.05, 1.05)
     ax.legend()
     save_figure(fig, output_dir / filename)
@@ -227,8 +277,8 @@ def plot_overview_bar(
     fig, ax = plt.subplots(figsize=(9.5, 5.2))
     ax.bar(positions - width / 2, rakg_values, width, label=METHOD_NAMES["rakg"])
     ax.bar(positions + width / 2, naive_values, width, label=METHOD_NAMES["naive"])
-    ax.set_title("三项指标平均值对比")
-    ax.set_ylabel("平均值")
+    ax.set_title("共同原始文本的三项指标平均值对比")
+    ax.set_ylabel("文本级均值的平均值")
     ax.set_xticks(positions)
     ax.set_xticklabels(labels)
     ax.set_ylim(0, 1.05)
@@ -246,7 +296,7 @@ def plot_win_loss(
     fig, ax = plt.subplots(figsize=(13, 5.4))
     ax.bar(sample_indices, f1_diff, color=colors)
     ax.axhline(0, color="#333333", linewidth=0.9)
-    setup_axes(ax, "本项目架构相对 NaiveRAG 的官方 F1 差值", "F1 差值", sample_indices)
+    setup_axes(ax, "本项目架构相对 NaiveRAG 的逐文本平均官方 F1 差值", "平均 F1 差值", sample_indices)
     save_figure(fig, output_dir / "win_loss_by_sample.png")
 
 
@@ -265,8 +315,8 @@ def plot_judge_heatmap(
 
     fig, ax = plt.subplots(figsize=(13, 4.8))
     image = ax.imshow(matrix, cmap="YlGnBu", vmin=0, vmax=1, aspect="auto")
-    ax.set_title("答案 Judge 与检索 Judge 逐样本热力图")
-    ax.set_xlabel("样本编号")
+    ax.set_title("答案 Judge 与检索 Judge 逐文本平均热力图")
+    ax.set_xlabel("原始文本编号")
     ax.set_xticks(np.arange(len(sample_indices)))
     ax.set_xticklabels(sample_indices)
     ax.set_yticks(np.arange(len(rows)))
@@ -284,7 +334,7 @@ def plot_judge_heatmap(
             ax.text(col_index, row_index, text, ha="center", va="center", fontsize=8, color=text_color)
 
     colorbar = fig.colorbar(image, ax=ax, fraction=0.025, pad=0.02)
-    colorbar.set_label("Judge 分数")
+    colorbar.set_label("文本内 QA 通过比例")
     save_figure(fig, output_dir / "judge_heatmap.png")
 
 
@@ -306,6 +356,10 @@ def build_summary(
     return {
         "sample_count": len(sample_indices),
         "sample_indices": sample_indices,
+        "qa_count_by_text": {
+            "rakg": {str(index): loaded_rakg.qa_count_by_text[index] for index in sample_indices},
+            "naive": {str(index): loaded_naive.qa_count_by_text[index] for index in sample_indices},
+        },
         "metrics": {
             "rakg": rakg_means,
             "naive": naive_means,
@@ -322,8 +376,12 @@ def build_summary(
         "skipped": {
             "rakg_non_success": loaded_rakg.skipped_non_success,
             "naive_non_success": loaded_naive.skipped_non_success,
-            "rakg_missing_index": loaded_rakg.skipped_missing_index,
-            "naive_missing_index": loaded_naive.skipped_missing_index,
+            "rakg_missing_text_index": loaded_rakg.skipped_missing_text_index,
+            "naive_missing_text_index": loaded_naive.skipped_missing_text_index,
+            "rakg_duplicate_qa_overwrites": loaded_rakg.duplicate_qa_overwrites,
+            "naive_duplicate_qa_overwrites": loaded_naive.duplicate_qa_overwrites,
+            "rakg_ignored_legacy_records": loaded_rakg.ignored_legacy_records,
+            "naive_ignored_legacy_records": loaded_naive.ignored_legacy_records,
         },
     }
 
@@ -339,30 +397,32 @@ def print_summary(summary: dict[str, Any], output_dir: Path) -> None:
     metrics = summary["metrics"]
     win_loss = summary["f1_win_loss"]
     skipped = summary["skipped"]
-    print(f"分析样本数：{summary['sample_count']}，样本编号：{summary['sample_indices'][0]}-{summary['sample_indices'][-1]}")
+    print(f"分析原始文本数：{summary['sample_count']}，文本编号：{summary['sample_indices']}")
     print(
-        "平均官方 F1："
+        "每文本 QA 平均后的官方 F1："
         f"{METHOD_NAMES['rakg']}={metrics['rakg']['official_f1']:.4f}，"
         f"{METHOD_NAMES['naive']}={metrics['naive']['official_f1']:.4f}，"
         f"差值={metrics['difference']['official_f1']:.4f}"
     )
     print(
-        "答案 Judge 平均值："
+        "每文本 QA 平均后的答案 Judge："
         f"{METHOD_NAMES['rakg']}={metrics['rakg']['answer_judge']:.4f}，"
         f"{METHOD_NAMES['naive']}={metrics['naive']['answer_judge']:.4f}；"
-        "检索 Judge 平均值："
+        "检索 Judge："
         f"{METHOD_NAMES['rakg']}={metrics['rakg']['retrieval_judge']:.4f}，"
         f"{METHOD_NAMES['naive']}={metrics['naive']['retrieval_judge']:.4f}"
     )
     print(
-        "按官方 F1 逐样本比较："
+        "按文本级平均官方 F1 比较："
         f"{METHOD_NAMES['rakg']} 胜 {win_loss['win_count']} 条，"
         f"负 {win_loss['loss_count']} 条，平 {win_loss['tie_count']} 条。"
     )
     print(
         "跳过记录："
         f"{METHOD_NAMES['rakg']} 非成功 {skipped['rakg_non_success']} 条，"
-        f"{METHOD_NAMES['naive']} 非成功 {skipped['naive_non_success']} 条。"
+        f"{METHOD_NAMES['naive']} 非成功 {skipped['naive_non_success']} 条；"
+        f"重复 qa_id 覆盖 {METHOD_NAMES['rakg']}={skipped['rakg_duplicate_qa_overwrites']}、"
+        f"{METHOD_NAMES['naive']}={skipped['naive_duplicate_qa_overwrites']}。"
     )
     print(f"图表与摘要已输出到：{output_dir}")
 
@@ -378,12 +438,12 @@ def main() -> None:
 
     loaded_rakg = load_jsonl(args.rakg_results, args.sample_count)
     loaded_naive = load_jsonl(args.naive_results, args.sample_count)
-    sample_indices = sorted(set(loaded_rakg.records) & set(loaded_naive.records))
+    sample_indices = sorted(set(loaded_rakg.records_by_text) & set(loaded_naive.records_by_text))
     if not sample_indices:
-        raise RuntimeError("两套结果没有共同存在的成功样本，无法分析。")
+        raise RuntimeError("两套结果没有共同存在的成功原始文本，无法分析。")
 
     if len(sample_indices) < args.sample_count:
-        print(f"警告：共同成功样本数为 {len(sample_indices)}，少于请求的 {args.sample_count} 条。")
+        print(f"警告：共同成功原始文本数为 {len(sample_indices)}，少于请求的 {args.sample_count} 条。")
 
     values = {
         "rakg": {

@@ -448,6 +448,60 @@ class MultiFieldQAZHEvalTests(unittest.TestCase):
         self.assertIn("retrieval", record)
         self.assertIn("context_text", record["retrieval"])
         self.assertEqual(record["status"], "success")
+        self.assertTrue((output_root / "answer_cache" / "checkpoint_state.json").exists())
+        self.assertEqual(record["checkpoint_path"], str(output_root / "answer_cache" / "checkpoint_state.json"))
+
+    def test_answer_stage_restores_success_from_checkpoint(self):
+        output_root = self.root / "out_answer_checkpoint"
+        with mock.patch.object(mfq, "NER_Agent", FakeAgent):
+            mfq.main(
+                [
+                    "build",
+                    "--dataset-path",
+                    str(self.dataset_path),
+                    "--output-root",
+                    str(output_root),
+                    "--limit",
+                    "1",
+                ]
+            )
+            first_summary = mfq.main(
+                [
+                    "answer",
+                    "--dataset-path",
+                    str(self.dataset_path),
+                    "--output-root",
+                    str(output_root),
+                    "--limit",
+                    "1",
+                ]
+            )
+            self.assertEqual(first_summary["success_count"], 1)
+            self.assertEqual(len(FakeAgent.answer_calls), 1)
+
+            (output_root / "result" / "predictions.jsonl").unlink()
+            FakeAgent.answer_calls = []
+            second_summary = mfq.main(
+                [
+                    "answer",
+                    "--dataset-path",
+                    str(self.dataset_path),
+                    "--output-root",
+                    str(output_root),
+                    "--limit",
+                    "1",
+                ]
+            )
+
+        self.assertTrue(second_summary["checkpoint_loaded"])
+        self.assertEqual(second_summary["restored_from_checkpoint_count"], 1)
+        self.assertEqual(second_summary["skipped_count"], 1)
+        self.assertEqual(second_summary["success_count"], 0)
+        self.assertEqual(FakeAgent.answer_calls, [])
+        predictions = mfq.load_jsonl(output_root / "result" / "predictions.jsonl")
+        self.assertEqual(len(predictions), 1)
+        self.assertEqual(predictions[0]["status"], "success")
+        self.assertTrue(predictions[0]["recovered_from_answer_checkpoint"])
 
     def test_answer_stage_uses_llm_executor_progress(self):
         output_root = self.root / "out_answer_executor"
@@ -567,6 +621,65 @@ class MultiFieldQAZHEvalTests(unittest.TestCase):
         scored_by_id = mfq.index_records_by_qa_or_sample_id(scored)
         self.assertEqual(scored_by_id["0:1"]["official_f1"], 1.0)
         self.assertEqual(scored_by_id["0:0"]["qa_source"], "original")
+
+    def test_answer_stage_selects_expanded_qa_by_source_sample_range(self):
+        output_root = self.root / "out_expanded_qa_range"
+        qa_dataset_path = self.root / "expanded_qa_range.jsonl"
+        mfq.write_jsonl(
+            qa_dataset_path,
+            [
+                {
+                    "source_sample_index": 0,
+                    "length": 100,
+                    "dataset": "multifieldqa_zh",
+                    "language": "zh",
+                    "qa_pairs": [
+                        {"qa_id": "0", "question": "样本0问题0", "answers": ["预测答案-0"]},
+                        {"qa_id": "1", "question": "样本0问题1", "answers": ["预测答案-0"]},
+                    ],
+                },
+                {
+                    "source_sample_index": 1,
+                    "length": 200,
+                    "dataset": "multifieldqa_zh",
+                    "language": "zh",
+                    "qa_pairs": [
+                        {"qa_id": "0", "question": "样本1问题0", "answers": ["预测答案-1"]},
+                        {"qa_id": "1", "question": "样本1问题1", "answers": ["预测答案-1"]},
+                    ],
+                },
+            ],
+        )
+
+        with mock.patch.object(mfq, "NER_Agent", FakeAgent):
+            mfq.main(
+                [
+                    "build",
+                    "--dataset-path",
+                    str(self.dataset_path),
+                    "--output-root",
+                    str(output_root),
+                ]
+            )
+            summary = mfq.main(
+                [
+                    "answer",
+                    "--dataset-path",
+                    str(self.dataset_path),
+                    "--qa-dataset-path",
+                    str(qa_dataset_path),
+                    "--output-root",
+                    str(output_root),
+                    "--end",
+                    "1",
+                ]
+            )
+
+        self.assertEqual(summary["selected_count"], 2)
+        self.assertEqual(summary["success_count"], 2)
+        predictions = mfq.load_jsonl(output_root / "result" / "predictions.jsonl")
+        self.assertEqual([record["qa_id"] for record in predictions], ["0:0", "0:1"])
+        self.assertEqual({record["source_sample_index"] for record in predictions}, {0})
 
     def test_answer_stage_retries_rate_limit_error_and_clears_index(self):
         output_root = self.root / "out_answer_retry"

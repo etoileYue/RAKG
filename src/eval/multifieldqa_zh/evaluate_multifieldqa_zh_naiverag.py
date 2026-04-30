@@ -25,6 +25,7 @@ from src.eval.multifieldqa_zh.evaluate_multifieldqa_zh import (
     max_qa_f1_zh_score,
     needs_score_work,
     resolve_qa_dataset_path,
+    select_qa_samples,
     select_samples,
     sort_records,
     utc_timestamp,
@@ -188,7 +189,7 @@ def answer_stage(args) -> dict:
     qa_dataset_path = resolve_qa_dataset_path(args)
     output_paths = resolve_output_paths(Path(args.output_root))
     samples = load_qa_dataset(qa_dataset_path)
-    selected_samples = select_samples(samples, start=args.start, end=args.end, limit=args.limit)
+    selected_samples = select_qa_samples(samples, start=args.start, end=args.end, limit=args.limit)
 
     existing_predictions = index_records_by_qa_or_sample_id(load_jsonl(output_paths["predictions_path"]))
     manifest_records = index_records_by_sample_id(load_jsonl(output_paths["build_manifest_path"]))
@@ -350,7 +351,7 @@ def score_stage(args) -> dict:
     prediction_map = index_records_by_qa_or_sample_id(prediction_records)
     qa_dataset_path = resolve_qa_dataset_path(args)
     samples = load_qa_dataset(qa_dataset_path)
-    selected_samples = select_samples(samples, start=args.start, end=args.end, limit=args.limit)
+    selected_samples = select_qa_samples(samples, start=args.start, end=args.end, limit=args.limit)
     existing_scored = index_records_by_qa_or_sample_id(load_jsonl(output_paths["scored_results_path"]))
 
     need_answer_judge = (not args.skip_llm_judge) and args.judge_model_mode in {"answer", "both"}
@@ -526,9 +527,9 @@ def build_parser() -> argparse.ArgumentParser:
     def add_common_arguments(subparser: argparse.ArgumentParser) -> None:
         subparser.add_argument("--dataset-path", default=DEFAULT_DATASET_PATH, help="Path to MultiFieldQA-ZH JSONL.")
         subparser.add_argument("--output-root", default=DEFAULT_OUTPUT_ROOT, help="Evaluation output directory.")
-        subparser.add_argument("--start", type=int, default=0, help="Inclusive dataset row start index.")
-        subparser.add_argument("--end", type=int, default=None, help="Exclusive dataset row end index.")
-        subparser.add_argument("--limit", type=int, default=None, help="Maximum number of samples after slicing.")
+        subparser.add_argument("--start", type=int, default=0, help="Inclusive source dataset row start index.")
+        subparser.add_argument("--end", type=int, default=None, help="Exclusive source dataset row end index.")
+        subparser.add_argument("--limit", type=int, default=None, help="Maximum number of source samples after slicing.")
         subparser.add_argument("--force", action="store_true", help="Re-run selected samples even if already completed.")
 
     def add_top_k_argument(subparser: argparse.ArgumentParser) -> None:
