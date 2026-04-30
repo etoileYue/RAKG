@@ -33,10 +33,61 @@ METHOD_NAMES = {
     "naive": "NaiveRAG",
 }
 
+PLOT_METHOD_NAMES = METHOD_NAMES.copy()
+EN_PLOT_METHOD_NAMES = {
+    "rakg": "RAKG",
+    "naive": "NaiveRAG",
+}
+
 METRICS = {
     "official_f1": "官方 F1",
     "answer_judge": "答案正确性 Judge",
     "retrieval_judge": "检索覆盖性 Judge",
+}
+
+PLOT_METRICS = METRICS.copy()
+EN_PLOT_METRICS = {
+    "official_f1": "Official F1",
+    "answer_judge": "Answer Judge",
+    "retrieval_judge": "Retrieval Judge",
+}
+
+PLOT_TEXT = {
+    "sample_index": "原始文本编号",
+    "metric_mean_suffix": "平均值",
+    "line_title_suffix": "逐文本 QA 平均值对比",
+    "overview_title": "共同原始文本的三项指标平均值对比",
+    "overview_ylabel": "文本级均值的平均值",
+    "win_loss_title": "本项目架构相对 NaiveRAG 的逐文本平均官方 F1 差值",
+    "win_loss_ylabel": "平均 F1 差值",
+    "heatmap_title": "答案 Judge 与检索 Judge 逐文本平均热力图",
+    "heatmap_rows": {
+        "rakg_answer": "本项目架构 答案",
+        "rakg_retrieval": "本项目架构 检索",
+        "naive_answer": "NaiveRAG 答案",
+        "naive_retrieval": "NaiveRAG 检索",
+    },
+    "missing": "缺失",
+    "heatmap_colorbar": "文本内 QA 通过比例",
+}
+
+EN_PLOT_TEXT = {
+    "sample_index": "Source sample index",
+    "metric_mean_suffix": "mean",
+    "line_title_suffix": "per-source QA mean comparison",
+    "overview_title": "Metric means over shared source samples",
+    "overview_ylabel": "Mean of per-source means",
+    "win_loss_title": "Per-source official F1 difference: RAKG minus NaiveRAG",
+    "win_loss_ylabel": "Mean F1 difference",
+    "heatmap_title": "Answer and retrieval judge pass-rate heatmap",
+    "heatmap_rows": {
+        "rakg_answer": "RAKG answer",
+        "rakg_retrieval": "RAKG retrieval",
+        "naive_answer": "NaiveRAG answer",
+        "naive_retrieval": "NaiveRAG retrieval",
+    },
+    "missing": "N/A",
+    "heatmap_colorbar": "QA pass rate within source",
 }
 
 PREFERRED_CJK_FONTS = [
@@ -71,7 +122,7 @@ class LoadedResults:
     ignored_legacy_records: int
 
 
-def configure_matplotlib(font_path: Path | None = None) -> None:
+def configure_matplotlib(font_path: Path | None = None) -> bool:
     """Use an installed CJK-capable font when one is available."""
 
     candidate_font_paths = [font_path] if font_path else []
@@ -85,17 +136,27 @@ def configure_matplotlib(font_path: Path | None = None) -> None:
             plt.rcParams["font.sans-serif"] = [font_name, "DejaVu Sans"]
             plt.rcParams["axes.unicode_minus"] = False
             plt.rcParams["figure.dpi"] = 140
-            return
+            return True
 
     installed = {font.name for font in font_manager.fontManager.ttflist}
     for font_name in PREFERRED_CJK_FONTS:
         if font_name in installed:
             plt.rcParams["font.sans-serif"] = [font_name, "DejaVu Sans"]
-            break
+            plt.rcParams["axes.unicode_minus"] = False
+            plt.rcParams["figure.dpi"] = 140
+            return True
     else:
-        print("警告：未找到可用中文字体，图表中的中文可能无法正确显示。可通过 --font-path 指定字体文件。")
+        plt.rcParams["font.sans-serif"] = ["DejaVu Sans"]
+        print("警告：未找到可用中文字体，图表将使用英文标签。可通过 --font-path 指定字体文件。")
     plt.rcParams["axes.unicode_minus"] = False
     plt.rcParams["figure.dpi"] = 140
+    return False
+
+
+def use_english_plot_labels() -> None:
+    PLOT_METHOD_NAMES.update(EN_PLOT_METHOD_NAMES)
+    PLOT_METRICS.update(EN_PLOT_METRICS)
+    PLOT_TEXT.update(EN_PLOT_TEXT)
 
 
 def parse_args() -> argparse.Namespace:
@@ -121,8 +182,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--sample-count",
         type=int,
-        default=30,
-        help="从 source_sample_index=0 开始分析的原始文本数量，默认 30。",
+        default=50,
+        help="从 source_sample_index=0 开始分析的原始文本数量，默认 50。",
     )
     parser.add_argument(
         "--font-path",
@@ -234,7 +295,7 @@ def mean_or_nan(values: np.ndarray) -> float:
 
 def setup_axes(ax: plt.Axes, title: str, ylabel: str, sample_indices: list[int]) -> None:
     ax.set_title(title)
-    ax.set_xlabel("原始文本编号")
+    ax.set_xlabel(PLOT_TEXT["sample_index"])
     ax.set_ylabel(ylabel)
     ax.set_xticks(sample_indices)
     ax.grid(True, axis="y", linestyle="--", linewidth=0.6, alpha=0.45)
@@ -255,9 +316,14 @@ def plot_line(
     naive_values: np.ndarray,
 ) -> None:
     fig, ax = plt.subplots(figsize=(13, 5.4))
-    ax.plot(sample_indices, rakg_values, marker="o", linewidth=2, label=METHOD_NAMES["rakg"])
-    ax.plot(sample_indices, naive_values, marker="s", linewidth=2, label=METHOD_NAMES["naive"])
-    setup_axes(ax, f"{METRICS[metric]}逐文本 QA 平均值对比", f"{METRICS[metric]}平均值", sample_indices)
+    ax.plot(sample_indices, rakg_values, marker="o", linewidth=2, label=PLOT_METHOD_NAMES["rakg"])
+    ax.plot(sample_indices, naive_values, marker="s", linewidth=2, label=PLOT_METHOD_NAMES["naive"])
+    setup_axes(
+        ax,
+        f"{PLOT_METRICS[metric]} {PLOT_TEXT['line_title_suffix']}",
+        f"{PLOT_METRICS[metric]} {PLOT_TEXT['metric_mean_suffix']}",
+        sample_indices,
+    )
     ax.set_ylim(-0.05, 1.05)
     ax.legend()
     save_figure(fig, output_dir / filename)
@@ -268,17 +334,17 @@ def plot_overview_bar(
     rakg_means: dict[str, float],
     naive_means: dict[str, float],
 ) -> None:
-    labels = [METRICS[metric] for metric in METRICS]
+    labels = [PLOT_METRICS[metric] for metric in METRICS]
     rakg_values = [rakg_means[metric] for metric in METRICS]
     naive_values = [naive_means[metric] for metric in METRICS]
     positions = np.arange(len(labels))
     width = 0.34
 
     fig, ax = plt.subplots(figsize=(9.5, 5.2))
-    ax.bar(positions - width / 2, rakg_values, width, label=METHOD_NAMES["rakg"])
-    ax.bar(positions + width / 2, naive_values, width, label=METHOD_NAMES["naive"])
-    ax.set_title("共同原始文本的三项指标平均值对比")
-    ax.set_ylabel("文本级均值的平均值")
+    ax.bar(positions - width / 2, rakg_values, width, label=PLOT_METHOD_NAMES["rakg"])
+    ax.bar(positions + width / 2, naive_values, width, label=PLOT_METHOD_NAMES["naive"])
+    ax.set_title(PLOT_TEXT["overview_title"])
+    ax.set_ylabel(PLOT_TEXT["overview_ylabel"])
     ax.set_xticks(positions)
     ax.set_xticklabels(labels)
     ax.set_ylim(0, 1.05)
@@ -296,7 +362,7 @@ def plot_win_loss(
     fig, ax = plt.subplots(figsize=(13, 5.4))
     ax.bar(sample_indices, f1_diff, color=colors)
     ax.axhline(0, color="#333333", linewidth=0.9)
-    setup_axes(ax, "本项目架构相对 NaiveRAG 的逐文本平均官方 F1 差值", "平均 F1 差值", sample_indices)
+    setup_axes(ax, PLOT_TEXT["win_loss_title"], PLOT_TEXT["win_loss_ylabel"], sample_indices)
     save_figure(fig, output_dir / "win_loss_by_sample.png")
 
 
@@ -306,17 +372,17 @@ def plot_judge_heatmap(
     values: dict[str, dict[str, np.ndarray]],
 ) -> None:
     rows = [
-        (f"{METHOD_NAMES['rakg']} 答案", values["rakg"]["answer_judge"]),
-        (f"{METHOD_NAMES['rakg']} 检索", values["rakg"]["retrieval_judge"]),
-        (f"{METHOD_NAMES['naive']} 答案", values["naive"]["answer_judge"]),
-        (f"{METHOD_NAMES['naive']} 检索", values["naive"]["retrieval_judge"]),
+        (PLOT_TEXT["heatmap_rows"]["rakg_answer"], values["rakg"]["answer_judge"]),
+        (PLOT_TEXT["heatmap_rows"]["rakg_retrieval"], values["rakg"]["retrieval_judge"]),
+        (PLOT_TEXT["heatmap_rows"]["naive_answer"], values["naive"]["answer_judge"]),
+        (PLOT_TEXT["heatmap_rows"]["naive_retrieval"], values["naive"]["retrieval_judge"]),
     ]
     matrix = np.vstack([row_values for _, row_values in rows])
 
     fig, ax = plt.subplots(figsize=(13, 4.8))
     image = ax.imshow(matrix, cmap="YlGnBu", vmin=0, vmax=1, aspect="auto")
-    ax.set_title("答案 Judge 与检索 Judge 逐文本平均热力图")
-    ax.set_xlabel("原始文本编号")
+    ax.set_title(PLOT_TEXT["heatmap_title"])
+    ax.set_xlabel(PLOT_TEXT["sample_index"])
     ax.set_xticks(np.arange(len(sample_indices)))
     ax.set_xticklabels(sample_indices)
     ax.set_yticks(np.arange(len(rows)))
@@ -326,7 +392,7 @@ def plot_judge_heatmap(
         for col_index in range(matrix.shape[1]):
             value = matrix[row_index, col_index]
             if np.isnan(value):
-                text = "缺失"
+                text = PLOT_TEXT["missing"]
                 text_color = "#111827"
             else:
                 text = str(int(value)) if value in (0, 1) else f"{value:.2f}"
@@ -334,7 +400,7 @@ def plot_judge_heatmap(
             ax.text(col_index, row_index, text, ha="center", va="center", fontsize=8, color=text_color)
 
     colorbar = fig.colorbar(image, ax=ax, fraction=0.025, pad=0.02)
-    colorbar.set_label("文本内 QA 通过比例")
+    colorbar.set_label(PLOT_TEXT["heatmap_colorbar"])
     save_figure(fig, output_dir / "judge_heatmap.png")
 
 
@@ -432,7 +498,8 @@ def main() -> None:
     if args.sample_count <= 0:
         raise ValueError("--sample-count 必须大于 0。")
 
-    configure_matplotlib(args.font_path)
+    if not configure_matplotlib(args.font_path):
+        use_english_plot_labels()
     output_dir = args.output_dir
     output_dir.mkdir(parents=True, exist_ok=True)
 
